@@ -144,11 +144,14 @@ export default function Home() {
               </div>
 
               {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-6 text-sm">
+              <div className="flex flex-wrap gap-6 text-base">
                 {certifications.slice(0, 3).map((cert, i) => (
-                  <div key={i} className="flex items-center gap-2 text-slate-300">
-                    <cert.icon className="w-5 h-5 text-yellow-400" />
-                    <span className="font-medium text-white">{cert.text}</span>
+                  <div key={i} className="flex items-center gap-3 text-slate-300">
+                    <cert.icon className="w-10 h-10 text-yellow-400" />
+                    <div className="flex flex-col">
+                      <span className="font-bold text-white">{cert.text}</span>
+                      <span className="text-xs text-slate-400">Verified</span>
+                    </div>
                   </div>
                 ))}
               </div>

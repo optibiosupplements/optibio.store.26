@@ -48,8 +48,12 @@ export default function Header() {
       <div className="container">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-            <img src={APP_LOGO} alt="OptiBio" className="h-10 w-auto" />
+          <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+            <img src={APP_LOGO} alt="OptiBio" className="h-[70px] w-auto" />
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>OptiBio</span>
+              <span className="text-xs text-muted-foreground hidden sm:block">Science-Backed Wellness</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}

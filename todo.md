@@ -373,11 +373,11 @@
 
 ## 🌐 DOMAIN MIGRATION & SHOPIFY TRANSITION
 
-### Task 4: Configure Custom Domain
-- [ ] Access Management UI → Settings → Domains
-- [ ] Add custom domain: optibiosupplements.com
-- [ ] Get DNS records from Manus
-- [ ] Update DNS at domain registrar
+### Task 4: Configure Custom Domain 🔄 IN PROGRESS
+- [x] Access Management UI → Settings → Domains
+- [x] Add custom domain: optibiosupplements.com
+- [x] Get DNS records from Manus (CNAME: cname.manus.space)
+- [ ] Update DNS at GoDaddy (user doing this now)
 - [ ] Wait for DNS propagation (5-15 minutes)
 - [ ] Verify SSL certificate provisioned
 - [ ] Test site on custom domain
@@ -392,3 +392,51 @@
 - [ ] Plan migration timeline
 - [ ] Create rollback plan
 - [ ] Document DNS cutover process
+
+
+## 🎨 UX/UI AUDIT & BRAND ENHANCEMENT (B-MAD METHOD)
+
+### Phase 1: MEASURE - Audit Current State
+- [ ] Audit homepage UI/UX
+- [ ] Audit product pages UI/UX
+- [ ] Audit checkout flow UX
+- [ ] Audit mobile responsiveness
+- [ ] Audit brand positioning and logo placement
+- [ ] Audit color scheme and typography
+- [ ] Audit navigation structure
+- [ ] Identify critical UX issues
+- [ ] Document current conversion blockers
+
+### Phase 2: ANALYZE - Strategic Recommendations
+- [ ] Analyze competitor e-commerce sites (supplements industry)
+- [ ] Research modern e-commerce UX best practices
+- [ ] Create brand positioning strategy
+- [ ] Design modern color palette
+- [ ] Select optimal typography system
+- [ ] Plan logo placement and sizing strategy
+- [ ] Identify trust signals needed
+- [ ] Map ideal user journey
+
+### Phase 3: DECIDE - Prioritization
+- [ ] Prioritize critical vs nice-to-have changes
+- [ ] Create implementation roadmap
+- [ ] Define success metrics
+- [ ] Plan A/B testing strategy
+
+### Phase 4: BUILD - Implementation
+- [ ] Implement modern design system
+- [ ] Enhance brand positioning
+- [ ] Optimize logo placement
+- [ ] Improve homepage hero section
+- [ ] Enhance product page layout
+- [ ] Optimize checkout flow
+- [ ] Add trust signals (reviews, guarantees, certifications)
+- [ ] Improve mobile experience
+- [ ] Optimize loading performance
+
+### Phase 5: TEST & DELIVER
+- [ ] Test on multiple devices
+- [ ] Verify accessibility
+- [ ] Check page load speed
+- [ ] Save checkpoint
+- [ ] Create audit report
