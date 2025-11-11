@@ -9,15 +9,16 @@ export default function Science() {
 
   const studies = [
     {
-      title: "Stress and Anxiety Reduction",
-      icon: Brain,
+      title: "Stress & Anxiety Reduction",
+      icon: Shield,
       percentage: "44%",
       metric: "reduction in stress",
-      description: "A randomized, double-blind, placebo-controlled study demonstrated significant reductions in stress and anxiety scores.",
+      description: "Double-blind, placebo-controlled study showed significant reductions in stress and anxiety levels with no adverse effects.",
       participants: 64,
       duration: "60 days",
       journal: "Indian Journal of Psychological Medicine",
       year: 2012,
+      link: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3573577/",
       findings: [
         "44% reduction in perceived stress scale scores",
         "Significant decrease in serum cortisol levels",
@@ -35,6 +36,7 @@ export default function Science() {
       duration: "8 weeks",
       journal: "Journal of Dietary Supplements",
       year: 2017,
+      link: "https://pubmed.ncbi.nlm.nih.gov/28471731/",
       findings: [
         "27.9% improvement in immediate memory",
         "Enhanced executive function",
@@ -52,6 +54,7 @@ export default function Science() {
       duration: "10 weeks",
       journal: "PLOS ONE",
       year: 2020,
+      link: "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0257843",
       findings: [
         "72% improvement in overall sleep quality",
         "Reduced time to fall asleep",
@@ -69,6 +72,7 @@ export default function Science() {
       duration: "8 weeks",
       journal: "Journal of the International Society of Sports Nutrition",
       year: 2015,
+      link: "https://pubmed.ncbi.nlm.nih.gov/26609282/",
       findings: [
         "Significantly greater increases in muscle strength",
         "Larger increase in muscle size",
@@ -86,6 +90,7 @@ export default function Science() {
       duration: "12 weeks",
       journal: "AYU Journal",
       year: 2015,
+      link: "https://pubmed.ncbi.nlm.nih.gov/26195901/",
       findings: [
         "Significant improvement in VO2 max",
         "Enhanced cardiorespiratory endurance",
@@ -103,6 +108,7 @@ export default function Science() {
       duration: "90 days",
       journal: "Evidence-Based Complementary and Alternative Medicine",
       year: 2013,
+      link: "https://pubmed.ncbi.nlm.nih.gov/24371462/",
       findings: [
         "16.7% increase in testosterone levels",
         "Improved sperm concentration and motility",
@@ -282,9 +288,11 @@ export default function Science() {
                               <FileText className="w-3 h-3 mr-1" />
                               {study.duration}
                             </Badge>
-                            <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">
-                              {study.journal} ({study.year})
-                            </Badge>
+                            <a href={study.link} target="_blank" rel="noopener noreferrer">
+                              <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 cursor-pointer transition-colors">
+                                {study.journal} ({study.year}) →
+                              </Badge>
+                            </a>
                           </div>
 
                           <div className="bg-slate-50 rounded-lg p-4">

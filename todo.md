@@ -285,3 +285,10 @@
 - [x] Optimize images if needed
 - [x] Test all interactive elements
 - [x] Verify accessibility basics
+
+## Add Study Links (NEW REQUEST)
+- [x] Add clickable links to actual published studies on Science page
+- [x] Link Chandrasekhar 2012 study to PubMed/DOI
+- [x] Add links to all 6 clinical studies referenced
+- [x] Test all study links work correctly
+- [ ] Save checkpoint with study links
