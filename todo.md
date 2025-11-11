@@ -412,3 +412,17 @@
 - [ ] Test all breadcrumb links work correctly
 - [ ] Ensure breadcrumbs are mobile responsive
 - [ ] Save checkpoint with breadcrumb navigation
+
+## Brand Transformation: Clinical to Aspirational (NEW)
+- [ ] Generate lifestyle photography assets (morning routine, focused work, evening relaxation)
+- [ ] Rewrite hero section with emotion-first messaging
+- [ ] Transform benefits section (feeling → moment → data pattern)
+- [ ] Enhance testimonials with specific transformation stories and photos
+- [ ] Strengthen guarantee language and prominence
+- [ ] Add "How It Works" timeline section
+- [ ] Add "Who This Is For" qualification section
+- [ ] Update brand voice throughout (warm vs. clinical)
+- [ ] Test all functionality after changes
+- [ ] Verify clinical study links still work
+- [ ] Verify quality documents still download
+- [ ] Verify e-commerce flow (cart → checkout → payment)
