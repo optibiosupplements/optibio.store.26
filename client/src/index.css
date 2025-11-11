@@ -44,10 +44,15 @@
 }
 
 :root {
-  /* OptiBio Premium Brand Colors - Deep Blue & Gold */
-  --primary: oklch(0.55 0.18 260); /* Deep Blue */
+  /* OptiBio Premium Brand Colors - Navy Blue & Gold (#1e3a8a, #d4af37) */
+  --optibio-navy: #1e3a8a;
+  --optibio-gold: #d4af37;
+  --optibio-dark-navy: #0f172a;
+  --optibio-cream: #fefce8;
+  
+  --primary: oklch(0.42 0.15 264); /* Navy Blue #1e3a8a */
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.75 0.12 85); /* Gold Accent */
+  --secondary: oklch(0.75 0.12 85); /* Gold #d4af37 */
   --secondary-foreground: oklch(0.2 0.015 65);
   --sidebar-primary: oklch(0.55 0.18 260);
   --sidebar-primary-foreground: oklch(0.98 0 0);
@@ -177,4 +182,131 @@
       max-width: 1280px; /* Standard content width */
     }
   }
+}
+
+/* OptiBio Premium Utilities */
+@layer utilities {
+  /* Premium Gradients */
+  .gradient-optibio {
+    background: linear-gradient(135deg, #1e3a8a 0%, #d4af37 100%);
+  }
+  
+  .gradient-optibio-reverse {
+    background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
+  }
+  
+  .gradient-hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  }
+  
+  /* Text Gradients */
+  .text-gradient-optibio {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #1e3a8a 0%, #d4af37 100%);
+  }
+  
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #d4af37 0%, #eab308 100%);
+  }
+  
+  /* Premium Shadows */
+  .shadow-premium {
+    box-shadow: 0 25px 50px -12px rgba(30, 58, 138, 0.25);
+  }
+  
+  .shadow-gold {
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+  }
+  
+  .shadow-glow-navy {
+    box-shadow: 0 0 30px rgba(30, 58, 138, 0.4);
+  }
+  
+  .shadow-glow-gold {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Animations */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Premium Button */
+  .btn-premium {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, #1e3a8a 0%, #d4af37 100%);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .btn-premium:hover::before {
+    left: 100%;
+  }
+  
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+  }
+}
+
+/* Custom Scrollbar - OptiBio Branded */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #1e3a8a, #d4af37);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #1e40af, #eab308);
 }
