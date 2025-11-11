@@ -225,3 +225,12 @@
 - [ ] Test email delivery system
 - [ ] Test My Orders page with multiple orders
 - [ ] Test product recommendations display
+
+## Legal Pages (URGENT - Fix 404 Errors)
+- [x] Create Privacy Policy page at /privacy route
+- [x] Create Terms of Service page at /terms route
+- [x] Create Shipping & Returns policy page at /shipping route
+- [x] Add all legal page routes to App.tsx
+- [x] Update footer links to point to legal pages
+- [x] Ensure all pages are mobile responsive
+- [x] Add last updated dates to legal pages
