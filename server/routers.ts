@@ -4,6 +4,8 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import * as db from "./db";
+import { stripe } from "./stripe";
+import { ENV } from "./_core/env";
 
 export const appRouter = router({
   system: systemRouter,
@@ -211,6 +213,69 @@ export const appRouter = router({
         return {
           ...order,
           items,
+        };
+      }),
+  }),
+
+  // Stripe checkout
+  stripe: router({
+    createCheckoutSession: protectedProcedure
+      .input(z.object({
+        items: z.array(z.object({
+          productId: z.number(),
+          productName: z.string(),
+          variantId: z.number().optional(),
+          variantName: z.string().optional(),
+          quantity: z.number(),
+          priceInCents: z.number(),
+        })),
+        successUrl: z.string().optional(),
+        cancelUrl: z.string().optional(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        const origin = ctx.req.headers.origin || "http://localhost:3000";
+        const successUrl = input.successUrl || `${origin}/order-success?session_id={CHECKOUT_SESSION_ID}`;
+        const cancelUrl = input.cancelUrl || `${origin}/cart`;
+
+        // Create line items for Stripe
+        const lineItems = input.items.map(item => ({
+          price_data: {
+            currency: "usd",
+            product_data: {
+              name: item.productName,
+              description: item.variantName || undefined,
+              images: [`${origin}/products/optibio-90cap-bottle-front.jpg`],
+            },
+            unit_amount: item.priceInCents,
+          },
+          quantity: item.quantity,
+        }));
+
+        // Create checkout session
+        const session = await stripe.checkout.sessions.create({
+          mode: "payment",
+          line_items: lineItems,
+          success_url: successUrl,
+          cancel_url: cancelUrl,
+          customer_email: ctx.user.email || undefined,
+          client_reference_id: ctx.user.id.toString(),
+          metadata: {
+            user_id: ctx.user.id.toString(),
+            customer_email: ctx.user.email || "",
+            customer_name: ctx.user.name || "",
+          },
+          allow_promotion_codes: true,
+          shipping_address_collection: {
+            allowed_countries: ["US"],
+          },
+          phone_number_collection: {
+            enabled: true,
+          },
+        });
+
+        return {
+          sessionId: session.id,
+          url: session.url,
         };
       }),
   }),
