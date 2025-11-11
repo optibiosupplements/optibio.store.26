@@ -280,3 +280,64 @@
 - [x] Handle payment_intent.payment_failed event (already exists)
 - [x] Add error logging and retry logic
 - [ ] Test webhook handlers with Stripe CLI (next phase)
+
+
+## 🚀 PRODUCTION-READY ENHANCEMENTS (User Requested)
+
+### Phase 1: Test Complete Purchase Flow
+- [ ] Set up Stripe test mode configuration
+- [ ] Create test product and pricing in Stripe
+- [ ] Test one-time purchase flow end-to-end
+- [ ] Test subscription creation flow
+- [ ] Verify founder tier assignment (cart total $69+, $49-68, <$49)
+- [ ] Test webhook handlers with Stripe CLI
+- [ ] Verify subscription renewal creates order
+- [ ] Test pause/resume/cancel flows
+- [ ] Document test results and edge cases
+
+### Phase 2: Enhance Subscription UX - Stripe Elements ✅
+- [x] Install @stripe/stripe-js and @stripe/react-stripe-js
+- [x] Create SubscriptionCheckout component with Stripe Elements
+- [x] Add PaymentElement for payment method collection
+- [x] Implement payment confirmation flow
+- [x] Handle payment errors gracefully
+- [x] Add loading states during payment processing
+- [x] Redirect to success page after confirmation
+- [x] Update checkout flow to use new component
+
+### Phase 3: Enhance Subscription UX - Welcome Emails & Skip Delivery ✅
+- [x] Create subscription welcome email template
+- [x] Send welcome email on first subscription creation
+- [x] Add "Skip Next Delivery" button to subscription management page
+- [x] Create tRPC endpoint: subscriptions.skipNextDelivery
+- [x] Update Stripe subscription to skip next invoice
+- [x] Update nextBillingDate in database
+- [ ] Show "Delivery Skipped" badge on subscription card (optional enhancement)
+- [ ] Send confirmation email for skipped delivery (optional enhancement)
+
+### Phase 4: Build Admin Analytics Dashboard ✅
+- [x] Create /admin/analytics route (admin-only)
+- [x] Add adminProcedure middleware for role-based access (already existed)
+- [x] Build analytics tRPC router with endpoints:
+  - [x] analytics.getMRR - Monthly Recurring Revenue
+  - [x] analytics.getChurnRate - Subscription cancellation rate
+  - [x] analytics.getLTVByTier - Lifetime value by founder tier
+  - [x] analytics.getConversionRate - One-time to subscription conversion
+  - [x] analytics.getRevenueBreakdown - Revenue by tier and type
+- [x] Create Analytics dashboard UI with charts
+- [x] Display key metrics cards (MRR, Active Subs, Churn %, Total Revenue)
+- [x] Add tier breakdown with MRR and LTV
+- [x] Add conversion rate visualization
+- [x] Add revenue breakdown by tier
+- [x] Make dashboard responsive
+
+### Phase 5: Final Testing & Deployment
+- [ ] Test all new features end-to-end
+- [ ] Verify admin dashboard access control
+- [ ] Test Stripe Elements payment flow
+- [ ] Verify welcome emails are sent
+- [ ] Test skip delivery functionality
+- [ ] Check analytics calculations accuracy
+- [ ] Update documentation
+- [ ] Save final checkpoint
+- [ ] Push to GitHub

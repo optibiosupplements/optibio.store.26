@@ -14,6 +14,7 @@ import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import MyOrders from "./pages/MyOrders";
 import Subscriptions from "./pages/Subscriptions";
+import AdminAnalytics from "./pages/AdminAnalytics";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Shipping from "./pages/Shipping";
@@ -38,6 +39,7 @@ function Router() {
           <Route path="/order-success" component={OrderSuccess} />
           <Route path="/my-orders" component={MyOrders} />
           <Route path="/account/subscriptions" component={Subscriptions} />
+          <Route path="/admin/analytics" component={AdminAnalytics} />
           <Route path="/privacy" component={Privacy} />
           <Route path="/terms" component={Terms} />
           <Route path="/shipping" component={Shipping} />

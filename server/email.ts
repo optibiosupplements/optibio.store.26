@@ -274,3 +274,29 @@ export async function sendReservationConfirmationEmail(
     return false;
   }
 }
+
+
+/**
+ * Send subscription welcome email to customer
+ */
+export async function sendSubscriptionWelcomeEmail(
+  email: string,
+  subject: string,
+  html: string,
+  text: string
+): Promise<boolean> {
+  try {
+    // For now, log the email (in production, integrate with email service)
+    console.log("[Email] Sending subscription welcome email to:", email);
+    console.log("[Email] Subject:", subject);
+    console.log("[Email] Text preview:", text.substring(0, 200));
+    
+    // TODO: Integrate with actual email service (SendGrid, AWS SES, etc.)
+    // For development, we'll just log it
+    
+    return true;
+  } catch (error) {
+    console.error("[Email] Failed to send subscription welcome email:", error);
+    return false;
+  }
+}

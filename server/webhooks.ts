@@ -3,7 +3,8 @@ import Stripe from "stripe";
 import { stripe } from "./stripe";
 import { ENV } from "./_core/env";
 import * as db from "./db";
-import { sendOrderConfirmationEmail } from "./email";
+import { sendOrderConfirmationEmail, sendSubscriptionWelcomeEmail } from "./email";
+import { getSubscriptionWelcomeEmail } from "./email-templates";
 
 /**
  * Stripe webhook handler for processing payment events
@@ -246,16 +247,35 @@ async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
       return;
     }
 
-    // Skip the first invoice (initial subscription creation is handled separately)
-    if (invoice.billing_reason === "subscription_create") {
-      console.log("[Stripe Webhook] Skipping initial subscription invoice");
-      return;
-    }
-
     // Get user info
     const user = await db.getUserById(subscription.userId);
     if (!user) {
       console.error("[Stripe Webhook] User not found:", subscription.userId);
+      return;
+    }
+
+    // Handle the first invoice (send welcome email)
+    if (invoice.billing_reason === "subscription_create") {
+      console.log("[Stripe Webhook] Processing initial subscription payment");
+      
+      // Send subscription welcome email
+      const emailData = getSubscriptionWelcomeEmail({
+        name: user.name || "",
+        email: user.email || "",
+        founderTier: (user as any).founderTier || "regular",
+        lifetimeDiscountPercent: (user as any).lifetimeDiscountPercent || 0,
+        priceInCents: subscription.priceInCents,
+        nextBillingDate: subscription.nextBillingDate,
+      });
+      
+      await sendSubscriptionWelcomeEmail(
+        user.email || "",
+        emailData.subject,
+        emailData.html,
+        emailData.text
+      );
+      
+      console.log("[Stripe Webhook] Welcome email sent for initial subscription");
       return;
     }
 

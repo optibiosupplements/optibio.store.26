@@ -23,6 +23,7 @@ import {
   XCircle,
   ArrowLeft,
   ExternalLink,
+  SkipForward,
 } from "lucide-react";
 import { formatPrice } from "@/const";
 import { trpc } from "@/lib/trpc";
@@ -56,6 +57,17 @@ export default function Subscriptions() {
     },
   });
 
+  const skipMutation = trpc.subscriptions.skipNextDelivery.useMutation({
+    onSuccess: (data) => {
+      utils.subscriptions.list.invalidate();
+      const newDate = new Date(data.newBillingDate).toLocaleDateString();
+      toast.success(`Next delivery skipped! New billing date: ${newDate}`);
+    },
+    onError: () => {
+      toast.error("Failed to skip delivery");
+    },
+  });
+
   const cancelMutation = trpc.subscriptions.cancel.useMutation({
     onSuccess: () => {
       utils.subscriptions.list.invalidate();
@@ -82,6 +94,10 @@ export default function Subscriptions() {
 
   const handleResume = (subscriptionId: string) => {
     resumeMutation.mutate({ subscriptionId });
+  };
+
+  const handleSkip = (subscriptionId: string) => {
+    skipMutation.mutate({ subscriptionId });
   };
 
   const handleCancelClick = (subscriptionId: string) => {
@@ -235,6 +251,20 @@ export default function Subscriptions() {
                     <div className="flex flex-wrap gap-3">
                       {isActive && (
                         <>
+                          <Button
+                            variant="outline"
+                            onClick={() => handleSkip(subscription.stripeSubscriptionId!)}
+                            disabled={skipMutation.isPending}
+                            className="border-blue-200 hover:bg-blue-50 hover:border-blue-300"
+                          >
+                            {skipMutation.isPending ? (
+                              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            ) : (
+                              <SkipForward className="w-4 h-4 mr-2" />
+                            )}
+                            Skip Next Delivery
+                          </Button>
+
                           <Button
                             variant="outline"
                             onClick={() => handlePause(subscription.stripeSubscriptionId!)}

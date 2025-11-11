@@ -1,11 +1,12 @@
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
-import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import { publicProcedure, protectedProcedure, adminProcedure, router } from "./_core/trpc";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import * as db from "./db";
 import * as presaleDb from "./presale-db";
+import * as analyticsDb from "./analytics-db";
 import { stripe } from "./stripe";
 import { ENV } from "./_core/env";
 import { sendReservationConfirmationEmail } from "./email";
@@ -546,6 +547,42 @@ export const appRouter = router({
         return { success: true };
       }),
 
+    skipNextDelivery: protectedProcedure
+      .input(z.object({ subscriptionId: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        const subscription = await db.getSubscriptionByStripeId(input.subscriptionId);
+        if (!subscription || subscription.userId !== ctx.user.id) {
+          throw new TRPCError({ code: "FORBIDDEN", message: "Subscription not found" });
+        }
+
+        // Get the Stripe subscription
+        const response = await stripe.subscriptions.retrieve(input.subscriptionId);
+        const stripeSubscription = response as any; // Type assertion for Stripe SDK
+        
+        // Calculate new billing date (skip one cycle = add 1 month to current period end)
+        const currentPeriodEnd = stripeSubscription.current_period_end;
+        const skipToTimestamp = currentPeriodEnd + (30 * 24 * 60 * 60); // Add ~30 days
+        
+        // Use trial_end to skip the next billing cycle
+        // This extends the current period without charging
+        await stripe.subscriptions.update(input.subscriptionId, {
+          trial_end: skipToTimestamp,
+          proration_behavior: "none",
+        });
+
+        const newBillingDate = new Date(skipToTimestamp * 1000);
+        const currentPeriodEndDate = new Date(currentPeriodEnd * 1000);
+
+        // Update database with new billing date
+        await db.updateSubscriptionBillingDates(
+          input.subscriptionId,
+          currentPeriodEndDate,
+          newBillingDate
+        );
+
+        return { success: true, newBillingDate };
+      }),
+
     createPortalSession: protectedProcedure.mutation(async ({ ctx }) => {
       // Get user's subscriptions to find their Stripe customer ID
       const subscriptions = await db.getSubscriptionsByUser(ctx.user.id);
@@ -593,6 +630,37 @@ export const appRouter = router({
           },
         };
       }),
+  }),
+
+  // Analytics (Admin only)
+  analytics: router({
+    getOverview: adminProcedure.query(async () => {
+      const [mrr, activeSubscriptions, churnRate, totalRevenue] = await Promise.all([
+        analyticsDb.getMRR(),
+        analyticsDb.getActiveSubscriptionsCount(),
+        analyticsDb.getChurnRate(),
+        analyticsDb.getTotalRevenue(),
+      ]);
+
+      return {
+        mrr,
+        activeSubscriptions,
+        churnRate,
+        totalRevenue,
+      };
+    }),
+
+    getMetricsByTier: adminProcedure.query(async () => {
+      return analyticsDb.getMetricsByTier();
+    }),
+
+    getConversionMetrics: adminProcedure.query(async () => {
+      return analyticsDb.getConversionMetrics();
+    }),
+
+    getRevenueBreakdown: adminProcedure.query(async () => {
+      return analyticsDb.getRevenueBreakdown();
+    }),
   }),
 });
 

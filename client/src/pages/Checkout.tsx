@@ -27,6 +27,7 @@ import {
 import { formatPrice, SHIPPING_THRESHOLD_CENTS, STANDARD_SHIPPING_CENTS, TAX_RATE } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
+import SubscriptionCheckout from "@/components/SubscriptionCheckout";
 
 const US_STATES = [
   "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
@@ -40,6 +41,13 @@ export default function Checkout() {
   const [, setLocation] = useLocation();
   const [step, setStep] = useState(1);
   const [sameAsShipping, setSameAsShipping] = useState(true);
+  const [subscriptionData, setSubscriptionData] = useState<{
+    clientSecret: string;
+    productName: string;
+    priceInCents: number;
+    founderTier: string;
+    lifetimeDiscountPercent: number;
+  } | null>(null);
 
   const [shippingData, setShippingData] = useState({
     firstName: "",
@@ -121,10 +129,17 @@ export default function Checkout() {
   const createSubscriptionMutation = trpc.stripe.createSubscription.useMutation({
     onSuccess: (data) => {
       if (data.clientSecret) {
-        // For now, redirect to a success page
-        // In production, you'd use Stripe Elements to confirm the payment
-        toast.success("Subscription created! Redirecting...");
-        setTimeout(() => setLocation("/account/subscriptions"), 2000);
+        // Show Stripe Elements payment confirmation
+        const subscriptionItem = cartItems?.find(item => item.isSubscription);
+        if (subscriptionItem) {
+          setSubscriptionData({
+            clientSecret: data.clientSecret,
+            productName: subscriptionItem.productName || "OptiBio Ashwagandha KSM-66",
+            priceInCents: subscriptionItem.priceInCents,
+            founderTier: "founders", // Will be calculated based on cart total
+            lifetimeDiscountPercent: 25, // Will be calculated
+          });
+        }
       }
     },
     onError: (error) => {
@@ -202,6 +217,26 @@ export default function Checkout() {
   if (!cartItems || cartItems.length === 0) {
     setLocation("/cart");
     return null;
+  }
+
+  // Show Stripe Elements payment confirmation for subscriptions
+  if (subscriptionData) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12 md:py-16">
+        <div className="container">
+          <SubscriptionCheckout
+            {...subscriptionData}
+            onSuccess={() => {
+              setLocation("/account/subscriptions?success=true");
+            }}
+            onCancel={() => {
+              setSubscriptionData(null);
+              toast.info("Subscription cancelled");
+            }}
+          />
+        </div>
+      </div>
+    );
   }
 
   return (
