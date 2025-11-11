@@ -369,3 +369,26 @@
 - [ ] Show payment confirmation flow
 - [ ] Show success states
 - [ ] Export wireframes as images
+
+
+## 🌐 DOMAIN MIGRATION & SHOPIFY TRANSITION
+
+### Task 4: Configure Custom Domain
+- [ ] Access Management UI → Settings → Domains
+- [ ] Add custom domain: optibiosupplements.com
+- [ ] Get DNS records from Manus
+- [ ] Update DNS at domain registrar
+- [ ] Wait for DNS propagation (5-15 minutes)
+- [ ] Verify SSL certificate provisioned
+- [ ] Test site on custom domain
+
+### Task 5: Create Shopify Migration Checklist
+- [ ] Document current Shopify setup
+- [ ] Export customer data from Shopify
+- [ ] Export product data from Shopify
+- [ ] Export order history from Shopify
+- [ ] Map Shopify data to Manus schema
+- [ ] Create data import scripts
+- [ ] Plan migration timeline
+- [ ] Create rollback plan
+- [ ] Document DNS cutover process
