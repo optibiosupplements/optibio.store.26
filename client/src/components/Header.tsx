@@ -65,7 +65,7 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             {/* Account */}
             {isAuthenticated ? (
-              <Link href="/account" className="hidden md:flex items-center space-x-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+              <Link href="/my-orders" className="hidden md:flex items-center space-x-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
                 <User className="h-5 w-5" />
                 <span>{user?.name || "Account"}</span>
               </Link>

@@ -198,6 +198,107 @@ export default function OrderSuccess() {
           </CardContent>
         </Card>
 
+        {/* Product Recommendations */}
+        <Card className="border-2 border-slate-200 shadow-xl mb-8">
+          <CardContent className="p-8 space-y-6">
+            <div className="text-center space-y-2">
+              <h2 className="text-2xl font-bold text-slate-900">Complete Your Wellness Journey</h2>
+              <p className="text-slate-600">Customers who bought this also loved:</p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Recommendation 1: Larger bottle */}
+              <div className="p-6 rounded-xl bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200 space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-20 h-20 rounded-lg overflow-hidden bg-white border-2 border-slate-200 flex-shrink-0">
+                    <img
+                      src="/products/optibio-90cap-bottle-front.jpg"
+                      alt="OptiBio 180 Capsules"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-bold text-slate-900">OptiBio Ashwagandha</h3>
+                    <p className="text-sm text-slate-600">180 Capsules (3-Month Supply)</p>
+                    <div className="flex items-baseline gap-2 mt-1">
+                      <span className="text-lg font-bold text-slate-900">$89.99</span>
+                      <span className="text-sm text-green-600 font-semibold">Save 18%</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <span>3-month supply for consistent results</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <span>Better value - $0.50 per serving</span>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => setLocation("/product/ashwagandha-ksm66-180")}
+                  className="w-full bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700"
+                >
+                  View Product
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+
+              {/* Recommendation 2: Subscription */}
+              <div className="p-6 rounded-xl bg-gradient-to-br from-amber-50 to-white border-2 border-amber-200 space-y-4">
+                <div className="flex items-center gap-4">
+                  <div className="w-20 h-20 rounded-lg overflow-hidden bg-white border-2 border-slate-200 flex-shrink-0">
+                    <img
+                      src="/products/optibio-90cap-bottle-front.jpg"
+                      alt="OptiBio Subscription"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <div className="inline-block px-2 py-1 rounded-md bg-amber-200 text-amber-900 text-xs font-bold mb-1">
+                      BEST VALUE
+                    </div>
+                    <h3 className="font-bold text-slate-900">Monthly Subscription</h3>
+                    <p className="text-sm text-slate-600">90 Capsules - Auto-Delivery</p>
+                    <div className="flex items-baseline gap-2 mt-1">
+                      <span className="text-lg font-bold text-slate-900">$44.99/mo</span>
+                      <span className="text-sm text-green-600 font-semibold">Save 25%</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <span>Never run out - auto-delivery</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <span>Cancel or pause anytime</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <span>Free shipping on all orders</span>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => setLocation("/product/ashwagandha-ksm66-90")}
+                  className="w-full bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600"
+                >
+                  Subscribe & Save
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+
+            <div className="text-center pt-4">
+              <p className="text-sm text-slate-500">
+                💡 <strong>Pro Tip:</strong> Consistent daily use for 8-12 weeks delivers the best results
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button

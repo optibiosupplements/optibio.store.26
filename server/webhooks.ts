@@ -3,6 +3,7 @@ import Stripe from "stripe";
 import { stripe } from "./stripe";
 import { ENV } from "./_core/env";
 import * as db from "./db";
+import { sendOrderConfirmationEmail } from "./email";
 
 /**
  * Stripe webhook handler for processing payment events
@@ -165,6 +166,38 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
     // Clear user's cart after successful order
     await db.clearCart(userId);
     console.log("[Stripe Webhook] Cart cleared for user:", userId);
+
+    // Send order confirmation email
+    const emailSent = await sendOrderConfirmationEmail({
+      orderNumber,
+      customerEmail,
+      customerName: shippingDetails.name || customerName,
+      items: orderItemsData.map(item => ({
+        productName: item.productName,
+        variantName: item.variantName || undefined,
+        quantity: item.quantity,
+        priceInCents: item.priceInCents,
+      })),
+      subtotalInCents,
+      shippingInCents,
+      taxInCents,
+      totalInCents,
+      shippingAddress: {
+        name: shippingDetails.name || customerName,
+        address1: shippingDetails.address.line1 || "",
+        address2: shippingDetails.address.line2 || undefined,
+        city: shippingDetails.address.city || "",
+        state: shippingDetails.address.state || "",
+        zipCode: shippingDetails.address.postal_code || "",
+        country: shippingDetails.address.country || "US",
+      },
+    });
+
+    if (emailSent) {
+      console.log("[Stripe Webhook] Order confirmation email sent successfully");
+    } else {
+      console.error("[Stripe Webhook] Failed to send order confirmation email");
+    }
 
   } catch (error: any) {
     console.error("[Stripe Webhook] Error creating order:", error);

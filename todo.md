@@ -216,3 +216,12 @@
 - [ ] Create deployment guide
 - [ ] Document Shopify domain transfer process
 - [ ] Save final production-ready checkpoint
+
+## Post-Purchase Features (NEW)
+- [x] Implement automatic order confirmation email after successful payment
+- [x] Create My Orders page for logged-in users to view order history
+- [x] Add order status tracking to My Orders page
+- [x] Implement product recommendations section on order confirmation page
+- [ ] Test email delivery system
+- [ ] Test My Orders page with multiple orders
+- [ ] Test product recommendations display
