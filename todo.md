@@ -304,3 +304,15 @@
 - [x] Add route to App.tsx
 - [x] Test Quality page functionality
 - [ ] Save checkpoint with Quality page
+
+## Quality Documents Library (NEW REQUEST)
+- [x] Create sample COA (Certificate of Analysis) PDF
+- [x] Create third-party heavy metal testing PDF (redacted)
+- [x] Create third-party microbial testing PDF (redacted)
+- [x] Create third-party potency testing PDF (redacted)
+- [x] Add document library section to Quality page
+- [x] Implement download functionality for all documents
+- [x] Add document metadata (date, batch number, test lab)
+- [x] Ensure Science page remains unchanged with clickable study links
+- [x] Test all document downloads
+- [ ] Save checkpoint with quality documents

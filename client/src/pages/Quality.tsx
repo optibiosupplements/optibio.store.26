@@ -15,6 +15,8 @@ import {
   FlaskConical,
   ClipboardCheck,
   Sparkles,
+  Download,
+  FileText,
 } from "lucide-react";
 import { useLocation } from "wouter";
 
@@ -129,6 +131,37 @@ export default function Quality() {
         "Microscopic examination",
         "TLC fingerprinting"
       ]
+    }
+  ];
+
+  const qualityDocuments = [
+    {
+      title: "Certificate of Analysis (COA)",
+      description: "Complete analysis of product composition, purity, and potency for current batch",
+      filename: "COA-Sample-Batch.pdf",
+      icon: FileCheck,
+      category: "Quality Assurance"
+    },
+    {
+      title: "Heavy Metals Testing Report",
+      description: "Third-party ICP-MS testing for lead, arsenic, cadmium, and mercury",
+      filename: "Heavy-Metals-Test-Report.pdf",
+      icon: Microscope,
+      category: "Safety Testing"
+    },
+    {
+      title: "Microbial Testing Report",
+      description: "Comprehensive microbial analysis including bacteria, yeast, mold, and pathogens",
+      filename: "Microbial-Test-Report.pdf",
+      icon: Beaker,
+      category: "Safety Testing"
+    },
+    {
+      title: "Potency Testing Report (HPLC)",
+      description: "Withanolide content analysis by High-Performance Liquid Chromatography",
+      filename: "Potency-Test-Report.pdf",
+      icon: FlaskConical,
+      category: "Potency Verification"
     }
   ];
 
@@ -349,6 +382,83 @@ export default function Quality() {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Document Library Section */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-green-50/20">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 border border-blue-200 mb-4">
+                <FileText className="w-4 h-4 text-blue-700" />
+                <span className="text-blue-700 text-sm font-semibold">Transparency & Documentation</span>
+              </div>
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">Quality Documents Library</h2>
+              <p className="text-slate-600 text-lg max-w-3xl mx-auto">
+                Download our complete quality documentation. All sensitive information has been redacted for privacy while maintaining full transparency about our testing standards.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {qualityDocuments.map((doc, index) => {
+                const Icon = doc.icon;
+                return (
+                  <Card key={index} className="border-2 border-slate-200 shadow-lg hover:shadow-xl transition-all hover:border-blue-300 group">
+                    <CardContent className="p-8">
+                      <div className="flex items-start gap-4 mb-4">
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                          <Icon className="w-7 h-7 text-blue-700" />
+                        </div>
+                        <div className="flex-1">
+                          <Badge className="bg-blue-100 text-blue-800 border-blue-200 mb-2">
+                            {doc.category}
+                          </Badge>
+                          <h3 className="text-xl font-bold text-slate-900 mb-2">{doc.title}</h3>
+                          <p className="text-sm text-slate-600 leading-relaxed">{doc.description}</p>
+                        </div>
+                      </div>
+                      <a
+                        href={`/documents/${doc.filename}`}
+                        download
+                        className="block"
+                      >
+                        <Button
+                          className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-md"
+                          size="lg"
+                        >
+                          <Download className="w-4 h-4 mr-2" />
+                          Download PDF
+                        </Button>
+                      </a>
+                      <p className="text-xs text-slate-500 text-center mt-3">
+                        <FileText className="w-3 h-3 inline mr-1" />
+                        {doc.filename}
+                      </p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+
+            <Card className="mt-8 border-2 border-blue-200 bg-blue-50/50">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4">
+                  <Shield className="w-6 h-6 text-blue-700 flex-shrink-0 mt-1" />
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-2">About These Documents</h4>
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      All documents are from third-party certified laboratories accredited to ISO/IEC 17025:2017 standards. 
+                      Sensitive information including exact batch numbers, manufacturer details, and proprietary formulations 
+                      have been redacted for privacy and competitive reasons. These sample documents represent our typical 
+                      testing protocols and quality standards. For specific batch information, please contact customer support 
+                      with your product lot number.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </section>
 
