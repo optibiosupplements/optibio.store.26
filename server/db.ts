@@ -1,6 +1,17 @@
-import { eq } from "drizzle-orm";
+import { eq, and, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { 
+  InsertUser, 
+  users, 
+  products, 
+  productVariants,
+  subscriptionPlans,
+  cartItems,
+  orders,
+  orderItems,
+  discountCodes,
+  subscriptions
+} from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +100,140 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// Product queries
+export async function getAllProducts() {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(products).where(eq(products.isActive, true));
+}
+
+export async function getProductBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(products).where(eq(products.slug, slug)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function getProductVariants(productId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(productVariants)
+    .where(and(
+      eq(productVariants.productId, productId),
+      eq(productVariants.isActive, true)
+    ))
+    .orderBy(productVariants.sortOrder);
+}
+
+export async function getSubscriptionPlans() {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(subscriptionPlans).where(eq(subscriptionPlans.isActive, true));
+}
+
+// Cart queries
+export async function getCartItems(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(cartItems).where(eq(cartItems.userId, userId));
+}
+
+export async function addToCart(item: typeof cartItems.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.insert(cartItems).values(item);
+}
+
+export async function updateCartItem(id: number, quantity: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.update(cartItems).set({ quantity }).where(eq(cartItems.id, id));
+}
+
+export async function removeCartItem(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.delete(cartItems).where(eq(cartItems.id, id));
+}
+
+export async function clearCart(userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.delete(cartItems).where(eq(cartItems.userId, userId));
+}
+
+// Order queries
+export async function createOrder(order: typeof orders.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.insert(orders).values(order);
+}
+
+export async function createOrderItems(items: typeof orderItems.$inferInsert[]) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.insert(orderItems).values(items);
+}
+
+export async function getOrdersByUser(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(orders)
+    .where(eq(orders.userId, userId))
+    .orderBy(desc(orders.createdAt));
+}
+
+export async function getOrderById(orderId: number) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(orders).where(eq(orders.id, orderId)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function getOrderItems(orderId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(orderItems).where(eq(orderItems.orderId, orderId));
+}
+
+// Discount code queries
+export async function getDiscountCode(code: string) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(discountCodes)
+    .where(and(
+      eq(discountCodes.code, code),
+      eq(discountCodes.isActive, true)
+    ))
+    .limit(1);
+    
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function incrementDiscountCodeUsage(codeId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const code = await db.select().from(discountCodes).where(eq(discountCodes.id, codeId)).limit(1);
+  if (code.length === 0) throw new Error("Discount code not found");
+  
+  const currentCount = code[0]?.usedCount ?? 0;
+  return db.update(discountCodes)
+    .set({ usedCount: currentCount + 1 })
+    .where(eq(discountCodes.id, codeId));
+}
