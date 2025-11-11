@@ -21,12 +21,12 @@ import { formatPrice } from "@/const";
 import { trpc } from "@/lib/trpc";
 import WellnessPlanPersonalizer from "@/components/WellnessPlanPersonalizer";
 import Manifesto from "@/components/Manifesto";
-import ReservationModal from "@/components/ReservationModal";
+import { SocialProofCounter } from "@/components/SocialProofCounter";
 
 export default function Home() {
   const { data: products } = trpc.products.list.useQuery();
   const mainProduct = products?.[0];
-  const [reservationModalOpen, setReservationModalOpen] = useState(false);
+  // Removed reservation modal - now using direct purchase
 
   const benefits = [
     {
@@ -635,12 +635,12 @@ export default function Home() {
                       </div>
                     </div>
 
-                    <Link href="#reserve-section">
+                    <Link href="/shop">
                       <Button 
                         size="lg" 
                         className="w-full text-lg py-6 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-lg hover:shadow-xl transition-all duration-300"
                       >
-                        Reserve Your Spot
+                        Get Founder Pricing
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </Button>
                     </Link>
@@ -742,12 +742,12 @@ export default function Home() {
               Why? Because we've seen the research. We know it works. And we want you to experience it risk-free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="#reserve-section">
+              <Link href="/shop">
                 <Button 
                   size="lg" 
                   className="text-lg px-8 py-6 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-xl"
                 >
-                  Reserve Your Spot Now
+                  Shop Founder Pricing
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
@@ -759,75 +759,85 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Reservation Section - Anchor for scroll */}
-      <section id="reserve-section" className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+      {/* Founder Pricing Section */}
+      <section id="pricing-section" className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div>
               <Badge className="bg-yellow-400 text-slate-900 font-bold text-lg px-6 py-2 mb-4">
-                PRE-LAUNCH OFFER
+                LIMITED TIME OFFER
               </Badge>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Reserve Your Spot Today
+                Lock in Founder Pricing Today
               </h2>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto">
-                Join the first 600 people who are proving transparency can win in the supplement industry.
+              <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-6">
+                Get up to 25% off for life on all future orders. Limited spots available.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 text-left">
-              <Card className="bg-white/10 backdrop-blur-sm border-yellow-400/30">
+              <Card className="bg-white/10 backdrop-blur-sm border-yellow-400/30 hover:border-yellow-400/60 transition-all">
                 <CardContent className="p-6">
                   <Star className="w-8 h-8 text-yellow-400 mb-3" />
                   <h3 className="font-bold text-lg mb-2">Founder's Circle</h3>
                   <p className="text-3xl font-bold mb-1">$69</p>
                   <p className="text-sm text-blue-100">2 bottles • 25% off for life</p>
                   <p className="text-xs text-yellow-400 mt-2">Only 100 spots</p>
+                  <Link href="/shop" className="block mt-4">
+                    <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold">
+                      Shop Now
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-blue-400/30">
+              <Card className="bg-white/10 backdrop-blur-sm border-blue-400/30 hover:border-blue-400/60 transition-all">
                 <CardContent className="p-6">
                   <Zap className="w-8 h-8 text-blue-400 mb-3" />
                   <h3 className="font-bold text-lg mb-2">Early Believer</h3>
                   <p className="text-3xl font-bold mb-1">$49</p>
                   <p className="text-sm text-blue-100">1 bottle • 15% off for life</p>
                   <p className="text-xs text-orange-400 mt-2">Only 500 spots</p>
+                  <Link href="/shop" className="block mt-4">
+                    <Button className="w-full bg-blue-400 hover:bg-blue-500 text-slate-900 font-bold">
+                      Shop Now
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-purple-400/30">
+              <Card className="bg-white/10 backdrop-blur-sm border-purple-400/30 hover:border-purple-400/60 transition-all">
                 <CardContent className="p-6">
                   <Sparkles className="w-8 h-8 text-purple-400 mb-3" />
                   <h3 className="font-bold text-lg mb-2">Pre-Launch</h3>
                   <p className="text-3xl font-bold mb-1">$54.99</p>
                   <p className="text-sm text-blue-100">1 bottle • 10% off for life</p>
                   <p className="text-xs text-green-400 mt-2">Unlimited spots</p>
+                  <Link href="/shop" className="block mt-4">
+                    <Button className="w-full bg-purple-400 hover:bg-purple-500 text-slate-900 font-bold">
+                      Shop Now
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             </div>
 
-            <Button
-              size="lg"
-              onClick={() => setReservationModalOpen(true)}
-              className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-yellow-400/20 transition-all"
-            >
-              <Sparkles className="w-6 h-6 mr-2" />
-              Reserve Your Spot Now
-            </Button>
+            <Link href="/shop">
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-yellow-400/20 transition-all"
+              >
+                <Sparkles className="w-6 h-6 mr-2" />
+                Shop Founder Pricing Now
+              </Button>
+            </Link>
 
             <p className="text-sm text-blue-100">
-              No payment required yet • 90-day money-back guarantee • Ships in 90 days
+              Free shipping • 90-day money-back guarantee • Secure checkout
             </p>
           </div>
         </div>
       </section>
-
-      {/* Reservation Modal */}
-      <ReservationModal 
-        open={reservationModalOpen} 
-        onOpenChange={setReservationModalOpen} 
-      />
     </div>
   );
 }

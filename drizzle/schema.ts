@@ -10,6 +10,9 @@ export const users = mysqlTable("users", {
   email: varchar("email", { length: 320 }),
   loginMethod: varchar("loginMethod", { length: 64 }),
   role: mysqlEnum("role", ["user", "admin"]).default("user").notNull(),
+  // Founder tier tracking for lifetime discounts
+  founderTier: mysqlEnum("founderTier", ["founders", "early_adopter", "pre_launch", "regular"]),
+  lifetimeDiscountPercent: int("lifetimeDiscountPercent").default(0),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   lastSignedIn: timestamp("lastSignedIn").defaultNow().notNull(),
@@ -207,6 +210,10 @@ export const subscriptions = mysqlTable("subscriptions", {
   status: mysqlEnum("status", ["active", "paused", "cancelled", "expired"]).default("active").notNull(),
   quantity: int("quantity").default(1).notNull(),
   priceInCents: int("priceInCents").notNull(),
+  // Stripe integration fields
+  stripeSubscriptionId: varchar("stripeSubscriptionId", { length: 255 }).unique(),
+  stripeCustomerId: varchar("stripeCustomerId", { length: 255 }),
+  stripePriceId: varchar("stripePriceId", { length: 255 }),
   nextBillingDate: timestamp("nextBillingDate").notNull(),
   lastBillingDate: timestamp("lastBillingDate"),
   cancelledAt: timestamp("cancelledAt"),

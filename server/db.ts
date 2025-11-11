@@ -272,3 +272,95 @@ export async function getBatchByLotNumber(lotNumber: string) {
     
   return result.length > 0 ? result[0] : null;
 }
+
+// Subscription queries
+export async function createSubscription(data: {
+  userId: number;
+  planId: number;
+  productId: number;
+  variantId?: number;
+  priceInCents: number;
+  stripeSubscriptionId: string;
+  stripeCustomerId: string;
+  stripePriceId: string;
+  nextBillingDate: Date;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const [result] = await db.insert(subscriptions).values({
+    userId: data.userId,
+    planId: data.planId,
+    productId: data.productId,
+    variantId: data.variantId,
+    priceInCents: data.priceInCents,
+    stripeSubscriptionId: data.stripeSubscriptionId,
+    stripeCustomerId: data.stripeCustomerId,
+    stripePriceId: data.stripePriceId,
+    nextBillingDate: data.nextBillingDate,
+    status: "active",
+  });
+  
+  return result;
+}
+
+export async function getSubscriptionsByUser(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(subscriptions)
+    .where(eq(subscriptions.userId, userId))
+    .orderBy(desc(subscriptions.createdAt));
+}
+
+export async function getSubscriptionByStripeId(stripeSubscriptionId: string) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(subscriptions)
+    .where(eq(subscriptions.stripeSubscriptionId, stripeSubscriptionId))
+    .limit(1);
+    
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function updateSubscriptionStatus(
+  stripeSubscriptionId: string,
+  status: "active" | "paused" | "cancelled" | "expired"
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.update(subscriptions)
+    .set({ 
+      status,
+      ...(status === "cancelled" ? { cancelledAt: new Date() } : {}),
+      ...(status === "paused" ? { pausedAt: new Date() } : {}),
+    })
+    .where(eq(subscriptions.stripeSubscriptionId, stripeSubscriptionId));
+}
+
+export async function updateUserFounderTier(
+  userId: number,
+  founderTier: "founders" | "early_adopter" | "pre_launch" | "regular",
+  lifetimeDiscountPercent: number
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Only update if user doesn't already have a founder tier
+  // (first purchase locks in the tier)
+  const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+  if (user.length === 0) throw new Error("User not found");
+  
+  if (!user[0].founderTier) {
+    return db.update(users)
+      .set({ 
+        founderTier,
+        lifetimeDiscountPercent,
+      })
+      .where(eq(users.id, userId));
+  }
+  
+  return null;
+}

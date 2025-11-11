@@ -7,6 +7,8 @@ import * as db from "./db";
 import * as presaleDb from "./presale-db";
 import { stripe } from "./stripe";
 import { ENV } from "./_core/env";
+import { sendReservationConfirmationEmail } from "./email";
+import { getReservationConfirmationEmail } from "./email-templates";
 
 export const appRouter = router({
   system: systemRouter,
@@ -220,6 +222,96 @@ export const appRouter = router({
 
   // Stripe checkout
   stripe: router({
+    createSubscription: protectedProcedure
+      .input(z.object({
+        productId: z.number(),
+        variantId: z.number().optional(),
+        planId: z.number(),
+        priceInCents: z.number(),
+        founderTier: z.enum(["founders", "early_adopter", "pre_launch", "regular"]),
+        lifetimeDiscountPercent: z.number(),
+      }))
+      .mutation(async ({ ctx, input }) => {
+        // Create or retrieve Stripe customer
+        const customers = await stripe.customers.list({
+          email: ctx.user.email || undefined,
+          limit: 1,
+        });
+
+        let customerId: string;
+        if (customers.data.length > 0) {
+          customerId = customers.data[0].id;
+        } else {
+          const customer = await stripe.customers.create({
+            email: ctx.user.email || undefined,
+            name: ctx.user.name || undefined,
+            metadata: {
+              userId: ctx.user.id.toString(),
+              founderTier: input.founderTier,
+              lifetimeDiscountPercent: input.lifetimeDiscountPercent.toString(),
+            },
+          });
+          customerId = customer.id;
+        }
+
+        // Create Stripe price for this subscription
+        const price = await stripe.prices.create({
+          currency: "usd",
+          unit_amount: input.priceInCents,
+          recurring: {
+            interval: "month",
+            interval_count: 1,
+          },
+          product_data: {
+            name: `OptiBio Ashwagandha KSM-66 Subscription (${input.founderTier})`,
+          },
+        });
+
+        // Create Stripe subscription
+        const subscription = await stripe.subscriptions.create({
+          customer: customerId,
+          items: [{ price: price.id }],
+          payment_behavior: "default_incomplete",
+          payment_settings: { save_default_payment_method: "on_subscription" },
+          expand: ["latest_invoice.payment_intent"],
+          metadata: {
+            userId: ctx.user.id.toString(),
+            productId: input.productId.toString(),
+            variantId: input.variantId?.toString() || "",
+            planId: input.planId.toString(),
+            founderTier: input.founderTier,
+            lifetimeDiscountPercent: input.lifetimeDiscountPercent.toString(),
+          },
+        });
+
+        // Update user's founder tier and lifetime discount
+        await db.updateUserFounderTier(ctx.user.id, input.founderTier, input.lifetimeDiscountPercent);
+
+        // Store subscription in database
+        const nextBillingDate = new Date();
+        nextBillingDate.setMonth(nextBillingDate.getMonth() + 1);
+
+        await db.createSubscription({
+          userId: ctx.user.id,
+          planId: input.planId,
+          productId: input.productId,
+          variantId: input.variantId,
+          priceInCents: input.priceInCents,
+          stripeSubscriptionId: subscription.id,
+          stripeCustomerId: customerId,
+          stripePriceId: price.id,
+          nextBillingDate,
+        });
+
+        const invoice = subscription.latest_invoice as any;
+        const paymentIntent = invoice?.payment_intent as any;
+
+        return {
+          subscriptionId: subscription.id,
+          clientSecret: paymentIntent?.client_secret,
+        };
+      }),
+
     createCheckoutSession: protectedProcedure
       .input(z.object({
         items: z.array(z.object({
@@ -361,8 +453,33 @@ export const appRouter = router({
           await presaleDb.trackReferral(input.referredBy, reservation.insertId);
         }
         
+        // Send confirmation email
+        try {
+          const emailData = getReservationConfirmationEmail({
+            name: input.name,
+            email: input.email,
+            tier: input.tier,
+            position: reservation.insertId || 0,
+            price: input.price,
+          });
+          
+          await sendReservationConfirmationEmail(
+            input.email,
+            emailData.subject,
+            emailData.html,
+            emailData.text
+          );
+        } catch (emailError) {
+          console.error("[Reservation] Failed to send confirmation email:", emailError);
+          // Don't fail the reservation if email fails
+        }
+        
         return { success: true, reservation };
       }),
+    
+    getStats: publicProcedure.query(async () => {
+      return presaleDb.getReservationStats();
+    }),
   }),
 
   // Batch verification

@@ -1,55 +1,118 @@
 # OptiBio E-Commerce Project TODO
 
-## 🚀 CURRENT FOCUS: Coming Soon Mode Implementation
+## 🚨 STRATEGIC PIVOT: Immediate Purchase + Subscription Model
 
-### FINAL PRICING STRATEGY
-- Founder's Circle: $69 for 2 bottles (100 spots) - 25% off for life
-- Early Believer: $49 for 1 bottle (500 spots) - 15% off for life  
-- Pre-Launch: $54.99 for 1 bottle (unlimited) - 10% off for life
-- Regular Price (post-launch): $59.99
+**DECISION:** Remove reservation system, enable immediate purchases with subscription options
+**RATIONALE:** 
+- Reservation model has 60-80% drop-off when asking for payment later
+- Supplements require recurring revenue model (subscriptions)
+- Immediate payment = better conversion, faster cash flow
+- Keep tiered pricing for urgency, but collect money NOW
 
-### Phase 1: Coming Soon Mode (THIS WEEK)
-- [x] Add pre-launch banner at top of site
-- [x] Add countdown timer showing "Ships in 90 days"
-- [x] Disable ALL "Add to Cart" buttons sitewide
-- [x] Replace "Add to Cart" with "Reserve Your Spot" buttons
-- [x] Build reservation modal/page with tier comparison
-- [x] Create reservation form (name, email, tier selection)
-- [x] Build reservation confirmation page
-- [ ] Send confirmation email ("You're Founder #X")
-- [ ] Track reservations in database
-- [ ] Add social proof counter ("X people reserved")
+---
 
-### Phase 2: Payment Opens (WEEK 2 - Day 15)
-- [ ] Email all reservations: "Payment is open"
-- [ ] Build payment page for reserved customers
-- [ ] Stripe checkout integration
-- [ ] 48-hour hold timer on reservations
-- [ ] Convert reservation → paid order
-- [ ] Order confirmation email
-- [ ] Admin dashboard for tracking conversions
+## 🎯 NEW IMPLEMENTATION PLAN
 
-### Phase 3: Manufacturing Updates (Days 15-90)
-- [ ] Weekly email updates with photos
-- [ ] Behind-the-scenes content hub
-- [ ] Quality testing results shared
-- [ ] Shipping timeline updates
-- [ ] Customer portal with order status
+### Phase 1: Remove Reservation System & Enable Purchases
+- [ ] Remove "Coming Soon" mode from entire site
+- [ ] Re-enable all "Add to Cart" buttons
+- [ ] Remove reservation modal component
+- [ ] Remove "Reserve Your Spot" CTAs
+- [ ] Keep pre-launch banner (but change messaging to "Limited-Time Founder Pricing")
+- [ ] Keep countdown timer (90 days to lock in founder rates)
+- [ ] Update homepage CTAs to "Shop Now" / "Get Founder Pricing"
 
-### Phase 4: Shipping (Day 90)
-- [ ] Send tracking numbers
-- [ ] Ship all orders
-- [ ] Activate lifetime discount codes
-- [ ] Thank you email with reorder link
+### Phase 2: Implement Subscription System
+- [ ] Add subscription toggle to product page (One-Time vs Subscribe & Save)
+- [ ] Create Stripe subscription products and pricing
+- [ ] Add subscription plans to database schema
+- [ ] Implement Stripe subscription creation in checkout
+- [ ] Add subscription management to user account
+- [ ] Build subscription pricing calculator (show savings)
+- [ ] Add "Lifetime Discount" field to user table
+- [ ] Track which tier customer purchased (Founder/Early Believer/Pre-Launch)
+- [ ] Apply lifetime discount to all future subscription charges
 
-## ✅ COMPLETED FEATURES
+### Phase 3: Update Product Page UI
+- [ ] Add subscription toggle (One-Time Purchase vs Subscribe & Save)
+- [ ] Show subscription pricing with savings calculation
+- [ ] Display tiered pricing options (Founder $69, Early Believer $49, Pre-Launch $54.99)
+- [ ] Add "Lock in [X]% off for life" messaging
+- [ ] Show countdown timer for tiered pricing expiration
+- [ ] Add subscription benefits section (convenience, savings, never run out)
+- [ ] Update variant selection to work with subscriptions
 
-### Pre-Launch Infrastructure
-- [x] Manifesto section with industry truth
-- [x] Waitlist email capture
-- [x] Database schema for presale (waitlist, reservations, campaign)
-- [x] tRPC procedures for waitlist and reservations
-- [x] Presale database helper functions
+### Phase 4: Checkout Flow Updates
+- [ ] Detect if customer selected subscription or one-time
+- [ ] Create Stripe subscription if subscription selected
+- [ ] Create one-time payment if one-time selected
+- [ ] Store customer's tier (Founder/Early Believer/Pre-Launch) in database
+- [ ] Calculate and store lifetime discount percentage
+- [ ] Update order confirmation to show subscription details
+- [ ] Send different email for subscription vs one-time purchase
+
+### Phase 5: Subscription Management
+- [ ] Add "My Subscriptions" page to user account
+- [ ] Show next billing date and amount
+- [ ] Allow pause/resume subscription
+- [ ] Allow cancel subscription
+- [ ] Allow update payment method
+- [ ] Allow change delivery frequency
+- [ ] Show subscription history and upcoming deliveries
+
+### Phase 6: Stripe Webhook Enhancements
+- [ ] Handle subscription.created event
+- [ ] Handle subscription.updated event
+- [ ] Handle subscription.deleted event
+- [ ] Handle invoice.payment_succeeded event
+- [ ] Handle invoice.payment_failed event
+- [ ] Create order for each successful subscription payment
+- [ ] Send email for subscription renewals
+- [ ] Send email for failed payments with retry link
+
+---
+
+## 💰 UPDATED REVENUE MODEL
+
+### Tiered First Purchase (One-Time)
+- Founder's Circle: $69 for 2 bottles (90-day supply) → 25% lifetime discount
+- Early Believer: $49 for 1 bottle (45-day supply) → 15% lifetime discount
+- Pre-Launch: $54.99 for 1 bottle (45-day supply) → 10% lifetime discount
+- Regular Price (after 90 days): $59.99 per bottle
+
+### Subscription Pricing (Monthly)
+- Base price: $49.99/month (1 bottle every 45 days)
+- Founder's Circle members: $37.49/month (25% off for life)
+- Early Believer members: $42.49/month (15% off for life)
+- Pre-Launch members: $44.99/month (10% off for life)
+
+### Subscription Pricing (Quarterly)
+- Base price: $139.99/quarter (3 bottles, save 7%)
+- Founder's Circle: $104.99/quarter (25% off)
+- Early Believer: $118.99/quarter (15% off)
+- Pre-Launch: $125.99/quarter (10% off)
+
+### Subscription Pricing (Annual)
+- Base price: $499.99/year (8 bottles, save 17%)
+- Founder's Circle: $374.99/year (25% off)
+- Early Believer: $424.99/year (15% off)
+- Pre-Launch: $449.99/year (10% off)
+
+### Revenue Projections (Year 1)
+**Initial Sales (90-day founder pricing window):**
+- 500 customers × $50 average = $25,000
+
+**Subscription Revenue:**
+- 200 subscribers (40% conversion rate)
+- Average: $42/month × 12 months = $504/year per subscriber
+- Total: 200 × $504 = **$100,800 annual recurring revenue**
+
+**Total Year 1 Revenue: ~$125,000**
+**Customer Lifetime Value: $481 average**
+
+---
+
+## ✅ COMPLETED FEATURES (Keep These)
 
 ### Brand & UX
 - [x] Emotion-first hero section
@@ -57,37 +120,121 @@
 - [x] Week-by-week timeline
 - [x] Lifestyle photography
 - [x] "Who This Is For" section
-- [x] Wellness Plan Personalizer
+- [x] Manifesto section
 - [x] Breadcrumb navigation
 
 ### Product Information
 - [x] 300mg per capsule, 90 capsules, 45-day supply
 - [x] Accurate supplement facts
-- [x] 6 clinical study links
-- [x] 4 quality documents
-- [x] Batch verification
+- [x] 6 clinical study links to PubMed
+- [x] 4 quality documents (downloadable PDFs)
+- [x] Batch verification widget
+- [x] Product image galleries
 
-### Core E-Commerce (TO BE DISABLED FOR COMING SOON MODE)
-- [x] Shopping cart (will disable)
-- [x] Stripe payments (will use for reservations later)
+### Core E-Commerce (Already Working)
+- [x] Shopping cart
+- [x] Stripe one-time payments
 - [x] Order management
-- [x] Checkout flow (will replace with reservation flow)
+- [x] Checkout flow
+- [x] Order confirmation emails
+- [x] My Orders page
+- [x] Legal pages (Privacy, Terms, Shipping)
 
-## 🎯 REVENUE TARGETS
+### Technical Infrastructure
+- [x] Database schema (products, orders, users)
+- [x] tRPC API routes
+- [x] Authentication system
+- [x] Email service integration
+- [x] Stripe webhook handler
+- [x] Navy/gold/cream color theme
+- [x] Mobile responsive design
 
-**Conservative:** $48,496
-- 100 Founder's × $69 = $6,900
-- 400 Early Believer × $49 = $19,600
-- 400 Pre-Launch × $54.99 = $21,996
+---
 
-**Moderate:** $64,394
-- 100 Founder's × $69 = $6,900
-- 500 Early Believer × $49 = $24,500
-- 600 Pre-Launch × $54.99 = $32,994
+## 🗑️ DEPRECATED (Remove These)
 
-**Optimistic:** $86,390
-- 100 Founder's × $69 = $6,900
-- 500 Early Believer × $49 = $24,500
-- 1,000 Pre-Launch × $54.99 = $54,990
+### Reservation System (No Longer Needed)
+- [x] ~~Reservation modal~~ (DELETE)
+- [x] ~~Reservation database tables~~ (KEEP but don't use)
+- [x] ~~Reservation tRPC procedures~~ (KEEP but don't use)
+- [x] ~~Reservation confirmation page~~ (DELETE)
+- [x] ~~Social proof counter based on reservations~~ (REPLACE with sales counter)
+- [x] ~~"Reserve Your Spot" CTAs~~ (REPLACE with "Shop Now")
+- [x] ~~Waitlist email capture~~ (KEEP for email list building)
 
-**Realistic Target: $50,000-$70,000 in 90 days**
+---
+
+## 📋 NEXT IMMEDIATE ACTIONS
+
+1. **Disable Coming Soon Mode**
+   - Remove PreLaunchBanner or update messaging
+   - Re-enable Add to Cart buttons
+   - Update homepage CTAs
+
+2. **Add Subscription Toggle to Product Page**
+   - One-Time Purchase vs Subscribe & Save
+   - Show pricing for both options
+   - Calculate and display savings
+
+3. **Create Stripe Subscription Products**
+   - Monthly plan ($49.99)
+   - Quarterly plan ($139.99)
+   - Annual plan ($499.99)
+
+4. **Update Checkout to Handle Subscriptions**
+   - Detect subscription vs one-time
+   - Create Stripe subscription or payment intent
+   - Store tier and lifetime discount
+
+5. **Build Subscription Management Page**
+   - View active subscriptions
+   - Pause/cancel/update
+
+---
+
+## 🎯 SUCCESS METRICS
+
+- **Conversion Rate:** 3-5% of visitors → customers
+- **Subscription Rate:** 40% of customers subscribe
+- **Average Order Value:** $50
+- **Customer Lifetime Value:** $481
+- **Monthly Recurring Revenue:** $8,400 (200 subscribers × $42 avg)
+- **Annual Recurring Revenue:** $100,800
+- **Churn Rate Target:** <15% monthly
+
+
+## ✅ PHASE 1 COMPLETED (Strategic Pivot)
+
+- [x] Updated PreLaunchBanner messaging from "Reserve" to "Limited-Time Founder Pricing"
+- [x] Changed banner CTA to "Shop Founder Pricing"
+- [x] Removed ReservationModal import from Home page
+- [x] Changed all "Reserve Your Spot" CTAs to "Shop Now" / "Get Founder Pricing"
+- [x] Updated pricing section to include direct "Shop Now" buttons on each tier
+- [x] Removed reservation modal trigger
+- [x] Updated ProductDetail page: replaced "Reserve Your Spot" with "Add to Cart"
+- [x] Re-enabled Add to Cart functionality
+- [x] Added founderTier and lifetimeDiscountPercent fields to users table
+- [x] Added Stripe fields (stripeSubscriptionId, stripeCustomerId, stripePriceId) to subscriptions table
+- [x] Pushed database schema changes successfully
+
+
+## ✅ PHASE 2 COMPLETED (Subscription Billing System)
+
+- [x] Created `createSubscription` tRPC procedure in routers.ts
+- [x] Implemented Stripe customer creation/retrieval logic
+- [x] Implemented Stripe subscription creation with recurring billing
+- [x] Added database helper functions: createSubscription, getSubscriptionsByUser, updateUserFounderTier
+- [x] Added subscription status update functions
+- [x] Fixed TypeScript errors in Stripe integration
+- [x] Verified dev server running successfully
+
+## 🔄 PHASE 3 IN PROGRESS (Subscription UI & Checkout)
+
+- [ ] Update checkout flow to detect subscription vs one-time purchase
+- [ ] Add founder tier selection during first purchase
+- [ ] Calculate pricing: base price - founder discount - subscription discount
+- [ ] Handle Stripe subscription payment in checkout
+- [ ] Create subscription management page (/account/subscriptions)
+- [ ] Add pause/cancel/update subscription functionality
+- [ ] Show next billing date and subscription history
+- [ ] Test full subscription purchase flow

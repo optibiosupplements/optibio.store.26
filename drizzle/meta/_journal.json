@@ -29,6 +29,13 @@
       "when": 1762869289963,
       "tag": "0003_simple_harpoon",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1762877774121,
+      "tag": "0004_bent_mongoose",
+      "breakpoints": true
     }
   ]
 }

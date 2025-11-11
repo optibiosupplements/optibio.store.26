@@ -222,3 +222,55 @@ https://optibio.com
     return false;
   }
 }
+
+/**
+ * Send reservation confirmation email
+ */
+export async function sendReservationConfirmationEmail(
+  to: string,
+  subject: string,
+  html: string,
+  text: string
+): Promise<boolean> {
+  if (!ENV.forgeApiUrl || !ENV.forgeApiKey) {
+    console.warn("[Email] Forge API not configured");
+    return false;
+  }
+
+  // Build endpoint URL for email service
+  const endpoint = `${ENV.forgeApiUrl.replace(/\/$/, "")}/webdevtoken.v1.WebDevService/SendEmail`;
+
+  try {
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "accept": "application/json",
+        "authorization": `Bearer ${ENV.forgeApiKey}`,
+        "content-type": "application/json",
+        "connect-protocol-version": "1",
+      },
+      body: JSON.stringify({
+        to,
+        subject,
+        htmlBody: html,
+        textBody: text,
+      }),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.warn(
+        `[Email] Failed to send reservation confirmation (${response.status} ${response.statusText})${
+          detail ? `: ${detail}` : ""
+        }`
+      );
+      return false;
+    }
+
+    console.log(`[Email] Reservation confirmation sent to ${to}`);
+    return true;
+  } catch (error) {
+    console.warn("[Email] Error sending reservation confirmation:", error);
+    return false;
+  }
+}

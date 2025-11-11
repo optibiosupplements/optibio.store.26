@@ -256,3 +256,20 @@ export async function getTopReferrers(limit: number = 10) {
     .orderBy(desc(presaleReservations.referralCount))
     .limit(limit);
 }
+
+/**
+ * Get reservation statistics
+ */
+export async function getReservationStats() {
+  const db = await getDb();
+  if (!db) return { totalReservations: 0, founderCount: 0, earlyAdopterCount: 0, preLaunchCount: 0 };
+
+  const allReservations = await db.select().from(presaleReservations);
+  
+  return {
+    totalReservations: allReservations.length,
+    founderCount: allReservations.filter(r => r.tier === "founders").length,
+    earlyAdopterCount: allReservations.filter(r => r.tier === "early_adopter").length,
+    preLaunchCount: allReservations.filter(r => r.tier === "pre_launch").length,
+  };
+}

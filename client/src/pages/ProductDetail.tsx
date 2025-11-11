@@ -373,15 +373,19 @@ export default function ProductDetail() {
                     </Button>
                   </div>
 
-                  <Link href="/#reserve-section">
-                    <Button
-                      size="lg"
-                      className="flex-1 h-14 text-lg bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-lg hover:shadow-xl transition-all duration-300 w-full"
-                    >
-                      <Sparkles className="w-5 h-5 mr-2" />
-                      Reserve Your Spot
-                    </Button>
-                  </Link>
+                  <Button
+                    size="lg"
+                    onClick={handleAddToCart}
+                    disabled={addToCartMutation.isPending}
+                    className="flex-1 h-14 text-lg bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    {addToCartMutation.isPending ? (
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                    ) : (
+                      <ShoppingCart className="w-5 h-5 mr-2" />
+                    )}
+                    {addToCartMutation.isPending ? "Adding..." : "Add to Cart"}
+                  </Button>
 
                   <Button
                     size="lg"

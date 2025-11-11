@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Clock, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 export default function PreLaunchBanner() {
   // Calculate 90 days from now
@@ -32,14 +33,6 @@ export default function PreLaunchBanner() {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToReservation = () => {
-    // Scroll to the product section or reservation area
-    const productSection = document.getElementById('reserve-section');
-    if (productSection) {
-      productSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white py-4 px-4 sticky top-0 z-50 shadow-lg border-b-2 border-yellow-400/30">
       <div className="container mx-auto">
@@ -49,10 +42,10 @@ export default function PreLaunchBanner() {
             <Sparkles className="w-6 h-6 text-yellow-400 animate-pulse" />
             <div>
               <p className="text-sm md:text-base font-bold">
-                🚨 PRE-LAUNCH: Reserve Your Founder's Edition Now
+                🔥 LIMITED TIME: Founder Pricing Ends in {timeLeft.days} Days
               </p>
               <p className="text-xs text-slate-300 hidden md:block">
-                Limited spots available • Ships in {timeLeft.days} days
+                Lock in 25% off for life • Only 100 Founder spots available
               </p>
             </div>
           </div>
@@ -84,12 +77,13 @@ export default function PreLaunchBanner() {
           </div>
 
           {/* Right: CTA Button */}
-          <Button
-            onClick={scrollToReservation}
-            className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold px-6 py-2 shadow-lg hover:shadow-xl transition-all whitespace-nowrap"
-          >
-            Reserve Now
-          </Button>
+          <Link href="/shop">
+            <Button
+              className="bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold px-6 py-2 shadow-lg hover:shadow-xl transition-all whitespace-nowrap"
+            >
+              Shop Founder Pricing
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
