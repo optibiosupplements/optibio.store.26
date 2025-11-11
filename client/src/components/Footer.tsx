@@ -52,24 +52,18 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Shop</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/shop">
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    All Products
-                  </a>
+                <Link href="/shop" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  All Products
                 </Link>
               </li>
               <li>
-                <Link href="/shop?type=subscription">
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Subscriptions
-                  </a>
+                <Link href="/shop?type=subscription" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Subscriptions
                 </Link>
               </li>
               <li>
-                <Link href="/science">
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Clinical Studies
-                  </a>
+                <Link href="/science" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Clinical Studies
                 </Link>
               </li>
             </ul>
@@ -80,17 +74,13 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Support</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/faq">
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    FAQ
-                  </a>
+                <Link href="/faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/shipping">
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Shipping & Returns
-                  </a>
+                <Link href="/shipping" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Shipping & Returns
                 </Link>
               </li>
               <li>
@@ -99,10 +89,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <Link href="/my-orders">
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    My Account
-                  </a>
+                <Link href="/my-orders" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  My Account
                 </Link>
               </li>
             </ul>
@@ -139,15 +127,11 @@ export default function Footer() {
               © {new Date().getFullYear()} OptiBio. All rights reserved.
             </p>
             <div className="flex space-x-6">
-              <Link href="/privacy">
-                <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Privacy Policy
-                </a>
+              <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Privacy Policy
               </Link>
-              <Link href="/terms">
-                <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Terms of Service
-                </a>
+              <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Terms of Service
               </Link>
             </div>
           </div>

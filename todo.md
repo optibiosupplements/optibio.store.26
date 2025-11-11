@@ -383,3 +383,10 @@
 - [x] Style widget with navy/gold/cream theme
 - [x] Test batch verification functionality
 - [ ] Save checkpoint with batch verification feature
+
+## Fix Footer Links (URGENT)
+- [x] Fix FAQ link in footer to point to /faq
+- [x] Fix Shipping & Returns link in footer to point to /shipping
+- [x] Fix My Account link in footer to point to /my-orders
+- [x] Test all footer links are clickable and functional
+- [ ] Save checkpoint with fixed footer navigation
