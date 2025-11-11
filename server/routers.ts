@@ -2,6 +2,7 @@ import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import * as db from "./db";
 import * as presaleDb from "./presale-db";
@@ -479,6 +480,91 @@ export const appRouter = router({
     
     getStats: publicProcedure.query(async () => {
       return presaleDb.getReservationStats();
+    }),
+  }),
+
+  // Subscription management
+  subscriptions: router({
+    list: protectedProcedure.query(async ({ ctx }) => {
+      return db.getSubscriptionsByUser(ctx.user.id);
+    }),
+
+    pause: protectedProcedure
+      .input(z.object({ subscriptionId: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        const subscription = await db.getSubscriptionByStripeId(input.subscriptionId);
+        if (!subscription || subscription.userId !== ctx.user.id) {
+          throw new TRPCError({ code: "FORBIDDEN", message: "Subscription not found" });
+        }
+
+        // Pause subscription in Stripe
+        await stripe.subscriptions.update(input.subscriptionId, {
+          pause_collection: { behavior: "void" },
+        });
+
+        // Update database
+        await db.updateSubscriptionStatus(input.subscriptionId, "paused");
+
+        return { success: true };
+      }),
+
+    resume: protectedProcedure
+      .input(z.object({ subscriptionId: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        const subscription = await db.getSubscriptionByStripeId(input.subscriptionId);
+        if (!subscription || subscription.userId !== ctx.user.id) {
+          throw new TRPCError({ code: "FORBIDDEN", message: "Subscription not found" });
+        }
+
+        // Resume subscription in Stripe
+        await stripe.subscriptions.update(input.subscriptionId, {
+          pause_collection: null,
+        });
+
+        // Update database
+        await db.updateSubscriptionStatus(input.subscriptionId, "active");
+
+        return { success: true };
+      }),
+
+    cancel: protectedProcedure
+      .input(z.object({ subscriptionId: z.string() }))
+      .mutation(async ({ ctx, input }) => {
+        const subscription = await db.getSubscriptionByStripeId(input.subscriptionId);
+        if (!subscription || subscription.userId !== ctx.user.id) {
+          throw new TRPCError({ code: "FORBIDDEN", message: "Subscription not found" });
+        }
+
+        // Cancel subscription in Stripe (at period end)
+        await stripe.subscriptions.update(input.subscriptionId, {
+          cancel_at_period_end: true,
+        });
+
+        // Update database
+        await db.updateSubscriptionStatus(input.subscriptionId, "cancelled");
+
+        return { success: true };
+      }),
+
+    createPortalSession: protectedProcedure.mutation(async ({ ctx }) => {
+      // Get user's subscriptions to find their Stripe customer ID
+      const subscriptions = await db.getSubscriptionsByUser(ctx.user.id);
+      if (subscriptions.length === 0) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "No subscriptions found" });
+      }
+
+      const customerId = subscriptions[0].stripeCustomerId;
+      if (!customerId) {
+        throw new TRPCError({ code: "NOT_FOUND", message: "No Stripe customer found" });
+      }
+
+      const origin = ctx.req.headers.origin || "http://localhost:3000";
+      const session = await stripe.billingPortal.sessions.create({
+        customer: customerId,
+        return_url: `${origin}/account/subscriptions`,
+      });
+
+      return { url: session.url };
     }),
   }),
 

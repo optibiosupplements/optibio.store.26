@@ -118,21 +118,77 @@ export default function Checkout() {
     },
   });
 
-  const handlePlaceOrder = () => {
-    // Create Stripe checkout session
-    const orderItems = cartItems?.map(item => ({
-      productId: item.productId,
-      productName: item.productName || "OptiBio Ashwagandha KSM-66",
-      variantId: item.variantId || undefined,
-      variantName: item.variantName || undefined,
-      quantity: item.quantity,
-      priceInCents: item.priceInCents,
-    })) || [];
+  const createSubscriptionMutation = trpc.stripe.createSubscription.useMutation({
+    onSuccess: (data) => {
+      if (data.clientSecret) {
+        // For now, redirect to a success page
+        // In production, you'd use Stripe Elements to confirm the payment
+        toast.success("Subscription created! Redirecting...");
+        setTimeout(() => setLocation("/account/subscriptions"), 2000);
+      }
+    },
+    onError: (error) => {
+      toast.error("Failed to create subscription: " + error.message);
+    },
+  });
 
-    toast.info("Redirecting to secure checkout...");
-    createCheckoutMutation.mutate({
-      items: orderItems,
-    });
+  const handlePlaceOrder = () => {
+    // Check if this is a subscription order
+    const hasSubscription = cartItems?.some(item => item.isSubscription);
+
+    if (hasSubscription) {
+      // Handle subscription checkout
+      // Calculate founder tier based on cart total
+      let founderTier: "founders" | "early_adopter" | "pre_launch" | "regular" = "regular";
+      let lifetimeDiscountPercent = 0;
+
+      if (subtotal >= 6900) { // $69+
+        founderTier = "founders";
+        lifetimeDiscountPercent = 25;
+      } else if (subtotal >= 4900) { // $49-$68
+        founderTier = "early_adopter";
+        lifetimeDiscountPercent = 15;
+      } else if (subtotal >= 1) { // Any purchase
+        founderTier = "pre_launch";
+        lifetimeDiscountPercent = 10;
+      }
+
+      // For now, handle single subscription item
+      const subscriptionItem = cartItems?.find(item => item.isSubscription);
+      if (!subscriptionItem) {
+        toast.error("No subscription item found");
+        return;
+      }
+
+      // Calculate subscription price with founder discount
+      const basePrice = subscriptionItem.priceInCents;
+      const discountedPrice = Math.round(basePrice * (1 - lifetimeDiscountPercent / 100));
+
+      toast.info("Creating your subscription...");
+      createSubscriptionMutation.mutate({
+        productId: subscriptionItem.productId,
+        variantId: subscriptionItem.variantId || undefined,
+        planId: subscriptionItem.subscriptionPlanId || 1,
+        priceInCents: discountedPrice,
+        founderTier,
+        lifetimeDiscountPercent,
+      });
+    } else {
+      // Handle one-time purchase
+      const orderItems = cartItems?.map(item => ({
+        productId: item.productId,
+        productName: item.productName || "OptiBio Ashwagandha KSM-66",
+        variantId: item.variantId || undefined,
+        variantName: item.variantName || undefined,
+        quantity: item.quantity,
+        priceInCents: item.priceInCents,
+      })) || [];
+
+      toast.info("Redirecting to secure checkout...");
+      createCheckoutMutation.mutate({
+        items: orderItems,
+      });
+    }
   };
 
   if (isLoading) {

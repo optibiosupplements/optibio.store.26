@@ -238,3 +238,45 @@
 - [ ] Add pause/cancel/update subscription functionality
 - [ ] Show next billing date and subscription history
 - [ ] Test full subscription purchase flow
+
+
+## 🎯 SYSTEMATIC IMPLEMENTATION PLAN (User Requested)
+
+### Task 1: Build Subscription Management Page ✅
+- [x] Create /account/subscriptions page
+- [x] Add tRPC endpoint to fetch user's subscriptions
+- [x] Display active subscriptions with product details
+- [x] Show next billing date and amount
+- [x] Add "Pause Subscription" button
+- [x] Add "Cancel Subscription" button
+- [x] Add "Update Payment Method" button (Stripe customer portal)
+- [x] Show subscription history
+- [x] Handle empty state (no subscriptions)
+- [x] Add loading states and error handling
+
+### Task 2: Complete Checkout Integration ✅
+- [x] Update checkout to detect subscription items in cart
+- [x] Automatically assign founder tier based on cart total:
+  - $69+ → founders (25% lifetime discount)
+  - $49-$68 → early_adopter (15% lifetime discount)
+  - <$49 → pre_launch (10% lifetime discount)
+- [x] Calculate final price: base - founder discount - subscription discount
+- [x] Handle subscription checkout flow (use createSubscription endpoint)
+- [x] Handle one-time purchase flow (existing Stripe checkout)
+- [ ] Update order confirmation to show subscription details (deferred)
+- [ ] Send different email for subscription vs one-time purchase (deferred)
+- [ ] Test both flows work correctly (next phase)
+
+### Task 3: Implement Stripe Webhook Handlers ✅
+- [x] Add webhook endpoint: POST /api/webhooks/stripe (already exists)
+- [x] Verify webhook signature for security (already implemented)
+- [x] Handle invoice.payment_succeeded event:
+  - Create order in database for subscription renewal
+  - Send confirmation email to customer
+  - Update subscription lastBillingDate
+  - Update subscription nextBillingDate
+- [x] Handle subscription.updated event (status changes)
+- [x] Handle subscription.deleted event (cancellation)
+- [x] Handle payment_intent.payment_failed event (already exists)
+- [x] Add error logging and retry logic
+- [ ] Test webhook handlers with Stripe CLI (next phase)

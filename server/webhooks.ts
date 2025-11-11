@@ -54,6 +54,24 @@ export async function handleStripeWebhook(req: Request, res: Response) {
         break;
       }
 
+      case "invoice.payment_succeeded": {
+        const invoice = event.data.object as Stripe.Invoice;
+        await handleInvoicePaymentSucceeded(invoice);
+        break;
+      }
+
+      case "customer.subscription.updated": {
+        const subscription = event.data.object as Stripe.Subscription;
+        await handleSubscriptionUpdated(subscription);
+        break;
+      }
+
+      case "customer.subscription.deleted": {
+        const subscription = event.data.object as Stripe.Subscription;
+        await handleSubscriptionDeleted(subscription);
+        break;
+      }
+
       default:
         console.log("[Stripe Webhook] Unhandled event type:", event.type);
     }
@@ -201,6 +219,187 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
 
   } catch (error: any) {
     console.error("[Stripe Webhook] Error creating order:", error);
+    throw error;
+  }
+}
+
+/**
+ * Handle successful subscription invoice payment
+ * This creates an order for the subscription renewal
+ */
+async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
+  console.log("[Stripe Webhook] Processing invoice payment:", invoice.id);
+
+  try {
+    // Check if this is a subscription invoice
+    const invoiceData = invoice as any;
+    const subscriptionId = typeof invoiceData.subscription === 'string' ? invoiceData.subscription : invoiceData.subscription?.id;
+    if (!subscriptionId) {
+      console.log("[Stripe Webhook] Invoice is not for a subscription, skipping");
+      return;
+    }
+
+    // Get subscription from database
+    const subscription = await db.getSubscriptionByStripeId(subscriptionId);
+    if (!subscription) {
+      console.error("[Stripe Webhook] Subscription not found:", subscriptionId);
+      return;
+    }
+
+    // Skip the first invoice (initial subscription creation is handled separately)
+    if (invoice.billing_reason === "subscription_create") {
+      console.log("[Stripe Webhook] Skipping initial subscription invoice");
+      return;
+    }
+
+    // Get user info
+    const user = await db.getUserById(subscription.userId);
+    if (!user) {
+      console.error("[Stripe Webhook] User not found:", subscription.userId);
+      return;
+    }
+
+    // Generate unique order number
+    const orderNumber = `SUB-${Date.now()}-${Math.random().toString(36).substring(7).toUpperCase()}`;
+
+    // Create order for subscription renewal
+    const orderResult = await db.createOrder({
+      orderNumber,
+      userId: subscription.userId,
+      email: user.email || "",
+      subtotalInCents: subscription.priceInCents,
+      shippingInCents: 0, // Free shipping for subscriptions
+      taxInCents: 0,
+      discountInCents: 0,
+      totalInCents: subscription.priceInCents,
+      // Use user's saved shipping address or default values
+      shippingFirstName: user.name?.split(" ")[0] || "",
+      shippingLastName: user.name?.split(" ").slice(1).join(" ") || "",
+      shippingAddress1: "Address on file",
+      shippingAddress2: null,
+      shippingCity: "",
+      shippingState: "",
+      shippingZipCode: "",
+      shippingCountry: "US",
+      shippingPhone: null,
+      billingFirstName: user.name?.split(" ")[0] || "",
+      billingLastName: user.name?.split(" ").slice(1).join(" ") || "",
+      billingAddress1: "Address on file",
+      billingAddress2: null,
+      billingCity: "",
+      billingState: "",
+      billingZipCode: "",
+      billingCountry: "US",
+    });
+
+    const orderId = (orderResult as any).insertId;
+
+    // Create order item for subscription product
+    await db.createOrderItems([{
+      orderId,
+      productId: subscription.productId,
+      variantId: subscription.variantId || null,
+      productName: "OptiBio Ashwagandha KSM-66 (Subscription)",
+      variantName: null,
+      sku: null,
+      quantity: subscription.quantity,
+      priceInCents: subscription.priceInCents,
+      totalInCents: subscription.priceInCents * subscription.quantity,
+    }]);
+
+    // Update subscription billing dates
+    const nextBillingDate = new Date();
+    nextBillingDate.setMonth(nextBillingDate.getMonth() + 1);
+
+    await db.updateSubscriptionBillingDates(
+      subscriptionId,
+      new Date(),
+      nextBillingDate
+    );
+
+    console.log("[Stripe Webhook] Subscription order created:", orderNumber);
+
+    // Send subscription renewal confirmation email
+    const emailSent = await sendOrderConfirmationEmail({
+      orderNumber,
+      customerEmail: user.email || "",
+      customerName: user.name || "",
+      items: [{
+        productName: "OptiBio Ashwagandha KSM-66 (Subscription Renewal)",
+        quantity: subscription.quantity,
+        priceInCents: subscription.priceInCents,
+      }],
+      subtotalInCents: subscription.priceInCents,
+      shippingInCents: 0,
+      taxInCents: 0,
+      totalInCents: subscription.priceInCents,
+      shippingAddress: {
+        name: user.name || "",
+        address1: "Address on file",
+        city: "",
+        state: "",
+        zipCode: "",
+        country: "US",
+      },
+    });
+
+    if (emailSent) {
+      console.log("[Stripe Webhook] Subscription renewal email sent successfully");
+    }
+
+  } catch (error: any) {
+    console.error("[Stripe Webhook] Error processing invoice:", error);
+    throw error;
+  }
+}
+
+/**
+ * Handle subscription status updates
+ */
+async function handleSubscriptionUpdated(stripeSubscription: Stripe.Subscription) {
+  console.log("[Stripe Webhook] Processing subscription update:", stripeSubscription.id);
+
+  try {
+    const subscription = await db.getSubscriptionByStripeId(stripeSubscription.id);
+    if (!subscription) {
+      console.error("[Stripe Webhook] Subscription not found:", stripeSubscription.id);
+      return;
+    }
+
+    // Map Stripe status to our status
+    let status: "active" | "paused" | "cancelled" | "expired" = "active";
+    
+    if (stripeSubscription.status === "canceled") {
+      status = "cancelled";
+    } else if (stripeSubscription.pause_collection) {
+      status = "paused";
+    } else if (stripeSubscription.status === "active") {
+      status = "active";
+    } else if (stripeSubscription.status === "past_due" || stripeSubscription.status === "unpaid") {
+      status = "expired";
+    }
+
+    await db.updateSubscriptionStatus(stripeSubscription.id, status);
+    console.log("[Stripe Webhook] Subscription status updated to:", status);
+
+  } catch (error: any) {
+    console.error("[Stripe Webhook] Error updating subscription:", error);
+    throw error;
+  }
+}
+
+/**
+ * Handle subscription deletion/cancellation
+ */
+async function handleSubscriptionDeleted(stripeSubscription: Stripe.Subscription) {
+  console.log("[Stripe Webhook] Processing subscription deletion:", stripeSubscription.id);
+
+  try {
+    await db.updateSubscriptionStatus(stripeSubscription.id, "cancelled");
+    console.log("[Stripe Webhook] Subscription marked as cancelled");
+
+  } catch (error: any) {
+    console.error("[Stripe Webhook] Error deleting subscription:", error);
     throw error;
   }
 }

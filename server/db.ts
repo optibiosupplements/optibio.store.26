@@ -364,3 +364,27 @@ export async function updateUserFounderTier(
   
   return null;
 }
+
+export async function getUserById(userId: number) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function updateSubscriptionBillingDates(
+  stripeSubscriptionId: string,
+  lastBillingDate: Date,
+  nextBillingDate: Date
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.update(subscriptions)
+    .set({ 
+      lastBillingDate,
+      nextBillingDate,
+    })
+    .where(eq(subscriptions.stripeSubscriptionId, stripeSubscriptionId));
+}
