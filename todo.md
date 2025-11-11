@@ -341,3 +341,31 @@
 - [ ] Update documentation
 - [ ] Save final checkpoint
 - [ ] Push to GitHub
+
+
+## 📊 NEW TASKS - Database Schema, Testing & Wireframes
+
+### Task 1: Present Complete Database Schema
+- [ ] Document all tables with relationships
+- [ ] Show founder tier system structure
+- [ ] Explain subscription data model
+- [ ] Create visual ER diagram
+- [ ] Export schema documentation
+
+### Task 2: Test Complete Purchase Flow
+- [ ] Set up Stripe test mode
+- [ ] Test one-time purchase flow
+- [ ] Test subscription purchase with Stripe Elements
+- [ ] Verify founder tier assignment
+- [ ] Test webhook handlers (invoice.payment_succeeded)
+- [ ] Verify welcome email delivery
+- [ ] Test subscription management (pause/resume/cancel)
+- [ ] Test Skip Next Delivery feature
+- [ ] Document test results
+
+### Task 3: Generate Wireframes
+- [ ] Create subscription checkout wireframe
+- [ ] Create Skip Next Delivery UX wireframe
+- [ ] Show payment confirmation flow
+- [ ] Show success states
+- [ ] Export wireframes as images
