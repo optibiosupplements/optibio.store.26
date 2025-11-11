@@ -3,7 +3,15 @@ import { getLoginUrl } from "@/const";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
-import { Package, Truck, CheckCircle2, Clock, ArrowLeft, Loader2, ShoppingBag } from "lucide-react";
+import { Package, Truck, CheckCircle2, Clock, ArrowLeft, Loader2, ShoppingBag, ChevronRight } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { useLocation } from "wouter";
 import { useState } from "react";
 
@@ -224,6 +232,19 @@ export default function MyOrders() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-8">
+          <Breadcrumb className="mb-4">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/" className="text-slate-600 hover:text-slate-900">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="text-slate-400">
+                <ChevronRight className="h-4 w-4" />
+              </BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-slate-900 font-medium">My Orders</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <h1 className="text-4xl font-bold text-slate-900 mb-2">My Orders</h1>
           <p className="text-slate-600">View and track your OptiBio orders</p>
         </div>
