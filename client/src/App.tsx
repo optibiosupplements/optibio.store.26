@@ -16,6 +16,7 @@ import MyOrders from "./pages/MyOrders";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Shipping from "./pages/Shipping";
+import About from "./pages/About";
 
 function Router() {
   return (
@@ -33,6 +34,7 @@ function Router() {
           <Route path="/privacy" component={Privacy} />
           <Route path="/terms" component={Terms} />
           <Route path="/shipping" component={Shipping} />
+          <Route path="/about" component={About} />
           <Route path="/404" component={NotFound} />
           {/* Final fallback route */}
           <Route component={NotFound} />
