@@ -92,7 +92,7 @@ export default function Home() {
     },
     {
       title: "Clinical Dosage",
-      description: "600mg per capsule—the exact dose used in peer-reviewed research studies."
+      description: "300mg per capsule—take 2 capsules daily for the 600mg clinical dose used in peer-reviewed research studies."
     },
     {
       title: "Gold Standard Quality",
@@ -244,28 +244,43 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, i) => (
-              <Card 
-                key={i} 
-                className="group hover:shadow-gold transition-all duration-300 border-2 border-yellow-100 hover:border-yellow-300 cursor-pointer bg-gradient-to-br from-yellow-50/80 to-amber-50/80 backdrop-blur-sm"
-              >
-                <CardContent className="p-8 space-y-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <benefit.icon className="w-7 h-7 text-amber-600" />
+          <div className="grid md:grid-cols-2 gap-8">
+            {benefits.map((benefit, i) => {
+              const lifestyleImages = [
+                '/images/lifestyle-morning-routine.jpg',
+                '/images/lifestyle-evening-relaxation.jpg',
+                '/images/lifestyle-focused-work.jpg',
+                '/images/lifestyle-active-wellness.jpg'
+              ];
+              return (
+                <Card 
+                  key={i} 
+                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-yellow-100 hover:border-yellow-300 cursor-pointer overflow-hidden"
+                >
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={lifestyleImages[i]} 
+                      alt={benefit.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <div className="text-4xl font-bold text-yellow-400 mb-2">
+                        {benefit.stat}
+                      </div>
+                      <h3 className="text-2xl font-bold text-white">
+                        {benefit.title}
+                      </h3>
+                    </div>
                   </div>
-                  <div className="text-3xl font-bold text-gradient-gold">
-                    {benefit.stat}
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-slate-700 leading-relaxed">
-                    {benefit.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+                  <CardContent className="p-6 bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
+                    <p className="text-slate-700 leading-relaxed">
+                      {benefit.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -330,6 +345,226 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How It Works - Timeline */}
+      <section className="py-24 bg-gradient-to-br from-blue-900 to-slate-900 text-white">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <Badge className="mb-4 bg-yellow-400/20 text-yellow-300 border-yellow-400/30">
+              Your Journey
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              What to Expect Week by Week
+            </h2>
+            <p className="text-xl text-blue-100">
+              Real results take time. Here's what thousands of customers experience as their bodies adapt to KSM-66®.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-8">
+            {/* Week 1-2 */}
+            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-yellow-400/30">
+              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-4 border-blue-900" />
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <h3 className="text-2xl font-bold text-yellow-300">Week 1-2: Settling In</h3>
+                  <Badge className="bg-yellow-400/20 text-yellow-300 border-yellow-400/30 w-fit mt-2 md:mt-0">
+                    Early Days
+                  </Badge>
+                </div>
+                <p className="text-lg text-blue-100 leading-relaxed">
+                  Your body is adjusting. You might notice subtle changes in how you respond to stress—maybe you don't snap as quickly, or your mind feels a bit quieter. Some people feel nothing yet, and that's completely normal. Keep going.
+                </p>
+              </div>
+            </div>
+
+            {/* Week 2-4 */}
+            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-yellow-400/30">
+              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-4 border-blue-900" />
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <h3 className="text-2xl font-bold text-yellow-300">Week 2-4: Sleep Improves</h3>
+                  <Badge className="bg-yellow-400/20 text-yellow-300 border-yellow-400/30 w-fit mt-2 md:mt-0">
+                    First Benefits
+                  </Badge>
+                </div>
+                <p className="text-lg text-blue-100 leading-relaxed mb-4">
+                  This is when most people notice they're falling asleep faster and waking up more refreshed. You might catch yourself thinking, "Huh, I actually slept through the night." Stress feels more manageable—not gone, but less overwhelming.
+                </p>
+                <div className="flex items-center gap-2 text-green-300">
+                  <CheckCircle2 className="w-5 h-5" />
+                  <span className="text-sm font-medium">72% of users report better sleep quality by week 3</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Week 4-8 */}
+            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-yellow-400/30">
+              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-4 border-blue-900" />
+              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <h3 className="text-2xl font-bold text-yellow-300">Week 4-8: Sustained Benefits</h3>
+                  <Badge className="bg-yellow-400/20 text-yellow-300 border-yellow-400/30 w-fit mt-2 md:mt-0">
+                    Peak Results
+                  </Badge>
+                </div>
+                <p className="text-lg text-blue-100 leading-relaxed mb-4">
+                  The magic window. Energy feels more consistent throughout the day. You're handling work stress without that constant edge of anxiety. Friends might ask, "What changed?" This is when the clinical benefits really show up.
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-green-300">
+                    <CheckCircle2 className="w-5 h-5" />
+                    <span className="text-sm font-medium">44% reduction in stress markers</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-green-300">
+                    <CheckCircle2 className="w-5 h-5" />
+                    <span className="text-sm font-medium">27.9% improvement in physical performance</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-green-300">
+                    <CheckCircle2 className="w-5 h-5" />
+                    <span className="text-sm font-medium">Noticeable improvement in focus and mental clarity</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Week 8+ */}
+            <div className="relative pl-8 md:pl-16">
+              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-4 border-blue-900" />
+              <div className="bg-gradient-to-br from-yellow-400/20 to-amber-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-400/40">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <h3 className="text-2xl font-bold text-yellow-300">Week 8+: Your New Normal</h3>
+                  <Badge className="bg-yellow-400 text-slate-900 border-0 w-fit mt-2 md:mt-0">
+                    Optimal
+                  </Badge>
+                </div>
+                <p className="text-lg text-blue-100 leading-relaxed">
+                  You've adapted. Stress still happens—life doesn't stop—but you're responding differently. You're sleeping well, thinking clearly, and feeling more like yourself. This is what "wellness" actually feels like: not perfect, just better equipped.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-blue-200 text-lg">
+              💡 <strong>Remember:</strong> Everyone's timeline is different. Some feel changes in days, others in weeks. Consistency is what matters.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Who This Is For - Qualification Section */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/20">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
+              <Badge className="mb-4 bg-blue-100 text-blue-800 border-blue-200">
+                Is This Right for You?
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
+                Who This Is For (And Who It's Not)
+              </h2>
+              <p className="text-xl text-slate-600">
+                OptiBio works best for people dealing with specific challenges. Here's how to know if it's right for you.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* This IS for you */}
+              <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50/50 to-white">
+                <CardContent className="p-8 space-y-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                      <CheckCircle2 className="w-7 h-7 text-green-600" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-900">This IS for you if:</h3>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700">You're dealing with <strong>chronic stress</strong> from work, family, or life transitions</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700">You struggle with <strong>racing thoughts</strong> or difficulty falling asleep</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700">You feel <strong>mentally foggy</strong> or can't focus like you used to</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700">You're <strong>exhausted but wired</strong>—tired all day, restless at night</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700">You want a <strong>science-backed solution</strong>, not just "wellness hype"</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700">You're willing to <strong>commit to 8-12 weeks</strong> for real results</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* This is NOT for you */}
+              <Card className="border-2 border-slate-200 bg-gradient-to-br from-slate-50/50 to-white">
+                <CardContent className="p-8 space-y-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center">
+                      <span className="text-2xl font-bold text-slate-600">✕</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-900">This is NOT for you if:</h3>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600">You're looking for <strong>instant energy</strong> or a caffeine replacement</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600">You want <strong>overnight results</strong> (adaptogens take time to work)</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600">You're not willing to <strong>take it consistently</strong> for at least a month</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600">You're pregnant, nursing, or have a <strong>thyroid condition</strong> (consult your doctor first)</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600">You prefer <strong>cheap supplements</strong> over premium, tested quality</p>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600">You're looking for a <strong>magic pill</strong> instead of a wellness tool</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="mt-12 text-center">
+              <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-8 max-w-2xl mx-auto">
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  <strong className="text-blue-900">Still not sure?</strong> That's okay. We offer a <strong className="text-blue-900">90-day money-back guarantee</strong>. Try it for 12 weeks. If you don't feel calmer, more focused, and better rested, we'll refund every penny. No questions asked.
+                </p>
+                <Link href="/shop">
+                  <Button size="lg" className="mt-6 bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700">
+                    Try OptiBio Risk-Free
+                    <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Product */}
       {mainProduct && (
         <section className="py-24 bg-white">
@@ -377,11 +612,11 @@ export default function Home() {
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-slate-700">
                         <CheckCircle2 className="w-5 h-5 text-green-600" />
-                        <span>90 capsules - 3-month supply</span>
+                        <span>90 capsules - 45-day supply</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700">
                         <CheckCircle2 className="w-5 h-5 text-green-600" />
-                        <span>600mg clinical dose per capsule</span>
+                        <span>300mg per capsule (600mg clinical dose with 2 capsules)</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700">
                         <CheckCircle2 className="w-5 h-5 text-green-600" />

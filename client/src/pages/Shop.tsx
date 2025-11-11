@@ -142,7 +142,7 @@ export default function Shop() {
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-sm">
                         <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span>600mg KSM-66® per serving</span>
+                        <span>300mg per capsule (600mg daily dose)</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
                         <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />

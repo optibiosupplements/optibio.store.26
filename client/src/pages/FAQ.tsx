@@ -43,7 +43,7 @@ export default function FAQ() {
         },
         {
           q: "Can I take more than the recommended dose?",
-          a: "We recommend sticking to the suggested serving size of 2 capsules (600mg) per day, which is the dosage used in most clinical studies. While KSM-66® has an excellent safety profile, more is not necessarily better. If you have specific health goals, consult with your healthcare provider about the appropriate dosage for you."
+          a: "We recommend sticking to the suggested serving size of 2 capsules per day (300mg each, 600mg total), which is the dosage used in most clinical studies. While KSM-66® has an excellent safety profile, more is not necessarily better. If you have specific health goals, consult with your healthcare provider about the appropriate dosage for you."
         },
         {
           q: "Is OptiBio Ashwagandha vegan?",

@@ -426,3 +426,34 @@
 - [x] Verify clinical study links still work
 - [x] Verify quality documents still download
 - [x] Verify e-commerce flow (cart → checkout → payment)
+
+## Final Brand Enhancements (Phase 2)
+- [x] Add "How It Works" timeline section to homepage (week-by-week expectations)
+- [x] Integrate lifestyle photography into benefits section
+- [ ] Integrate lifestyle photography into hero section background
+- [x] Add lifestyle images to product pages
+- [x] Create "Who This Is For" qualification section with checkmarks
+- [x] Test all new sections on mobile and desktop
+- [x] Verify all functionality still works after changes
+- [ ] Save final checkpoint
+- [ ] Push changes to GitHub
+
+## Urgent Correction
+- [x] Fix dosage: Change 600mg to 300mg per capsule throughout site
+
+## Supplement Facts Panel Corrections (from actual SFP image)
+- [x] Update serving size to "1 Capsule" (not 2)
+- [x] Update servings per container to 60 (not 90)
+- [x] Update other ingredients: Hypromellose (capsule), Microcrystalline cellulose, Magnesium stearate
+- [x] Remove Titanium dioxide from ingredients
+- [x] Remove rice flour from ingredients
+- [x] Update all product pages with correct supplement facts
+
+## Product Specification Notes
+- [x] Capsules are white/white (opaque white), not clear/clear
+- Note: Current product images show black bottles which is correct. Capsule appearance noted for future reference.
+
+## Final Correction - Bottle Count
+- [x] Change back to 90 capsules per bottle (not 60)
+- [x] Update to 45-day supply (not 1-month or 3-month)
+- [x] Keep 300mg per capsule, 2 capsules daily = 600mg clinical dose

@@ -468,11 +468,11 @@ export default function ProductDetail() {
                     OptiBio Ashwagandha KSM-66 represents the pinnacle of ashwagandha supplementation. Our premium formula uses only the highest quality KSM-66® extract—the most clinically studied ashwagandha on the market with over 20 peer-reviewed research studies demonstrating its efficacy.
                   </p>
                   <p className="text-slate-700 leading-relaxed">
-                    Each capsule contains 600mg of pure KSM-66® root extract, standardized to contain 5% withanolides—the exact clinical dosage used in research studies. Unlike inferior products that use leaf extracts or lower concentrations, our full-spectrum root-only extract preserves the complete balance of bioactive compounds found in the whole herb.
+                    Each capsule contains 300mg of pure KSM-66® root extract, standardized to contain 5% withanolides. Take 2 capsules daily for the 600mg clinical dosage used in research studies. Unlike inferior products that use leaf extracts or lower concentrations, our full-spectrum root-only extract preserves the complete balance of bioactive compounds found in the whole herb.
                   </p>
                   <h4 className="text-xl font-bold text-slate-900 mt-8">Why Choose OptiBio?</h4>
                   <ul className="space-y-2 text-slate-700">
-                    <li><strong>Clinical Dosage:</strong> 600mg per capsule—the exact amount used in peer-reviewed studies</li>
+                    <li><strong>Clinical Dosage:</strong> 300mg per capsule (take 2 daily for 600mg clinical dose used in peer-reviewed studies)</li>
                     <li><strong>Root-Only Extract:</strong> No leaves or inferior plant parts, just pure root extract</li>
                     <li><strong>Third-Party Tested:</strong> Every batch verified for purity, potency, and safety</li>
                     <li><strong>GMP Certified:</strong> Manufactured in a pharmaceutical-grade facility</li>
@@ -498,7 +498,7 @@ export default function ProductDetail() {
                             <div className="text-sm text-slate-600">Standardized to 5% Withanolides</div>
                           </div>
                           <div className="text-right">
-                            <div className="font-bold">600 mg</div>
+                            <div className="font-bold">300 mg</div>
                             <div className="text-sm text-slate-600">**</div>
                           </div>
                         </div>
@@ -507,7 +507,7 @@ export default function ProductDetail() {
                         ** Daily Value not established.
                       </div>
                       <div className="text-xs text-slate-600 pt-4">
-                        <strong>Other Ingredients:</strong> Vegetable cellulose (capsule), rice flour, magnesium stearate (vegetable source).
+                        <strong>Other Ingredients:</strong> Hypromellose (capsule), Microcrystalline cellulose, Magnesium stearate.
                       </div>
                     </div>
                     <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
