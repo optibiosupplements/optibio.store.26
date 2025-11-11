@@ -29,13 +29,20 @@ export default function Shop() {
   return (
     <div className="min-h-screen">
       {/* Page Header */}
-      <section className="bg-gradient-to-br from-primary/5 to-secondary/5 py-12 md:py-16">
-        <div className="container">
+      <section className="relative py-12 md:py-16 overflow-hidden gradient-hero">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+        </div>
+        <div className="container relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+              <span className="font-bold">Premium KSM-66® Formula</span>
+            </Badge>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               Premium Ashwagandha Supplements
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-slate-200">
               Clinically-researched KSM-66® formula backed by science. 
               Choose your perfect wellness solution.
             </p>
@@ -69,7 +76,7 @@ export default function Shop() {
           {/* Product Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products?.map((product) => (
-              <Card key={product.id} className="group overflow-hidden border-2 hover:border-primary/50 hover:shadow-xl transition-all">
+              <Card key={product.id} className="group overflow-hidden border-2 border-yellow-100 hover:border-yellow-300 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
                 <CardContent className="p-0">
                   {/* Product Image */}
                   <div className="relative overflow-hidden bg-muted/30">
@@ -79,13 +86,13 @@ export default function Shop() {
                       className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     {product.isFeatured && (
-                      <Badge className="absolute top-4 right-4 bg-secondary text-secondary-foreground">
+                      <Badge className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
                         <TrendingUp className="h-3 w-3 mr-1" />
                         Best Seller
                       </Badge>
                     )}
                     {product.compareAtPriceInCents && (
-                      <Badge className="absolute top-4 left-4 bg-primary">
+                      <Badge className="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
                         Save {Math.round((1 - product.priceInCents / product.compareAtPriceInCents) * 100)}%
                       </Badge>
                     )}
