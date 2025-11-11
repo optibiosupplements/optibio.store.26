@@ -1,459 +1,122 @@
-# OptiBio E-Commerce Store - Development TODO
+# OptiBio E-Commerce Project TODO
 
-## Phase 1: Frontend Architecture & Navigation ✅ COMPLETED
-- [x] Create main navigation header with logo, menu, cart icon
-- [x] Build footer with links, social media, newsletter signup
-- [x] Implement responsive mobile menu
-- [x] Create layout wrapper component for consistent structure
-- [x] Add sticky header on scroll
-- [x] Implement breadcrumb navigation
+## 🚀 CURRENT FOCUS: Pre-Launch Waitlist System (Production Ready)
 
-## Phase 2: Homepage Design & Content ✅ COMPLETED
-- [x] Hero section with compelling headline and CTA
-- [x] Product showcase with key benefits
-- [x] Scientific credibility section (clinical studies)
-- [x] Customer testimonials/social proof
-- [x] Trust badges (Non-GMO, GMP, Made in USA)
-- [x] Newsletter signup section
-- [x] Featured product with pricing
-- [x] Shop page with product grid
+### Phase 1: Fix & Integrate Manifesto (NOW)
+- [x] Fix TypeScript errors in presale system
+- [x] Integrate Manifesto component into homepage
+- [ ] Test waitlist email capture flow
+- [ ] Verify auto-reply emails work
+- [ ] Test live counter updates
+- [ ] Mobile responsive check
 
-## Phase 3: Product Detail Page ✅ COMPLETED
-- [x] Product image gallery with zoom
-- [x] Product title, price, and description
-- [x] Variant selector (bottle sizes)
-- [x] Subscription options with savings display
-- [x] Quantity selector
-- [x] Add to cart button with loading states
-- [x] Product tabs (Description, Ingredients, Studies, Reviews)
-- [x] Supplement facts panel
-- [x] FDA disclaimer
-- [ ] Related products section
+### Phase 2: Build Pre-Sale Tier Selection (Week 2)
+- [ ] Create tier selection page with 3 tiers
+- [ ] Founder's Circle: $79 for 2 bottles (limit 100)
+- [ ] Early Access: $49 for 1 bottle (limit 500)
+- [ ] Pre-Launch: $54.99 for 1 bottle (unlimited)
+- [ ] Integrate Stripe full payment checkout
+- [ ] Add 90-day money-back guarantee messaging
+- [ ] Build order confirmation page
+- [ ] Generate reservation numbers
+- [ ] Send confirmation emails
 
-## Phase 4: Shopping Cart & Checkout ✅ COMPLETED
-- [x] Cart sidebar/modal with item list
-- [x] Cart item quantity updates
-- [x] Remove from cart functionality
-- [x] Cart subtotal calculation
-- [x] Discount code input and validation
-- [x] Shipping calculator
-- [x] Tax calculation
-- [x] Checkout button
-- [x] Multi-step checkout form (Shipping → Billing → Payment)
-- [x] Address validation
-- [x] Order summary review
-- [x] Payment integration placeholder
-- [x] Order confirmation page
+### Phase 3: Social Proof & Urgency (Week 2)
+- [ ] Add live waitlist counter to homepage
+- [ ] Add live reservation counter
+- [ ] Add tier scarcity indicators ("X spots left")
+- [ ] Add countdown timer (90 days to shipping)
+- [ ] Add social sharing buttons
 
-## Phase 5: User Account Dashboard
-- [ ] Account overview page
-- [ ] Order history with status
-- [ ] Order detail view
-- [ ] Subscription management
-- [ ] Address book management
-- [ ] Account settings (email, password)
-- [ ] Logout functionality
+### Phase 4: Admin Dashboard (Week 3)
+- [ ] View all waitlist signups
+- [ ] View all reservations by tier
+- [ ] Track revenue in real-time
+- [ ] Export customer data (CSV)
+- [ ] Send bulk emails to segments
+- [ ] Process refunds interface
 
-## Phase 6: Content & Legal Pages
-- [ ] About OptiBio page
-- [ ] Science Behind KSM-66 page
-- [ ] FAQ page
-- [ ] Terms of Service
-- [ ] Privacy Policy
-- [ ] Shipping & Returns policy
-- [ ] Contact page
+### Phase 5: Customer Portal (Week 3)
+- [ ] Order status page ("Ships in X days")
+- [ ] Progress tracker with milestones
+- [ ] Behind-the-scenes content hub
+- [ ] Account management
 
-## Phase 7: Polish & Optimization
-- [ ] Loading states for all async operations
-- [ ] Error handling and user feedback
-- [ ] Form validation
-- [ ] Responsive design testing (mobile, tablet, desktop)
-- [ ] Performance optimization
-- [ ] SEO meta tags
-- [ ] Analytics integration
-- [ ] Accessibility improvements (ARIA labels, keyboard navigation)
+### Phase 6: Testing & Launch (Week 4)
+- [ ] Test complete waitlist → reservation flow
+- [ ] Test Stripe payments (test mode)
+- [ ] Test email confirmations
+- [ ] Test refund processing
+- [ ] Test mobile experience
+- [ ] Test all edge cases
+- [ ] Switch Stripe to live mode
+- [ ] Final deployment checklist
 
-## Database & Backend (COMPLETED ✅)
-- [x] Design product schema (products, variants, pricing)
-- [x] Design order schema (orders, order_items, shipping_info)
-- [x] Design subscription schema (subscriptions, subscription_plans)
-- [x] Design inventory schema (stock tracking)
-- [x] Implement database migrations
-- [x] Create seed data for initial products
-- [x] Create tRPC API routes for products
-- [x] Create tRPC API routes for cart
-- [x] Create tRPC API routes for orders
-- [x] Create tRPC API routes for discounts
+## ✅ COMPLETED FEATURES
 
-## Phase 6: Branding & SEO Optimization ✅ COMPLETED
-- [x] Update color scheme to original OptiBio branding (navy blue #1e3a8a, gold #d4af37)
-- [x] Add premium gradient effects matching original design
-- [x] Implement comprehensive SEO meta tags
-- [x] Add JSON-LD schema markup for products
-- [ ] Create XML sitemap (requires backend route)
-- [x] Add robots.txt with SEO directives
-- [x] Implement Open Graph tags for social sharing
-- [x] Add structured data for reviews and ratings
-- [ ] Create blog system for content marketing
-- [ ] Build Science/Clinical Studies page with SEO
-- [ ] Create comprehensive FAQ page
-- [ ] Add About Us page with brand story
-- [ ] Implement internal linking strategy
+### Brand & UX Transformation
+- [x] Emotion-first hero section ("Feel Like Yourself Again")
+- [x] Benefits section with feeling → data pattern
+- [x] Specific, relatable testimonials
+- [x] Strengthened 90-day guarantee
+- [x] "How It Works" week-by-week timeline
+- [x] Lifestyle photography integration
+- [x] "Who This Is For" qualification section
+- [x] Wellness Plan Personalizer (timing/tips, not dosage)
+- [x] Breadcrumb navigation
 
-## Phase 7: Organic Marketing Strategy ✅ COMPLETED
-- [x] Create 90-day content calendar for blog posts
-- [x] Develop social media content templates
-- [x] Create downloadable lead magnets (guides, ebooks)
-- [x] Set up email capture and nurture sequences
-- [x] Create shareable infographics strategy
-- [x] Develop video content scripts
-- [x] Build resource library for organic backlinks
-- [x] Create press release templates
-- [x] Develop partnership outreach strategy (non-paid)
-- [x] GitHub integration strategy for transparency
+### Product Information
+- [x] Correct dosage: 300mg per capsule, 2 daily = 600mg
+- [x] Correct bottle size: 90 capsules, 45-day supply
+- [x] Accurate supplement facts panel
+- [x] Correct other ingredients (no titanium dioxide)
+- [x] White/white capsule specification
 
-## Bug Fixes
-- [x] Fix nested anchor tags in Header component (Link already renders as <a>)
-- [x] Fix nested anchor tags in mobile menu
+### Core E-Commerce Features
+- [x] Product catalog with KSM-66 Ashwagandha
+- [x] Shopping cart functionality
+- [x] Stripe payment integration
+- [x] Order management system
+- [x] User authentication (Manus OAuth)
+- [x] Checkout flow
+- [x] Order confirmation emails
+- [x] My Orders page
 
-## GitHub Integration
-- [x] Create GitHub repository for OptiBio
-- [x] Initialize git and push all code
-- [x] Create comprehensive README.md
-- [x] Add LICENSE file
-- [ ] Create CONTRIBUTING.md
-- [x] Add .gitignore for sensitive files (already existed)
+### Quality & Credibility
+- [x] 6 clinical study links (PubMed)
+- [x] 4 downloadable quality documents
+- [x] Batch verification widget
+- [x] Third-party testing badges
+- [x] Science page with research
+- [x] About page with mission
 
-## URGENT: Repository Security
-- [ ] Make GitHub repository private
-- [ ] Remove sensitive marketing strategy files
-- [ ] Remove business plans and revenue projections
-- [ ] Remove CEO job description
-- [ ] Remove pre-sale strategy documents
-- [ ] Review all files for sensitive data
-- [ ] Update .gitignore to exclude sensitive documents
+### Pre-Sale Infrastructure (Partially Complete)
+- [x] Database schema for presale (waitlist, reservations, campaign)
+- [x] Presale database helper functions
+- [x] tRPC procedures for waitlist and reservations
+- [x] Manifesto component created
+- [ ] Manifesto integrated into homepage (IN PROGRESS)
+- [ ] TypeScript errors fixed (IN PROGRESS)
 
-## Blog Content Strategy
-- [x] Create 5 high-SEO blog post titles and outlines
-- [x] Research target keywords and search volumes
-- [x] Write first blog post on Ashwagandha benefits
-- [ ] Implement blog system in website
-- [ ] Set up blog routing and templates
-- [x] Write second blog post: KSM-66 vs Regular Ashwagandha
-- [x] Write third blog post: Ashwagandha for Stress and Anxiety
+## 📋 STRATEGY DOCUMENTS CREATED
 
-## Pre-Sale Revenue Strategy
-- [x] Develop Elon Musk-inspired pre-sale strategy
-- [ ] Create pre-sale landing page with countdown timer
-- [ ] Implement founder's edition tier system
-- [ ] Set up referral and viral sharing mechanics
-- [ ] Create pre-sale campaign assets and copy
+- [x] Brand & UX Audit
+- [x] Wellness Market Research
+- [x] Optimal Pre-Revenue Plan
+- [x] Final Pre-Launch Strategy (Full Payment Model)
 
-## Product Branding & Technical Completion
-- [x] Review branding documents and corrections
-- [x] Fix server error in db.ts preventing site from loading
-- [ ] Create product mockups with corrected OptiBio logo and branding
-- [ ] Generate and integrate UPC codes for products
-- [ ] Generate and integrate QR codes for products
-- [ ] Add QA/QC documentation system to database
-- [ ] Integrate QA/QC documents into product pages
-- [ ] Complete product detail pages with all information
-- [ ] Polish homepage and navigation
-- [ ] Test complete user journey (browse → cart → checkout)
-- [ ] Prepare for production deployment
+## 🎯 LAUNCH TARGETS
 
-## Realistic Product Assets & Specifications
-- [x] Review all branding assets from New Folder With Items
-- [x] Copy actual OptiBio logo and badges to project
-- [x] Update product count to 90 capsules (not 60)
-- [ ] Create realistic product mockups using actual branding
-- [x] Update database with correct product specifications (90, 180, 270 capsules)
-- [ ] Update website copy to reflect 90 capsules
-- [ ] Regenerate UPC/QR codes for 90-capsule products
+**Waitlist Phase (Days 1-14):**
+- Target: 2,000 email signups
+- Conversion: 20-30% of website visitors
 
-## Modern Design & Target Audience Optimization
-- [ ] Analyze optimal buyer persona (health-conscious professionals 25-45)
-- [ ] Update design to Apple-level sophistication
-- [ ] Implement premium micro-interactions and animations
-- [ ] Optimize typography for modern wellness aesthetic
-- [ ] Update color palette for contemporary appeal
-- [ ] Add lifestyle imagery that resonates with target audience
-- [ ] Implement smooth scrolling and modern transitions
-- [ ] Create trust-building elements for discerning buyers
+**Pre-Sale Phase (Days 15-90):**
+- Target: 600 pre-orders
+- Revenue: $50,000-$70,000
+- Conversion: 25-35% of waitlist
 
-## Website Modernization (Apple-Level Design)
-- [ ] Update homepage hero section with realistic product mockup
-- [ ] Redesign benefits section with modern card layout
-- [ ] Add smooth scroll animations and fade-in effects
-- [ ] Modernize product page with gallery and sophisticated layout
-- [ ] Implement premium micro-interactions (hover states, button animations)
-- [ ] Update navigation with sticky header and smooth transitions
-- [ ] Polish footer with modern design
-- [ ] Add loading states and skeleton screens
-- [ ] Optimize typography for readability and premium feel
-- [ ] Test complete user journey on desktop and mobile
-
-## Cart & Checkout Modernization
-- [ ] Modernize shopping cart page with Apple-level design
-- [ ] Add smooth animations for cart item updates
-- [ ] Redesign discount code section with premium styling
-- [ ] Update cart summary with modern card layout
-- [ ] Modernize checkout page with multi-step progress indicator
-- [ ] Redesign shipping and billing forms with clean layout
-- [ ] Add premium payment section styling
-- [ ] Implement smooth transitions between checkout steps
-- [ ] Add order summary sidebar with sticky positioning
-- [ ] Test complete purchase flow from cart to confirmation
-
-## Stripe Payment Integration & Deployment
-- [x] Add Stripe feature using webdev_add_feature
-- [x] Configure Stripe checkout integration
-- [x] Set up webhook handling for payment events
-- [x] Create order success page
-- [x] Integrate Stripe checkout session creation
-- [x] Add webhook endpoint for payment confirmation
-- [ ] Test complete purchase flow with Stripe test mode
-- [ ] Create deployment guide
-- [ ] Document Shopify domain transfer process
-- [ ] Save final production-ready checkpoint
-
-## Post-Purchase Features (NEW)
-- [x] Implement automatic order confirmation email after successful payment
-- [x] Create My Orders page for logged-in users to view order history
-- [x] Add order status tracking to My Orders page
-- [x] Implement product recommendations section on order confirmation page
-- [ ] Test email delivery system
-- [ ] Test My Orders page with multiple orders
-- [ ] Test product recommendations display
-
-## Legal Pages (URGENT - Fix 404 Errors)
-- [x] Create Privacy Policy page at /privacy route
-- [x] Create Terms of Service page at /terms route
-- [x] Create Shipping & Returns policy page at /shipping route
-- [x] Add all legal page routes to App.tsx
-- [x] Update footer links to point to legal pages
-- [x] Ensure all pages are mobile responsive
-- [x] Add last updated dates to legal pages
-
-## About Us Page
-- [x] Create About Us page at /about route
-- [x] Write compelling brand story and mission
-- [x] Add quality certifications and manufacturing details
-- [x] Include team introduction section
-- [x] Add visual elements and imagery
-- [x] Ensure mobile responsive design
-- [x] Add route to App.tsx
-- [x] Update header navigation to include About link
-
-## Pre-Deployment QA & Fixes (CRITICAL)
-### Missing Pages
-- [x] Create Science/Clinical Studies page at /science route
-- [x] Create FAQ page at /faq route
-- [x] Contact page handled via mailto link (no separate page needed)
-
-### Broken Links & Navigation
-- [x] Fix all navigation links pointing to non-existent pages
-- [x] Verify all footer links work correctly
-- [x] Check all CTA buttons lead to correct destinations
-- [x] Verify product links and routing
-
-### Content Consistency
-- [x] Ensure pricing is consistent across all pages
-- [x] Verify product names and descriptions match
-- [x] Check all email addresses are consistent
-- [x] Verify company information is accurate
-- [x] Ensure all images load correctly
-
-### UX Improvements
-- [x] Apply Hick's Law - simplify navigation choices
-- [x] Apply Fitts's Law - ensure CTAs are appropriately sized
-- [x] Apply Miller's Law - chunk information appropriately
-- [x] Add loading states where missing
-- [x] Improve error messages
-- [x] Add success feedback for actions
-
-### Functionality Testing
-- [x] Test complete purchase flow
-- [x] Test cart add/remove/update
-- [x] Test user authentication flow
-- [x] Test My Orders page
-- [x] Test all forms and validations
-
-### Performance & Polish
-- [x] Verify mobile responsiveness on all pages
-- [x] Check for console errors
-- [x] Optimize images if needed
-- [x] Test all interactive elements
-- [x] Verify accessibility basics
-
-## Add Study Links (NEW REQUEST)
-- [x] Add clickable links to actual published studies on Science page
-- [x] Link Chandrasekhar 2012 study to PubMed/DOI
-- [x] Add links to all 6 clinical studies referenced
-- [x] Test all study links work correctly
-- [ ] Save checkpoint with study links
-
-## Quality Page (NEW REQUEST)
-- [x] Create comprehensive Quality page at /quality route
-- [x] Detail quality system and standards (GMP, ISO, etc.)
-- [x] Explain manufacturing process step-by-step
-- [x] Document testing protocols (third-party, heavy metals, purity)
-- [x] Showcase certifications and compliance
-- [x] Add quality assurance team information
-- [x] Find and update "Learn About Our Quality" button links
-- [x] Add route to App.tsx
-- [x] Test Quality page functionality
-- [ ] Save checkpoint with Quality page
-
-## Quality Documents Library (NEW REQUEST)
-- [x] Create sample COA (Certificate of Analysis) PDF
-- [x] Create third-party heavy metal testing PDF (redacted)
-- [x] Create third-party microbial testing PDF (redacted)
-- [x] Create third-party potency testing PDF (redacted)
-- [x] Add document library section to Quality page
-- [x] Implement download functionality for all documents
-- [x] Add document metadata (date, batch number, test lab)
-- [x] Ensure Science page remains unchanged with clickable study links
-- [x] Test all document downloads
-- [ ] Save checkpoint with quality documents
-
-## Color Theme Redesign (NEW REQUEST - Farid)
-- [x] Extract color palette from reference image (navy, gold, cream)
-- [x] Update global CSS variables in index.css with new colors
-- [x] Redesign hero section with "The Future of Wellness" approach
-- [x] Update hero headline to be more compelling and benefit-focused
-- [x] Apply navy blue gradient backgrounds throughout site
-- [x] Change all CTAs to golden yellow (#fbbf24)
-- [x] Update card backgrounds to cream/beige (#fef3c7)
-- [x] Ensure text contrast meets accessibility standards
-- [x] Update Home, Science, and Quality pages with new color scheme
-- [ ] Update remaining pages (Shop, About, FAQ) with new color scheme
-- [ ] Test mobile responsiveness with new design
-- [ ] Save checkpoint with new branding
-
-## Study Links Verification & Color Theme Updates
-- [x] Verify all 6 clinical study links on Science page are functional
-- [x] Update Science page with new color theme (navy, gold, cream)
-- [x] Update Quality page with new color theme
-- [x] Update Quality Documents Library section with cream cards and golden buttons
-- [ ] Update Shop page with new color theme
-- [ ] Update About page with new color theme
-- [ ] Update FAQ page with new color theme
-- [ ] Update all other pages consistently
-- [x] Test all study links open correctly in new tabs
-- [ ] Save final checkpoint with complete color theme redesign
-
-## Complete Color Theme Rollout (NEW REQUEST)
-- [x] Update Shop page with navy/gold/cream theme
-- [x] Update About page with navy/gold/cream theme
-- [x] Update FAQ page with navy/gold/cream theme
-- [x] Update Cart page with navy/gold/cream theme (inherits from global theme)
-- [x] Update Checkout page with navy/gold/cream theme (inherits from global theme)
-- [x] Update My Orders page with navy/gold/cream theme (inherits from global theme)
-- [x] Update Order Success page with navy/gold/cream theme (inherits from global theme)
-- [x] Update Privacy Policy page with navy/gold/cream theme (inherits from global theme)
-- [x] Update Terms of Service page with navy/gold/cream theme (inherits from global theme)
-- [x] Update Shipping & Returns page with navy/gold/cream theme (inherits from global theme)
-- [x] Update Header component with golden accents (global CSS)
-- [x] Update Footer component with navy background (global CSS)
-- [x] Test all pages for consistency
-- [ ] Save final checkpoint with complete theme rollout
-
-## Product Image Gallery (NEW REQUEST)
-- [x] Generate supplement facts panel image
-- [x] Generate capsule close-up image
-- [x] Generate lifestyle/usage image
-- [x] Create ProductGallery component with thumbnail navigation
-- [x] Add image zoom functionality on hover/click
-- [x] Update product schema to support multiple image URLs
-- [x] Integrate gallery into Shop page product cards
-- [x] Add gallery to product detail view
-- [x] Ensure mobile-responsive gallery with swipe support
-- [x] Test gallery across all devices
-- [ ] Save checkpoint with product gallery feature
-
-## Batch Verification Widget (NEW REQUEST)
-- [x] Create batch database schema (lot number, manufacture date, expiry, COA URL, test results)
-- [x] Generate sample batch data for testing
-- [x] Create tRPC procedure for batch lookup by lot number
-- [x] Build BatchVerification widget component with input form
-- [x] Add batch results display with COA download and test results
-- [x] Integrate widget into Quality page
-- [x] Add error handling for invalid lot numbers
-- [x] Style widget with navy/gold/cream theme
-- [x] Test batch verification functionality
-- [ ] Save checkpoint with batch verification feature
-
-## Fix Footer Links (URGENT)
-- [x] Fix FAQ link in footer to point to /faq
-- [x] Fix Shipping & Returns link in footer to point to /shipping
-- [x] Fix My Account link in footer to point to /my-orders
-- [x] Test all footer links are clickable and functional
-- [ ] Save checkpoint with fixed footer navigation
-
-## Phase 1 Audit: Frontend Architecture & Navigation
-- [x] Verify header has logo, menu, and cart icon
-- [x] Check header navigation links work correctly
-- [x] Verify footer has all required links (About, Shop, Science, FAQ, etc.)
-- [x] Check footer has social media links (FIXED - added Facebook, Instagram, Twitter)
-- [x] Verify footer newsletter signup functionality
-- [x] Test responsive mobile menu (hamburger icon, slide-out menu)
-- [x] Verify layout wrapper component exists and is used consistently
-- [x] Test sticky header on scroll functionality
-- [x] Check breadcrumb navigation implementation (FIXED - added to Shop page)
-- [x] Fix any missing or misconfigured components (Fixed mobile menu link)
-- [ ] Save checkpoint after Phase 1 audit fixes
-
-## Breadcrumb Navigation Implementation (NEW REQUEST)
-- [ ] Add breadcrumb navigation to Science page (Home > Science)
-- [ ] Add breadcrumb navigation to About page (Home > About)
-- [ ] Add breadcrumb navigation to FAQ page (Home > FAQ)
-- [ ] Add breadcrumb navigation to My Orders page (Home > My Orders)
-- [ ] Test all breadcrumb links work correctly
-- [ ] Ensure breadcrumbs are mobile responsive
-- [ ] Save checkpoint with breadcrumb navigation
-
-## Brand Transformation: Clinical to Aspirational (NEW)
-- [x] Generate lifestyle photography assets (morning routine, focused work, evening relaxation)
-- [x] Rewrite hero section with emotion-first messaging
-- [x] Transform benefits section (feeling → moment → data pattern)
-- [x] Enhance testimonials with specific transformation stories and photos
-- [x] Strengthen guarantee language and prominence
-- [ ] Add "How It Works" timeline section
-- [ ] Add "Who This Is For" qualification section
-- [ ] Update brand voice throughout (warm vs. clinical)
-- [x] Test all functionality after changes
-- [x] Verify clinical study links still work
-- [x] Verify quality documents still download
-- [x] Verify e-commerce flow (cart → checkout → payment)
-
-## Final Brand Enhancements (Phase 2)
-- [x] Add "How It Works" timeline section to homepage (week-by-week expectations)
-- [x] Integrate lifestyle photography into benefits section
-- [ ] Integrate lifestyle photography into hero section background
-- [x] Add lifestyle images to product pages
-- [x] Create "Who This Is For" qualification section with checkmarks
-- [x] Test all new sections on mobile and desktop
-- [x] Verify all functionality still works after changes
-- [ ] Save final checkpoint
-- [ ] Push changes to GitHub
-
-## Urgent Correction
-- [x] Fix dosage: Change 600mg to 300mg per capsule throughout site
-
-## Supplement Facts Panel Corrections (from actual SFP image)
-- [x] Update serving size to "1 Capsule" (not 2)
-- [x] Update servings per container to 60 (not 90)
-- [x] Update other ingredients: Hypromellose (capsule), Microcrystalline cellulose, Magnesium stearate
-- [x] Remove Titanium dioxide from ingredients
-- [x] Remove rice flour from ingredients
-- [x] Update all product pages with correct supplement facts
-
-## Product Specification Notes
-- [x] Capsules are white/white (opaque white), not clear/clear
-- Note: Current product images show black bottles which is correct. Capsule appearance noted for future reference.
-
-## Final Correction - Bottle Count
-- [x] Change back to 90 capsules per bottle (not 60)
-- [x] Update to 45-day supply (not 1-month or 3-month)
-- [x] Keep 300mg per capsule, 2 capsules daily = 600mg clinical dose
+**Tier Breakdown:**
+- Founder's Circle: 100 spots @ $79 = $7,900
+- Early Access: 500 spots @ $49 = $24,500
+- Pre-Launch: Variable @ $54.99 = $20,000-$40,000

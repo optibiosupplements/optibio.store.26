@@ -18,6 +18,8 @@ import {
 } from "lucide-react";
 import { formatPrice } from "@/const";
 import { trpc } from "@/lib/trpc";
+import WellnessPlanPersonalizer from "@/components/WellnessPlanPersonalizer";
+import Manifesto from "@/components/Manifesto";
 
 export default function Home() {
   const { data: products } = trpc.products.list.useQuery();
@@ -102,6 +104,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
+      {/* Manifesto - Industry Truth & Waitlist Capture */}
+      <Manifesto />
+      
       {/* Hero Section - The Future of Wellness */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden gradient-hero">
         {/* Animated background elements */}
@@ -451,6 +456,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Wellness Plan Personalizer */}
+      <WellnessPlanPersonalizer />
 
       {/* Who This Is For - Qualification Section */}
       <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/20">

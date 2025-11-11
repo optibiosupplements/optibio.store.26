@@ -4,6 +4,7 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, protectedProcedure, router } from "./_core/trpc";
 import { z } from "zod";
 import * as db from "./db";
+import * as presaleDb from "./presale-db";
 import { stripe } from "./stripe";
 import { ENV } from "./_core/env";
 
@@ -311,6 +312,56 @@ export const appRouter = router({
             minPurchaseInCents: code.minPurchaseInCents,
           },
         };
+      }),
+  }),
+
+  // Pre-sale system
+  presale: router({ 
+    joinWaitlist: publicProcedure
+      .input(z.object({
+        email: z.string().email(),
+        name: z.string(),
+        source: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        await presaleDb.addToWaitlist(input);
+        return { success: true };
+      }),
+    
+    getWaitlistCount: publicProcedure.query(async () => {
+      return presaleDb.getWaitlistCount();
+    }),
+    
+    getCampaign: publicProcedure.query(async () => {
+      const campaign = await presaleDb.getCampaign();
+      if (!campaign) {
+        await presaleDb.initializeCampaign();
+        return presaleDb.getCampaign();
+      }
+      return campaign;
+    }),
+    
+    getReservationCount: publicProcedure.query(async () => {
+      return presaleDb.getReservationCount();
+    }),
+    
+    createReservation: publicProcedure
+      .input(z.object({
+        email: z.string().email(),
+        name: z.string(),
+        tier: z.enum(["founders", "early_adopter", "pre_launch"]),
+        price: z.string(),
+        referredBy: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const reservation = await presaleDb.createReservation(input);
+        
+        // Track referral if applicable
+        if (input.referredBy) {
+          await presaleDb.trackReferral(input.referredBy, reservation.insertId);
+        }
+        
+        return { success: true, reservation };
       }),
   }),
 

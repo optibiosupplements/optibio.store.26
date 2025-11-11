@@ -282,3 +282,6 @@ export const productBatches = mysqlTable("productBatches", {
 
 export type ProductBatch = typeof productBatches.$inferSelect;
 export type InsertProductBatch = typeof productBatches.$inferInsert;
+
+// Pre-Sale System Tables
+export * from "./presale-schema";
