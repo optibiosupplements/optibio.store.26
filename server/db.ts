@@ -1,4 +1,4 @@
-import { eq, and, desc } from "drizzle-orm";
+import { eq, and, sql, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { 
   InsertUser, 
@@ -140,7 +140,26 @@ export async function getCartItems(userId: number) {
   const db = await getDb();
   if (!db) return [];
   
-  return db.select().from(cartItems).where(eq(cartItems.userId, userId));
+  const items = await db.select({
+    id: cartItems.id,
+    userId: cartItems.userId,
+    productId: cartItems.productId,
+    variantId: cartItems.variantId,
+    quantity: cartItems.quantity,
+    isSubscription: cartItems.isSubscription,
+    subscriptionPlanId: cartItems.subscriptionPlanId,
+    priceInCents: sql<number>`COALESCE(${productVariants.priceInCents}, ${products.priceInCents})`,
+    productName: products.name,
+    productSlug: products.slug,
+    productImage: products.imageUrl,
+    variantName: productVariants.name,
+  })
+  .from(cartItems)
+  .leftJoin(products, eq(cartItems.productId, products.id))
+  .leftJoin(productVariants, eq(cartItems.variantId, productVariants.id))
+  .where(eq(cartItems.userId, userId));
+  
+  return items;
 }
 
 export async function addToCart(item: typeof cartItems.$inferInsert) {
