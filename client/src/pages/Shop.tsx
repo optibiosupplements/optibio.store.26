@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import ProductGallery from "@/components/ProductGallery";
 import { 
   Select,
   SelectContent,
@@ -78,21 +79,20 @@ export default function Shop() {
             {products?.map((product) => (
               <Card key={product.id} className="group overflow-hidden border-2 border-yellow-100 hover:border-yellow-300 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
                 <CardContent className="p-0">
-                  {/* Product Image */}
-                  <div className="relative overflow-hidden bg-muted/30">
-                    <img
-                      src={product.imageUrl || "/products/ashwagandha-bottle.jpg"}
-                      alt={product.name}
-                      className="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
+                  {/* Product Gallery */}
+                  <div className="relative p-4">
+                    <ProductGallery
+                      images={product.galleryImages ? JSON.parse(product.galleryImages) : [product.imageUrl || "/products/ashwagandha-bottle.jpg"]}
+                      productName={product.name}
                     />
                     {product.isFeatured && (
-                      <Badge className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+                      <Badge className="absolute top-8 right-8 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold z-10">
                         <TrendingUp className="h-3 w-3 mr-1" />
                         Best Seller
                       </Badge>
                     )}
                     {product.compareAtPriceInCents && (
-                      <Badge className="absolute top-4 left-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+                      <Badge className="absolute top-8 left-8 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold z-10">
                         Save {Math.round((1 - product.priceInCents / product.compareAtPriceInCents) * 100)}%
                       </Badge>
                     )}

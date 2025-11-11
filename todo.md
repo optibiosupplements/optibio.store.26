@@ -358,3 +358,16 @@
 - [x] Update Footer component with navy background (global CSS)
 - [x] Test all pages for consistency
 - [ ] Save final checkpoint with complete theme rollout
+
+## Product Image Gallery (NEW REQUEST)
+- [x] Generate supplement facts panel image
+- [x] Generate capsule close-up image
+- [x] Generate lifestyle/usage image
+- [x] Create ProductGallery component with thumbnail navigation
+- [x] Add image zoom functionality on hover/click
+- [x] Update product schema to support multiple image URLs
+- [x] Integrate gallery into Shop page product cards
+- [x] Add gallery to product detail view
+- [x] Ensure mobile-responsive gallery with swipe support
+- [x] Test gallery across all devices
+- [ ] Save checkpoint with product gallery feature

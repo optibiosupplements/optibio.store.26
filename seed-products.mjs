@@ -118,9 +118,9 @@ Each serving provides 600mg of KSM-66® ashwagandha root extract - the same dosa
     imageUrl: "/products/ashwagandha-bottle.jpg",
     galleryImages: JSON.stringify([
       "/products/ashwagandha-bottle.jpg",
-      "/products/ashwagandha-label.jpg",
-      "/products/ashwagandha-ingredients.jpg",
-      "/products/ashwagandha-lifestyle.jpg"
+      "/supplement-facts.png",
+      "/capsules-closeup.png",
+      "/lifestyle-usage.png"
     ]),
     isActive: true,
     isFeatured: true,
