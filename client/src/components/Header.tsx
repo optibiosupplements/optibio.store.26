@@ -48,19 +48,15 @@ export default function Header() {
       <div className="container">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/">
-            <a className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-              <img src={APP_LOGO} alt="OptiBio" className="h-10 w-auto" />
-            </a>
+          <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+            <img src={APP_LOGO} alt="OptiBio" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link key={item.name} href={item.href}>
-                <a className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-                  {item.name}
-                </a>
+              <Link key={item.name} href={item.href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                {item.name}
               </Link>
             ))}
           </nav>
@@ -69,11 +65,9 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             {/* Account */}
             {isAuthenticated ? (
-              <Link href="/account">
-                <a className="hidden md:flex items-center space-x-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-                  <User className="h-5 w-5" />
-                  <span>{user?.name || "Account"}</span>
-                </a>
+              <Link href="/account" className="hidden md:flex items-center space-x-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+                <User className="h-5 w-5" />
+                <span>{user?.name || "Account"}</span>
               </Link>
             ) : (
               <a
@@ -86,15 +80,13 @@ export default function Header() {
             )}
 
             {/* Cart */}
-            <Link href="/cart">
-              <a className="relative flex items-center justify-center h-10 w-10 rounded-full hover:bg-accent transition-colors">
-                <ShoppingCart className="h-5 w-5" />
-                {cartItemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-primary rounded-full">
-                    {cartItemCount}
-                  </span>
-                )}
-              </a>
+            <Link href="/cart" className="relative flex items-center justify-center h-10 w-10 rounded-full hover:bg-accent transition-colors">
+              <ShoppingCart className="h-5 w-5" />
+              {cartItemCount > 0 && (
+                <span className="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-primary rounded-full">
+                  {cartItemCount}
+                </span>
+              )}
             </Link>
 
             {/* Mobile Menu Toggle */}
@@ -111,24 +103,23 @@ export default function Header() {
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <nav className="flex flex-col space-y-4 mt-8">
                   {navigation.map((item) => (
-                    <Link key={item.name} href={item.href}>
-                      <a
-                        className="text-lg font-medium text-foreground hover:text-primary transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.name}
-                      </a>
+                    <Link 
+                      key={item.name} 
+                      href={item.href}
+                      className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
                     </Link>
                   ))}
                   <hr className="my-4" />
                   {isAuthenticated ? (
-                    <Link href="/account">
-                      <a
-                        className="text-lg font-medium text-foreground hover:text-primary transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        My Account
-                      </a>
+                    <Link 
+                      href="/account"
+                      className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      My Account
                     </Link>
                   ) : (
                     <a

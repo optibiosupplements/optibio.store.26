@@ -111,3 +111,7 @@
 - [x] Create press release templates
 - [x] Develop partnership outreach strategy (non-paid)
 - [x] GitHub integration strategy for transparency
+
+## Bug Fixes
+- [x] Fix nested anchor tags in Header component (Link already renders as <a>)
+- [x] Fix nested anchor tags in mobile menu
