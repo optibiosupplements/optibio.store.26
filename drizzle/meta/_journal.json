@@ -15,6 +15,13 @@
       "when": 1762826991257,
       "tag": "0001_young_goliath",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1762862767706,
+      "tag": "0002_deep_the_stranger",
+      "breakpoints": true
     }
   ]
 }

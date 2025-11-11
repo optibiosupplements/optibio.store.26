@@ -259,3 +259,26 @@ export const discountCodes = mysqlTable("discountCodes", {
 
 export type DiscountCode = typeof discountCodes.$inferSelect;
 export type InsertDiscountCode = typeof discountCodes.$inferInsert;
+
+/**
+ * Product batches for batch verification and traceability
+ */
+export const productBatches = mysqlTable("productBatches", {
+  id: int("id").autoincrement().primaryKey(),
+  productId: int("productId").notNull(),
+  lotNumber: varchar("lotNumber", { length: 100 }).notNull().unique(),
+  manufactureDate: timestamp("manufactureDate").notNull(),
+  expiryDate: timestamp("expiryDate").notNull(),
+  coaUrl: varchar("coaUrl", { length: 500 }), // Certificate of Analysis PDF
+  heavyMetalsTestUrl: varchar("heavyMetalsTestUrl", { length: 500 }),
+  microbialTestUrl: varchar("microbialTestUrl", { length: 500 }),
+  potencyTestUrl: varchar("potencyTestUrl", { length: 500 }),
+  // Test results as JSON for quick display
+  testResults: text("testResults"), // JSON with key test metrics
+  isActive: boolean("isActive").default(true).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type ProductBatch = typeof productBatches.$inferSelect;
+export type InsertProductBatch = typeof productBatches.$inferInsert;

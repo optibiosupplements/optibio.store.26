@@ -371,3 +371,15 @@
 - [x] Ensure mobile-responsive gallery with swipe support
 - [x] Test gallery across all devices
 - [ ] Save checkpoint with product gallery feature
+
+## Batch Verification Widget (NEW REQUEST)
+- [x] Create batch database schema (lot number, manufacture date, expiry, COA URL, test results)
+- [x] Generate sample batch data for testing
+- [x] Create tRPC procedure for batch lookup by lot number
+- [x] Build BatchVerification widget component with input form
+- [x] Add batch results display with COA download and test results
+- [x] Integrate widget into Quality page
+- [x] Add error handling for invalid lot numbers
+- [x] Style widget with navy/gold/cream theme
+- [x] Test batch verification functionality
+- [ ] Save checkpoint with batch verification feature

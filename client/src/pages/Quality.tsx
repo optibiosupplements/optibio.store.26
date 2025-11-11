@@ -19,6 +19,7 @@ import {
   FileText,
 } from "lucide-react";
 import { useLocation } from "wouter";
+import BatchVerification from "@/components/BatchVerification";
 
 export default function Quality() {
   const [, setLocation] = useLocation();
@@ -385,6 +386,26 @@ export default function Quality() {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Batch Verification Section */}
+      <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+                <Shield className="w-4 h-4 mr-2 inline" />
+                <span className="font-bold">Batch Verification</span>
+              </Badge>
+              <h2 className="text-3xl font-bold text-white mb-4">Verify Your Product Batch</h2>
+              <p className="text-slate-300 text-lg max-w-3xl mx-auto">
+                Enter your product lot number to access batch-specific test results, certificates of analysis, and complete quality documentation for your specific bottle.
+              </p>
+            </div>
+            
+            <BatchVerification />
+          </div>
         </div>
       </section>
 

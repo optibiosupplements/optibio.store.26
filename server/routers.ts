@@ -313,6 +313,33 @@ export const appRouter = router({
         };
       }),
   }),
+
+  // Batch verification
+  batches: router({
+    verify: publicProcedure
+      .input(z.object({ lotNumber: z.string().min(1) }))
+      .query(async ({ input }) => {
+        const batch = await db.getBatchByLotNumber(input.lotNumber);
+        
+        if (!batch) {
+          return { found: false, message: "Batch not found. Please check your lot number and try again." };
+        }
+        
+        return {
+          found: true,
+          batch: {
+            lotNumber: batch.lotNumber,
+            manufactureDate: batch.manufactureDate,
+            expiryDate: batch.expiryDate,
+            coaUrl: batch.coaUrl,
+            heavyMetalsTestUrl: batch.heavyMetalsTestUrl,
+            microbialTestUrl: batch.microbialTestUrl,
+            potencyTestUrl: batch.potencyTestUrl,
+            testResults: batch.testResults ? JSON.parse(batch.testResults) : null,
+          },
+        };
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

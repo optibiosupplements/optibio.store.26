@@ -256,3 +256,19 @@ export async function incrementDiscountCodeUsage(codeId: number) {
     .set({ usedCount: currentCount + 1 })
     .where(eq(discountCodes.id, codeId));
 }
+
+// Product batch queries
+export async function getBatchByLotNumber(lotNumber: string) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const { productBatches } = await import("../drizzle/schema");
+  const result = await db.select().from(productBatches)
+    .where(and(
+      eq(productBatches.lotNumber, lotNumber),
+      eq(productBatches.isActive, true)
+    ))
+    .limit(1);
+    
+  return result.length > 0 ? result[0] : null;
+}
