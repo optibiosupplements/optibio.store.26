@@ -423,7 +423,7 @@ export default function Science() {
                   Shop Now
                 </Button>
                 <Button
-                  onClick={() => setLocation("/about")}
+                  onClick={() => setLocation("/quality")}
                   size="lg"
                   variant="outline"
                   className="border-2 text-lg px-8"

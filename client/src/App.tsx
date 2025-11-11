@@ -19,6 +19,7 @@ import Shipping from "./pages/Shipping";
 import About from "./pages/About";
 import Science from "./pages/Science";
 import FAQ from "./pages/FAQ";
+import Quality from "./pages/Quality";
 
 function Router() {
   return (
@@ -39,6 +40,7 @@ function Router() {
           <Route path="/about" component={About} />
           <Route path="/science" component={Science} />
           <Route path="/faq" component={FAQ} />
+          <Route path="/quality" component={Quality} />
           <Route path="/404" component={NotFound} />
           {/* Final fallback route */}
           <Route component={NotFound} />
