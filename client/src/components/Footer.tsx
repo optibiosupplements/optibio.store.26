@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { APP_LOGO } from "@/const";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Shield, Truck, Award, Lock } from "lucide-react";
+import { Shield, Truck, Award, Lock, Facebook, Instagram, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -45,6 +45,17 @@ export default function Footer() {
               Premium KSM-66® Ashwagandha backed by clinical research. 
               Supporting stress management and overall wellness naturally.
             </p>
+            <div className="flex space-x-4 mt-4">
+              <a href="https://facebook.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="https://instagram.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a href="https://twitter.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+                <Twitter className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}

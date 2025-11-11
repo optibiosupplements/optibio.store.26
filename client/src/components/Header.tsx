@@ -115,7 +115,7 @@ export default function Header() {
                   <hr className="my-4" />
                   {isAuthenticated ? (
                     <Link 
-                      href="/account"
+                      href="/my-orders"
                       className="text-lg font-medium text-foreground hover:text-primary transition-colors"
                       onClick={() => setMobileMenuOpen(false)}
                     >

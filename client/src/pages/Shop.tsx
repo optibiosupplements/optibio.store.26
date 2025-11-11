@@ -11,7 +11,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Loader2, Star, CheckCircle2, TrendingUp } from "lucide-react";
+import { Loader2, Star, CheckCircle2, TrendingUp, ChevronRight } from "lucide-react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 import { formatPrice, calculateDiscountPrice } from "@/const";
 import { trpc } from "@/lib/trpc";
 
@@ -36,6 +44,19 @@ export default function Shop() {
           <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
         </div>
         <div className="container relative z-10">
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/" className="text-slate-300 hover:text-white">Home</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator className="text-slate-400">
+                <ChevronRight className="h-4 w-4" />
+              </BreadcrumbSeparator>
+              <BreadcrumbItem>
+                <BreadcrumbPage className="text-white font-medium">Shop</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
           <div className="max-w-3xl">
             <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
               <span className="font-bold">Premium KSM-66® Formula</span>
