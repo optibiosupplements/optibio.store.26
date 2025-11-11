@@ -94,14 +94,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact">
-                  <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                    Contact Us
-                  </a>
-                </Link>
+                <a href="mailto:support@optibio.com" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Contact Us
+                </a>
               </li>
               <li>
-                <Link href="/account">
+                <Link href="/my-orders">
                   <a className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     My Account
                   </a>

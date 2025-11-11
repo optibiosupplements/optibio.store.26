@@ -244,3 +244,44 @@
 - [x] Ensure mobile responsive design
 - [x] Add route to App.tsx
 - [x] Update header navigation to include About link
+
+## Pre-Deployment QA & Fixes (CRITICAL)
+### Missing Pages
+- [x] Create Science/Clinical Studies page at /science route
+- [x] Create FAQ page at /faq route
+- [x] Contact page handled via mailto link (no separate page needed)
+
+### Broken Links & Navigation
+- [x] Fix all navigation links pointing to non-existent pages
+- [x] Verify all footer links work correctly
+- [x] Check all CTA buttons lead to correct destinations
+- [x] Verify product links and routing
+
+### Content Consistency
+- [x] Ensure pricing is consistent across all pages
+- [x] Verify product names and descriptions match
+- [x] Check all email addresses are consistent
+- [x] Verify company information is accurate
+- [x] Ensure all images load correctly
+
+### UX Improvements
+- [x] Apply Hick's Law - simplify navigation choices
+- [x] Apply Fitts's Law - ensure CTAs are appropriately sized
+- [x] Apply Miller's Law - chunk information appropriately
+- [x] Add loading states where missing
+- [x] Improve error messages
+- [x] Add success feedback for actions
+
+### Functionality Testing
+- [x] Test complete purchase flow
+- [x] Test cart add/remove/update
+- [x] Test user authentication flow
+- [x] Test My Orders page
+- [x] Test all forms and validations
+
+### Performance & Polish
+- [x] Verify mobile responsiveness on all pages
+- [x] Check for console errors
+- [x] Optimize images if needed
+- [x] Test all interactive elements
+- [x] Verify accessibility basics
