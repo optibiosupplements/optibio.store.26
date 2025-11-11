@@ -195,20 +195,23 @@ export default function Quality() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-green-50/20">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900 via-green-800 to-green-900 opacity-95" />
+      <section className="relative py-20 overflow-hidden gradient-hero">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+        </div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
         
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/20 border border-green-300/30 backdrop-blur-sm">
-              <Shield className="w-4 h-4 text-green-100" />
-              <span className="text-green-100 text-sm font-semibold">Quality You Can Trust</span>
-            </div>
+            <Badge className="px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+              <Shield className="w-4 h-4 mr-2 inline" />
+              <span className="font-bold">Quality You Can Trust</span>
+            </Badge>
             <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
               Our Quality System
             </h1>
-            <p className="text-xl text-green-100 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-slate-200 leading-relaxed max-w-3xl mx-auto">
               Every bottle meets the highest standards of purity, potency, and safety. Here's how we ensure exceptional quality from farm to bottle.
             </p>
           </div>
@@ -222,10 +225,10 @@ export default function Quality() {
             {certifications.map((cert, index) => {
               const Icon = cert.icon;
               return (
-                <Card key={index} className="border-2 border-slate-200 shadow-xl hover:shadow-2xl transition-shadow">
+                <Card key={index} className="border-2 border-yellow-100 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
                   <CardContent className="p-6 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mx-auto">
-                      <Icon className="w-8 h-8 text-green-700" />
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center mx-auto">
+                      <Icon className="w-8 h-8 text-amber-600" />
                     </div>
                     <div>
                       <h3 className="font-bold text-slate-900 mb-2">{cert.title}</h3>
@@ -390,10 +393,10 @@ export default function Quality() {
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 border border-blue-200 mb-4">
-                <FileText className="w-4 h-4 text-blue-700" />
-                <span className="text-blue-700 text-sm font-semibold">Transparency & Documentation</span>
-              </div>
+              <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+                <FileText className="w-4 h-4 mr-2 inline" />
+                <span className="font-bold">Transparency & Documentation</span>
+              </Badge>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Quality Documents Library</h2>
               <p className="text-slate-600 text-lg max-w-3xl mx-auto">
                 Download our complete quality documentation. All sensitive information has been redacted for privacy while maintaining full transparency about our testing standards.
@@ -404,14 +407,14 @@ export default function Quality() {
               {qualityDocuments.map((doc, index) => {
                 const Icon = doc.icon;
                 return (
-                  <Card key={index} className="border-2 border-slate-200 shadow-lg hover:shadow-xl transition-all hover:border-blue-300 group">
+                  <Card key={index} className="border-2 border-yellow-100 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-yellow-50/80 to-amber-50/80 group">
                     <CardContent className="p-8">
                       <div className="flex items-start gap-4 mb-4">
-                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                          <Icon className="w-7 h-7 text-blue-700" />
+                        <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                          <Icon className="w-7 h-7 text-amber-600" />
                         </div>
                         <div className="flex-1">
-                          <Badge className="bg-blue-100 text-blue-800 border-blue-200 mb-2">
+                          <Badge className="bg-amber-100 text-amber-800 border-amber-200 mb-2">
                             {doc.category}
                           </Badge>
                           <h3 className="text-xl font-bold text-slate-900 mb-2">{doc.title}</h3>
@@ -424,7 +427,7 @@ export default function Quality() {
                         className="block"
                       >
                         <Button
-                          className="w-full bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-md"
+                          className="w-full bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-gold hover:shadow-glow-gold transition-all"
                           size="lg"
                         >
                           <Download className="w-4 h-4 mr-2" />
@@ -441,10 +444,10 @@ export default function Quality() {
               })}
             </div>
 
-            <Card className="mt-8 border-2 border-blue-200 bg-blue-50/50">
+            <Card className="mt-8 border-2 border-yellow-200 bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <Shield className="w-6 h-6 text-blue-700 flex-shrink-0 mt-1" />
+                  <Shield className="w-6 h-6 text-amber-600 flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2">About These Documents</h4>
                     <p className="text-sm text-slate-700 leading-relaxed">

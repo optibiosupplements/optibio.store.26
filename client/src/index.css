@@ -44,15 +44,16 @@
 }
 
 :root {
-  /* OptiBio Premium Brand Colors - Navy Blue & Gold (#1e3a8a, #d4af37) */
-  --optibio-navy: #1e3a8a;
-  --optibio-gold: #d4af37;
-  --optibio-dark-navy: #0f172a;
-  --optibio-cream: #fefce8;
+  /* OptiBio Premium Brand Colors - Deep Navy & Golden Yellow (from reference design) */
+  --optibio-navy: #1a2847;
+  --optibio-gold: #fbbf24;
+  --optibio-dark-navy: #0f1729;
+  --optibio-cream: #fef3c7;
+  --optibio-amber: #f59e0b;
   
-  --primary: oklch(0.42 0.15 264); /* Navy Blue #1e3a8a */
+  --primary: oklch(0.35 0.08 250); /* Deep Navy #1a2847 */
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.75 0.12 85); /* Gold #d4af37 */
+  --secondary: oklch(0.80 0.15 85); /* Golden Yellow #fbbf24 */
   --secondary-foreground: oklch(0.2 0.015 65);
   --sidebar-primary: oklch(0.55 0.18 260);
   --sidebar-primary-foreground: oklch(0.98 0 0);
@@ -186,45 +187,58 @@
 
 /* OptiBio Premium Utilities */
 @layer utilities {
-  /* Premium Gradients */
+  /* Premium Gradients - Updated to match reference design */
   .gradient-optibio {
-    background: linear-gradient(135deg, #1e3a8a 0%, #d4af37 100%);
+    background: linear-gradient(135deg, #1a2847 0%, #fbbf24 100%);
   }
   
   .gradient-optibio-reverse {
-    background: linear-gradient(135deg, #d4af37 0%, #1e3a8a 100%);
+    background: linear-gradient(135deg, #fbbf24 0%, #1a2847 100%);
   }
   
   .gradient-hero {
-    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+    background: linear-gradient(135deg, #0f1729 0%, #1a2847 50%, #2d4a7c 100%);
+  }
+  
+  .gradient-navy-blue {
+    background: linear-gradient(180deg, #1a2847 0%, #2563eb 100%);
   }
   
   /* Text Gradients */
   .text-gradient-optibio {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #1e3a8a 0%, #d4af37 100%);
+    background-image: linear-gradient(135deg, #1a2847 0%, #fbbf24 100%);
   }
   
   .text-gradient-gold {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #d4af37 0%, #eab308 100%);
+    background-image: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  }
+  
+  .text-gradient-wellness {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #fbbf24 0%, #fcd34d 100%);
   }
   
   /* Premium Shadows */
   .shadow-premium {
-    box-shadow: 0 25px 50px -12px rgba(30, 58, 138, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(26, 40, 71, 0.3);
   }
   
   .shadow-gold {
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 25px rgba(251, 191, 36, 0.35);
   }
   
   .shadow-glow-navy {
-    box-shadow: 0 0 30px rgba(30, 58, 138, 0.4);
+    box-shadow: 0 0 40px rgba(26, 40, 71, 0.5);
   }
   
   .shadow-glow-gold {
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.5);
+  }
+  
+  .shadow-cream {
+    box-shadow: 0 4px 20px rgba(254, 243, 199, 0.2);
   }
   
   /* Hover Effects */
@@ -240,10 +254,10 @@
   /* Animations */
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
     }
     50% {
-      box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+      box-shadow: 0 0 50px rgba(251, 191, 36, 0.7);
     }
   }
   
@@ -267,7 +281,7 @@
   /* Premium Button */
   .btn-premium {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, #1e3a8a 0%, #d4af37 100%);
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
     transition: all 0.3s ease;
   }
   
@@ -288,7 +302,7 @@
   
   .btn-premium:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.5);
   }
 }
 
@@ -303,10 +317,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #1e3a8a, #d4af37);
+  background: linear-gradient(135deg, #1a2847, #fbbf24);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #1e40af, #eab308);
+  background: linear-gradient(135deg, #2d4a7c, #f59e0b);
 }

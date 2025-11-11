@@ -154,35 +154,38 @@ export default function Science() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
       {/* Hero Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 opacity-95" />
+      <section className="relative py-20 overflow-hidden gradient-hero">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+        </div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
         
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 border border-blue-300/30 backdrop-blur-sm">
-              <Microscope className="w-4 h-4 text-blue-100" />
-              <span className="text-blue-100 text-sm font-semibold">Evidence-Based Research</span>
-            </div>
+            <Badge className="px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+              <Microscope className="w-4 h-4 mr-2 inline" />
+              <span className="font-bold">Evidence-Based Research</span>
+            </Badge>
             <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
               The Science Behind KSM-66®
             </h1>
-            <p className="text-xl text-blue-100 leading-relaxed">
+            <p className="text-xl text-slate-200 leading-relaxed">
               Over 20 peer-reviewed clinical studies validate the effectiveness of KSM-66® Ashwagandha. 
               Discover the research that makes it the gold standard in adaptogenic supplements.
             </p>
             <div className="flex flex-wrap justify-center gap-6 pt-4">
               <div className="text-center">
-                <div className="text-4xl font-bold text-white">20+</div>
-                <div className="text-sm text-blue-200">Clinical Studies</div>
+                <div className="text-4xl font-bold text-gradient-wellness">20+</div>
+                <div className="text-sm text-slate-300">Clinical Studies</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-white">1,000+</div>
-                <div className="text-sm text-blue-200">Participants</div>
+                <div className="text-4xl font-bold text-gradient-wellness">1,000+</div>
+                <div className="text-sm text-slate-300">Participants</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-white">14</div>
-                <div className="text-sm text-blue-200">Years of Research</div>
+                <div className="text-4xl font-bold text-gradient-wellness">14</div>
+                <div className="text-sm text-slate-300">Years of Research</div>
               </div>
             </div>
           </div>
@@ -258,17 +261,17 @@ export default function Science() {
               {studies.map((study, index) => {
                 const Icon = study.icon;
                 return (
-                  <Card key={index} className="border-2 border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
+                  <Card key={index} className="border-2 border-yellow-100 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
                     <CardContent className="p-8">
                       <div className="flex flex-col md:flex-row gap-6">
                         {/* Left: Icon & Metric */}
                         <div className="flex-shrink-0 text-center md:text-left">
-                          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mx-auto md:mx-0 mb-4">
-                            <Icon className="w-10 h-10 text-blue-700" />
+                          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center mx-auto md:mx-0 mb-4">
+                            <Icon className="w-10 h-10 text-amber-600" />
                           </div>
                           <div className="space-y-1">
-                            <div className="text-4xl font-bold text-blue-700">{study.percentage}</div>
-                            <div className="text-sm text-slate-600 font-medium">{study.metric}</div>
+                            <div className="text-4xl font-bold text-gradient-gold">{study.percentage}</div>
+                            <div className="text-sm text-slate-700 font-medium">{study.metric}</div>
                           </div>
                         </div>
 
@@ -289,18 +292,18 @@ export default function Science() {
                               {study.duration}
                             </Badge>
                             <a href={study.link} target="_blank" rel="noopener noreferrer">
-                              <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100 cursor-pointer transition-colors">
+                              <Badge className="bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 hover:from-yellow-500 hover:to-amber-600 cursor-pointer transition-all shadow-sm hover:shadow-md">
                                 {study.journal} ({study.year}) →
                               </Badge>
                             </a>
                           </div>
 
-                          <div className="bg-slate-50 rounded-lg p-4">
+                          <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-yellow-100">
                             <h4 className="font-semibold text-slate-900 mb-2">Key Findings:</h4>
                             <ul className="space-y-1">
                               {study.findings.map((finding, i) => (
                                 <li key={i} className="text-sm text-slate-700 flex items-start gap-2">
-                                  <span className="text-green-600 mt-0.5">✓</span>
+                                  <span className="text-amber-600 mt-0.5">✓</span>
                                   <span>{finding}</span>
                                 </li>
                               ))}

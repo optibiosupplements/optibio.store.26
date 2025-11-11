@@ -316,3 +316,29 @@
 - [x] Ensure Science page remains unchanged with clickable study links
 - [x] Test all document downloads
 - [ ] Save checkpoint with quality documents
+
+## Color Theme Redesign (NEW REQUEST - Farid)
+- [x] Extract color palette from reference image (navy, gold, cream)
+- [x] Update global CSS variables in index.css with new colors
+- [x] Redesign hero section with "The Future of Wellness" approach
+- [x] Update hero headline to be more compelling and benefit-focused
+- [x] Apply navy blue gradient backgrounds throughout site
+- [x] Change all CTAs to golden yellow (#fbbf24)
+- [x] Update card backgrounds to cream/beige (#fef3c7)
+- [x] Ensure text contrast meets accessibility standards
+- [x] Update Home, Science, and Quality pages with new color scheme
+- [ ] Update remaining pages (Shop, About, FAQ) with new color scheme
+- [ ] Test mobile responsiveness with new design
+- [ ] Save checkpoint with new branding
+
+## Study Links Verification & Color Theme Updates
+- [x] Verify all 6 clinical study links on Science page are functional
+- [x] Update Science page with new color theme (navy, gold, cream)
+- [x] Update Quality page with new color theme
+- [x] Update Quality Documents Library section with cream cards and golden buttons
+- [ ] Update Shop page with new color theme
+- [ ] Update About page with new color theme
+- [ ] Update FAQ page with new color theme
+- [ ] Update all other pages consistently
+- [x] Test all study links open correctly in new tabs
+- [ ] Save final checkpoint with complete color theme redesign

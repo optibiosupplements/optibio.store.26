@@ -102,10 +102,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section - Modern & Sophisticated */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
-        {/* Subtle background pattern */}
-        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-[0.02]" />
+      {/* Hero Section - The Future of Wellness */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden gradient-hero">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+        </div>
         
         <div className="container relative z-10 py-20">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -113,33 +116,31 @@ export default function Home() {
             <div className="space-y-10 animate-fade-in">
               <div className="space-y-6">
                 <Badge 
-                  variant="secondary" 
-                  className="text-sm font-semibold px-4 py-1.5 bg-gradient-to-r from-blue-600/10 to-amber-600/10 border-blue-200/50"
+                  className="text-sm font-bold px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold"
                 >
-                  <Sparkles className="w-3.5 h-3.5 mr-1.5 inline" />
-                  Clinically Researched KSM-66®
+                  <Sparkles className="w-4 h-4 mr-2 inline" />
+                  Revolutionary Pre-Launch
                 </Badge>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1]">
-                  Premium{" "}
-                  <span className="bg-gradient-to-r from-blue-700 via-blue-600 to-amber-600 bg-clip-text text-transparent">
-                    Ashwagandha
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white">
+                  The Future of{" "}
+                  <span className="text-gradient-wellness">
+                    Wellness
                   </span>
-                  <br />
-                  for Stress-Free Living
+                  {" "}is Here
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-xl">
-                  Backed by 20+ peer-reviewed studies. The gold standard in ashwagandha supplementation for stress management, mental clarity, and overall wellness.
+                <p className="text-xl md:text-2xl text-slate-200 leading-relaxed max-w-2xl">
+                  Experience the world's most clinically studied ashwagandha. OptiBio's KSM-66 formula offers pharmaceutical-grade quality with complete transparency from seed to shelf.
                 </p>
               </div>
 
               {/* Trust Indicators */}
               <div className="flex flex-wrap gap-6 text-sm">
                 {certifications.slice(0, 3).map((cert, i) => (
-                  <div key={i} className="flex items-center gap-2 text-slate-700">
-                    <cert.icon className="w-5 h-5 text-blue-600" />
-                    <span className="font-medium">{cert.text}</span>
+                  <div key={i} className="flex items-center gap-2 text-slate-300">
+                    <cert.icon className="w-5 h-5 text-yellow-400" />
+                    <span className="font-medium text-white">{cert.text}</span>
                   </div>
                 ))}
               </div>
@@ -149,9 +150,9 @@ export default function Home() {
                 <Link href="/shop">
                   <Button 
                     size="lg" 
-                    className="text-lg px-8 py-6 bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="text-lg px-10 py-7 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-gold hover:shadow-glow-gold transition-all duration-300"
                   >
-                    Shop Now
+                    Pre-Order Now
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </Button>
                 </Link>
@@ -159,7 +160,7 @@ export default function Home() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="text-lg px-8 py-6 border-2 hover:bg-slate-50"
+                    className="text-lg px-10 py-7 border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 backdrop-blur-sm"
                   >
                     View Clinical Studies
                   </Button>
@@ -170,17 +171,17 @@ export default function Home() {
               <div className="flex items-center gap-6 pt-4">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-amber-400 border-2 border-white" />
+                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-2 border-slate-800" />
                   ))}
                 </div>
                 <div className="text-sm">
-                  <div className="flex items-center gap-1 text-amber-500 mb-1">
+                  <div className="flex items-center gap-1 text-yellow-400 mb-1">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-slate-600">
-                    <span className="font-semibold text-slate-900">5,000+</span> satisfied customers
+                  <p className="text-slate-300">
+                    <span className="font-semibold text-white">5,000+</span> satisfied customers
                   </p>
                 </div>
               </div>
@@ -188,8 +189,8 @@ export default function Home() {
 
             {/* Right Column - Product Image */}
             <div className="relative lg:h-[600px] flex items-center justify-center">
-              {/* Decorative elements */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-amber-100/40 rounded-full blur-3xl scale-75" />
+              {/* Decorative cream card background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/20 to-amber-50/20 rounded-[3rem] blur-2xl scale-90" />
               
               {/* Product image */}
               <div className="relative z-10 animate-float">
@@ -201,20 +202,20 @@ export default function Home() {
               </div>
 
               {/* Floating badge - 90 Capsules */}
-              <div className="absolute top-10 right-10 bg-white rounded-2xl shadow-xl p-4 animate-fade-in-delay">
+              <div className="absolute top-10 right-10 bg-gradient-to-br from-yellow-50 to-amber-50 border-2 border-yellow-200 rounded-2xl shadow-cream p-4 animate-fade-in-delay">
                 <div className="text-center">
-                  <div className="text-3xl font-bold bg-gradient-to-r from-blue-700 to-amber-600 bg-clip-text text-transparent">
+                  <div className="text-3xl font-bold text-gradient-gold">
                     90
                   </div>
-                  <div className="text-xs text-slate-600 font-medium">Capsules</div>
+                  <div className="text-xs text-slate-700 font-medium">Capsules</div>
                 </div>
               </div>
 
               {/* Floating badge - Clinical Studies */}
-              <div className="absolute bottom-10 left-10 bg-white rounded-2xl shadow-xl p-4 animate-fade-in-delay-2">
+              <div className="absolute bottom-10 left-10 bg-gradient-to-br from-yellow-50 to-amber-50 border-2 border-yellow-200 rounded-2xl shadow-cream p-4 animate-fade-in-delay-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-amber-600 flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-slate-900" />
                   </div>
                   <div>
                     <div className="text-sm font-bold text-slate-900">20+ Studies</div>
@@ -228,14 +229,14 @@ export default function Home() {
       </section>
 
       {/* Scientifically-Backed Benefits */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/20">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge variant="outline" className="mb-4">
+            <Badge className="mb-4 bg-blue-100 text-blue-800 border-blue-200">
               <Leaf className="w-3.5 h-3.5 mr-1.5" />
               Clinically Validated
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
               Scientifically-Backed Benefits
             </h2>
             <p className="text-xl text-slate-600">
@@ -247,19 +248,19 @@ export default function Home() {
             {benefits.map((benefit, i) => (
               <Card 
                 key={i} 
-                className="group hover:shadow-xl transition-all duration-300 border-2 hover:border-blue-200 cursor-pointer"
+                className="group hover:shadow-gold transition-all duration-300 border-2 border-yellow-100 hover:border-yellow-300 cursor-pointer bg-gradient-to-br from-yellow-50/80 to-amber-50/80 backdrop-blur-sm"
               >
                 <CardContent className="p-8 space-y-4">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600/10 to-amber-600/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <benefit.icon className="w-7 h-7 text-blue-700" />
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <benefit.icon className="w-7 h-7 text-amber-600" />
                   </div>
-                  <div className="text-3xl font-bold bg-gradient-to-r from-blue-700 to-amber-600 bg-clip-text text-transparent">
+                  <div className="text-3xl font-bold text-gradient-gold">
                     {benefit.stat}
                   </div>
                   <h3 className="text-xl font-bold text-slate-900">
                     {benefit.title}
                   </h3>
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-slate-700 leading-relaxed">
                     {benefit.description}
                   </p>
                 </CardContent>
