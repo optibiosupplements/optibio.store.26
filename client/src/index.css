@@ -44,39 +44,38 @@
 }
 
 :root {
-  /* OptiBio Premium Brand Colors - Midnight Sophistication */
-  --optibio-navy: #1E3A5F;
-  --optibio-navy-dark: #152B45;
-  --optibio-ivory: #F7F4EF;
-  --optibio-gold: #C9A961;
-  --optibio-gold-dark: #B89651;
+  /* OptiBio Wellness Brand Colors - Natural & Premium */
+  --optibio-sage: #7C9885;
+  --optibio-forest: #4A6352;
+  --optibio-cream: #F5F1E8;
+  --optibio-terracotta: #D4745F;
   --optibio-charcoal: #2D2D2D;
-  --optibio-white: #FFFFFF;
+  --optibio-white: #FAFAF9;
   --optibio-success: #5FA865;
   
-  /* Primary: Deep Navy (Professional, Trustworthy, Premium) */
-  --primary: oklch(0.32 0.08 240); /* #1E3A5F Deep Navy */
+  /* Primary: Sage Green (Natural, Calming, Growth) */
+  --primary: oklch(0.62 0.05 150); /* #7C9885 Sage Green */
   --primary-foreground: oklch(0.98 0 0);
   
-  /* Secondary: Antique Gold (Sophisticated, Valuable, Premium) */
-  --secondary: oklch(0.72 0.08 75); /* #C9A961 Antique Gold */
-  --secondary-foreground: oklch(0.18 0.01 240);
+  /* Secondary: Terracotta (Warm, Energetic, Action) */
+  --secondary: oklch(0.65 0.12 35); /* #D4745F Terracotta */
+  --secondary-foreground: oklch(0.98 0 0);
   
-  /* Sidebar: Navy (Dark Variant) */
-  --sidebar-primary: oklch(0.28 0.08 240); /* #152B45 Navy Dark */
+  /* Sidebar: Forest Green (Dark Variant) */
+  --sidebar-primary: oklch(0.45 0.05 150); /* #4A6352 Forest Green */
   --sidebar-primary-foreground: oklch(0.98 0 0);
   
-  /* Charts: Navy Variants */
-  --chart-1: oklch(0.52 0.08 240);
-  --chart-2: oklch(0.42 0.08 240);
-  --chart-3: oklch(0.32 0.08 240);
-  --chart-4: oklch(0.28 0.08 240);
-  --chart-5: oklch(0.22 0.08 240);
+  /* Charts: Sage Green Variants */
+  --chart-1: oklch(0.72 0.05 150);
+  --chart-2: oklch(0.62 0.05 150);
+  --chart-3: oklch(0.52 0.05 150);
+  --chart-4: oklch(0.45 0.05 150);
+  --chart-5: oklch(0.35 0.05 150);
   
   --radius: 0.75rem;
   
-  /* Background: Warm Ivory (Elegant, Premium) */
-  --background: oklch(0.97 0.01 60); /* #F7F4EF Warm Ivory */
+  /* Background: Warm Cream (Organic, Premium) */
+  --background: oklch(0.96 0.01 80); /* #F5F1E8 Warm Cream */
   --foreground: oklch(0.22 0 0); /* #2D2D2D Charcoal */
   
   /* Cards: Soft White */
@@ -91,18 +90,18 @@
   --muted: oklch(0.94 0.005 80);
   --muted-foreground: oklch(0.48 0 0);
   
-  /* Accent: Antique Gold (matching secondary) */
-  --accent: oklch(0.72 0.08 75);
-  --accent-foreground: oklch(0.18 0.01 240);
+  /* Accent: Sage Green (matching primary) */
+  --accent: oklch(0.62 0.05 150);
+  --accent-foreground: oklch(0.98 0 0);
   
-  /* Destructive: Red (error state) */
-  --destructive: oklch(0.55 0.22 25);
+  /* Destructive: Terracotta (matching secondary) */
+  --destructive: oklch(0.65 0.12 35);
   --destructive-foreground: oklch(0.98 0 0);
   
   /* Borders & Inputs */
   --border: oklch(0.88 0.005 80);
   --input: oklch(0.88 0.005 80);
-  --ring: oklch(0.72 0.08 75);
+  --ring: oklch(0.62 0.05 150);
   
   /* Sidebar */
   --sidebar: oklch(0.98 0 0);
@@ -114,39 +113,39 @@
 }
 
 .dark {
-  /* Dark mode: Navy theme with gold accents */
-  --primary: oklch(0.42 0.08 240);
+  /* Dark mode: Keep forest green theme with cream accents */
+  --primary: oklch(0.62 0.05 150);
   --primary-foreground: oklch(0.98 0 0);
-  --sidebar-primary: oklch(0.32 0.08 240);
+  --sidebar-primary: oklch(0.52 0.05 150);
   --sidebar-primary-foreground: oklch(0.98 0 0);
-  --background: oklch(0.18 0.01 240);
-  --foreground: oklch(0.92 0.005 60);
-  --card: oklch(0.22 0.01 240);
-  --card-foreground: oklch(0.92 0.005 60);
-  --popover: oklch(0.22 0.01 240);
-  --popover-foreground: oklch(0.92 0.005 60);
-  --secondary: oklch(0.72 0.08 75);
-  --secondary-foreground: oklch(0.18 0.01 240);
-  --muted: oklch(0.32 0.01 240);
-  --muted-foreground: oklch(0.72 0.015 240);
-  --accent: oklch(0.72 0.08 75);
-  --accent-foreground: oklch(0.18 0.01 240);
-  --destructive: oklch(0.55 0.22 25);
+  --background: oklch(0.18 0.01 150);
+  --foreground: oklch(0.92 0.005 80);
+  --card: oklch(0.22 0.01 150);
+  --card-foreground: oklch(0.92 0.005 80);
+  --popover: oklch(0.22 0.01 150);
+  --popover-foreground: oklch(0.92 0.005 80);
+  --secondary: oklch(0.28 0.01 150);
+  --secondary-foreground: oklch(0.85 0.005 80);
+  --muted: oklch(0.32 0.01 150);
+  --muted-foreground: oklch(0.72 0.015 150);
+  --accent: oklch(0.32 0.01 150);
+  --accent-foreground: oklch(0.92 0.005 80);
+  --destructive: oklch(0.65 0.12 35);
   --destructive-foreground: oklch(0.98 0 0);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.72 0.08 75);
-  --chart-1: oklch(0.52 0.08 240);
-  --chart-2: oklch(0.42 0.08 240);
-  --chart-3: oklch(0.32 0.08 240);
-  --chart-4: oklch(0.28 0.08 240);
-  --chart-5: oklch(0.22 0.08 240);
-  --sidebar: oklch(0.22 0.01 240);
-  --sidebar-foreground: oklch(0.92 0.005 60);
-  --sidebar-accent: oklch(0.32 0.01 240);
+  --ring: oklch(0.52 0.05 150);
+  --chart-1: oklch(0.72 0.05 150);
+  --chart-2: oklch(0.62 0.05 150);
+  --chart-3: oklch(0.52 0.05 150);
+  --chart-4: oklch(0.45 0.05 150);
+  --chart-5: oklch(0.35 0.05 150);
+  --sidebar: oklch(0.22 0.01 150);
+  --sidebar-foreground: oklch(0.92 0.005 80);
+  --sidebar-accent: oklch(0.32 0.01 150);
   --sidebar-accent-foreground: oklch(0.98 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.72 0.08 75);
+  --sidebar-ring: oklch(0.52 0.05 150);
 }
 
 @layer base {
@@ -249,58 +248,58 @@
 
 /* OptiBio Wellness Utilities */
 @layer utilities {
-  /* Premium Gradients */
+  /* Wellness Gradients */
   .gradient-optibio {
-    background: linear-gradient(135deg, #1E3A5F 0%, #152B45 100%);
+    background: linear-gradient(135deg, #7C9885 0%, #4A6352 100%);
   }
   
   .gradient-optibio-reverse {
-    background: linear-gradient(135deg, #152B45 0%, #1E3A5F 100%);
+    background: linear-gradient(135deg, #4A6352 0%, #7C9885 100%);
   }
   
   .gradient-hero {
-    background: linear-gradient(135deg, #F7F4EF 0%, #EDE9E3 100%);
+    background: linear-gradient(135deg, #F5F1E8 0%, #E8DCC8 100%);
   }
   
-  .gradient-navy-ivory {
-    background: linear-gradient(180deg, #1E3A5F 0%, #F7F4EF 100%);
+  .gradient-sage-cream {
+    background: linear-gradient(180deg, #7C9885 0%, #F5F1E8 100%);
   }
   
   /* Text Gradients */
   .text-gradient-optibio {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #1E3A5F 0%, #152B45 100%);
+    background-image: linear-gradient(135deg, #7C9885 0%, #4A6352 100%);
   }
   
-  .text-gradient-premium {
+  .text-gradient-wellness {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #1E3A5F 0%, #C9A961 100%);
+    background-image: linear-gradient(135deg, #7C9885 0%, #5FA865 100%);
   }
   
-  .text-gradient-gold {
+  .text-gradient-terracotta {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #C9A961 0%, #B89651 100%);
+    background-image: linear-gradient(135deg, #D4745F 0%, #C4644F 100%);
   }
   
   /* Premium Shadows */
   .shadow-premium {
-    box-shadow: 0 25px 50px -12px rgba(30, 58, 95, 0.25);
+    box-shadow: 0 25px 50px -12px rgba(124, 152, 133, 0.25);
   }
   
-  .shadow-navy {
-    box-shadow: 0 10px 25px rgba(30, 58, 95, 0.3);
+  .shadow-sage {
+    box-shadow: 0 10px 25px rgba(124, 152, 133, 0.3);
   }
   
-  .shadow-glow-navy {
-    box-shadow: 0 0 40px rgba(30, 58, 95, 0.4);
+  .shadow-glow-sage {
+    box-shadow: 0 0 40px rgba(124, 152, 133, 0.4);
   }
   
-  .shadow-glow-gold {
-    box-shadow: 0 0 40px rgba(201, 169, 97, 0.4);
+  .shadow-glow-terracotta {
+    box-shadow: 0 0 40px rgba(212, 116, 95, 0.4);
   }
   
-  .shadow-ivory {
-    box-shadow: 0 4px 20px rgba(247, 244, 239, 0.3);
+  .shadow-cream {
+    box-shadow: 0 4px 20px rgba(245, 241, 232, 0.3);
   }
   
   /* Hover Effects */
@@ -310,16 +309,16 @@
   
   .hover-lift:hover {
     @apply -translate-y-2;
-    box-shadow: 0 20px 40px rgba(30, 58, 95, 0.2);
+    box-shadow: 0 20px 40px rgba(124, 152, 133, 0.2);
   }
   
   /* Animations */
   @keyframes pulse-glow {
     0%, 100% {
-      box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
+      box-shadow: 0 0 20px rgba(124, 152, 133, 0.3);
     }
     50% {
-      box-shadow: 0 0 50px rgba(201, 169, 97, 0.6);
+      box-shadow: 0 0 50px rgba(124, 152, 133, 0.6);
     }
   }
   
@@ -343,7 +342,7 @@
   /* Premium Button */
   .btn-premium {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, #C9A961 0%, #B89651 100%);
+    background: linear-gradient(135deg, #7C9885 0%, #4A6352 100%);
     transition: all 0.3s ease;
   }
   
