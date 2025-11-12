@@ -272,13 +272,13 @@ export default function Cart() {
                   </div>
                   
                   {appliedDiscount ? (
-                    <div className="p-4 rounded-xl bg-green-50 border-2 border-green-200">
+                    <div className="p-4 rounded-xl bg-[#C9A961]/10 border-2 border-[#C9A961]/30">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-green-700" />
+                          <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                           <div>
-                            <div className="font-semibold text-green-900">{appliedDiscount.code}</div>
-                            <div className="text-sm text-green-700">
+                            <div className="font-semibold text-[#1E3A5F]">{appliedDiscount.code}</div>
+                            <div className="text-sm text-[#1E3A5F]/70">
                               {appliedDiscount.discountType === "percentage" 
                                 ? `${appliedDiscount.discountValue}% off`
                                 : `${formatPrice(appliedDiscount.discountValue)} off`
@@ -290,7 +290,7 @@ export default function Cart() {
                           variant="ghost"
                           size="sm"
                           onClick={() => setAppliedDiscount(null)}
-                          className="text-green-700 hover:text-green-800"
+                          className="text-[#1E3A5F] hover:text-[#1E3A5F]/80"
                         >
                           Remove
                         </Button>
@@ -328,7 +328,7 @@ export default function Cart() {
                     </div>
 
                     {discountAmount > 0 && (
-                      <div className="flex justify-between text-green-700">
+                      <div className="flex justify-between text-[#C9A961]">
                         <span>Discount</span>
                         <span className="font-semibold">-{formatPrice(discountAmount)}</span>
                       </div>
@@ -338,7 +338,7 @@ export default function Cart() {
                       <span>Shipping</span>
                       <span className="font-semibold">
                         {shipping === 0 ? (
-                          <span className="text-green-700">FREE</span>
+                          <span className="text-[#C9A961]">FREE</span>
                         ) : (
                           formatPrice(shipping)
                         )}

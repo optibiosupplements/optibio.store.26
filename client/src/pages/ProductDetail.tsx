@@ -234,7 +234,7 @@ export default function ProductDetail() {
                       <div className="text-2xl text-slate-400 line-through">
                         {formatPrice(comparePrice)}
                       </div>
-                      <Badge variant="secondary" className="bg-green-100 text-green-800 text-sm px-3 py-1">
+                      <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F] text-sm px-3 py-1">
                         Save {Math.round(((comparePrice - currentPrice) / comparePrice) * 100)}%
                       </Badge>
                     </>
@@ -278,7 +278,7 @@ export default function ProductDetail() {
                               {formatPrice(variant.priceInCents)}
                             </div>
                             {savings > 0 && (
-                              <Badge variant="secondary" className="bg-green-100 text-green-800 text-xs">
+                              <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F] text-xs">
                                 Save {savings}%
                               </Badge>
                             )}
@@ -420,7 +420,7 @@ export default function ProductDetail() {
                   <div className="space-y-3">
                     {benefits.map((benefit, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
                         <span className="text-slate-700">{benefit}</span>
                       </div>
                     ))}
@@ -664,7 +664,7 @@ export default function ProductDetail() {
                             <h4 className="font-bold text-slate-900 mb-2">{review.title}</h4>
                             <p className="text-slate-700 leading-relaxed">{review.text}</p>
                           </div>
-                          <Badge variant="secondary" className="bg-green-100 text-green-800">
+                          <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F]">
                             <CheckCircle2 className="w-3 h-3 mr-1" />
                             Verified Purchase
                           </Badge>

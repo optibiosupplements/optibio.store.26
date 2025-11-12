@@ -77,7 +77,7 @@ export default function AdminAnalytics() {
       case "early_adopter":
         return "from-blue-500 to-indigo-500";
       case "pre_launch":
-        return "from-green-500 to-emerald-500";
+        return "from-[#C9A961] to-[#B89651]";
       default:
         return "from-slate-500 to-gray-500";
     }
@@ -117,7 +117,7 @@ export default function AdminAnalytics() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-green-600">
+              <div className="text-3xl font-bold text-[#C9A961]">
                 {formatPrice(overview?.mrr || 0)}
               </div>
               <p className="text-sm text-slate-600 mt-1">
@@ -215,7 +215,7 @@ export default function AdminAnalytics() {
                         <div className="text-sm text-slate-600 mb-1">
                           Monthly Recurring Revenue
                         </div>
-                        <div className="text-2xl font-bold text-green-600">
+                        <div className="text-2xl font-bold text-[#C9A961]">
                           {formatPrice(tier.mrr)}
                         </div>
                       </div>

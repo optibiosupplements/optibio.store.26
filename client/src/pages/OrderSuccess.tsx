@@ -74,10 +74,10 @@ export default function OrderSuccess() {
 
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         {/* Success Message */}
-        <Card className="border-2 border-green-200 shadow-2xl mb-8">
+        <Card className="border-2 border-[#C9A961]/30 shadow-2xl mb-8">
           <CardContent className="p-12 text-center space-y-6">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mx-auto border-4 border-green-200 shadow-lg">
-              <CheckCircle2 className="w-12 h-12 text-green-600" />
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mx-auto border-4 border-[#C9A961]/30 shadow-lg">
+              <CheckCircle2 className="w-12 h-12 text-[#C9A961]" />
             </div>
             
             <div className="space-y-3">
@@ -227,17 +227,17 @@ export default function OrderSuccess() {
                     <p className="text-sm text-slate-600">180 Capsules (3-Month Supply)</p>
                     <div className="flex items-baseline gap-2 mt-1">
                       <span className="text-lg font-bold text-slate-900">$89.99</span>
-                      <span className="text-sm text-green-600 font-semibold">Save 18%</span>
+                      <span className="text-sm text-[#C9A961] font-semibold">Save 18%</span>
                     </div>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>3-month supply for consistent results</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>Better value - $0.50 per serving</span>
                   </div>
                 </div>
@@ -268,21 +268,21 @@ export default function OrderSuccess() {
                     <p className="text-sm text-slate-600">90 Capsules - Auto-Delivery</p>
                     <div className="flex items-baseline gap-2 mt-1">
                       <span className="text-lg font-bold text-slate-900">$44.99/mo</span>
-                      <span className="text-sm text-green-600 font-semibold">Save 25%</span>
+                      <span className="text-sm text-[#C9A961] font-semibold">Save 25%</span>
                     </div>
                   </div>
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>Never run out - auto-delivery</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>Cancel or pause anytime</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>Free shipping on all orders</span>
                   </div>
                 </div>

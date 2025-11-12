@@ -518,8 +518,8 @@ export default function Checkout() {
                     </div>
 
                     <div className="flex items-center gap-3 p-4 rounded-xl bg-green-50 border-2 border-green-200">
-                      <Shield className="w-6 h-6 text-green-700 flex-shrink-0" />
-                      <div className="text-sm text-green-900">
+                      <Shield className="w-6 h-6 text-[#C9A961] flex-shrink-0" />
+                      <div className="text-sm text-[#1E3A5F]">
                         <strong>Secure Checkout:</strong> Your payment information is encrypted with 256-bit SSL security
                       </div>
                     </div>
@@ -600,7 +600,7 @@ export default function Checkout() {
                       <span>Shipping</span>
                       <span className="font-semibold">
                         {shipping === 0 ? (
-                          <span className="text-green-700">FREE</span>
+                          <span className="text-[#C9A961]">FREE</span>
                         ) : (
                           formatPrice(shipping)
                         )}

@@ -233,9 +233,9 @@ export default function Science() {
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-4 py-4">
-                  <div className="p-4 rounded-lg bg-green-50 border border-green-200">
-                    <h3 className="font-bold text-green-900 mb-2">✓ KSM-66® Ashwagandha</h3>
-                    <ul className="text-sm text-green-800 space-y-1">
+                  <div className="p-4 rounded-lg bg-[#C9A961]/10 border border-[#C9A961]/30">
+                    <h3 className="font-bold text-[#1E3A5F] mb-2">✓ KSM-66® Ashwagandha</h3>
+                    <ul className="text-sm text-[#1E3A5F] space-y-1">
                       <li>• Root-only extract</li>
                       <li>• Full-spectrum (all compounds)</li>
                       <li>• 5% withanolides standardized</li>
@@ -381,7 +381,7 @@ export default function Science() {
             <Card className="border-2 border-slate-200 shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-3">
-                  <Shield className="w-7 h-7 text-green-600" />
+                  <Shield className="w-7 h-7 text-[#C9A961]" />
                   Safety & Quality Assurance
                 </CardTitle>
               </CardHeader>
@@ -391,27 +391,27 @@ export default function Science() {
                     <strong>KSM-66® has an outstanding safety profile</strong> established through extensive clinical research. Across all studies, no significant adverse effects have been reported, making it suitable for long-term daily use.
                   </p>
 
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-6 space-y-3">
-                    <h3 className="font-bold text-green-900 text-lg">Clinical Safety Data:</h3>
-                    <ul className="space-y-2 text-green-800">
+                  <div className="bg-[#C9A961]/10 border border-[#C9A961]/30 rounded-lg p-6 space-y-3">
+                    <h3 className="font-bold text-[#1E3A5F] text-lg">Clinical Safety Data:</h3>
+                    <ul className="space-y-2 text-[#1E3A5F]">
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>GRAS Status:</strong> Generally Recognized As Safe by regulatory authorities</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>No Adverse Effects:</strong> Extensive safety studies show excellent tolerability</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>Third-Party Tested:</strong> Every batch tested for purity and potency</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>Organic Certified:</strong> USDA Organic and non-GMO verified</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>Heavy Metal Testing:</strong> Tested for lead, mercury, arsenic, and cadmium</span>
                       </li>
                     </ul>

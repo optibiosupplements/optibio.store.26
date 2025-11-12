@@ -165,7 +165,7 @@ export default function About() {
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
-                    <CheckCircle2 className="w-6 h-6 text-green-700" />
+                    <CheckCircle2 className="w-6 h-6 text-[#C9A961]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-2">20+ Clinical Studies</h3>
@@ -226,8 +226,8 @@ export default function About() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-green-700" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">GMP Certified Facility</h3>
@@ -238,8 +238,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-green-700" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">Third-Party Tested</h3>
@@ -250,8 +250,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-green-700" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">Non-GMO & Organic</h3>
@@ -262,8 +262,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-green-700" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">Vegan & Clean</h3>
@@ -362,7 +362,7 @@ export default function About() {
 
                     <div className="text-center space-y-2">
                       <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mx-auto mb-3">
-                        <span className="text-2xl font-bold text-green-700">QA</span>
+                        <span className="text-2xl font-bold text-[#C9A961]">QA</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Quality Assurance</h3>
                       <p className="text-sm text-slate-600">

@@ -52,7 +52,7 @@ export default function MyOrders() {
       case "shipped":
         return <Truck className="w-5 h-5 text-purple-600" />;
       case "delivered":
-        return <CheckCircle2 className="w-5 h-5 text-green-600" />;
+        return <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />;
       default:
         return <Clock className="w-5 h-5 text-slate-600" />;
     }
@@ -67,7 +67,7 @@ export default function MyOrders() {
       case "shipped":
         return "bg-purple-100 text-purple-800 border-purple-200";
       case "delivered":
-        return "bg-green-100 text-green-800 border-green-200";
+        return "bg-[#C9A961]/20 text-[#1E3A5F] border-[#C9A961]/30";
       default:
         return "bg-slate-100 text-slate-800 border-slate-200";
     }
@@ -189,7 +189,7 @@ export default function MyOrders() {
                   <span>{formatPrice(orderDetails.taxInCents)}</span>
                 </div>
                 {orderDetails.discountInCents > 0 && (
-                  <div className="flex justify-between text-green-600">
+                  <div className="flex justify-between text-[#C9A961]">
                     <span>Discount</span>
                     <span>-{formatPrice(orderDetails.discountInCents)}</span>
                   </div>

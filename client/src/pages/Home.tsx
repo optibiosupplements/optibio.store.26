@@ -485,34 +485,34 @@ export default function Home() {
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                      <CheckCircle2 className="w-7 h-7 text-green-600" />
+                      <CheckCircle2 className="w-7 h-7 text-[#C9A961]" />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900">This IS for you if:</h3>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You're dealing with <strong>chronic stress</strong> from work, family, or life transitions</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You struggle with <strong>racing thoughts</strong> or difficulty falling asleep</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You feel <strong>mentally foggy</strong> or can't focus like you used to</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You're <strong>exhausted but wired</strong>—tired all day, restless at night</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You want a <strong>science-backed solution</strong>, not just "wellness hype"</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You're willing to <strong>commit to 8-12 weeks</strong> for real results</p>
                     </div>
                   </div>
@@ -615,22 +615,22 @@ export default function Home() {
                           {formatPrice(mainProduct.compareAtPriceInCents)}
                         </div>
                       )}
-                      <Badge variant="secondary" className="bg-green-100 text-green-800">
+                      <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F]">
                         Save 25%
                       </Badge>
                     </div>
 
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-slate-700">
-                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                        <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                         <span>90 capsules - 45-day supply</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700">
-                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                        <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                         <span>300mg per capsule (600mg clinical dose with 2 capsules)</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700">
-                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                        <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                         <span>60-day money-back guarantee</span>
                       </div>
                     </div>
@@ -682,7 +682,7 @@ export default function Home() {
                       <div className="text-sm text-blue-200">{testimonial.role}</div>
                     </div>
                     {testimonial.verified && (
-                      <Badge variant="secondary" className="bg-green-500/20 text-green-300 border-green-400/30">
+                      <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30">
                         <CheckCircle2 className="w-3 h-3 mr-1" />
                         Verified
                       </Badge>

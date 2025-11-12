@@ -83,7 +83,7 @@ export default function Shipping() {
             <section>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
-                  <RotateCcw className="w-6 h-6 text-green-700" />
+                  <RotateCcw className="w-6 h-6 text-[#C9A961]" />
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900">Returns & Refunds</h2>
               </div>
@@ -93,9 +93,9 @@ export default function Shipping() {
                 We stand behind the quality of our products. If you're not completely satisfied with your purchase, you can return it within 90 days of delivery for a full refund—no questions asked.
               </p>
 
-              <div className="p-6 rounded-xl bg-gradient-to-br from-green-50 to-white border-2 border-green-200 mb-6">
+              <div className="p-6 rounded-xl bg-gradient-to-br from-green-50 to-white border-2 border-[#C9A961]/30 mb-6">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-green-700 flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2">Our Promise</h4>
                     <p className="text-slate-700 text-sm">
