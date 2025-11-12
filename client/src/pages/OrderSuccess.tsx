@@ -76,7 +76,7 @@ export default function OrderSuccess() {
         {/* Success Message */}
         <Card className="border-2 border-[#C9A961]/30 shadow-2xl mb-8">
           <CardContent className="p-12 text-center space-y-6">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mx-auto border-4 border-[#C9A961]/30 shadow-lg">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center mx-auto border-4 border-[#C9A961]/30 shadow-lg">
               <CheckCircle2 className="w-12 h-12 text-[#C9A961]" />
             </div>
             
@@ -251,7 +251,7 @@ export default function OrderSuccess() {
               </div>
 
               {/* Recommendation 2: Subscription */}
-              <div className="p-6 rounded-xl bg-gradient-to-br from-amber-50 to-white border-2 border-amber-200 space-y-4">
+              <div className="p-6 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/20 space-y-4">
                 <div className="flex items-center gap-4">
                   <div className="w-20 h-20 rounded-lg overflow-hidden bg-white border-2 border-slate-200 flex-shrink-0">
                     <img
@@ -261,7 +261,7 @@ export default function OrderSuccess() {
                     />
                   </div>
                   <div className="flex-1">
-                    <div className="inline-block px-2 py-1 rounded-md bg-amber-200 text-amber-900 text-xs font-bold mb-1">
+                    <div className="inline-block px-2 py-1 rounded-md bg-[#C9A961]/20 text-[#1E3A5F] text-xs font-bold mb-1">
                       BEST VALUE
                     </div>
                     <h3 className="font-bold text-slate-900">Monthly Subscription</h3>
@@ -288,7 +288,7 @@ export default function OrderSuccess() {
                 </div>
                 <Button
                   onClick={() => setLocation("/product/ashwagandha-ksm66-90")}
-                  className="w-full bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600"
+                  className="w-full bg-gradient-to-r from-[#B89651] to-[#F7F4EF]0 hover:from-[#B89651] hover:to-[#B89651]"
                 >
                   Subscribe & Save
                   <ArrowRight className="ml-2 h-4 w-4" />

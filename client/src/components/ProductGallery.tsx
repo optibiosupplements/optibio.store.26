@@ -26,7 +26,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
   return (
     <div className="space-y-4">
       {/* Main Image Display */}
-      <div className="relative aspect-square bg-gradient-to-br from-yellow-50/50 to-amber-50/50 rounded-2xl overflow-hidden border-2 border-yellow-100 shadow-cream group">
+      <div className="relative aspect-square bg-gradient-to-br from-[#F7F4EF]/50 to-[#F7F4EF]/50 rounded-2xl overflow-hidden border-2 border-[#C9A961]/10 shadow-cream group">
         <img
           src={images[selectedIndex]}
           alt={`${productName} - Image ${selectedIndex + 1}`}
@@ -82,14 +82,14 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
               onClick={() => handleThumbnailClick(index)}
               className={`relative aspect-square rounded-lg overflow-hidden border-2 transition-all ${
                 selectedIndex === index
-                  ? "border-yellow-400 shadow-gold ring-2 ring-yellow-400/50"
-                  : "border-yellow-100 hover:border-yellow-300 opacity-70 hover:opacity-100"
+                  ? "border-[#C9A961] shadow-gold ring-2 ring-[#C9A961]/50"
+                  : "border-[#C9A961]/10 hover:border-[#C9A961]/30 opacity-70 hover:opacity-100"
               }`}
             >
               <img
                 src={image}
                 alt={`${productName} thumbnail ${index + 1}`}
-                className="w-full h-full object-contain p-2 bg-gradient-to-br from-yellow-50/50 to-amber-50/50"
+                className="w-full h-full object-contain p-2 bg-gradient-to-br from-[#F7F4EF]/50 to-[#F7F4EF]/50"
               />
             </button>
           ))}
@@ -99,7 +99,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
       {/* Image Labels */}
       {images.length > 1 && (
         <div className="flex justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-50/80 border border-yellow-200 rounded-full text-sm text-slate-700">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#F7F4EF]/80 border border-[#C9A961]/20 rounded-full text-sm text-slate-700">
             <span className="font-semibold">
               {selectedIndex === 0 && "Product Bottle"}
               {selectedIndex === 1 && "Supplement Facts"}

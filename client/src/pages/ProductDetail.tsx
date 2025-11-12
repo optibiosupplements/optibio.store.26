@@ -188,7 +188,7 @@ export default function ProductDetail() {
               <div className="hidden lg:grid grid-cols-2 gap-4 pt-6">
                 {certifications.map((cert, i) => (
                   <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-200">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-amber-600/10 flex items-center justify-center">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-[#B89651]/10 flex items-center justify-center">
                       <cert.icon className="w-5 h-5 text-[#1E3A5F]" />
                     </div>
                     <div>
@@ -205,12 +205,12 @@ export default function ProductDetail() {
               {/* Header */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <Badge className="bg-gradient-to-r from-[#1E3A5F] to-amber-600 text-white border-0">
+                  <Badge className="bg-gradient-to-r from-[#1E3A5F] to-[#B89651] text-white border-0">
                     Best Seller
                   </Badge>
                   <div className="flex items-center gap-1">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-4 h-4 fill-[#C9A961] text-[#C9A961]" />
                     ))}
                     <span className="text-sm text-slate-600 ml-2">(2,847 reviews)</span>
                   </div>
@@ -226,7 +226,7 @@ export default function ProductDetail() {
 
                 {/* Price */}
                 <div className="flex items-baseline gap-4 pt-4">
-                  <div className="text-5xl font-bold bg-gradient-to-r from-[#1E3A5F] to-amber-600 bg-clip-text text-transparent">
+                  <div className="text-5xl font-bold bg-gradient-to-r from-[#1E3A5F] to-[#B89651] bg-clip-text text-transparent">
                     {formatPrice(isSubscription ? subscriptionPrice : currentPrice)}
                   </div>
                   {comparePrice && comparePrice > currentPrice && (
@@ -292,14 +292,14 @@ export default function ProductDetail() {
 
               {/* Subscription Option */}
               {product.subscriptionPlans && product.subscriptionPlans.length > 0 && (
-                <Card className="border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-white">
+                <Card className="border-2 border-[#C9A961]/20 bg-gradient-to-br from-[#F7F4EF] to-white">
                   <CardContent className="p-6 space-y-4">
                     <div className="flex items-start justify-between">
                       <div className="space-y-2">
                         <div className="flex items-center gap-2">
-                          <Package className="w-5 h-5 text-amber-600" />
+                          <Package className="w-5 h-5 text-[#B89651]" />
                           <span className="font-bold text-lg text-slate-900">Subscribe & Save</span>
-                          <Badge className="bg-amber-600">Best Value</Badge>
+                          <Badge className="bg-[#B89651]">Best Value</Badge>
                         </div>
                         <p className="text-sm text-slate-600">
                           Never run out. Cancel anytime. Exclusive subscriber benefits.
@@ -314,7 +314,7 @@ export default function ProductDetail() {
                             setSelectedSubscription(product.subscriptionPlans[0].id);
                           }
                         }}
-                        className="w-6 h-6 rounded border-2 border-amber-400 text-amber-600 focus:ring-amber-500"
+                        className="w-6 h-6 rounded border-2 border-[#C9A961] text-[#B89651] focus:ring-[#F7F4EF]0"
                       />
                     </div>
 
@@ -328,7 +328,7 @@ export default function ProductDetail() {
                           <Label
                             key={plan.id}
                             htmlFor={`plan-${plan.id}`}
-                            className="flex items-center justify-between p-4 rounded-lg border-2 border-amber-200 bg-white cursor-pointer hover:border-amber-400 transition-colors"
+                            className="flex items-center justify-between p-4 rounded-lg border-2 border-[#C9A961]/20 bg-white cursor-pointer hover:border-[#C9A961] transition-colors"
                           >
                             <div className="flex items-center gap-3">
                               <RadioGroupItem value={plan.id.toString()} id={`plan-${plan.id}`} />
@@ -337,7 +337,7 @@ export default function ProductDetail() {
                                 <div className="text-sm text-slate-600">Delivery every {plan.intervalCount} {plan.intervalType === 'monthly' ? 'month(s)' : plan.intervalType === 'quarterly' ? 'quarter(s)' : 'year(s)'}</div>
                               </div>
                             </div>
-                            <Badge variant="secondary" className="bg-amber-100 text-amber-900">
+                            <Badge variant="secondary" className="bg-[#C9A961]/10 text-[#1E3A5F]">
                               {plan.discountPercentage}% OFF
                             </Badge>
                           </Label>
@@ -377,7 +377,7 @@ export default function ProductDetail() {
                     size="lg"
                     onClick={handleAddToCart}
                     disabled={addToCartMutation.isPending}
-                    className="flex-1 h-14 text-lg bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="flex-1 h-14 text-lg bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#B89651] text-slate-900 font-bold shadow-lg hover:shadow-xl transition-all duration-300"
                   >
                     {addToCartMutation.isPending ? (
                       <Loader2 className="w-5 h-5 mr-2 animate-spin" />
@@ -509,7 +509,7 @@ export default function ProductDetail() {
                         <strong>Other Ingredients:</strong> Hypromellose (capsule), Microcrystalline cellulose, Magnesium stearate.
                       </div>
                     </div>
-                    <div className="mt-6 p-4 bg-amber-50 border border-amber-200 rounded-lg">
+                    <div className="mt-6 p-4 bg-[#F7F4EF] border border-[#C9A961]/20 rounded-lg">
                       <p className="text-sm text-slate-700">
                         <strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.
                       </p>
@@ -593,7 +593,7 @@ export default function ProductDetail() {
                           <div className="text-6xl font-bold text-slate-900">4.8</div>
                           <div className="flex items-center justify-center gap-1">
                             {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-6 h-6 fill-amber-400 text-amber-400" />
+                              <Star key={i} className="w-6 h-6 fill-[#C9A961] text-[#C9A961]" />
                             ))}
                           </div>
                           <div className="text-slate-600">Based on 2,847 reviews</div>
@@ -604,7 +604,7 @@ export default function ProductDetail() {
                               <div className="text-sm font-medium w-8">{rating}★</div>
                               <div className="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
                                 <div 
-                                  className="h-full bg-amber-400"
+                                  className="h-full bg-[#C9A961]"
                                   style={{ width: rating === 5 ? '85%' : rating === 4 ? '12%' : '3%' }}
                                 />
                               </div>
@@ -657,7 +657,7 @@ export default function ProductDetail() {
                           </div>
                           <div className="flex items-center gap-1">
                             {[...Array(review.rating)].map((_, i) => (
-                              <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                              <Star key={i} className="w-5 h-5 fill-[#C9A961] text-[#C9A961]" />
                             ))}
                           </div>
                           <div>

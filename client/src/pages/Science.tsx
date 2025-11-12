@@ -164,8 +164,8 @@ export default function Science() {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
         </div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
         
@@ -184,7 +184,7 @@ export default function Science() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <Badge className="px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+            <Badge className="px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
               <Microscope className="w-4 h-4 mr-2 inline" />
               <span className="font-bold">Evidence-Based Research</span>
             </Badge>
@@ -282,13 +282,13 @@ export default function Science() {
               {studies.map((study, index) => {
                 const Icon = study.icon;
                 return (
-                  <Card key={index} className="border-2 border-yellow-100 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
+                  <Card key={index} className="border-2 border-[#C9A961]/10 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
                     <CardContent className="p-8">
                       <div className="flex flex-col md:flex-row gap-6">
                         {/* Left: Icon & Metric */}
                         <div className="flex-shrink-0 text-center md:text-left">
-                          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center mx-auto md:mx-0 mb-4">
-                            <Icon className="w-10 h-10 text-amber-600" />
+                          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto md:mx-0 mb-4">
+                            <Icon className="w-10 h-10 text-[#B89651]" />
                           </div>
                           <div className="space-y-1">
                             <div className="text-4xl font-bold text-gradient-gold">{study.percentage}</div>
@@ -313,18 +313,18 @@ export default function Science() {
                               {study.duration}
                             </Badge>
                             <a href={study.link} target="_blank" rel="noopener noreferrer">
-                              <Badge className="bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 hover:from-yellow-500 hover:to-amber-600 cursor-pointer transition-all shadow-sm hover:shadow-md">
+                              <Badge className="bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 hover:from-[#F7F4EF]0 hover:to-[#B89651] cursor-pointer transition-all shadow-sm hover:shadow-md">
                                 {study.journal} ({study.year}) →
                               </Badge>
                             </a>
                           </div>
 
-                          <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-yellow-100">
+                          <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#C9A961]/10">
                             <h4 className="font-semibold text-slate-900 mb-2">Key Findings:</h4>
                             <ul className="space-y-1">
                               {study.findings.map((finding, i) => (
                                 <li key={i} className="text-sm text-slate-700 flex items-start gap-2">
-                                  <span className="text-amber-600 mt-0.5">✓</span>
+                                  <span className="text-[#B89651] mt-0.5">✓</span>
                                   <span>{finding}</span>
                                 </li>
                               ))}

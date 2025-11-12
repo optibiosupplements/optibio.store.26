@@ -40,8 +40,8 @@ export default function Shop() {
       {/* Page Header */}
       <section className="relative py-12 md:py-16 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
         </div>
         <div className="container relative z-10">
           <Breadcrumb className="mb-6">
@@ -58,7 +58,7 @@ export default function Shop() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="max-w-3xl">
-            <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+            <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
               <span className="font-bold">Premium KSM-66® Formula</span>
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
@@ -98,7 +98,7 @@ export default function Shop() {
           {/* Product Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products?.map((product) => (
-              <Card key={product.id} className="group overflow-hidden border-2 border-yellow-100 hover:border-yellow-300 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
+              <Card key={product.id} className="group overflow-hidden border-2 border-[#C9A961]/10 hover:border-[#C9A961]/30 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
                 <CardContent className="p-0">
                   {/* Product Gallery */}
                   <div className="relative p-4">
@@ -107,13 +107,13 @@ export default function Shop() {
                       productName={product.name}
                     />
                     {product.isFeatured && (
-                      <Badge className="absolute top-8 right-8 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold z-10">
+                      <Badge className="absolute top-8 right-8 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold z-10">
                         <TrendingUp className="h-3 w-3 mr-1" />
                         Best Seller
                       </Badge>
                     )}
                     {product.compareAtPriceInCents && (
-                      <Badge className="absolute top-8 left-8 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold z-10">
+                      <Badge className="absolute top-8 left-8 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold z-10">
                         Save {Math.round((1 - product.priceInCents / product.compareAtPriceInCents) * 100)}%
                       </Badge>
                     )}

@@ -73,7 +73,7 @@ export default function AdminAnalytics() {
   const getTierColor = (tier: string) => {
     switch (tier) {
       case "founders":
-        return "from-amber-500 to-yellow-500";
+        return "from-[#F7F4EF]0 to-[#F7F4EF]0";
       case "early_adopter":
         return "from-[#F7F4EF]0 to-[#1E3A5F]";
       case "pre_launch":
@@ -151,7 +151,7 @@ export default function AdminAnalytics() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-orange-600">
+              <div className="text-3xl font-bold text-[#B89651]">
                 {overview?.churnRate?.toFixed(1) || "0.0"}%
               </div>
               <p className="text-sm text-slate-600 mt-1">
@@ -168,7 +168,7 @@ export default function AdminAnalytics() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-purple-600">
+              <div className="text-3xl font-bold text-[#1E3A5F]">
                 {formatPrice(overview?.totalRevenue || 0)}
               </div>
               <p className="text-sm text-slate-600 mt-1">

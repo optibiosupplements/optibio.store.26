@@ -517,7 +517,7 @@ export default function Checkout() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 p-4 rounded-xl bg-green-50 border-2 border-green-200">
+                    <div className="flex items-center gap-3 p-4 rounded-xl bg-[#F7F4EF] border-2 border-[#C9A961]/20">
                       <Shield className="w-6 h-6 text-[#C9A961] flex-shrink-0" />
                       <div className="text-sm text-[#1E3A5F]">
                         <strong>Secure Checkout:</strong> Your payment information is encrypted with 256-bit SSL security
@@ -613,7 +613,7 @@ export default function Checkout() {
                     <div className="pt-3 border-t-2 border-slate-200">
                       <div className="flex justify-between items-baseline">
                         <span className="text-lg font-semibold text-slate-900">Total</span>
-                        <div className="text-3xl font-bold bg-gradient-to-r from-[#1E3A5F] to-amber-600 bg-clip-text text-transparent">
+                        <div className="text-3xl font-bold bg-gradient-to-r from-[#1E3A5F] to-[#B89651] bg-clip-text text-transparent">
                           {formatPrice(total)}
                         </div>
                       </div>

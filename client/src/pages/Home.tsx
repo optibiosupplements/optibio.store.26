@@ -398,7 +398,7 @@ export default function Home() {
                 <p className="text-lg text-[#F7F4EF] leading-relaxed mb-4">
                   This is when most people notice they're falling asleep faster and waking up more refreshed. You might catch yourself thinking, "Huh, I actually slept through the night." Stress feels more manageable—not gone, but less overwhelming.
                 </p>
-                <div className="flex items-center gap-2 text-green-300">
+                <div className="flex items-center gap-2 text-[#C9A961]">
                   <CheckCircle2 className="w-5 h-5" />
                   <span className="text-sm font-medium">72% of users report better sleep quality by week 3</span>
                 </div>
@@ -419,15 +419,15 @@ export default function Home() {
                   The magic window. Energy feels more consistent throughout the day. You're handling work stress without that constant edge of anxiety. Friends might ask, "What changed?" This is when the clinical benefits really show up.
                 </p>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-green-300">
+                  <div className="flex items-center gap-2 text-[#C9A961]">
                     <CheckCircle2 className="w-5 h-5" />
                     <span className="text-sm font-medium">44% reduction in stress markers</span>
                   </div>
-                  <div className="flex items-center gap-2 text-green-300">
+                  <div className="flex items-center gap-2 text-[#C9A961]">
                     <CheckCircle2 className="w-5 h-5" />
                     <span className="text-sm font-medium">27.9% improvement in physical performance</span>
                   </div>
-                  <div className="flex items-center gap-2 text-green-300">
+                  <div className="flex items-center gap-2 text-[#C9A961]">
                     <CheckCircle2 className="w-5 h-5" />
                     <span className="text-sm font-medium">Noticeable improvement in focus and mental clarity</span>
                   </div>
@@ -437,7 +437,7 @@ export default function Home() {
 
             {/* Week 8+ */}
             <div className="relative pl-8 md:pl-16">
-              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-4 border-blue-900" />
+              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] border-4 border-[#1E3A5F]" />
               <div className="bg-gradient-to-br from-[#C9A961]/20 to-[#B89651]/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-[#C9A961]/40">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                   <h3 className="text-2xl font-bold text-[#C9A961]">Week 8+: Your New Normal</h3>
@@ -481,10 +481,10 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* This IS for you */}
-              <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50/50 to-white">
+              <Card className="border-2 border-[#C9A961]/30 bg-gradient-to-br frobg-[#F7F4EF]50 to-white">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
+                    <div className="w-12 h-12 rounded-full bg-[#C9A961]/10 flex items-center justify-center">
                       <CheckCircle2 className="w-7 h-7 text-[#C9A961]" />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900">This IS for you if:</h3>
@@ -735,7 +735,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold">
               Try OptiBio Risk-Free for 90 Days
             </h2>
-            <p className="text-xl text-blue-50 leading-relaxed">
+            <p className="text-xl text-[#F7F4EF] leading-relaxed">
               Take OptiBio for 90 days. If you don't feel calmer, more focused, and better rested, we'll refund every penny. No questions asked. No return shipping. You can even keep the bottle.
             </p>
             <p className="text-lg text-[#F7F4EF] font-medium">
@@ -797,24 +797,24 @@ export default function Home() {
                   <h3 className="font-bold text-lg mb-2">Early Believer</h3>
                   <p className="text-3xl font-bold mb-1">$49</p>
                   <p className="text-sm text-[#F7F4EF]">1 bottle • 15% off for life</p>
-                  <p className="text-xs text-orange-400 mt-2">Only 500 spots</p>
+                  <p className="text-xs text-[#C9A961] mt-2">Only 500 spots</p>
                   <Link href="/shop" className="block mt-4">
-                    <Button className="w-full bg-blue-400 hover:bg-[#F7F4EF]0 text-slate-900 font-bold">
+                    <Button className="w-full bg-[#C9A961] hover:bg-[#F7F4EF]0 text-slate-900 font-bold">
                       Shop Now
                     </Button>
                   </Link>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-purple-400/30 hover:border-purple-400/60 transition-all">
+              <Card className="bg-white/10 backdrop-blur-sm border-[#1E3A5F]/30 hover:border-[#1E3A5F]/60 transition-all">
                 <CardContent className="p-6">
-                  <Sparkles className="w-8 h-8 text-purple-400 mb-3" />
+                  <Sparkles className="w-8 h-8 text-[#1E3A5F] mb-3" />
                   <h3 className="font-bold text-lg mb-2">Pre-Launch</h3>
                   <p className="text-3xl font-bold mb-1">$54.99</p>
                   <p className="text-sm text-[#F7F4EF]">1 bottle • 10% off for life</p>
-                  <p className="text-xs text-green-400 mt-2">Unlimited spots</p>
+                  <p className="text-xs text-[#C9A961] mt-2">Unlimited spots</p>
                   <Link href="/shop" className="block mt-4">
-                    <Button className="w-full bg-purple-400 hover:bg-purple-500 text-slate-900 font-bold">
+                    <Button className="w-full bg-[#1E3A5F] hover:bg-[#F7F4EF]0 text-slate-900 font-bold">
                       Shop Now
                     </Button>
                   </Link>

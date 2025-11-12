@@ -25,15 +25,15 @@ export function SocialProofCounter({ variant = "homepage" }: SocialProofCounterP
 
   // Homepage variant - larger, more prominent
   return (
-    <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950 dark:to-teal-950 px-6 py-3 border border-emerald-200 dark:border-emerald-800">
-      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900">
-        <Users className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+    <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#F7F4EF] to-[#F7F4EF] dark:from-emerald-950 dark:to-teal-950 px-6 py-3 border border-[#C9A961]/20 dark:border-[#1E3A5F]">
+      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#C9A961]/10 dark:bg-[#1E3A5F]">
+        <Users className="h-5 w-5 text-[#B89651] dark:text-[#C9A961]" />
       </div>
       <div className="text-left">
-        <div className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">
+        <div className="text-2xl font-bold text-[#1E3A5F] dark:text-[#C9A961]/10">
           {totalReservations.toLocaleString()}
         </div>
-        <div className="text-sm text-emerald-700 dark:text-emerald-300">
+        <div className="text-sm text-[#1E3A5F] dark:text-[#C9A961]/30">
           people joined the movement
         </div>
       </div>

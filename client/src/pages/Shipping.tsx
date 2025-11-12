@@ -82,7 +82,7 @@ export default function Shipping() {
           <CardContent className="p-8 space-y-8 prose prose-slate max-w-none">
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
                   <RotateCcw className="w-6 h-6 text-[#C9A961]" />
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900">Returns & Refunds</h2>
@@ -93,7 +93,7 @@ export default function Shipping() {
                 We stand behind the quality of our products. If you're not completely satisfied with your purchase, you can return it within 90 days of delivery for a full refund—no questions asked.
               </p>
 
-              <div className="p-6 rounded-xl bg-gradient-to-br from-green-50 to-white border-2 border-[#C9A961]/30 mb-6">
+              <div className="p-6 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/30 mb-6">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
                   <div>
@@ -191,8 +191,8 @@ export default function Shipping() {
         <Card className="border-2 border-slate-200 shadow-xl">
           <CardContent className="p-8 space-y-6">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center">
-                <Package className="w-6 h-6 text-amber-700" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
+                <Package className="w-6 h-6 text-[#B89651]" />
               </div>
               <h2 className="text-2xl font-bold text-slate-900">Additional Information</h2>
             </div>

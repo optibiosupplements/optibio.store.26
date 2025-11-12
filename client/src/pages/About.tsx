@@ -20,8 +20,8 @@ export default function About() {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
         </div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
         
@@ -40,7 +40,7 @@ export default function About() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <Badge className="px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+            <Badge className="px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
               <span className="font-bold">Our Story</span>
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
@@ -57,10 +57,10 @@ export default function About() {
       <section className="py-16 -mt-12 relative z-20">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="border-2 border-yellow-100 shadow-cream bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
+            <Card className="border-2 border-[#C9A961]/10 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center mx-auto">
-                  <Target className="w-8 h-8 text-amber-600" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto">
+                  <Target className="w-8 h-8 text-[#B89651]" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">Our Mission</h3>
                 <p className="text-slate-600 leading-relaxed">
@@ -69,10 +69,10 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-yellow-100 shadow-cream bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
+            <Card className="border-2 border-[#C9A961]/10 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center mx-auto">
-                  <Leaf className="w-8 h-8 text-amber-600" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto">
+                  <Leaf className="w-8 h-8 text-[#B89651]" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">Our Values</h3>
                 <p className="text-slate-600 leading-relaxed">
@@ -81,10 +81,10 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-yellow-100 shadow-cream bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
+            <Card className="border-2 border-[#C9A961]/10 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center mx-auto">
-                  <Heart className="w-8 h-8 text-amber-600" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto">
+                  <Heart className="w-8 h-8 text-[#B89651]" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">Our Promise</h3>
                 <p className="text-slate-600 leading-relaxed">
@@ -164,7 +164,7 @@ export default function About() {
             <Card className="border-2 border-[#C9A961]/30 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
                     <CheckCircle2 className="w-6 h-6 text-[#C9A961]" />
                   </div>
                   <div>
@@ -180,8 +180,8 @@ export default function About() {
             <Card className="border-2 border-[#C9A961]/30 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-purple-700" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#1E3A5F]/10 to-[#F7F4EF] flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-[#152B45]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-2">Organic & Pure</h3>
@@ -196,8 +196,8 @@ export default function About() {
             <Card className="border-2 border-[#C9A961]/30 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center">
-                    <Award className="w-6 h-6 text-amber-700" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
+                    <Award className="w-6 h-6 text-[#B89651]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-2">Award-Winning Quality</h3>
@@ -361,7 +361,7 @@ export default function About() {
                     </div>
 
                     <div className="text-center space-y-2">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mx-auto mb-3">
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center mx-auto mb-3">
                         <span className="text-2xl font-bold text-[#C9A961]">QA</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Quality Assurance</h3>
@@ -371,8 +371,8 @@ export default function About() {
                     </div>
 
                     <div className="text-center space-y-2">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center mx-auto mb-3">
-                        <span className="text-2xl font-bold text-amber-700">CS</span>
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center mx-auto mb-3">
+                        <span className="text-2xl font-bold text-[#B89651]">CS</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Customer Success</h3>
                       <p className="text-sm text-slate-600">

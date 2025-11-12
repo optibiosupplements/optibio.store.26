@@ -101,7 +101,7 @@ export default function Cart() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
         <div className="text-center space-y-6 p-8">
-          <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[#C9A961]/10 to-amber-100 flex items-center justify-center">
+          <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#C9A961]/10 flex items-center justify-center">
             <ShoppingBag className="h-12 w-12 text-[#1E3A5F]" />
           </div>
           <div className="space-y-2">
@@ -149,7 +149,7 @@ export default function Cart() {
                   </div>
                   <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-[#1E3A5F] to-amber-500 transition-all duration-500 rounded-full"
+                      className="h-full bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 transition-all duration-500 rounded-full"
                       style={{ width: `${shippingProgress}%` }}
                     />
                   </div>
@@ -187,7 +187,7 @@ export default function Cart() {
                               <p className="text-sm text-slate-600">{item.variantName}</p>
                             )}
                             {item.isSubscription && (
-                              <Badge className="mt-2 bg-amber-100 text-amber-900 border-amber-300">
+                              <Badge className="mt-2 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
                                 <Sparkles className="w-3 h-3 mr-1" />
                                 Subscription
                               </Badge>
@@ -354,7 +354,7 @@ export default function Cart() {
                       <div className="flex justify-between items-baseline">
                         <span className="text-lg font-semibold text-slate-900">Total</span>
                         <div className="text-right">
-                          <div className="text-3xl font-bold bg-gradient-to-r from-[#1E3A5F] to-amber-600 bg-clip-text text-transparent">
+                          <div className="text-3xl font-bold bg-gradient-to-r from-[#1E3A5F] to-[#B89651] bg-clip-text text-transparent">
                             {formatPrice(total)}
                           </div>
                           <div className="text-xs text-slate-600">or 4 payments of {formatPrice(Math.round(total / 4))}</div>

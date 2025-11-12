@@ -49,8 +49,8 @@ export default function Manifesto() {
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
         <div className="container relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
-            <div className="w-20 h-20 rounded-full bg-green-500/20 flex items-center justify-center mx-auto">
-              <CheckCircle2 className="w-12 h-12 text-green-400" />
+            <div className="w-20 h-20 rounded-full bg-[#F7F4EF]0/20 flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-12 h-12 text-[#C9A961]" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold">
               Welcome to the Movement
@@ -64,19 +64,19 @@ export default function Manifesto() {
               </p>
               <div className="space-y-3 text-left">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-[#F7F4EF]">
                     <strong>Day 1 (48 hours):</strong> Pre-sale opens. You get first access to Founder's Edition (limited to 500 spots)
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-[#F7F4EF]">
                     <strong>Day 7:</strong> We share behind-the-scenes: visiting suppliers, quality testing, manufacturing
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-[#F7F4EF]">
                     <strong>Day 90:</strong> Your order ships. You're part of the founding community that demanded better.
                   </p>
@@ -101,13 +101,13 @@ export default function Manifesto() {
         <div className="max-w-5xl mx-auto space-y-12">
           {/* Header */}
           <div className="text-center space-y-6">
-            <Badge className="bg-red-500/20 text-red-300 border-red-500/30 text-sm px-4 py-2">
+            <Badge className="bg-[#D4745F]/20 text-red-300 border-[#D4745F]/30 text-sm px-4 py-2">
               <AlertCircle className="w-4 h-4 mr-2" />
               Industry Truth
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
               The Supplement Industry<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-orange-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4745F] to-[#C9A961]">
                 Is Broken
               </span>
             </h1>
@@ -118,10 +118,10 @@ export default function Manifesto() {
 
           {/* The Problems */}
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-white/5 border-red-500/30 backdrop-blur-sm">
+            <Card className="bg-white/5 border-[#D4745F]/30 backdrop-blur-sm">
               <CardContent className="p-6 space-y-3">
-                <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
-                  <AlertCircle className="w-6 h-6 text-red-400" />
+                <div className="w-12 h-12 rounded-full bg-[#D4745F]/20 flex items-center justify-center">
+                  <AlertCircle className="w-6 h-6 text-[#D4745F]" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Fake Ingredients</h3>
                 <p className="text-sm text-[#F7F4EF]/80">
@@ -130,10 +130,10 @@ export default function Manifesto() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white/5 border-red-500/30 backdrop-blur-sm">
+            <Card className="bg-white/5 border-[#D4745F]/30 backdrop-blur-sm">
               <CardContent className="p-6 space-y-3">
-                <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
-                  <Shield className="w-6 h-6 text-red-400" />
+                <div className="w-12 h-12 rounded-full bg-[#D4745F]/20 flex items-center justify-center">
+                  <Shield className="w-6 h-6 text-[#D4745F]" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Zero Transparency</h3>
                 <p className="text-sm text-[#F7F4EF]/80">
@@ -142,10 +142,10 @@ export default function Manifesto() {
               </CardContent>
             </Card>
 
-            <Card className="bg-white/5 border-red-500/30 backdrop-blur-sm">
+            <Card className="bg-white/5 border-[#D4745F]/30 backdrop-blur-sm">
               <CardContent className="p-6 space-y-3">
-                <div className="w-12 h-12 rounded-full bg-red-500/20 flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-red-400" />
+                <div className="w-12 h-12 rounded-full bg-[#D4745F]/20 flex items-center justify-center">
+                  <FileText className="w-6 h-6 text-[#D4745F]" />
                 </div>
                 <h3 className="text-lg font-bold text-white">Proprietary Blends</h3>
                 <p className="text-sm text-[#F7F4EF]/80">
@@ -156,9 +156,9 @@ export default function Manifesto() {
           </div>
 
           {/* The Solution */}
-          <div className="bg-gradient-to-br from-[#152B45]/50 to-purple-900/50 border border-[#C9A961]/30 rounded-2xl p-8 md:p-12 space-y-8">
+          <div className="bg-gradient-to-br from-[#152B45]/50 to-[#152B45]/50 border border-[#C9A961]/30 rounded-2xl p-8 md:p-12 space-y-8">
             <div className="text-center space-y-4">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 px-6 py-3 rounded-full font-bold">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 px-6 py-3 rounded-full font-bold">
                 <Sparkles className="w-5 h-5" />
                 We're Building Something Different
               </div>
@@ -170,7 +170,7 @@ export default function Manifesto() {
 
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex items-start gap-4">
-                <CheckCircle2 className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-white mb-2">Only Clinically Validated Ingredients</h4>
                   <p className="text-sm text-[#F7F4EF]/80">
@@ -180,7 +180,7 @@ export default function Manifesto() {
               </div>
 
               <div className="flex items-start gap-4">
-                <CheckCircle2 className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-white mb-2">Third-Party Testing for Every Batch</h4>
                   <p className="text-sm text-[#F7F4EF]/80">
@@ -190,7 +190,7 @@ export default function Manifesto() {
               </div>
 
               <div className="flex items-start gap-4">
-                <CheckCircle2 className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-white mb-2">Full Supply Chain Transparency</h4>
                   <p className="text-sm text-[#F7F4EF]/80">
@@ -200,7 +200,7 @@ export default function Manifesto() {
               </div>
 
               <div className="flex items-start gap-4">
-                <CheckCircle2 className="w-6 h-6 text-green-400 flex-shrink-0 mt-1" />
+                <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
                 <div>
                   <h4 className="font-bold text-white mb-2">Clinical Dosages, Not Pixie Dust</h4>
                   <p className="text-sm text-[#F7F4EF]/80">
@@ -212,10 +212,10 @@ export default function Manifesto() {
           </div>
 
           {/* The Call to Action */}
-          <div className="bg-gradient-to-br from-slate-800 to-[#152B45] border-2 border-yellow-400/50 rounded-2xl p-8 md:p-12 space-y-6 text-center">
+          <div className="bg-gradient-to-br from-slate-800 to-[#152B45] border-2 border-[#C9A961]/50 rounded-2xl p-8 md:p-12 space-y-6 text-center">
             <div className="flex items-center justify-center gap-2">
-              <Users className="w-6 h-6 text-yellow-400" />
-              <Badge className="bg-yellow-400/20 text-yellow-300 border-yellow-400/30">
+              <Users className="w-6 h-6 text-[#C9A961]" />
+              <Badge className="bg-[#C9A961]/20 text-[#C9A961]/30 border-[#C9A961]/30">
                 Join the Founding Community
               </Badge>
             </div>
@@ -251,7 +251,7 @@ export default function Manifesto() {
                 type="submit"
                 size="lg"
                 disabled={joinWaitlist.isPending}
-                className="w-full bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold text-lg h-14"
+                className="w-full bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#B89651] text-slate-900 font-bold text-lg h-14"
               >
                 {joinWaitlist.isPending ? "Joining..." : "Join the Waitlist"}
                 <ArrowRight className="ml-2 w-5 h-5" />

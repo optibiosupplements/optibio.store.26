@@ -162,8 +162,8 @@ export default function FAQ() {
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
         </div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
         
@@ -182,7 +182,7 @@ export default function FAQ() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <Badge className="px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold">
+            <Badge className="px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
               <HelpCircle className="w-4 h-4 mr-2 inline" />
               <span className="font-bold">Frequently Asked Questions</span>
             </Badge>
@@ -201,7 +201,7 @@ export default function FAQ() {
         <div className="container">
           <div className="max-w-4xl mx-auto space-y-8">
             {faqs.map((section, sectionIndex) => (
-              <Card key={sectionIndex} className="border-2 border-yellow-100 shadow-cream bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
+              <Card key={sectionIndex} className="border-2 border-[#C9A961]/10 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-4 border-b">
                     {section.category}
@@ -232,10 +232,10 @@ export default function FAQ() {
       {/* Contact CTA */}
       <section className="py-16">
         <div className="container">
-          <Card className="border-2 border-yellow-200 shadow-gold bg-gradient-to-br from-yellow-50/80 to-amber-50/80 max-w-3xl mx-auto">
+          <Card className="border-2 border-[#C9A961]/20 shadow-gold bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80 max-w-3xl mx-auto">
             <CardContent className="p-12 text-center space-y-6">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-400/20 to-amber-500/20 flex items-center justify-center mx-auto">
-                <Mail className="w-8 h-8 text-amber-600" />
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto">
+                <Mail className="w-8 h-8 text-[#B89651]" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-slate-900 mb-3">
@@ -249,7 +249,7 @@ export default function FAQ() {
                 <Button
                   onClick={() => window.location.href = "mailto:support@optibio.com"}
                   size="lg"
-                  className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-gold"
+                  className="bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#B89651] text-slate-900 font-bold shadow-gold"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Email Support

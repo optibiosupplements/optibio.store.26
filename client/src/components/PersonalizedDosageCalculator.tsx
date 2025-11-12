@@ -208,7 +208,7 @@ export default function PersonalizedDosageCalculator() {
     return (
       <div className="space-y-8 animate-fade-in">
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 px-6 py-3 rounded-full font-bold text-lg mb-6">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 px-6 py-3 rounded-full font-bold text-lg mb-6">
             <Sparkles className="w-5 h-5" />
             Your Personalized Wellness Plan
           </div>
@@ -238,14 +238,14 @@ export default function PersonalizedDosageCalculator() {
           </Card>
 
           {/* Timing */}
-          <Card className="border-2 border-amber-200 bg-gradient-to-br from-amber-50 to-white">
+          <Card className="border-2 border-[#C9A961]/20 bg-gradient-to-br from-[#F7F4EF] to-white">
             <CardContent className="p-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-amber-100 flex items-center justify-center mx-auto">
-                <Clock className="w-8 h-8 text-amber-700" />
+              <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center mx-auto">
+                <Clock className="w-8 h-8 text-[#B89651]" />
               </div>
               <div>
                 <div className="text-sm font-medium text-slate-600 mb-2">Best Time to Take</div>
-                <div className="text-lg font-bold text-amber-900 leading-tight">
+                <div className="text-lg font-bold text-[#1E3A5F] leading-tight">
                   {recommendation.timing}
                 </div>
               </div>
@@ -253,14 +253,14 @@ export default function PersonalizedDosageCalculator() {
           </Card>
 
           {/* Timeline */}
-          <Card className="border-2 border-green-200 bg-gradient-to-br from-green-50 to-white">
+          <Card className="border-2 border-[#C9A961]/20 bg-gradient-to-br from-[#F7F4EF] to-white">
             <CardContent className="p-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto">
-                <Calendar className="w-8 h-8 text-green-700" />
+              <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center mx-auto">
+                <Calendar className="w-8 h-8 text-[#1E3A5F]" />
               </div>
               <div>
                 <div className="text-sm font-medium text-slate-600 mb-2">Expected Results</div>
-                <div className="text-lg font-bold text-green-900 leading-tight">
+                <div className="text-lg font-bold text-[#1E3A5F] leading-tight">
                   {recommendation.expectedTimeline}
                 </div>
               </div>
@@ -272,7 +272,7 @@ export default function PersonalizedDosageCalculator() {
         <Card className="border-2 border-slate-200">
           <CardContent className="p-8 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-amber-600 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#B89651] flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900">Your Personalized Tips</h3>
@@ -280,7 +280,7 @@ export default function PersonalizedDosageCalculator() {
             <div className="space-y-3">
               {recommendation.personalizedTips.map((tip, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#B89651] flex-shrink-0 mt-0.5" />
                   <p className="text-slate-700">{tip}</p>
                 </div>
               ))}
@@ -324,7 +324,7 @@ export default function PersonalizedDosageCalculator() {
           <div
             key={i}
             className={`h-2 rounded-full transition-all duration-300 ${
-              i === step ? "w-12 bg-[#1E3A5F]" : i < step ? "w-8 bg-blue-400" : "w-8 bg-slate-200"
+              i === step ? "w-12 bg-[#1E3A5F]" : i < step ? "w-8 bg-[#1E3A5F]" : "w-8 bg-slate-200"
             }`}
           />
         ))}

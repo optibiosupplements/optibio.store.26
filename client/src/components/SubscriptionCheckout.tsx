@@ -78,11 +78,11 @@ function CheckoutForm({
   const getTierBadgeColor = (tier: string) => {
     switch (tier) {
       case "founders":
-        return "bg-gradient-to-r from-amber-500 to-yellow-500 text-white";
+        return "bg-gradient-to-r from-[#F7F4EF]0 to-[#F7F4EF]0 text-white";
       case "early_adopter":
         return "bg-gradient-to-r from-[#F7F4EF]0 to-[#1E3A5F] text-white";
       case "pre_launch":
-        return "bg-gradient-to-r from-green-500 to-emerald-500 text-white";
+        return "bg-gradient-to-r from-[#F7F4EF]0 to-[#F7F4EF]0 text-white";
       default:
         return "bg-slate-500 text-white";
     }
@@ -128,7 +128,7 @@ function CheckoutForm({
 
           <div className="flex items-center justify-between">
             <span className="text-slate-600">Lifetime Discount</span>
-            <span className="font-semibold text-green-600">
+            <span className="font-semibold text-[#B89651]">
               {lifetimeDiscountPercent}% off forever
             </span>
           </div>
@@ -168,9 +168,9 @@ function CheckoutForm({
 
       {/* Success Message */}
       {succeeded && (
-        <Alert className="border-green-200 bg-green-50">
-          <CheckCircle2 className="h-4 w-4 text-green-600" />
-          <AlertDescription className="text-green-800">
+        <Alert className="border-[#C9A961]/20 bg-[#F7F4EF]">
+          <CheckCircle2 className="h-4 w-4 text-[#B89651]" />
+          <AlertDescription className="text-[#1E3A5F]">
             Subscription created successfully! Redirecting...
           </AlertDescription>
         </Alert>
