@@ -158,7 +158,7 @@ export default function Home() {
                 <Link href="/shop">
                   <Button 
                     size="lg" 
-                    className="text-lg px-10 py-7 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
+                    className="text-lg px-10 py-7 gold-shimmer text-[#2D2D2D] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
                   >
                     Start Your Journey
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -263,7 +263,7 @@ export default function Home() {
               return (
                 <Card 
                   key={i} 
-                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-[#C9A961]/20 hover:border-[#C9A961]/40 cursor-pointer overflow-hidden"
+                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-[#C9A961]/20 hover:border-[#C9A961]/40 cursor-pointer overflow-hidden border-t-4 border-t-[#C9A961]"
                 >
                   <div className="relative h-64 overflow-hidden">
                     <img 
@@ -666,7 +666,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, i) => (
-              <Card key={i} className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300">
+              <Card key={i} className="bg-white/15 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
                 <CardContent className="p-8 space-y-4">
                   <div className="flex items-center gap-1 text-[#C9A961]">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -776,7 +776,7 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 text-left">
-              <Card className="bg-white/10 backdrop-blur-sm border-[#C9A961]/30 hover:border-[#C9A961]/60 transition-all">
+              <Card className="bg-white/10 backdrop-blur-sm border-2 border-[#C9A961] shadow-glow-gold hover:border-[#C9A961] transition-all">
                 <CardContent className="p-6">
                   <Star className="w-8 h-8 text-[#C9A961] mb-3" />
                   <h3 className="font-bold text-lg mb-2">Founder's Circle</h3>
