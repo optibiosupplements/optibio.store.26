@@ -5,6 +5,7 @@ import { ENV } from "./_core/env";
 import * as db from "./db";
 import { sendOrderConfirmationEmail, sendSubscriptionWelcomeEmail } from "./email";
 import { getSubscriptionWelcomeEmail } from "./email-templates";
+import { notifyOwner } from "./_core/notification";
 
 /**
  * Stripe webhook handler for processing payment events
@@ -52,6 +53,14 @@ export async function handleStripeWebhook(req: Request, res: Response) {
       case "payment_intent.payment_failed": {
         const paymentIntent = event.data.object as Stripe.PaymentIntent;
         console.error("[Stripe Webhook] PaymentIntent failed:", paymentIntent.id);
+        
+        // Notify owner of failed payment
+        const customerEmail = (paymentIntent as any).receipt_email || "Unknown";
+        const amount = paymentIntent.amount;
+        await notifyOwner({
+          title: `⚠️ Payment Failed`,
+          content: `**Customer:** ${customerEmail}\n\n**Amount:** $${(amount / 100).toFixed(2)}\n\n**Payment ID:** ${paymentIntent.id}\n\n**Reason:** ${paymentIntent.last_payment_error?.message || 'Unknown error'}`,
+        });
         break;
       }
 
@@ -218,6 +227,17 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
       console.error("[Stripe Webhook] Failed to send order confirmation email");
     }
 
+    // Notify owner of new order
+    const itemsList = orderItemsData.map(item => 
+      `${item.quantity}x ${item.productName}${item.variantName ? ` (${item.variantName})` : ''}`
+    ).join(', ');
+    
+    await notifyOwner({
+      title: `🎉 New Order: ${orderNumber}`,
+      content: `**Customer:** ${customerName} (${customerEmail})\n\n**Items:** ${itemsList}\n\n**Total:** $${(totalInCents / 100).toFixed(2)}\n\n**Shipping:** ${shippingDetails.address.city}, ${shippingDetails.address.state}`,
+    });
+    console.log("[Stripe Webhook] Owner notified of new order");
+
   } catch (error: any) {
     console.error("[Stripe Webhook] Error creating order:", error);
     throw error;
@@ -366,6 +386,13 @@ async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
     if (emailSent) {
       console.log("[Stripe Webhook] Subscription renewal email sent successfully");
     }
+
+    // Notify owner of subscription renewal
+    await notifyOwner({
+      title: `🔄 Subscription Renewed: ${orderNumber}`,
+      content: `**Customer:** ${user.name} (${user.email})\n\n**Product:** OptiBio Ashwagandha KSM-66\n\n**Quantity:** ${subscription.quantity}\n\n**Amount:** $${(subscription.priceInCents / 100).toFixed(2)}\n\n**Next Billing:** ${nextBillingDate.toLocaleDateString()}`,
+    });
+    console.log("[Stripe Webhook] Owner notified of subscription renewal");
 
   } catch (error: any) {
     console.error("[Stripe Webhook] Error processing invoice:", error);

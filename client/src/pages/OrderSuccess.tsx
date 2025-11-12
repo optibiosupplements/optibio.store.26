@@ -5,6 +5,7 @@ import { trpc } from "@/lib/trpc";
 import { CheckCircle2, Package, Truck, Mail, ArrowRight, Home } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, useRoute } from "wouter";
+import { toast } from "sonner";
 
 export default function OrderSuccess() {
   const [, setLocation] = useLocation();
@@ -21,6 +22,10 @@ export default function OrderSuccess() {
     if (sessionId && user) {
       // Clear the cart since payment was successful
       clearCartMutation.mutate();
+      // Show success toast
+      toast.success("Order placed successfully! Check your email for confirmation.", {
+        duration: 5000,
+      });
     }
   }, [sessionId, user]);
 

@@ -23,10 +23,12 @@ import Science from "./pages/Science";
 import FAQ from "./pages/FAQ";
 import Quality from "./pages/Quality";
 import PreLaunchBanner from "./components/PreLaunchBanner";
+import PromoBanner from "./components/PromoBanner";
 
 function Router() {
   return (
     <div className="flex flex-col min-h-screen">
+      <PromoBanner />
       <PreLaunchBanner />
       <Header />
       <main className="flex-1">
