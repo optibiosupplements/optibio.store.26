@@ -61,7 +61,7 @@ export default function MyOrders() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "pending":
-        return "bg-[#C9A961]/10 text-yellow-800 border-[#C9A961]/20";
+        return "bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/20";
       case "processing":
         return "bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30";
       case "shipped":
