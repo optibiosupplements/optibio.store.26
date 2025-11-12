@@ -1,23 +1,28 @@
 # Product Requirements Document: OptiBio E-Commerce Platform
 
-**Document Version**: 1.0  
-**Last Updated**: November 11, 2025  
-**Author**: Manus AI  
-**Status**: Active Development
+**Document Version**: 1.0**Last Updated**: November 11, 2025**Author**: Manus AI**Status**: Active Development
 
 ---
 
 ## Table of Contents
 
 1. [Executive Summary](#executive-summary)
-2. [Product Vision & Goals](#product-vision--goals)
-3. [Current State](#current-state)
-4. [Technical Architecture](#technical-architecture)
-5. [User Flows & Features](#user-flows--features)
-6. [Business Requirements](#business-requirements)
-7. [Success Metrics & KPIs](#success-metrics--kpis)
-8. [Future Roadmap](#future-roadmap)
-9. [Appendix](#appendix)
+
+1. [Product Vision & Goals](#product-vision--goals)
+
+1. [Current State](#current-state)
+
+1. [Technical Architecture](#technical-architecture)
+
+1. [User Flows & Features](#user-flows--features)
+
+1. [Business Requirements](#business-requirements)
+
+1. [Success Metrics & KPIs](#success-metrics--kpis)
+
+1. [Future Roadmap](#future-roadmap)
+
+1. [Appendix](#appendix)
 
 ---
 
@@ -30,17 +35,25 @@ The platform launched in November 2025 with core e-commerce functionality includ
 **Key Achievements to Date:**
 
 - Fully functional e-commerce platform with checkout and payment processing
+
 - Subscription system with multiple billing intervals (monthly, quarterly, annual)
+
 - Pre-sale campaign infrastructure with tiered pricing and referral tracking
+
 - Responsive design optimized for mobile and desktop
+
 - Integrated notification system for customer feedback and owner alerts
+
 - Third-party testing verification system with batch traceability
 
 **Primary Objectives:**
 
 - Achieve $50,000 in monthly recurring revenue (MRR) within 6 months
+
 - Convert 40% of customers to subscription model
+
 - Maintain customer acquisition cost (CAC) below $30
+
 - Build email list of 10,000+ engaged subscribers within first year
 
 ---
@@ -59,15 +72,20 @@ To become the most trusted source for premium ashwagandha supplements by priorit
 
 **Primary Audience:**
 
-- **Demographics**: Adults aged 25-45, college-educated, household income $60,000+
+- **Demographics**: Adults aged 25-55, college-educated, household income $60,000+
+
 - **Psychographics**: Health-conscious, skeptical of traditional supplement marketing, values science and transparency
+
 - **Behaviors**: Researches products before purchase, reads reviews, active on wellness communities (Reddit r/Supplements, health forums)
+
 - **Pain Points**: Frustrated by misleading supplement claims, concerned about heavy metals and contaminants, seeking stress management solutions
 
 **Secondary Audience:**
 
 - Fitness enthusiasts seeking natural performance enhancement
+
 - Professionals experiencing burnout and chronic stress
+
 - Biohackers optimizing cognitive performance
 
 ### Product Goals
@@ -75,22 +93,31 @@ To become the most trusted source for premium ashwagandha supplements by priorit
 **Short-term (0-6 months):**
 
 - Launch with single hero product (KSM-66 Ashwagandha 600mg)
+
 - Establish brand credibility through third-party testing transparency
+
 - Build initial customer base of 1,000+ active subscribers
+
 - Achieve profitability on unit economics
 
 **Medium-term (6-12 months):**
 
 - Expand product line to 3-5 complementary supplements
+
 - Implement customer reviews and testimonials system
+
 - Build content marketing engine (blog, educational resources)
+
 - Establish partnerships with wellness influencers
 
 **Long-term (12-24 months):**
 
 - Become category leader in transparent supplement e-commerce
+
 - Launch mobile app for subscription management and health tracking
+
 - Expand to international markets (Canada, UK, Australia)
+
 - Explore retail partnerships with premium health food stores
 
 ---
@@ -140,7 +167,9 @@ The platform tracks subscription metrics including monthly recurring revenue (MR
 The pre-sale system offers three tiers with different benefits:
 
 - **Founders Tier** ($89): 25% lifetime discount, founder badge, early access, limited to 500 spots
+
 - **Early Adopter Tier** ($69): 15% lifetime discount, early access, limited to 2,000 spots
+
 - **Pre-Launch Tier** ($59): 10% lifetime discount, priority shipping
 
 **Referral Program:**
@@ -200,39 +229,57 @@ Customers can view batch-specific test results, download PDF certificates, and s
 **Frontend:**
 
 - **Framework**: React 19 with TypeScript for type safety
+
 - **Styling**: Tailwind CSS 4 with custom design system
+
 - **UI Components**: shadcn/ui component library
+
 - **Routing**: Wouter (lightweight client-side routing)
+
 - **State Management**: TanStack Query (React Query) for server state
+
 - **Forms**: React Hook Form with Zod validation
 
 **Backend:**
 
 - **Runtime**: Node.js 22 with Express 4
+
 - **API Layer**: tRPC 11 for end-to-end type safety
+
 - **Database ORM**: Drizzle ORM with MySQL dialect
+
 - **Authentication**: Manus OAuth with JWT sessions
+
 - **Payment Processing**: Stripe SDK for Node.js
 
 **Database:**
 
 - **Primary Database**: MySQL 8.0 (currently Manus-managed, migrating to Railway)
+
 - **Schema Management**: Drizzle Kit for migrations
+
 - **Connection Pooling**: mysql2 with connection pooling
 
 **Infrastructure:**
 
 - **Current Hosting**: Manus platform (dev server + database + deployment)
+
 - **Planned Migration**: Vercel (hosting) + Railway (database)
+
 - **Version Control**: GitHub (optibiosupplements/optibio-ecommerce)
+
 - **Domain**: optibiosupplements.com (DNS configured via GoDaddy)
 
 **Third-Party Integrations:**
 
 - **Payments**: Stripe (checkout, subscriptions, webhooks)
+
 - **Authentication**: Manus OAuth
+
 - **Notifications**: Manus notification API
+
 - **Email**: (To be implemented - SendGrid or Resend)
+
 - **Analytics**: (To be implemented - Vercel Analytics + Google Analytics)
 
 ### Current Limitations
@@ -240,28 +287,43 @@ Customers can view batch-specific test results, download PDF certificates, and s
 **Missing Features:**
 
 - Email marketing automation (abandoned cart recovery, post-purchase sequences)
+
 - Customer reviews and ratings system
+
 - Product recommendations and upsells
+
 - Blog and content management system
+
 - Advanced analytics dashboard
+
 - Mobile app
+
 - Multi-currency support
+
 - International shipping
 
 **Technical Debt:**
 
 - Dev server experiencing file watcher limits (EMFILE errors)
+
 - No automated testing suite
+
 - Limited error tracking (Sentry not yet integrated)
+
 - No CI/CD pipeline (manual deployments)
+
 - Database not optimized for high traffic (no read replicas, caching)
 
 **Operational Gaps:**
 
 - No customer support system (live chat, ticketing)
+
 - Manual inventory management
+
 - No automated email notifications for order status
+
 - Limited admin dashboard functionality
+
 - No fraud detection or prevention
 
 ---
@@ -330,41 +392,57 @@ The database consists of 14 tables organized into logical domains:
 **User Management:**
 
 - `users`: Core user accounts with authentication, roles, and founder tier tracking
+
 - `addresses`: Shipping and billing addresses linked to users
 
 **Product Catalog:**
 
 - `products`: Main product information (name, description, pricing, inventory)
+
 - `productVariants`: Size/quantity variations with independent pricing and stock
+
 - `productBatches`: Batch tracking with lot numbers and third-party test results
 
 **Order Processing:**
 
 - `orders`: Order headers with customer info, totals, and status tracking
+
 - `orderItems`: Line items within each order (products, quantities, prices)
+
 - `cartItems`: Shopping cart persistence (user or session-based)
 
 **Subscriptions:**
 
 - `subscriptionPlans`: Recurring billing plans with intervals and discounts
+
 - `subscriptions`: Active customer subscriptions linked to Stripe
 
 **Marketing:**
 
 - `discountCodes`: Promo codes with usage limits and expiration
+
 - `presale_reservations`: Pre-sale orders with tier, referrals, and payment tracking
+
 - `presale_campaign`: Campaign configuration and real-time stats
+
 - `waitlist`: Email capture before pre-sale launch
 
 **Entity Relationships:**
 
 - Users → Addresses (one-to-many)
+
 - Users → Orders (one-to-many)
+
 - Users → Subscriptions (one-to-many)
+
 - Users → CartItems (one-to-many)
+
 - Products → ProductVariants (one-to-many)
+
 - Products → ProductBatches (one-to-many)
+
 - Orders → OrderItems (one-to-many)
+
 - SubscriptionPlans → Subscriptions (one-to-many)
 
 ### API Design
@@ -407,28 +485,39 @@ All procedures are either `publicProcedure` (accessible to anyone) or `protected
 **Authentication:**
 
 - OAuth 2.0 flow through Manus with secure token exchange
+
 - JWT sessions stored in HTTP-only cookies
+
 - CSRF protection enabled
+
 - Session expiration after 30 days of inactivity
 
 **Payment Security:**
 
 - PCI compliance through Stripe (no card data touches our servers)
+
 - Webhook signature verification for all Stripe events
+
 - HTTPS enforced for all traffic
+
 - Environment variables for sensitive keys (never committed to Git)
 
 **Data Protection:**
 
 - Passwords not stored (OAuth-only authentication)
+
 - Personal data encrypted at rest (database-level encryption)
+
 - SQL injection prevention through parameterized queries (Drizzle ORM)
+
 - XSS protection through React's built-in escaping
 
 **Rate Limiting:**
 
 - (To be implemented) API rate limiting per IP address
+
 - (To be implemented) Brute force protection on login attempts
+
 - (To be implemented) DDoS mitigation through Vercel edge network
 
 ### Performance Optimization
@@ -436,22 +525,31 @@ All procedures are either `publicProcedure` (accessible to anyone) or `protected
 **Frontend:**
 
 - Code splitting by route (lazy loading)
+
 - Image optimization with responsive sizes
+
 - CSS purging (unused Tailwind classes removed)
+
 - Minification and compression (Vite production build)
 
 **Backend:**
 
 - Database connection pooling (reuse connections)
+
 - Query optimization (indexed columns for common lookups)
+
 - Response caching for static data (product catalog)
+
 - (To be implemented) CDN caching for static assets
 
 **Database:**
 
 - Indexes on frequently queried columns (email, orderNumber, slug)
+
 - Efficient data types (INT for prices in cents, avoiding DECIMAL)
+
 - (To be implemented) Read replicas for analytics queries
+
 - (To be implemented) Redis caching for hot data
 
 ---
@@ -491,8 +589,11 @@ The hero section occupies the full viewport on desktop with a bold headline addr
 **Trust Badges:**
 
 Below the hero, three trust indicators are displayed with icons:
+
 - Third-party tested (lab flask icon)
+
 - No proprietary blends (shield icon)
+
 - Money-back guarantee (checkmark icon)
 
 Each badge includes a "Verified" label and links to detailed information.
@@ -504,10 +605,15 @@ A testimonial section showcases customer reviews with star ratings, photos, and 
 **Product Showcase:**
 
 Featured products are displayed in a grid with high-quality images, pricing, and quick-add buttons. Each product card shows:
+
 - Product image
+
 - Name and variant options
+
 - Price with compare-at price (showing savings)
+
 - Star rating and review count
+
 - "Add to Cart" button
 
 **Educational Content:**
@@ -527,9 +633,13 @@ The product name, SKU, and star rating are prominently displayed. A short descri
 **Variant Selection:**
 
 Customers choose between product variants (60 capsules, 120 capsules) using large, tappable cards. Each card displays:
+
 - Variant name
+
 - Price per unit
+
 - Total price
+
 - Stock status
 
 The selected variant is highlighted with a colored border.
@@ -545,9 +655,13 @@ A prominent "Add to Cart" button is always visible (sticky on mobile). Quantity 
 **Product Details Tabs:**
 
 Tabbed content organizes detailed information:
+
 - **Description**: Full product description with benefits, ingredients, and usage instructions
+
 - **Science**: Links to clinical studies, research summaries, and expert endorsements
+
 - **Batch Verification**: Lot number lookup, test result PDFs, and purity metrics
+
 - **FAQ**: Common questions about dosage, side effects, and shipping
 
 **Reviews Section:**
@@ -671,6 +785,7 @@ The subscription model offers customers automatic recurring deliveries at discou
 **Pricing Strategy:**
 
 - **Retail Price**: $49 per bottle (60 capsules, 30-day supply)
+
 - **Subscription Prices**:
   - Monthly: $41.65 (15% off)
   - Quarterly: $39.20 (20% off)
@@ -679,7 +794,7 @@ The subscription model offers customers automatic recurring deliveries at discou
 **Unit Economics:**
 
 | Metric | Value |
-|--------|-------|
+| --- | --- |
 | **Average Order Value (AOV)** | $65 (including upsells) |
 | **Cost of Goods Sold (COGS)** | $12 per unit (manufacturing, packaging, shipping) |
 | **Gross Margin** | 75% |
@@ -692,7 +807,9 @@ The subscription model offers customers automatic recurring deliveries at discou
 The pre-sale campaign generates upfront capital while building a committed customer base. Three tiers offer different benefits:
 
 - **Founders Tier** ($89): Limited to 500 spots, 25% lifetime discount
+
 - **Early Adopter Tier** ($69): Limited to 2,000 spots, 15% lifetime discount
+
 - **Pre-Launch Tier** ($59): Unlimited, 10% lifetime discount
 
 **Projected Pre-Sale Revenue**: $100,000-150,000 (assuming 1,500-2,000 reservations)
@@ -702,25 +819,37 @@ The pre-sale campaign generates upfront capital while building a committed custo
 **Launch Phase (Months 1-3):**
 
 - **Monthly Revenue**: $25,000
+
 - **Orders**: 500/month
+
 - **Subscription Rate**: 30%
+
 - **Conversion Rate**: 2.5%
+
 - **Email List**: 3,000 subscribers
 
 **Growth Phase (Months 4-6):**
 
 - **Monthly Revenue**: $50,000
+
 - **Orders**: 1,000/month
+
 - **Subscription Rate**: 40%
+
 - **Conversion Rate**: 3.5%
+
 - **Email List**: 7,000 subscribers
 
 **Scale Phase (Months 7-12):**
 
 - **Monthly Revenue**: $100,000
+
 - **Orders**: 2,000/month
+
 - **Subscription Rate**: 50%
+
 - **Conversion Rate**: 4.5%
+
 - **Email List**: 15,000 subscribers
 
 ### Competitive Positioning
@@ -728,14 +857,19 @@ The pre-sale campaign generates upfront capital while building a committed custo
 **Direct Competitors:**
 
 - **Transparent Labs**: Similar transparency focus, higher pricing ($59/bottle)
+
 - **Nootropics Depot**: Strong Reddit presence, technical audience
+
 - **Momentous**: Premium positioning, athlete endorsements
 
 **Competitive Advantages:**
 
 - **Radical Transparency**: Full third-party test results for every batch (most competitors don't provide this)
+
 - **Pricing**: Competitive pricing with subscription discounts
+
 - **Education**: Science-backed content explaining ingredient quality
+
 - **Customer Experience**: Modern, intuitive e-commerce platform
 
 **Differentiation Strategy:**
@@ -747,31 +881,41 @@ OptiBio positions itself as the "anti-supplement company" - calling out industry
 **Content Marketing:**
 
 - **Blog**: Educational articles on ashwagandha research, supplement quality, stress management
+
 - **Reddit Engagement**: Active participation in r/Supplements, r/Nootropics, r/Biohacking
+
 - **YouTube**: Video content explaining third-party testing, factory tours, ingredient sourcing
 
 **Paid Acquisition:**
 
 - **Google Ads**: Targeting high-intent keywords ("best ashwagandha supplement," "KSM-66 where to buy")
+
 - **Facebook/Instagram Ads**: Targeting health-conscious audiences with creative emphasizing transparency
+
 - **Reddit Ads**: Sponsored posts in relevant subreddits with authentic, non-salesy messaging
 
 **Influencer Partnerships:**
 
 - **Micro-Influencers**: Partner with 10-20 wellness influencers (10k-100k followers) for authentic reviews
+
 - **Affiliate Program**: Offer 20% commission for referrals with unique discount codes
+
 - **Expert Endorsements**: Seek endorsements from registered dietitians, functional medicine practitioners
 
 **Email Marketing:**
 
 - **Welcome Series**: 5-email sequence educating new subscribers about ashwagandha and OptiBio's quality standards
+
 - **Abandoned Cart**: 3-email sequence recovering abandoned carts with incentives (free shipping, 10% off)
+
 - **Post-Purchase**: Follow-up sequence asking for reviews, providing usage tips, offering subscription upgrade
 
 **Retention Marketing:**
 
 - **Subscription Perks**: Exclusive content, early access to new products, VIP customer support
+
 - **Referral Program**: Reward customers for referring friends with store credit
+
 - **Loyalty Program**: (Future) Points system rewarding repeat purchases
 
 ### Regulatory Compliance
@@ -781,8 +925,11 @@ OptiBio positions itself as the "anti-supplement company" - calling out industry
 Supplements are regulated as foods, not drugs, under the Dietary Supplement Health and Education Act (DSHEA). OptiBio must:
 
 - Ensure all claims are substantiated and not disease-related
+
 - Include required disclaimer: "These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease."
+
 - Follow Good Manufacturing Practices (GMP)
+
 - Accurately label all ingredients and allergens
 
 **FTC Compliance:**
@@ -790,7 +937,9 @@ Supplements are regulated as foods, not drugs, under the Dietary Supplement Heal
 The Federal Trade Commission regulates advertising claims. OptiBio must:
 
 - Ensure all marketing claims are truthful and substantiated
+
 - Disclose material connections with influencers and affiliates
+
 - Avoid deceptive pricing practices (fake discounts)
 
 **State Regulations:**
@@ -798,7 +947,9 @@ The Federal Trade Commission regulates advertising claims. OptiBio must:
 Some states have additional supplement regulations. OptiBio will:
 
 - Register with California's Office of Environmental Health Hazard Assessment (OEHHA) for Prop 65 compliance
+
 - Comply with New York's supplement testing requirements
+
 - Monitor state-specific regulations as they evolve
 
 ---
@@ -810,29 +961,41 @@ Some states have additional supplement regulations. OptiBio will:
 **Revenue Metrics:**
 
 - **Monthly Recurring Revenue (MRR)**: Target $30,000 by month 6, $60,000 by month 12
+
 - **Total Revenue**: Target $50,000/month by month 6, $100,000/month by month 12
+
 - **Average Order Value (AOV)**: Target $65 (including upsells and multi-bottle purchases)
+
 - **Customer Lifetime Value (LTV)**: Target $450 for subscription customers, $180 for one-time buyers
 
 **Conversion Metrics:**
 
 - **Website Conversion Rate**: Target 3.5% (industry average is 2-3%)
+
 - **Subscription Conversion Rate**: Target 40% of customers choosing subscription
+
 - **Cart Abandonment Rate**: Target <70% (industry average is 70-80%)
+
 - **Checkout Completion Rate**: Target >80%
 
 **Customer Acquisition:**
 
 - **Customer Acquisition Cost (CAC)**: Target <$30 per customer
+
 - **LTV:CAC Ratio**: Target 15:1 for subscription customers
+
 - **Organic Traffic**: Target 60% of traffic from organic sources (SEO, word-of-mouth)
+
 - **Paid Traffic ROI**: Target 3:1 return on ad spend (ROAS)
 
 **Retention Metrics:**
 
 - **Subscription Churn Rate**: Target <5% monthly churn
+
 - **Repeat Purchase Rate**: Target 30% of one-time customers making second purchase within 90 days
+
 - **Net Promoter Score (NPS)**: Target >50 (excellent for e-commerce)
+
 - **Customer Satisfaction (CSAT)**: Target >4.5/5 stars
 
 ### Secondary Metrics
@@ -840,21 +1003,29 @@ Some states have additional supplement regulations. OptiBio will:
 **Engagement Metrics:**
 
 - **Email Open Rate**: Target 25-30% (industry average is 20-25%)
+
 - **Email Click-Through Rate**: Target 3-5%
+
 - **Time on Site**: Target >3 minutes (indicates content engagement)
+
 - **Pages per Session**: Target >3 pages
 
 **Product Metrics:**
 
 - **Product Page Conversion Rate**: Target 5-7%
+
 - **Add-to-Cart Rate**: Target 10-15% of product page visitors
+
 - **Average Items per Order**: Target 1.3 (indicates successful upselling)
 
 **Operational Metrics:**
 
 - **Order Fulfillment Time**: Target <24 hours from order to shipment
+
 - **Shipping Time**: Target 3-5 days for domestic orders
+
 - **Return Rate**: Target <2% (low for supplements)
+
 - **Customer Support Response Time**: Target <2 hours for email, <1 minute for live chat
 
 ### Analytics Implementation
@@ -862,8 +1033,11 @@ Some states have additional supplement regulations. OptiBio will:
 **Tracking Tools:**
 
 - **Vercel Analytics**: Page views, unique visitors, bounce rate, top pages
+
 - **Google Analytics 4**: Detailed user behavior, conversion funnels, traffic sources
+
 - **Stripe Dashboard**: Revenue, subscription metrics, payment success rates
+
 - **Custom Dashboard**: Built into admin panel for real-time business metrics
 
 **Event Tracking:**
@@ -871,10 +1045,15 @@ Some states have additional supplement regulations. OptiBio will:
 Key user actions are tracked as events:
 
 - `product_viewed`: User views product page
+
 - `add_to_cart`: User adds item to cart
+
 - `checkout_started`: User begins checkout process
+
 - `purchase_completed`: Successful order placement
+
 - `subscription_created`: User subscribes
+
 - `subscription_cancelled`: User cancels subscription
 
 **Conversion Funnels:**
@@ -882,38 +1061,53 @@ Key user actions are tracked as events:
 Three primary funnels are monitored:
 
 **Purchase Funnel:**
+
 1. Homepage visit → Product page → Add to cart → Checkout → Purchase
-2. Target conversion: 3.5% overall
+
+1. Target conversion: 3.5% overall
 
 **Subscription Funnel:**
+
 1. Product page → Subscribe toggle → Add to cart → Checkout → Subscription created
-2. Target conversion: 40% of purchasers
+
+1. Target conversion: 40% of purchasers
 
 **Email Capture Funnel:**
+
 1. Homepage visit → Email popup → Email submitted → Welcome email opened → First purchase
-2. Target conversion: 15% email-to-purchase
+
+1. Target conversion: 15% email-to-purchase
 
 ### A/B Testing Roadmap
 
 **High-Priority Tests (Months 1-3):**
 
 - **Subscription Toggle Placement**: Test toggle above vs. below product description
+
 - **Pricing Display**: Test showing monthly price vs. total annual savings
+
 - **Hero Headline**: Test problem-focused vs. solution-focused messaging
+
 - **CTA Button Color**: Test sage green vs. gold vs. terracotta
 
 **Medium-Priority Tests (Months 4-6):**
 
 - **Product Page Layout**: Test single-column vs. two-column layout
+
 - **Review Placement**: Test reviews above vs. below product description
+
 - **Discount Code Prominence**: Test inline vs. collapsible discount field
+
 - **Shipping Threshold**: Test $75 vs. $50 free shipping minimum
 
 **Low-Priority Tests (Months 7-12):**
 
 - **Navigation Structure**: Test top nav vs. sidebar nav
+
 - **Product Gallery**: Test carousel vs. grid layout
+
 - **Checkout Steps**: Test single-page vs. multi-step checkout
+
 - **Email Frequency**: Test weekly vs. bi-weekly email cadence
 
 ---
@@ -927,27 +1121,41 @@ Three primary funnels are monitored:
 **Objectives:**
 
 - Launch core e-commerce platform with single product
+
 - Establish brand credibility through transparency
+
 - Build initial customer base and gather feedback
+
 - Achieve profitability on unit economics
 
 **Key Features:**
 
 - ✅ Product catalog with variant support
+
 - ✅ Shopping cart and checkout
+
 - ✅ Stripe payment processing
+
 - ✅ Subscription system (monthly, quarterly, annual)
+
 - ✅ Pre-sale campaign with tiered pricing
+
 - ✅ Batch tracking and third-party test results
+
 - ✅ Basic notification system
+
 - ⏳ Email marketing automation (in progress)
+
 - ⏳ Customer reviews system (planned)
 
 **Success Criteria:**
 
 - 500+ orders in first month
+
 - 30% subscription conversion rate
+
 - <$30 customer acquisition cost
+
 - 4.5+ star average rating
 
 ### Phase 2: Growth (Months 4-6)
@@ -955,8 +1163,11 @@ Three primary funnels are monitored:
 **Objectives:**
 
 - Scale customer acquisition through paid marketing
+
 - Expand product line to 3 SKUs
+
 - Implement advanced retention features
+
 - Optimize conversion funnel
 
 **Key Features:**
@@ -964,49 +1175,69 @@ Three primary funnels are monitored:
 **Email Marketing Automation:**
 
 - Abandoned cart recovery (3-email sequence)
+
 - Post-purchase follow-up (5-email sequence)
+
 - Subscription renewal reminders
+
 - Win-back campaigns for churned customers
 
 **Customer Reviews & Testimonials:**
 
 - Star rating system on product pages
+
 - Verified purchase badges
+
 - Photo/video review uploads
+
 - Review incentive program (discount for reviews)
 
 **Product Recommendations:**
 
 - "Frequently Bought Together" upsells
+
 - "You May Also Like" cross-sells
+
 - Personalized recommendations based on purchase history
 
 **Advanced Analytics:**
 
 - Custom admin dashboard with real-time metrics
+
 - Cohort analysis for retention tracking
+
 - Customer segmentation (high-value, at-risk, etc.)
+
 - Funnel visualization with drop-off analysis
 
 **Content Management System:**
 
 - Blog with SEO-optimized articles
+
 - Educational resource library
+
 - Video content integration
+
 - Author profiles for credibility
 
 **Loyalty Program:**
 
 - Points system for purchases and referrals
+
 - Tiered rewards (bronze, silver, gold)
+
 - Exclusive perks for VIP customers
+
 - Birthday rewards and anniversary bonuses
 
 **Success Criteria:**
 
 - $50,000 monthly revenue
+
 - 40% subscription conversion rate
+
 - 25% repeat purchase rate
+
 - 10,000+ email subscribers
 
 ### Phase 3: Scale (Months 7-12)
@@ -1014,8 +1245,11 @@ Three primary funnels are monitored:
 **Objectives:**
 
 - Reach $100,000 monthly revenue
+
 - Expand product line to 5-7 SKUs
+
 - Build community and brand advocacy
+
 - Optimize operations for efficiency
 
 **Key Features:**
@@ -1023,52 +1257,75 @@ Three primary funnels are monitored:
 **Product Line Expansion:**
 
 - Ashwagandha + L-Theanine (stress + focus)
+
 - Magnesium Glycinate (sleep support)
+
 - Omega-3 (inflammation + heart health)
+
 - Vitamin D3 + K2 (immune + bone health)
+
 - Multi-vitamin (foundational health)
 
 **Mobile App:**
 
 - iOS and Android native apps
+
 - Subscription management
+
 - Order tracking
+
 - Health tracking integration (Apple Health, Google Fit)
+
 - Push notifications for order updates
 
 **Community Features:**
 
 - User forum for discussions
+
 - Private Facebook group for customers
+
 - Monthly Q&A sessions with founder
+
 - Customer success stories and case studies
 
 **Advanced Personalization:**
 
 - Quiz to recommend products based on health goals
+
 - Personalized supplement stacks
+
 - Custom dosing recommendations
+
 - AI-powered chatbot for product questions
 
 **Inventory Management:**
 
 - Automated reorder points
+
 - Supplier integration for real-time stock updates
+
 - Demand forecasting based on historical data
+
 - Multi-warehouse support for faster shipping
 
 **International Expansion:**
 
 - Shipping to Canada, UK, Australia
+
 - Multi-currency support
+
 - Localized pricing and promotions
+
 - International payment methods (PayPal, local cards)
 
 **Success Criteria:**
 
 - $100,000 monthly revenue
+
 - 50% subscription conversion rate
+
 - <3% monthly churn rate
+
 - 15,000+ email subscribers
 
 ### Phase 4: Maturity (Months 13-24)
@@ -1076,8 +1333,11 @@ Three primary funnels are monitored:
 **Objectives:**
 
 - Establish OptiBio as category leader
+
 - Expand to retail partnerships
+
 - Launch B2B wholesale channel
+
 - Explore acquisition opportunities
 
 **Key Features:**
@@ -1085,42 +1345,59 @@ Three primary funnels are monitored:
 **Retail Partnerships:**
 
 - Placement in Whole Foods, Sprouts, Vitamin Shoppe
+
 - Co-branded products with wellness brands
+
 - Pop-up shops in major cities
 
 **B2B Wholesale:**
 
 - Wholesale portal for gyms, wellness centers, clinics
+
 - Bulk pricing and custom packaging
+
 - White-label options for practitioners
 
 **Subscription Enhancements:**
 
 - Flexible subscription customization (skip, swap, delay)
+
 - Subscription gifting
+
 - Auto-refill based on usage patterns
+
 - Subscription analytics for customers (track savings, usage)
 
 **Advanced Testing & Transparency:**
 
 - Live-stream factory tours
+
 - Real-time batch testing updates
+
 - Blockchain-based supply chain tracking
+
 - Customer-requested testing (allergens, specific contaminants)
 
 **Partnerships & Integrations:**
 
 - Integration with health apps (MyFitnessPal, Cronometer)
+
 - Partnerships with functional medicine practitioners
+
 - Corporate wellness programs
+
 - Insurance reimbursement eligibility
 
 **Success Criteria:**
 
 - $200,000+ monthly revenue
+
 - 60% subscription conversion rate
+
 - <2% monthly churn rate
+
 - 25,000+ email subscribers
+
 - Retail presence in 500+ stores
 
 ---
@@ -1212,7 +1489,7 @@ VITE_APP_LOGO=/optibio-logo-v3.png
 VITE_APP_ID=your-app-id
 ```
 
-**Optional (Manus Features):**
+**Optional (Manus Features ):**
 
 ```bash
 # Manus Built-in Services
@@ -1224,14 +1501,14 @@ VITE_FRONTEND_FORGE_API_URL=https://forge.manus.im
 
 ### Contact & Support
 
-**Project Owner**: Panna Nahar  
-**Development Team**: Manus AI + GPT Codex (planned)  
-**GitHub Repository**: [optibiosupplements/optibio-ecommerce](https://github.com/optibiosupplements/optibio-ecommerce)  
-**Production URL**: [optibiosupplements.com](https://optibiosupplements.com)
+**Project Owner**: Panna Nahar**Development Team**: Manus AI + GPT Codex (planned )**GitHub Repository**: [optibiosupplements/optibio-ecommerce](https://github.com/optibiosupplements/optibio-ecommerce)**Production URL**: [optibiosupplements.com](https://optibiosupplements.com)
 
 **Support Channels**:
+
 - GitHub Issues for technical bugs
-- Email: support@optibiosupplements.com (to be set up)
+
+- Email: [support@optibiosupplements.com](mailto:support@optibiosupplements.com) (to be set up)
+
 - Live chat on website (to be implemented)
 
 ---
@@ -1239,9 +1516,10 @@ VITE_FRONTEND_FORGE_API_URL=https://forge.manus.im
 **Document History:**
 
 | Version | Date | Author | Changes |
-|---------|------|--------|---------|
+| --- | --- | --- | --- |
 | 1.0 | Nov 11, 2025 | Manus AI | Initial comprehensive PRD created |
 
 ---
 
 **End of Document**
+

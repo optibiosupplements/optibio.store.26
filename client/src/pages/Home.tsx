@@ -20,7 +20,7 @@ import {
 import { formatPrice } from "@/const";
 import { trpc } from "@/lib/trpc";
 import WellnessPlanPersonalizer from "@/components/WellnessPlanPersonalizer";
-import Manifesto from "@/components/Manifesto";
+
 import { SocialProofCounter } from "@/components/SocialProofCounter";
 
 export default function Home() {
@@ -107,15 +107,12 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Manifesto - Industry Truth & Waitlist Capture */}
-      <Manifesto />
-      
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden gradient-hero">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#F5F1E8] via-[#E8DCC8] to-[#F5F1E8]">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-yellow-400/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-blue-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#7C9885]/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#7C9885]/10 rounded-full blur-3xl" />
         </div>
         
         <div className="container relative z-10 py-20">
@@ -124,21 +121,21 @@ export default function Home() {
             <div className="space-y-10 animate-fade-in">
               <div className="space-y-6">
                 <Badge 
-                  className="text-sm font-bold px-5 py-2 bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900 border-0 shadow-gold"
+                  className="text-sm font-bold px-5 py-2 bg-gradient-to-r from-[#7C9885] to-[#4A6352] text-white border-0 shadow-sage"
                 >
                   <Shield className="w-4 h-4 mr-2 inline" />
                   Science-Backed • Third-Party Tested
                 </Badge>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-white">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-[#2D2D2D]">
                   Feel Like{" "}
-                  <span className="text-gradient-wellness">
+                  <span className="text-gradient-optibio">
                     Yourself
                   </span>
                   {" "}Again
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-slate-200 leading-relaxed max-w-2xl">
+                <p className="text-xl md:text-2xl text-[#4A6352] leading-relaxed max-w-2xl">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
@@ -146,11 +143,11 @@ export default function Home() {
               {/* Trust Indicators */}
               <div className="flex flex-wrap gap-6 text-base">
                 {certifications.slice(0, 3).map((cert, i) => (
-                  <div key={i} className="flex items-center gap-3 text-slate-300">
-                    <cert.icon className="w-10 h-10 text-yellow-400" />
+                  <div key={i} className="flex items-center gap-3 text-[#4A6352]">
+                    <cert.icon className="w-10 h-10 text-[#7C9885]" />
                     <div className="flex flex-col">
-                      <span className="font-bold text-white">{cert.text}</span>
-                      <span className="text-xs text-slate-400">Verified</span>
+                      <span className="font-bold text-[#2D2D2D]">{cert.text}</span>
+                      <span className="text-xs text-[#4A6352]">Verified</span>
                     </div>
                   </div>
                 ))}
@@ -161,7 +158,7 @@ export default function Home() {
                 <Link href="/shop">
                   <Button 
                     size="lg" 
-                    className="text-lg px-10 py-7 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-gold hover:shadow-glow-gold transition-all duration-300"
+                    className="text-lg px-10 py-7 bg-gradient-to-r from-[#7C9885] to-[#4A6352] hover:from-[#4A6352] hover:to-[#7C9885] text-white font-bold shadow-sage hover:shadow-glow-sage transition-all duration-300"
                   >
                     Start Your Journey
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -171,7 +168,7 @@ export default function Home() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="text-lg px-10 py-7 border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 backdrop-blur-sm"
+                    className="text-lg px-10 py-7 border-2 border-[#7C9885] text-[#2D2D2D] hover:bg-[#7C9885]/10 hover:border-[#4A6352] backdrop-blur-sm"
                   >
                     See the Science
                   </Button>
@@ -182,17 +179,17 @@ export default function Home() {
               <div className="flex items-center gap-6 pt-4">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-2 border-slate-800" />
+                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7C9885] to-[#4A6352] border-2 border-[#F5F1E8]" />
                   ))}
                 </div>
                 <div className="text-sm">
-                  <div className="flex items-center gap-1 text-yellow-400 mb-1">
+                  <div className="flex items-center gap-1 text-[#D4745F] mb-1">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-slate-300">
-                    <span className="font-semibold text-white">5,000+</span> satisfied customers
+                  <p className="text-[#4A6352]">
+                    <span className="font-semibold text-[#2D2D2D]">5,000+</span> satisfied customers
                   </p>
                 </div>
               </div>
