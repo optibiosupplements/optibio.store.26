@@ -108,11 +108,11 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#F5F1E8] via-[#E8DCC8] to-[#F5F1E8]">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#F7F4EF] via-[#EDE9E3] to-[#F7F4EF]">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-[#7C9885]/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#7C9885]/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl" />
         </div>
         
         <div className="container relative z-10 py-20">
@@ -121,7 +121,7 @@ export default function Home() {
             <div className="space-y-10 animate-fade-in">
               <div className="space-y-6">
                 <Badge 
-                  className="text-sm font-bold px-5 py-2 bg-gradient-to-r from-[#7C9885] to-[#4A6352] text-white border-0 shadow-sage"
+                  className="text-sm font-bold px-5 py-2 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] text-white border-0 shadow-navy"
                 >
                   <Shield className="w-4 h-4 mr-2 inline" />
                   Science-Backed • Third-Party Tested
@@ -135,7 +135,7 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-[#4A6352] leading-relaxed max-w-2xl">
+                <p className="text-xl md:text-2xl text-[#1E3A5F] leading-relaxed max-w-2xl">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
@@ -143,11 +143,11 @@ export default function Home() {
               {/* Trust Indicators */}
               <div className="flex flex-wrap gap-6 text-base">
                 {certifications.slice(0, 3).map((cert, i) => (
-                  <div key={i} className="flex items-center gap-3 text-[#4A6352]">
-                    <cert.icon className="w-10 h-10 text-[#7C9885]" />
+                  <div key={i} className="flex items-center gap-3 text-[#1E3A5F]">
+                    <cert.icon className="w-10 h-10 text-[#C9A961]" />
                     <div className="flex flex-col">
                       <span className="font-bold text-[#2D2D2D]">{cert.text}</span>
-                      <span className="text-xs text-[#4A6352]">Verified</span>
+                      <span className="text-xs text-[#1E3A5F]">Verified</span>
                     </div>
                   </div>
                 ))}
@@ -158,7 +158,7 @@ export default function Home() {
                 <Link href="/shop">
                   <Button 
                     size="lg" 
-                    className="text-lg px-10 py-7 bg-gradient-to-r from-[#7C9885] to-[#4A6352] hover:from-[#4A6352] hover:to-[#7C9885] text-white font-bold shadow-sage hover:shadow-glow-sage transition-all duration-300"
+                    className="text-lg px-10 py-7 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
                   >
                     Start Your Journey
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -168,7 +168,7 @@ export default function Home() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="text-lg px-10 py-7 border-2 border-[#7C9885] text-[#2D2D2D] hover:bg-[#7C9885]/10 hover:border-[#4A6352] backdrop-blur-sm"
+                    className="text-lg px-10 py-7 border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F]/10 hover:border-[#152B45] backdrop-blur-sm"
                   >
                     See the Science
                   </Button>
@@ -179,16 +179,16 @@ export default function Home() {
               <div className="flex items-center gap-6 pt-4">
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7C9885] to-[#4A6352] border-2 border-[#F5F1E8]" />
+                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#152B45] border-2 border-[#F7F4EF]" />
                   ))}
                 </div>
                 <div className="text-sm">
-                  <div className="flex items-center gap-1 text-[#D4745F] mb-1">
+                  <div className="flex items-center gap-1 text-[#C9A961] mb-1">
                     {[1, 2, 3, 4, 5].map((i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <p className="text-[#4A6352]">
+                  <p className="text-[#1E3A5F]">
                     <span className="font-semibold text-[#2D2D2D]">5,000+</span> satisfied customers
                   </p>
                 </div>
@@ -198,7 +198,7 @@ export default function Home() {
             {/* Right Column - Product Image */}
             <div className="relative lg:h-[600px] flex items-center justify-center">
               {/* Decorative cream card background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/20 to-amber-50/20 rounded-[3rem] blur-2xl scale-90" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#C9A961]/10 to-[#1E3A5F]/5 rounded-[3rem] blur-2xl scale-90" />
               
               {/* Product image */}
               <div className="relative z-10 animate-float">
@@ -210,7 +210,7 @@ export default function Home() {
               </div>
 
               {/* Floating badge - 90 Capsules */}
-              <div className="absolute top-10 right-10 bg-gradient-to-br from-yellow-50 to-amber-50 border-2 border-yellow-200 rounded-2xl shadow-cream p-4 animate-fade-in-delay">
+              <div className="absolute top-10 right-10 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-gradient-gold">
                     90
@@ -220,9 +220,9 @@ export default function Home() {
               </div>
 
               {/* Floating badge - Clinical Studies */}
-              <div className="absolute bottom-10 left-10 bg-gradient-to-br from-yellow-50 to-amber-50 border-2 border-yellow-200 rounded-2xl shadow-cream p-4 animate-fade-in-delay-2">
+              <div className="absolute bottom-10 left-10 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 text-slate-900" />
                   </div>
                   <div>
@@ -237,7 +237,7 @@ export default function Home() {
       </section>
 
       {/* Scientifically-Backed Benefits */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/20">
+      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] to-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge className="mb-4 bg-blue-100 text-blue-800 border-blue-200">
@@ -263,7 +263,7 @@ export default function Home() {
               return (
                 <Card 
                   key={i} 
-                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-yellow-100 hover:border-yellow-300 cursor-pointer overflow-hidden"
+                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-[#C9A961]/20 hover:border-[#C9A961]/40 cursor-pointer overflow-hidden"
                 >
                   <div className="relative h-64 overflow-hidden">
                     <img 
@@ -271,9 +271,9 @@ export default function Home() {
                       alt={benefit.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A5F]/80 via-[#1E3A5F]/40 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
-                      <div className="text-4xl font-bold text-yellow-400 mb-2">
+                      <div className="text-4xl font-bold text-[#C9A961] mb-2">
                         {benefit.stat}
                       </div>
                       <h3 className="text-2xl font-bold text-white">
@@ -281,7 +281,7 @@ export default function Home() {
                       </h3>
                     </div>
                   </div>
-                  <CardContent className="p-6 bg-gradient-to-br from-yellow-50/80 to-amber-50/80">
+                  <CardContent className="p-6 bg-gradient-to-br from-[#F7F4EF]/80 to-[#EDE9E3]/80">
                     <p className="text-slate-700 leading-relaxed">
                       {benefit.description}
                     </p>
@@ -309,7 +309,7 @@ export default function Home() {
             {/* Right - Content */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge variant="secondary" className="bg-amber-100 text-amber-900 border-amber-200">
+                <Badge variant="secondary" className="bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
                   Premium Quality
                 </Badge>
                 <h2 className="text-4xl md:text-5xl font-bold">
@@ -323,7 +323,7 @@ export default function Home() {
               <div className="space-y-6">
                 {whyKSM66.map((item, i) => (
                   <div key={i} className="flex gap-4 group">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-amber-600 flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#C9A961] flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300">
                       {i + 1}
                     </div>
                     <div>
@@ -354,10 +354,10 @@ export default function Home() {
       </section>
 
       {/* How It Works - Timeline */}
-      <section className="py-24 bg-gradient-to-br from-blue-900 to-slate-900 text-white">
+      <section className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#152B45] text-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge className="mb-4 bg-yellow-400/20 text-yellow-300 border-yellow-400/30">
+            <Badge className="mb-4 bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30">
               Your Journey
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -370,12 +370,12 @@ export default function Home() {
 
           <div className="max-w-4xl mx-auto space-y-8">
             {/* Week 1-2 */}
-            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-yellow-400/30">
-              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-4 border-blue-900" />
+            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-[#C9A961]/30">
+              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] border-4 border-[#1E3A5F]" />
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-yellow-300">Week 1-2: Settling In</h3>
-                  <Badge className="bg-yellow-400/20 text-yellow-300 border-yellow-400/30 w-fit mt-2 md:mt-0">
+                  <h3 className="text-2xl font-bold text-[#C9A961]">Week 1-2: Settling In</h3>
+                  <Badge className="bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30 w-fit mt-2 md:mt-0">
                     Early Days
                   </Badge>
                 </div>
@@ -386,12 +386,12 @@ export default function Home() {
             </div>
 
             {/* Week 2-4 */}
-            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-yellow-400/30">
-              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-4 border-blue-900" />
+            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-[#C9A961]/30">
+              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] border-4 border-[#1E3A5F]" />
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-yellow-300">Week 2-4: Sleep Improves</h3>
-                  <Badge className="bg-yellow-400/20 text-yellow-300 border-yellow-400/30 w-fit mt-2 md:mt-0">
+                  <h3 className="text-2xl font-bold text-[#C9A961]">Week 2-4: Sleep Improves</h3>
+                  <Badge className="bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30 w-fit mt-2 md:mt-0">
                     First Benefits
                   </Badge>
                 </div>
@@ -406,12 +406,12 @@ export default function Home() {
             </div>
 
             {/* Week 4-8 */}
-            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-yellow-400/30">
-              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-4 border-blue-900" />
+            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-[#C9A961]/30">
+              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] border-4 border-[#1E3A5F]" />
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-yellow-300">Week 4-8: Sustained Benefits</h3>
-                  <Badge className="bg-yellow-400/20 text-yellow-300 border-yellow-400/30 w-fit mt-2 md:mt-0">
+                  <h3 className="text-2xl font-bold text-[#C9A961]">Week 4-8: Sustained Benefits</h3>
+                  <Badge className="bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30 w-fit mt-2 md:mt-0">
                     Peak Results
                   </Badge>
                 </div>
@@ -438,10 +438,10 @@ export default function Home() {
             {/* Week 8+ */}
             <div className="relative pl-8 md:pl-16">
               <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-yellow-400 to-amber-500 border-4 border-blue-900" />
-              <div className="bg-gradient-to-br from-yellow-400/20 to-amber-500/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-yellow-400/40">
+              <div className="bg-gradient-to-br from-[#C9A961]/20 to-[#B89651]/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-[#C9A961]/40">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-yellow-300">Week 8+: Your New Normal</h3>
-                  <Badge className="bg-yellow-400 text-slate-900 border-0 w-fit mt-2 md:mt-0">
+                  <h3 className="text-2xl font-bold text-[#C9A961]">Week 8+: Your New Normal</h3>
+                  <Badge className="bg-[#C9A961] text-[#1E3A5F] border-0 w-fit mt-2 md:mt-0">
                     Optimal
                   </Badge>
                 </div>
@@ -464,7 +464,7 @@ export default function Home() {
       <WellnessPlanPersonalizer />
 
       {/* Who This Is For - Qualification Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/20">
+      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] to-white">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -520,7 +520,7 @@ export default function Home() {
               </Card>
 
               {/* This is NOT for you */}
-              <Card className="border-2 border-slate-200 bg-gradient-to-br from-slate-50/50 to-white">
+              <Card className="border-2 border-[#C9A961]/20 bg-gradient-to-br from-[#F7F4EF]/50 to-white">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center">
@@ -565,7 +565,7 @@ export default function Home() {
                   <strong className="text-blue-900">Still not sure?</strong> That's okay. We offer a <strong className="text-blue-900">90-day money-back guarantee</strong>. Try it for 12 weeks. If you don't feel calmer, more focused, and better rested, we'll refund every penny. No questions asked.
                 </p>
                 <Link href="/shop">
-                  <Button size="lg" className="mt-6 bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700">
+                  <Button size="lg" className="mt-6 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:from-[#152B45] hover:to-[#1E3A5F]">
                     Try OptiBio Risk-Free
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
@@ -584,7 +584,7 @@ export default function Home() {
               <Card className="overflow-hidden border-2 shadow-2xl">
                 <div className="grid md:grid-cols-2">
                   {/* Product Image */}
-                  <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 p-12 flex items-center justify-center">
+                  <div className="bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] p-12 flex items-center justify-center">
                     <img 
                       src={mainProduct.imageUrl || "/products/optibio-90cap-bottle-front.jpg"}
                       alt={mainProduct.name}
@@ -595,7 +595,7 @@ export default function Home() {
                   {/* Product Info */}
                   <CardContent className="p-12 flex flex-col justify-center space-y-6">
                     <div className="space-y-4">
-                      <Badge className="bg-gradient-to-r from-blue-600 to-amber-600">
+                      <Badge className="bg-gradient-to-r from-[#1E3A5F] to-[#C9A961]">
                         Best Seller
                       </Badge>
                       <h3 className="text-3xl font-bold text-slate-900">
@@ -638,7 +638,7 @@ export default function Home() {
                     <Link href="/shop">
                       <Button 
                         size="lg" 
-                        className="w-full text-lg py-6 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                        className="w-full text-lg py-6 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
                       >
                         Get Founder Pricing
                         <ArrowRight className="ml-2 w-5 h-5" />
@@ -653,7 +653,7 @@ export default function Home() {
       )}
 
       {/* Testimonials */}
-      <section className="py-24 bg-gradient-to-br from-blue-900 to-slate-900 text-white">
+      <section className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#152B45] text-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -668,7 +668,7 @@ export default function Home() {
             {testimonials.map((testimonial, i) => (
               <Card key={i} className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300">
                 <CardContent className="p-8 space-y-4">
-                  <div className="flex items-center gap-1 text-amber-400">
+                  <div className="flex items-center gap-1 text-[#C9A961]">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 fill-current" />
                     ))}
@@ -713,7 +713,7 @@ export default function Home() {
                 key={i} 
                 className="text-center space-y-4 p-8 rounded-2xl hover:bg-slate-50 transition-colors duration-300"
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-600/10 to-amber-600/10 flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-[#C9A961]/10 flex items-center justify-center mx-auto">
                   <cert.icon className="w-8 h-8 text-blue-700" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">
@@ -729,7 +729,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-gradient-to-br from-blue-700 via-blue-600 to-amber-600 text-white">
+      <section className="py-24 bg-gradient-to-br from-[#1E3A5F] via-[#152B45] to-[#C9A961] text-white">
         <div className="container text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-4xl md:text-5xl font-bold">
@@ -745,7 +745,7 @@ export default function Home() {
               <Link href="/shop">
                 <Button 
                   size="lg" 
-                  className="text-lg px-8 py-6 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold shadow-xl"
+                  className="text-lg px-8 py-6 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold"
                 >
                   Shop Founder Pricing
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -760,11 +760,11 @@ export default function Home() {
       </section>
 
       {/* Founder Pricing Section */}
-      <section id="pricing-section" className="py-24 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white">
+      <section id="pricing-section" className="py-24 bg-gradient-to-br from-[#1E3A5F] via-[#152B45] to-[#1E3A5F] text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div>
-              <Badge className="bg-yellow-400 text-slate-900 font-bold text-lg px-6 py-2 mb-4">
+              <Badge className="bg-[#C9A961] text-[#1E3A5F] font-bold text-lg px-6 py-2 mb-4">
                 LIMITED TIME OFFER
               </Badge>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
@@ -776,15 +776,15 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 text-left">
-              <Card className="bg-white/10 backdrop-blur-sm border-yellow-400/30 hover:border-yellow-400/60 transition-all">
+              <Card className="bg-white/10 backdrop-blur-sm border-[#C9A961]/30 hover:border-[#C9A961]/60 transition-all">
                 <CardContent className="p-6">
-                  <Star className="w-8 h-8 text-yellow-400 mb-3" />
+                  <Star className="w-8 h-8 text-[#C9A961] mb-3" />
                   <h3 className="font-bold text-lg mb-2">Founder's Circle</h3>
                   <p className="text-3xl font-bold mb-1">$69</p>
                   <p className="text-sm text-blue-100">2 bottles • 25% off for life</p>
-                  <p className="text-xs text-yellow-400 mt-2">Only 100 spots</p>
+                  <p className="text-xs text-[#C9A961] mt-2">Only 100 spots</p>
                   <Link href="/shop" className="block mt-4">
-                    <Button className="w-full bg-yellow-400 hover:bg-yellow-500 text-slate-900 font-bold">
+                    <Button className="w-full bg-[#C9A961] hover:bg-[#B89651] text-[#1E3A5F] font-bold">
                       Shop Now
                     </Button>
                   </Link>
@@ -825,7 +825,7 @@ export default function Home() {
             <Link href="/shop">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-slate-900 font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-yellow-400/20 transition-all"
+                className="bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-glow-gold transition-all"
               >
                 <Sparkles className="w-6 h-6 mr-2" />
                 Shop Founder Pricing Now
