@@ -16,7 +16,7 @@ export default function About() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
@@ -104,7 +104,7 @@ export default function About() {
               <CardContent className="p-12 space-y-8">
                 <div className="space-y-4">
                   <h2 className="text-3xl font-bold text-slate-900">The OptiBio Story</h2>
-                  <div className="w-20 h-1 bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 rounded-full" />
+                  <div className="w-20 h-1 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full" />
                 </div>
 
                 <div className="space-y-6 text-slate-700 leading-relaxed">
@@ -135,7 +135,7 @@ export default function About() {
       </section>
 
       {/* Why KSM-66 */}
-      <section className="py-16 bg-gradient-to-br from-[#F7F4EF] to-white">
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Why We Choose KSM-66®</h2>
@@ -145,11 +145,11 @@ export default function About() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <Card className="border-2 border-[#C9A961]/30 shadow-lg">
+            <Card className="border-2 border-blue-200 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
-                    <Microscope className="w-6 h-6 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
+                    <Microscope className="w-6 h-6 text-blue-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-2">Gold Standard Extract</h3>
@@ -161,11 +161,11 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-[#C9A961]/30 shadow-lg">
+            <Card className="border-2 border-blue-200 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
-                    <CheckCircle2 className="w-6 h-6 text-[#C9A961]" />
+                    <CheckCircle2 className="w-6 h-6 text-green-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-2">20+ Clinical Studies</h3>
@@ -177,7 +177,7 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-[#C9A961]/30 shadow-lg">
+            <Card className="border-2 border-blue-200 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-purple-50 flex items-center justify-center">
@@ -193,7 +193,7 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-[#C9A961]/30 shadow-lg">
+            <Card className="border-2 border-blue-200 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 to-amber-50 flex items-center justify-center">
@@ -226,8 +226,8 @@ export default function About() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-green-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">GMP Certified Facility</h3>
@@ -238,8 +238,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-green-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">Third-Party Tested</h3>
@@ -250,8 +250,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-green-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">Non-GMO & Organic</h3>
@@ -262,8 +262,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-green-100 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-green-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">Vegan & Clean</h3>
@@ -276,8 +276,8 @@ export default function About() {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-blue-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">5% Withanolides</h3>
@@ -288,8 +288,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-blue-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">Full-Spectrum Extract</h3>
@@ -300,8 +300,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-blue-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">Sustainable Sourcing</h3>
@@ -312,8 +312,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-blue-700" />
                   </div>
                   <div>
                     <h3 className="font-bold text-slate-900 mb-1">Batch Tracking</h3>
@@ -334,7 +334,7 @@ export default function About() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <Users className="w-8 h-8 text-[#1E3A5F]" />
+                <Users className="w-8 h-8 text-blue-700" />
                 <h2 className="text-3xl font-bold text-slate-900">Meet Our Team</h2>
               </div>
               <p className="text-slate-600 text-lg">
@@ -351,8 +351,8 @@ export default function About() {
 
                   <div className="grid md:grid-cols-3 gap-6 py-6">
                     <div className="text-center space-y-2">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center mx-auto mb-3">
-                        <span className="text-2xl font-bold text-[#1E3A5F]">R&D</span>
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center mx-auto mb-3">
+                        <span className="text-2xl font-bold text-blue-700">R&D</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Research Team</h3>
                       <p className="text-sm text-slate-600">
@@ -362,7 +362,7 @@ export default function About() {
 
                     <div className="text-center space-y-2">
                       <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mx-auto mb-3">
-                        <span className="text-2xl font-bold text-[#C9A961]">QA</span>
+                        <span className="text-2xl font-bold text-green-700">QA</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Quality Assurance</h3>
                       <p className="text-sm text-slate-600">
@@ -398,7 +398,7 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container">
-          <Card className="border-2 border-[#C9A961]/30 shadow-2xl bg-gradient-to-br from-[#F7F4EF] to-white">
+          <Card className="border-2 border-blue-200 shadow-2xl bg-gradient-to-br from-blue-50 to-white">
             <CardContent className="p-12 text-center space-y-6">
               <h2 className="text-3xl font-bold text-slate-900">
                 Ready to Experience the OptiBio Difference?
@@ -410,7 +410,7 @@ export default function About() {
                 <Button
                   onClick={() => setLocation("/shop")}
                   size="lg"
-                  className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg text-lg px-8"
+                  className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 shadow-lg text-lg px-8"
                 >
                   Shop Now
                 </Button>

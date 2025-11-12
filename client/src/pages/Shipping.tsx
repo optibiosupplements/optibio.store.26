@@ -3,7 +3,7 @@ import { Truck, Package, RotateCcw, CheckCircle2 } from "lucide-react";
 
 export default function Shipping() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">Shipping & Returns</h1>
@@ -14,8 +14,8 @@ export default function Shipping() {
           <CardContent className="p-8 space-y-8 prose prose-slate max-w-none">
             <section>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
-                  <Truck className="w-6 h-6 text-[#1E3A5F]" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
+                  <Truck className="w-6 h-6 text-blue-700" />
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900">Shipping Policy</h2>
               </div>
@@ -67,7 +67,7 @@ export default function Shipping() {
 
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Address Accuracy</h3>
               <p className="text-slate-700 leading-relaxed mb-4">
-                Please ensure your shipping address is accurate and complete. We are not responsible for orders shipped to incorrect addresses provided by the customer. If you need to update your shipping address, please contact us immediately at <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a>.
+                Please ensure your shipping address is accurate and complete. We are not responsible for orders shipped to incorrect addresses provided by the customer. If you need to update your shipping address, please contact us immediately at <a href="mailto:support@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">support@optibio.com</a>.
               </p>
 
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Lost or Damaged Packages</h3>
@@ -83,7 +83,7 @@ export default function Shipping() {
             <section>
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
-                  <RotateCcw className="w-6 h-6 text-[#C9A961]" />
+                  <RotateCcw className="w-6 h-6 text-green-700" />
                 </div>
                 <h2 className="text-2xl font-bold text-slate-900">Returns & Refunds</h2>
               </div>
@@ -93,9 +93,9 @@ export default function Shipping() {
                 We stand behind the quality of our products. If you're not completely satisfied with your purchase, you can return it within 90 days of delivery for a full refund—no questions asked.
               </p>
 
-              <div className="p-6 rounded-xl bg-gradient-to-br from-green-50 to-white border-2 border-[#C9A961]/30 mb-6">
+              <div className="p-6 rounded-xl bg-gradient-to-br from-green-50 to-white border-2 border-green-200 mb-6">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-6 h-6 text-green-700 flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2">Our Promise</h4>
                     <p className="text-slate-700 text-sm">
@@ -108,19 +108,19 @@ export default function Shipping() {
               <h3 className="text-xl font-semibold text-slate-900 mb-3">How to Return a Product</h3>
               <div className="space-y-3 mb-4">
                 <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#C9A961]/10 text-[#1E3A5F] font-bold flex items-center justify-center text-sm">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-sm">
                     1
                   </div>
                   <div>
                     <p className="text-slate-900 font-semibold">Contact Us</p>
                     <p className="text-slate-700 text-sm">
-                      Email <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a> with your order number and reason for return.
+                      Email <a href="mailto:support@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">support@optibio.com</a> with your order number and reason for return.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#C9A961]/10 text-[#1E3A5F] font-bold flex items-center justify-center text-sm">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-sm">
                     2
                   </div>
                   <div>
@@ -132,7 +132,7 @@ export default function Shipping() {
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#C9A961]/10 text-[#1E3A5F] font-bold flex items-center justify-center text-sm">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-sm">
                     3
                   </div>
                   <div>
@@ -144,7 +144,7 @@ export default function Shipping() {
                 </div>
 
                 <div className="flex gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#C9A961]/10 text-[#1E3A5F] font-bold flex items-center justify-center text-sm">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-sm">
                     4
                   </div>
                   <div>
@@ -177,7 +177,7 @@ export default function Shipping() {
 
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Defective or Damaged Products</h3>
               <p className="text-slate-700 leading-relaxed mb-4">
-                If you receive a defective or damaged product, please contact us immediately at <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a> with photos of the damage. We will send you a replacement at no cost or issue a full refund, including return shipping costs.
+                If you receive a defective or damaged product, please contact us immediately at <a href="mailto:support@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">support@optibio.com</a> with photos of the damage. We will send you a replacement at no cost or issue a full refund, including return shipping costs.
               </p>
 
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Subscription Returns</h3>
@@ -201,7 +201,7 @@ export default function Shipping() {
               <div>
                 <h3 className="text-lg font-semibold text-slate-900 mb-2">Order Cancellation</h3>
                 <p className="text-slate-700 text-sm leading-relaxed">
-                  You can cancel your order within 24 hours of placing it by contacting us at <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a>. Once your order has been processed and shipped, it cannot be canceled, but you can return it using our standard return process.
+                  You can cancel your order within 24 hours of placing it by contacting us at <a href="mailto:support@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">support@optibio.com</a>. Once your order has been processed and shipped, it cannot be canceled, but you can return it using our standard return process.
                 </p>
               </div>
 
@@ -219,7 +219,7 @@ export default function Shipping() {
                 </p>
                 <div className="p-4 rounded-xl bg-slate-50 border-2 border-slate-200">
                   <p className="text-slate-900 font-semibold mb-2">Contact OptiBio Support</p>
-                  <p className="text-slate-700 text-sm">Email: <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a></p>
+                  <p className="text-slate-700 text-sm">Email: <a href="mailto:support@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">support@optibio.com</a></p>
                   <p className="text-slate-700 text-sm">Response Time: Within 24 hours (business days)</p>
                 </div>
               </div>

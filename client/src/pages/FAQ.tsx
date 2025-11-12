@@ -158,7 +158,7 @@ export default function FAQ() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
@@ -213,7 +213,7 @@ export default function FAQ() {
                         value={`${sectionIndex}-${faqIndex}`}
                         className="border rounded-lg px-6 bg-slate-50/50"
                       >
-                        <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-[#1E3A5F] py-4">
+                        <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-blue-700 py-4">
                           {faq.q}
                         </AccordionTrigger>
                         <AccordionContent className="text-slate-700 leading-relaxed pb-4">
@@ -264,7 +264,7 @@ export default function FAQ() {
                 </Button>
               </div>
               <p className="text-sm text-slate-500">
-                Email: <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:underline">support@optibio.com</a>
+                Email: <a href="mailto:support@optibio.com" className="text-blue-600 hover:underline">support@optibio.com</a>
               </p>
             </CardContent>
           </Card>
