@@ -48,7 +48,7 @@ export default function MyOrders() {
       case "pending":
         return <Clock className="w-5 h-5 text-yellow-600" />;
       case "processing":
-        return <Package className="w-5 h-5 text-blue-600" />;
+        return <Package className="w-5 h-5 text-[#1E3A5F]" />;
       case "shipped":
         return <Truck className="w-5 h-5 text-purple-600" />;
       case "delivered":
@@ -63,7 +63,7 @@ export default function MyOrders() {
       case "pending":
         return "bg-yellow-100 text-yellow-800 border-yellow-200";
       case "processing":
-        return "bg-blue-100 text-blue-800 border-blue-200";
+        return "bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30";
       case "shipped":
         return "bg-purple-100 text-purple-800 border-purple-200";
       case "delivered":
@@ -80,9 +80,9 @@ export default function MyOrders() {
   // Loading state
   if (authLoading || ordersLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
         <div className="flex items-center gap-3">
-          <Loader2 className="w-6 h-6 animate-spin text-blue-700" />
+          <Loader2 className="w-6 h-6 animate-spin text-[#1E3A5F]" />
           <span className="text-slate-600">Loading your orders...</span>
         </div>
       </div>
@@ -92,11 +92,11 @@ export default function MyOrders() {
   // Not logged in
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
         <Card className="max-w-md">
           <CardContent className="p-8 text-center space-y-6">
-            <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mx-auto">
-              <ShoppingBag className="w-8 h-8 text-blue-700" />
+            <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center mx-auto">
+              <ShoppingBag className="w-8 h-8 text-[#1E3A5F]" />
             </div>
             <div className="space-y-2">
               <h1 className="text-2xl font-bold text-slate-900">Sign In Required</h1>
@@ -105,7 +105,7 @@ export default function MyOrders() {
             <div className="flex flex-col gap-3">
               <Button
                 onClick={() => (window.location.href = getLoginUrl())}
-                className="w-full bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700"
+                className="w-full bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45]"
               >
                 Sign In
               </Button>
@@ -122,7 +122,7 @@ export default function MyOrders() {
   // Order detail view
   if (selectedOrderId && orderDetails) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12">
         <div className="container mx-auto px-4 max-w-4xl">
           <Button
             variant="outline"
@@ -229,7 +229,7 @@ export default function MyOrders() {
 
   // Orders list view
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-8">
           <Breadcrumb className="mb-4">
@@ -261,7 +261,7 @@ export default function MyOrders() {
               </div>
               <Button
                 onClick={() => setLocation("/shop")}
-                className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 shadow-lg"
+                className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg"
               >
                 Start Shopping
               </Button>

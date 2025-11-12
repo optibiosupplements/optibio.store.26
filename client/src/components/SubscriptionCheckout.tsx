@@ -80,7 +80,7 @@ function CheckoutForm({
       case "founders":
         return "bg-gradient-to-r from-amber-500 to-yellow-500 text-white";
       case "early_adopter":
-        return "bg-gradient-to-r from-blue-500 to-indigo-500 text-white";
+        return "bg-gradient-to-r from-[#F7F4EF]0 to-[#1E3A5F] text-white";
       case "pre_launch":
         return "bg-gradient-to-r from-green-500 to-emerald-500 text-white";
       default:
@@ -136,7 +136,7 @@ function CheckoutForm({
           <div className="border-t pt-4 mt-4">
             <div className="flex items-center justify-between text-lg">
               <span className="font-semibold text-slate-900">Monthly Price</span>
-              <span className="font-bold text-blue-600">
+              <span className="font-bold text-[#1E3A5F]">
                 {formatPrice(priceInCents)}/month
               </span>
             </div>

@@ -34,7 +34,7 @@ export default function PreLaunchBanner() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white py-4 px-4 sticky top-0 z-50 shadow-lg border-b-2 border-yellow-400/30">
+    <div className="bg-gradient-to-r from-[#152B45] via-[#152B45] to-slate-900 text-white py-4 px-4 sticky top-0 z-50 shadow-lg border-b-2 border-yellow-400/30">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Left: Pre-Launch Message */}

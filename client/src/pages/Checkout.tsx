@@ -208,8 +208,8 @@ export default function Checkout() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
-        <Loader2 className="h-12 w-12 animate-spin text-blue-700" />
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+        <Loader2 className="h-12 w-12 animate-spin text-[#1E3A5F]" />
       </div>
     );
   }
@@ -222,7 +222,7 @@ export default function Checkout() {
   // Show Stripe Elements payment confirmation for subscriptions
   if (subscriptionData) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12 md:py-16">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16">
         <div className="container">
           <SubscriptionCheckout
             {...subscriptionData}
@@ -240,7 +240,7 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12 md:py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16">
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="mb-8">
@@ -260,7 +260,7 @@ export default function Checkout() {
                   <div
                     className={`w-16 h-16 rounded-full flex items-center justify-center border-4 transition-all duration-300 ${
                       step >= s.num
-                        ? "bg-gradient-to-br from-blue-700 to-blue-600 border-blue-700 text-white shadow-lg"
+                        ? "bg-gradient-to-br from-[#1E3A5F] to-[#1E3A5F] border-[#1E3A5F] text-white shadow-lg"
                         : "bg-white border-slate-300 text-slate-400"
                     }`}
                   >
@@ -272,7 +272,7 @@ export default function Checkout() {
                   </div>
                   <span
                     className={`mt-2 text-sm font-semibold ${
-                      step >= s.num ? "text-blue-700" : "text-slate-400"
+                      step >= s.num ? "text-[#1E3A5F]" : "text-slate-400"
                     }`}
                   >
                     {s.label}
@@ -281,7 +281,7 @@ export default function Checkout() {
                 {idx < 1 && (
                   <div
                     className={`w-24 h-1 mx-4 transition-all duration-300 ${
-                      step > s.num ? "bg-blue-700" : "bg-slate-300"
+                      step > s.num ? "bg-[#1E3A5F]" : "bg-slate-300"
                     }`}
                   />
                 )}
@@ -298,8 +298,8 @@ export default function Checkout() {
               <Card className="border-2 border-slate-200 shadow-xl">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
-                      <Truck className="w-6 h-6 text-blue-700" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
+                      <Truck className="w-6 h-6 text-[#1E3A5F]" />
                     </div>
                     <div>
                       <h2 className="text-2xl font-bold text-slate-900">Shipping Information</h2>
@@ -428,7 +428,7 @@ export default function Checkout() {
                     <Button
                       size="lg"
                       onClick={handleContinueToPayment}
-                      className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 shadow-lg"
+                      className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg"
                     >
                       Continue to Payment
                       <ArrowRight className="ml-2 h-5 w-5" />
@@ -445,8 +445,8 @@ export default function Checkout() {
                 <Card className="border-2 border-slate-200 shadow-xl">
                   <CardContent className="p-8 space-y-6">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
-                        <MapPin className="w-6 h-6 text-blue-700" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
+                        <MapPin className="w-6 h-6 text-[#1E3A5F]" />
                       </div>
                       <div>
                         <h2 className="text-2xl font-bold text-slate-900">Billing Address</h2>
@@ -495,8 +495,8 @@ export default function Checkout() {
                 <Card className="border-2 border-slate-200 shadow-xl">
                   <CardContent className="p-8 space-y-6">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
-                        <CreditCard className="w-6 h-6 text-blue-700" />
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
+                        <CreditCard className="w-6 h-6 text-[#1E3A5F]" />
                       </div>
                       <div>
                         <h2 className="text-2xl font-bold text-slate-900">Payment Method</h2>
@@ -504,8 +504,8 @@ export default function Checkout() {
                       </div>
                     </div>
 
-                    <div className="p-8 rounded-xl bg-gradient-to-br from-blue-50 to-white border-2 border-blue-200 text-center space-y-3">
-                      <Lock className="w-12 h-12 mx-auto text-blue-700" />
+                    <div className="p-8 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/30 text-center space-y-3">
+                      <Lock className="w-12 h-12 mx-auto text-[#1E3A5F]" />
                       <h3 className="text-xl font-bold text-slate-900">Secure Payment with Stripe</h3>
                       <p className="text-slate-600">
                         Click "Proceed to Payment" to complete your purchase securely through Stripe.
@@ -538,7 +538,7 @@ export default function Checkout() {
                         size="lg"
                         onClick={handlePlaceOrder}
                         disabled={createCheckoutMutation.isPending}
-                        className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 shadow-lg"
+                        className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg"
                       >
                         {createCheckoutMutation.isPending ? (
                           <>
@@ -613,7 +613,7 @@ export default function Checkout() {
                     <div className="pt-3 border-t-2 border-slate-200">
                       <div className="flex justify-between items-baseline">
                         <span className="text-lg font-semibold text-slate-900">Total</span>
-                        <div className="text-3xl font-bold bg-gradient-to-r from-blue-700 to-amber-600 bg-clip-text text-transparent">
+                        <div className="text-3xl font-bold bg-gradient-to-r from-[#1E3A5F] to-amber-600 bg-clip-text text-transparent">
                           {formatPrice(total)}
                         </div>
                       </div>
@@ -623,11 +623,11 @@ export default function Checkout() {
                   {/* Trust Badges */}
                   <div className="pt-4 border-t border-slate-200 space-y-2">
                     <div className="flex items-center gap-2 text-xs text-slate-600">
-                      <Shield className="w-4 h-4 text-blue-600" />
+                      <Shield className="w-4 h-4 text-[#1E3A5F]" />
                       <span>Secure 256-bit SSL encryption</span>
                     </div>
                     <div className="flex items-center gap-2 text-xs text-slate-600">
-                      <CheckCircle2 className="w-4 h-4 text-blue-600" />
+                      <CheckCircle2 className="w-4 h-4 text-[#1E3A5F]" />
                       <span>60-day money-back guarantee</span>
                     </div>
                   </div>

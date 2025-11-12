@@ -43,6 +43,11 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Smooth scroll behavior for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* OptiBio Premium Brand Colors - Midnight Sophistication */
   --optibio-navy: #1E3A5F;

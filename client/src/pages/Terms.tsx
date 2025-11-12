@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">Terms of Service</h1>
@@ -84,7 +84,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-4">Shipping and Delivery</h2>
               <p className="text-slate-700 leading-relaxed mb-4">
-                We ship to addresses within the United States. Shipping times and costs vary based on your location and selected shipping method. Please see our <a href="/shipping" className="text-blue-700 hover:text-blue-800 font-semibold underline">Shipping & Returns Policy</a> for detailed information.
+                We ship to addresses within the United States. Shipping times and costs vary based on your location and selected shipping method. Please see our <a href="/shipping" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">Shipping & Returns Policy</a> for detailed information.
               </p>
               <p className="text-slate-700 leading-relaxed">
                 Title and risk of loss pass to you upon delivery to the carrier. We are not responsible for delays caused by shipping carriers or circumstances beyond our control.
@@ -94,7 +94,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-4">Returns and Refunds</h2>
               <p className="text-slate-700 leading-relaxed mb-4">
-                We offer a 90-day money-back guarantee on all products. If you are not satisfied with your purchase, you may return it for a full refund within 90 days of delivery. Please see our <a href="/shipping" className="text-blue-700 hover:text-blue-800 font-semibold underline">Shipping & Returns Policy</a> for complete details on our return process.
+                We offer a 90-day money-back guarantee on all products. If you are not satisfied with your purchase, you may return it for a full refund within 90 days of delivery. Please see our <a href="/shipping" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">Shipping & Returns Policy</a> for complete details on our return process.
               </p>
             </section>
 
@@ -226,8 +226,8 @@ export default function Terms() {
               </p>
               <div className="p-6 rounded-xl bg-slate-50 border-2 border-slate-200">
                 <p className="text-slate-900 font-semibold mb-2">OptiBio</p>
-                <p className="text-slate-700">Email: <a href="mailto:support@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">support@optibio.com</a></p>
-                <p className="text-slate-700">Legal: <a href="mailto:legal@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">legal@optibio.com</a></p>
+                <p className="text-slate-700">Email: <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a></p>
+                <p className="text-slate-700">Legal: <a href="mailto:legal@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">legal@optibio.com</a></p>
               </div>
             </section>
 

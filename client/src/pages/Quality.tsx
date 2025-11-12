@@ -410,7 +410,7 @@ export default function Quality() {
       </section>
 
       {/* Document Library Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-green-50/20">
+      <section className="py-16 bg-gradient-to-br from-[#F7F4EF] via-white to-green-50/20">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">

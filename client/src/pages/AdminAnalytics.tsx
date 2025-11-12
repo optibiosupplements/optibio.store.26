@@ -51,8 +51,8 @@ export default function AdminAnalytics() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
-        <Loader2 className="h-12 w-12 animate-spin text-blue-700" />
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+        <Loader2 className="h-12 w-12 animate-spin text-[#1E3A5F]" />
       </div>
     );
   }
@@ -75,7 +75,7 @@ export default function AdminAnalytics() {
       case "founders":
         return "from-amber-500 to-yellow-500";
       case "early_adopter":
-        return "from-blue-500 to-indigo-500";
+        return "from-[#F7F4EF]0 to-[#1E3A5F]";
       case "pre_launch":
         return "from-[#C9A961] to-[#B89651]";
       default:
@@ -84,7 +84,7 @@ export default function AdminAnalytics() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12 md:py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16">
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="mb-8">
@@ -97,7 +97,7 @@ export default function AdminAnalytics() {
             Back to Home
           </Button>
           <div className="flex items-center gap-3 mb-2">
-            <BarChart3 className="w-10 h-10 text-blue-700" />
+            <BarChart3 className="w-10 h-10 text-[#1E3A5F]" />
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900">
               Analytics Dashboard
             </h1>
@@ -134,7 +134,7 @@ export default function AdminAnalytics() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-blue-600">
+              <div className="text-3xl font-bold text-[#1E3A5F]">
                 {overview?.activeSubscriptions || 0}
               </div>
               <p className="text-sm text-slate-600 mt-1">
@@ -224,7 +224,7 @@ export default function AdminAnalytics() {
                         <div className="text-sm text-slate-600 mb-1">
                           Average Lifetime Value
                         </div>
-                        <div className="text-2xl font-bold text-blue-600">
+                        <div className="text-2xl font-bold text-[#1E3A5F]">
                           {formatPrice(tier.avgLTV)}
                         </div>
                       </div>
@@ -252,7 +252,7 @@ export default function AdminAnalytics() {
             </CardHeader>
             <CardContent>
               <div className="text-center py-8">
-                <div className="text-6xl font-bold text-blue-600 mb-4">
+                <div className="text-6xl font-bold text-[#1E3A5F] mb-4">
                   {conversionMetrics?.conversionRate?.toFixed(1) || "0.0"}%
                 </div>
                 <div className="text-slate-600">

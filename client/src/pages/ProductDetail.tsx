@@ -130,17 +130,17 @@ export default function ProductDetail() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
       {/* Breadcrumb */}
       <div className="border-b bg-white/80 backdrop-blur-sm sticky top-16 z-40">
         <div className="container py-4">
           <div className="flex items-center gap-2 text-sm text-slate-600">
             <Link href="/">
-              <span className="hover:text-blue-700 transition-colors cursor-pointer">Home</span>
+              <span className="hover:text-[#1E3A5F] transition-colors cursor-pointer">Home</span>
             </Link>
             <span>/</span>
             <Link href="/shop">
-              <span className="hover:text-blue-700 transition-colors cursor-pointer">Shop</span>
+              <span className="hover:text-[#1E3A5F] transition-colors cursor-pointer">Shop</span>
             </Link>
             <span>/</span>
             <span className="text-slate-900 font-medium">{product.name}</span>
@@ -171,8 +171,8 @@ export default function ProductDetail() {
                     onClick={() => setSelectedImage(idx)}
                     className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 ${
                       selectedImage === idx 
-                        ? "border-blue-600 ring-4 ring-blue-100 scale-105" 
-                        : "border-slate-200 hover:border-blue-300"
+                        ? "border-[#1E3A5F] ring-4 ring-[#C9A961]/20 scale-105" 
+                        : "border-slate-200 hover:border-[#C9A961]/40"
                     }`}
                   >
                     <img 
@@ -188,8 +188,8 @@ export default function ProductDetail() {
               <div className="hidden lg:grid grid-cols-2 gap-4 pt-6">
                 {certifications.map((cert, i) => (
                   <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-200">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-blue-600/10 to-amber-600/10 flex items-center justify-center">
-                      <cert.icon className="w-5 h-5 text-blue-700" />
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-amber-600/10 flex items-center justify-center">
+                      <cert.icon className="w-5 h-5 text-[#1E3A5F]" />
                     </div>
                     <div>
                       <div className="font-semibold text-sm text-slate-900">{cert.text}</div>
@@ -205,7 +205,7 @@ export default function ProductDetail() {
               {/* Header */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <Badge className="bg-gradient-to-r from-blue-600 to-amber-600 text-white border-0">
+                  <Badge className="bg-gradient-to-r from-[#1E3A5F] to-amber-600 text-white border-0">
                     Best Seller
                   </Badge>
                   <div className="flex items-center gap-1">
@@ -226,7 +226,7 @@ export default function ProductDetail() {
 
                 {/* Price */}
                 <div className="flex items-baseline gap-4 pt-4">
-                  <div className="text-5xl font-bold bg-gradient-to-r from-blue-700 to-amber-600 bg-clip-text text-transparent">
+                  <div className="text-5xl font-bold bg-gradient-to-r from-[#1E3A5F] to-amber-600 bg-clip-text text-transparent">
                     {formatPrice(isSubscription ? subscriptionPrice : currentPrice)}
                   </div>
                   {comparePrice && comparePrice > currentPrice && (
@@ -262,8 +262,8 @@ export default function ProductDetail() {
                           htmlFor={`variant-${variant.id}`}
                           className={`flex items-center justify-between p-5 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
                             (selectedVariant || product.variants[0]?.id) === variant.id
-                              ? "border-blue-600 bg-blue-50 ring-4 ring-blue-100"
-                              : "border-slate-200 hover:border-blue-300 bg-white"
+                              ? "border-[#1E3A5F] bg-[#F7F4EF] ring-4 ring-[#C9A961]/20"
+                              : "border-slate-200 hover:border-[#C9A961]/40 bg-white"
                           }`}
                         >
                           <div className="flex items-center gap-4">
@@ -399,15 +399,15 @@ export default function ProductDetail() {
                 {/* Trust Indicators */}
                 <div className="grid grid-cols-3 gap-3 pt-4">
                   <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <Truck className="w-5 h-5 text-blue-600" />
+                    <Truck className="w-5 h-5 text-[#1E3A5F]" />
                     <span className="font-medium">Free Shipping</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <RotateCcw className="w-5 h-5 text-blue-600" />
+                    <RotateCcw className="w-5 h-5 text-[#1E3A5F]" />
                     <span className="font-medium">60-Day Returns</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <Clock className="w-5 h-5 text-blue-600" />
+                    <Clock className="w-5 h-5 text-[#1E3A5F]" />
                     <span className="font-medium">Ships in 1-2 Days</span>
                   </div>
                 </div>
@@ -436,25 +436,25 @@ export default function ProductDetail() {
               <TabsList className="w-full justify-start border-b rounded-none h-auto p-0 bg-transparent">
                 <TabsTrigger 
                   value="description"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-8 py-4 text-base font-semibold"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#1E3A5F] data-[state=active]:bg-transparent px-8 py-4 text-base font-semibold"
                 >
                   Description
                 </TabsTrigger>
                 <TabsTrigger 
                   value="ingredients"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-8 py-4 text-base font-semibold"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#1E3A5F] data-[state=active]:bg-transparent px-8 py-4 text-base font-semibold"
                 >
                   Ingredients
                 </TabsTrigger>
                 <TabsTrigger 
                   value="studies"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-8 py-4 text-base font-semibold"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#1E3A5F] data-[state=active]:bg-transparent px-8 py-4 text-base font-semibold"
                 >
                   Clinical Studies
                 </TabsTrigger>
                 <TabsTrigger 
                   value="reviews"
-                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-blue-600 data-[state=active]:bg-transparent px-8 py-4 text-base font-semibold"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#1E3A5F] data-[state=active]:bg-transparent px-8 py-4 text-base font-semibold"
                 >
                   Reviews (2,847)
                 </TabsTrigger>
@@ -530,12 +530,12 @@ export default function ProductDetail() {
                   <div className="grid md:grid-cols-2 gap-6">
                     <Card className="border-2 hover:shadow-lg transition-shadow">
                       <CardContent className="p-6 space-y-3">
-                        <Badge className="bg-blue-600">Stress & Anxiety</Badge>
+                        <Badge className="bg-[#1E3A5F]">Stress & Anxiety</Badge>
                         <h4 className="font-bold text-lg text-slate-900">44% Reduction in Stress</h4>
                         <p className="text-sm text-slate-600">
                           A 60-day randomized, double-blind, placebo-controlled study showed significant reductions in stress and cortisol levels.
                         </p>
-                        <a href="#" className="text-sm text-blue-600 hover:underline font-medium">
+                        <a href="#" className="text-sm text-[#1E3A5F] hover:underline font-medium">
                           View Study →
                         </a>
                       </CardContent>
@@ -543,12 +543,12 @@ export default function ProductDetail() {
 
                     <Card className="border-2 hover:shadow-lg transition-shadow">
                       <CardContent className="p-6 space-y-3">
-                        <Badge className="bg-blue-600">Sleep Quality</Badge>
+                        <Badge className="bg-[#1E3A5F]">Sleep Quality</Badge>
                         <h4 className="font-bold text-lg text-slate-900">72% Improvement in Sleep</h4>
                         <p className="text-sm text-slate-600">
                           Clinical research demonstrated significant improvements in sleep quality, sleep onset latency, and overall sleep efficiency.
                         </p>
-                        <a href="#" className="text-sm text-blue-600 hover:underline font-medium">
+                        <a href="#" className="text-sm text-[#1E3A5F] hover:underline font-medium">
                           View Study →
                         </a>
                       </CardContent>
@@ -556,12 +556,12 @@ export default function ProductDetail() {
 
                     <Card className="border-2 hover:shadow-lg transition-shadow">
                       <CardContent className="p-6 space-y-3">
-                        <Badge className="bg-blue-600">Physical Performance</Badge>
+                        <Badge className="bg-[#1E3A5F]">Physical Performance</Badge>
                         <h4 className="font-bold text-lg text-slate-900">27.9% Increase in VO2 Max</h4>
                         <p className="text-sm text-slate-600">
                           Athletes showed significant improvements in cardiorespiratory endurance and recovery time.
                         </p>
-                        <a href="#" className="text-sm text-blue-600 hover:underline font-medium">
+                        <a href="#" className="text-sm text-[#1E3A5F] hover:underline font-medium">
                           View Study →
                         </a>
                       </CardContent>
@@ -569,12 +569,12 @@ export default function ProductDetail() {
 
                     <Card className="border-2 hover:shadow-lg transition-shadow">
                       <CardContent className="p-6 space-y-3">
-                        <Badge className="bg-blue-600">Cognitive Function</Badge>
+                        <Badge className="bg-[#1E3A5F]">Cognitive Function</Badge>
                         <h4 className="font-bold text-lg text-slate-900">Enhanced Memory & Focus</h4>
                         <p className="text-sm text-slate-600">
                           Research showed improvements in immediate and general memory, executive function, and sustained attention.
                         </p>
-                        <a href="#" className="text-sm text-blue-600 hover:underline font-medium">
+                        <a href="#" className="text-sm text-[#1E3A5F] hover:underline font-medium">
                           View Study →
                         </a>
                       </CardContent>

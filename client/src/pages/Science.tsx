@@ -160,7 +160,7 @@ export default function Science() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
@@ -220,7 +220,7 @@ export default function Science() {
             <CardContent className="p-12 space-y-6">
               <div className="space-y-4">
                 <h2 className="text-3xl font-bold text-slate-900">What Makes KSM-66® Different?</h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full" />
+                <div className="w-20 h-1 bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 rounded-full" />
               </div>
               
               <div className="space-y-4 text-slate-700 leading-relaxed">
@@ -342,7 +342,7 @@ export default function Science() {
       </section>
 
       {/* Benefits Overview */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-white">
+      <section className="py-16 bg-gradient-to-br from-[#F7F4EF] to-white">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -356,10 +356,10 @@ export default function Science() {
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <Card key={index} className="border-2 border-blue-200 shadow-lg">
+                  <Card key={index} className="border-2 border-[#C9A961]/30 shadow-lg">
                     <CardContent className="p-6 space-y-4">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
-                        <Icon className="w-7 h-7 text-blue-700" />
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
+                        <Icon className="w-7 h-7 text-[#1E3A5F]" />
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-900 mb-2">{benefit.title}</h3>
@@ -430,7 +430,7 @@ export default function Science() {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container">
-          <Card className="border-2 border-blue-200 shadow-2xl bg-gradient-to-br from-blue-50 to-white max-w-4xl mx-auto">
+          <Card className="border-2 border-[#C9A961]/30 shadow-2xl bg-gradient-to-br from-[#F7F4EF] to-white max-w-4xl mx-auto">
             <CardContent className="p-12 text-center space-y-6">
               <h2 className="text-3xl font-bold text-slate-900">
                 Experience the Benefits of Research-Backed Ashwagandha
@@ -442,7 +442,7 @@ export default function Science() {
                 <Button
                   onClick={() => setLocation("/shop")}
                   size="lg"
-                  className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 shadow-lg text-lg px-8"
+                  className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg text-lg px-8"
                 >
                   Shop Now
                 </Button>

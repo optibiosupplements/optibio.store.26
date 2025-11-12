@@ -117,10 +117,10 @@ export default function Subscriptions() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-12">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-[#F7F4EF] py-12">
         <div className="container max-w-4xl">
           <div className="flex items-center justify-center py-20">
-            <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
+            <Loader2 className="w-8 h-8 animate-spin text-[#1E3A5F]" />
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@ export default function Subscriptions() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-[#F7F4EF] py-12">
       <div className="container max-w-4xl">
         {/* Header */}
         <div className="mb-8">
@@ -199,7 +199,7 @@ export default function Subscriptions() {
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
-                        <Package className="w-6 h-6 text-blue-600" />
+                        <Package className="w-6 h-6 text-[#1E3A5F]" />
                         <div>
                           <CardTitle className="text-xl">
                             OptiBio Ashwagandha KSM-66
@@ -255,7 +255,7 @@ export default function Subscriptions() {
                             variant="outline"
                             onClick={() => handleSkip(subscription.stripeSubscriptionId!)}
                             disabled={skipMutation.isPending}
-                            className="border-blue-200 hover:bg-blue-50 hover:border-blue-300"
+                            className="border-[#C9A961]/30 hover:bg-[#F7F4EF] hover:border-[#C9A961]/40"
                           >
                             {skipMutation.isPending ? (
                               <Loader2 className="w-4 h-4 mr-2 animate-spin" />

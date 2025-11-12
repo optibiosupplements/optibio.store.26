@@ -91,25 +91,25 @@ export default function Cart() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
-        <Loader2 className="h-12 w-12 animate-spin text-blue-700" />
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+        <Loader2 className="h-12 w-12 animate-spin text-[#1E3A5F]" />
       </div>
     );
   }
 
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
         <div className="text-center space-y-6 p-8">
-          <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-blue-100 to-amber-100 flex items-center justify-center">
-            <ShoppingBag className="h-12 w-12 text-blue-700" />
+          <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[#C9A961]/10 to-amber-100 flex items-center justify-center">
+            <ShoppingBag className="h-12 w-12 text-[#1E3A5F]" />
           </div>
           <div className="space-y-2">
             <h2 className="text-3xl font-bold text-slate-900">Your cart is empty</h2>
             <p className="text-lg text-slate-600">Discover our premium KSM-66 Ashwagandha</p>
           </div>
           <Link href="/shop">
-            <Button size="lg" className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 shadow-lg">
+            <Button size="lg" className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg">
               Start Shopping
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -120,7 +120,7 @@ export default function Cart() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12 md:py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16">
       <div className="container">
         {/* Header */}
         <div className="mb-8">
@@ -133,11 +133,11 @@ export default function Cart() {
           <div className="lg:col-span-2 space-y-6">
             {/* Free Shipping Progress */}
             {shipping > 0 && (
-              <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white">
+              <Card className="border-2 border-[#C9A961]/30 bg-gradient-to-br from-[#F7F4EF] to-white">
                 <CardContent className="p-6 space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Truck className="w-5 h-5 text-blue-700" />
+                      <Truck className="w-5 h-5 text-[#1E3A5F]" />
                       <span className="font-semibold text-slate-900">
                         {amountToFreeShipping > 0 
                           ? `Add ${formatPrice(amountToFreeShipping)} more for FREE shipping!`
@@ -145,11 +145,11 @@ export default function Cart() {
                         }
                       </span>
                     </div>
-                    <span className="text-sm font-medium text-blue-700">{Math.round(shippingProgress)}%</span>
+                    <span className="text-sm font-medium text-[#1E3A5F]">{Math.round(shippingProgress)}%</span>
                   </div>
                   <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-gradient-to-r from-blue-600 to-amber-500 transition-all duration-500 rounded-full"
+                      className="h-full bg-gradient-to-r from-[#1E3A5F] to-amber-500 transition-all duration-500 rounded-full"
                       style={{ width: `${shippingProgress}%` }}
                     />
                   </div>
@@ -179,7 +179,7 @@ export default function Cart() {
                         <div className="flex items-start justify-between">
                           <div>
                             <Link href={`/product/${item.productSlug}`}>
-                              <h3 className="font-bold text-lg text-slate-900 hover:text-blue-700 transition-colors cursor-pointer">
+                              <h3 className="font-bold text-lg text-slate-900 hover:text-[#1E3A5F] transition-colors cursor-pointer">
                                 {item.productName}
                               </h3>
                             </Link>
@@ -267,7 +267,7 @@ export default function Cart() {
               <Card className="border-2 border-slate-200">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-2">
-                    <Tag className="w-5 h-5 text-blue-700" />
+                    <Tag className="w-5 h-5 text-[#1E3A5F]" />
                     <h3 className="font-bold text-lg text-slate-900">Discount Code</h3>
                   </div>
                   
@@ -307,7 +307,7 @@ export default function Cart() {
                       <Button
                         onClick={handleApplyDiscount}
                         disabled={!discountCode || !discountValidation?.valid}
-                        className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700"
+                        className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45]"
                       >
                         Apply
                       </Button>
@@ -354,7 +354,7 @@ export default function Cart() {
                       <div className="flex justify-between items-baseline">
                         <span className="text-lg font-semibold text-slate-900">Total</span>
                         <div className="text-right">
-                          <div className="text-3xl font-bold bg-gradient-to-r from-blue-700 to-amber-600 bg-clip-text text-transparent">
+                          <div className="text-3xl font-bold bg-gradient-to-r from-[#1E3A5F] to-amber-600 bg-clip-text text-transparent">
                             {formatPrice(total)}
                           </div>
                           <div className="text-xs text-slate-600">or 4 payments of {formatPrice(Math.round(total / 4))}</div>
@@ -366,7 +366,7 @@ export default function Cart() {
                   <Button
                     size="lg"
                     onClick={() => setLocation("/checkout")}
-                    className="w-full bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 text-lg h-14"
+                    className="w-full bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg hover:shadow-xl transition-all duration-300 text-lg h-14"
                   >
                     Proceed to Checkout
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -375,15 +375,15 @@ export default function Cart() {
                   {/* Trust Badges */}
                   <div className="pt-4 border-t border-slate-200 space-y-3">
                     <div className="flex items-center gap-3 text-sm text-slate-700">
-                      <Shield className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                      <Shield className="w-5 h-5 text-[#1E3A5F] flex-shrink-0" />
                       <span>Secure 256-bit SSL encryption</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-slate-700">
-                      <RotateCcw className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                      <RotateCcw className="w-5 h-5 text-[#1E3A5F] flex-shrink-0" />
                       <span>60-day money-back guarantee</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-slate-700">
-                      <Truck className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                      <Truck className="w-5 h-5 text-[#1E3A5F] flex-shrink-0" />
                       <span>Free shipping on orders over {formatPrice(SHIPPING_THRESHOLD_CENTS)}</span>
                     </div>
                   </div>

@@ -109,19 +109,19 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
               </p>
             </div>
 
-            <div className="bg-blue-50 border-2 border-blue-200 rounded-lg p-6 space-y-3">
+            <div className="bg-[#F7F4EF] border-2 border-[#C9A961]/30 rounded-lg p-6 space-y-3">
               <h4 className="font-bold text-lg">What Happens Next?</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
                   <p><strong>Day 1-7:</strong> We'll share supplier visit photos and quality testing updates</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
                   <p><strong>Day 15:</strong> Payment opens (we'll email you with your exclusive link)</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
                   <p><strong>Day 90:</strong> Your order ships with tracking number</p>
                 </div>
               </div>
@@ -223,18 +223,18 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
               {/* Early Believer */}
               <div className={`relative border-2 rounded-lg p-6 cursor-pointer transition-all ${
                 selectedTier === "early_adopter" 
-                  ? "border-blue-400 bg-blue-50 shadow-lg" 
-                  : "border-slate-200 hover:border-blue-300"
+                  ? "border-[#C9A961] bg-[#F7F4EF] shadow-lg" 
+                  : "border-slate-200 hover:border-[#C9A961]/40"
               }`}>
                 <div className="flex items-start gap-4">
                   <RadioGroupItem value="early_adopter" id="early_adopter" className="mt-1" />
                   <Label htmlFor="early_adopter" className="flex-1 cursor-pointer">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <Zap className="w-5 h-5 text-blue-500" />
+                        <Zap className="w-5 h-5 text-[#C9A961]" />
                         <h3 className="text-xl font-bold">Early Believer</h3>
                       </div>
-                      <Badge className="bg-blue-500 text-white font-bold">MOST POPULAR</Badge>
+                      <Badge className="bg-[#F7F4EF]0 text-white font-bold">MOST POPULAR</Badge>
                     </div>
                     
                     <div className="mb-3">

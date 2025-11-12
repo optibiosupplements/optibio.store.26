@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function Privacy() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">Privacy Policy</h1>
@@ -143,7 +143,7 @@ export default function Privacy() {
                 <li><strong>Restriction:</strong> Request restriction of processing in certain circumstances</li>
               </ul>
               <p className="text-slate-700 leading-relaxed mt-4">
-                To exercise these rights, please contact us at <a href="mailto:privacy@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">privacy@optibio.com</a>.
+                To exercise these rights, please contact us at <a href="mailto:privacy@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">privacy@optibio.com</a>.
               </p>
             </section>
 
@@ -189,8 +189,8 @@ export default function Privacy() {
               </p>
               <div className="p-6 rounded-xl bg-slate-50 border-2 border-slate-200">
                 <p className="text-slate-900 font-semibold mb-2">OptiBio</p>
-                <p className="text-slate-700">Email: <a href="mailto:privacy@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">privacy@optibio.com</a></p>
-                <p className="text-slate-700">Support: <a href="mailto:support@optibio.com" className="text-blue-700 hover:text-blue-800 font-semibold underline">support@optibio.com</a></p>
+                <p className="text-slate-700">Email: <a href="mailto:privacy@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">privacy@optibio.com</a></p>
+                <p className="text-slate-700">Support: <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a></p>
               </div>
             </section>
 
