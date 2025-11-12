@@ -158,7 +158,7 @@ export default function Home() {
                 <Link href="/shop">
                   <Button 
                     size="lg" 
-                    className="text-lg px-10 py-7 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
+                    className="text-lg px-10 py-7 gold-shimmer text-[#2D2D2D] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
                   >
                     Start Your Journey
                     <ArrowRight className="ml-2 w-5 h-5" />
@@ -240,7 +240,7 @@ export default function Home() {
       <section className="py-24 bg-gradient-to-br from-[#F7F4EF] to-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge className="mb-4 bg-blue-100 text-blue-800 border-blue-200">
+            <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
               <Leaf className="w-3.5 h-3.5 mr-1.5" />
               Clinically Validated
             </Badge>
@@ -263,7 +263,7 @@ export default function Home() {
               return (
                 <Card 
                   key={i} 
-                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-[#C9A961]/20 hover:border-[#C9A961]/40 cursor-pointer overflow-hidden"
+                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-[#C9A961]/20 hover:border-[#C9A961]/40 cursor-pointer overflow-hidden border-t-4 border-t-[#C9A961]"
                 >
                   <div className="relative h-64 overflow-hidden">
                     <img 
@@ -294,7 +294,7 @@ export default function Home() {
       </section>
 
       {/* Why KSM-66 Specifically */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 to-blue-50/30">
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-[#F7F4EF]/30">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Image */}
@@ -363,7 +363,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               What to Expect Week by Week
             </h2>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-[#F7F4EF]">
               Real results take time. Here's what thousands of customers experience as their bodies adapt to KSM-66®.
             </p>
           </div>
@@ -379,7 +379,7 @@ export default function Home() {
                     Early Days
                   </Badge>
                 </div>
-                <p className="text-lg text-blue-100 leading-relaxed">
+                <p className="text-lg text-[#F7F4EF] leading-relaxed">
                   Your body is adjusting. You might notice subtle changes in how you respond to stress—maybe you don't snap as quickly, or your mind feels a bit quieter. Some people feel nothing yet, and that's completely normal. Keep going.
                 </p>
               </div>
@@ -395,7 +395,7 @@ export default function Home() {
                     First Benefits
                   </Badge>
                 </div>
-                <p className="text-lg text-blue-100 leading-relaxed mb-4">
+                <p className="text-lg text-[#F7F4EF] leading-relaxed mb-4">
                   This is when most people notice they're falling asleep faster and waking up more refreshed. You might catch yourself thinking, "Huh, I actually slept through the night." Stress feels more manageable—not gone, but less overwhelming.
                 </p>
                 <div className="flex items-center gap-2 text-green-300">
@@ -415,7 +415,7 @@ export default function Home() {
                     Peak Results
                   </Badge>
                 </div>
-                <p className="text-lg text-blue-100 leading-relaxed mb-4">
+                <p className="text-lg text-[#F7F4EF] leading-relaxed mb-4">
                   The magic window. Energy feels more consistent throughout the day. You're handling work stress without that constant edge of anxiety. Friends might ask, "What changed?" This is when the clinical benefits really show up.
                 </p>
                 <div className="space-y-2">
@@ -445,7 +445,7 @@ export default function Home() {
                     Optimal
                   </Badge>
                 </div>
-                <p className="text-lg text-blue-100 leading-relaxed">
+                <p className="text-lg text-[#F7F4EF] leading-relaxed">
                   You've adapted. Stress still happens—life doesn't stop—but you're responding differently. You're sleeping well, thinking clearly, and feeling more like yourself. This is what "wellness" actually feels like: not perfect, just better equipped.
                 </p>
               </div>
@@ -453,7 +453,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-blue-200 text-lg">
+            <p className="text-[#F7F4EF]/80 text-lg">
               💡 <strong>Remember:</strong> Everyone's timeline is different. Some feel changes in days, others in weeks. Consistency is what matters.
             </p>
           </div>
@@ -468,7 +468,7 @@ export default function Home() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-blue-100 text-blue-800 border-blue-200">
+              <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
                 Is This Right for You?
               </Badge>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
@@ -485,34 +485,34 @@ export default function Home() {
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center">
-                      <CheckCircle2 className="w-7 h-7 text-green-600" />
+                      <CheckCircle2 className="w-7 h-7 text-[#C9A961]" />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900">This IS for you if:</h3>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You're dealing with <strong>chronic stress</strong> from work, family, or life transitions</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You struggle with <strong>racing thoughts</strong> or difficulty falling asleep</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You feel <strong>mentally foggy</strong> or can't focus like you used to</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You're <strong>exhausted but wired</strong>—tired all day, restless at night</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You want a <strong>science-backed solution</strong>, not just "wellness hype"</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
                       <p className="text-slate-700">You're willing to <strong>commit to 8-12 weeks</strong> for real results</p>
                     </div>
                   </div>
@@ -560,9 +560,9 @@ export default function Home() {
             </div>
 
             <div className="mt-12 text-center">
-              <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-8 max-w-2xl mx-auto">
+              <div className="bg-[#F7F4EF] border-2 border-[#C9A961]/30 rounded-2xl p-8 max-w-2xl mx-auto">
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  <strong className="text-blue-900">Still not sure?</strong> That's okay. We offer a <strong className="text-blue-900">90-day money-back guarantee</strong>. Try it for 12 weeks. If you don't feel calmer, more focused, and better rested, we'll refund every penny. No questions asked.
+                  <strong className="text-[#1E3A5F]">Still not sure?</strong> That's okay. We offer a <strong className="text-[#1E3A5F]">90-day money-back guarantee</strong>. Try it for 12 weeks. If you don't feel calmer, more focused, and better rested, we'll refund every penny. No questions asked.
                 </p>
                 <Link href="/shop">
                   <Button size="lg" className="mt-6 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:from-[#152B45] hover:to-[#1E3A5F]">
@@ -615,22 +615,22 @@ export default function Home() {
                           {formatPrice(mainProduct.compareAtPriceInCents)}
                         </div>
                       )}
-                      <Badge variant="secondary" className="bg-green-100 text-green-800">
+                      <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F]">
                         Save 25%
                       </Badge>
                     </div>
 
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-slate-700">
-                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                        <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                         <span>90 capsules - 45-day supply</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700">
-                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                        <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                         <span>300mg per capsule (600mg clinical dose with 2 capsules)</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700">
-                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                        <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                         <span>60-day money-back guarantee</span>
                       </div>
                     </div>
@@ -659,14 +659,14 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Trusted by Thousands
             </h2>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-[#F7F4EF]">
               See what our customers are saying about their OptiBio experience
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, i) => (
-              <Card key={i} className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/15 transition-all duration-300">
+              <Card key={i} className="bg-white/15 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
                 <CardContent className="p-8 space-y-4">
                   <div className="flex items-center gap-1 text-[#C9A961]">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -679,10 +679,10 @@ export default function Home() {
                   <div className="flex items-center justify-between pt-4 border-t border-white/10">
                     <div>
                       <div className="font-bold text-white">{testimonial.name}</div>
-                      <div className="text-sm text-blue-200">{testimonial.role}</div>
+                      <div className="text-sm text-[#F7F4EF]/80">{testimonial.role}</div>
                     </div>
                     {testimonial.verified && (
-                      <Badge variant="secondary" className="bg-green-500/20 text-green-300 border-green-400/30">
+                      <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30">
                         <CheckCircle2 className="w-3 h-3 mr-1" />
                         Verified
                       </Badge>
@@ -714,7 +714,7 @@ export default function Home() {
                 className="text-center space-y-4 p-8 rounded-2xl hover:bg-slate-50 transition-colors duration-300"
               >
                 <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-[#C9A961]/10 flex items-center justify-center mx-auto">
-                  <cert.icon className="w-8 h-8 text-blue-700" />
+                  <cert.icon className="w-8 h-8 text-[#1E3A5F]" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">
                   {cert.text}
@@ -738,7 +738,7 @@ export default function Home() {
             <p className="text-xl text-blue-50 leading-relaxed">
               Take OptiBio for 90 days. If you don't feel calmer, more focused, and better rested, we'll refund every penny. No questions asked. No return shipping. You can even keep the bottle.
             </p>
-            <p className="text-lg text-blue-100 font-medium">
+            <p className="text-lg text-[#F7F4EF] font-medium">
               Why? Because we've seen the research. We know it works. And we want you to experience it risk-free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -752,7 +752,7 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
-            <p className="text-sm text-blue-100">
+            <p className="text-sm text-[#F7F4EF]">
               Free shipping on orders over $75 • 90-day money-back guarantee • Trusted by 5,000+ customers
             </p>
           </div>
@@ -770,18 +770,18 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Lock in Founder Pricing Today
               </h2>
-              <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-6">
+              <p className="text-xl text-[#F7F4EF] max-w-2xl mx-auto mb-6">
                 Get up to 25% off for life on all future orders. Limited spots available.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 text-left">
-              <Card className="bg-white/10 backdrop-blur-sm border-[#C9A961]/30 hover:border-[#C9A961]/60 transition-all">
+              <Card className="bg-white/10 backdrop-blur-sm border-2 border-[#C9A961] shadow-glow-gold hover:border-[#C9A961] transition-all">
                 <CardContent className="p-6">
                   <Star className="w-8 h-8 text-[#C9A961] mb-3" />
                   <h3 className="font-bold text-lg mb-2">Founder's Circle</h3>
                   <p className="text-3xl font-bold mb-1">$69</p>
-                  <p className="text-sm text-blue-100">2 bottles • 25% off for life</p>
+                  <p className="text-sm text-[#F7F4EF]">2 bottles • 25% off for life</p>
                   <p className="text-xs text-[#C9A961] mt-2">Only 100 spots</p>
                   <Link href="/shop" className="block mt-4">
                     <Button className="w-full bg-[#C9A961] hover:bg-[#B89651] text-[#1E3A5F] font-bold">
@@ -791,15 +791,15 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-blue-400/30 hover:border-blue-400/60 transition-all">
+              <Card className="bg-white/10 backdrop-blur-sm border-[#C9A961]/30 hover:border-[#C9A961]/60 transition-all">
                 <CardContent className="p-6">
-                  <Zap className="w-8 h-8 text-blue-400 mb-3" />
+                  <Zap className="w-8 h-8 text-[#C9A961] mb-3" />
                   <h3 className="font-bold text-lg mb-2">Early Believer</h3>
                   <p className="text-3xl font-bold mb-1">$49</p>
-                  <p className="text-sm text-blue-100">1 bottle • 15% off for life</p>
+                  <p className="text-sm text-[#F7F4EF]">1 bottle • 15% off for life</p>
                   <p className="text-xs text-orange-400 mt-2">Only 500 spots</p>
                   <Link href="/shop" className="block mt-4">
-                    <Button className="w-full bg-blue-400 hover:bg-blue-500 text-slate-900 font-bold">
+                    <Button className="w-full bg-blue-400 hover:bg-[#F7F4EF]0 text-slate-900 font-bold">
                       Shop Now
                     </Button>
                   </Link>
@@ -811,7 +811,7 @@ export default function Home() {
                   <Sparkles className="w-8 h-8 text-purple-400 mb-3" />
                   <h3 className="font-bold text-lg mb-2">Pre-Launch</h3>
                   <p className="text-3xl font-bold mb-1">$54.99</p>
-                  <p className="text-sm text-blue-100">1 bottle • 10% off for life</p>
+                  <p className="text-sm text-[#F7F4EF]">1 bottle • 10% off for life</p>
                   <p className="text-xs text-green-400 mt-2">Unlimited spots</p>
                   <Link href="/shop" className="block mt-4">
                     <Button className="w-full bg-purple-400 hover:bg-purple-500 text-slate-900 font-bold">
@@ -832,7 +832,7 @@ export default function Home() {
               </Button>
             </Link>
 
-            <p className="text-sm text-blue-100">
+            <p className="text-sm text-[#F7F4EF]">
               Free shipping • 90-day money-back guarantee • Secure checkout
             </p>
           </div>

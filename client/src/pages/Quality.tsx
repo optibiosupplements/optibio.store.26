@@ -263,7 +263,7 @@ export default function Quality() {
                       <div className="flex flex-col md:flex-row gap-6 items-start">
                         <div className="flex-shrink-0">
                           <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
-                            <Icon className="w-10 h-10 text-green-700" />
+                            <Icon className="w-10 h-10 text-[#C9A961]" />
                           </div>
                         </div>
                         <div className="flex-1">
@@ -300,14 +300,14 @@ export default function Quality() {
                   <CardContent className="p-8">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center">
-                        <Microscope className="w-6 h-6 text-green-700" />
+                        <Microscope className="w-6 h-6 text-[#C9A961]" />
                       </div>
                       <h3 className="text-xl font-bold text-slate-900">{protocol.category}</h3>
                     </div>
                     <ul className="space-y-3">
                       {protocol.tests.map((test, i) => (
                         <li key={i} className="flex items-start gap-2 text-slate-700">
-                          <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
                           <span>{test}</span>
                         </li>
                       ))}
@@ -337,7 +337,7 @@ export default function Quality() {
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center flex-shrink-0">
-                        <Award className="w-5 h-5 text-green-700" />
+                        <Award className="w-5 h-5 text-[#C9A961]" />
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-900 mb-2">{item.standard}</h3>
@@ -355,11 +355,11 @@ export default function Quality() {
       {/* Quality Team */}
       <section className="py-16 bg-gradient-to-br from-green-50 to-white">
         <div className="container">
-          <Card className="border-2 border-green-200 shadow-2xl max-w-4xl mx-auto">
+          <Card className="border-2 border-[#C9A961]/30 shadow-2xl max-w-4xl mx-auto">
             <CardContent className="p-12">
               <div className="text-center space-y-6">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mx-auto">
-                  <Users className="w-10 h-10 text-green-700" />
+                  <Users className="w-10 h-10 text-[#C9A961]" />
                 </div>
                 <div>
                   <h2 className="text-3xl font-bold text-slate-900 mb-4">
@@ -369,15 +369,15 @@ export default function Quality() {
                     Our quality assurance team includes PhD-level scientists, certified quality professionals, and experienced technicians who oversee every aspect of production. They conduct regular audits, review testing data, and ensure compliance with all regulatory requirements.
                   </p>
                   <div className="flex flex-wrap gap-3 justify-center">
-                    <Badge variant="outline" className="bg-green-50 text-green-800 border-green-200 px-4 py-2">
+                    <Badge variant="outline" className="bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30 px-4 py-2">
                       <Sparkles className="w-4 h-4 mr-2" />
                       PhD Scientists
                     </Badge>
-                    <Badge variant="outline" className="bg-green-50 text-green-800 border-green-200 px-4 py-2">
+                    <Badge variant="outline" className="bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30 px-4 py-2">
                       <Shield className="w-4 h-4 mr-2" />
                       QA Certified
                     </Badge>
-                    <Badge variant="outline" className="bg-green-50 text-green-800 border-green-200 px-4 py-2">
+                    <Badge variant="outline" className="bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30 px-4 py-2">
                       <Microscope className="w-4 h-4 mr-2" />
                       Lab Technicians
                     </Badge>
@@ -410,7 +410,7 @@ export default function Quality() {
       </section>
 
       {/* Document Library Section */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 via-white to-green-50/20">
+      <section className="py-16 bg-gradient-to-br from-[#F7F4EF] via-white to-green-50/20">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -489,10 +489,10 @@ export default function Quality() {
       {/* CTA Section */}
       <section className="py-16">
         <div className="container">
-          <Card className="border-2 border-green-200 shadow-2xl bg-gradient-to-br from-green-50 to-white max-w-3xl mx-auto">
+          <Card className="border-2 border-[#C9A961]/30 shadow-2xl bg-gradient-to-br from-green-50 to-white max-w-3xl mx-auto">
             <CardContent className="p-12 text-center space-y-6">
               <div className="w-16 h-16 rounded-full bg-gradient-to-br from-green-100 to-green-50 flex items-center justify-center mx-auto">
-                <Shield className="w-8 h-8 text-green-700" />
+                <Shield className="w-8 h-8 text-[#C9A961]" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-slate-900 mb-3">
@@ -506,7 +506,7 @@ export default function Quality() {
                 <Button
                   onClick={() => setLocation("/shop")}
                   size="lg"
-                  className="bg-gradient-to-r from-green-700 to-green-600 hover:from-green-800 hover:to-green-700 shadow-lg"
+                  className="bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:from-[#152B45] hover:to-[#1E3A5F] shadow-lg"
                 >
                   Shop Now
                   <ArrowRight className="w-4 h-4 ml-2" />

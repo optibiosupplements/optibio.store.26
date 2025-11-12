@@ -184,10 +184,10 @@ export default function WellnessPlanPersonalizer() {
   // Collapsed state
   if (!isExpanded) {
     return (
-      <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-amber-50/30">
+      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] via-white to-amber-50/30">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-amber-600 text-white px-6 py-3 rounded-full font-bold text-sm">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E3A5F] to-amber-600 text-white px-6 py-3 rounded-full font-bold text-sm">
               <Sparkles className="w-5 h-5" />
               FREE PERSONALIZED PLAN
             </div>
@@ -197,14 +197,14 @@ export default function WellnessPlanPersonalizer() {
             </h2>
             
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Answer 3 quick questions to discover the best way to take OptiBio for <span className="font-semibold text-blue-700">YOUR</span> specific goals and lifestyle
+              Answer 3 quick questions to discover the best way to take OptiBio for <span className="font-semibold text-[#1E3A5F]">YOUR</span> specific goals and lifestyle
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button 
                 size="lg"
                 onClick={() => setIsExpanded(true)}
-                className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 text-lg px-8 py-6"
+                className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] text-lg px-8 py-6"
               >
                 Create My Free Plan (90 seconds)
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -223,7 +223,7 @@ export default function WellnessPlanPersonalizer() {
   // Results page
   if (showResults && plan) {
     return (
-      <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-amber-50/30">
+      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] via-white to-amber-50/30">
         <div className="container">
           <div className="max-w-5xl mx-auto space-y-8 animate-fade-in">
             <div className="text-center">
@@ -241,17 +241,17 @@ export default function WellnessPlanPersonalizer() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Timing */}
-              <Card className="border-2 border-blue-200 bg-gradient-to-br from-blue-50 to-white">
+              <Card className="border-2 border-[#C9A961]/30 bg-gradient-to-br from-[#F7F4EF] to-white">
                 <CardContent className="p-8 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
-                    <Clock className="w-8 h-8 text-blue-700" />
+                  <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center">
+                    <Clock className="w-8 h-8 text-[#1E3A5F]" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-slate-600 mb-2">Optimal Timing</div>
-                    <div className="text-lg font-bold text-blue-900 leading-tight">
+                    <div className="text-lg font-bold text-[#1E3A5F] leading-tight">
                       {plan.timing}
                     </div>
-                    <div className="text-sm text-slate-600 mt-3 p-3 bg-blue-50 rounded-lg">
+                    <div className="text-sm text-slate-600 mt-3 p-3 bg-[#F7F4EF] rounded-lg">
                       <strong>Clinical Dose:</strong> 2 capsules daily (600mg KSM-66®)
                     </div>
                   </div>
@@ -281,7 +281,7 @@ export default function WellnessPlanPersonalizer() {
             <Card className="border-2 border-slate-200">
               <CardContent className="p-8 space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-amber-600 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-amber-600 flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900">Your Personalized Tips</h3>
@@ -316,7 +316,7 @@ export default function WellnessPlanPersonalizer() {
             <div className="text-center space-y-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 text-lg px-8 py-6"
+                className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] text-lg px-8 py-6"
                 onClick={() => window.location.href = "/shop"}
               >
                 Get Started with Your Plan
@@ -345,7 +345,7 @@ export default function WellnessPlanPersonalizer() {
 
   // Quiz flow
   return (
-    <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-amber-50/30">
+    <section className="py-24 bg-gradient-to-br from-[#F7F4EF] via-white to-amber-50/30">
       <div className="container">
         <div className="max-w-3xl mx-auto space-y-8">
           {/* Progress indicator */}
@@ -354,14 +354,14 @@ export default function WellnessPlanPersonalizer() {
               <div
                 key={i}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  i === step ? "w-12 bg-blue-600" : i < step ? "w-8 bg-blue-400" : "w-8 bg-slate-200"
+                  i === step ? "w-12 bg-[#1E3A5F]" : i < step ? "w-8 bg-blue-400" : "w-8 bg-slate-200"
                 }`}
               />
             ))}
           </div>
 
           <div className="text-center mb-8">
-            <Badge className="mb-4 bg-blue-100 text-blue-800 border-blue-200">
+            <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
               Step {step + 1} of 3
             </Badge>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
@@ -384,8 +384,8 @@ export default function WellnessPlanPersonalizer() {
                         onClick={() => toggleGoal(goal.id)}
                         className={`p-6 rounded-xl border-2 text-left transition-all duration-200 ${
                           userData.primaryGoals.includes(goal.id)
-                            ? "border-blue-600 bg-blue-50"
-                            : "border-slate-200 hover:border-blue-300"
+                            ? "border-[#1E3A5F] bg-[#F7F4EF]"
+                            : "border-slate-200 hover:border-[#C9A961]/40"
                         }`}
                       >
                         <div className="flex items-center gap-3">
@@ -393,7 +393,7 @@ export default function WellnessPlanPersonalizer() {
                           <span className="font-semibold text-slate-900">{goal.label}</span>
                         </div>
                         {userData.primaryGoals.includes(goal.id) && (
-                          <CheckCircle2 className="w-6 h-6 text-blue-600 ml-auto mt-2" />
+                          <CheckCircle2 className="w-6 h-6 text-[#1E3A5F] ml-auto mt-2" />
                         )}
                       </button>
                     ))}
@@ -417,7 +417,7 @@ export default function WellnessPlanPersonalizer() {
                       />
                       <div className="flex justify-between text-sm text-slate-600">
                         <span>Low (1)</span>
-                        <span className="font-bold text-blue-700">{userData.stressLevel}</span>
+                        <span className="font-bold text-[#1E3A5F]">{userData.stressLevel}</span>
                         <span>High (10)</span>
                       </div>
                     </div>
@@ -436,7 +436,7 @@ export default function WellnessPlanPersonalizer() {
                       />
                       <div className="flex justify-between text-sm text-slate-600">
                         <span>Poor (1)</span>
-                        <span className="font-bold text-blue-700">{userData.sleepQuality}</span>
+                        <span className="font-bold text-[#1E3A5F]">{userData.sleepQuality}</span>
                         <span>Excellent (10)</span>
                       </div>
                     </div>
@@ -482,8 +482,8 @@ export default function WellnessPlanPersonalizer() {
                         htmlFor="morning"
                         className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                           userData.timingPreference === "morning"
-                            ? "border-blue-600 bg-blue-50"
-                            : "border-slate-200 hover:border-blue-300"
+                            ? "border-[#1E3A5F] bg-[#F7F4EF]"
+                            : "border-slate-200 hover:border-[#C9A961]/40"
                         }`}
                       >
                         <RadioGroupItem value="morning" id="morning" className="mt-1" />
@@ -497,8 +497,8 @@ export default function WellnessPlanPersonalizer() {
                         htmlFor="evening"
                         className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                           userData.timingPreference === "evening"
-                            ? "border-blue-600 bg-blue-50"
-                            : "border-slate-200 hover:border-blue-300"
+                            ? "border-[#1E3A5F] bg-[#F7F4EF]"
+                            : "border-slate-200 hover:border-[#C9A961]/40"
                         }`}
                       >
                         <RadioGroupItem value="evening" id="evening" className="mt-1" />
@@ -512,8 +512,8 @@ export default function WellnessPlanPersonalizer() {
                         htmlFor="flexible"
                         className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                           userData.timingPreference === "flexible"
-                            ? "border-blue-600 bg-blue-50"
-                            : "border-slate-200 hover:border-blue-300"
+                            ? "border-[#1E3A5F] bg-[#F7F4EF]"
+                            : "border-slate-200 hover:border-[#C9A961]/40"
                         }`}
                       >
                         <RadioGroupItem value="flexible" id="flexible" className="mt-1" />
@@ -543,7 +543,7 @@ export default function WellnessPlanPersonalizer() {
             <Button
               onClick={handleNext}
               disabled={!canProceed()}
-              className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700"
+              className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45]"
             >
               {step === 2 ? "Get My Plan" : "Continue"}
               <ArrowRight className="ml-2 w-4 h-4" />

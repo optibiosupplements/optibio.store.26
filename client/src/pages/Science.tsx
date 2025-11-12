@@ -160,7 +160,7 @@ export default function Science() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/20">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
@@ -220,7 +220,7 @@ export default function Science() {
             <CardContent className="p-12 space-y-6">
               <div className="space-y-4">
                 <h2 className="text-3xl font-bold text-slate-900">What Makes KSM-66® Different?</h2>
-                <div className="w-20 h-1 bg-gradient-to-r from-blue-700 to-blue-500 rounded-full" />
+                <div className="w-20 h-1 bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 rounded-full" />
               </div>
               
               <div className="space-y-4 text-slate-700 leading-relaxed">
@@ -233,9 +233,9 @@ export default function Science() {
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-4 py-4">
-                  <div className="p-4 rounded-lg bg-green-50 border border-green-200">
-                    <h3 className="font-bold text-green-900 mb-2">✓ KSM-66® Ashwagandha</h3>
-                    <ul className="text-sm text-green-800 space-y-1">
+                  <div className="p-4 rounded-lg bg-[#C9A961]/10 border border-[#C9A961]/30">
+                    <h3 className="font-bold text-[#1E3A5F] mb-2">✓ KSM-66® Ashwagandha</h3>
+                    <ul className="text-sm text-[#1E3A5F] space-y-1">
                       <li>• Root-only extract</li>
                       <li>• Full-spectrum (all compounds)</li>
                       <li>• 5% withanolides standardized</li>
@@ -342,7 +342,7 @@ export default function Science() {
       </section>
 
       {/* Benefits Overview */}
-      <section className="py-16 bg-gradient-to-br from-blue-50 to-white">
+      <section className="py-16 bg-gradient-to-br from-[#F7F4EF] to-white">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -356,10 +356,10 @@ export default function Science() {
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <Card key={index} className="border-2 border-blue-200 shadow-lg">
+                  <Card key={index} className="border-2 border-[#C9A961]/30 shadow-lg">
                     <CardContent className="p-6 space-y-4">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center">
-                        <Icon className="w-7 h-7 text-blue-700" />
+                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
+                        <Icon className="w-7 h-7 text-[#1E3A5F]" />
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-900 mb-2">{benefit.title}</h3>
@@ -381,7 +381,7 @@ export default function Science() {
             <Card className="border-2 border-slate-200 shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl flex items-center gap-3">
-                  <Shield className="w-7 h-7 text-green-600" />
+                  <Shield className="w-7 h-7 text-[#C9A961]" />
                   Safety & Quality Assurance
                 </CardTitle>
               </CardHeader>
@@ -391,27 +391,27 @@ export default function Science() {
                     <strong>KSM-66® has an outstanding safety profile</strong> established through extensive clinical research. Across all studies, no significant adverse effects have been reported, making it suitable for long-term daily use.
                   </p>
 
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-6 space-y-3">
-                    <h3 className="font-bold text-green-900 text-lg">Clinical Safety Data:</h3>
-                    <ul className="space-y-2 text-green-800">
+                  <div className="bg-[#C9A961]/10 border border-[#C9A961]/30 rounded-lg p-6 space-y-3">
+                    <h3 className="font-bold text-[#1E3A5F] text-lg">Clinical Safety Data:</h3>
+                    <ul className="space-y-2 text-[#1E3A5F]">
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>GRAS Status:</strong> Generally Recognized As Safe by regulatory authorities</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>No Adverse Effects:</strong> Extensive safety studies show excellent tolerability</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>Third-Party Tested:</strong> Every batch tested for purity and potency</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>Organic Certified:</strong> USDA Organic and non-GMO verified</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="text-green-600 mt-0.5">✓</span>
+                        <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>Heavy Metal Testing:</strong> Tested for lead, mercury, arsenic, and cadmium</span>
                       </li>
                     </ul>
@@ -430,7 +430,7 @@ export default function Science() {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container">
-          <Card className="border-2 border-blue-200 shadow-2xl bg-gradient-to-br from-blue-50 to-white max-w-4xl mx-auto">
+          <Card className="border-2 border-[#C9A961]/30 shadow-2xl bg-gradient-to-br from-[#F7F4EF] to-white max-w-4xl mx-auto">
             <CardContent className="p-12 text-center space-y-6">
               <h2 className="text-3xl font-bold text-slate-900">
                 Experience the Benefits of Research-Backed Ashwagandha
@@ -442,7 +442,7 @@ export default function Science() {
                 <Button
                   onClick={() => setLocation("/shop")}
                   size="lg"
-                  className="bg-gradient-to-r from-blue-700 to-blue-600 hover:from-blue-800 hover:to-blue-700 shadow-lg text-lg px-8"
+                  className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg text-lg px-8"
                 >
                   Shop Now
                 </Button>
