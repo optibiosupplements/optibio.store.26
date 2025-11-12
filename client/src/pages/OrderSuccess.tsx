@@ -63,7 +63,7 @@ export default function OrderSuccess() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/optibio-logo.png" alt="OptiBio" className="h-10 w-auto" />
+              <img src="/optibio-logo-v2.png" alt="OptiBio" className="h-10 w-auto" />
               <span className="text-2xl font-bold bg-gradient-to-r from-blue-900 to-blue-700 bg-clip-text text-transparent">
                 OptiBio
               </span>
