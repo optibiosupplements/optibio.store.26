@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRoute, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -37,6 +37,15 @@ export default function ProductDetail() {
   
   const { data: productData, isLoading } = trpc.products.getBySlug.useQuery({ slug });
   const { isAuthenticated } = useAuth();
+  
+  // Debug: Log product data to see variants
+  useEffect(() => {
+    if (productData) {
+      console.log('Product Data:', productData);
+      console.log('Variants:', productData.variants);
+      console.log('Variants Length:', productData.variants?.length);
+    }
+  }, [productData]);
   
   const [selectedVariant, setSelectedVariant] = useState<number | null>(null);
   const [selectedSubscription, setSelectedSubscription] = useState<number | null>(null);

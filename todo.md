@@ -665,8 +665,8 @@
 - [x] Create XML sitemap for search engines
 - [x] Add robots.txt file (updated with correct domain)
 - [ ] Optimize all image alt text for accessibility and SEO
-- [ ] Add FAQ schema markup for rich snippets
-- [ ] Add product schema markup for rich snippets
+- [x] Add FAQ schema markup for rich snippets
+- [x] Add product schema markup for rich snippets
 - [ ] Verify canonical URLs on all pages
 
 ### Conversion Rate Optimization
@@ -756,3 +756,39 @@
 - [x] Document implementation in SCHEMA_MARKUP_GUIDE.md
 - [ ] Test schema with Google Rich Results Test tool (requires published domain)
 - [ ] Submit sitemap to Google Search Console after launch
+
+
+## 📦 Phase 2: Product Variants & Bundles (In Progress)
+**Goal:** Increase average order value with multi-month supply options
+
+### Database Schema
+- [ ] Create product_variants table
+- [ ] Add has_variants column to products table
+- [ ] Set up foreign key relationships
+
+### Backend API
+- [ ] Add getProductVariants tRPC procedure
+- [ ] Add createVariant admin procedure
+- [ ] Update cart logic to handle variants
+- [ ] Update checkout to process variant orders
+- [ ] Update order schema to store variant info
+
+### Product Variants to Create
+- [ ] 1-Month Supply: 90 capsules, $49.99 (existing)
+- [ ] 3-Month Supply: 180 capsules, $127.49 (save 15%) - MOST POPULAR
+- [ ] 6-Month Supply: 270 capsules, $187.49 (save 25%) - BEST VALUE
+
+### Frontend UI
+- [ ] Create variant selector component with radio buttons
+- [ ] Add "Most Popular" and "Best Value" badges
+- [ ] Show savings calculation
+- [ ] Update product page to display variants
+- [ ] Update cart to show selected variant
+- [ ] Update checkout to display variant details
+
+### Testing
+- [ ] Test variant selection
+- [ ] Test add to cart with variants
+- [ ] Test checkout with variants
+- [ ] Test order confirmation shows correct variant
+- [ ] Test pricing calculations
