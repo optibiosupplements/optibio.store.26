@@ -647,3 +647,8 @@
 - [x] Update product image to show 300mg per capsule (not 600mg)
 - [x] Verify dosage is correct across all product images
 - [x] Ensure supplement facts panel shows accurate information
+
+
+## 🎨 Brand Consistency Fix (User Request)
+- [x] Replace white-label bottle image with black-label design to match Midnight Sophistication branding
+- [x] Ensure all product images use the premium black bottle with gold accents
