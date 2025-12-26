@@ -144,6 +144,9 @@ export default function Footer() {
               <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Terms of Service
               </Link>
+              <Link href="/accessibility" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Accessibility
+              </Link>
             </div>
           </div>
           <p className="text-xs text-muted-foreground mt-4 text-center md:text-left">

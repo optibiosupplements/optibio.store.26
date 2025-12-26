@@ -22,16 +22,19 @@ import About from "./pages/About";
 import Science from "./pages/Science";
 import FAQ from "./pages/FAQ";
 import Quality from "./pages/Quality";
+import Accessibility from "./pages/Accessibility";
 
 import PromoBanner from "./components/PromoBanner";
 import ExitIntentPopup from "./components/ExitIntentPopup";
+import SkipNav from "./components/SkipNav";
 
 function Router() {
   return (
     <div className="flex flex-col min-h-screen">
+      <SkipNav />
       <PromoBanner />
       <Header />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/shop" component={Shop} />
@@ -49,6 +52,7 @@ function Router() {
           <Route path="/science" component={Science} />
           <Route path="/faq" component={FAQ} />
           <Route path="/quality" component={Quality} />
+          <Route path="/accessibility" component={Accessibility} />
           <Route path="/404" component={NotFound} />
           {/* Final fallback route */}
           <Route component={NotFound} />
