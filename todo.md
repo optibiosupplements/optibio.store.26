@@ -934,3 +934,29 @@
 - [x] Shortened to 143 characters: "Premium KSM-66 Ashwagandha with 20+ clinical studies. Natural stress relief, better sleep, and sustained energy. Made in USA, GMP certified."
 - [x] Ensured primary keywords included (KSM-66, ashwagandha, stress relief)
 - [x] Updated client/index.html with optimized meta tags
+
+## 🖼️ Image Alt Text Optimization - Homepage (Dec 26, 2025)
+- [ ] Audit all images on homepage (Home.tsx)
+- [ ] Identify images missing alt text or with generic alt text
+- [ ] Add descriptive, SEO-optimized alt text to product images
+- [ ] Add alt text to lifestyle images
+- [ ] Add alt text to trust badge icons
+- [ ] Ensure alt text includes relevant keywords naturally
+- [ ] Verify accessibility improvements
+- [ ] Test with screen reader (optional)
+
+**COMPLETED:**
+- [x] Audited all images on homepage (Home.tsx) - Found 4 image elements
+- [x] Identified images with generic alt text
+- [x] Added SEO-optimized alt text to hero product image (includes "90 capsules, 300mg per capsule, black glass bottle with gold cap")
+- [x] Added descriptive alt text to 4 lifestyle benefit images (dynamically generated from benefit descriptions)
+- [x] Added detailed alt text to angled product image (includes "angled view, black glass bottle with gold cap, product label and branding")
+- [x] Added comprehensive alt text to pricing section product image (includes "stress relief, sleep support, natural energy")
+- [x] All alt text includes relevant keywords naturally (KSM-66, ashwagandha, supplement, stress relief, sleep, energy)
+- [x] Alt text is descriptive and helpful for both SEO and accessibility
+
+**Alt Text Strategy:**
+- Product images: Include product name, quantity, dosage, physical description (black glass, gold cap)
+- Lifestyle images: Include benefit title + first sentence of benefit description
+- All alt text between 10-20 words for optimal SEO
+- Natural keyword inclusion without stuffing

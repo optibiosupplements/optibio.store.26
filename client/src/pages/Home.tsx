@@ -204,7 +204,7 @@ export default function Home() {
               <div className="relative z-10 animate-float">
                 <img 
                   src="/products/optibio-90cap-bottle-front.jpg" 
-                  alt="OptiBio Ashwagandha KSM-66 - 90 Capsules"
+                  alt="OptiBio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
                   className="w-full max-w-md mx-auto drop-shadow-2xl"
                 />
               </div>
@@ -268,7 +268,7 @@ export default function Home() {
                   <div className="relative h-64 overflow-hidden">
                     <img 
                       src={lifestyleImages[i]} 
-                      alt={benefit.title}
+                      alt={`${benefit.title} - ${benefit.description.split('.')[0]}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A5F]/80 via-[#1E3A5F]/40 to-transparent" />
@@ -301,7 +301,7 @@ export default function Home() {
             <div className="relative">
               <img 
                 src="/products/optibio-90cap-bottle-angle.jpg" 
-                alt="OptiBio Ashwagandha KSM-66 Premium Quality"
+                alt="OptiBio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
                 className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-3xl"
               />
             </div>
@@ -587,7 +587,7 @@ export default function Home() {
                   <div className="bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] p-12 flex items-center justify-center">
                     <img 
                       src={mainProduct.imageUrl || "/products/optibio-90cap-bottle-front.jpg"}
-                      alt={mainProduct.name}
+                      alt={`${mainProduct.name} - Premium KSM-66 Ashwagandha supplement for stress relief, sleep support, and natural energy`}
                       className="w-full max-w-xs drop-shadow-2xl"
                     />
                   </div>
