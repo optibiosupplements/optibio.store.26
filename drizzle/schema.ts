@@ -292,5 +292,56 @@ export const productBatches = mysqlTable("productBatches", {
 export type ProductBatch = typeof productBatches.$inferSelect;
 export type InsertProductBatch = typeof productBatches.$inferInsert;
 
+/**
+ * Product reviews
+ */
+export const reviews = mysqlTable("reviews", {
+  id: int("id").autoincrement().primaryKey(),
+  productId: int("productId").notNull(),
+  userId: int("userId").notNull(),
+  orderId: int("orderId"), // Optional: link to verified purchase
+  rating: int("rating").notNull(), // 1-5 stars
+  title: varchar("title", { length: 255 }),
+  comment: text("comment"),
+  isVerifiedPurchase: boolean("isVerifiedPurchase").default(false),
+  isApproved: boolean("isApproved").default(true), // Admin moderation
+  helpfulCount: int("helpfulCount").default(0),
+  notHelpfulCount: int("notHelpfulCount").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Review = typeof reviews.$inferSelect;
+export type InsertReview = typeof reviews.$inferInsert;
+
+/**
+ * Review photos
+ */
+export const reviewPhotos = mysqlTable("reviewPhotos", {
+  id: int("id").autoincrement().primaryKey(),
+  reviewId: int("reviewId").notNull(),
+  photoUrl: varchar("photoUrl", { length: 500 }).notNull(),
+  photoKey: varchar("photoKey", { length: 500 }).notNull(), // S3 key for management
+  sortOrder: int("sortOrder").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ReviewPhoto = typeof reviewPhotos.$inferSelect;
+export type InsertReviewPhoto = typeof reviewPhotos.$inferInsert;
+
+/**
+ * Review votes (helpful/not helpful)
+ */
+export const reviewVotes = mysqlTable("reviewVotes", {
+  id: int("id").autoincrement().primaryKey(),
+  reviewId: int("reviewId").notNull(),
+  userId: int("userId").notNull(),
+  voteType: mysqlEnum("voteType", ["helpful", "not_helpful"]).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ReviewVote = typeof reviewVotes.$inferSelect;
+export type InsertReviewVote = typeof reviewVotes.$inferInsert;
+
 // Pre-Sale System Tables
 export * from "./presale-schema";

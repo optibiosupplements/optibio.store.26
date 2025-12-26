@@ -43,6 +43,13 @@
       "when": 1766760451138,
       "tag": "0005_broad_master_chief",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1766764805457,
+      "tag": "0006_useful_mastermind",
+      "breakpoints": true
     }
   ]
 }

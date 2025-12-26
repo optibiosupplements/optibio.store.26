@@ -33,6 +33,7 @@ export default function Header() {
   const navigation = [
     { name: "Shop", href: "/shop" },
     { name: "Science", href: "/science" },
+    { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
     { name: "FAQ", href: "/faq" },
   ];

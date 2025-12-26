@@ -30,6 +30,7 @@ import { toast } from "sonner";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import ProductSchema from "@/components/ProductSchema";
+import ProductReviews from "@/components/ProductReviews";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:slug");
@@ -631,95 +632,7 @@ export default function ProductDetail() {
               </TabsContent>
 
               <TabsContent value="reviews" className="mt-8">
-                <div className="space-y-8">
-                  {/* Review Summary */}
-                  <Card className="border-2">
-                    <CardContent className="p-8">
-                      <div className="grid md:grid-cols-2 gap-8">
-                        <div className="text-center space-y-4">
-                          <div className="text-6xl font-bold text-slate-900">4.8</div>
-                          <div className="flex items-center justify-center gap-1">
-                            {[...Array(5)].map((_, i) => (
-                              <Star key={i} className="w-6 h-6 fill-[#C9A961] text-[#C9A961]" />
-                            ))}
-                          </div>
-                          <div className="text-slate-600">Based on 2,847 reviews</div>
-                        </div>
-                        <div className="space-y-3">
-                          {[5, 4, 3, 2, 1].map((rating) => (
-                            <div key={rating} className="flex items-center gap-3">
-                              <div className="text-sm font-medium w-8">{rating}★</div>
-                              <div className="flex-1 h-3 bg-slate-200 rounded-full overflow-hidden">
-                                <div 
-                                  className="h-full bg-[#C9A961]"
-                                  style={{ width: rating === 5 ? '85%' : rating === 4 ? '12%' : '3%' }}
-                                />
-                              </div>
-                              <div className="text-sm text-slate-600 w-12 text-right">
-                                {rating === 5 ? '85%' : rating === 4 ? '12%' : '3%'}
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-
-                  {/* Individual Reviews */}
-                  <div className="space-y-6">
-                    {[
-                      {
-                        name: "Sarah M.",
-                        role: "Verified Buyer",
-                        rating: 5,
-                        date: "2 weeks ago",
-                        title: "Life-changing supplement!",
-                        text: "I've been taking OptiBio's Ashwagandha for 3 months now and the difference is incredible. My stress levels are way down, I'm sleeping better, and I have more energy throughout the day. The quality is outstanding—you can really tell this is premium KSM-66."
-                      },
-                      {
-                        name: "Michael R.",
-                        role: "Verified Buyer",
-                        rating: 5,
-                        date: "1 month ago",
-                        title: "Perfect for athletes",
-                        text: "As a competitive runner, recovery is everything. This supplement has noticeably improved my endurance and recovery time. I'm hitting PRs I haven't seen in years. Plus, the stress management benefits help me stay focused during training."
-                      },
-                      {
-                        name: "Jennifer L.",
-                        role: "Verified Buyer",
-                        rating: 5,
-                        date: "3 weeks ago",
-                        title: "Quality you can trust",
-                        text: "Finally, a supplement brand that's transparent about their sourcing and testing. The third-party testing and GMP certification give me confidence. I've tried other ashwagandha products before, but OptiBio is in a different league."
-                      }
-                    ].map((review, i) => (
-                      <Card key={i} className="border-2">
-                        <CardContent className="p-6 space-y-4">
-                          <div className="flex items-start justify-between">
-                            <div>
-                              <div className="font-bold text-slate-900">{review.name}</div>
-                              <div className="text-sm text-slate-600">{review.role}</div>
-                            </div>
-                            <div className="text-sm text-slate-500">{review.date}</div>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            {[...Array(review.rating)].map((_, i) => (
-                              <Star key={i} className="w-5 h-5 fill-[#C9A961] text-[#C9A961]" />
-                            ))}
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-slate-900 mb-2">{review.title}</h4>
-                            <p className="text-slate-700 leading-relaxed">{review.text}</p>
-                          </div>
-                          <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F]">
-                            <CheckCircle2 className="w-3 h-3 mr-1" />
-                            Verified Purchase
-                          </Badge>
-                        </CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </div>
+                {productData && <ProductReviews productId={productData.id} />}
               </TabsContent>
             </Tabs>
           </div>

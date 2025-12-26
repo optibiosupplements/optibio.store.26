@@ -1186,3 +1186,63 @@
 **Reports Created:**
 - `/home/ubuntu/optibio-ecommerce/ACCESSIBILITY_AUDIT_REPORT.md` (previous)
 - `/home/ubuntu/optibio-ecommerce/ACCESSIBILITY_ENHANCEMENTS_REPORT.md` (new)
+
+## 🚀 Major Feature Enhancements (Dec 26, 2025)
+
+### Task 1: Add WCAG Badge to Homepage Footer
+- [ ] Update Footer.tsx trust badges section
+- [ ] Add WCAG 2.1 AA Compliant badge with accessibility icon
+- [ ] Link badge to /accessibility page
+- [ ] Style badge to match existing trust badges
+- [ ] Test responsive layout
+
+### Task 2: Create Blog Content Hub
+- [ ] Create Blog.tsx page component
+- [ ] Create BlogPost.tsx page component for individual articles
+- [ ] Add /blog and /blog/:slug routes to App.tsx
+- [ ] Write 5 SEO-optimized blog articles:
+  - [ ] "Best Time to Take Ashwagandha for Maximum Benefits"
+  - [ ] "KSM-66 vs Regular Ashwagandha: What's the Difference?"
+  - [ ] "Ashwagandha Benefits for Anxiety: What Science Says"
+  - [ ] "How Long Does Ashwagandha Take to Work?"
+  - [ ] "Ashwagandha Dosage Guide: Finding Your Perfect Amount"
+- [ ] Add blog link to header navigation
+- [ ] Implement blog post schema markup for SEO
+- [ ] Add social sharing buttons to blog posts
+
+### Task 3: Implement Customer Reviews System
+- [ ] Design database schema for reviews (reviews table)
+- [ ] Add review_photos table for photo uploads
+- [ ] Add review_votes table for helpful/not helpful voting
+- [ ] Create tRPC procedures for reviews:
+  - [ ] createReview (with photo upload)
+  - [ ] getProductReviews
+  - [ ] voteReview (helpful/not helpful)
+  - [ ] uploadReviewPhoto
+- [ ] Create ReviewForm component
+- [ ] Create ReviewList component
+- [ ] Create ReviewCard component with photo gallery
+- [ ] Add review submission to ProductDetail page
+- [ ] Implement photo upload with S3 storage
+- [ ] Add helpful/not helpful voting UI
+- [ ] Show verified purchase badge
+- [ ] Calculate and display average rating
+- [ ] Add review filtering (most helpful, recent, rating)
+
+## ✅ Completed Tasks - $(date +%Y-%m-%d)
+
+- [x] Add WCAG 2.1 AA Compliant badge to homepage footer
+- [x] Create blog content hub with 5 SEO-optimized articles (30,000+ words)
+  - [x] Best Time to Take Ashwagandha
+  - [x] KSM-66 vs Regular Ashwagandha
+  - [x] Ashwagandha Benefits for Anxiety
+  - [x] How Long Does Ashwagandha Take to Work
+  - [x] Ashwagandha Dosage Guide
+- [x] Implement customer reviews system
+  - [x] Database schema (reviews, reviewPhotos, reviewVotes tables)
+  - [x] Backend tRPC procedures
+  - [x] S3 photo upload integration
+  - [x] ProductReviews UI component with photo uploads
+  - [x] Helpful/Not Helpful voting system
+  - [x] Verified purchase badges
+  - [x] Review statistics and rating breakdown

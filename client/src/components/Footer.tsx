@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { APP_LOGO } from "@/const";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Shield, Truck, Award, Lock, Facebook, Instagram, Twitter } from "lucide-react";
+import { Shield, Truck, Award, Lock, Facebook, Instagram, Twitter, Accessibility } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
       {/* Trust Badges Bar */}
       <div className="border-b bg-background/50">
         <div className="container py-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             <div className="flex flex-col items-center text-center space-y-2">
               <Shield className="h-8 w-8 text-primary" />
               <p className="text-sm font-medium">Third-Party Tested</p>
@@ -31,6 +31,11 @@ export default function Footer() {
               <p className="text-sm font-medium">Secure Checkout</p>
               <p className="text-xs text-muted-foreground">256-bit SSL</p>
             </div>
+            <Link href="/accessibility" className="flex flex-col items-center text-center space-y-2 hover:opacity-80 transition-opacity">
+              <Accessibility className="h-8 w-8 text-primary" />
+              <p className="text-sm font-medium">WCAG 2.1 AA</p>
+              <p className="text-xs text-muted-foreground">Accessible Design</p>
+            </Link>
           </div>
         </div>
       </div>

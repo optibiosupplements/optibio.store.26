@@ -23,6 +23,8 @@ import Science from "./pages/Science";
 import FAQ from "./pages/FAQ";
 import Quality from "./pages/Quality";
 import Accessibility from "./pages/Accessibility";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 import PromoBanner from "./components/PromoBanner";
 import ExitIntentPopup from "./components/ExitIntentPopup";
@@ -53,6 +55,8 @@ function Router() {
           <Route path="/faq" component={FAQ} />
           <Route path="/quality" component={Quality} />
           <Route path="/accessibility" component={Accessibility} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/blog/:slug" component={BlogPost} />
           <Route path="/404" component={NotFound} />
           {/* Final fallback route */}
           <Route component={NotFound} />

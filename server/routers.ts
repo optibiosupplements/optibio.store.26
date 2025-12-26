@@ -11,6 +11,7 @@ import { stripe } from "./stripe";
 import { ENV } from "./_core/env";
 import { sendReservationConfirmationEmail } from "./email";
 import { getReservationConfirmationEmail } from "./email-templates";
+import { reviewsRouter } from "./routers/reviews";
 
 export const appRouter = router({
   system: systemRouter,
@@ -662,6 +663,9 @@ export const appRouter = router({
       return analyticsDb.getRevenueBreakdown();
     }),
   }),
+
+  // Reviews
+  reviews: reviewsRouter,
 });
 
 export type AppRouter = typeof appRouter;
