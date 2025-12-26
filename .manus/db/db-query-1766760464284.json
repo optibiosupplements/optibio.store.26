@@ -1,0 +1,34 @@
+{
+  "query": "SELECT id, sku, name, priceInCents, stripePriceId, stripeSubscriptionPriceId FROM productVariants WHERE sku IN ('OPTIBIO-ASH-90', 'OPTIBIO-ASH-180', 'OPTIBIO-ASH-270');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 26YcRyEmMHMZfUu.adf0f9e7dfe8 --database HZ2NtaFJFkAENvPvciWDsB --execute SELECT id, sku, name, priceInCents, stripePriceId, stripeSubscriptionPriceId FROM productVariants WHERE sku IN ('OPTIBIO-ASH-90', 'OPTIBIO-ASH-180', 'OPTIBIO-ASH-270');",
+  "rows": [
+    {
+      "id": "30004",
+      "sku": "OPTIBIO-ASH-90",
+      "name": "90 Capsules (1-Month Supply)",
+      "priceInCents": "4999",
+      "stripePriceId": "price_1SicHTDHegvEeKVXfvfKPM2E",
+      "stripeSubscriptionPriceId": "price_1SicHUDHegvEeKVXGlhnKH3E"
+    },
+    {
+      "id": "30005",
+      "sku": "OPTIBIO-ASH-180",
+      "name": "180 Capsules (3-Month Supply)",
+      "priceInCents": "12749",
+      "stripePriceId": "price_1SicHVDHegvEeKVXgf6yKo8T",
+      "stripeSubscriptionPriceId": "price_1SicHaDHegvEeKVXDi5mR6GW"
+    },
+    {
+      "id": "30006",
+      "sku": "OPTIBIO-ASH-270",
+      "name": "270 Capsules (6-Month Supply)",
+      "priceInCents": "18749",
+      "stripePriceId": "price_1SicHdDHegvEeKVXqqYYmyMV",
+      "stripeSubscriptionPriceId": "price_1SicHeDHegvEeKVXMH8n1C4k"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tsku\tname\tpriceInCents\tstripePriceId\tstripeSubscriptionPriceId\n30004\tOPTIBIO-ASH-90\t90 Capsules (1-Month Supply)\t4999\tprice_1SicHTDHegvEeKVXfvfKPM2E\tprice_1SicHUDHegvEeKVXGlhnKH3E\n30005\tOPTIBIO-ASH-180\t180 Capsules (3-Month Supply)\t12749\tprice_1SicHVDHegvEeKVXgf6yKo8T\tprice_1SicHaDHegvEeKVXDi5mR6GW\n30006\tOPTIBIO-ASH-270\t270 Capsules (6-Month Supply)\t18749\tprice_1SicHdDHegvEeKVXqqYYmyMV\tprice_1SicHeDHegvEeKVXMH8n1C4k\n",
+  "stderr": "",
+  "execution_time_ms": 52
+}

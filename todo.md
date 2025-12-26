@@ -860,3 +860,36 @@
 - [x] Add production deployment checklist - Pre-launch and post-launch checklists included
 
 **Note:** Complete Stripe production setup guide created at STRIPE_PRODUCTION_SETUP.md
+
+
+## 🔗 Stripe Account Connected - Verification Tasks (Dec 26, 2025)
+
+### Verify Stripe Integration
+- [x] Test Stripe API connection with connected account (Account: acct_1RbNWiS1rUgT2632)
+- [x] Verify API keys are working correctly (Successfully connected)
+- [x] Check Stripe account details and capabilities (OptiBio Supplements account active)
+
+### Create Products in Stripe
+- [x] Create product: Ashwagandha KSM-66 (90 Capsules) - prod_TfyDNVVnGwYLL7
+- [x] Create one-time price: $49.99 - price_1SicHTDHegvEeKVXfvfKPM2E
+- [x] Create subscription price: $42.49 (monthly) - price_1SicHUDHegvEeKVXGlhnKH3E
+- [x] Create product: Ashwagandha KSM-66 (180 Capsules) - prod_TfyDKZbGxjnBF2
+- [x] Create one-time price: $127.49 - price_1SicHVDHegvEeKVXgf6yKo8T
+- [x] Create subscription price: $108.37 (monthly) - price_1SicHaDHegvEeKVXDi5mR6GW
+- [x] Create product: Ashwagandha KSM-66 (270 Capsules) - prod_TfyE5KSSPt4REQ
+- [x] Create one-time price: $187.49 - price_1SicHdDHegvEeKVXqqYYmyMV
+- [x] Create subscription price: $159.37 (monthly) - price_1SicHeDHegvEeKVXMH8n1C4k
+- [x] Update database with Stripe price IDs
+
+### Test Payment Flow
+- [ ] Test checkout with test card
+- [ ] Verify payment intent creation
+- [ ] Confirm order creation in database
+- [ ] Check webhook events are received
+- [ ] Test subscription creation
+
+### Webhook Configuration
+- [ ] Verify webhook endpoint URL
+- [ ] Test webhook signature verification
+- [ ] Confirm all required events are configured
+- [ ] Test webhook event processing

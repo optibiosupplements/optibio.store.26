@@ -36,6 +36,13 @@
       "when": 1762877774121,
       "tag": "0004_bent_mongoose",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1766760451138,
+      "tag": "0005_broad_master_chief",
+      "breakpoints": true
     }
   ]
 }

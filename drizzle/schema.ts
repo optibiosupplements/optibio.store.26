@@ -67,6 +67,8 @@ export const productVariants = mysqlTable("productVariants", {
   stockQuantity: int("stockQuantity").default(0).notNull(),
   isActive: boolean("isActive").default(true).notNull(),
   sortOrder: int("sortOrder").default(0),
+  stripePriceId: varchar("stripePriceId", { length: 255 }), // Stripe one-time price ID
+  stripeSubscriptionPriceId: varchar("stripeSubscriptionPriceId", { length: 255 }), // Stripe subscription price ID
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });
