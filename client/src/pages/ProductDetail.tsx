@@ -152,6 +152,7 @@ export default function ProductDetail() {
         currency="USD"
         availability={product.stockQuantity && product.stockQuantity > 0 ? "InStock" : "OutOfStock"}
         url={`https://optibiosupplements.com/product/${product.slug}`}
+        additionalImages={productImages.slice(1).map(img => `https://optibiosupplements.com${img}`)}
         ratingValue={4.9}
         ratingCount={2847}
         reviewCount={2847}
@@ -204,7 +205,7 @@ export default function ProductDetail() {
               <div className="aspect-square rounded-3xl overflow-hidden bg-white border-2 border-slate-200 shadow-2xl group">
                 <img
                   src={productImages[selectedImage]}
-                  alt={product.name}
+                  alt={`${product.name} - ${selectedImage === 0 ? 'premium black glass bottle with gold cap, 300mg KSM-66 ashwagandha per capsule' : selectedImage === 1 ? 'supplement facts label with complete ingredient list and dosage information' : selectedImage === 2 ? 'close-up of premium ashwagandha capsules' : 'lifestyle image showing daily wellness routine'}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -223,7 +224,7 @@ export default function ProductDetail() {
                   >
                     <img 
                       src={img} 
-                      alt={`${product.name} ${idx + 1}`} 
+                      alt={`${product.name} thumbnail ${idx === 0 ? 'bottle' : idx === 1 ? 'supplement facts' : idx === 2 ? 'capsules' : 'lifestyle'}`} 
                       className="w-full h-full object-cover"
                     />
                   </button>

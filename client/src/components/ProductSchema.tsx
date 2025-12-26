@@ -29,6 +29,8 @@ interface ProductSchemaProps {
   description: string;
   /** Product image URL (full URL including domain) */
   image: string;
+  /** Additional product images (gallery) */
+  additionalImages?: string[];
   /** Product SKU or ID */
   sku: string;
   /** Brand name */
@@ -65,6 +67,7 @@ export default function ProductSchema({
   ratingCount = 2847,
   reviewCount = 2847,
   reviews = [],
+  additionalImages = [],
 }: ProductSchemaProps) {
   useEffect(() => {
     // Create the schema object
@@ -73,7 +76,7 @@ export default function ProductSchema({
       "@type": "Product",
       name,
       description,
-      image,
+      image: additionalImages.length > 0 ? [image, ...additionalImages] : image,
       sku,
       brand: {
         "@type": "Brand",
@@ -156,6 +159,7 @@ export default function ProductSchema({
     ratingCount,
     reviewCount,
     reviews,
+    additionalImages,
   ]);
 
   // This component doesn't render anything visible

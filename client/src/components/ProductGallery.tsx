@@ -29,7 +29,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
       <div className="relative aspect-square bg-gradient-to-br from-[#F7F4EF]/50 to-[#F7F4EF]/50 rounded-2xl overflow-hidden border-2 border-[#C9A961]/10 shadow-cream group">
         <img
           src={images[selectedIndex]}
-          alt={`${productName} - Image ${selectedIndex + 1}`}
+          alt={`${productName} ${selectedIndex === 0 ? '- premium black glass bottle with gold cap, 300mg per capsule' : selectedIndex === 1 ? '- supplement facts label showing ingredients and dosage' : selectedIndex === 2 ? '- close-up of KSM-66 ashwagandha capsules' : '- lifestyle image showing product usage'}`}
           className={`w-full h-full object-contain p-8 transition-transform duration-300 ${
             isZoomed ? "scale-150 cursor-zoom-out" : "cursor-zoom-in"
           }`}
@@ -88,7 +88,7 @@ export default function ProductGallery({ images, productName }: ProductGalleryPr
             >
               <img
                 src={image}
-                alt={`${productName} thumbnail ${index + 1}`}
+                alt={`${productName} thumbnail ${index === 0 ? 'bottle view' : index === 1 ? 'supplement facts' : index === 2 ? 'capsule close-up' : 'lifestyle'}`}
                 className="w-full h-full object-contain p-2 bg-gradient-to-br from-[#F7F4EF]/50 to-[#F7F4EF]/50"
               />
             </button>
