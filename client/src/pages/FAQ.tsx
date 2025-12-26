@@ -17,6 +17,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { useLocation } from "wouter";
+import FAQSchema from "@/components/FAQSchema";
 
 export default function FAQ() {
   const [, setLocation] = useLocation();
@@ -157,8 +158,18 @@ export default function FAQ() {
     }
   ];
 
+  // Flatten all FAQs for schema
+  const allFAQs = faqs.flatMap(category => 
+    category.questions.map(q => ({
+      question: q.q,
+      answer: q.a
+    }))
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+      {/* FAQ Schema for Rich Snippets */}
+      <FAQSchema faqs={allFAQs} />
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">

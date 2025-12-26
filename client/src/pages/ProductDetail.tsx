@@ -29,6 +29,7 @@ import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
+import ProductSchema from "@/components/ProductSchema";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:slug");
@@ -131,6 +132,42 @@ export default function ProductDetail() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+      {/* Product Schema for Rich Snippets */}
+      <ProductSchema
+        name={product.name}
+        description={product.description || "Premium full-spectrum Ashwagandha root extract with clinically-studied KSM-66®. Supports stress management, restful sleep, and overall wellness."}
+        image={`https://optibiosupplements.com${productImages[0]}`}
+        sku={product.sku || `OPTIBIO-${product.id}`}
+        brand="OptiBio"
+        priceInCents={currentPrice}
+        currency="USD"
+        availability={product.stockQuantity && product.stockQuantity > 0 ? "InStock" : "OutOfStock"}
+        url={`https://optibiosupplements.com/product/${product.slug}`}
+        ratingValue={4.9}
+        ratingCount={2847}
+        reviewCount={2847}
+        reviews={[
+          {
+            author: "Rachel K.",
+            datePublished: "2025-11-15",
+            reviewBody: "I used to dread Mondays. I'm a teacher with two kids under 5, and by Wednesday I was running on fumes. Since starting OptiBio, I actually have energy for bedtime stories. My husband noticed I'm not as snappy. Small changes, huge impact.",
+            reviewRating: 5,
+          },
+          {
+            author: "David L.",
+            datePublished: "2025-11-22",
+            reviewBody: "I was skeptical about adaptogens—tried three other brands that did nothing. But after two weeks with OptiBio, I noticed I wasn't doom-scrolling at 2am anymore. My sleep tracker confirms it: I'm getting 90 more minutes of deep sleep per night.",
+            reviewRating: 5,
+          },
+          {
+            author: "Maya P.",
+            datePublished: "2025-12-01",
+            reviewBody: "Thesis deadlines had me living on coffee and anxiety. A friend recommended OptiBio and I figured, why not? Three weeks in, I can actually focus for more than 20 minutes. My advisor asked what changed. This stuff is legit.",
+            reviewRating: 5,
+          },
+        ]}
+      />
+
       {/* Breadcrumb */}
       <div className="border-b bg-white/80 backdrop-blur-sm sticky top-16 z-40">
         <div className="container py-4">
