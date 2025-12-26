@@ -24,6 +24,7 @@ import FAQ from "./pages/FAQ";
 import Quality from "./pages/Quality";
 
 import PromoBanner from "./components/PromoBanner";
+import ExitIntentPopup from "./components/ExitIntentPopup";
 
 function Router() {
   return (
@@ -64,6 +65,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
+          <ExitIntentPopup discountCode="SAVE10" discountPercent={10} />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

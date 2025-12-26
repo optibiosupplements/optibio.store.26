@@ -10,7 +10,7 @@ Disallow: /cart
 Disallow: /account
 
 # Sitemap location
-Sitemap: https://optibio.com/sitemap.xml
+Sitemap: https://optibiosupplements.com/sitemap.xml
 
 # Crawl delay (optional, helps with server load)
 Crawl-delay: 1
