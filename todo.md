@@ -893,3 +893,9 @@
 - [ ] Test webhook signature verification
 - [ ] Confirm all required events are configured
 - [ ] Test webhook event processing
+
+
+## 🔧 Accessibility Fix - Dialog Title Error (Dec 26, 2025)
+- [x] Find Dialog component missing DialogTitle (ManusDialog.tsx)
+- [x] Add DialogTitle wrapped in DialogHeader with sr-only class
+- [x] Verify accessibility error is resolved
