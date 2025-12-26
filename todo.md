@@ -792,3 +792,29 @@
 - [ ] Test checkout with variants
 - [ ] Test order confirmation shows correct variant
 - [ ] Test pricing calculations
+
+
+## 🔧 Product Variants Fix (User Request - Dec 26, 2025)
+- [x] Debug why variants aren't displaying on product page (Fixed: Updated productId from 1 to 60001)
+- [x] Check if variants are being returned from API (Confirmed working)
+- [x] Verify variant selector rendering logic (Displaying correctly)
+- [ ] Test variant selection and add to cart
+- [ ] Ensure cart handles variants correctly
+
+## 💳 Stripe Payment Testing (User Request - Dec 26, 2025)
+- [ ] Test complete checkout flow with test card
+- [ ] Verify order creation in database
+- [ ] Test payment confirmation
+- [ ] Verify email notifications
+- [ ] Test failed payment handling
+
+## 🔄 Phase 2: Enhanced Subscription System (User Request - Dec 26, 2025)
+- [ ] Add subscription frequency selector (30/60/90 days)
+- [ ] Build subscription management dashboard
+- [ ] Implement "Skip Next Delivery" feature
+- [ ] Add "Change Frequency" option
+- [ ] Create cancellation flow with retention offer
+- [ ] Set up Stripe subscription webhooks
+- [ ] Test subscription creation and billing
+- [ ] Test subscription modification
+- [ ] Test subscription cancellation
