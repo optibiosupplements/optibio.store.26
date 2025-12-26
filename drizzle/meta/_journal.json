@@ -50,6 +50,20 @@
       "when": 1766764805457,
       "tag": "0006_useful_mastermind",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1766765836568,
+      "tag": "0007_gorgeous_lethal_legion",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1766765980264,
+      "tag": "0008_lively_aaron_stack",
+      "breakpoints": true
     }
   ]
 }

@@ -25,9 +25,10 @@ import Quality from "./pages/Quality";
 import Accessibility from "./pages/Accessibility";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Referral from "./pages/Referral";
 
 import PromoBanner from "./components/PromoBanner";
-import ExitIntentPopup from "./components/ExitIntentPopup";
+import EmailCaptureModal from "./components/EmailCaptureModal";
 import SkipNav from "./components/SkipNav";
 
 function Router() {
@@ -57,6 +58,7 @@ function Router() {
           <Route path="/accessibility" component={Accessibility} />
           <Route path="/blog" component={Blog} />
           <Route path="/blog/:slug" component={BlogPost} />
+          <Route path="/referral" component={Referral} />
           <Route path="/404" component={NotFound} />
           {/* Final fallback route */}
           <Route component={NotFound} />
@@ -73,7 +75,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <ExitIntentPopup discountCode="SAVE10" discountPercent={10} />
+          <EmailCaptureModal />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

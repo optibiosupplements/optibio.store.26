@@ -343,5 +343,60 @@ export const reviewVotes = mysqlTable("reviewVotes", {
 export type ReviewVote = typeof reviewVotes.$inferSelect;
 export type InsertReviewVote = typeof reviewVotes.$inferInsert;
 
+/**
+ * Newsletter subscribers with discount codes
+ */
+export const newsletterSubscribers = mysqlTable("newsletterSubscribers", {
+  id: int("id").autoincrement().primaryKey(),
+  email: varchar("email", { length: 320 }).notNull().unique(),
+  discountCode: varchar("discountCode", { length: 50 }).notNull().unique(),
+  discountPercent: int("discountPercent").default(10).notNull(),
+  isUsed: boolean("isUsed").default(false),
+  usedAt: timestamp("usedAt"),
+  subscribedAt: timestamp("subscribedAt").defaultNow().notNull(),
+});
+
+export type NewsletterSubscriber = typeof newsletterSubscribers.$inferSelect;
+export type InsertNewsletterSubscriber = typeof newsletterSubscribers.$inferInsert;
+
+/**
+ * Referral program - tracks referrals and credits
+ */
+export const referrals = mysqlTable("referrals", {
+  id: int("id").autoincrement().primaryKey(),
+  referrerId: int("referrerId").notNull(), // User who sent the referral
+  referralCode: varchar("referralCode", { length: 50 }).notNull().unique(),
+  referredUserId: int("referredUserId"), // User who signed up (null until they register)
+  referredEmail: varchar("referredEmail", { length: 320 }), // Email of referred person
+  status: mysqlEnum("status", ["pending", "completed", "credited"]).default("pending").notNull(),
+  orderValue: int("orderValue"), // First order value in cents
+  creditAmount: int("creditAmount").default(1000), // Credit amount in cents ($10)
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  completedAt: timestamp("completedAt"), // When referred user made first purchase
+  creditedAt: timestamp("creditedAt"), // When credit was applied to referrer
+});
+
+export type Referral = typeof referrals.$inferSelect;
+export type InsertReferral = typeof referrals.$inferInsert;
+
+/**
+ * Referral credits - tracks available credits for users
+ */
+export const referralCredits = mysqlTable("referralCredits", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull(),
+  amount: int("amount").notNull(), // Credit amount in cents
+  source: varchar("source", { length: 100 }).notNull(), // "referral", "promotion", etc.
+  referralId: int("referralId"), // Link to referral if from referral program
+  isUsed: boolean("isUsed").default(false),
+  usedAt: timestamp("usedAt"),
+  orderId: int("orderId"), // Order where credit was used
+  expiresAt: timestamp("expiresAt"), // Optional expiration date
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type ReferralCredit = typeof referralCredits.$inferSelect;
+export type InsertReferralCredit = typeof referralCredits.$inferInsert;
+
 // Pre-Sale System Tables
 export * from "./presale-schema";

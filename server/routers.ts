@@ -12,6 +12,8 @@ import { ENV } from "./_core/env";
 import { sendReservationConfirmationEmail } from "./email";
 import { getReservationConfirmationEmail } from "./email-templates";
 import { reviewsRouter } from "./routers/reviews";
+import { newsletterRouter } from "./routers/newsletter";
+import { referralRouter } from "./routers/referral";
 
 export const appRouter = router({
   system: systemRouter,
@@ -666,6 +668,12 @@ export const appRouter = router({
 
   // Reviews
   reviews: reviewsRouter,
+
+  // Newsletter
+  newsletter: newsletterRouter,
+
+  // Referral Program
+  referral: referralRouter,
 });
 
 export type AppRouter = typeof appRouter;

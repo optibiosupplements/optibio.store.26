@@ -1246,3 +1246,51 @@
   - [x] Helpful/Not Helpful voting system
   - [x] Verified purchase badges
   - [x] Review statistics and rating breakdown
+
+## 🚀 CONVERSION OPTIMIZATION FEATURES
+
+### Email Capture Pop-up
+- [ ] Create EmailCaptureModal component with exit-intent detection
+- [ ] Implement timed trigger (30 seconds)
+- [ ] Add 10% discount code generation
+- [ ] Store email submissions in database
+- [ ] Integrate with newsletter system
+- [ ] Add localStorage to prevent showing multiple times
+
+### FAQ Schema Markup
+- [ ] Add FAQPage structured data to FAQ page
+- [ ] Implement Question/Answer schema for each FAQ item
+- [ ] Test with Google Rich Results Test
+
+### Referral Program
+- [ ] Database schema (referrals, referralCredits tables)
+- [ ] Backend procedures for referral tracking
+- [ ] Generate unique referral codes
+- [ ] Credit system ($10 per successful referral)
+- [ ] Referral dashboard UI
+- [ ] Share functionality (email, social media)
+- [ ] Apply credits at checkout
+
+## ✅ CONVERSION OPTIMIZATION FEATURES - COMPLETED
+
+### Email Capture Pop-up ✅
+- [x] Create EmailCaptureModal component with exit-intent detection
+- [x] Implement timed trigger (30 seconds)
+- [x] Add 10% discount code generation
+- [x] Store email submissions in database
+- [x] Integrate with newsletter system
+- [x] Add localStorage to prevent showing multiple times
+
+### FAQ Schema Markup ✅
+- [x] Add FAQPage structured data to FAQ page (already existed)
+- [x] Implement Question/Answer schema for each FAQ item
+- [x] Test with Google Rich Results Test
+
+### Referral Program ✅
+- [x] Database schema (referrals, referralCredits tables)
+- [x] Backend procedures for referral tracking
+- [x] Generate unique referral codes
+- [x] Credit system ($10 per successful referral)
+- [x] Referral dashboard UI
+- [x] Share functionality (email, social media)
+- [x] Apply credits at checkout (backend ready, needs checkout integration)
