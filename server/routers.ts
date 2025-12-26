@@ -327,6 +327,7 @@ export const appRouter = router({
           quantity: z.number(),
           priceInCents: z.number(),
         })),
+        creditsToApply: z.number().optional().default(0),
         successUrl: z.string().optional(),
         cancelUrl: z.string().optional(),
       }))
@@ -349,10 +350,24 @@ export const appRouter = router({
           quantity: item.quantity,
         }));
 
+        // Add referral credits as discount if provided
+        const discounts = [];
+        if (input.creditsToApply && input.creditsToApply > 0) {
+          // Create a one-time coupon for the credit amount
+          const coupon = await stripe.coupons.create({
+            amount_off: input.creditsToApply,
+            currency: "usd",
+            duration: "once",
+            name: "Referral Credits",
+          });
+          discounts.push({ coupon: coupon.id });
+        }
+
         // Create checkout session
         const session = await stripe.checkout.sessions.create({
           mode: "payment",
           line_items: lineItems,
+          ...(discounts.length > 0 && { discounts }),
           success_url: successUrl,
           cancel_url: cancelUrl,
           customer_email: ctx.user.email || undefined,
@@ -361,6 +376,7 @@ export const appRouter = router({
             user_id: ctx.user.id.toString(),
             customer_email: ctx.user.email || "",
             customer_name: ctx.user.name || "",
+            credits_applied: input.creditsToApply?.toString() || "0",
           },
           allow_promotion_codes: true,
           shipping_address_collection: {

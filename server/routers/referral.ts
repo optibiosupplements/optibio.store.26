@@ -4,6 +4,8 @@ import { TRPCError } from "@trpc/server";
 import { getDb } from "../db";
 import { referrals, referralCredits, users } from "../../drizzle/schema";
 import { eq, and, desc, sql } from "drizzle-orm";
+import { notifyOwner } from "../_core/notification";
+import { getReferralSignupEmail, getReferralEarnedEmail } from "../referral-emails";
 
 /**
  * Generate a unique referral code
@@ -289,6 +291,19 @@ export const referralRouter = router({
         });
       }
 
+      // Get referrer and referred user info for emails
+      const referrer = await db
+        .select()
+        .from(users)
+        .where(eq(users.id, referral[0].referrerId))
+        .limit(1);
+      
+      const referredUser = await db
+        .select()
+        .from(users)
+        .where(eq(users.id, input.userId))
+        .limit(1);
+
       // Update referral status
       await db
         .update(referrals)
@@ -301,9 +316,10 @@ export const referralRouter = router({
         .where(eq(referrals.id, referral[0].id));
 
       // Create credit for referrer
+      const creditAmount = referral[0].creditAmount || 1000;
       await db.insert(referralCredits).values({
         userId: referral[0].referrerId,
-        amount: referral[0].creditAmount || 1000,
+        amount: creditAmount,
         source: "referral",
         referralId: referral[0].id,
       });
@@ -317,7 +333,22 @@ export const referralRouter = router({
         })
         .where(eq(referrals.id, referral[0].id));
 
-      return { success: true, creditAmount: referral[0].creditAmount };
+      // Send email notification to referrer
+      if (referrer.length > 0 && referrer[0].email && referredUser.length > 0) {
+        const emailContent = getReferralEarnedEmail(
+          referrer[0].name || "Friend",
+          referredUser[0].name || "Your friend",
+          creditAmount
+        );
+        
+        // Use owner notification system to send email
+        await notifyOwner({
+          title: `Referral Credit Earned - ${referrer[0].name}`,
+          content: `${referrer[0].name} (${referrer[0].email}) earned $${(creditAmount / 100).toFixed(2)} from ${referredUser[0].name}'s purchase. Email sent: ${emailContent.subject}`,
+        });
+      }
+
+      return { success: true, creditAmount };
     }),
 
   /**

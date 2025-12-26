@@ -1294,3 +1294,35 @@
 - [x] Referral dashboard UI
 - [x] Share functionality (email, social media)
 - [x] Apply credits at checkout (backend ready, needs checkout integration)
+
+
+## 🐛 BUG FIX - Failed to Fetch Error
+
+- [x] Investigate server logs for tRPC fetch error
+- [x] Identify root cause of API query failure (transient network/server restart issue)
+- [x] Fix the issue (server restart cleared cached errors)
+- [x] Restart server if needed
+- [x] Verify homepage loads without errors
+
+
+## 🎁 REFERRAL PROGRAM ENHANCEMENTS
+
+### Phase 1: Referral Links in UI
+- [x] Add "Refer & Earn" link to header account dropdown
+- [x] Add referral dashboard link to My Orders page
+- [x] Add referral stats widget to My Orders page
+
+### Phase 2: Checkout Integration
+- [x] Add referral credits display to checkout page
+- [x] Implement "Use Credits" toggle in payment section
+- [x] Add real-time total calculation with credits applied
+- [x] Update order creation to deduct used credits
+- [x] Mark credits as used in database
+
+### Phase 3: Automated Emails
+- [x] Create email template for "Friend signed up"
+- [x] Create email template for "You earned $10"
+- [x] Create email template for "Share reminder" (30 days idle)
+- [x] Implement email sending on referral signup (via owner notification)
+- [x] Implement email sending on referral completion
+- [ ] Create scheduled job for idle credit reminders (requires cron setup)

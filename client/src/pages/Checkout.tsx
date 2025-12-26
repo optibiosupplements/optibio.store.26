@@ -23,6 +23,7 @@ import {
   Shield,
   ArrowLeft,
   ArrowRight,
+  Gift,
 } from "lucide-react";
 import { formatPrice, SHIPPING_THRESHOLD_CENTS, STANDARD_SHIPPING_CENTS, TAX_RATE } from "@/const";
 import { trpc } from "@/lib/trpc";
@@ -41,6 +42,7 @@ export default function Checkout() {
   const [, setLocation] = useLocation();
   const [step, setStep] = useState(1);
   const [sameAsShipping, setSameAsShipping] = useState(true);
+  const [useReferralCredits, setUseReferralCredits] = useState(false);
   const [subscriptionData, setSubscriptionData] = useState<{
     clientSecret: string;
     productName: string;
@@ -74,6 +76,7 @@ export default function Checkout() {
   });
 
   const { data: cartItems, isLoading } = trpc.cart.get.useQuery();
+  const { data: referralStats } = trpc.referral.getMyReferralStats.useQuery();
   const utils = trpc.useUtils();
 
   const createOrderMutation = trpc.orders.create.useMutation({
@@ -94,7 +97,12 @@ export default function Checkout() {
 
   const shipping = subtotal >= SHIPPING_THRESHOLD_CENTS ? 0 : STANDARD_SHIPPING_CENTS;
   const tax = Math.round(subtotal * TAX_RATE);
-  const total = subtotal + shipping + tax;
+  const subtotalWithShippingAndTax = subtotal + shipping + tax;
+  
+  // Apply referral credits
+  const availableCredits = Number(referralStats?.availableCredits || 0);
+  const creditsToApply = useReferralCredits ? Math.min(availableCredits, subtotalWithShippingAndTax) : 0;
+  const total = subtotalWithShippingAndTax - creditsToApply;
 
   const handleShippingChange = (field: string, value: string) => {
     setShippingData(prev => ({ ...prev, [field]: value }));
@@ -202,6 +210,7 @@ export default function Checkout() {
       toast.info("Redirecting to secure checkout...");
       createCheckoutMutation.mutate({
         items: orderItems,
+        creditsToApply: creditsToApply,
       });
     }
   };
@@ -610,6 +619,40 @@ export default function Checkout() {
                       <span>Tax</span>
                       <span className="font-semibold">{formatPrice(tax)}</span>
                     </div>
+
+                    {/* Referral Credits Toggle */}
+                    {availableCredits > 0 && (
+                      <div className="pt-3 border-t border-slate-200">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-2">
+                            <Checkbox
+                              id="use-credits"
+                              checked={useReferralCredits}
+                              onCheckedChange={(checked) => setUseReferralCredits(checked as boolean)}
+                            />
+                            <Label
+                              htmlFor="use-credits"
+                              className="text-sm font-medium cursor-pointer flex items-center gap-2"
+                            >
+                              <Gift className="w-4 h-4 text-[#C9A961]" />
+                              Use Referral Credits
+                            </Label>
+                          </div>
+                        </div>
+                        <div className="ml-6 text-xs text-slate-600">
+                          {formatPrice(availableCredits)} available
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Credits Applied */}
+                    {creditsToApply > 0 && (
+                      <div className="flex justify-between text-[#C9A961] font-semibold">
+                        <span>Credits Applied</span>
+                        <span>-{formatPrice(creditsToApply)}</span>
+                      </div>
+                    )}
+
                     <div className="pt-3 border-t-2 border-slate-200">
                       <div className="flex justify-between items-baseline">
                         <span className="text-lg font-semibold text-slate-900">Total</span>

@@ -3,7 +3,7 @@ import { getLoginUrl } from "@/const";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
-import { Package, Truck, CheckCircle2, Clock, ArrowLeft, Loader2, ShoppingBag, ChevronRight } from "lucide-react";
+import { Package, Truck, CheckCircle2, Clock, ArrowLeft, Loader2, ShoppingBag, ChevronRight, Gift, DollarSign } from "lucide-react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -22,6 +22,11 @@ export default function MyOrders() {
 
   // Fetch user's orders
   const { data: orders, isLoading: ordersLoading } = trpc.orders.list.useQuery(undefined, {
+    enabled: !!user,
+  });
+
+  // Fetch referral stats
+  const { data: referralStats } = trpc.referral.getMyReferralStats.useQuery(undefined, {
     enabled: !!user,
   });
 
@@ -248,6 +253,63 @@ export default function MyOrders() {
           <h1 className="text-4xl font-bold text-slate-900 mb-2">My Orders</h1>
           <p className="text-slate-600">View and track your OptiBio orders</p>
         </div>
+
+        {/* Referral Stats Widget */}
+        {referralStats && Number(referralStats.availableCredits) > 0 && (
+          <Card className="mb-6 border-2 border-[#C9A961]/30 bg-gradient-to-r from-[#F7F4EF] to-white shadow-lg">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-[#C9A961]/20 flex items-center justify-center">
+                    <Gift className="w-6 h-6 text-[#C9A961]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">You have referral credits!</h3>
+                    <p className="text-sm text-slate-600">
+                      <span className="font-semibold text-[#C9A961]">${(Number(referralStats.availableCredits) / 100).toFixed(2)}</span> available to use on your next order
+                    </p>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => setLocation("/referral")}
+                  className="bg-[#C9A961] hover:bg-[#B89651] text-white"
+                >
+                  <Gift className="mr-2 h-4 w-4" />
+                  View Referral Dashboard
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Referral CTA for users without credits */}
+        {referralStats && Number(referralStats.availableCredits) === 0 && (
+          <Card className="mb-6 border-2 border-[#1E3A5F]/20 bg-gradient-to-r from-slate-50 to-white">
+            <CardContent className="p-6">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full bg-[#1E3A5F]/10 flex items-center justify-center">
+                    <DollarSign className="w-6 h-6 text-[#1E3A5F]" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1">Refer friends, earn $10 credit</h3>
+                    <p className="text-sm text-slate-600">
+                      Share OptiBio with friends and get $10 for each successful referral
+                    </p>
+                  </div>
+                </div>
+                <Button
+                  onClick={() => setLocation("/referral")}
+                  variant="outline"
+                  className="border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white"
+                >
+                  <Gift className="mr-2 h-4 w-4" />
+                  Start Referring
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        )}
 
         {!orders || orders.length === 0 ? (
           <Card className="border-2 border-slate-200 shadow-xl">

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { ShoppingCart, Menu, X, User } from "lucide-react";
+import { ShoppingCart, Menu, X, User, Gift, Package, LogOut, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { APP_LOGO, getLoginUrl } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -10,6 +10,14 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,10 +78,42 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             {/* Account */}
             {isAuthenticated ? (
-              <Link href="/my-orders" className="hidden md:flex items-center space-x-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
-                <User className="h-5 w-5" />
-                <span>{user?.name || "Account"}</span>
-              </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" className="hidden md:flex items-center space-x-2 text-sm font-medium">
+                    <User className="h-5 w-5" />
+                    <span>{user?.name || "Account"}</span>
+                    <ChevronDown className="h-4 w-4" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/my-orders" className="flex items-center cursor-pointer">
+                      <Package className="mr-2 h-4 w-4" />
+                      <span>My Orders</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/referral" className="flex items-center cursor-pointer">
+                      <Gift className="mr-2 h-4 w-4" />
+                      <span>Refer & Earn</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    onClick={() => {
+                      trpc.auth.logout.useMutation().mutate();
+                      window.location.href = "/";
+                    }}
+                    className="cursor-pointer"
+                  >
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Sign Out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             ) : (
               <a
                 href={getLoginUrl()}
