@@ -46,6 +46,9 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="space-y-4">
             <img src={APP_LOGO} alt="OptiBio" className="h-10 w-auto" />
+            <div className="mb-2">
+              <span className="text-lg font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>OptiBio<sup className="text-xs">®</sup> Supplements</span>
+            </div>
             <p className="text-sm text-muted-foreground">
               Premium KSM-66® Ashwagandha backed by clinical research. 
               Supporting stress management and overall wellness naturally.
@@ -140,7 +143,7 @@ export default function Footer() {
         <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} OptiBio. All rights reserved.
+              © {new Date().getFullYear()} OptiBio® Supplements. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

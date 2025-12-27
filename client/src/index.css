@@ -435,3 +435,119 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #4A6352, #7C9885);
 }
+
+
+/* Premium UI Enhancements */
+
+/* Subtle hover animations for cards */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(30, 58, 95, 0.15);
+}
+
+/* Premium button gradients with shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.btn-premium {
+  background: linear-gradient(
+    90deg,
+    #C9A961 0%,
+    #F7F4EF 50%,
+    #C9A961 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px -4px rgba(201, 169, 97, 0.4);
+}
+
+/* Smooth section transitions */
+.section-fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium card depth with subtle borders */
+.card-premium {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F7F4EF 100%);
+  border: 1px solid rgba(201, 169, 97, 0.15);
+  box-shadow: 0 4px 12px -2px rgba(30, 58, 95, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card-premium:hover {
+  border-color: rgba(201, 169, 97, 0.3);
+  box-shadow: 0 8px 20px -4px rgba(30, 58, 95, 0.12);
+}
+
+/* Gold accent glow effect */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
+}
+
+/* Improved line height for readability */
+p {
+  line-height: 1.7;
+}
+
+/* Premium focus states */
+*:focus-visible {
+  outline: 2px solid #C9A961;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+select,
+textarea {
+  transition: all 0.2s ease;
+}
+
+/* Enhanced mobile touch feedback */
+@media (hover: none) {
+  button:active,
+  a:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Premium gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #1E3A5F 0%, #C9A961 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle backdrop blur for modals */
+.backdrop-premium {
+  backdrop-filter: blur(12px);
+  background: rgba(30, 58, 95, 0.1);
+}

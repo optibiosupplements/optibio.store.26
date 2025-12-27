@@ -33,6 +33,7 @@ import ProductSchema from "@/components/ProductSchema";
 import ProductReviews from "@/components/ProductReviews";
 import SubscriptionToggle from "@/components/SubscriptionToggle";
 import StickyAddToCart from "@/components/StickyAddToCart";
+import UrgencyIndicators from "@/components/UrgencyIndicators";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:slug");
@@ -420,6 +421,12 @@ export default function ProductDetail() {
                   </div>
                 </div>
               </div>
+
+              {/* Urgency Indicators */}
+              <UrgencyIndicators 
+                productId={product.id} 
+                variantId={selectedVariant || product.variants[0]?.id}
+              />
 
               {/* Key Benefits */}
               <Card className="border-2 border-slate-200">

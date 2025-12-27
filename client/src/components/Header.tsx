@@ -60,7 +60,7 @@ export default function Header() {
           <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
             <img src={APP_LOGO} alt="OptiBio" className="h-[70px] w-auto" />
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>OptiBio</span>
+              <span className="text-2xl font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>OptiBio<sup className="text-xs">®</sup> <span className="text-lg font-semibold">Supplements</span></span>
               <span className="text-xs text-muted-foreground hidden sm:block">Science-Backed Wellness</span>
             </div>
           </Link>
