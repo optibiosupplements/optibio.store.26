@@ -398,5 +398,32 @@ export const referralCredits = mysqlTable("referralCredits", {
 export type ReferralCredit = typeof referralCredits.$inferSelect;
 export type InsertReferralCredit = typeof referralCredits.$inferInsert;
 
+/**
+ * Abandoned carts - tracks carts that were not completed
+ * Used for cart recovery email campaigns
+ */
+export const abandonedCarts = mysqlTable("abandonedCarts", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId"), // Null for guest users
+  sessionId: varchar("sessionId", { length: 255 }), // For guest tracking
+  email: varchar("email", { length: 320 }), // Collected email for recovery
+  cartData: text("cartData").notNull(), // JSON snapshot of cart items
+  totalValue: int("totalValue").notNull(), // Total cart value in cents
+  recoveryToken: varchar("recoveryToken", { length: 100 }).unique(), // Unique token for recovery link
+  // Email tracking
+  firstEmailSentAt: timestamp("firstEmailSentAt"),
+  secondEmailSentAt: timestamp("secondEmailSentAt"),
+  thirdEmailSentAt: timestamp("thirdEmailSentAt"),
+  // Recovery tracking
+  isRecovered: boolean("isRecovered").default(false),
+  recoveredAt: timestamp("recoveredAt"),
+  recoveredOrderId: int("recoveredOrderId"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type AbandonedCart = typeof abandonedCarts.$inferSelect;
+export type InsertAbandonedCart = typeof abandonedCarts.$inferInsert;
+
 // Pre-Sale System Tables
 export * from "./presale-schema";

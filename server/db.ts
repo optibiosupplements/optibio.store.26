@@ -1,5 +1,6 @@
-import { eq, and, desc, sql } from "drizzle-orm";
+import { eq, and, lt, isNull, isNotNull, desc, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
+import { randomBytes } from "crypto";
 import { 
   InsertUser, 
   users, 
@@ -10,7 +11,10 @@ import {
   orders,
   orderItems,
   discountCodes,
-  subscriptions
+  subscriptions,
+  abandonedCarts,
+  InsertAbandonedCart,
+  AbandonedCart
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -387,4 +391,148 @@ export async function updateSubscriptionBillingDates(
       nextBillingDate,
     })
     .where(eq(subscriptions.stripeSubscriptionId, stripeSubscriptionId));
+}
+
+
+/**
+ * Abandoned Cart Helper Functions
+ */
+
+/**
+ * Generate a unique recovery token for cart recovery links
+ */
+export function generateRecoveryToken(): string {
+  return randomBytes(32).toString("hex");
+}
+
+/**
+ * Create an abandoned cart record
+ */
+export async function createAbandonedCart(data: InsertAbandonedCart): Promise<AbandonedCart | null> {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create abandoned cart: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.insert(abandonedCarts).values(data);
+    const insertId = result[0].insertId;
+    
+    // Fetch and return the created record
+    const created = await db.select().from(abandonedCarts).where(eq(abandonedCarts.id, insertId)).limit(1);
+    return created[0] || null;
+  } catch (error) {
+    console.error("[Database] Failed to create abandoned cart:", error);
+    return null;
+  }
+}
+
+/**
+ * Get abandoned cart by recovery token
+ */
+export async function getAbandonedCartByToken(token: string): Promise<AbandonedCart | null> {
+  const db = await getDb();
+  if (!db) return null;
+
+  try {
+    const result = await db.select().from(abandonedCarts)
+      .where(eq(abandonedCarts.recoveryToken, token))
+      .limit(1);
+    return result[0] || null;
+  } catch (error) {
+    console.error("[Database] Failed to get abandoned cart by token:", error);
+    return null;
+  }
+}
+
+/**
+ * Update abandoned cart email sent timestamps
+ */
+export async function updateAbandonedCartEmailSent(
+  id: number,
+  emailNumber: 1 | 2 | 3
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    const field = emailNumber === 1 ? "firstEmailSentAt" :
+                  emailNumber === 2 ? "secondEmailSentAt" :
+                  "thirdEmailSentAt";
+    
+    await db.update(abandonedCarts)
+      .set({ [field]: new Date() })
+      .where(eq(abandonedCarts.id, id));
+    
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to update abandoned cart email sent:", error);
+    return false;
+  }
+}
+
+/**
+ * Mark abandoned cart as recovered
+ */
+export async function markAbandonedCartRecovered(
+  id: number,
+  orderId: number
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    await db.update(abandonedCarts)
+      .set({
+        isRecovered: true,
+        recoveredAt: new Date(),
+        recoveredOrderId: orderId,
+      })
+      .where(eq(abandonedCarts.id, id));
+    
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to mark abandoned cart as recovered:", error);
+    return false;
+  }
+}
+
+/**
+ * Get abandoned carts that need email follow-ups
+ * Returns carts where:
+ * - Not recovered
+ * - Email not sent yet based on time elapsed
+ */
+export async function getAbandonedCartsForEmail(emailNumber: 1 | 2 | 3): Promise<AbandonedCart[]> {
+  const db = await getDb();
+  if (!db) return [];
+
+  try {
+    const now = new Date();
+    const hoursAgo = emailNumber === 1 ? 1 : emailNumber === 2 ? 24 : 48;
+    const cutoffTime = new Date(now.getTime() - hoursAgo * 60 * 60 * 1000);
+
+    // Build conditions based on which email we're sending
+    let conditions = [
+      eq(abandonedCarts.isRecovered, false),
+      lt(abandonedCarts.createdAt, cutoffTime)
+    ];
+
+    if (emailNumber === 1) {
+      conditions.push(isNull(abandonedCarts.firstEmailSentAt));
+    } else if (emailNumber === 2) {
+      conditions.push(isNotNull(abandonedCarts.firstEmailSentAt));
+      conditions.push(isNull(abandonedCarts.secondEmailSentAt));
+    } else {
+      conditions.push(isNotNull(abandonedCarts.secondEmailSentAt));
+      conditions.push(isNull(abandonedCarts.thirdEmailSentAt));
+    }
+
+    return await db.select().from(abandonedCarts)
+      .where(and(...conditions));
+  } catch (error) {
+    console.error("[Database] Failed to get abandoned carts for email:", error);
+    return [];
+  }
 }

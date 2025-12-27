@@ -15,9 +15,11 @@ import { reviewsRouter } from "./routers/reviews";
 import { newsletterRouter } from "./routers/newsletter";
 import { referralRouter } from "./routers/referral";
 import { subscriptionsRouter } from "./routers/subscriptions";
+import { abandonedCartRouter } from "./routers/abandoned-cart";
 
 export const appRouter = router({
   system: systemRouter,
+  abandonedCart: abandonedCartRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

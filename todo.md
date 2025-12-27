@@ -1363,18 +1363,18 @@
 ## 🚀 E-COMMERCE OPTIMIZATION - Expert Panel Recommendations
 
 ### Priority 0 - Launch Blockers
-- [ ] Add sticky "Add to Cart" button (appears on scroll)
-- [ ] Simplify pricing from 3 tiers to 2 with "Most Popular" badge
-- [ ] Install Facebook Pixel for retargeting
-- [ ] Install Google Analytics 4 + Google Ads tracking
+- [x] Add sticky "Add to Cart" button (appears on scroll)
+- [x] Simplify pricing from 3 tiers to 2 with "Most Popular" badge
+- [x] Install Facebook Pixel for retargeting
+- [x] Install Google Analytics 4 + Google Ads tracking
 - [ ] Add database transactions for order creation
 - [ ] Implement rate limiting on API endpoints
 
 ### Priority 1 - High-Impact Optimizations
-- [ ] Make "Subscribe & Save 20%" the default, prominent option on product pages
-- [ ] Build abandoned cart recovery system (3-email sequence)
-- [ ] Add 3-month bundle option (180 capsules)
-- [ ] Add 6-month bundle option (270 capsules)
+- [x] Make "Subscribe & Save 20%" the default, prominent option on product pages
+- [x] Build abandoned cart recovery system (3-email sequence)
+- [x] Add 3-month bundle option (180 capsules)
+- [x] Add 6-month bundle option (270 capsules)
 - [ ] Optimize mobile experience (hero text, images, testimonials)
 - [ ] Analyze and improve overall UI/design aesthetics for premium feel
 - [ ] Add urgency indicators ("Only X left in stock")
@@ -1388,8 +1388,8 @@
 - [ ] Day 90: Subscribe & Save conversion offer
 
 ### Revenue Killer Fixes
-- [ ] Fix #1: Sticky add-to-cart (stop losing 15-20% of ready buyers)
-- [ ] Fix #2: Subscription prominence (unlock 3x lifetime value)
-- [ ] Fix #3: Cart abandonment recovery (stop bleeding revenue)
-- [ ] Fix #4: Product bundles (increase AOV from $49.99)
+- [x] Fix #1: Sticky add-to-cart (stop losing 15-20% of ready buyers)
+- [x] Fix #2: Subscription prominence (unlock 3x lifetime value)
+- [x] Fix #3: Cart abandonment recovery (stop bleeding revenue)
+- [x] Fix #4: Product bundles (increase AOV from $49.99)
 - [ ] Fix #5: Post-purchase funnel (get 70% to reorder)
