@@ -428,10 +428,10 @@
 
 ---
 
-## 🔧 DIALOG CLOSE BUTTON FIX
+## 🔧 DIALOG CLOSE BUTTON FIX V2
 
-- [x] Remove gold border/box styling from dialog close button
-- [x] Make close button clean and minimal (standard X icon)
-- [x] Ensure close button is in upper right corner
+- [x] Revert previous dialog close button changes (restore original gold border)
+- [x] Center the X icon within the gold border (instead of left-aligned)
+- [x] Ensure only one X button appears
 - [ ] Test dialog appearance
 - [ ] Save checkpoint
