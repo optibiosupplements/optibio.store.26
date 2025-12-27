@@ -160,12 +160,12 @@ export default function Home() {
                   <span className="text-5xl font-bold text-[#2D2D2D]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$49.99'}</span>
                   <span className="text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
                   <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1">
-                    Save 29%
+                    Save 46%
                   </Badge>
                 </div>
                 <p className="text-sm text-[#1E3A5F] mb-4 flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-[#C9A961]" />
-                  <span className="font-semibold">Limited Time:</span> Save 29% on your first order
+                  <span className="font-semibold">Pre-Order Special:</span> Save 46% • Ships Jan 20-27, 2026
                 </p>
                 <div className="flex items-center gap-2 text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
                   <span className="animate-pulse text-amber-600">⏱️</span>
@@ -180,7 +180,7 @@ export default function Home() {
                     size="lg" 
                     className="w-full text-xl px-10 py-8 gold-shimmer text-[#2D2D2D] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300 hover:scale-105"
                   >
-                    Shop Now - Save 29%
+                    Pre-Order Now - Save 46%
                     <ArrowRight className="ml-2 w-6 h-6" />
                   </Button>
                 </Link>
@@ -693,7 +693,7 @@ export default function Home() {
                         size="lg" 
                         className="w-full text-lg py-6 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
                       >
-                        Shop Now - Save 29%
+                        Pre-Order Now - Save 46%
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </Button>
                     </Link>

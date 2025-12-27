@@ -255,7 +255,10 @@ export default function ProductDetail() {
             <div className="space-y-8">
               {/* Header */}
               <div className="space-y-4">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold">
+                    PRE-ORDER
+                  </Badge>
                   <Badge className="bg-gradient-to-r from-[#1E3A5F] to-[#B89651] text-white border-0">
                     Best Seller
                   </Badge>
@@ -274,6 +277,15 @@ export default function ProductDetail() {
                 <p className="text-xl text-slate-600 leading-relaxed">
                   {product.description || "Premium full-spectrum Ashwagandha root extract standardized to 5% withanolides. Clinically studied KSM-66® formula for stress management, mental clarity, and overall wellness."}
                 </p>
+
+                {/* Pre-Order Shipping Info */}
+                <div className="flex items-center gap-2 p-4 bg-amber-50 border-2 border-amber-200 rounded-xl">
+                  <Package className="w-5 h-5 text-amber-600 flex-shrink-0" />
+                  <div className="text-sm">
+                    <span className="font-bold text-amber-900">Ships Jan 20-27, 2026</span>
+                    <span className="text-amber-700 ml-2">• Pre-order closes Jan 20</span>
+                  </div>
+                </div>
 
                 {/* Price */}
                 <div className="flex items-baseline gap-4 pt-4">
