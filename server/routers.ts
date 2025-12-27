@@ -17,11 +17,13 @@ import { referralRouter } from "./routers/referral";
 import { subscriptionsRouter } from "./routers/subscriptions";
 import { abandonedCartRouter } from "./routers/abandoned-cart";
 import { postPurchaseRouter } from "./routers/post-purchase";
+import { analyticsRouter } from "./routers/analytics";
 
 export const appRouter = router({
   system: systemRouter,
   abandonedCart: abandonedCartRouter,
   postPurchase: postPurchaseRouter,
+  revenueAnalytics: analyticsRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

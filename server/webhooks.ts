@@ -238,6 +238,21 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
     });
     console.log("[Stripe Webhook] Owner notified of new order");
 
+    // Track purchase for post-purchase email funnel
+    try {
+      await db.createPostPurchaseEmailTracking({
+        orderId,
+        userId,
+        email: customerEmail,
+        productId: 1, // Default to first product
+        purchaseDate: new Date(),
+      });
+      console.log("[Stripe Webhook] Post-purchase email tracking created for order:", orderNumber);
+    } catch (error) {
+      console.error("[Stripe Webhook] Failed to create post-purchase tracking:", error);
+      // Don't throw - this is not critical to order completion
+    }
+
   } catch (error: any) {
     console.error("[Stripe Webhook] Error creating order:", error);
     throw error;
@@ -393,6 +408,19 @@ async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice) {
       content: `**Customer:** ${user.name} (${user.email})\n\n**Product:** OptiBio Ashwagandha KSM-66\n\n**Quantity:** ${subscription.quantity}\n\n**Amount:** $${(subscription.priceInCents / 100).toFixed(2)}\n\n**Next Billing:** ${nextBillingDate.toLocaleDateString()}`,
     });
     console.log("[Stripe Webhook] Owner notified of subscription renewal");
+
+    // Mark customer as subscribed in post-purchase tracking
+    try {
+      // Find the original order to mark as subscribed
+      const orders = await db.getOrdersByUser(subscription.userId);
+      if (orders.length > 0) {
+        const firstOrderId = orders[orders.length - 1].id; // Get first order
+        await db.markCustomerSubscribed(firstOrderId);
+        console.log("[Stripe Webhook] Marked customer as subscribed in post-purchase tracking");
+      }
+    } catch (error) {
+      console.error("[Stripe Webhook] Failed to mark customer as subscribed:", error);
+    }
 
   } catch (error: any) {
     console.error("[Stripe Webhook] Error processing invoice:", error);

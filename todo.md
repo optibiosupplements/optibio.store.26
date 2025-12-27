@@ -1449,3 +1449,25 @@
 - [x] Build email scheduler script
 - [x] Set up automated scheduling (daily checks at 10am)
 - [x] Test email sequencing logic
+
+
+## 📊 ORDER TRACKING & ANALYTICS DASHBOARD
+
+### Order Tracking Integration
+- [x] Find checkout completion flow in codebase
+- [x] Add post-purchase tracking to webhook handler
+- [x] Pass orderId, userId, email, productId, purchaseDate
+- [x] Added tracking for both one-time and subscription orders
+- [x] Mark customers as subscribed when subscription renews
+
+### Analytics Dashboard
+- [x] Create admin-only analytics page
+- [x] Add cart abandonment recovery metrics
+- [x] Add post-purchase email performance metrics
+- [x] Add reorder rate tracking
+- [x] Add subscription conversion tracking
+- [x] Add revenue impact calculations
+- [x] Create data visualization cards
+- [x] Add insights and recommendations
+- [x] Add route to App.tsx (/admin/revenue)
+- [x] Complete tRPC API with all metrics

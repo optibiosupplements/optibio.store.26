@@ -27,6 +27,7 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Referral from "./pages/Referral";
 import CartRecover from "./pages/CartRecover";
+import Analytics from "./pages/Analytics";
 
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
@@ -51,6 +52,7 @@ function Router() {
           <Route path="/my-orders" component={MyOrders} />
           <Route path="/account/subscriptions" component={Subscriptions} />
           <Route path="/admin/analytics" component={AdminAnalytics} />
+          <Route path="/admin/revenue" component={Analytics} />
           <Route path="/privacy" component={Privacy} />
           <Route path="/terms" component={Terms} />
           <Route path="/shipping" component={Shipping} />
