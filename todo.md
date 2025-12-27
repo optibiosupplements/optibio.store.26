@@ -1326,3 +1326,35 @@
 - [x] Implement email sending on referral signup (via owner notification)
 - [x] Implement email sending on referral completion
 - [ ] Create scheduled job for idle credit reminders (requires cron setup)
+
+
+## 📊 SUBSCRIPTION MANAGEMENT DASHBOARD
+
+### Backend & Database
+- [x] Create tRPC procedures for subscription queries (list, get details)
+- [x] Add procedure for updating payment method
+- [x] Add procedure for pausing/resuming subscription
+- [x] Add procedure for canceling subscription
+- [x] Add procedure for skip next delivery
+- [x] Add procedure for Stripe billing portal access
+
+### Frontend UI
+- [x] Create /account/subscriptions page component
+- [x] Display active subscriptions with product details
+- [x] Show next delivery date and billing cycle
+- [x] Add payment method update via Stripe billing portal
+- [x] Add pause/resume delivery controls
+- [x] Add skip next delivery feature
+- [x] Add subscription cancellation flow with confirmation
+- [x] Integrated with existing UI (already existed, enhanced backend)
+
+## 💬 LIVE CHAT SUPPORT WIDGET
+
+### Integration
+- [x] Choose chat provider (Crisp - free tier available)
+- [x] Add Crisp chat component to app
+- [x] Create setup instructions document (CRISP_CHAT_SETUP.md)
+- [x] Add chat widget site-wide (appears on all pages)
+- [x] Provide programmatic control functions
+- [x] Document user data integration for logged-in users
+- [ ] User needs to sign up for Crisp and add website ID to activate

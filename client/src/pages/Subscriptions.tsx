@@ -42,8 +42,8 @@ export default function Subscriptions() {
       utils.subscriptions.list.invalidate();
       toast.success("Subscription paused successfully");
     },
-    onError: () => {
-      toast.error("Failed to pause subscription");
+    onError: (error) => {
+      toast.error(error.message || "Failed to pause subscription");
     },
   });
 
@@ -52,13 +52,13 @@ export default function Subscriptions() {
       utils.subscriptions.list.invalidate();
       toast.success("Subscription resumed successfully");
     },
-    onError: () => {
-      toast.error("Failed to resume subscription");
+    onError: (error) => {
+      toast.error(error.message || "Failed to resume subscription");
     },
   });
 
   const skipMutation = trpc.subscriptions.skipNextDelivery.useMutation({
-    onSuccess: (data) => {
+    onSuccess: (data: { success: boolean; newBillingDate: Date }) => {
       utils.subscriptions.list.invalidate();
       const newDate = new Date(data.newBillingDate).toLocaleDateString();
       toast.success(`Next delivery skipped! New billing date: ${newDate}`);
@@ -73,14 +73,15 @@ export default function Subscriptions() {
       utils.subscriptions.list.invalidate();
       toast.success("Subscription will be cancelled at the end of the billing period");
       setCancelDialogOpen(false);
+      setSelectedSubscriptionId(null);
     },
-    onError: () => {
-      toast.error("Failed to cancel subscription");
+    onError: (error) => {
+      toast.error(error.message || "Failed to cancel subscription");
     },
   });
 
   const portalMutation = trpc.subscriptions.createPortalSession.useMutation({
-    onSuccess: (data) => {
+    onSuccess: (data: { url: string }) => {
       window.location.href = data.url;
     },
     onError: () => {
@@ -88,26 +89,26 @@ export default function Subscriptions() {
     },
   });
 
-  const handlePause = (subscriptionId: string) => {
-    pauseMutation.mutate({ subscriptionId });
+  const handlePause = (subscriptionId: string, id: number) => {
+    pauseMutation.mutate({ id });
   };
 
-  const handleResume = (subscriptionId: string) => {
-    resumeMutation.mutate({ subscriptionId });
+  const handleResume = (subscriptionId: string, id: number) => {
+    resumeMutation.mutate({ id });
   };
 
   const handleSkip = (subscriptionId: string) => {
     skipMutation.mutate({ subscriptionId });
   };
 
-  const handleCancelClick = (subscriptionId: string) => {
-    setSelectedSubscriptionId(subscriptionId);
+  const handleCancelClick = (subscriptionId: string, id: number) => {
+    setSelectedSubscriptionId(id.toString());
     setCancelDialogOpen(true);
   };
 
   const handleCancelConfirm = () => {
     if (selectedSubscriptionId) {
-      cancelMutation.mutate({ subscriptionId: selectedSubscriptionId });
+      cancelMutation.mutate({ id: parseInt(selectedSubscriptionId) });
     }
   };
 
@@ -188,7 +189,7 @@ export default function Subscriptions() {
           </Card>
         ) : (
           <div className="space-y-6">
-            {subscriptions.map((subscription) => {
+            {subscriptions.map(({ subscription, plan, product, variant }) => {
               const nextBilling = new Date(subscription.nextBillingDate);
               const isActive = subscription.status === "active";
               const isPaused = subscription.status === "paused";
@@ -253,7 +254,7 @@ export default function Subscriptions() {
                         <>
                           <Button
                             variant="outline"
-                            onClick={() => handleSkip(subscription.stripeSubscriptionId!)}
+                            onClick={() => handleSkip(subscription.stripeSubscriptionId || '')}
                             disabled={skipMutation.isPending}
                             className="border-[#C9A961]/30 hover:bg-[#F7F4EF] hover:border-[#C9A961]/40"
                           >
@@ -267,7 +268,7 @@ export default function Subscriptions() {
 
                           <Button
                             variant="outline"
-                            onClick={() => handlePause(subscription.stripeSubscriptionId!)}
+                            onClick={() => handlePause(subscription.stripeSubscriptionId || '', subscription.id)}
                             disabled={pauseMutation.isPending}
                           >
                             {pauseMutation.isPending ? (
@@ -280,7 +281,7 @@ export default function Subscriptions() {
 
                           <Button
                             variant="outline"
-                            onClick={() => handleCancelClick(subscription.stripeSubscriptionId!)}
+                            onClick={() => handleCancelClick(subscription.stripeSubscriptionId || '', subscription.id)}
                             className="text-red-600 border-red-200 hover:bg-red-50 hover:border-red-300"
                           >
                             <XCircle className="w-4 h-4 mr-2" />
@@ -292,7 +293,7 @@ export default function Subscriptions() {
                       {isPaused && (
                         <Button
                           variant="default"
-                          onClick={() => handleResume(subscription.stripeSubscriptionId!)}
+                          onClick={() => handleResume(subscription.stripeSubscriptionId || '', subscription.id)}
                           disabled={resumeMutation.isPending}
                         >
                           {resumeMutation.isPending ? (

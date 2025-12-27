@@ -30,6 +30,7 @@ import Referral from "./pages/Referral";
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
 import SkipNav from "./components/SkipNav";
+import CrispChat from "./components/CrispChat";
 
 function Router() {
   return (
@@ -72,11 +73,14 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="light">
+      <ThemeProvider
+        defaultTheme="light"
+      >
         <TooltipProvider>
           <Toaster />
-          <EmailCaptureModal />
           <Router />
+          <EmailCaptureModal />
+          <CrispChat websiteId="YOUR_WEBSITE_ID" />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

@@ -14,6 +14,7 @@ import { getReservationConfirmationEmail } from "./email-templates";
 import { reviewsRouter } from "./routers/reviews";
 import { newsletterRouter } from "./routers/newsletter";
 import { referralRouter } from "./routers/referral";
+import { subscriptionsRouter } from "./routers/subscriptions";
 
 export const appRouter = router({
   system: systemRouter,
@@ -503,127 +504,6 @@ export const appRouter = router({
     }),
   }),
 
-  // Subscription management
-  subscriptions: router({
-    list: protectedProcedure.query(async ({ ctx }) => {
-      return db.getSubscriptionsByUser(ctx.user.id);
-    }),
-
-    pause: protectedProcedure
-      .input(z.object({ subscriptionId: z.string() }))
-      .mutation(async ({ ctx, input }) => {
-        const subscription = await db.getSubscriptionByStripeId(input.subscriptionId);
-        if (!subscription || subscription.userId !== ctx.user.id) {
-          throw new TRPCError({ code: "FORBIDDEN", message: "Subscription not found" });
-        }
-
-        // Pause subscription in Stripe
-        await stripe.subscriptions.update(input.subscriptionId, {
-          pause_collection: { behavior: "void" },
-        });
-
-        // Update database
-        await db.updateSubscriptionStatus(input.subscriptionId, "paused");
-
-        return { success: true };
-      }),
-
-    resume: protectedProcedure
-      .input(z.object({ subscriptionId: z.string() }))
-      .mutation(async ({ ctx, input }) => {
-        const subscription = await db.getSubscriptionByStripeId(input.subscriptionId);
-        if (!subscription || subscription.userId !== ctx.user.id) {
-          throw new TRPCError({ code: "FORBIDDEN", message: "Subscription not found" });
-        }
-
-        // Resume subscription in Stripe
-        await stripe.subscriptions.update(input.subscriptionId, {
-          pause_collection: null,
-        });
-
-        // Update database
-        await db.updateSubscriptionStatus(input.subscriptionId, "active");
-
-        return { success: true };
-      }),
-
-    cancel: protectedProcedure
-      .input(z.object({ subscriptionId: z.string() }))
-      .mutation(async ({ ctx, input }) => {
-        const subscription = await db.getSubscriptionByStripeId(input.subscriptionId);
-        if (!subscription || subscription.userId !== ctx.user.id) {
-          throw new TRPCError({ code: "FORBIDDEN", message: "Subscription not found" });
-        }
-
-        // Cancel subscription in Stripe (at period end)
-        await stripe.subscriptions.update(input.subscriptionId, {
-          cancel_at_period_end: true,
-        });
-
-        // Update database
-        await db.updateSubscriptionStatus(input.subscriptionId, "cancelled");
-
-        return { success: true };
-      }),
-
-    skipNextDelivery: protectedProcedure
-      .input(z.object({ subscriptionId: z.string() }))
-      .mutation(async ({ ctx, input }) => {
-        const subscription = await db.getSubscriptionByStripeId(input.subscriptionId);
-        if (!subscription || subscription.userId !== ctx.user.id) {
-          throw new TRPCError({ code: "FORBIDDEN", message: "Subscription not found" });
-        }
-
-        // Get the Stripe subscription
-        const response = await stripe.subscriptions.retrieve(input.subscriptionId);
-        const stripeSubscription = response as any; // Type assertion for Stripe SDK
-        
-        // Calculate new billing date (skip one cycle = add 1 month to current period end)
-        const currentPeriodEnd = stripeSubscription.current_period_end;
-        const skipToTimestamp = currentPeriodEnd + (30 * 24 * 60 * 60); // Add ~30 days
-        
-        // Use trial_end to skip the next billing cycle
-        // This extends the current period without charging
-        await stripe.subscriptions.update(input.subscriptionId, {
-          trial_end: skipToTimestamp,
-          proration_behavior: "none",
-        });
-
-        const newBillingDate = new Date(skipToTimestamp * 1000);
-        const currentPeriodEndDate = new Date(currentPeriodEnd * 1000);
-
-        // Update database with new billing date
-        await db.updateSubscriptionBillingDates(
-          input.subscriptionId,
-          currentPeriodEndDate,
-          newBillingDate
-        );
-
-        return { success: true, newBillingDate };
-      }),
-
-    createPortalSession: protectedProcedure.mutation(async ({ ctx }) => {
-      // Get user's subscriptions to find their Stripe customer ID
-      const subscriptions = await db.getSubscriptionsByUser(ctx.user.id);
-      if (subscriptions.length === 0) {
-        throw new TRPCError({ code: "NOT_FOUND", message: "No subscriptions found" });
-      }
-
-      const customerId = subscriptions[0].stripeCustomerId;
-      if (!customerId) {
-        throw new TRPCError({ code: "NOT_FOUND", message: "No Stripe customer found" });
-      }
-
-      const origin = ctx.req.headers.origin || "http://localhost:3000";
-      const session = await stripe.billingPortal.sessions.create({
-        customer: customerId,
-        return_url: `${origin}/account/subscriptions`,
-      });
-
-      return { url: session.url };
-    }),
-  }),
-
   // Batch verification
   batches: router({
     verify: publicProcedure
@@ -690,6 +570,9 @@ export const appRouter = router({
 
   // Referral Program
   referral: referralRouter,
+
+  // Subscriptions
+  subscriptions: subscriptionsRouter,
 });
 
 export type AppRouter = typeof appRouter;
