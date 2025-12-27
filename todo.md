@@ -500,3 +500,14 @@ ROOT CAUSE: EmailCaptureModal has its own custom close button (lines 85-91) whic
 - [x] Replaced favicon.png with proper transparent version
 - [x] Test favicon looks clean and premium in browser tabs (verified - no black background)
 - [ ] Save checkpoint
+
+
+---
+
+## 🎨 FAVICON ICO FORMAT FIX
+
+- [x] Convert PNG to ICO format (browsers prefer .ico)
+- [x] Update HTML with cache busting parameter (?v=2)
+- [x] Generated multi-size ICO (16x16, 32x32, 48x48)
+- [x] Verify transparent background displays correctly (confirmed working)
+- [ ] Save checkpoint
