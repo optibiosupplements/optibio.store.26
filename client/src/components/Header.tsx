@@ -38,10 +38,10 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // P1 FIX: Reduced navigation items from 5 to 4 (Hick's Law - reduce choices)
   const navigation = [
     { name: "Shop", href: "/shop" },
     { name: "Science", href: "/science" },
-    { name: "Blog", href: "/blog" },
     { name: "About", href: "/about" },
     { name: "FAQ", href: "/faq" },
   ];

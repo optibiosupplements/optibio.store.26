@@ -22,6 +22,7 @@ import { trpc } from "@/lib/trpc";
 import WellnessPlanPersonalizer from "@/components/WellnessPlanPersonalizer";
 
 import { SocialProofCounter } from "@/components/SocialProofCounter";
+import CountdownTimer from "@/components/CountdownTimer";
 import StickyAddToCart from "@/components/StickyAddToCart";
 
 export default function Home() {
@@ -117,9 +118,9 @@ export default function Home() {
         </div>
         
         <div className="container relative z-10 py-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left Column - Copy */}
-            <div className="space-y-10 animate-fade-in">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            {/* Left Column - Copy - P0 FIX: Reduced spacing on mobile */}
+            <div className="space-y-6 lg:space-y-10 animate-fade-in order-2 lg:order-1">
               <div className="space-y-6">
                 <Badge 
                   className="text-sm font-bold px-5 py-2 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] text-white border-0 shadow-navy"
@@ -141,59 +142,56 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Trust Indicators */}
+              {/* Trust Indicators - P0 FIX: Increased icon size for visibility */}
               <div className="flex flex-wrap gap-6 text-base">
                 {certifications.slice(0, 3).map((cert, i) => (
                   <div key={i} className="flex items-center gap-3 text-[#1E3A5F]">
-                    <cert.icon className="w-10 h-10 text-[#C9A961]" />
+                    <cert.icon className="w-12 h-12 text-[#C9A961]" />
                     <div className="flex flex-col">
-                      <span className="font-bold text-[#2D2D2D]">{cert.text}</span>
-                      <span className="text-xs text-[#1E3A5F]">Verified</span>
+                      <span className="font-bold text-[#2D2D2D] text-base">{cert.text}</span>
+                      <span className="text-sm text-[#1E3A5F]">Verified</span>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Pricing & Urgency */}
-              <div className="bg-gradient-to-br from-white/80 to-[#F7F4EF]/80 backdrop-blur-sm border-2 border-[#C9A961]/30 rounded-2xl p-6 shadow-lg">
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="text-5xl font-bold text-[#2D2D2D]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$49.99'}</span>
+              {/* Pricing & Urgency - P0 FIX: Consolidated with CTA */}
+              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-2xl p-6 shadow-xl">
+                {/* Countdown Timer - P0 FIX: Add urgency above fold */}
+                <CountdownTimer 
+                  targetDate={new Date('2026-01-20T23:59:59')} 
+                  className="mb-4"
+                />
+                
+                <div className="flex items-baseline gap-3 mb-3">
+                  <span className="text-5xl font-bold text-[#2D2D2D]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
                   <span className="text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
-                  <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1">
+                  <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1.5 shadow-md">
                     Save 46%
                   </Badge>
                 </div>
-                <p className="text-sm text-[#1E3A5F] mb-4 flex items-center gap-2">
+                <p className="text-sm text-[#1E3A5F] mb-3 flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-[#C9A961]" />
-                  <span className="font-semibold">Pre-Order Special:</span> Save 46% • Ships Jan 20-27, 2026
+                  <span className="font-semibold">Pre-Order Special:</span> Ships Jan 20-27, 2026
                 </p>
-                <div className="flex items-center gap-2 text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+                <div className="flex items-center gap-2 text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">
                   <span className="animate-pulse text-amber-600">⏱️</span>
-                  <span className="font-semibold">Special Offer</span> - Free shipping on orders $75+
+                  <span className="font-semibold">Free shipping</span> on orders $75+
                 </div>
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/product/ashwagandha-ksm-66" className="flex-1">
+                
+                {/* P0 FIX: CTA moved inside pricing card, closer to price */}
+                <Link href="/product/ashwagandha-ksm-66" className="block">
                   <Button 
                     size="lg" 
-                    className="w-full text-xl px-10 py-8 gold-shimmer text-[#2D2D2D] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300 hover:scale-105"
+                    className="w-full text-xl px-12 py-10 min-h-[56px] md:min-h-[64px] bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:from-[#152B45] hover:to-[#0F1F30] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                   >
                     Pre-Order Now - Save 46%
                     <ArrowRight className="ml-2 w-6 h-6" />
                   </Button>
                 </Link>
-                <Link href="/science">
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="text-lg px-8 py-8 border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F]/10 hover:border-[#152B45] backdrop-blur-sm"
-                  >
-                    See the Science
-                  </Button>
-                </Link>
               </div>
+
+              {/* P0 FIX: Removed duplicate CTA, moved to pricing card above */}
 
               {/* Social Proof - Enhanced */}
               <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-5 shadow-md">
@@ -221,8 +219,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Product Image */}
-            <div className="relative lg:h-[600px] flex items-center justify-center">
+            {/* Right Column - Product Image - P0 FIX: Smaller on mobile */}
+            <div className="relative h-[300px] lg:h-[600px] flex items-center justify-center order-1 lg:order-2">
               {/* Solid background card to prevent content bleed-through */}
               <div className="absolute inset-0 bg-white/90 backdrop-blur-sm rounded-[3rem] shadow-2xl" />
               
