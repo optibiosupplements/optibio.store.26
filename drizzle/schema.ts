@@ -425,5 +425,37 @@ export const abandonedCarts = mysqlTable("abandonedCarts", {
 export type AbandonedCart = typeof abandonedCarts.$inferSelect;
 export type InsertAbandonedCart = typeof abandonedCarts.$inferInsert;
 
+/**
+ * Post-purchase email tracking - nurture customers and drive reorders
+ * Tracks 4-email sequence: Day 7, 21, 60, 90
+ */
+export const postPurchaseEmails = mysqlTable("postPurchaseEmails", {
+  id: int("id").autoincrement().primaryKey(),
+  orderId: int("orderId").notNull(),
+  userId: int("userId"),
+  email: varchar("email", { length: 320 }).notNull(),
+  productId: int("productId").notNull(), // Track which product they bought
+  purchaseDate: timestamp("purchaseDate").notNull(),
+  // Email sequence tracking (Day 7, 21, 60, 90)
+  day7EmailSentAt: timestamp("day7EmailSentAt"),
+  day21EmailSentAt: timestamp("day21EmailSentAt"),
+  day60EmailSentAt: timestamp("day60EmailSentAt"),
+  day90EmailSentAt: timestamp("day90EmailSentAt"),
+  // Engagement tracking
+  hasReordered: boolean("hasReordered").default(false),
+  reorderDate: timestamp("reorderDate"),
+  reorderOrderId: int("reorderOrderId"),
+  hasSubscribed: boolean("hasSubscribed").default(false), // Converted to subscription
+  subscribedAt: timestamp("subscribedAt"),
+  // Review tracking
+  hasReviewed: boolean("hasReviewed").default(false),
+  reviewedAt: timestamp("reviewedAt"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type PostPurchaseEmail = typeof postPurchaseEmails.$inferSelect;
+export type InsertPostPurchaseEmail = typeof postPurchaseEmails.$inferInsert;
+
 // Pre-Sale System Tables
 export * from "./presale-schema";

@@ -598,6 +598,15 @@ export default function ProductDetail() {
           </div>
         </div>
       </section>
+
+      {/* Sticky Add-to-Cart Bar */}
+      <StickyAddToCart
+        productId={product.id}
+        productName={product.name}
+        price={currentPrice / 100}
+        image={productImages[0]}
+        threshold={600}
+      />
     </div>
   );
 }

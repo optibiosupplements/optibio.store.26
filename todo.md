@@ -1426,3 +1426,26 @@
 - [x] Test: Cart data parsing
 - [x] Test: Edge cases (no email, with user ID)
 - [x] Vitest tests: 13/14 passing (core functionality verified)
+
+
+## 🚨 CRITICAL REVENUE KILLERS - FINAL FIXES
+
+### Sticky Add-to-Cart Button
+- [x] Add sticky button component to ProductDetail page
+- [x] Show sticky button when user scrolls past main add-to-cart
+- [x] Include product image, name, price in sticky bar
+- [x] Add quantity selector to sticky bar
+- [x] Ensure smooth animation on show/hide
+- [x] Test on mobile and desktop
+
+### Post-Purchase Email Funnel
+- [x] Create database table for purchase tracking
+- [x] Build 4 email templates (Day 7, 21, 60, 90)
+- [x] Day 7: "How's it going?" check-in + usage tips
+- [x] Day 21: Sleep improvement check-in + review request
+- [x] Day 60: "Running low?" replenishment reminder
+- [x] Day 90: Subscribe & Save conversion offer
+- [x] Create tRPC endpoints for email tracking
+- [x] Build email scheduler script
+- [x] Set up automated scheduling (daily checks at 10am)
+- [x] Test email sequencing logic

@@ -14,7 +14,10 @@ import {
   subscriptions,
   abandonedCarts,
   InsertAbandonedCart,
-  AbandonedCart
+  AbandonedCart,
+  postPurchaseEmails,
+  PostPurchaseEmail,
+  InsertPostPurchaseEmail
 } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
@@ -534,5 +537,199 @@ export async function getAbandonedCartsForEmail(emailNumber: 1 | 2 | 3): Promise
   } catch (error) {
     console.error("[Database] Failed to get abandoned carts for email:", error);
     return [];
+  }
+}
+
+
+// ============================================================================
+// POST-PURCHASE EMAIL HELPERS
+// ============================================================================
+
+/**
+ * Create post-purchase email tracking record
+ * Called when an order is completed
+ */
+export async function createPostPurchaseEmailTracking(data: {
+  orderId: number;
+  userId: number | null;
+  email: string;
+  productId: number;
+  purchaseDate: Date;
+}): Promise<PostPurchaseEmail | null> {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create post-purchase email tracking: database not available");
+    return null;
+  }
+
+  try {
+    await db.insert(postPurchaseEmails).values({
+      orderId: data.orderId,
+      userId: data.userId,
+      email: data.email,
+      productId: data.productId,
+      purchaseDate: data.purchaseDate,
+    });
+
+    // MySQL doesn't support returning(), query the record separately
+    const [record] = await db.select().from(postPurchaseEmails)
+      .where(eq(postPurchaseEmails.orderId, data.orderId))
+      .limit(1);
+
+    return record || null;
+  } catch (error) {
+    console.error("[Database] Failed to create post-purchase email tracking:", error);
+    return null;
+  }
+}
+
+/**
+ * Get orders needing specific day email (7, 21, 60, or 90)
+ * Returns records where email hasn't been sent and enough days have passed
+ */
+export async function getOrdersNeedingPostPurchaseEmail(
+  dayNumber: 7 | 21 | 60 | 90
+): Promise<PostPurchaseEmail[]> {
+  const db = await getDb();
+  if (!db) return [];
+
+  try {
+    const now = new Date();
+    const daysAgo = dayNumber;
+    const cutoffDate = new Date(now.getTime() - daysAgo * 24 * 60 * 60 * 1000);
+
+    // Build conditions based on which email we're sending
+    let conditions = [
+      lt(postPurchaseEmails.purchaseDate, cutoffDate),
+      eq(postPurchaseEmails.hasReordered, false), // Don't send if they already reordered
+    ];
+
+    if (dayNumber === 7) {
+      conditions.push(isNull(postPurchaseEmails.day7EmailSentAt));
+    } else if (dayNumber === 21) {
+      conditions.push(isNotNull(postPurchaseEmails.day7EmailSentAt));
+      conditions.push(isNull(postPurchaseEmails.day21EmailSentAt));
+    } else if (dayNumber === 60) {
+      conditions.push(isNotNull(postPurchaseEmails.day21EmailSentAt));
+      conditions.push(isNull(postPurchaseEmails.day60EmailSentAt));
+    } else {
+      conditions.push(isNotNull(postPurchaseEmails.day60EmailSentAt));
+      conditions.push(isNull(postPurchaseEmails.day90EmailSentAt));
+      conditions.push(eq(postPurchaseEmails.hasSubscribed, false)); // Only send if not subscribed
+    }
+
+    return await db.select().from(postPurchaseEmails)
+      .where(and(...conditions));
+  } catch (error) {
+    console.error("[Database] Failed to get orders needing post-purchase email:", error);
+    return [];
+  }
+}
+
+/**
+ * Update email sent timestamp for specific day
+ */
+export async function updatePostPurchaseEmailSent(
+  id: number,
+  dayNumber: 7 | 21 | 60 | 90
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    const now = new Date();
+    const updateData: any = {};
+
+    if (dayNumber === 7) {
+      updateData.day7EmailSentAt = now;
+    } else if (dayNumber === 21) {
+      updateData.day21EmailSentAt = now;
+    } else if (dayNumber === 60) {
+      updateData.day60EmailSentAt = now;
+    } else {
+      updateData.day90EmailSentAt = now;
+    }
+
+    await db.update(postPurchaseEmails)
+      .set(updateData)
+      .where(eq(postPurchaseEmails.id, id));
+
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to update post-purchase email sent:", error);
+    return false;
+  }
+}
+
+/**
+ * Mark customer as reordered
+ * Called when customer makes a repeat purchase
+ */
+export async function markCustomerReordered(
+  orderId: number,
+  reorderOrderId: number
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    await db.update(postPurchaseEmails)
+      .set({
+        hasReordered: true,
+        reorderDate: new Date(),
+        reorderOrderId,
+      })
+      .where(eq(postPurchaseEmails.orderId, orderId));
+
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to mark customer as reordered:", error);
+    return false;
+  }
+}
+
+/**
+ * Mark customer as subscribed
+ * Called when customer converts to subscription
+ */
+export async function markCustomerSubscribed(orderId: number): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    await db.update(postPurchaseEmails)
+      .set({
+        hasSubscribed: true,
+        subscribedAt: new Date(),
+      })
+      .where(eq(postPurchaseEmails.orderId, orderId));
+
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to mark customer as subscribed:", error);
+    return false;
+  }
+}
+
+/**
+ * Mark customer as reviewed
+ * Called when customer leaves a review
+ */
+export async function markCustomerReviewed(orderId: number): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    await db.update(postPurchaseEmails)
+      .set({
+        hasReviewed: true,
+        reviewedAt: new Date(),
+      })
+      .where(eq(postPurchaseEmails.orderId, orderId));
+
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to mark customer as reviewed:", error);
+    return false;
   }
 }
