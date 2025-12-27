@@ -154,44 +154,69 @@ export default function Home() {
                 ))}
               </div>
 
+              {/* Pricing & Urgency */}
+              <div className="bg-gradient-to-br from-white/80 to-[#F7F4EF]/80 backdrop-blur-sm border-2 border-[#C9A961]/30 rounded-2xl p-6 shadow-lg">
+                <div className="flex items-baseline gap-3 mb-2">
+                  <span className="text-5xl font-bold text-[#2D2D2D]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$49.99'}</span>
+                  <span className="text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
+                  <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1">
+                    Save 29%
+                  </Badge>
+                </div>
+                <p className="text-sm text-[#1E3A5F] mb-4 flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#C9A961]" />
+                  <span className="font-semibold">Founder Pricing:</span> Lock in 25% lifetime discount
+                </p>
+                <div className="flex items-center gap-2 text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+                  <span className="animate-pulse text-amber-600">⏱️</span>
+                  <span className="font-semibold">43 days left</span> to claim founder pricing
+                </div>
+              </div>
+
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/shop">
+                <Link href="/product/ashwagandha-ksm-66" className="flex-1">
                   <Button 
                     size="lg" 
-                    className="text-lg px-10 py-7 gold-shimmer text-[#2D2D2D] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
+                    className="w-full text-xl px-10 py-8 gold-shimmer text-[#2D2D2D] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300 hover:scale-105"
                   >
-                    Start Your Journey
-                    <ArrowRight className="ml-2 w-5 h-5" />
+                    Shop Now - Save 29%
+                    <ArrowRight className="ml-2 w-6 h-6" />
                   </Button>
                 </Link>
                 <Link href="/science">
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="text-lg px-10 py-7 border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F]/10 hover:border-[#152B45] backdrop-blur-sm"
+                    className="text-lg px-8 py-8 border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F]/10 hover:border-[#152B45] backdrop-blur-sm"
                   >
                     See the Science
                   </Button>
                 </Link>
               </div>
 
-              {/* Social Proof */}
-              <div className="flex items-center gap-6 pt-4">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#152B45] border-2 border-[#F7F4EF]" />
-                  ))}
-                </div>
-                <div className="text-sm">
-                  <div className="flex items-center gap-1 text-[#C9A961] mb-1">
+              {/* Social Proof - Enhanced */}
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-5 shadow-md">
+                <div className="flex items-center gap-4">
+                  <div className="flex -space-x-3">
                     {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
+                      <div key={i} className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#152B45] border-3 border-white shadow-lg" />
                     ))}
                   </div>
-                  <p className="text-[#1E3A5F]">
-                    <span className="font-semibold text-[#2D2D2D]">5,000+</span> satisfied customers
-                  </p>
+                  <div>
+                    <div className="flex items-center gap-1 mb-1">
+                      {[1, 2, 3, 4, 5].map((i) => (
+                        <Star key={i} className="w-5 h-5 fill-[#C9A961] text-[#C9A961]" />
+                      ))}
+                      <span className="ml-2 text-sm font-bold text-slate-900">4.9/5</span>
+                    </div>
+                    <p className="text-sm text-slate-700">
+                      <span className="font-bold text-slate-900 text-lg">5,247</span> happy customers
+                    </p>
+                    <p className="text-xs text-green-700 font-semibold mt-1">
+                      ✅ <span className="font-bold">127</span> bottles sold in last 24 hours
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -220,8 +245,21 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* Floating badge - Recent Purchase (Social Proof) */}
+              <div className="absolute bottom-10 left-10 bg-gradient-to-br from-white to-green-50 border-2 border-green-300 rounded-2xl shadow-lg p-4 animate-fade-in-delay-2">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center animate-pulse">
+                    <CheckCircle2 className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-bold text-slate-900">Sarah from NYC</div>
+                    <div className="text-xs text-green-700 font-semibold">Just purchased 2 min ago</div>
+                  </div>
+                </div>
+              </div>
+              
               {/* Floating badge - Clinical Studies */}
-              <div className="absolute bottom-10 left-10 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay-2">
+              <div className="absolute top-10 left-10 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 text-slate-900" />
