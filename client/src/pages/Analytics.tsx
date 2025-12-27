@@ -3,7 +3,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar } from "lucide-react";
+import { DateRangePicker } from "@/components/DateRangePicker";
 import { Redirect } from "wouter";
 
 /**
@@ -21,6 +21,10 @@ export default function Analytics() {
     startDate?: string;
     endDate?: string;
   }>({});
+
+  const handleDateRangeChange = (range: { startDate?: string; endDate?: string }) => {
+    setDateRange(range);
+  };
 
   // Fetch all metrics
   const cartMetrics = trpc.revenueAnalytics.getAbandonedCartMetrics.useQuery(dateRange);
@@ -54,10 +58,7 @@ export default function Analytics() {
                 Monitor the performance of your revenue optimization systems
               </p>
             </div>
-            <Button variant="outline" className="gap-2">
-              <Calendar className="h-4 w-4" />
-              Date Range
-            </Button>
+            <DateRangePicker value={dateRange} onChange={handleDateRangeChange} />
           </div>
         </div>
       </div>
