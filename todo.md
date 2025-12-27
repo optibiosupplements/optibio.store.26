@@ -1519,3 +1519,13 @@
 - [x] Cart: 50 req/15min (cart operations)
 - [x] Add rate limit headers to responses
 - [x] Add monitoring for rate limit hits (console warnings)
+
+
+## 🔄 RATE LIMITING REMOVAL (User Requested)
+
+- [x] Remove rate limiting middleware from server/_core/index.ts
+- [x] Delete server/_core/rate-limit.ts file
+- [x] Uninstall express-rate-limit package
+- [x] Remove rate limiting imports
+- [x] Server restarted and verified working
+- [x] Rate limiting removed successfully

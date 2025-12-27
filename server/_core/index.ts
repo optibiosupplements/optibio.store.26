@@ -8,7 +8,7 @@ import { appRouter } from "../routers";
 import { createContext } from "./context";
 import { serveStatic, setupVite } from "./vite";
 import { handleStripeWebhook } from "../webhooks";
-import { apiLimiter, checkoutLimiter, publicLimiter } from "./rate-limit";
+
 
 function isPortAvailable(port: number): Promise<boolean> {
   return new Promise(resolve => {
@@ -45,20 +45,7 @@ async function startServer() {
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   
-  // Apply rate limiting middleware
-  // Public content gets lenient rate limiting
-  app.use("/", publicLimiter);
-  
-  // API endpoints get stricter rate limiting
-  app.use("/api/trpc", apiLimiter);
-  
-  // Checkout/payment endpoints get very strict rate limiting
-  app.use("/api/webhooks/stripe", checkoutLimiter);
-  
-  console.log("[Rate Limit] Middleware configured:");
-  console.log("  - Public: 300 req/15min");
-  console.log("  - API: 100 req/15min");
-  console.log("  - Checkout: 10 req/15min");
+
   // OAuth callback under /api/oauth/callback
   registerOAuthRoutes(app);
   // tRPC API
