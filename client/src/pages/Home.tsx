@@ -22,6 +22,7 @@ import { trpc } from "@/lib/trpc";
 import WellnessPlanPersonalizer from "@/components/WellnessPlanPersonalizer";
 
 import { SocialProofCounter } from "@/components/SocialProofCounter";
+import StickyAddToCart from "@/components/StickyAddToCart";
 
 export default function Home() {
   const { data: products } = trpc.products.list.useQuery();
@@ -576,6 +577,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sticky Add-to-Cart Bar */}
+      {mainProduct && (
+        <StickyAddToCart
+          productId={mainProduct.id}
+          productName={mainProduct.name}
+          price={mainProduct.priceInCents / 100}
+          image={mainProduct.imageUrl || "/products/optibio-90cap-bottle-front.jpg"}
+          threshold={600}
+        />
+      )}
+
       {/* Featured Product */}
       {mainProduct && (
         <section className="py-24 bg-white">
@@ -775,47 +787,78 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 text-left">
-              <Card className="bg-white/10 backdrop-blur-sm border-2 border-[#C9A961] shadow-glow-gold hover:border-[#C9A961] transition-all">
-                <CardContent className="p-6">
-                  <Star className="w-8 h-8 text-[#C9A961] mb-3" />
-                  <h3 className="font-bold text-lg mb-2">Founder's Circle</h3>
-                  <p className="text-3xl font-bold mb-1">$69</p>
-                  <p className="text-sm text-[#F7F4EF]">2 bottles • 25% off for life</p>
-                  <p className="text-xs text-[#C9A961] mt-2">Only 100 spots</p>
-                  <Link href="/shop" className="block mt-4">
-                    <Button className="w-full bg-[#C9A961] hover:bg-[#B89651] text-[#1E3A5F] font-bold">
-                      Shop Now
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
+              {/* Single Bottle - Entry Option */}
+              <Card className="bg-white/10 backdrop-blur-sm border-[#C9A961]/40 hover:border-[#C9A961]/70 transition-all relative">
+                <CardContent className="p-8">
+                  <Zap className="w-10 h-10 text-[#C9A961] mb-4" />
+                  <h3 className="font-bold text-2xl mb-3">Single Bottle</h3>
+                  <div className="mb-4">
+                    <p className="text-4xl font-bold mb-2">$49.99</p>
+                    <p className="text-lg text-[#F7F4EF]">90 capsules • 45-day supply</p>
+                    <p className="text-sm text-[#C9A961] mt-2">Save 15% vs retail ($58.82)</p>
+                  </div>
+                  <ul className="space-y-2 mb-6 text-[#F7F4EF]">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <span>Perfect for first-time buyers</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <span>Free shipping on orders $75+</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <span>90-day money-back guarantee</span>
+                    </li>
+                  </ul>
+                  <Link href="/shop" className="block">
+                    <Button className="w-full bg-[#C9A961] hover:bg-[#B89651] text-[#1E3A5F] font-bold text-lg py-6">
+                      Get Started
                     </Button>
                   </Link>
                 </CardContent>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-sm border-[#C9A961]/30 hover:border-[#C9A961]/60 transition-all">
-                <CardContent className="p-6">
-                  <Zap className="w-8 h-8 text-[#C9A961] mb-3" />
-                  <h3 className="font-bold text-lg mb-2">Early Believer</h3>
-                  <p className="text-3xl font-bold mb-1">$49</p>
-                  <p className="text-sm text-[#F7F4EF]">1 bottle • 15% off for life</p>
-                  <p className="text-xs text-[#C9A961] mt-2">Only 500 spots</p>
-                  <Link href="/shop" className="block mt-4">
-                    <Button className="w-full bg-[#C9A961] hover:bg-[#F7F4EF]0 text-slate-900 font-bold">
-                      Shop Now
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-
-              <Card className="bg-white/10 backdrop-blur-sm border-[#1E3A5F]/30 hover:border-[#1E3A5F]/60 transition-all">
-                <CardContent className="p-6">
-                  <Sparkles className="w-8 h-8 text-[#1E3A5F] mb-3" />
-                  <h3 className="font-bold text-lg mb-2">Pre-Launch</h3>
-                  <p className="text-3xl font-bold mb-1">$54.99</p>
-                  <p className="text-sm text-[#F7F4EF]">1 bottle • 10% off for life</p>
-                  <p className="text-xs text-[#C9A961] mt-2">Unlimited spots</p>
-                  <Link href="/shop" className="block mt-4">
-                    <Button className="w-full bg-[#1E3A5F] hover:bg-[#F7F4EF]0 text-slate-900 font-bold">
-                      Shop Now
+              {/* 3-Month Bundle - Most Popular */}
+              <Card className="bg-white/10 backdrop-blur-sm border-3 border-[#C9A961] shadow-glow-gold hover:shadow-glow-gold-lg transition-all relative">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <Badge className="bg-gradient-to-r from-[#C9A961] to-[#B89651] text-[#1E3A5F] font-bold text-sm px-6 py-1.5 shadow-lg">
+                    ⭐ MOST POPULAR
+                  </Badge>
+                </div>
+                <CardContent className="p-8">
+                  <Star className="w-10 h-10 text-[#C9A961] mb-4" />
+                  <h3 className="font-bold text-2xl mb-3">3-Month Bundle</h3>
+                  <div className="mb-4">
+                    <div className="flex items-baseline gap-3">
+                      <p className="text-4xl font-bold">$127</p>
+                      <p className="text-xl text-[#F7F4EF]/60 line-through">$149.97</p>
+                    </div>
+                    <p className="text-lg text-[#F7F4EF] mt-1">270 capsules • 135-day supply</p>
+                    <p className="text-sm text-[#C9A961] mt-2 font-bold">Save $22.97 (15% off) + FREE shipping</p>
+                  </div>
+                  <ul className="space-y-2 mb-6 text-[#F7F4EF]">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <span className="font-semibold">Best value - $42.33/bottle</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <span>FREE shipping (save $7.99)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <span>Full 90-day trial period covered</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <span>See results through week 8+ optimal phase</span>
+                    </li>
+                  </ul>
+                  <Link href="/shop" className="block">
+                    <Button className="w-full bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold text-lg py-6 shadow-lg">
+                      Get Best Value
                     </Button>
                   </Link>
                 </CardContent>

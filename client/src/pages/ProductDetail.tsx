@@ -31,6 +31,8 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { getLoginUrl } from "@/const";
 import ProductSchema from "@/components/ProductSchema";
 import ProductReviews from "@/components/ProductReviews";
+import SubscriptionToggle from "@/components/SubscriptionToggle";
+import StickyAddToCart from "@/components/StickyAddToCart";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:slug");
@@ -338,62 +340,20 @@ export default function ProductDetail() {
                 </div>
               )}
 
-              {/* Subscription Option */}
+              {/* Subscription Options - Prominent */}
               {product.subscriptionPlans && product.subscriptionPlans.length > 0 && (
-                <Card className="border-2 border-[#C9A961]/20 bg-gradient-to-br from-[#F7F4EF] to-white">
-                  <CardContent className="p-6 space-y-4">
-                    <div className="flex items-start justify-between">
-                      <div className="space-y-2">
-                        <div className="flex items-center gap-2">
-                          <Package className="w-5 h-5 text-[#B89651]" />
-                          <span className="font-bold text-lg text-slate-900">Subscribe & Save</span>
-                          <Badge className="bg-[#B89651]">Best Value</Badge>
-                        </div>
-                        <p className="text-sm text-slate-600">
-                          Never run out. Cancel anytime. Exclusive subscriber benefits.
-                        </p>
-                      </div>
-                      <input
-                        type="checkbox"
-                        checked={isSubscription}
-                        onChange={(e) => {
-                          setIsSubscription(e.target.checked);
-                          if (e.target.checked && product.subscriptionPlans.length > 0) {
-                            setSelectedSubscription(product.subscriptionPlans[0].id);
-                          }
-                        }}
-                        className="w-6 h-6 rounded border-2 border-[#C9A961] text-[#B89651] focus:ring-[#F7F4EF]0"
-                      />
-                    </div>
-
-                    {isSubscription && (
-                      <RadioGroup
-                        value={selectedSubscription?.toString() || product.subscriptionPlans[0]?.id.toString()}
-                        onValueChange={(value) => setSelectedSubscription(parseInt(value))}
-                        className="space-y-2"
-                      >
-                        {product.subscriptionPlans.map((plan) => (
-                          <Label
-                            key={plan.id}
-                            htmlFor={`plan-${plan.id}`}
-                            className="flex items-center justify-between p-4 rounded-lg border-2 border-[#C9A961]/20 bg-white cursor-pointer hover:border-[#C9A961] transition-colors"
-                          >
-                            <div className="flex items-center gap-3">
-                              <RadioGroupItem value={plan.id.toString()} id={`plan-${plan.id}`} />
-                              <div>
-                                <div className="font-semibold text-slate-900">{plan.name}</div>
-                                <div className="text-sm text-slate-600">Delivery every {plan.intervalCount} {plan.intervalType === 'monthly' ? 'month(s)' : plan.intervalType === 'quarterly' ? 'quarter(s)' : 'year(s)'}</div>
-                              </div>
-                            </div>
-                            <Badge variant="secondary" className="bg-[#C9A961]/10 text-[#1E3A5F]">
-                              {plan.discountPercentage}% OFF
-                            </Badge>
-                          </Label>
-                        ))}
-                      </RadioGroup>
-                    )}
-                  </CardContent>
-                </Card>
+                <SubscriptionToggle
+                  oneTimePrice={currentPrice / 100}
+                  subscriptionPrice={subscriptionPrice / 100}
+                  subscriptionDiscount={product.subscriptionPlans[0]?.discountPercentage || 20}
+                  defaultSubscription={true}
+                  onSelectionChange={(subscription) => {
+                    setIsSubscription(subscription);
+                    if (subscription && product.subscriptionPlans.length > 0) {
+                      setSelectedSubscription(product.subscriptionPlans[0].id);
+                    }
+                  }}
+                />
               )}
 
               {/* Quantity & Add to Cart */}

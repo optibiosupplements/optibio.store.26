@@ -1358,3 +1358,38 @@
 - [x] Provide programmatic control functions
 - [x] Document user data integration for logged-in users
 - [ ] User needs to sign up for Crisp and add website ID to activate
+
+
+## 🚀 E-COMMERCE OPTIMIZATION - Expert Panel Recommendations
+
+### Priority 0 - Launch Blockers
+- [ ] Add sticky "Add to Cart" button (appears on scroll)
+- [ ] Simplify pricing from 3 tiers to 2 with "Most Popular" badge
+- [ ] Install Facebook Pixel for retargeting
+- [ ] Install Google Analytics 4 + Google Ads tracking
+- [ ] Add database transactions for order creation
+- [ ] Implement rate limiting on API endpoints
+
+### Priority 1 - High-Impact Optimizations
+- [ ] Make "Subscribe & Save 20%" the default, prominent option on product pages
+- [ ] Build abandoned cart recovery system (3-email sequence)
+- [ ] Add 3-month bundle option (180 capsules)
+- [ ] Add 6-month bundle option (270 capsules)
+- [ ] Optimize mobile experience (hero text, images, testimonials)
+- [ ] Analyze and improve overall UI/design aesthetics for premium feel
+- [ ] Add urgency indicators ("Only X left in stock")
+- [ ] Add social proof ("Y people viewing this")
+
+### Post-Purchase Funnel
+- [ ] Day 1: Welcome email with usage instructions
+- [ ] Day 7: Check-in email "Feeling anything yet?"
+- [ ] Day 21: Sleep improvement check-in + review request
+- [ ] Day 60: Replenishment reminder "Running low?"
+- [ ] Day 90: Subscribe & Save conversion offer
+
+### Revenue Killer Fixes
+- [ ] Fix #1: Sticky add-to-cart (stop losing 15-20% of ready buyers)
+- [ ] Fix #2: Subscription prominence (unlock 3x lifetime value)
+- [ ] Fix #3: Cart abandonment recovery (stop bleeding revenue)
+- [ ] Fix #4: Product bundles (increase AOV from $49.99)
+- [ ] Fix #5: Post-purchase funnel (get 70% to reorder)
