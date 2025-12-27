@@ -26,6 +26,7 @@ import Accessibility from "./pages/Accessibility";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Referral from "./pages/Referral";
+import CartRecover from "./pages/CartRecover";
 
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
@@ -44,6 +45,7 @@ function Router() {
           <Route path="/shop" component={Shop} />
           <Route path="/product/:slug" component={ProductDetail} />
           <Route path="/cart" component={Cart} />
+          <Route path="/cart/recover" component={CartRecover} />
           <Route path="/checkout" component={Checkout} />
           <Route path="/order-success" component={OrderSuccess} />
           <Route path="/my-orders" component={MyOrders} />
