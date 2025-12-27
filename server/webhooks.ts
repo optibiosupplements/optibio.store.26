@@ -6,6 +6,7 @@ import * as db from "./db";
 import { sendOrderConfirmationEmail, sendSubscriptionWelcomeEmail } from "./email";
 import { getSubscriptionWelcomeEmail } from "./email-templates";
 import { notifyOwner } from "./_core/notification";
+import { withTransaction, executeQuery } from "./db-transaction";
 
 /**
  * Stripe webhook handler for processing payment events
@@ -139,64 +140,104 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
     // Generate unique order number
     const orderNumber = `OPT-${Date.now()}-${Math.random().toString(36).substring(7).toUpperCase()}`;
 
-    // Create order in database
-    const orderResult = await db.createOrder({
-      orderNumber,
-      userId,
-      email: customerEmail,
-      subtotalInCents,
-      shippingInCents,
-      taxInCents,
-      discountInCents,
-      totalInCents,
-      shippingFirstName: shippingDetails.name?.split(" ")[0] || customerName.split(" ")[0] || "",
-      shippingLastName: shippingDetails.name?.split(" ").slice(1).join(" ") || customerName.split(" ").slice(1).join(" ") || "",
-      shippingAddress1: shippingDetails.address.line1 || "",
-      shippingAddress2: shippingDetails.address.line2 || null,
-      shippingCity: shippingDetails.address.city || "",
-      shippingState: shippingDetails.address.state || "",
-      shippingZipCode: shippingDetails.address.postal_code || "",
-      shippingCountry: shippingDetails.address.country || "US",
-      shippingPhone: customerDetails?.phone || null,
-      // Use shipping as billing for now (Stripe doesn't collect separate billing by default)
-      billingFirstName: shippingDetails.name?.split(" ")[0] || customerName.split(" ")[0] || "",
-      billingLastName: shippingDetails.name?.split(" ").slice(1).join(" ") || customerName.split(" ").slice(1).join(" ") || "",
-      billingAddress1: shippingDetails.address.line1 || "",
-      billingAddress2: shippingDetails.address.line2 || null,
-      billingCity: shippingDetails.address.city || "",
-      billingState: shippingDetails.address.state || "",
-      billingZipCode: shippingDetails.address.postal_code || "",
-      billingCountry: shippingDetails.address.country || "US",
+    // Create order in database with transaction
+    const { orderId, orderItemsData } = await withTransaction(async (connection) => {
+      // Create order
+      const orderQuery = `
+        INSERT INTO orders (
+          orderNumber, userId, email, subtotalInCents, shippingInCents, taxInCents, 
+          discountInCents, totalInCents, shippingFirstName, shippingLastName, 
+          shippingAddress1, shippingAddress2, shippingCity, shippingState, 
+          shippingZipCode, shippingCountry, shippingPhone, billingFirstName, 
+          billingLastName, billingAddress1, billingAddress2, billingCity, 
+          billingState, billingZipCode, billingCountry, status, createdAt, updatedAt
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW(), NOW())
+      `;
+      
+      const orderParams = [
+        orderNumber,
+        userId,
+        customerEmail,
+        subtotalInCents,
+        shippingInCents,
+        taxInCents,
+        discountInCents,
+        totalInCents,
+        shippingDetails.name?.split(" ")[0] || customerName.split(" ")[0] || "",
+        shippingDetails.name?.split(" ").slice(1).join(" ") || customerName.split(" ").slice(1).join(" ") || "",
+        shippingDetails.address.line1 || "",
+        shippingDetails.address.line2 || null,
+        shippingDetails.address.city || "",
+        shippingDetails.address.state || "",
+        shippingDetails.address.postal_code || "",
+        shippingDetails.address.country || "US",
+        customerDetails?.phone || null,
+        shippingDetails.name?.split(" ")[0] || customerName.split(" ")[0] || "",
+        shippingDetails.name?.split(" ").slice(1).join(" ") || customerName.split(" ").slice(1).join(" ") || "",
+        shippingDetails.address.line1 || "",
+        shippingDetails.address.line2 || null,
+        shippingDetails.address.city || "",
+        shippingDetails.address.state || "",
+        shippingDetails.address.postal_code || "",
+        shippingDetails.address.country || "US",
+      ];
+      
+      const orderResult = await executeQuery(connection, orderQuery, orderParams);
+      const orderId = orderResult.insertId;
+      
+      // Create order items
+      const orderItemsData = lineItems.data.map((item) => {
+        const product = item.price?.product as Stripe.Product | undefined;
+        return {
+          orderId,
+          productId: 1,
+          variantId: null,
+          productName: item.description || product?.name || "OptiBio Ashwagandha KSM-66",
+          variantName: null,
+          sku: product?.metadata?.sku || null,
+          quantity: item.quantity || 1,
+          priceInCents: item.price?.unit_amount || 0,
+          totalInCents: (item.price?.unit_amount || 0) * (item.quantity || 1),
+        };
+      });
+      
+      // Insert order items
+      for (const item of orderItemsData) {
+        const itemQuery = `
+          INSERT INTO order_items (
+            orderId, productId, variantId, productName, variantName, 
+            sku, quantity, priceInCents, totalInCents, createdAt, updatedAt
+          ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())
+        `;
+        
+        await executeQuery(connection, itemQuery, [
+          item.orderId,
+          item.productId,
+          item.variantId,
+          item.productName,
+          item.variantName,
+          item.sku,
+          item.quantity,
+          item.priceInCents,
+          item.totalInCents,
+        ]);
+      }
+      
+      // Clear user's cart
+      const clearCartQuery = `DELETE FROM cart_items WHERE userId = ?`;
+      await executeQuery(connection, clearCartQuery, [userId]);
+      
+      return { orderId, orderItemsData };
     });
 
-    const orderId = (orderResult as any).insertId;
+    console.log("[Stripe Webhook] Order created successfully with transaction:", orderNumber, "Order ID:", orderId);
 
-    // Create order items from line items
-    const orderItemsData = lineItems.data.map((item) => {
-      const product = item.price?.product as Stripe.Product | undefined;
-      return {
-        orderId,
-        productId: 1, // Default to first product (we only have one product for now)
-        variantId: null,
-        productName: item.description || product?.name || "OptiBio Ashwagandha KSM-66",
-        variantName: null,
-        sku: product?.metadata?.sku || null,
-        quantity: item.quantity || 1,
-        priceInCents: item.price?.unit_amount || 0,
-        totalInCents: (item.price?.unit_amount || 0) * (item.quantity || 1),
-      };
-    });
-
-    await db.createOrderItems(orderItemsData);
-
-    console.log("[Stripe Webhook] Order created successfully:", orderNumber, "Order ID:", orderId);
-
-    // Clear user's cart after successful order
-    await db.clearCart(userId);
-    console.log("[Stripe Webhook] Cart cleared for user:", userId);
-
+    // Continue with non-transactional operations (emails, notifications)
+    // These are not critical and shouldn't rollback the order
+    
     // Send order confirmation email
     const emailSent = await sendOrderConfirmationEmail({
+
       orderNumber,
       customerEmail,
       customerName: shippingDetails.name || customerName,

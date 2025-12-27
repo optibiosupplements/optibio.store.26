@@ -1367,8 +1367,8 @@
 - [x] Simplify pricing from 3 tiers to 2 with "Most Popular" badge
 - [x] Install Facebook Pixel for retargeting
 - [x] Install Google Analytics 4 + Google Ads tracking
-- [ ] Add database transactions for order creation
-- [ ] Implement rate limiting on API endpoints
+- [x] Add database transactions for order creation
+- [x] Implement rate limiting on API endpoints
 
 ### Priority 1 - High-Impact Optimizations
 - [x] Make "Subscribe & Save 20%" the default, prominent option on product pages
@@ -1495,3 +1495,27 @@
 - [x] Verify metrics update correctly (queries pass date range to API)
 - [x] Test edge cases (future dates disabled in calendar)
 - [x] UI tested and working perfectly
+
+
+## 🔒 CRITICAL LAUNCH BLOCKERS
+
+### Database Transactions
+- [x] Wrap order creation in atomic transactions
+- [x] Ensure payment + order creation succeed/fail together
+- [x] Add rollback logic for failed operations
+- [x] Created withTransaction utility for atomic operations
+- [x] Add error logging for transaction failures
+
+### API Rate Limiting
+- [x] Install rate limiting middleware (express-rate-limit)
+- [x] Configure limits for different endpoint types
+- [x] Add IP-based rate limiting
+- [x] Public: 300 req/15min (browsing)
+- [x] API: 100 req/15min (general API)
+- [x] Checkout: 10 req/15min (payment endpoints)
+- [x] Auth: 5 req/15min (login attempts)
+- [x] Sensitive: 3 req/hour (password reset)
+- [x] Email: 10 req/hour (email sending)
+- [x] Cart: 50 req/15min (cart operations)
+- [x] Add rate limit headers to responses
+- [x] Add monitoring for rate limit hits (console warnings)
