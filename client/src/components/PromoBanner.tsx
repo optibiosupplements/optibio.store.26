@@ -40,11 +40,11 @@ export default function PromoBanner() {
             </span>
           </div>
 
-          {/* Center: Founder Pricing Countdown */}
+          {/* Center: Special Offer */}
           <div className="flex items-center gap-2.5 text-sm md:text-base font-bold bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/20">
             <Sparkles className="w-5 h-5 flex-shrink-0 text-[#C9A961]" fill="currentColor" />
             <span className="whitespace-nowrap">
-              Founder Pricing: <span className="text-[#C9A961]">{daysRemaining} days left</span>
+              Limited Time: <span className="text-[#C9A961]">Save 29%</span>
             </span>
           </div>
 

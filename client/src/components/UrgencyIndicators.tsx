@@ -104,15 +104,15 @@ export default function UrgencyIndicators({
         <Clock className="h-4 w-4 text-green-600" />
       </div>
 
-      {/* Founder Pricing Urgency */}
+      {/* Limited Time Offer */}
       <div className="flex items-center gap-2 p-3 rounded-lg bg-gradient-to-r from-[#C9A961]/10 to-[#1E3A5F]/10 border border-[#C9A961]/30">
         <Sparkles className="h-5 w-5 text-[#C9A961]" />
         <div className="flex-1">
           <p className="text-sm font-semibold text-[#1E3A5F] dark:text-[#F7F4EF]">
-            Founder Pricing Ends Soon
+            Limited Time Offer
           </p>
           <p className="text-xs text-[#1E3A5F]/70 dark:text-[#F7F4EF]/70">
-            Lock in your <span className="font-bold">lifetime discount</span> before prices increase
+            Save <span className="font-bold">29% on your first order</span> + free shipping over $75
           </p>
         </div>
       </div>

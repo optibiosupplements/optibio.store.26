@@ -165,11 +165,11 @@ export default function Home() {
                 </div>
                 <p className="text-sm text-[#1E3A5F] mb-4 flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-[#C9A961]" />
-                  <span className="font-semibold">Founder Pricing:</span> Lock in 25% lifetime discount
+                  <span className="font-semibold">Limited Time:</span> Save 29% on your first order
                 </p>
                 <div className="flex items-center gap-2 text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
                   <span className="animate-pulse text-amber-600">⏱️</span>
-                  <span className="font-semibold">43 days left</span> to claim founder pricing
+                  <span className="font-semibold">Special Offer</span> - Free shipping on orders $75+
                 </div>
               </div>
 
@@ -223,11 +223,14 @@ export default function Home() {
 
             {/* Right Column - Product Image */}
             <div className="relative lg:h-[600px] flex items-center justify-center">
-              {/* Decorative cream card background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#C9A961]/10 to-[#1E3A5F]/5 rounded-[3rem] blur-2xl scale-90" />
+              {/* Solid background card to prevent content bleed-through */}
+              <div className="absolute inset-0 bg-white/90 backdrop-blur-sm rounded-[3rem] shadow-2xl" />
               
-              {/* Product image */}
-              <div className="relative z-10 animate-float">
+              {/* Decorative gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#C9A961]/5 to-[#1E3A5F]/5 rounded-[3rem]" />
+              
+              {/* Product image - Higher z-index */}
+              <div className="relative z-20 animate-float">
                 <img 
                   src="/products/optibio-90cap-bottle-front.jpg" 
                   alt="OptiBio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
@@ -236,7 +239,7 @@ export default function Home() {
               </div>
 
               {/* Floating badge - 90 Capsules */}
-              <div className="absolute top-10 right-10 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay">
+              <div className="absolute top-10 right-10 z-30 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-gradient-gold">
                     90
@@ -246,7 +249,7 @@ export default function Home() {
               </div>
 
               {/* Floating badge - Recent Purchase (Social Proof) */}
-              <div className="absolute bottom-10 left-10 bg-gradient-to-br from-white to-green-50 border-2 border-green-300 rounded-2xl shadow-lg p-4 animate-fade-in-delay-2">
+              <div className="absolute bottom-10 left-10 z-30 bg-gradient-to-br from-white to-green-50 border-2 border-green-300 rounded-2xl shadow-lg p-4 animate-fade-in-delay-2">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center animate-pulse">
                     <CheckCircle2 className="w-5 h-5 text-white" />
@@ -259,7 +262,7 @@ export default function Home() {
               </div>
               
               {/* Floating badge - Clinical Studies */}
-              <div className="absolute top-10 left-10 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay">
+              <div className="absolute top-10 left-10 z-30 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 text-slate-900" />
@@ -690,7 +693,7 @@ export default function Home() {
                         size="lg" 
                         className="w-full text-lg py-6 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
                       >
-                        Get Founder Pricing
+                        Shop Now - Save 29%
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </Button>
                     </Link>
@@ -797,7 +800,7 @@ export default function Home() {
                   size="lg" 
                   className="text-lg px-8 py-6 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold"
                 >
-                  Shop Founder Pricing
+                  Shop Now - Save 29%
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
@@ -809,7 +812,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Founder Pricing Section */}
+      {/* Pricing Section */}
       <section id="pricing-section" className="py-24 bg-gradient-to-br from-[#1E3A5F] via-[#152B45] to-[#1E3A5F] text-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -818,10 +821,10 @@ export default function Home() {
                 LIMITED TIME OFFER
               </Badge>
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Lock in Founder Pricing Today
+                Save 29% on Your First Order
               </h2>
               <p className="text-xl text-[#F7F4EF] max-w-2xl mx-auto mb-6">
-                Get up to 25% off for life on all future orders. Limited spots available.
+                Premium KSM-66 Ashwagandha at an unbeatable price. Free shipping on orders over $75.
               </p>
             </div>
 
@@ -909,7 +912,7 @@ export default function Home() {
                 className="bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-glow-gold transition-all"
               >
                 <Sparkles className="w-6 h-6 mr-2" />
-                Shop Founder Pricing Now
+                Shop Now - Save 29%
               </Button>
             </Link>
 

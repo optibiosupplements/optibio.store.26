@@ -148,3 +148,25 @@
 - [ ] Add product image zoom/hover effects
 - [ ] Create premium button styling with gradients
 - [ ] Add micro-animations on scroll
+
+
+## 🎨 CRITICAL DESIGN FIXES (User Feedback)
+
+### Logo Visibility Issue
+- [x] Logo gradient is invisible against ivory background - FIXED
+- [x] Add subtle background treatment (white card, shadow, or darker background) - ADDED white rounded card with shadow
+- [x] Ensure logo stands out as premium brand element - CONFIRMED
+- [x] Test logo visibility on all pages - TESTED
+
+### Product Image Layering Problem
+- [x] Content bleeding through/behind product images - FIXED with solid white/90 background
+- [x] Fix z-index and positioning for hero product image - z-20 for image, z-30 for badges
+- [x] Ensure clean visual separation between product and background - White card with shadow added
+- [x] Add proper spacing/padding to prevent overlap - COMPLETED
+
+### Remove Founder Pricing
+- [x] Remove "Founder Pricing" from header banner - Changed to "Limited Time: Save 29%"
+- [x] Remove "Founder Pricing" from hero section - Replaced with "Save 29% on your first order"
+- [x] Remove "Founder Pricing" from all CTAs - All buttons now say "Shop Now - Save 29%"
+- [x] Remove "Founder Pricing" from pricing section - Changed to "Save 29% on Your First Order"
+- [x] Replace with standard promotional messaging - COMPLETED site-wide
