@@ -111,11 +111,7 @@ export default function Home() {
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#F7F4EF] via-[#EDE9E3] to-[#F7F4EF]">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/5 rounded-full blur-3xl" />
-        </div>
+        {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -123,13 +119,13 @@ export default function Home() {
             <div className="space-y-6 lg:space-y-10 animate-fade-in order-2 lg:order-1">
               <div className="space-y-6">
                 <Badge 
-                  className="text-sm font-bold px-5 py-2 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] text-white border-0 shadow-navy"
+                  className="text-base md:text-lg font-bold px-6 py-3 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] text-white border-0 shadow-lg"
                 >
-                  <Shield className="w-4 h-4 mr-2 inline" />
+                  <Shield className="w-5 h-5 mr-2 inline" />
                   Science-Backed • Third-Party Tested
                 </Badge>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.1] text-[#2D2D2D]">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-[#2D2D2D]">
                   Feel Like{" "}
                   <span className="text-gradient-optibio">
                     Yourself
@@ -219,57 +215,15 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Product Image - P0 FIX: Smaller on mobile */}
-            <div className="relative h-[300px] lg:h-[600px] flex items-center justify-center order-1 lg:order-2">
-              {/* Solid background card to prevent content bleed-through */}
-              <div className="absolute inset-0 bg-white/90 backdrop-blur-sm rounded-[3rem] shadow-2xl" />
-              
-              {/* Decorative gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#C9A961]/5 to-[#1E3A5F]/5 rounded-[3rem]" />
-              
-              {/* Product image - Higher z-index */}
-              <div className="relative z-20 animate-float">
+            {/* Right Column - Product Image - Clean Minimalist Design */}
+            <div className="relative h-[400px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2">
+              {/* Product image - Let it breathe with clean whitespace */}
+              <div className="relative animate-float">
                 <img 
                   src="/products/optibio-90cap-bottle-front.jpg" 
                   alt="OptiBio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
-                  className="w-full max-w-md mx-auto drop-shadow-2xl"
+                  className="w-full max-w-lg mx-auto drop-shadow-2xl"
                 />
-              </div>
-
-              {/* Floating badge - 90 Capsules */}
-              <div className="absolute top-10 right-10 z-30 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gradient-gold">
-                    90
-                  </div>
-                  <div className="text-xs text-slate-700 font-medium">Capsules</div>
-                </div>
-              </div>
-
-              {/* Floating badge - Recent Purchase (Social Proof) */}
-              <div className="absolute bottom-10 left-10 z-30 bg-gradient-to-br from-white to-green-50 border-2 border-green-300 rounded-2xl shadow-lg p-4 animate-fade-in-delay-2">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center animate-pulse">
-                    <CheckCircle2 className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-slate-900">Sarah from NYC</div>
-                    <div className="text-xs text-green-700 font-semibold">Just purchased 2 min ago</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Floating badge - Clinical Studies */}
-              <div className="absolute top-10 left-10 z-30 bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] border-2 border-[#C9A961]/30 rounded-2xl shadow-ivory p-4 animate-fade-in-delay">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-slate-900" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-slate-900">20+ Studies</div>
-                    <div className="text-xs text-slate-600">Clinically Proven</div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

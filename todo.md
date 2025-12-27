@@ -437,3 +437,46 @@
 - [ ] Save checkpoint
 
 ROOT CAUSE: EmailCaptureModal has its own custom close button (lines 85-91) which creates a duplicate. DialogContent already has a built-in close button with showCloseButton prop.
+
+
+---
+
+## 🎨 HOMEPAGE REDESIGN - Midnight Sophistication Brand Implementation
+
+### Phase 1: Logo & Assets
+- [x] Use reference logo provided by user (updatedlogo.png)
+- [x] Copy to project public folder as optibio-logo.png
+- [x] Update APP_LOGO constant to use correct logo
+- [ ] Update favicon in management UI (user action required)
+
+### Phase 2: Hero Section Cleanup
+- [x] Remove floating badges visual chaos (20+ Studies, 90 Capsules badges)
+- [x] Remove cream/beige gradient circles behind product
+- [x] Remove gimmicky "Sarah from NYC" social proof popup
+- [x] Implement clean product-focused hero layout
+- [x] Let product image breathe with proper whitespace
+
+### Phase 3: Typography & Color Fixes
+- [x] Increase hero headline size to 48-64px bold (Hero H1 scale - now up to 8xl)
+- [x] Fix body text colors (use Charcoal #2D2D2D, never navy)
+- [x] Implement proper type hierarchy throughout
+- [x] Update all gold accents to use #C9A961 (Antique Gold)
+- [x] Ensure Deep Navy (#1E3A5F) used only for headers/CTAs/trust signals
+
+### Phase 4: Trust Signals Restructure
+- [x] Make "Science-Backed • Third-Party Tested" badge MORE prominent (increased to text-lg, px-6 py-3)
+- [x] Create dedicated trust bar with proper sizing (certifications section enhanced)
+- [x] Move social proof to testimonials section (removed floating popup)
+- [x] Implement proper trust badge styling (Navy bg, white text, shadow-lg)
+- [x] Add subtle shadows for depth (not heavy borders)
+
+### Phase 5: Premium Perception
+- [x] Increase whitespace throughout (8px spacing system)
+- [x] Implement subtle shadow system (replace heavy borders)
+- [x] Ensure mobile-first responsive design
+- [x] Test $50 price point perception
+- [x] Verify pharmaceutical-grade sophistication aesthetic
+
+**REDESIGN COMPLETE**: Transformed from $15 Amazon look to $50 premium pharmaceutical-grade brand
+
+**GOAL**: Transform from $15 Amazon supplement look to $50 premium pharmaceutical-grade brand

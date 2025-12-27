@@ -2,7 +2,7 @@ export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 
 export const APP_TITLE = import.meta.env.VITE_APP_TITLE || "App";
 
-export const APP_LOGO = "/optibio-logo-v3.png";
+export const APP_LOGO = "/optibio-logo.png";
 
 // E-commerce constants
 export const SHIPPING_THRESHOLD_CENTS = 7500; // Free shipping over $75
