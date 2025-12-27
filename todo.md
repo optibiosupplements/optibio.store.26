@@ -428,10 +428,12 @@
 
 ---
 
-## 🔧 DIALOG CLOSE BUTTON FIX V2
+## 🔧 DIALOG CLOSE BUTTON FIX V3 (Real Issue Found)
 
-- [x] Revert previous dialog close button changes (restore original gold border)
-- [x] Center the X icon within the gold border (instead of left-aligned)
-- [x] Ensure only one X button appears
+- [x] Remove custom close button from EmailCaptureModal (lines 85-91)
+- [x] Use DialogContent's built-in showCloseButton prop instead
+- [x] Verify only one X button appears
 - [ ] Test dialog appearance
 - [ ] Save checkpoint
+
+ROOT CAUSE: EmailCaptureModal has its own custom close button (lines 85-91) which creates a duplicate. DialogContent already has a built-in close button with showCloseButton prop.
