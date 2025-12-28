@@ -45,8 +45,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Column */}
           <div className="space-y-4">
-            <img src={APP_LOGO} alt="OptiBio" className="h-10 w-auto" />
-            <div className="mb-2">
+            {/* Logo with NO background - consistent with header */}
+            <div className="flex items-center space-x-2">
+              <img src={APP_LOGO} alt="OptiBio" className="h-12 w-auto" />
               <span className="text-lg font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>OptiBio<sup className="text-xs">®</sup> Supplements</span>
             </div>
             <p className="text-sm text-muted-foreground">

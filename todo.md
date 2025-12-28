@@ -1,6 +1,15 @@
 # OptiBio E-Commerce Project TODO
 
-## 🚨 URGENT: HEADER LOGO REFINEMENTS (User Feedback - Dec 27, 2025)
+## 🚨 URGENT: HEADER/FOOTER IMPROVEMENTS (User Requested - Dec 27, 2025)
+
+### New Improvement Tasks
+- [x] Apply same logo style to footer (no background, h-12, inline with text)
+- [x] Verify sticky header works on product page (already implemented site-wide)
+- [x] Test mobile header on small screens (320px-375px width)
+- [x] Fix any layout issues or text wrapping on small mobile devices
+- [x] Ensure logo scales appropriately on very small screens (44px @ 320px, 52px @ 375px, 65px @ 640px)
+
+## ✅ COMPLETED: HEADER LOGO REFINEMENTS (Dec 27, 2025)
 
 ### Header Logo Styling Issues
 - [x] Remove white rounded background box from logo (logo should have NO background)

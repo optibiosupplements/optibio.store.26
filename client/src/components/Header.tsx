@@ -56,16 +56,16 @@ export default function Header() {
     >
       <div className="container">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo - Mobile Optimized */}
-          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 hover:opacity-90 transition-all group min-h-[44px]">
-            {/* Logo with NO background - increased by 30% (52px mobile, 65px desktop) */}
-            <img src={APP_LOGO} alt="OptiBio" className="h-[52px] sm:h-[65px] w-auto" />
+          {/* Logo - Mobile Optimized for all screen sizes */}
+          <Link href="/" className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-3 hover:opacity-90 transition-all group min-h-[44px]">
+            {/* Logo with NO background - responsive scaling: 44px (320px), 52px (375px+), 65px (640px+) */}
+            <img src={APP_LOGO} alt="OptiBio" className="h-[44px] min-[375px]:h-[52px] sm:h-[65px] w-auto" />
             <div className="flex flex-col">
-              {/* Unified typography - same font style and size */}
-              <span className="text-lg sm:text-2xl font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
-                OptiBio<sup className="text-xs">®</sup> <span className="hidden sm:inline">Supplements</span>
+              {/* Unified typography - responsive text sizing */}
+              <span className="text-base min-[375px]:text-lg sm:text-2xl font-bold text-foreground leading-tight" style={{ fontFamily: 'Sora, sans-serif' }}>
+                OptiBio<sup className="text-[10px]">®</sup> <span className="hidden sm:inline">Supplements</span>
               </span>
-              <span className="text-xs text-muted-foreground hidden sm:block">Science-Backed Wellness</span>
+              <span className="text-[10px] xs:text-xs text-muted-foreground hidden sm:block">Science-Backed Wellness</span>
             </div>
           </Link>
 
