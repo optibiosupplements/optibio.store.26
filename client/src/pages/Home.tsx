@@ -110,7 +110,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#F7F4EF] via-[#EDE9E3] to-[#F7F4EF]">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden" style={{ background: 'radial-gradient(ellipse at center, #E8F2F8 0%, #C8DFF0 40%, #7A9BB5 100%)' }}>
         {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-12 sm:py-16 lg:py-20">

@@ -272,6 +272,11 @@ html {
     background: linear-gradient(135deg, #1E3A5F 0%, #152B45 100%);
   }
   
+  /* Sky Blue Radial Gradient - Wellness Theme */
+  .bg-gradient-radial {
+    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
+  }
+  
   .gradient-optibio-reverse {
     background: linear-gradient(135deg, #152B45 0%, #1E3A5F 100%);
   }

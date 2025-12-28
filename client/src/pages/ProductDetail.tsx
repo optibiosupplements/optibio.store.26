@@ -145,7 +145,7 @@ export default function ProductDetail() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+    <div className="min-h-screen" style={{ background: 'radial-gradient(ellipse at center, #E8F2F8 0%, #C8DFF0 40%, #7A9BB5 100%)' }}>
       {/* Product Schema for Rich Snippets */}
       <ProductSchema
         name={product.name}
