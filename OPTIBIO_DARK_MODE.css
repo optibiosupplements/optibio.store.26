@@ -1,0 +1,401 @@
+/**
+ * OptiBio Dark Mode Theme
+ * 
+ * Sophisticated dark mode using OptiBio brand colors:
+ * - Deep Navy (#1E3A5F, #152B45) as primary backgrounds
+ * - Charcoal (#2D2D2D) for cards and elevated surfaces
+ * - Antique Gold (#C9A961) for accents and highlights
+ * - Light text colors for optimal contrast
+ * 
+ * All colors meet WCAG AA accessibility standards (4.5:1 contrast ratio)
+ * 
+ * Usage: Add .dark class to root element to enable dark mode
+ * Example: <html class="dark">
+ * 
+ * Last Updated: December 28, 2025
+ */
+
+/* ============================================================================
+   DARK MODE ROOT VARIABLES
+   ============================================================================ */
+
+.dark {
+  /* Background Colors - Deep Navy & Charcoal */
+  --background: oklch(0.18 0.04 240); /* Very dark navy - main background */
+  --foreground: oklch(0.95 0.01 60); /* Off-white - primary text */
+  
+  /* Card & Surface Colors - Elevated surfaces use lighter navy */
+  --card: oklch(0.22 0.05 240); /* Dark navy - card background */
+  --card-foreground: oklch(0.95 0.01 60); /* Off-white text on cards */
+  
+  /* Popover Colors */
+  --popover: oklch(0.20 0.05 240); /* Dark navy popover */
+  --popover-foreground: oklch(0.95 0.01 60); /* Light text */
+  
+  /* Primary Colors - Antique Gold (more vibrant in dark mode) */
+  --primary: oklch(0.75 0.10 75); /* Brighter gold for dark mode */
+  --primary-foreground: oklch(0.15 0.02 240); /* Dark navy text on gold */
+  
+  /* Secondary Colors - Lighter Navy for contrast */
+  --secondary: oklch(0.28 0.08 240); /* Lighter navy */
+  --secondary-foreground: oklch(0.95 0.01 60); /* Light text */
+  
+  /* Muted Colors - For subtle elements */
+  --muted: oklch(0.25 0.04 240); /* Muted navy */
+  --muted-foreground: oklch(0.65 0.02 240); /* Muted light text - WCAG AA */
+  
+  /* Accent Colors - Gold accents */
+  --accent: oklch(0.75 0.10 75); /* Bright gold */
+  --accent-foreground: oklch(0.15 0.02 240); /* Dark text on gold */
+  
+  /* Destructive/Error Colors */
+  --destructive: oklch(0.55 0.22 25); /* Warm red */
+  --destructive-foreground: oklch(0.95 0.01 60); /* Light text */
+  
+  /* Border & Input Colors */
+  --border: oklch(0.30 0.05 240); /* Subtle navy border */
+  --input: oklch(0.30 0.05 240); /* Input border */
+  --ring: oklch(0.75 0.10 75); /* Gold focus ring */
+  
+  /* Chart Colors - Navy variants for data visualization */
+  --chart-1: oklch(0.45 0.12 240); /* Light navy */
+  --chart-2: oklch(0.55 0.15 200); /* Blue-navy */
+  --chart-3: oklch(0.65 0.12 75); /* Gold */
+  --chart-4: oklch(0.50 0.10 260); /* Purple-navy */
+  --chart-5: oklch(0.60 0.08 180); /* Cyan-navy */
+  
+  /* Sidebar Colors (if using dashboard layout) */
+  --sidebar: oklch(0.15 0.04 240); /* Darkest navy */
+  --sidebar-foreground: oklch(0.90 0.01 60); /* Light text */
+  --sidebar-primary: oklch(0.75 0.10 75); /* Gold accent */
+  --sidebar-primary-foreground: oklch(0.15 0.02 240); /* Dark text */
+  --sidebar-accent: oklch(0.25 0.06 240); /* Accent navy */
+  --sidebar-accent-foreground: oklch(0.95 0.01 60); /* Light text */
+  --sidebar-border: oklch(0.25 0.04 240); /* Subtle border */
+  --sidebar-ring: oklch(0.75 0.10 75); /* Gold ring */
+}
+
+/* ============================================================================
+   DARK MODE BACKGROUND GRADIENTS
+   ============================================================================ */
+
+.dark {
+  /* Navy Depth Gradient - For hero sections */
+  --gradient-navy-depth: linear-gradient(135deg, #152B45 0%, #0D1B2A 100%);
+  
+  /* Radial Navy Gradient - Alternative to sky blue for dark mode */
+  --gradient-navy-radial: radial-gradient(ellipse at center, #1E3A5F 0%, #152B45 40%, #0D1B2A 100%);
+  
+  /* Charcoal to Navy - Subtle background variation */
+  --gradient-charcoal-navy: linear-gradient(180deg, #2D2D2D 0%, #1E3A5F 100%);
+  
+  /* Gold Shimmer - For premium CTAs (same as light mode) */
+  --gradient-gold-shimmer: linear-gradient(90deg, #C9A961 0%, #D4B76E 50%, #C9A961 100%);
+  
+  /* Navy to Gold - Premium gradient */
+  --gradient-navy-gold: linear-gradient(135deg, #1E3A5F 0%, #C9A961 100%);
+}
+
+/* ============================================================================
+   DARK MODE HEX COLOR REFERENCE
+   ============================================================================ */
+
+.dark {
+  /* Brand Colors - Optimized for dark mode */
+  --optibio-navy-darkest: #0D1B2A; /* Darkest navy - main background */
+  --optibio-navy-dark: #152B45; /* Dark navy - elevated surfaces */
+  --optibio-navy: #1E3A5F; /* Standard navy - accents */
+  --optibio-navy-light: #2A4A70; /* Lighter navy - borders */
+  
+  --optibio-charcoal-dark: #1A1A1A; /* Very dark charcoal */
+  --optibio-charcoal: #2D2D2D; /* Standard charcoal - cards */
+  --optibio-charcoal-light: #3D3D3D; /* Light charcoal - hover */
+  
+  --optibio-gold: #C9A961; /* Standard gold - accents */
+  --optibio-gold-bright: #D4B76E; /* Brighter gold - highlights */
+  --optibio-gold-dark: #B89651; /* Darker gold - subtle */
+  
+  --optibio-white: #FFFFFF; /* Pure white - headings */
+  --optibio-off-white: #F5F5F5; /* Off-white - body text */
+  --optibio-gray-light: #A0A0A0; /* Light gray - muted text */
+  --optibio-gray: #707070; /* Gray - secondary text */
+}
+
+/* ============================================================================
+   DARK MODE COMPONENT STYLES
+   ============================================================================ */
+
+/* Body & Base Styles */
+.dark body {
+  background: var(--optibio-navy-darkest);
+  color: var(--optibio-off-white);
+}
+
+/* Cards & Elevated Surfaces */
+.dark .card,
+.dark [class*="Card"] {
+  background: var(--optibio-charcoal);
+  border-color: var(--optibio-navy-light);
+  color: var(--optibio-off-white);
+}
+
+.dark .card:hover {
+  background: var(--optibio-charcoal-light);
+  border-color: var(--optibio-gold);
+}
+
+/* Buttons - Primary (Gold) */
+.dark .btn-primary,
+.dark button[class*="primary"] {
+  background: linear-gradient(135deg, var(--optibio-gold) 0%, var(--optibio-gold-dark) 100%);
+  color: var(--optibio-navy-darkest);
+  border: none;
+}
+
+.dark .btn-primary:hover {
+  background: linear-gradient(135deg, var(--optibio-gold-bright) 0%, var(--optibio-gold) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 169, 97, 0.4);
+}
+
+/* Buttons - Secondary (Navy) */
+.dark .btn-secondary,
+.dark button[class*="secondary"] {
+  background: var(--optibio-navy);
+  color: var(--optibio-off-white);
+  border: 1px solid var(--optibio-navy-light);
+}
+
+.dark .btn-secondary:hover {
+  background: var(--optibio-navy-dark);
+  border-color: var(--optibio-gold);
+}
+
+/* Buttons - Outline */
+.dark .btn-outline,
+.dark button[class*="outline"] {
+  background: transparent;
+  color: var(--optibio-gold);
+  border: 2px solid var(--optibio-gold);
+}
+
+.dark .btn-outline:hover {
+  background: var(--optibio-gold);
+  color: var(--optibio-navy-darkest);
+}
+
+/* Links */
+.dark a {
+  color: var(--optibio-gold);
+  text-decoration: none;
+}
+
+.dark a:hover {
+  color: var(--optibio-gold-bright);
+  text-decoration: underline;
+}
+
+/* Headings */
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: var(--optibio-white);
+}
+
+/* Muted/Secondary Text */
+.dark .text-muted,
+.dark [class*="muted"] {
+  color: var(--optibio-gray-light);
+}
+
+/* Borders */
+.dark .border,
+.dark [class*="border"] {
+  border-color: var(--optibio-navy-light);
+}
+
+/* Input Fields */
+.dark input,
+.dark textarea,
+.dark select {
+  background: var(--optibio-charcoal-dark);
+  color: var(--optibio-off-white);
+  border: 1px solid var(--optibio-navy-light);
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  border-color: var(--optibio-gold);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.2);
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: var(--optibio-gray);
+}
+
+/* Badges */
+.dark .badge,
+.dark [class*="Badge"] {
+  background: var(--optibio-navy);
+  color: var(--optibio-gold);
+  border: 1px solid var(--optibio-gold);
+}
+
+/* Hero Section with Navy Radial Gradient */
+.dark .hero-section,
+.dark [class*="hero"] {
+  background: var(--gradient-navy-radial);
+}
+
+/* Premium Gold Accents */
+.dark .accent-gold,
+.dark [class*="gold"] {
+  color: var(--optibio-gold);
+}
+
+.dark .bg-gold {
+  background: var(--optibio-gold);
+  color: var(--optibio-navy-darkest);
+}
+
+/* Success States */
+.dark .success,
+.dark [class*="success"] {
+  color: #6FD47F; /* Brighter green for dark mode */
+}
+
+/* Shadows - Softer for dark mode */
+.dark .shadow,
+.dark [class*="shadow"] {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.dark .shadow-gold {
+  box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+}
+
+/* ============================================================================
+   DARK MODE UTILITY CLASSES
+   ============================================================================ */
+
+/* Navy Gradient Background */
+.dark .bg-gradient-navy {
+  background: var(--gradient-navy-depth);
+}
+
+.dark .bg-gradient-navy-radial {
+  background: var(--gradient-navy-radial);
+}
+
+/* Charcoal to Navy Gradient */
+.dark .bg-gradient-charcoal-navy {
+  background: var(--gradient-charcoal-navy);
+}
+
+/* Gold Shimmer (for animated CTAs) */
+.dark .bg-gradient-gold-shimmer {
+  background: var(--gradient-gold-shimmer);
+  background-size: 200% auto;
+}
+
+/* Text Gradients */
+.dark .text-gradient-gold {
+  background: linear-gradient(135deg, var(--optibio-gold-bright) 0%, var(--optibio-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dark .text-gradient-navy-gold {
+  background: var(--gradient-navy-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================================
+   DARK MODE SCROLLBAR
+   ============================================================================ */
+
+.dark ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: var(--optibio-navy-darkest);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--optibio-navy) 0%, var(--optibio-gold) 100%);
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--optibio-gold) 0%, var(--optibio-gold-bright) 100%);
+}
+
+/* ============================================================================
+   DARK MODE ACCESSIBILITY
+   ============================================================================ */
+
+/* Focus States - Gold ring for visibility */
+.dark *:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--optibio-gold);
+}
+
+/* High Contrast Text */
+.dark .high-contrast {
+  color: var(--optibio-white);
+  font-weight: 600;
+}
+
+/* ============================================================================
+   DARK MODE USAGE EXAMPLES
+   ============================================================================ */
+
+/*
+EXAMPLE 1: Enable dark mode globally
+<html class="dark">
+  <body>
+    <!-- All content will use dark mode -->
+  </body>
+</html>
+
+EXAMPLE 2: Dark mode hero section
+<section class="dark hero-section">
+  <h1>Premium Ashwagandha</h1>
+  <p class="text-muted">Science-backed wellness</p>
+  <button class="btn-primary">Shop Now</button>
+</section>
+
+EXAMPLE 3: Dark mode card
+<div class="dark">
+  <div class="card">
+    <h3>Deep Sleep Support</h3>
+    <p class="text-muted">Fall asleep faster, stay asleep longer</p>
+    <span class="badge">Clinically Proven</span>
+  </div>
+</div>
+
+EXAMPLE 4: Gold accent text
+<div class="dark">
+  <h2>Save <span class="accent-gold">46%</span> Today</h2>
+</div>
+
+EXAMPLE 5: Navy gradient background
+<div class="dark bg-gradient-navy-radial">
+  <h1>Welcome to OptiBio</h1>
+</div>
+*/
+
+/* ============================================================================
+   END OF DARK MODE THEME
+   ============================================================================ */

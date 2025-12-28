@@ -34,3 +34,40 @@ export const getLoginUrl = () => {
 
   return url.toString();
 };
+
+// ============================================================================
+// OPTIBIO BRAND COLORS
+// ============================================================================
+// Centralized color constants for consistent branding
+// Full documentation: /OPTIBIO_COLOR_SCHEMA.md
+
+export const OPTIBIO_COLORS = {
+  // Primary Brand Colors
+  navy: '#1E3A5F',
+  navyDark: '#152B45',
+  gold: '#C9A961',
+  goldDark: '#B89651',
+  ivory: '#F7F4EF',
+  ivoryLight: '#EDE9E3',
+  charcoal: '#2D2D2D',
+  white: '#FFFFFF',
+  success: '#5FA865',
+  
+  // Sky Blue Gradient (Updated Dec 28, 2025)
+  skyCloudWhite: '#F8FCFE',
+  skyMist: '#EBF5FB',
+  skyPowderBlue: '#D6EAF8',
+} as const;
+
+// Ready-to-use gradient strings
+export const OPTIBIO_GRADIENTS = {
+  skyBlueRadial: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)',
+  navyDepth: 'linear-gradient(135deg, #1E3A5F 0%, #152B45 100%)',
+  goldShimmer: 'linear-gradient(90deg, #C9A961 0%, #D4B76E 50%, #C9A961 100%)',
+  ivoryHero: 'linear-gradient(135deg, #F7F4EF 0%, #EDE9E3 100%)',
+} as const;
+
+// Helper function for sky blue gradient background
+export const getSkyBlueBackground = () => ({
+  background: OPTIBIO_GRADIENTS.skyBlueRadial,
+});
