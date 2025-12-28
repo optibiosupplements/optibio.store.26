@@ -58,8 +58,8 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo - Mobile Optimized for all screen sizes */}
           <Link href="/" className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-3 hover:opacity-90 transition-all group min-h-[44px]">
-            {/* Logo with NO background - responsive scaling: 44px (320px), 52px (375px+), 65px (640px+) */}
-            <img src={APP_LOGO} alt="Optibio" className="h-[44px] min-[375px]:h-[52px] sm:h-[65px] w-auto" />
+            {/* Logo with white background to hide transparency - responsive scaling: 44px (320px), 52px (375px+), 65px (640px+) */}
+            <img src={APP_LOGO} alt="Optibio" className="h-[44px] min-[375px]:h-[52px] sm:h-[65px] w-auto bg-white rounded-md px-1" />
             <div className="flex flex-col">
               {/* Unified typography - responsive text sizing */}
               <span className="text-base min-[375px]:text-lg sm:text-2xl font-bold text-foreground leading-tight">

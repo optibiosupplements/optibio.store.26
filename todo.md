@@ -821,3 +821,8 @@ ROOT CAUSE: EmailCaptureModal has its own custom close button (lines 85-91) whic
 - [x] Mobile responsiveness check (iPhone, Android) - DONE (responsive classes throughout)
 - [ ] Final Lighthouse audit (target 90+ accessibility)
 - [ ] Create checkpoint with all improvements
+
+## 🚨 NEW CRITICAL ISSUES (User-Reported - Dec 27, 2025 11:13 PM)
+
+- [x] Fix logo checkered background visible on live site (added white bg with rounded corners)
+- [x] Fix breadcrumb positioning on hero sections (increased padding and spacing)

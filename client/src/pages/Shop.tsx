@@ -38,13 +38,13 @@ export default function Shop() {
   return (
     <div className="min-h-screen">
       {/* Page Header */}
-      <section className="relative py-12 md:py-16 overflow-hidden gradient-hero">
+      <section className="relative py-16 md:py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
           <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
         </div>
         <div className="container relative z-10">
-          <Breadcrumb className="mb-6">
+          <Breadcrumb className="mb-8">
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink href="/" className="text-slate-300 hover:text-white">Home</BreadcrumbLink>
