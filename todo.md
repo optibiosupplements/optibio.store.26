@@ -1,6 +1,25 @@
 # OptiBio E-Commerce Project TODO
 
-## 🚨 CURRENT: DARK MODE SHOP PAGE REDESIGN (Dec 28, 2025)
+## 🚨 CURRENT: THEME CORRECTION - GLOBAL LIGHT MODE (Dec 28, 2025)
+
+### Remove Route-Based Theme Switching
+- [x] Remove automatic dark mode switching on /shop route from Header.tsx
+- [x] Remove useLocation hook and pathname-based theme logic
+- [x] Ensure Header uses global theme state only
+- [x] Update Shop page to use Clinical Light theme (sky blue gradient) by default
+- [x] Remove dark mode inline styles from Shop.tsx
+- [x] Test global Light Mode consistency across all pages (Home, Shop, About, Science)
+- [x] Verify theme toggle button is the ONLY way to change theme
+- [x] Test theme persistence in localStorage
+- [x] Confirm no jarring theme switches when navigating between pages
+
+### User Experience Goals
+- Global default: Light Mode (Wellness Serenity / Sky Blue Gradient)
+- Shop page: Light Mode with Clinical Light aesthetic (white/sky blue for trust)
+- Theme changes: User-controlled only via toggle button
+- Consistency: Maintain brand trust with seamless page transitions
+
+## 🚨 PREVIOUS: DARK MODE SHOP PAGE REDESIGN (Dec 28, 2025)
 
 ### Clinical Authority Dark Theme Implementation
 - [x] Implement dark navy Midnight Sophistication theme for Shop page
