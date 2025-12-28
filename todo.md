@@ -164,3 +164,28 @@ Page is almost entirely Warm Ivory (#F7F4EF), making it look like a spa/candle s
 - Total estimated impact: $50,000+ annually
 
 **Current Status:** Production-ready, implementing Gemini homepage redesign
+
+
+## 🎨 GEMINI COMPREHENSIVE FIX - "Beige Blur" Elimination (Dec 28, 2025)
+
+### Critical Issue: Beige Blur
+Entire page washed in Warm Ivory (#F7F4EF), creating monotonous "sleepy" feel instead of "clinical" Apple Health aesthetic. Need contrast and rhythm.
+
+### Section-by-Section Background Changes:
+- [x] Header/Navbar: Change to bg-white/80 backdrop-blur-md border-b border-slate-100
+- [x] Header links: Change to Deep Navy (#1E3A5F)
+- [x] Hero Section: VERIFY Sky Blue Radial Gradient is applied (not beige)
+- [x] Benefits Grid: Change to bg-white (Pure White)
+- [x] 90-Day Money-Back Banner: Keep bg-[#1E3A5F] (Deep Navy) - PERFECT
+- [x] Why KSM-66 Section: Change to bg-white (Pure White)
+- [x] Timeline Section: Change to bg-[#F8FAFC] (Slate-50) or Sky Mist
+- [x] Wellness Plan Section: Change to bg-white (Pure White)
+- [x] Reviews Section: Change to bg-[#F7F4EF] (Warm Ivory) - ONLY place to use beige
+- [x] Footer CTA: Keep Navy/Gold gradient - PERFECT
+- [x] Typography: Changed ALL major section headlines to Deep Navy (#1E3A5F)
+
+### Expected Visual Rhythm:
+Sky Blue Gradient → Pure White → Deep Navy → Pure White → Slate/Sky Mist → Pure White → Warm Ivory → Navy/Gold Gradient
+
+### Goal:
+Create "Apple Health" clinical aesthetic with proper contrast and visual separation between sections.

@@ -184,7 +184,7 @@ export default function WellnessPlanPersonalizer() {
   // Collapsed state
   if (!isExpanded) {
     return (
-      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] via-white to-[#F7F4EF]/30">
+      <section className="py-24 bg-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E3A5F] to-[#B89651] text-white px-6 py-3 rounded-full font-bold text-sm">
@@ -223,7 +223,7 @@ export default function WellnessPlanPersonalizer() {
   // Results page
   if (showResults && plan) {
     return (
-      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] via-white to-[#F7F4EF]/30">
+      <section className="py-24 bg-white">
         <div className="container">
           <div className="max-w-5xl mx-auto space-y-8 animate-fade-in">
             <div className="text-center">

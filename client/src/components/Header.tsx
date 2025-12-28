@@ -51,8 +51,8 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-md"
-          : "bg-background"
+          ? "bg-white/80 backdrop-blur-md shadow-md border-b border-slate-100"
+          : "bg-white/80 backdrop-blur-md border-b border-slate-100"
       }`}
     >
       <div className="container">
@@ -73,7 +73,7 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="text-sm font-medium transition-colors text-foreground/80 hover:text-foreground">
+              <Link key={item.name} href={item.href} className="text-sm font-medium transition-colors text-[#1E3A5F] hover:text-[#1E3A5F]/80">
                 {item.name}
               </Link>
             ))}

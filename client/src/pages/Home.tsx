@@ -254,14 +254,14 @@ export default function Home() {
       </section>
 
       {/* Scientifically-Backed Benefits */}
-      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] to-white dark:from-card dark:to-background transition-colors duration-500">
+      <section className="py-24 bg-white dark:from-card dark:to-background transition-colors duration-500">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <Badge className="mb-4 bg-[#C9A961]/10 dark:bg-[#C9A961]/20 text-[#1E3A5F] dark:text-[#C9A961] border-[#C9A961]/30 dark:border-[#C9A961]/50">
               <Leaf className="w-3.5 h-3.5 mr-1.5" />
               Clinically Validated
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
               Scientifically-Backed Benefits
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -437,7 +437,7 @@ export default function Home() {
       </section>
 
       {/* How It Works - Timeline */}
-      <section className="py-24 bg-white border-t border-slate-100">
+      <section className="py-24 bg-[#F8FAFC] border-t border-slate-100">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-4">
@@ -487,14 +487,14 @@ export default function Home() {
       <WellnessPlanPersonalizer />
 
       {/* Who This Is For - Qualification Section */}
-      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] to-white dark:from-card dark:to-background transition-colors duration-500">
+      <section className="py-24 bg-white dark:from-card dark:to-background transition-colors duration-500">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <Badge className="mb-4 bg-[#C9A961]/10 dark:bg-[#C9A961]/20 text-[#1E3A5F] dark:text-[#C9A961] border-[#C9A961]/30 dark:border-[#C9A961]/50">
                 Is This Right for You?
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
                 Who This Is For (And Who It's Not)
               </h2>
               <p className="text-xl text-muted-foreground">
@@ -687,7 +687,7 @@ export default function Home() {
       )}
 
       {/* Testimonials */}
-      <section className="py-24 bg-[#EBF5FB]">
+      <section className="py-24 bg-[#F7F4EF]">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
@@ -733,7 +733,7 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
               Quality You Can Trust
             </h2>
             <p className="text-xl text-muted-foreground">
@@ -766,7 +766,7 @@ export default function Home() {
       <section className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#0D1B2A] text-white">
         <div className="container text-center">
           <div className="max-w-3xl mx-auto space-y-8">
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               Try Optibio Risk-Free for 90 Days
             </h2>
             <p className="text-xl text-[#F7F4EF] leading-relaxed">
@@ -801,7 +801,7 @@ export default function Home() {
               <Badge className="bg-[#C9A961] text-[#1E3A5F] font-bold text-lg px-6 py-2 mb-4">
                 LIMITED TIME OFFER
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Save 29% on Your First Order
               </h2>
               <p className="text-xl text-[#F7F4EF] max-w-2xl mx-auto mb-6">
