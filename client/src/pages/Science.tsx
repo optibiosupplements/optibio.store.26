@@ -219,7 +219,7 @@ export default function Science() {
         </div>
       </section>
 
-      {/* What is KSM-66 */}
+      {/* What is KSM-66® */}
       <section className="py-16 -mt-12 relative z-20">
         <div className="container">
           <Card className="border-2 border-slate-200 shadow-2xl max-w-4xl mx-auto">

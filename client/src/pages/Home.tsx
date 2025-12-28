@@ -20,6 +20,7 @@ import {
 import { formatPrice } from "@/const";
 import { trpc } from "@/lib/trpc";
 import WellnessPlanPersonalizer from "@/components/WellnessPlanPersonalizer";
+import ComparisonTable from "@/components/ComparisonTable";
 
 import { SocialProofCounter } from "@/components/SocialProofCounter";
 import CountdownTimer from "@/components/CountdownTimer";
@@ -228,14 +229,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Product Image - Mobile Optimized */}
-            <div className="relative h-[450px] sm:h-[500px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2">
-              {/* Product image - Let it breathe with clean whitespace */}
+            {/* Right Column - Product Image - Mobile Optimized - 2X BIGGER */}
+            <div className="relative h-[500px] sm:h-[600px] lg:h-[800px] flex items-center justify-center order-1 lg:order-2">
+              {/* Product image - 2x bigger for more visual impact */}
               <div className="relative animate-float">
                 <img 
                   src="/products/optibio-90cap-bottle-front.jpg" 
-                  alt="Optibio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
-                  className="w-full max-w-lg mx-auto drop-shadow-2xl"
+                  alt="Optibio Ashwagandha KSM-66® supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
+                  className="w-full max-w-2xl mx-auto drop-shadow-2xl scale-110 lg:scale-125"
                 />
               </div>
             </div>
@@ -255,7 +256,7 @@ export default function Home() {
               Scientifically-Backed Benefits
             </h2>
             <p className="text-xl text-slate-600">
-              KSM-66 is the most clinically studied ashwagandha extract, with research demonstrating significant benefits across multiple health markers.
+              KSM-66® is the most clinically studied ashwagandha extract, with research demonstrating significant benefits across multiple health markers.
             </p>
           </div>
 
@@ -366,7 +367,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why KSM-66 Specifically */}
+      {/* Why KSM-66® Specifically */}
       <section className="py-24 bg-gradient-to-br from-slate-50 to-[#F7F4EF]/30">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -374,7 +375,7 @@ export default function Home() {
             <div className="relative">
               <img 
                 src="/products/optibio-90cap-bottle-angle.jpg" 
-                alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
+                alt="Optibio Ashwagandha KSM-66® premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
                 className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-3xl"
               />
             </div>
@@ -389,7 +390,7 @@ export default function Home() {
                   Why KSM-66® Specifically?
                 </h2>
                 <p className="text-xl text-slate-600 leading-relaxed">
-                  Not all ashwagandha is created equal. KSM-66 represents the pinnacle of ashwagandha supplementation—here's why it matters.
+                  Not all ashwagandha is created equal. KSM-66® represents the pinnacle of ashwagandha supplementation—here's why it matters.
                 </p>
               </div>
 
@@ -533,6 +534,13 @@ export default function Home() {
         </div>
       </section>
 
+      {/* KSM-66® vs Generic Comparison */}
+      <section className="py-24 bg-white">
+        <div className="container">
+          <ComparisonTable />
+        </div>
+      </section>
+
       {/* Wellness Plan Personalizer */}
       <WellnessPlanPersonalizer />
 
@@ -671,7 +679,7 @@ export default function Home() {
                   <div className="bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] p-12 flex items-center justify-center">
                     <img 
                       src={mainProduct.imageUrl || "/products/optibio-90cap-bottle-front.jpg"}
-                      alt={`${mainProduct.name} - Premium KSM-66 Ashwagandha supplement for stress relief, sleep support, and natural energy`}
+                      alt={`${mainProduct.name} - Premium KSM-66® Ashwagandha supplement for stress relief, sleep support, and natural energy`}
                       className="w-full max-w-xs drop-shadow-2xl"
                     />
                   </div>
@@ -855,7 +863,7 @@ export default function Home() {
                 Save 29% on Your First Order
               </h2>
               <p className="text-xl text-[#F7F4EF] max-w-2xl mx-auto mb-6">
-                Premium KSM-66 Ashwagandha at an unbeatable price. Free shipping on orders over $75.
+                Premium KSM-66® Ashwagandha at an unbeatable price. Free shipping on orders over $75.
               </p>
             </div>
 

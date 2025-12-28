@@ -62,11 +62,10 @@ export default function Shop() {
               <span className="font-bold">Premium KSM-66® Formula</span>
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-              Premium Ashwagandha Supplements
+              Feel Like Yourself Again
             </h1>
             <p className="text-lg text-slate-200">
-              Clinically-researched KSM-66® formula backed by science. 
-              Choose your perfect wellness solution.
+              Clinically-proven ashwagandha for stress, overwhelm, and exhaustion. Wake up calm. Work with focus. Sleep deeply.
             </p>
           </div>
         </div>

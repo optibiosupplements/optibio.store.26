@@ -284,6 +284,14 @@ html {
     background: linear-gradient(180deg, #1E3A5F 0%, #F7F4EF 100%);
   }
   
+  .section-navy-dark {
+    background: linear-gradient(135deg, #0F1F30 0%, #152B45 50%, #1E3A5F 100%);
+  }
+  
+  .section-contrast {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F7F4EF 50%, #FFFFFF 100%);
+  }
+  
   /* Text Gradients */
   .text-gradient-optibio {
     @apply bg-clip-text text-transparent;

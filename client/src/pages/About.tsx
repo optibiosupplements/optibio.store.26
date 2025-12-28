@@ -134,7 +134,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Why KSM-66 */}
+      {/* Why KSM-66® */}
       <section className="py-16 bg-gradient-to-br from-[#F7F4EF] to-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center mb-12">

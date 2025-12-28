@@ -69,8 +69,8 @@ export default function FAQSchema({ faqs }: FAQSchemaProps) {
  * <FAQSchema
  *   faqs={[
  *     {
- *       question: "What is KSM-66 Ashwagandha?",
- *       answer: "KSM-66 is the most clinically studied ashwagandha extract..."
+ *       question: "What is KSM-66® Ashwagandha?",
+ *       answer: "KSM-66® is the most clinically studied ashwagandha extract..."
  *     },
  *     {
  *       question: "How long does shipping take?",

@@ -35,6 +35,7 @@ import SubscriptionToggle from "@/components/SubscriptionToggle";
 import StickyAddToCart from "@/components/StickyAddToCart";
 import UrgencyIndicators from "@/components/UrgencyIndicators";
 import StockIndicator from "@/components/StockIndicator";
+import MoneyBackBadge from "@/components/MoneyBackBadge";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:slug");
@@ -210,7 +211,7 @@ export default function ProductDetail() {
               <div className="aspect-square rounded-3xl overflow-hidden bg-white border-2 border-slate-200 shadow-2xl group">
                 <img
                   src={productImages[selectedImage]}
-                  alt={`${product.name} - ${selectedImage === 0 ? 'premium black glass bottle with gold cap, 300mg KSM-66 ashwagandha per capsule' : selectedImage === 1 ? 'supplement facts label with complete ingredient list and dosage information' : selectedImage === 2 ? 'close-up of premium ashwagandha capsules' : 'lifestyle image showing daily wellness routine'}`}
+                  alt={`${product.name} - ${selectedImage === 0 ? 'premium black glass bottle with gold cap, 300mg KSM-66® ashwagandha per capsule' : selectedImage === 1 ? 'supplement facts label with complete ingredient list and dosage information' : selectedImage === 2 ? 'close-up of premium ashwagandha capsules' : 'lifestyle image showing daily wellness routine'}`}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -465,6 +466,9 @@ export default function ProductDetail() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Prominent Money-Back Guarantee */}
+              <MoneyBackBadge variant="compact" />
             </div>
           </div>
 
@@ -508,7 +512,7 @@ export default function ProductDetail() {
                 <div className="prose prose-lg max-w-none">
                   <h3 className="text-2xl font-bold text-slate-900">About This Product</h3>
                   <p className="text-slate-700 leading-relaxed">
-                    Optibio Ashwagandha KSM-66 represents the pinnacle of ashwagandha supplementation. Our premium formula uses only the highest quality KSM-66® extract—the most clinically studied ashwagandha on the market with over 20 peer-reviewed research studies demonstrating its efficacy.
+                    Optibio Ashwagandha KSM-66® represents the pinnacle of ashwagandha supplementation. Our premium formula uses only the highest quality KSM-66® extract—the most clinically studied ashwagandha on the market with over 20 peer-reviewed research studies demonstrating its efficacy.
                   </p>
                   <p className="text-slate-700 leading-relaxed">
                     Each capsule contains 300mg of pure KSM-66® root extract, standardized to contain 5% withanolides. Take 2 capsules daily for the 600mg clinical dosage used in research studies. Unlike inferior products that use leaf extracts or lower concentrations, our full-spectrum root-only extract preserves the complete balance of bioactive compounds found in the whole herb.

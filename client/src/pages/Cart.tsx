@@ -106,7 +106,7 @@ export default function Cart() {
           </div>
           <div className="space-y-2">
             <h2 className="text-3xl font-bold text-slate-900">Your cart is empty</h2>
-            <p className="text-lg text-slate-600">Discover our premium KSM-66 Ashwagandha</p>
+            <p className="text-lg text-slate-600">Discover our premium KSM-66® Ashwagandha</p>
           </div>
           <Link href="/shop">
             <Button size="lg" className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg">

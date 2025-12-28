@@ -170,7 +170,7 @@ export default function ProductSchema({
  * Example Usage:
  * 
  * <ProductSchema
- *   name="Optibio Ashwagandha KSM-66"
+ *   name="Optibio Ashwagandha KSM-66®"
  *   description="Premium full-spectrum Ashwagandha root extract with clinically-studied KSM-66®"
  *   image="https://optibiosupplements.com/products/ashwagandha-bottle.jpg"
  *   sku="OPTIBIO-ASH-90"

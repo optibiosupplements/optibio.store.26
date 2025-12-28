@@ -120,7 +120,7 @@ export default function OrderSuccess() {
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-slate-900 mb-2">Order Processing</h3>
                   <p className="text-slate-600">
-                    We're preparing your Optibio Ashwagandha KSM-66 for shipment. Our team ensures every bottle meets our premium quality standards.
+                    We're preparing your Optibio Ashwagandha KSM-66® for shipment. Our team ensures every bottle meets our premium quality standards.
                   </p>
                   <p className="text-sm text-slate-500 mt-2">
                     <strong>Timeline:</strong> 1-2 business days
@@ -156,7 +156,7 @@ export default function OrderSuccess() {
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-slate-900 mb-2">Start Your Wellness Journey</h3>
                   <p className="text-slate-600">
-                    Begin taking your premium KSM-66 Ashwagandha as directed. Most customers notice benefits within 2-4 weeks of consistent use.
+                    Begin taking your premium KSM-66® Ashwagandha as directed. Most customers notice benefits within 2-4 weeks of consistent use.
                   </p>
                   <p className="text-sm text-slate-500 mt-2">
                     <strong>Recommended:</strong> Take 1-2 capsules daily with food

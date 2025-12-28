@@ -226,7 +226,7 @@ export default function Manifesto() {
             </h2>
             
             <p className="text-lg text-[#F7F4EF]/80 max-w-2xl mx-auto">
-              We're launching our first product—pharmaceutical-grade Ashwagandha KSM-66—in <strong>90 days</strong>. 
+              We're launching our first product—pharmaceutical-grade Ashwagandha KSM-66®—in <strong>90 days</strong>. 
               Join the waitlist to get exclusive Founder's Edition pricing and be part of building a better supplement company.
             </p>
 
