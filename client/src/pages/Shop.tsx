@@ -12,22 +12,22 @@ export default function Shop() {
   // Assuming the first product is the main KSM-66 bottle
   const product = products?.[0];
   
-  if (isLoading) return <div className="min-h-screen bg-white" />;
+  if (isLoading) return <div className="min-h-screen bg-[#0A1628]" />;
   
   return (
-    <div className="min-h-screen font-sans text-[#1E3A5F]">
-      {/* 1. CLINICAL BACKGROUND */}
-      <div className="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#F8FCFE] via-[#EBF5FB] to-[#D6EAF8]" />
+    <div className="min-h-screen font-sans bg-[#0A1628] text-white">
+      {/* 1. DARK NAVY BACKGROUND (Midnight Sophistication) */}
+      <div className="fixed inset-0 z-[-1] bg-gradient-to-b from-[#0A1628] via-[#1E3A5F] to-[#152B45]" />
       
       {/* 2. HERO HEADER */}
       <section className="pt-32 pb-16 text-center px-6">
-        <Badge className="bg-[#1E3A5F]/5 text-[#1E3A5F] border-[#1E3A5F]/20 hover:bg-[#1E3A5F]/10 mb-6 px-4 py-1.5 text-xs font-bold tracking-widest uppercase rounded-full">
+        <Badge className="bg-[#C9A961]/10 text-[#C9A961] border-[#C9A961]/30 hover:bg-[#C9A961]/20 mb-6 px-4 py-1.5 text-xs font-bold tracking-widest uppercase rounded-full">
           Store
         </Badge>
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-[#1E3A5F]">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-white">
           The Protocol.
         </h1>
-        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
+        <p className="text-xl text-slate-300 max-w-2xl mx-auto font-medium leading-relaxed">
           Pharmaceutical-grade adaptogens engineered for stress resilience and deep recovery.
         </p>
       </section>
@@ -35,12 +35,12 @@ export default function Shop() {
       {/* 3. PRODUCT FEATURE SECTION (Replaces Grid) */}
       <section className="container max-w-6xl mx-auto px-6 pb-24">
         {product && (
-          <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(30,58,95,0.08)] border border-slate-100 overflow-hidden">
+          <div className="bg-[#152B45] rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] border border-[#1E3A5F] overflow-hidden">
             <div className="grid lg:grid-cols-2 gap-0">
               {/* Left: Visual */}
-              <div className="relative bg-gradient-to-b from-slate-50 to-white p-12 flex items-center justify-center border-r border-slate-50">
+              <div className="relative bg-gradient-to-b from-[#1E3A5F] to-[#152B45] p-12 flex items-center justify-center border-r border-[#1E3A5F]">
                 <div className="absolute top-8 left-8">
-                  <Badge className="bg-green-100 text-green-700 border-0 font-bold">In Stock</Badge>
+                  <Badge className="bg-green-500/20 text-green-300 border-green-500/30 font-bold px-3 py-1">In Stock</Badge>
                 </div>
                 {/* Floating Bottle Effect */}
                 <img
@@ -59,29 +59,29 @@ export default function Shop() {
                   <span className="text-sm font-semibold text-slate-400">2,847 Reviews</span>
                 </div>
                 
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1E3A5F]">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                   {product.name}
                 </h2>
                 
-                <p className="text-slate-500 text-lg mb-8 leading-relaxed">
+                <p className="text-slate-300 text-lg mb-8 leading-relaxed">
                   High-potency KSM-66® extract. Standardized to 5% withanolides for maximum cortisol regulation and sleep support.
                 </p>
                 
                 {/* Specs Grid */}
                 <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="p-4 rounded-xl bg-[#1E3A5F]/50 border border-[#1E3A5F]">
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Potency</div>
-                    <div className="text-lg font-bold text-[#1E3A5F]">600mg <span className="text-sm font-normal text-slate-400">/ day</span></div>
+                    <div className="text-lg font-bold text-white">600mg <span className="text-sm font-normal text-slate-400">/ day</span></div>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                  <div className="p-4 rounded-xl bg-[#1E3A5F]/50 border border-[#1E3A5F]">
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Supply</div>
-                    <div className="text-lg font-bold text-[#1E3A5F]">45 Days</div>
+                    <div className="text-lg font-bold text-white">45 Days</div>
                   </div>
                 </div>
                 
                 {/* Price & CTA */}
                 <div className="flex items-end gap-4 mb-8">
-                  <div className="text-5xl font-bold text-[#1E3A5F]">{formatPrice(product.priceInCents)}</div>
+                  <div className="text-5xl font-bold text-white">{formatPrice(product.priceInCents)}</div>
                   {product.compareAtPriceInCents && (
                     <div className="text-xl text-slate-400 line-through mb-2">
                       {formatPrice(product.compareAtPriceInCents)}
@@ -91,11 +91,12 @@ export default function Shop() {
                 
                 <div className="flex flex-col gap-3">
                   <Link href={`/product/${product.slug}`}>
-                    <Button className="w-full h-16 text-lg bg-[#1E3A5F] hover:bg-[#2563EB] text-white rounded-xl font-bold shadow-xl shadow-blue-900/10 transition-all hover:-translate-y-1">
+                    <Button className="w-full h-16 text-lg bg-[#C9A961] hover:bg-[#D4B76E] text-[#0A1628] rounded-xl font-bold shadow-xl shadow-[#C9A961]/20 transition-all hover:-translate-y-1">
                       Shop Now - Risk Free
                     </Button>
                   </Link>
-                  <p className="text-center text-xs text-slate-400 font-medium mt-2">
+                  <p className="text-center text-xs text-slate-400 font-medium mt-2 flex items-center justify-center gap-2">
+                    <Shield className="w-3 h-3" />
                     90-Day Money-Back Guarantee • Free US Shipping
                   </p>
                 </div>
@@ -106,7 +107,7 @@ export default function Shop() {
       </section>
       
       {/* 4. TRUST BADGES (The Footer Anchor) */}
-      <section className="border-t border-slate-200 bg-white/50 backdrop-blur-md py-12">
+      <section className="border-t border-[#1E3A5F] bg-[#152B45]/50 backdrop-blur-md py-12">
         <div className="container max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { icon: Shield, title: "3rd Party Tested", sub: "Purity Verified" },
@@ -114,11 +115,13 @@ export default function Shop() {
             { icon: CheckCircle2, title: "FDA Registered", sub: "GMP Facility" },
             { icon: Truck, title: "Fast Shipping", sub: "Free over $75" },
           ].map((item, i) => (
-            <div key={i} className="flex items-center gap-4 opacity-80 hover:opacity-100 transition-opacity">
-              <item.icon className="w-8 h-8 text-[#1E3A5F]" />
+            <div key={i} className="flex items-center gap-4 opacity-80 hover:opacity-100 transition-opacity group">
+              <div className="p-3 bg-[#C9A961]/10 rounded-full group-hover:bg-[#C9A961]/20 transition-colors">
+                <item.icon className="w-6 h-6 text-[#C9A961]" />
+              </div>
               <div>
-                <div className="font-bold text-[#1E3A5F] text-sm">{item.title}</div>
-                <div className="text-xs text-slate-500">{item.sub}</div>
+                <div className="font-bold text-white text-sm">{item.title}</div>
+                <div className="text-xs text-slate-400">{item.sub}</div>
               </div>
             </div>
           ))}

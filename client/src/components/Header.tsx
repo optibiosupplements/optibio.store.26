@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { ShoppingCart, Menu, X, User, Gift, Package, LogOut, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { APP_LOGO, getLoginUrl } from "@/const";
@@ -21,6 +21,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function Header() {
+  const [location] = useLocation();
+  const isShopPage = location === "/shop";
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { user, isAuthenticated } = useAuth();
@@ -50,7 +52,11 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
+        isShopPage
+          ? isScrolled
+            ? "bg-[#0A1628]/95 backdrop-blur-md shadow-md border-b border-[#1E3A5F]"
+            : "bg-[#0A1628] border-b border-[#1E3A5F]"
+          : isScrolled
           ? "bg-background/95 backdrop-blur-md shadow-md"
           : "bg-background"
       }`}
@@ -63,17 +69,21 @@ export default function Header() {
             <img src={APP_LOGO} alt="Optibio" className="h-[44px] min-[375px]:h-[52px] sm:h-[65px] w-auto" />
             <div className="flex flex-col">
               {/* Unified typography - responsive text sizing */}
-              <span className="text-base min-[375px]:text-lg sm:text-2xl font-bold text-foreground leading-tight" style={{ fontFamily: 'Sora, sans-serif' }}>
+              <span className={`text-base min-[375px]:text-lg sm:text-2xl font-bold leading-tight ${isShopPage ? 'text-white' : 'text-foreground'}`} style={{ fontFamily: 'Sora, sans-serif' }}>
                 Optibio<sup className="text-[10px]">®</sup> <span className="hidden sm:inline">Supplements</span>
               </span>
-              <span className="text-[10px] xs:text-xs text-muted-foreground hidden sm:block">Science-Backed Wellness</span>
+              <span className={`text-[10px] xs:text-xs hidden sm:block ${isShopPage ? 'text-slate-300' : 'text-muted-foreground'}`}>Science-Backed Wellness</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors">
+              <Link key={item.name} href={item.href} className={`text-sm font-medium transition-colors ${
+                isShopPage
+                  ? 'text-slate-300 hover:text-white'
+                  : 'text-foreground/80 hover:text-foreground'
+              }`}>
                 {item.name}
               </Link>
             ))}
@@ -85,7 +95,9 @@ export default function Header() {
             {isAuthenticated ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="hidden md:flex items-center space-x-2 text-sm font-medium">
+                  <Button variant="ghost" className={`hidden md:flex items-center space-x-2 text-sm font-medium ${
+                    isShopPage ? 'text-white hover:bg-[#1E3A5F]' : ''
+                  }`}>
                     <User className="h-5 w-5" />
                     <span>{user?.name || "Account"}</span>
                     <ChevronDown className="h-4 w-4" />
@@ -122,7 +134,11 @@ export default function Header() {
             ) : (
               <a
                 href={getLoginUrl()}
-                className="hidden md:flex items-center space-x-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+                className={`hidden md:flex items-center space-x-2 text-sm font-medium transition-colors ${
+                  isShopPage
+                    ? 'text-slate-300 hover:text-white'
+                    : 'text-foreground/80 hover:text-foreground'
+                }`}
               >
                 <User className="h-5 w-5" />
                 <span>Sign In</span>
@@ -133,7 +149,9 @@ export default function Header() {
             <ThemeToggle />
 
             {/* Cart - Mobile Optimized Touch Target */}
-            <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full hover:bg-accent transition-colors">
+            <Link href="/cart" className={`relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full transition-colors ${
+              isShopPage ? 'text-white hover:bg-[#1E3A5F]' : 'hover:bg-accent'
+            }`}>
               <ShoppingCart className="h-5 w-5" />
               {cartItemCount > 0 && (
                 <span className="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-primary rounded-full">
@@ -148,7 +166,9 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden h-11 w-11"
+                  className={`md:hidden h-11 w-11 ${
+                    isShopPage ? 'text-white hover:bg-[#1E3A5F]' : ''
+                  }`}
                   aria-label="Open menu"
                 >
                   <Menu className="h-6 w-6" />
