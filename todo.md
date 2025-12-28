@@ -905,3 +905,43 @@ ROOT CAUSE: EmailCaptureModal has its own custom close button (lines 85-91) whic
 - [x] Add hover animations to product cards (scale-105)
 - [x] Add hover effects to navigation items (text-primary)
 - [x] Test all hover animations for smoothness (300ms transitions)
+
+
+## 🏥 CLINICAL LIGHT REDESIGN - SHOP PAGE (Dec 28, 2025)
+
+### Global Layout & Theme
+- [x] Replace dark mode gradients with clinical gradient background
+- [x] Set fixed background: radial-gradient from #F8FCFE via #EBF5FB to #D6EAF8
+- [x] Update typography: text-slate-900 for body, #1E3A5F for headers
+- [x] Remove beige/ivory (#F7F4EF) colors
+
+### Hero Section Redesign
+- [x] Replace "Premium Ashwagandha" with "The Protocol." headline
+- [x] Add clinical subhead: "Pharmaceutical-grade adaptogens..."
+- [x] Center-align hero with clean whitespace
+- [x] Add "STORE" badge with clinical styling
+- [x] Use Deep Navy (#1E3A5F) for headline
+
+### Product Card Transformation
+- [x] Remove cramped grid layout
+- [x] Create full-width horizontal feature card
+- [x] Left side: Large floating product image on white background
+- [x] Right side: Clinical details, rating, subscribe toggle
+- [x] Add "In Stock" badge (green)
+- [x] Add specs grid (Potency: 600mg/day, Supply: 45 Days)
+- [x] Deep Navy CTA button (#1E3A5F) with Bright Blue hover (#2563EB)
+- [x] Add "Shop Now - Risk Free" button text
+- [x] Add guarantee text: "90-Day Money-Back Guarantee • Free US Shipping"
+
+### Trust Section
+- [x] Make trust badges monochrome Navy on white
+- [x] Medical spec sheet aesthetic
+- [x] Add backdrop-blur-md effect
+- [x] Grid layout: 2 cols mobile, 4 cols desktop
+- [x] Icons: Shield, FlaskConical, CheckCircle2, Truck
+
+### Remove Clutter
+- [x] Remove unnecessary filters ("1 product", "Featured")
+- [x] Remove navigation noise
+- [x] Simplify product card (no thumbnails in main view)
+- [x] Clean, spacious layout with pharmaceutical precision

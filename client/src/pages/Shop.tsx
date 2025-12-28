@@ -1,242 +1,127 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import ProductGallery from "@/components/ProductGallery";
-import { 
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Loader2, Star, CheckCircle2, TrendingUp, ChevronRight } from "lucide-react";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { formatPrice, calculateDiscountPrice } from "@/const";
+import { Star, CheckCircle2, Shield, Truck, FlaskConical } from "lucide-react";
+import { formatPrice } from "@/const";
 import { trpc } from "@/lib/trpc";
 
 export default function Shop() {
   const { data: products, isLoading } = trpc.products.list.useQuery();
-  const [sortBy, setSortBy] = useState("featured");
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
-      </div>
-    );
-  }
-
+  
+  // Assuming the first product is the main KSM-66 bottle
+  const product = products?.[0];
+  
+  if (isLoading) return <div className="min-h-screen bg-white" />;
+  
   return (
-    <div className="min-h-screen" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
-      {/* Page Header */}
-      <section className="relative py-12 md:py-16 overflow-hidden gradient-hero">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
-        </div>
-        <div className="container relative z-10">
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/" className="text-slate-300 hover:text-white">Home</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-slate-400">
-                <ChevronRight className="h-4 w-4" />
-              </BreadcrumbSeparator>
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-white font-medium">Shop</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-          <div className="max-w-3xl">
-            <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
-              <span className="font-bold">Premium KSM-66® Formula</span>
-            </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
-              Premium Ashwagandha Supplements
-            </h1>
-            <p className="text-lg text-slate-200">
-              Clinically-researched KSM-66® formula backed by science. 
-              Choose your perfect wellness solution.
-            </p>
-          </div>
-        </div>
+    <div className="min-h-screen font-sans text-[#1E3A5F]">
+      {/* 1. CLINICAL BACKGROUND */}
+      <div className="fixed inset-0 z-[-1] bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#F8FCFE] via-[#EBF5FB] to-[#D6EAF8]" />
+      
+      {/* 2. HERO HEADER */}
+      <section className="pt-32 pb-16 text-center px-6">
+        <Badge className="bg-[#1E3A5F]/5 text-[#1E3A5F] border-[#1E3A5F]/20 hover:bg-[#1E3A5F]/10 mb-6 px-4 py-1.5 text-xs font-bold tracking-widest uppercase rounded-full">
+          Store
+        </Badge>
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-[#1E3A5F]">
+          The Protocol.
+        </h1>
+        <p className="text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
+          Pharmaceutical-grade adaptogens engineered for stress resilience and deep recovery.
+        </p>
       </section>
-
-      {/* Products Section */}
-      <section className="py-12 md:py-16">
-        <div className="container">
-          {/* Filters and Sort */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-            <div>
-              <p className="text-sm text-muted-foreground">
-                {products?.length || 0} {products?.length === 1 ? 'product' : 'products'}
-              </p>
-            </div>
-            <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Sort by" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="featured">Featured</SelectItem>
-                <SelectItem value="price-low">Price: Low to High</SelectItem>
-                <SelectItem value="price-high">Price: High to Low</SelectItem>
-                <SelectItem value="newest">Newest</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Product Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products?.map((product) => (
-              <Card key={product.id} className="group overflow-hidden border-2 border-[#C9A961]/10 hover:border-[#C9A961]/30 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
-                <CardContent className="p-0">
-                  {/* Product Gallery */}
-                  <div className="relative p-4">
-                    <ProductGallery
-                      images={product.galleryImages ? JSON.parse(product.galleryImages) : [product.imageUrl || "/products/ashwagandha-bottle.jpg"]}
-                      productName={product.name}
-                    />
-                    {product.isFeatured && (
-                      <Badge className="absolute top-8 right-8 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold z-10">
-                        <TrendingUp className="h-3 w-3 mr-1" />
-                        Best Seller
-                      </Badge>
-                    )}
-                    {product.compareAtPriceInCents && (
-                      <Badge className="absolute top-8 left-8 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold z-10">
-                        Save {Math.round((1 - product.priceInCents / product.compareAtPriceInCents) * 100)}%
-                      </Badge>
-                    )}
+      
+      {/* 3. PRODUCT FEATURE SECTION (Replaces Grid) */}
+      <section className="container max-w-6xl mx-auto px-6 pb-24">
+        {product && (
+          <div className="bg-white rounded-[2.5rem] shadow-[0_20px_60px_-15px_rgba(30,58,95,0.08)] border border-slate-100 overflow-hidden">
+            <div className="grid lg:grid-cols-2 gap-0">
+              {/* Left: Visual */}
+              <div className="relative bg-gradient-to-b from-slate-50 to-white p-12 flex items-center justify-center border-r border-slate-50">
+                <div className="absolute top-8 left-8">
+                  <Badge className="bg-green-100 text-green-700 border-0 font-bold">In Stock</Badge>
+                </div>
+                {/* Floating Bottle Effect */}
+                <img
+                  src="/products/optibio-90cap-bottle-front.jpg"
+                  alt={product.name}
+                  className="w-full max-w-[320px] h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              
+              {/* Right: Details & Conversion */}
+              <div className="p-12 lg:p-16 flex flex-col justify-center">
+                <div className="flex items-center gap-2 mb-6">
+                  <div className="flex text-[#C9A961]">
+                    {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
                   </div>
-
-                  {/* Product Info */}
-                  <div className="p-6 space-y-4">
-                    <div>
-                      <h3 className="font-bold text-xl mb-2">{product.name}</h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">
-                        {product.description}
-                      </p>
-                    </div>
-
-                    {/* Rating */}
-                    <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                        ))}
-                      </div>
-                      <span className="text-sm text-muted-foreground">(2,847 reviews)</span>
-                    </div>
-
-                    {/* Key Features */}
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span>300mg per capsule (600mg daily dose)</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span>{product.servingsPerContainer} servings per bottle</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span>Third-party tested for purity</span>
-                      </div>
-                    </div>
-
-                    {/* Pricing */}
-                    <div className="pt-4 border-t">
-                      <div className="flex items-baseline gap-2 mb-3">
-                        <span className="text-3xl font-bold text-primary">
-                          {formatPrice(product.priceInCents)}
-                        </span>
-                        {product.compareAtPriceInCents && (
-                          <span className="text-lg text-muted-foreground line-through">
-                            {formatPrice(product.compareAtPriceInCents)}
-                          </span>
-                        )}
-                      </div>
-
-                      {/* Subscription Savings */}
-                      <div className="bg-secondary/10 border border-secondary/30 rounded-md p-3 mb-4">
-                        <p className="text-sm font-semibold text-secondary-foreground mb-1">
-                          💰 Subscribe & Save 15%
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          {formatPrice(calculateDiscountPrice(product.priceInCents, 15))} with subscription
-                        </p>
-                      </div>
-
-                      {/* CTA Button */}
-                      <Link href={`/product/${product.slug}`}>
-                        <Button className="w-full" size="lg">
-                          View Details
-                        </Button>
-                      </Link>
-                    </div>
-
-                    {/* Stock Indicator */}
-                    {product.stockQuantity && product.stockQuantity <= (product.lowStockThreshold || 50) && (
-                      <p className="text-xs text-destructive font-medium text-center">
-                        Only {product.stockQuantity} left in stock!
-                      </p>
-                    )}
+                  <span className="text-sm font-semibold text-slate-400">2,847 Reviews</span>
+                </div>
+                
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1E3A5F]">
+                  {product.name}
+                </h2>
+                
+                <p className="text-slate-500 text-lg mb-8 leading-relaxed">
+                  High-potency KSM-66® extract. Standardized to 5% withanolides for maximum cortisol regulation and sleep support.
+                </p>
+                
+                {/* Specs Grid */}
+                <div className="grid grid-cols-2 gap-4 mb-8">
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Potency</div>
+                    <div className="text-lg font-bold text-[#1E3A5F]">600mg <span className="text-sm font-normal text-slate-400">/ day</span></div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          {/* Empty State */}
-          {products?.length === 0 && (
-            <div className="text-center py-16">
-              <p className="text-lg text-muted-foreground">No products found</p>
+                  <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
+                    <div className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Supply</div>
+                    <div className="text-lg font-bold text-[#1E3A5F]">45 Days</div>
+                  </div>
+                </div>
+                
+                {/* Price & CTA */}
+                <div className="flex items-end gap-4 mb-8">
+                  <div className="text-5xl font-bold text-[#1E3A5F]">{formatPrice(product.priceInCents)}</div>
+                  {product.compareAtPriceInCents && (
+                    <div className="text-xl text-slate-400 line-through mb-2">
+                      {formatPrice(product.compareAtPriceInCents)}
+                    </div>
+                  )}
+                </div>
+                
+                <div className="flex flex-col gap-3">
+                  <Link href={`/product/${product.slug}`}>
+                    <Button className="w-full h-16 text-lg bg-[#1E3A5F] hover:bg-[#2563EB] text-white rounded-xl font-bold shadow-xl shadow-blue-900/10 transition-all hover:-translate-y-1">
+                      Shop Now - Risk Free
+                    </Button>
+                  </Link>
+                  <p className="text-center text-xs text-slate-400 font-medium mt-2">
+                    90-Day Money-Back Guarantee • Free US Shipping
+                  </p>
+                </div>
+              </div>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </section>
-
-      {/* Trust Section */}
-      <section className="py-12 md:py-16 bg-muted/30">
-        <div className="container">
-          <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold">
-              Why Choose Optibio?
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <div className="text-4xl font-bold text-primary">20+</div>
-                <p className="font-semibold">Clinical Studies</p>
-                <p className="text-sm text-muted-foreground">
-                  Backed by peer-reviewed research
-                </p>
-              </div>
-              <div className="space-y-2">
-                <div className="text-4xl font-bold text-primary">100%</div>
-                <p className="font-semibold">Money-Back Guarantee</p>
-                <p className="text-sm text-muted-foreground">
-                  60 days to try risk-free
-                </p>
-              </div>
-              <div className="space-y-2">
-                <div className="text-4xl font-bold text-primary">50K+</div>
-                <p className="font-semibold">Happy Customers</p>
-                <p className="text-sm text-muted-foreground">
-                  Join our wellness community
-                </p>
+      
+      {/* 4. TRUST BADGES (The Footer Anchor) */}
+      <section className="border-t border-slate-200 bg-white/50 backdrop-blur-md py-12">
+        <div className="container max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
+          {[
+            { icon: Shield, title: "3rd Party Tested", sub: "Purity Verified" },
+            { icon: FlaskConical, title: "KSM-66® Formula", sub: "Clinical Strength" },
+            { icon: CheckCircle2, title: "FDA Registered", sub: "GMP Facility" },
+            { icon: Truck, title: "Fast Shipping", sub: "Free over $75" },
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-4 opacity-80 hover:opacity-100 transition-opacity">
+              <item.icon className="w-8 h-8 text-[#1E3A5F]" />
+              <div>
+                <div className="font-bold text-[#1E3A5F] text-sm">{item.title}</div>
+                <div className="text-xs text-slate-500">{item.sub}</div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
