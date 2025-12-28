@@ -834,3 +834,30 @@ ROOT CAUSE: EmailCaptureModal has its own custom close button (lines 85-91) whic
 - [x] Chrome production shows logo with checkered background - will clear after cache expires
 - [x] Chrome dev server shows different version - will clear after cache expires
 - [x] Update favicon to correct logo and implement cache-busting (v=5)
+
+## 🎨 GEMINI DESIGN COLLABORATION (Dec 28, 2025 - Midnight Sophistication Theme)
+
+### Phase 1: Homepage Hero
+- [x] Replace light ivory background with Deep Navy (#1E3A5F)
+- [x] Update CTA buttons to Antique Gold (#C9A961)
+- [x] Add glassmorphism cards (bg-white/10 backdrop-blur-md)
+- [x] Ensure product bottle pops against dark background
+- [x] Reserve gold strictly for conversion actions
+
+### Phase 2: Product Detail Page
+- [x] Transform to dark navy background
+- [x] Gold "Add to Cart" button
+- [x] Glassmorphism product info cards
+- [x] Premium trust signals with gold accents
+
+### Phase 3: Shop Page
+- [x] Dark navy hero section
+- [x] Glassmorphism product cards
+- [x] Gold CTAs on product cards
+- [x] Modern sophisticated aesthetic
+
+### Phase 4: Testing & Polish
+- [x] Test contrast ratios (WCAG AA compliance)
+- [x] Verify mobile responsiveness
+- [x] Check all interactive elements
+- [x] Create checkpoint with Gemini collaboration complete

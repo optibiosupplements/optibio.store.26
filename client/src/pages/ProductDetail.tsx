@@ -146,7 +146,7 @@ export default function ProductDetail() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+    <div className="min-h-screen bg-gradient-to-br from-[#1E3A5F] via-[#152B45] to-[#1E3A5F]">
       {/* Product Schema for Rich Snippets */}
       <ProductSchema
         name={product.name}
@@ -184,19 +184,19 @@ export default function ProductDetail() {
         ]}
       />
 
-      {/* Breadcrumb */}
-      <div className="border-b bg-white/80 backdrop-blur-sm sticky top-16 z-40">
+      {/* Breadcrumb - Glassmorphism */}
+      <div className="border-b border-white/20 bg-white/10 backdrop-blur-md sticky top-16 z-40">
         <div className="container py-4">
-          <div className="flex items-center gap-2 text-sm text-slate-600">
+          <div className="flex items-center gap-2 text-sm text-white/70">
             <Link href="/">
-              <span className="hover:text-[#1E3A5F] transition-colors cursor-pointer">Home</span>
+              <span className="hover:text-[#C9A961] transition-colors cursor-pointer">Home</span>
             </Link>
             <span>/</span>
             <Link href="/shop">
-              <span className="hover:text-[#1E3A5F] transition-colors cursor-pointer">Shop</span>
+              <span className="hover:text-[#C9A961] transition-colors cursor-pointer">Shop</span>
             </Link>
             <span>/</span>
-            <span className="text-slate-900 font-medium">{product.name}</span>
+            <span className="text-white font-medium">{product.name}</span>
           </div>
         </div>
       </div>
@@ -207,8 +207,8 @@ export default function ProductDetail() {
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Left Column - Images */}
             <div className="space-y-6">
-              {/* Main Image */}
-              <div className="aspect-square rounded-3xl overflow-hidden bg-white border-2 border-slate-200 shadow-2xl group">
+              {/* Main Image - Glassmorphism */}
+              <div className="aspect-square rounded-3xl overflow-hidden bg-white/10 backdrop-blur-md border-2 border-white/20 shadow-2xl group">
                 <img
                   src={productImages[selectedImage]}
                   alt={`${product.name} - ${selectedImage === 0 ? 'premium black glass bottle with gold cap, 300mg KSM-66® ashwagandha per capsule' : selectedImage === 1 ? 'supplement facts label with complete ingredient list and dosage information' : selectedImage === 2 ? 'close-up of premium ashwagandha capsules' : 'lifestyle image showing daily wellness routine'}`}
@@ -224,8 +224,8 @@ export default function ProductDetail() {
                     onClick={() => setSelectedImage(idx)}
                     className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 ${
                       selectedImage === idx 
-                        ? "border-[#1E3A5F] ring-4 ring-[#C9A961]/20 scale-105" 
-                        : "border-slate-200 hover:border-[#C9A961]/40"
+                        ? "border-[#C9A961] ring-4 ring-[#C9A961]/40 scale-105 bg-white/10 backdrop-blur-md" 
+                        : "border-white/20 hover:border-[#C9A961]/60 bg-white/5"
                     }`}
                   >
                     <img 
@@ -237,16 +237,16 @@ export default function ProductDetail() {
                 ))}
               </div>
 
-              {/* Trust Badges - Desktop */}
+              {/* Trust Badges - Desktop - Glassmorphism */}
               <div className="hidden lg:grid grid-cols-2 gap-4 pt-6">
                 {certifications.map((cert, i) => (
-                  <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-200">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-[#B89651]/10 flex items-center justify-center">
-                      <cert.icon className="w-5 h-5 text-[#1E3A5F]" />
+                  <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/20">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#C9A961]/20 flex items-center justify-center">
+                      <cert.icon className="w-5 h-5 text-[#C9A961]" />
                     </div>
                     <div>
-                      <div className="font-semibold text-sm text-slate-900">{cert.text}</div>
-                      <div className="text-xs text-slate-600">{cert.desc}</div>
+                      <div className="font-semibold text-sm text-white">{cert.text}</div>
+                      <div className="text-xs text-white/70">{cert.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -268,15 +268,15 @@ export default function ProductDetail() {
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-[#C9A961] text-[#C9A961]" />
                     ))}
-                    <span className="text-sm text-slate-600 ml-2">(2,847 reviews)</span>
+                    <span className="text-sm text-white/70 ml-2">(2,847 reviews)</span>
                   </div>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
                   {product.name}
                 </h1>
 
-                <p className="text-xl text-slate-600 leading-relaxed">
+                <p className="text-xl text-white/80 leading-relaxed">
                   {product.description || "Premium full-spectrum Ashwagandha root extract standardized to 5% withanolides. Clinically studied KSM-66® formula for stress management, mental clarity, and overall wellness."}
                 </p>
 
@@ -294,25 +294,25 @@ export default function ProductDetail() {
 
                 {/* Price */}
                 <div className="flex items-baseline gap-4 pt-4">
-                  <div className="text-5xl font-bold bg-gradient-to-r from-[#1E3A5F] to-[#B89651] bg-clip-text text-transparent">
+                  <div className="text-5xl font-bold text-white">
                     {formatPrice(isSubscription ? subscriptionPrice : currentPrice)}
                   </div>
                   {comparePrice && comparePrice > currentPrice && (
                     <>
-                      <div className="text-2xl text-slate-400 line-through">
+                      <div className="text-2xl text-white/50 line-through">
                         {formatPrice(comparePrice)}
                       </div>
-                      <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F] text-sm px-3 py-1">
+                      <Badge variant="secondary" className="bg-[#C9A961]/30 text-white text-sm px-3 py-1">
                         Save {Math.round(((comparePrice - currentPrice) / comparePrice) * 100)}%
                       </Badge>
                     </>
                   )}
                 </div>
                 {/* Cost per day - Value anchoring */}
-                <p className="text-sm text-slate-600 mt-2">
-                  That's just <span className="font-bold text-[#1E3A5F]">${((isSubscription ? subscriptionPrice : currentPrice) / 100 / 45).toFixed(2)}/day</span> for better sleep & less stress
+                <p className="text-sm text-white/80 mt-2">
+                  That's just <span className="font-bold text-[#C9A961]">${((isSubscription ? subscriptionPrice : currentPrice) / 100 / 45).toFixed(2)}/day</span> for better sleep & less stress
                 </p>
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-xs text-white/60 mt-1">
                   ☕ Less than your daily coffee
                 </p>
               </div>
@@ -320,7 +320,7 @@ export default function ProductDetail() {
               {/* Variant Selection */}
               {product.variants && product.variants.length > 0 && (
                 <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-slate-900">Choose Your Supply</Label>
+                  <Label className="text-lg font-semibold text-white">Choose Your Supply</Label>
                   <RadioGroup 
                     value={selectedVariant?.toString() || product.variants[0]?.id.toString()}
                     onValueChange={(value) => setSelectedVariant(parseInt(value))}
@@ -337,23 +337,23 @@ export default function ProductDetail() {
                           htmlFor={`variant-${variant.id}`}
                           className={`flex items-center justify-between p-5 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
                             (selectedVariant || product.variants[0]?.id) === variant.id
-                              ? "border-[#1E3A5F] bg-[#F7F4EF] ring-4 ring-[#C9A961]/20"
-                              : "border-slate-200 hover:border-[#C9A961]/40 bg-white"
+                              ? "border-[#C9A961] bg-white/10 backdrop-blur-md ring-4 ring-[#C9A961]/40"
+                              : "border-white/20 hover:border-[#C9A961]/60 bg-white/5"
                           }`}
                         >
                           <div className="flex items-center gap-4">
                             <RadioGroupItem value={variant.id.toString()} id={`variant-${variant.id}`} />
                               <div>
-                                <div className="font-semibold text-slate-900">{variant.name}</div>
-                                {variant.sku && <div className="text-sm text-slate-600">{variant.sku}</div>}
+                                <div className="font-semibold text-white">{variant.name}</div>
+                                {variant.sku && <div className="text-sm text-white/70">{variant.sku}</div>}
                               </div>
                           </div>
                           <div className="text-right">
-                            <div className="text-xl font-bold text-slate-900">
+                            <div className="text-xl font-bold text-white">
                               {formatPrice(variant.priceInCents)}
                             </div>
                             {savings > 0 && (
-                              <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F] text-xs">
+                              <Badge variant="secondary" className="bg-[#C9A961]/30 text-white text-xs">
                                 Save {savings}%
                               </Badge>
                             )}
@@ -410,7 +410,7 @@ export default function ProductDetail() {
                     size="lg"
                     onClick={handleAddToCart}
                     disabled={addToCartMutation.isPending}
-                    className="flex-1 h-14 text-lg bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#B89651] text-slate-900 font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                    className="flex-1 h-14 text-lg bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#A67D40] text-[#1E3A5F] font-bold shadow-lg hover:shadow-2xl transition-all duration-300"
                   >
                     {addToCartMutation.isPending ? (
                       <Loader2 className="w-5 h-5 mr-2 animate-spin" />

@@ -36,9 +36,9 @@ export default function Shop() {
   }
 
   return (
-    <div className="min-h-screen">
-      {/* Page Header */}
-      <section className="relative py-16 md:py-20 overflow-hidden gradient-hero">
+    <div className="min-h-screen bg-gradient-to-br from-[#1E3A5F] via-[#152B45] to-[#1E3A5F]">
+      {/* Page Header - Midnight Sophistication */}
+      <section className="relative py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
           <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
@@ -77,7 +77,7 @@ export default function Shop() {
           {/* Filters and Sort */}
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
             <div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-sm text-white/70">
                 {products?.length || 0} {products?.length === 1 ? 'product' : 'products'}
               </p>
             </div>
@@ -97,7 +97,7 @@ export default function Shop() {
           {/* Product Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {products?.map((product) => (
-              <Card key={product.id} className="group overflow-hidden border-2 border-[#C9A961]/10 hover:border-[#C9A961]/30 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
+              <Card key={product.id} className="group overflow-hidden border-2 border-white/20 hover:border-[#C9A961]/60 shadow-2xl hover:shadow-gold transition-all bg-white/10 backdrop-blur-md">
                 <CardContent className="p-0">
                   {/* Product Gallery */}
                   <div className="relative p-4">
@@ -121,8 +121,8 @@ export default function Shop() {
                   {/* Product Info */}
                   <div className="p-6 space-y-4">
                     <div>
-                      <h3 className="font-bold text-xl mb-2">{product.name}</h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">
+                      <h3 className="font-bold text-xl mb-2 text-white">{product.name}</h3>
+                      <p className="text-sm text-white/70 line-clamp-2">
                         {product.description}
                       </p>
                     </div>
@@ -134,51 +134,51 @@ export default function Shop() {
                           <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                         ))}
                       </div>
-                      <span className="text-sm text-muted-foreground">(2,847 reviews)</span>
+                      <span className="text-sm text-white/70">(2,847 reviews)</span>
                     </div>
 
                     {/* Key Features */}
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span>300mg per capsule (600mg daily dose)</span>
+                        <CheckCircle2 className="h-4 w-4 text-[#C9A961] flex-shrink-0" />
+                        <span className="text-white/80">300mg per capsule (600mg daily dose)</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span>{product.servingsPerContainer} servings per bottle</span>
+                        <CheckCircle2 className="h-4 w-4 text-[#C9A961] flex-shrink-0" />
+                        <span className="text-white/80">{product.servingsPerContainer} servings per bottle</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm">
-                        <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0" />
-                        <span>Third-party tested for purity</span>
+                        <CheckCircle2 className="h-4 w-4 text-[#C9A961] flex-shrink-0" />
+                        <span className="text-white/80">Third-party tested for purity</span>
                       </div>
                     </div>
 
                     {/* Pricing */}
-                    <div className="pt-4 border-t">
+                    <div className="pt-4 border-t border-white/20">
                       <div className="flex items-baseline gap-2 mb-3">
-                        <span className="text-3xl font-bold text-primary">
+                        <span className="text-3xl font-bold text-white">
                           {formatPrice(product.priceInCents)}
                         </span>
                         {product.compareAtPriceInCents && (
-                          <span className="text-lg text-muted-foreground line-through">
+                          <span className="text-lg text-white/50 line-through">
                             {formatPrice(product.compareAtPriceInCents)}
                           </span>
                         )}
                       </div>
 
                       {/* Subscription Savings */}
-                      <div className="bg-secondary/10 border border-secondary/30 rounded-md p-3 mb-4">
-                        <p className="text-sm font-semibold text-secondary-foreground mb-1">
+                      <div className="bg-white/5 border border-white/20 rounded-md p-3 mb-4">
+                        <p className="text-sm font-semibold text-white mb-1">
                           💰 Subscribe & Save 15%
                         </p>
-                        <p className="text-xs text-muted-foreground">
+                        <p className="text-xs text-white/70">
                           {formatPrice(calculateDiscountPrice(product.priceInCents, 15))} with subscription
                         </p>
                       </div>
 
-                      {/* CTA Button */}
+                      {/* CTA Button - Gold */}
                       <Link href={`/product/${product.slug}`}>
-                        <Button className="w-full" size="lg">
+                        <Button className="w-full bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#A67D40] text-[#1E3A5F] font-bold" size="lg">
                           View Details
                         </Button>
                       </Link>
@@ -186,7 +186,7 @@ export default function Shop() {
 
                     {/* Stock Indicator */}
                     {product.stockQuantity && product.stockQuantity <= (product.lowStockThreshold || 50) && (
-                      <p className="text-xs text-destructive font-medium text-center">
+                      <p className="text-xs text-[#C9A961] font-medium text-center">
                         Only {product.stockQuantity} left in stock!
                       </p>
                     )}

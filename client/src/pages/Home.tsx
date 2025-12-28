@@ -111,8 +111,8 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#F7F4EF] via-[#EDE9E3] to-[#F7F4EF]">
+      {/* Hero Section - Midnight Sophistication (Gemini Design) */}
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#1E3A5F] via-[#152B45] to-[#1E3A5F]">
         {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
@@ -127,7 +127,7 @@ export default function Home() {
                   Science-Backed • Third-Party Tested
                 </Badge>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-[#2D2D2D]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-white">
                   Feel Like{" "}
                   <span className="text-gradient-optibio">
                     Yourself
@@ -135,27 +135,27 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                {/* Brand guideline: Body text uses Charcoal (#2D2D2D), not navy */}
-                <p className="text-lg sm:text-xl md:text-2xl text-[#2D2D2D] leading-relaxed max-w-2xl">
+                {/* Gemini: White text on dark navy background */}
+                <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed max-w-2xl">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
 
-              {/* Trust Indicators - Mobile Optimized */}
+              {/* Trust Indicators - Glassmorphism Style */}
               <div className="flex flex-wrap gap-4 sm:gap-6 text-base">
                 {certifications.slice(0, 3).map((cert, i) => (
-                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[#1E3A5F]">
+                  <div key={i} className="flex items-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-md rounded-lg px-3 py-2 border border-white/20">
                     <cert.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#C9A961]" />
                     <div className="flex flex-col">
-                      <span className="font-bold text-[#2D2D2D] text-base">{cert.text}</span>
-                      <span className="text-sm text-[#1E3A5F]">Verified</span>
+                      <span className="font-bold text-white text-base">{cert.text}</span>
+                      <span className="text-sm text-[#C9A961]">Verified</span>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Pricing & Urgency - Mobile Optimized */}
-              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl">
+              {/* Pricing & Urgency - Glassmorphism Card */}
+              <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl">
                 {/* Countdown Timer - P0 FIX: Add urgency above fold */}
                 <CountdownTimer 
                   targetDate={new Date('2026-01-20T23:59:59')} 
@@ -163,18 +163,18 @@ export default function Home() {
                 />
                 
                 <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-3">
-                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2D2D2D]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
-                  <span className="text-xl sm:text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
+                  <span className="text-xl sm:text-2xl text-white/60 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
                   <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1.5 shadow-md">
                     Save 46%
                   </Badge>
                 </div>
-                <p className="text-sm text-[#1E3A5F] mb-3 flex items-center gap-2">
+                <p className="text-sm text-white/80 mb-3 flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-[#C9A961]" />
                   <span className="font-semibold">Pre-Order Special:</span> Ships Jan 20-27, 2026
                 </p>
-                <div className="flex items-center gap-2 text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">
-                  <span className="animate-pulse text-amber-600">⏱️</span>
+                <div className="flex items-center gap-2 text-xs text-white/80 bg-white/5 border border-white/20 rounded-lg px-3 py-2 mb-4">
+                  <span className="animate-pulse text-[#C9A961]">⏱️</span>
                   <span className="font-semibold">Free shipping</span> on orders $75+
                 </div>
                 
@@ -183,35 +183,35 @@ export default function Home() {
                   <GuaranteeBadge size="sm" />
                 </div>
                 
-                {/* P0 FIX: CTA moved inside pricing card, closer to price */}
+                {/* Gemini: Gold CTA for conversion action */}
                 <Link href="/product/ashwagandha-ksm-66" className="block">
                   <Button 
                     size="lg" 
-                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:from-[#152B45] hover:to-[#0F1F30] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#A67D40] text-[#1E3A5F] font-bold shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]"
                   >
                     Pre-Order Now - Save 46%
                     <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
                   </Button>
                 </Link>
                 {/* Anxiety-reducing micro-copy */}
-                <p className="text-xs text-center text-slate-500 mt-3 flex items-center justify-center gap-2 flex-wrap">
+                <p className="text-xs text-center text-white/60 mt-3 flex items-center justify-center gap-2 flex-wrap">
                   <span className="flex items-center gap-1">
                     <svg className="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                     </svg>
                     Secure checkout
                   </span>
-                  <span className="text-slate-300">•</span>
+                  <span className="text-white/30">•</span>
                   <span>Free shipping on $75+</span>
-                  <span className="text-slate-300">•</span>
+                  <span className="text-white/30">•</span>
                   <span>90-day guarantee</span>
                 </p>
               </div>
 
               {/* P0 FIX: Removed duplicate CTA, moved to pricing card above */}
 
-              {/* Social Proof - Enhanced */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-5 shadow-md">
+              {/* Social Proof - Glassmorphism */}
+              <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-xl p-5 shadow-lg">
                 <div className="flex items-center gap-4">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4, 5].map((i) => (
@@ -223,12 +223,12 @@ export default function Home() {
                       {[1, 2, 3, 4, 5].map((i) => (
                         <Star key={i} className="w-5 h-5 fill-[#C9A961] text-[#C9A961]" />
                       ))}
-                      <span className="ml-2 text-sm font-bold text-slate-900">4.9/5</span>
+                      <span className="ml-2 text-sm font-bold text-white">4.9/5</span>
                     </div>
-                    <p className="text-sm text-slate-700">
-                      <span className="font-bold text-slate-900 text-lg">5,247</span> happy customers
+                    <p className="text-sm text-white/80">
+                      <span className="font-bold text-white text-lg">5,247</span> happy customers
                     </p>
-                    <p className="text-xs text-green-700 font-semibold mt-1">
+                    <p className="text-xs text-[#C9A961] font-semibold mt-1">
                       ✅ <span className="font-bold">127</span> bottles sold in last 24 hours
                     </p>
                   </div>
