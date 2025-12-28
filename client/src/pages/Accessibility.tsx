@@ -54,7 +54,7 @@ export default function Accessibility() {
               Accessibility Statement
             </h1>
             <p className="text-lg text-slate-200">
-              OptiBio is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards.
+              Optibio is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards.
             </p>
           </div>
         </div>
@@ -230,7 +230,7 @@ export default function Accessibility() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">
-                We welcome your feedback on the accessibility of OptiBio. If you encounter any accessibility barriers or have suggestions for improvement, please let us know.
+                We welcome your feedback on the accessibility of Optibio. If you encounter any accessibility barriers or have suggestions for improvement, please let us know.
               </p>
 
               <div className="space-y-3">

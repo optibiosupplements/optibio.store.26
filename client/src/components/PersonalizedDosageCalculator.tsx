@@ -213,7 +213,7 @@ export default function PersonalizedDosageCalculator() {
             Your Personalized Wellness Plan
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Here's How to Take OptiBio
+            Here's How to Take Optibio
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
             {recommendation.reasoning}

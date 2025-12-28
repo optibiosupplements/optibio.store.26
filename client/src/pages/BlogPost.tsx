@@ -200,7 +200,7 @@ export default function BlogPost() {
             </h2>
             <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
               This article references clinical studies using KSM-66® ashwagandha—the same premium, 
-              full-spectrum extract in OptiBio supplements.
+              full-spectrum extract in Optibio supplements.
             </p>
             <Link href="/shop">
               <Button size="lg" variant="secondary" className="bg-white text-[#1E3A5F] hover:bg-white/90">

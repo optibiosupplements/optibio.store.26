@@ -151,7 +151,7 @@ export default function ProductDetail() {
         description={product.description || "Premium full-spectrum Ashwagandha root extract with clinically-studied KSM-66®. Supports stress management, restful sleep, and overall wellness."}
         image={`https://optibiosupplements.com${productImages[0]}`}
         sku={product.sku || `OPTIBIO-${product.id}`}
-        brand="OptiBio"
+        brand="Optibio"
         priceInCents={currentPrice}
         currency="USD"
         availability={product.stockQuantity && product.stockQuantity > 0 ? "InStock" : "OutOfStock"}
@@ -164,19 +164,19 @@ export default function ProductDetail() {
           {
             author: "Rachel K.",
             datePublished: "2025-11-15",
-            reviewBody: "I used to dread Mondays. I'm a teacher with two kids under 5, and by Wednesday I was running on fumes. Since starting OptiBio, I actually have energy for bedtime stories. My husband noticed I'm not as snappy. Small changes, huge impact.",
+            reviewBody: "I used to dread Mondays. I'm a teacher with two kids under 5, and by Wednesday I was running on fumes. Since starting Optibio, I actually have energy for bedtime stories. My husband noticed I'm not as snappy. Small changes, huge impact.",
             reviewRating: 5,
           },
           {
             author: "David L.",
             datePublished: "2025-11-22",
-            reviewBody: "I was skeptical about adaptogens—tried three other brands that did nothing. But after two weeks with OptiBio, I noticed I wasn't doom-scrolling at 2am anymore. My sleep tracker confirms it: I'm getting 90 more minutes of deep sleep per night.",
+            reviewBody: "I was skeptical about adaptogens—tried three other brands that did nothing. But after two weeks with Optibio, I noticed I wasn't doom-scrolling at 2am anymore. My sleep tracker confirms it: I'm getting 90 more minutes of deep sleep per night.",
             reviewRating: 5,
           },
           {
             author: "Maya P.",
             datePublished: "2025-12-01",
-            reviewBody: "Thesis deadlines had me living on coffee and anxiety. A friend recommended OptiBio and I figured, why not? Three weeks in, I can actually focus for more than 20 minutes. My advisor asked what changed. This stuff is legit.",
+            reviewBody: "Thesis deadlines had me living on coffee and anxiety. A friend recommended Optibio and I figured, why not? Three weeks in, I can actually focus for more than 20 minutes. My advisor asked what changed. This stuff is legit.",
             reviewRating: 5,
           },
         ]}
@@ -491,12 +491,12 @@ export default function ProductDetail() {
                 <div className="prose prose-lg max-w-none">
                   <h3 className="text-2xl font-bold text-slate-900">About This Product</h3>
                   <p className="text-slate-700 leading-relaxed">
-                    OptiBio Ashwagandha KSM-66 represents the pinnacle of ashwagandha supplementation. Our premium formula uses only the highest quality KSM-66® extract—the most clinically studied ashwagandha on the market with over 20 peer-reviewed research studies demonstrating its efficacy.
+                    Optibio Ashwagandha KSM-66 represents the pinnacle of ashwagandha supplementation. Our premium formula uses only the highest quality KSM-66® extract—the most clinically studied ashwagandha on the market with over 20 peer-reviewed research studies demonstrating its efficacy.
                   </p>
                   <p className="text-slate-700 leading-relaxed">
                     Each capsule contains 300mg of pure KSM-66® root extract, standardized to contain 5% withanolides. Take 2 capsules daily for the 600mg clinical dosage used in research studies. Unlike inferior products that use leaf extracts or lower concentrations, our full-spectrum root-only extract preserves the complete balance of bioactive compounds found in the whole herb.
                   </p>
-                  <h4 className="text-xl font-bold text-slate-900 mt-8">Why Choose OptiBio?</h4>
+                  <h4 className="text-xl font-bold text-slate-900 mt-8">Why Choose Optibio?</h4>
                   <ul className="space-y-2 text-slate-700">
                     <li><strong>Clinical Dosage:</strong> 300mg per capsule (take 2 daily for 600mg clinical dose used in peer-reviewed studies)</li>
                     <li><strong>Root-Only Extract:</strong> No leaves or inferior plant parts, just pure root extract</li>

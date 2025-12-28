@@ -124,7 +124,7 @@ export default function ExitIntentPopup({
           {/* Benefits Reminder */}
           <div className="space-y-2">
             <p className="text-sm font-semibold text-[#F7F4EF]">
-              Why OptiBio Customers Love Us:
+              Why Optibio Customers Love Us:
             </p>
             <ul className="space-y-1 text-sm text-[#F7F4EF]/80">
               <li>✓ 90-Day Money-Back Guarantee</li>
