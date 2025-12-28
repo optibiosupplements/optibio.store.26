@@ -142,8 +142,15 @@ async function startServer() {
   
   // Stripe webhook endpoint (must be before body parser middleware)
   // Stripe requires raw body for signature verification
+  // Support both /api/webhooks/stripe and /api/stripe/webhook for compatibility
   app.post(
     "/api/webhooks/stripe",
+    express.raw({ type: "application/json" }),
+    handleStripeWebhook
+  );
+  
+  app.post(
+    "/api/stripe/webhook",
     express.raw({ type: "application/json" }),
     handleStripeWebhook
   );

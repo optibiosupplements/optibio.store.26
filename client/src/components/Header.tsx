@@ -56,13 +56,15 @@ export default function Header() {
     >
       <div className="container">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo - Enhanced Visibility */}
-          <Link href="/" className="flex items-center space-x-3 hover:opacity-90 transition-all group">
-            <div className="bg-white rounded-xl p-2 shadow-md group-hover:shadow-lg transition-shadow">
-              <img src={APP_LOGO} alt="OptiBio" className="h-[60px] w-auto" />
+          {/* Logo - Mobile Optimized */}
+          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 hover:opacity-90 transition-all group min-h-[44px]">
+            <div className="bg-white rounded-lg sm:rounded-xl p-1.5 sm:p-2 shadow-md group-hover:shadow-lg transition-shadow">
+              <img src={APP_LOGO} alt="OptiBio" className="h-[40px] sm:h-[50px] w-auto" />
             </div>
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>OptiBio<sup className="text-xs">®</sup> <span className="text-lg font-semibold">Supplements</span></span>
+              <span className="text-lg sm:text-2xl font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
+                OptiBio<sup className="text-xs">®</sup> <span className="hidden sm:inline text-base sm:text-lg font-semibold">Supplements</span>
+              </span>
               <span className="text-xs text-muted-foreground hidden sm:block">Science-Backed Wellness</span>
             </div>
           </Link>
@@ -126,8 +128,8 @@ export default function Header() {
               </a>
             )}
 
-            {/* Cart */}
-            <Link href="/cart" className="relative flex items-center justify-center h-10 w-10 rounded-full hover:bg-accent transition-colors">
+            {/* Cart - Mobile Optimized Touch Target */}
+            <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full hover:bg-accent transition-colors">
               <ShoppingCart className="h-5 w-5" />
               {cartItemCount > 0 && (
                 <span className="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-primary rounded-full">
@@ -136,24 +138,25 @@ export default function Header() {
               )}
             </Link>
 
-            {/* Mobile Menu Toggle */}
+            {/* Mobile Menu Toggle - Enhanced Touch Target */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden"
+                  className="md:hidden h-11 w-11"
+                  aria-label="Open menu"
                 >
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col space-y-4 mt-8">
+                <nav className="flex flex-col space-y-2 mt-8">
                   {navigation.map((item) => (
                     <Link 
                       key={item.name} 
                       href={item.href}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                      className="text-lg font-medium text-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -163,7 +166,7 @@ export default function Header() {
                   {isAuthenticated ? (
                     <Link 
                       href="/my-orders"
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                      className="text-lg font-medium text-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       My Account
@@ -171,7 +174,7 @@ export default function Header() {
                   ) : (
                     <a
                       href={getLoginUrl()}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                      className="text-lg font-medium text-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
                     >
                       Sign In
                     </a>

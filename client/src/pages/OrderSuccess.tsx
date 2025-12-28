@@ -2,6 +2,7 @@ import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
+import { APP_LOGO } from "@/const";
 import { CheckCircle2, Package, Truck, Mail, ArrowRight, Home } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, useRoute } from "wouter";
@@ -63,7 +64,7 @@ export default function OrderSuccess() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src="/optibio-logo-v3.png" alt="OptiBio" className="h-10 w-auto" />
+              <img src={APP_LOGO} alt="OptiBio" className="h-10 w-auto" />
               <span className="text-2xl font-bold bg-gradient-to-r from-[#152B45] to-[#152B45] bg-clip-text text-transparent">
                 OptiBio
               </span>

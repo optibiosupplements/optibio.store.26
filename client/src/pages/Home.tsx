@@ -110,13 +110,13 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#F7F4EF] via-[#EDE9E3] to-[#F7F4EF]">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#F7F4EF] via-[#EDE9E3] to-[#F7F4EF]">
         {/* Clean background - no visual noise */}
         
-        <div className="container relative z-10 py-20">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-            {/* Left Column - Copy - P0 FIX: Reduced spacing on mobile */}
-            <div className="space-y-6 lg:space-y-10 animate-fade-in order-2 lg:order-1">
+        <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
+            {/* Left Column - Copy - Mobile Optimized */}
+            <div className="space-y-4 sm:space-y-6 lg:space-y-10 animate-fade-in order-2 lg:order-1">
               <div className="space-y-6">
                 <Badge 
                   className="text-base md:text-lg font-bold px-6 py-3 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] text-white border-0 shadow-lg"
@@ -125,7 +125,7 @@ export default function Home() {
                   Science-Backed • Third-Party Tested
                 </Badge>
                 
-                <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-[#2D2D2D]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-[#2D2D2D]">
                   Feel Like{" "}
                   <span className="text-gradient-optibio">
                     Yourself
@@ -133,16 +133,16 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-[#1E3A5F] leading-relaxed max-w-2xl">
+                <p className="text-lg sm:text-xl md:text-2xl text-[#1E3A5F] leading-relaxed max-w-2xl">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
 
-              {/* Trust Indicators - P0 FIX: Increased icon size for visibility */}
-              <div className="flex flex-wrap gap-6 text-base">
+              {/* Trust Indicators - Mobile Optimized */}
+              <div className="flex flex-wrap gap-4 sm:gap-6 text-base">
                 {certifications.slice(0, 3).map((cert, i) => (
-                  <div key={i} className="flex items-center gap-3 text-[#1E3A5F]">
-                    <cert.icon className="w-12 h-12 text-[#C9A961]" />
+                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[#1E3A5F]">
+                    <cert.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#C9A961]" />
                     <div className="flex flex-col">
                       <span className="font-bold text-[#2D2D2D] text-base">{cert.text}</span>
                       <span className="text-sm text-[#1E3A5F]">Verified</span>
@@ -151,17 +151,17 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* Pricing & Urgency - P0 FIX: Consolidated with CTA */}
-              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-2xl p-6 shadow-xl">
+              {/* Pricing & Urgency - Mobile Optimized */}
+              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl">
                 {/* Countdown Timer - P0 FIX: Add urgency above fold */}
                 <CountdownTimer 
                   targetDate={new Date('2026-01-20T23:59:59')} 
                   className="mb-4"
                 />
                 
-                <div className="flex items-baseline gap-3 mb-3">
-                  <span className="text-5xl font-bold text-[#2D2D2D]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
-                  <span className="text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
+                <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-3">
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2D2D2D]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
+                  <span className="text-xl sm:text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
                   <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1.5 shadow-md">
                     Save 46%
                   </Badge>
@@ -179,10 +179,10 @@ export default function Home() {
                 <Link href="/product/ashwagandha-ksm-66" className="block">
                   <Button 
                     size="lg" 
-                    className="w-full text-xl px-12 py-10 min-h-[56px] md:min-h-[64px] bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:from-[#152B45] hover:to-[#0F1F30] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:from-[#152B45] hover:to-[#0F1F30] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                   >
                     Pre-Order Now - Save 46%
-                    <ArrowRight className="ml-2 w-6 h-6" />
+                    <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
                   </Button>
                 </Link>
               </div>
@@ -215,8 +215,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Product Image - Clean Minimalist Design */}
-            <div className="relative h-[400px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2">
+            {/* Right Column - Product Image - Mobile Optimized */}
+            <div className="relative h-[300px] sm:h-[400px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2">
               {/* Product image - Let it breathe with clean whitespace */}
               <div className="relative animate-float">
                 <img 

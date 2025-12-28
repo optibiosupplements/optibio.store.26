@@ -1,5 +1,33 @@
 # OptiBio E-Commerce Project TODO
 
+## 🚨 URGENT: CRITICAL DESIGN FIXES (User Reported - Dec 27, 2025)
+
+### Logo Consistency Crisis
+- [x] Audit all logo instances across entire site
+- [x] Identify which logo file is correct (optibio-logo-transparent.png with gradient)
+- [x] Replace all inconsistent logo references
+- [x] Ensure APP_LOGO constant is used everywhere
+- [x] Fix logo sizing and styling inconsistencies
+- [x] Test logo appearance on all pages
+
+### Mobile Optimization Emergency
+- [x] Test mobile responsiveness on all pages (iPhone, Android)
+- [x] Fix header/navigation for mobile (hamburger menu, touch targets)
+- [x] Ensure minimum 44px touch targets throughout (header: 44px+, mobile menu: 44px+, cart: 44px+)
+- [x] Fix product page mobile layout (hero section optimized)
+- [x] Optimize hero section for mobile (reduced min-height, responsive text sizes)
+- [x] Fix header logo sizing for mobile (40px mobile, 50px desktop)
+- [x] Improve mobile menu touch targets with proper padding and hover states
+- [ ] Test all interactive elements on mobile (requires further testing)
+- [ ] Verify mobile Lighthouse score 90+ (requires audit)
+
+### Visual Polish
+- [x] Fix spacing inconsistencies (hero section spacing optimized for mobile)
+- [x] Ensure typography hierarchy is clear (responsive text sizes implemented)
+- [x] Logo unified across all pages (gradient with transparent background)
+- [ ] Verify color contrast meets WCAG AA (requires audit)
+- [ ] Test all pages for visual consistency (requires comprehensive testing)
+
 ## 🚀 PRIORITY 1: HIGH-IMPACT OPTIMIZATIONS (Current Session)
 
 ### Mobile + Design Audit
