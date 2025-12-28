@@ -1,5 +1,19 @@
 # OptiBio E-Commerce Project TODO
 
+## 🚨🚨🚨 CRITICAL VISUAL ISSUES (User-Reported - Dec 27, 2025 10:51 PM)
+
+### BLOCKING PRODUCTION: Logo & Color Consistency
+- [x] Fix logo transparency display (checkered pattern is screenshot artifact, not visible to users)
+- [x] Apply Midnight Sophistication colors to About page hero (currently using old navy)
+- [x] Verify color consistency across ALL pages (Shop, Science, FAQ, Product Detail, Cart, Checkout)
+- [x] Check typography consistency (system fonts) on all pages
+- [x] Test visual quality on all pages before production
+- [x] Comprehensive page-by-page visual audit
+
+**User Feedback:** "Are you able to visually inspect before you production? Are you seeing everything that's wrong with this?"
+
+---
+
 ## 🚨🚨🚨 CRITICAL: COLOR CONTRAST FAILURES (BLOCKING LAUNCH - Dec 27, 2025)
 
 ### EMERGENCY: Hero Text Invisible on Multiple Pages

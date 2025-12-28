@@ -278,7 +278,7 @@ html {
   }
   
   .gradient-hero {
-    background: linear-gradient(135deg, #152B45 0%, #1E3A5F 100%);
+    background: #1E3A5F; /* Midnight Sophistication: Deep Navy (solid, not gradient) */
   }
   
   .gradient-navy-ivory {

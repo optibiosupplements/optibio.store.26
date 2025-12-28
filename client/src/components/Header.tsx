@@ -62,7 +62,7 @@ export default function Header() {
             <img src={APP_LOGO} alt="Optibio" className="h-[44px] min-[375px]:h-[52px] sm:h-[65px] w-auto" />
             <div className="flex flex-col">
               {/* Unified typography - responsive text sizing */}
-              <span className="text-base min-[375px]:text-lg sm:text-2xl font-bold text-foreground leading-tight" style={{ fontFamily: 'Sora, sans-serif' }}>
+              <span className="text-base min-[375px]:text-lg sm:text-2xl font-bold text-foreground leading-tight">
                 Optibio<sup className="text-[10px]">®</sup> <span className="hidden sm:inline">Supplements</span>
               </span>
               <span className="text-[10px] xs:text-xs text-muted-foreground hidden sm:block">Science-Backed Wellness</span>

@@ -48,7 +48,7 @@ export default function Footer() {
             {/* Logo with NO background - consistent with header */}
             <div className="flex items-center space-x-2">
               <img src={APP_LOGO} alt="Optibio" className="h-12 w-auto" />
-              <span className="text-lg font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>Optibio<sup className="text-xs">®</sup> Supplements</span>
+              <span className="text-lg font-bold text-foreground">Optibio<sup className="text-xs">®</sup> Supplements</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Premium KSM-66® Ashwagandha backed by clinical research. 
