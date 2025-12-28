@@ -31,7 +31,7 @@ export default function FAQ() {
           a: "KSM-66® is the highest concentration full-spectrum ashwagandha root extract available on the market. It's made using a proprietary extraction process that preserves all the natural constituents of the ashwagandha root in their original balance. It's the most clinically studied ashwagandha extract with over 20 peer-reviewed studies supporting its effectiveness."
         },
         {
-          q: "How do I take Optibio Ashwagandha?",
+          q: "How do I take OptiBio Ashwagandha?",
           a: "Take 2 capsules daily, preferably with meals. For best results, take one capsule in the morning and one in the evening. Consistency is key—most people notice benefits within 2-4 weeks of daily use, with optimal results after 8-12 weeks."
         },
         {
@@ -47,7 +47,7 @@ export default function FAQ() {
           a: "We recommend sticking to the suggested serving size of 2 capsules per day (300mg each, 600mg total), which is the dosage used in most clinical studies. While KSM-66® has an excellent safety profile, more is not necessarily better. If you have specific health goals, consult with your healthcare provider about the appropriate dosage for you."
         },
         {
-          q: "Is Optibio Ashwagandha vegan?",
+          q: "Is OptiBio Ashwagandha vegan?",
           a: "Yes! Our capsules are 100% vegan, made from plant-based cellulose. The KSM-66® extract itself is also vegan-friendly. We use no animal-derived ingredients, gelatin, or animal testing."
         },
         {
@@ -136,7 +136,7 @@ export default function FAQ() {
       questions: [
         {
           q: "How do I know your product is high quality?",
-          a: "Every batch of Optibio Ashwagandha is third-party tested for purity, potency, and safety. We use only KSM-66®, the gold standard ashwagandha extract, manufactured in GMP-certified facilities in the USA. We provide certificates of analysis upon request and maintain complete transparency about our sourcing and testing."
+          a: "Every batch of OptiBio Ashwagandha is third-party tested for purity, potency, and safety. We use only KSM-66®, the gold standard ashwagandha extract, manufactured in GMP-certified facilities in the USA. We provide certificates of analysis upon request and maintain complete transparency about our sourcing and testing."
         },
         {
           q: "What does third-party tested mean?",
@@ -148,7 +148,7 @@ export default function FAQ() {
         },
         {
           q: "What's the difference between your product and cheaper alternatives?",
-          a: "The main difference is the extract quality and clinical backing. Many cheaper products use generic ashwagandha (often mixed with leaves or using chemical extraction), have inconsistent potency, and lack clinical research. Optibio uses KSM-66®, the most studied extract with over 20 clinical trials, standardized to 5% withanolides, and extracted using only water and milk (no harsh chemicals)."
+          a: "The main difference is the extract quality and clinical backing. Many cheaper products use generic ashwagandha (often mixed with leaves or using chemical extraction), have inconsistent potency, and lack clinical research. OptiBio uses KSM-66®, the most studied extract with over 20 clinical trials, standardized to 5% withanolides, and extracted using only water and milk (no harsh chemicals)."
         },
         {
           q: "How should I store my ashwagandha?",
@@ -201,7 +201,7 @@ export default function FAQ() {
               How Can We Help?
             </h1>
             <p className="text-xl text-slate-200 leading-relaxed">
-              Find answers to common questions about Optibio Ashwagandha, usage, shipping, and more.
+              Find answers to common questions about OptiBio Ashwagandha, usage, shipping, and more.
             </p>
           </div>
         </div>

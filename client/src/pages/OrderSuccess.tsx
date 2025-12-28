@@ -64,9 +64,9 @@ export default function OrderSuccess() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <img src={APP_LOGO} alt="Optibio" className="h-10 w-auto" />
+              <img src={APP_LOGO} alt="OptiBio" className="h-10 w-auto" />
               <span className="text-2xl font-bold bg-gradient-to-r from-[#152B45] to-[#152B45] bg-clip-text text-transparent">
-                Optibio
+                OptiBio
               </span>
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function OrderSuccess() {
                 <div className="flex-1">
                   <h3 className="text-lg font-bold text-slate-900 mb-2">Order Processing</h3>
                   <p className="text-slate-600">
-                    We're preparing your Optibio Ashwagandha KSM-66 for shipment. Our team ensures every bottle meets our premium quality standards.
+                    We're preparing your OptiBio Ashwagandha KSM-66 for shipment. Our team ensures every bottle meets our premium quality standards.
                   </p>
                   <p className="text-sm text-slate-500 mt-2">
                     <strong>Timeline:</strong> 1-2 business days
@@ -219,12 +219,12 @@ export default function OrderSuccess() {
                   <div className="w-20 h-20 rounded-lg overflow-hidden bg-white border-2 border-slate-200 flex-shrink-0">
                     <img
                       src="/products/optibio-90cap-bottle-front.jpg"
-                      alt="Optibio 180 Capsules"
+                      alt="OptiBio 180 Capsules"
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-slate-900">Optibio Ashwagandha</h3>
+                    <h3 className="font-bold text-slate-900">OptiBio Ashwagandha</h3>
                     <p className="text-sm text-slate-600">180 Capsules (3-Month Supply)</p>
                     <div className="flex items-baseline gap-2 mt-1">
                       <span className="text-lg font-bold text-slate-900">$89.99</span>
@@ -257,7 +257,7 @@ export default function OrderSuccess() {
                   <div className="w-20 h-20 rounded-lg overflow-hidden bg-white border-2 border-slate-200 flex-shrink-0">
                     <img
                       src="/products/optibio-90cap-bottle-front.jpg"
-                      alt="Optibio Subscription"
+                      alt="OptiBio Subscription"
                       className="w-full h-full object-cover"
                     />
                   </div>

@@ -58,7 +58,7 @@ export default function ProductSchema({
   description,
   image,
   sku,
-  brand = "Optibio",
+  brand = "OptiBio",
   priceInCents,
   currency = "USD",
   availability = "InStock",
@@ -170,11 +170,11 @@ export default function ProductSchema({
  * Example Usage:
  * 
  * <ProductSchema
- *   name="Optibio Ashwagandha KSM-66"
+ *   name="OptiBio Ashwagandha KSM-66"
  *   description="Premium full-spectrum Ashwagandha root extract with clinically-studied KSM-66®"
  *   image="https://optibiosupplements.com/products/ashwagandha-bottle.jpg"
  *   sku="OPTIBIO-ASH-90"
- *   brand="Optibio"
+ *   brand="OptiBio"
  *   priceInCents={4999}
  *   currency="USD"
  *   availability="InStock"

@@ -14,7 +14,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-4">Agreement to Terms</h2>
               <p className="text-slate-700 leading-relaxed">
-                These Terms of Service ("Terms") govern your access to and use of the Optibio website and services. By accessing or using our website, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our website or purchase our products.
+                These Terms of Service ("Terms") govern your access to and use of the OptiBio website and services. By accessing or using our website, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our website or purchase our products.
               </p>
             </section>
 
@@ -61,7 +61,7 @@ export default function Terms() {
               
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Order Acceptance</h3>
               <p className="text-slate-700 leading-relaxed mb-4">
-                Your order is an offer to purchase products from Optibio. We reserve the right to accept or decline your order for any reason, including product availability, errors in pricing or product information, or suspected fraud. If we decline your order after payment has been processed, we will issue a full refund.
+                Your order is an offer to purchase products from OptiBio. We reserve the right to accept or decline your order for any reason, including product availability, errors in pricing or product information, or suspected fraud. If we decline your order after payment has been processed, we will issue a full refund.
               </p>
 
               <h3 className="text-xl font-semibold text-slate-900 mb-3">Payment Processing</h3>
@@ -141,7 +141,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-4">Intellectual Property</h2>
               <p className="text-slate-700 leading-relaxed mb-4">
-                All content on our website, including text, graphics, logos, images, and software, is the property of Optibio and is protected by copyright, trademark, and other intellectual property laws. You may not:
+                All content on our website, including text, graphics, logos, images, and software, is the property of OptiBio and is protected by copyright, trademark, and other intellectual property laws. You may not:
               </p>
               <ul className="list-disc list-inside space-y-2 text-slate-700">
                 <li>Copy, reproduce, or distribute our content without permission</li>
@@ -171,7 +171,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-4">Limitation of Liability</h2>
               <p className="text-slate-700 leading-relaxed mb-4">
-                To the fullest extent permitted by law, Optibio shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or other intangible losses, resulting from:
+                To the fullest extent permitted by law, OptiBio shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, or other intangible losses, resulting from:
               </p>
               <ul className="list-disc list-inside space-y-2 text-slate-700">
                 <li>Your use or inability to use our products or services</li>
@@ -187,7 +187,7 @@ export default function Terms() {
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-4">Indemnification</h2>
               <p className="text-slate-700 leading-relaxed">
-                You agree to indemnify and hold harmless Optibio and its officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use of our website, violation of these Terms, or infringement of any rights of another party.
+                You agree to indemnify and hold harmless OptiBio and its officers, directors, employees, and agents from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use of our website, violation of these Terms, or infringement of any rights of another party.
               </p>
             </section>
 
@@ -225,7 +225,7 @@ export default function Terms() {
                 If you have questions about these Terms of Service, please contact us:
               </p>
               <div className="p-6 rounded-xl bg-slate-50 border-2 border-slate-200">
-                <p className="text-slate-900 font-semibold mb-2">Optibio</p>
+                <p className="text-slate-900 font-semibold mb-2">OptiBio</p>
                 <p className="text-slate-700">Email: <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a></p>
                 <p className="text-slate-700">Legal: <a href="mailto:legal@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">legal@optibio.com</a></p>
               </div>

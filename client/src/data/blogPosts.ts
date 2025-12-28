@@ -171,7 +171,7 @@ If taking for sleep, allow 1-2 hours for absorption. Taking immediately before b
 
 Research consistently shows that regular, daily supplementation is more important than precise timing. A 2019 systematic review in the Journal of Alternative and Complementary Medicine found that consistent daily use for 8+ weeks produced the most significant benefits, regardless of whether participants took ashwagandha in the morning or evening.
 
-## Optibio's Recommendation
+## OptiBio's Recommendation
 
 Based on clinical research and customer feedback, we recommend:
 
@@ -187,7 +187,7 @@ The "best" time to take ashwagandha depends on your individual goals, lifestyle,
 
 Start with one approach, maintain consistency for 4-6 weeks, and adjust based on your results. Remember that ashwagandha is a long-term wellness tool—its benefits compound over time with regular use.
 
-**Ready to optimize your ashwagandha routine?** Optibio's KSM-66® Ashwagandha provides the clinically-studied dose in convenient capsules, making it easy to maintain your ideal supplementation schedule.
+**Ready to optimize your ashwagandha routine?** OptiBio's KSM-66® Ashwagandha provides the clinically-studied dose in convenient capsules, making it easy to maintain your ideal supplementation schedule.
 
 ---
 
@@ -471,9 +471,9 @@ For most people seeking therapeutic benefits from ashwagandha, **KSM-66® is wor
 - Working with traditional Ayurvedic practitioner
 - Using for culinary purposes rather than therapeutic dosing
 
-## Optibio's Choice: Why We Use KSM-66®
+## OptiBio's Choice: Why We Use KSM-66®
 
-At Optibio, we exclusively use KSM-66® ashwagandha because:
+At OptiBio, we exclusively use KSM-66® ashwagandha because:
 
 1. **Clinical Validation:** We want our customers to experience the benefits demonstrated in peer-reviewed research.
 
@@ -491,7 +491,7 @@ While "regular" ashwagandha encompasses a wide range of products with varying qu
 
 The price difference between KSM-66® and generic ashwagandha reflects real differences in research, quality control, and efficacy. When investing in your health, choosing a clinically-validated extract ensures you're getting a product that works as intended.
 
-**Ready to experience the KSM-66® difference?** Optibio's Ashwagandha provides 300mg of pure KSM-66® per capsule, matching the dosing used in clinical research for stress relief, better sleep, and enhanced vitality.
+**Ready to experience the KSM-66® difference?** OptiBio's Ashwagandha provides 300mg of pure KSM-66® per capsule, matching the dosing used in clinical research for stress relief, better sleep, and enhanced vitality.
 
 ---
 
@@ -888,7 +888,7 @@ Ashwagandha works best as part of a comprehensive anxiety management plan that i
 - Social support
 - Stress management techniques
 
-## Optibio's Approach to Anxiety Support
+## OptiBio's Approach to Anxiety Support
 
 Our KSM-66® Ashwagandha is specifically formulated for anxiety management:
 
@@ -912,7 +912,7 @@ Ashwagandha represents one of the most promising natural approaches to anxiety m
 
 The key is realistic expectations, appropriate dosing, and integration into a comprehensive wellness plan. For those seeking a natural alternative or complement to conventional treatments, ashwagandha's unique combination of efficacy, safety, and additional health benefits makes it a standout choice.
 
-**Ready to experience ashwagandha's anxiety-relieving benefits?** Optibio's KSM-66® Ashwagandha provides the clinically-studied dose in convenient capsules, helping you reclaim calm and resilience in your daily life.
+**Ready to experience ashwagandha's anxiety-relieving benefits?** OptiBio's KSM-66® Ashwagandha provides the clinically-studied dose in convenient capsules, helping you reclaim calm and resilience in your daily life.
 
 ---
 
@@ -1268,7 +1268,7 @@ After achieving desired benefits, some people reduce to a maintenance dose:
 
 **Remember:** Ashwagandha works by addressing root causes of stress and imbalance, not by masking symptoms. This deeper mechanism takes time but provides lasting, sustainable benefits.
 
-**Ready to start your ashwagandha journey?** Optibio's KSM-66® Ashwagandha provides the clinically-studied dose in convenient capsules, helping you achieve the stress relief, better sleep, and enhanced vitality demonstrated in research.
+**Ready to start your ashwagandha journey?** OptiBio's KSM-66® Ashwagandha provides the clinically-studied dose in convenient capsules, helping you achieve the stress relief, better sleep, and enhanced vitality demonstrated in research.
 
 ---
 
@@ -1665,7 +1665,7 @@ Withanolides are ashwagandha's primary active compounds. Standardization ensures
 - Personal preference
 - Not based on safety concerns
 
-## Optibio's Dosing Recommendations
+## OptiBio's Dosing Recommendations
 
 Our KSM-66® Ashwagandha (300mg per capsule) is designed for flexible, evidence-based dosing:
 
@@ -1695,7 +1695,7 @@ Finding your optimal ashwagandha dose is a personalized process that depends on 
 
 **Most people achieve optimal benefits with 300-600mg daily of KSM-66® ashwagandha, taken consistently for 8-12 weeks.**
 
-**Ready to find your perfect dose?** Optibio's KSM-66® Ashwagandha provides 300mg per capsule, making it easy to start low and adjust as needed based on your individual response and goals.
+**Ready to find your perfect dose?** OptiBio's KSM-66® Ashwagandha provides 300mg per capsule, making it easy to start low and adjust as needed based on your individual response and goals.
 
 ---
 

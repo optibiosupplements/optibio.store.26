@@ -14,7 +14,7 @@ export default function Privacy() {
             <section>
               <h2 className="text-2xl font-bold text-slate-900 mb-4">Introduction</h2>
               <p className="text-slate-700 leading-relaxed">
-                Optibio ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and purchase our products. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
+                OptiBio ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and purchase our products. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.
               </p>
             </section>
 
@@ -188,7 +188,7 @@ export default function Privacy() {
                 If you have questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
               </p>
               <div className="p-6 rounded-xl bg-slate-50 border-2 border-slate-200">
-                <p className="text-slate-900 font-semibold mb-2">Optibio</p>
+                <p className="text-slate-900 font-semibold mb-2">OptiBio</p>
                 <p className="text-slate-700">Email: <a href="mailto:privacy@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">privacy@optibio.com</a></p>
                 <p className="text-slate-700">Support: <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a></p>
               </div>
@@ -196,7 +196,7 @@ export default function Privacy() {
 
             <section className="border-t-2 border-slate-200 pt-6">
               <p className="text-sm text-slate-500 italic">
-                This Privacy Policy is effective as of the date stated above and applies to all information collected by Optibio through our website and related services.
+                This Privacy Policy is effective as of the date stated above and applies to all information collected by OptiBio through our website and related services.
               </p>
             </section>
           </CardContent>

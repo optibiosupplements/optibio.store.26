@@ -142,7 +142,7 @@ export default function Checkout() {
         if (subscriptionItem) {
           setSubscriptionData({
             clientSecret: data.clientSecret,
-            productName: subscriptionItem.productName || "Optibio Ashwagandha KSM-66",
+            productName: subscriptionItem.productName || "OptiBio Ashwagandha KSM-66",
             priceInCents: subscriptionItem.priceInCents,
             founderTier: "founders", // Will be calculated based on cart total
             lifetimeDiscountPercent: 25, // Will be calculated
@@ -200,7 +200,7 @@ export default function Checkout() {
       // Handle one-time purchase
       const orderItems = cartItems?.map(item => ({
         productId: item.productId,
-        productName: item.productName || "Optibio Ashwagandha KSM-66",
+        productName: item.productName || "OptiBio Ashwagandha KSM-66",
         variantId: item.variantId || undefined,
         variantName: item.variantName || undefined,
         quantity: item.quantity,

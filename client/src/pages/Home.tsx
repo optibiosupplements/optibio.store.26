@@ -62,21 +62,21 @@ export default function Home() {
       name: "Rachel K.",
       role: "Elementary Teacher & Mom, Austin TX",
       rating: 5,
-      text: "I used to dread Mondays. I'm a teacher with two kids under 5, and by Wednesday I was running on fumes. Since starting Optibio, I actually have energy for bedtime stories. My husband noticed I'm not as snappy. Small changes, huge impact.",
+      text: "I used to dread Mondays. I'm a teacher with two kids under 5, and by Wednesday I was running on fumes. Since starting OptiBio, I actually have energy for bedtime stories. My husband noticed I'm not as snappy. Small changes, huge impact.",
       verified: true
     },
     {
       name: "David L.",
       role: "Software Engineer, San Francisco",
       rating: 5,
-      text: "I was skeptical about adaptogens—tried three other brands that did nothing. But after two weeks with Optibio, I noticed I wasn't doom-scrolling at 2am anymore. My sleep tracker confirms it: I'm getting 90 more minutes of deep sleep per night.",
+      text: "I was skeptical about adaptogens—tried three other brands that did nothing. But after two weeks with OptiBio, I noticed I wasn't doom-scrolling at 2am anymore. My sleep tracker confirms it: I'm getting 90 more minutes of deep sleep per night.",
       verified: true
     },
     {
       name: "Maya P.",
       role: "Grad Student & Research Assistant",
       rating: 5,
-      text: "Thesis deadlines had me living on coffee and anxiety. A friend recommended Optibio and I figured, why not? Three weeks in, I can actually focus for more than 20 minutes. My advisor asked what changed. This stuff is legit.",
+      text: "Thesis deadlines had me living on coffee and anxiety. A friend recommended OptiBio and I figured, why not? Three weeks in, I can actually focus for more than 20 minutes. My advisor asked what changed. This stuff is legit.",
       verified: true
     }
   ];
@@ -221,7 +221,7 @@ export default function Home() {
               <div className="relative animate-float">
                 <img 
                   src="/products/optibio-90cap-bottle-front.jpg" 
-                  alt="Optibio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
+                  alt="OptiBio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
                   className="w-full max-w-lg mx-auto drop-shadow-2xl"
                 />
               </div>
@@ -295,7 +295,7 @@ export default function Home() {
             <div className="relative">
               <img 
                 src="/products/optibio-90cap-bottle-angle.jpg" 
-                alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
+                alt="OptiBio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
                 className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-3xl"
               />
             </div>
@@ -469,7 +469,7 @@ export default function Home() {
                 Who This Is For (And Who It's Not)
               </h2>
               <p className="text-xl text-slate-600">
-                Optibio works best for people dealing with specific challenges. Here's how to know if it's right for you.
+                OptiBio works best for people dealing with specific challenges. Here's how to know if it's right for you.
               </p>
             </div>
 
@@ -560,7 +560,7 @@ export default function Home() {
                 </p>
                 <Link href="/shop">
                   <Button size="lg" className="mt-6 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:from-[#152B45] hover:to-[#1E3A5F]">
-                    Try Optibio Risk-Free
+                    Try OptiBio Risk-Free
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
@@ -665,7 +665,7 @@ export default function Home() {
               Trusted by Thousands
             </h2>
             <p className="text-xl text-[#F7F4EF]">
-              See what our customers are saying about their Optibio experience
+              See what our customers are saying about their OptiBio experience
             </p>
           </div>
 
@@ -738,10 +738,10 @@ export default function Home() {
         <div className="container text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-4xl md:text-5xl font-bold">
-              Try Optibio Risk-Free for 90 Days
+              Try OptiBio Risk-Free for 90 Days
             </h2>
             <p className="text-xl text-[#F7F4EF] leading-relaxed">
-              Take Optibio for 90 days. If you don't feel calmer, more focused, and better rested, we'll refund every penny. No questions asked. No return shipping. You can even keep the bottle.
+              Take OptiBio for 90 days. If you don't feel calmer, more focused, and better rested, we'll refund every penny. No questions asked. No return shipping. You can even keep the bottle.
             </p>
             <p className="text-lg text-[#F7F4EF] font-medium">
               Why? Because we've seen the research. We know it works. And we want you to experience it risk-free.

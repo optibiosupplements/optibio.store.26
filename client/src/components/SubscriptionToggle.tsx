@@ -148,7 +148,7 @@ export default function SubscriptionToggle({
                 </span>
               </div>
               <p className="text-sm text-muted-foreground mt-2">
-                Perfect for trying Optibio for the first time. Free shipping on orders $75+.
+                Perfect for trying OptiBio for the first time. Free shipping on orders $75+.
               </p>
             </div>
           </div>

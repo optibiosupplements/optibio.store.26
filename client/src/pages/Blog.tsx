@@ -99,7 +99,7 @@ export default function Blog() {
             Ready to Experience the Benefits?
           </h2>
           <p className="text-xl text-white/90 mb-6 max-w-2xl mx-auto">
-            All our articles are based on clinical research using KSM-66® ashwagandha—the same premium extract in Optibio supplements.
+            All our articles are based on clinical research using KSM-66® ashwagandha—the same premium extract in OptiBio supplements.
           </p>
           <Link href="/shop">
             <Button size="lg" variant="secondary" className="bg-white text-[#1E3A5F] hover:bg-white/90">

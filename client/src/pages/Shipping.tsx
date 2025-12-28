@@ -218,7 +218,7 @@ export default function Shipping() {
                   If you have any questions about shipping or returns, our customer support team is here to help:
                 </p>
                 <div className="p-4 rounded-xl bg-slate-50 border-2 border-slate-200">
-                  <p className="text-slate-900 font-semibold mb-2">Contact Optibio Support</p>
+                  <p className="text-slate-900 font-semibold mb-2">Contact OptiBio Support</p>
                   <p className="text-slate-700 text-sm">Email: <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">support@optibio.com</a></p>
                   <p className="text-slate-700 text-sm">Response Time: Within 24 hours (business days)</p>
                 </div>

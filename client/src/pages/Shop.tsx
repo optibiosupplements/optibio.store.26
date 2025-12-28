@@ -211,7 +211,7 @@ export default function Shop() {
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold">
-              Why Choose Optibio?
+              Why Choose OptiBio?
             </h2>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="space-y-2">

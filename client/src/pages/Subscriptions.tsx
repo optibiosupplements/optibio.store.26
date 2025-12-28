@@ -203,7 +203,7 @@ export default function Subscriptions() {
                         <Package className="w-6 h-6 text-[#1E3A5F]" />
                         <div>
                           <CardTitle className="text-xl">
-                            Optibio Ashwagandha KSM-66
+                            OptiBio Ashwagandha KSM-66
                           </CardTitle>
                           <CardDescription className="text-base mt-1">
                             {subscription.quantity} bottle{subscription.quantity > 1 ? "s" : ""} every month

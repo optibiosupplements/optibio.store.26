@@ -197,7 +197,7 @@ export default function WellnessPlanPersonalizer() {
             </h2>
             
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Answer 3 quick questions to discover the best way to take Optibio for <span className="font-semibold text-[#1E3A5F]">YOUR</span> specific goals and lifestyle
+              Answer 3 quick questions to discover the best way to take OptiBio for <span className="font-semibold text-[#1E3A5F]">YOUR</span> specific goals and lifestyle
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

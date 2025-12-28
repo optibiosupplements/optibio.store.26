@@ -52,11 +52,11 @@ export default function Referral() {
     if (!referralData) return;
 
     const message = encodeURIComponent(
-      `I've been loving Optibio Ashwagandha! Use my referral link to get $10 off your first order: ${referralData.referralUrl}`
+      `I've been loving OptiBio Ashwagandha! Use my referral link to get $10 off your first order: ${referralData.referralUrl}`
     );
 
     const urls: Record<string, string> = {
-      email: `mailto:?subject=Get $10 off Optibio Ashwagandha&body=${message}`,
+      email: `mailto:?subject=Get $10 off OptiBio Ashwagandha&body=${message}`,
       twitter: `https://twitter.com/intent/tweet?text=${message}`,
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(referralData.referralUrl)}`,
       whatsapp: `https://wa.me/?text=${message}`,
@@ -100,7 +100,7 @@ export default function Referral() {
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-slate-900 mb-2">Referral Program</h1>
           <p className="text-lg text-slate-600">
-            Share Optibio with friends and earn $10 credit for each successful referral
+            Share OptiBio with friends and earn $10 credit for each successful referral
           </p>
         </div>
 
@@ -266,7 +266,7 @@ export default function Referral() {
           <Card>
             <CardHeader>
               <CardTitle>How It Works</CardTitle>
-              <CardDescription>Earn rewards by sharing Optibio</CardDescription>
+              <CardDescription>Earn rewards by sharing OptiBio</CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="flex gap-4">

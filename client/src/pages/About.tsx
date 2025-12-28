@@ -47,7 +47,7 @@ export default function About() {
               Redefining Wellness Through Science
             </h1>
             <p className="text-xl text-slate-200 leading-relaxed">
-              At Optibio, we believe that optimal health shouldn't be complicated. Our mission is to deliver premium, science-backed supplements that help you thrive in today's demanding world.
+              At OptiBio, we believe that optimal health shouldn't be complicated. Our mission is to deliver premium, science-backed supplements that help you thrive in today's demanding world.
             </p>
           </div>
         </div>
@@ -103,13 +103,13 @@ export default function About() {
             <Card className="border-2 border-slate-200 shadow-xl">
               <CardContent className="p-12 space-y-8">
                 <div className="space-y-4">
-                  <h2 className="text-3xl font-bold text-slate-900">The Optibio Story</h2>
+                  <h2 className="text-3xl font-bold text-slate-900">The OptiBio Story</h2>
                   <div className="w-20 h-1 bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 rounded-full" />
                 </div>
 
                 <div className="space-y-6 text-slate-700 leading-relaxed">
                   <p>
-                    Optibio was founded on a simple observation: in our fast-paced, high-stress world, people need reliable, science-backed solutions to support their mental and physical well-being. Too many supplement companies make bold claims without the research to back them up. We knew there had to be a better way.
+                    OptiBio was founded on a simple observation: in our fast-paced, high-stress world, people need reliable, science-backed solutions to support their mental and physical well-being. Too many supplement companies make bold claims without the research to back them up. We knew there had to be a better way.
                   </p>
 
                   <p>
@@ -121,11 +121,11 @@ export default function About() {
                   </p>
 
                   <p>
-                    Today, Optibio serves thousands of customers who trust us to deliver premium supplements that actually work. We're not just selling products—we're building a community of individuals committed to optimizing their health naturally.
+                    Today, OptiBio serves thousands of customers who trust us to deliver premium supplements that actually work. We're not just selling products—we're building a community of individuals committed to optimizing their health naturally.
                   </p>
 
                   <p className="text-slate-900 font-semibold italic">
-                    "We believe that when you feel your best, you can achieve your best. That's the Optibio difference."
+                    "We believe that when you feel your best, you can achieve your best. That's the OptiBio difference."
                   </p>
                 </div>
               </CardContent>
@@ -386,7 +386,7 @@ export default function About() {
                   </p>
 
                   <p className="text-slate-900 font-semibold">
-                    Every member of our team uses Optibio products daily. We wouldn't sell anything we wouldn't take ourselves.
+                    Every member of our team uses OptiBio products daily. We wouldn't sell anything we wouldn't take ourselves.
                   </p>
                 </div>
               </CardContent>
@@ -401,10 +401,10 @@ export default function About() {
           <Card className="border-2 border-[#C9A961]/30 shadow-2xl bg-gradient-to-br from-[#F7F4EF] to-white">
             <CardContent className="p-12 text-center space-y-6">
               <h2 className="text-3xl font-bold text-slate-900">
-                Ready to Experience the Optibio Difference?
+                Ready to Experience the OptiBio Difference?
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                Join thousands of customers who trust Optibio for premium, science-backed supplements. Every purchase is backed by our 90-day money-back guarantee.
+                Join thousands of customers who trust OptiBio for premium, science-backed supplements. Every purchase is backed by our 90-day money-back guarantee.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button
