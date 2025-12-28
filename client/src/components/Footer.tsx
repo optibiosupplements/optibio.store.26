@@ -55,13 +55,13 @@ export default function Footer() {
               Supporting stress management and overall wellness naturally.
             </p>
             <div className="flex space-x-4 mt-4">
-              <a href="https://facebook.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://facebook.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow OptiBio on Facebook">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="https://instagram.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://instagram.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow OptiBio on Instagram">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://twitter.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://twitter.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow OptiBio on Twitter">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>

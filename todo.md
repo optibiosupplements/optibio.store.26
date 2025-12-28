@@ -1,6 +1,21 @@
 # OptiBio E-Commerce Project TODO
 
-## 🚨 URGENT: HEADER/FOOTER IMPROVEMENTS (User Requested - Dec 27, 2025)
+## 🚨 CURRENT: LIGHTHOUSE AUDIT & MOBILE TESTING (User Requested - Dec 27, 2025)
+
+### Audit & Testing Tasks
+- [x] Run Lighthouse audit on homepage (Score: 86/100)
+- [ ] Verify 90+ accessibility score (after fixes)
+- [ ] Verify 90+ performance score (production build required)
+- [x] Address critical accessibility issues:
+  - [x] Remove viewport zoom restriction (maximum-scale=1)
+  - [x] Add aria-labels to social media icon links
+  - [x] Improve muted-foreground color contrast (0.48 → 0.42 for WCAG AA)
+- [x] Test mobile experience on iPhone SE viewport (375x667) - Looks good!
+- [x] Test mobile experience on iPhone 14 viewport (390x844) - Responsive design working
+- [x] Verify touch interactions feel natural on mobile - All touch targets 44px+
+- [ ] Guide user to update favicon in Management UI (instructions provided)
+
+## ✅ COMPLETED: HEADER/FOOTER IMPROVEMENTS (Dec 27, 2025)
 
 ### New Improvement Tasks
 - [x] Apply same logo style to footer (no background, h-12, inline with text)
