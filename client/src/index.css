@@ -291,7 +291,7 @@ html {
   }
   
   .gradient-hero {
-    background: linear-gradient(135deg, #F7F4EF 0%, #EDE9E3 100%);
+    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 50%, #D6EAF8 100%);
   }
   
   .gradient-navy-ivory {
