@@ -878,3 +878,30 @@ ROOT CAUSE: EmailCaptureModal has its own custom close button (lines 85-91) whic
 - [x] Optimize images for web performance (JPG format)
 - [x] Implement theme-aware image switching (useTheme hook)
 - [x] Test image loading and transitions (500ms fade)
+
+
+## 🎨 DARK MODE EXTENSION - REMAINING PAGES (Dec 28, 2025)
+
+### Product Page Dark Mode
+- [x] Apply bg-hero-gradient to product hero section
+- [x] Make product title and description theme-aware
+- [x] Update pricing card with dark mode variants
+- [x] Make benefits section theme-aware
+- [x] Update testimonials with dark mode styling
+- [x] Make FAQ accordion theme-aware
+- [x] Implement theme-aware product gallery image switching (3 dark mode images)
+
+### Cart & Checkout Dark Mode
+- [x] Apply dark mode to cart page background (bg-hero-gradient)
+- [x] Make cart items cards theme-aware
+- [x] Update cart summary with dark variants
+- [x] Apply dark mode to checkout page (bg-hero-gradient)
+- [x] Make checkout form inputs theme-aware
+- [x] Update order summary with dark styling
+
+### Interactive Elements Hover Animations
+- [x] Add subtle hover animations to buttons in dark mode (translateY(-1px))
+- [x] Add hover effects to links in dark mode (text-[#C9A961])
+- [x] Add hover animations to product cards (scale-105)
+- [x] Add hover effects to navigation items (text-primary)
+- [x] Test all hover animations for smoothness (300ms transitions)

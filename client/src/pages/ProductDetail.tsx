@@ -35,6 +35,7 @@ import SubscriptionToggle from "@/components/SubscriptionToggle";
 import StickyAddToCart from "@/components/StickyAddToCart";
 import UrgencyIndicators from "@/components/UrgencyIndicators";
 import StockIndicator from "@/components/StockIndicator";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:slug");
@@ -42,6 +43,10 @@ export default function ProductDetail() {
   
   const { data: productData, isLoading } = trpc.products.getBySlug.useQuery({ slug });
   const { isAuthenticated } = useAuth();
+  const { theme } = useTheme();
+  
+  // Theme-aware product image selection
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
   
   // Debug: Log product data to see variants
   useEffect(() => {
@@ -122,7 +127,12 @@ export default function ProductDetail() {
   const incrementQuantity = () => setQuantity(q => q + 1);
   const decrementQuantity = () => setQuantity(q => Math.max(1, q - 1));
 
-  const productImages = [
+  // Theme-aware product images - automatically switch based on dark mode
+  const productImages = isDark ? [
+    "/products/optibio-90cap-bottle-front-dark.jpg",
+    "/products/optibio-product-dark-angle1.jpg",
+    "/products/optibio-product-dark-angle2.jpg"
+  ] : [
     "/products/optibio-90cap-bottle-front.jpg",
     "/products/optibio-90cap-bottle-angle.jpg",
     "/products/optibio-lifestyle-professional.jpg"
@@ -184,18 +194,18 @@ export default function ProductDetail() {
       />
 
       {/* Breadcrumb */}
-      <div className="border-b bg-white/80 backdrop-blur-sm sticky top-16 z-40">
+      <div className="border-b bg-white/80 dark:bg-card/80 backdrop-blur-sm sticky top-16 z-40 transition-colors duration-500">
         <div className="container py-4">
-          <div className="flex items-center gap-2 text-sm text-slate-600">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link href="/">
-              <span className="hover:text-[#1E3A5F] transition-colors cursor-pointer">Home</span>
+              <span className="hover:text-primary transition-colors cursor-pointer">Home</span>
             </Link>
             <span>/</span>
             <Link href="/shop">
-              <span className="hover:text-[#1E3A5F] transition-colors cursor-pointer">Shop</span>
+              <span className="hover:text-primary transition-colors cursor-pointer">Shop</span>
             </Link>
             <span>/</span>
-            <span className="text-slate-900 font-medium">{product.name}</span>
+            <span className="text-foreground font-medium">{product.name}</span>
           </div>
         </div>
       </div>
@@ -207,11 +217,11 @@ export default function ProductDetail() {
             {/* Left Column - Images */}
             <div className="space-y-6">
               {/* Main Image */}
-              <div className="aspect-square rounded-3xl overflow-hidden bg-white border-2 border-slate-200 shadow-2xl group">
+              <div className="aspect-square rounded-3xl overflow-hidden bg-white dark:bg-card border-2 border-slate-200 dark:border-border shadow-2xl group transition-colors duration-500">
                 <img
                   src={productImages[selectedImage]}
                   alt={`${product.name} - ${selectedImage === 0 ? 'premium black glass bottle with gold cap, 300mg KSM-66 ashwagandha per capsule' : selectedImage === 1 ? 'supplement facts label with complete ingredient list and dosage information' : selectedImage === 2 ? 'close-up of premium ashwagandha capsules' : 'lifestyle image showing daily wellness routine'}`}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
                 />
               </div>
               
@@ -221,10 +231,10 @@ export default function ProductDetail() {
                   <button
                     key={idx}
                     onClick={() => setSelectedImage(idx)}
-                    className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 ${
+                    className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
                       selectedImage === idx 
-                        ? "border-[#1E3A5F] ring-4 ring-[#C9A961]/20 scale-105" 
-                        : "border-slate-200 hover:border-[#C9A961]/40"
+                        ? "border-[#1E3A5F] dark:border-[#C9A961] ring-4 ring-[#C9A961]/20 dark:ring-[#C9A961]/40 scale-105" 
+                        : "border-slate-200 dark:border-border hover:border-[#C9A961]/40 dark:hover:border-[#C9A961]/60"
                     }`}
                   >
                     <img 
@@ -239,13 +249,13 @@ export default function ProductDetail() {
               {/* Trust Badges - Desktop */}
               <div className="hidden lg:grid grid-cols-2 gap-4 pt-6">
                 {certifications.map((cert, i) => (
-                  <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-200">
+                  <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-card border border-slate-200 dark:border-border transition-colors duration-500">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-[#B89651]/10 flex items-center justify-center">
-                      <cert.icon className="w-5 h-5 text-[#1E3A5F]" />
+                      <cert.icon className="w-5 h-5 text-[#1E3A5F] dark:text-[#C9A961]" />
                     </div>
                     <div>
-                      <div className="font-semibold text-sm text-slate-900">{cert.text}</div>
-                      <div className="text-xs text-slate-600">{cert.desc}</div>
+                      <div className="font-semibold text-sm text-foreground">{cert.text}</div>
+                      <div className="text-xs text-muted-foreground">{cert.desc}</div>
                     </div>
                   </div>
                 ))}
@@ -267,15 +277,15 @@ export default function ProductDetail() {
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-[#C9A961] text-[#C9A961]" />
                     ))}
-                    <span className="text-sm text-slate-600 ml-2">(2,847 reviews)</span>
+                    <span className="text-sm text-muted-foreground ml-2">(2,847 reviews)</span>
                   </div>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
                   {product.name}
                 </h1>
 
-                <p className="text-xl text-slate-600 leading-relaxed">
+                <p className="text-xl text-muted-foreground leading-relaxed">
                   {product.description || "Premium full-spectrum Ashwagandha root extract standardized to 5% withanolides. Clinically studied KSM-66® formula for stress management, mental clarity, and overall wellness."}
                 </p>
 
@@ -283,11 +293,11 @@ export default function ProductDetail() {
                 <StockIndicator stockQuantity={product.stockQuantity} threshold={100} />
 
                 {/* Pre-Order Shipping Info */}
-                <div className="flex items-center gap-2 p-4 bg-amber-50 border-2 border-amber-200 rounded-xl">
+                <div className="flex items-center gap-2 p-4 bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-200 dark:border-amber-800/50 rounded-xl transition-colors duration-500">
                   <Package className="w-5 h-5 text-amber-600 flex-shrink-0" />
                   <div className="text-sm">
-                    <span className="font-bold text-amber-900">Ships Jan 20-27, 2026</span>
-                    <span className="text-amber-700 ml-2">• Pre-order closes Jan 20</span>
+                    <span className="font-bold text-amber-900 dark:text-amber-400">Ships Jan 20-27, 2026</span>
+                    <span className="text-amber-700 dark:text-amber-500 ml-2">• Pre-order closes Jan 20</span>
                   </div>
                 </div>
 
@@ -308,10 +318,10 @@ export default function ProductDetail() {
                   )}
                 </div>
                 {/* Cost per day - Value anchoring */}
-                <p className="text-sm text-slate-600 mt-2">
-                  That's just <span className="font-bold text-[#1E3A5F]">${((isSubscription ? subscriptionPrice : currentPrice) / 100 / 45).toFixed(2)}/day</span> for better sleep & less stress
+                <p className="text-sm text-muted-foreground mt-2">
+                  That's just <span className="font-bold text-[#1E3A5F] dark:text-[#C9A961]">${((isSubscription ? subscriptionPrice : currentPrice) / 100 / 45).toFixed(2)}/day</span> for better sleep & less stress
                 </p>
-                <p className="text-xs text-slate-500 mt-1">
+                <p className="text-xs text-muted-foreground mt-1">
                   ☕ Less than your daily coffee
                 </p>
               </div>
@@ -319,7 +329,7 @@ export default function ProductDetail() {
               {/* Variant Selection */}
               {product.variants && product.variants.length > 0 && (
                 <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-slate-900">Choose Your Supply</Label>
+                  <Label className="text-lg font-semibold text-foreground">Choose Your Supply</Label>
                   <RadioGroup 
                     value={selectedVariant?.toString() || product.variants[0]?.id.toString()}
                     onValueChange={(value) => setSelectedVariant(parseInt(value))}

@@ -217,8 +217,8 @@ export default function Checkout() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
-        <Loader2 className="h-12 w-12 animate-spin text-[#1E3A5F]" />
+      <div className="min-h-screen flex items-center justify-center bg-hero-gradient transition-colors duration-500">
+        <Loader2 className="h-12 w-12 animate-spin text-primary" />
       </div>
     );
   }
@@ -231,7 +231,7 @@ export default function Checkout() {
   // Show Stripe Elements payment confirmation for subscriptions
   if (subscriptionData) {
     return (
-      <div className="min-h-screen py-12 md:py-16" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
+      <div className="min-h-screen py-12 md:py-16 bg-hero-gradient transition-colors duration-500">
         <div className="container">
           <SubscriptionCheckout
             {...subscriptionData}
@@ -249,12 +249,12 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen py-12 md:py-16" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
+    <div className="min-h-screen py-12 md:py-16 bg-hero-gradient transition-colors duration-500">
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-2">Secure Checkout</h1>
-          <p className="text-lg text-slate-600">Complete your order in just a few steps</p>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-2">Secure Checkout</h1>
+          <p className="text-lg text-muted-foreground">Complete your order in just a few steps</p>
         </div>
 
         {/* Progress Steps */}
@@ -269,8 +269,8 @@ export default function Checkout() {
                   <div
                     className={`w-16 h-16 rounded-full flex items-center justify-center border-4 transition-all duration-300 ${
                       step >= s.num
-                        ? "bg-gradient-to-br from-[#1E3A5F] to-[#1E3A5F] border-[#1E3A5F] text-white shadow-lg"
-                        : "bg-white border-slate-300 text-slate-400"
+                        ? "bg-gradient-to-br from-[#1E3A5F] to-[#1E3A5F] border-[#1E3A5F] text-white dark:border-[#C9A961] shadow-lg"
+                        : "bg-white dark:bg-card border-slate-300 dark:border-border text-slate-400 dark:text-muted-foreground"
                     }`}
                   >
                     {step > s.num ? (

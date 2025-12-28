@@ -344,6 +344,20 @@ html {
     box-shadow: 0 4px 20px rgba(247, 244, 239, 0.3);
   }
   
+  /* Dark Mode Hover Animations */
+  .dark button:hover,
+  .dark a:hover {
+    @apply transition-all duration-300;
+  }
+  
+  .dark button:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+  
+  .dark a:hover {
+    @apply text-[#C9A961];
+  }
+  
   /* Hover Effects */
   .hover-lift {
     @apply transition-all duration-300;
