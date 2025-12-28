@@ -32,7 +32,7 @@ import Analytics from "./pages/Analytics";
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
 import SkipNav from "./components/SkipNav";
-import CrispChat from "./components/CrispChat";
+// import CrispChat from "./components/CrispChat"; // Removed - no website ID configured
 
 function Router() {
   return (
@@ -84,7 +84,7 @@ function App() {
           <Toaster />
           <Router />
           <EmailCaptureModal />
-          <CrispChat websiteId="YOUR_WEBSITE_ID" />
+          {/* <CrispChat websiteId="YOUR_WEBSITE_ID" /> */} {/* Removed - configure with real Crisp ID when ready */}
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

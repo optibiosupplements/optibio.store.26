@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Microscope, Brain, Heart, Dumbbell, Moon, Shield, TrendingUp, Users, FileText, ExternalLink, ChevronRight } from "lucide-react";
 import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -278,65 +284,65 @@ export default function Science() {
               </p>
             </div>
 
-            <div className="grid gap-6">
+            <Accordion type="multiple" className="space-y-4">
               {studies.map((study, index) => {
                 const Icon = study.icon;
                 return (
-                  <Card key={index} className="border-2 border-[#C9A961]/10 shadow-cream hover:shadow-gold transition-all bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
-                    <CardContent className="p-8">
-                      <div className="flex flex-col md:flex-row gap-6">
+                  <AccordionItem key={index} value={`study-${index}`} className="border-2 border-[#C9A961]/20 rounded-xl bg-gradient-to-br from-[#F7F4EF]/80 to-white shadow-md hover:shadow-xl transition-all">
+                    <AccordionTrigger className="px-8 py-6 hover:no-underline group">
+                      <div className="flex items-center gap-6 w-full">
                         {/* Left: Icon & Metric */}
-                        <div className="flex-shrink-0 text-center md:text-left">
-                          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto md:mx-0 mb-4">
-                            <Icon className="w-10 h-10 text-[#B89651]" />
+                        <div className="flex-shrink-0 text-center">
+                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]/20 flex items-center justify-center mb-2">
+                            <Icon className="w-8 h-8 text-[#B89651]" />
                           </div>
-                          <div className="space-y-1">
-                            <div className="text-4xl font-bold text-gradient-gold">{study.percentage}</div>
-                            <div className="text-sm text-slate-700 font-medium">{study.metric}</div>
-                          </div>
+                          <div className="text-3xl font-bold text-gradient-gold">{study.percentage}</div>
                         </div>
 
-                        {/* Right: Study Details */}
-                        <div className="flex-1 space-y-4">
-                          <div>
-                            <h3 className="text-2xl font-bold text-slate-900 mb-2">{study.title}</h3>
-                            <p className="text-slate-700">{study.description}</p>
-                          </div>
-
-                          <div className="flex flex-wrap gap-3">
-                            <Badge variant="outline" className="bg-slate-50">
-                              <Users className="w-3 h-3 mr-1" />
-                              {study.participants} participants
-                            </Badge>
-                            <Badge variant="outline" className="bg-slate-50">
-                              <FileText className="w-3 h-3 mr-1" />
-                              {study.duration}
-                            </Badge>
-                            <a href={study.link} target="_blank" rel="noopener noreferrer">
-                              <Badge className="bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 hover:from-[#F7F4EF]0 hover:to-[#B89651] cursor-pointer transition-all shadow-sm hover:shadow-md">
-                                {study.journal} ({study.year}) →
-                              </Badge>
-                            </a>
-                          </div>
-
-                          <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#C9A961]/10">
-                            <h4 className="font-semibold text-slate-900 mb-2">Key Findings:</h4>
-                            <ul className="space-y-1">
-                              {study.findings.map((finding, i) => (
-                                <li key={i} className="text-sm text-slate-700 flex items-start gap-2">
-                                  <span className="text-[#B89651] mt-0.5">✓</span>
-                                  <span>{finding}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
+                        {/* Right: Study Title & Summary */}
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-[#1E3A5F] transition-colors">{study.title}</h3>
+                          <p className="text-sm text-slate-600">{study.metric}</p>
                         </div>
                       </div>
-                    </CardContent>
-                  </Card>
+                    </AccordionTrigger>
+                    <AccordionContent className="px-8 pb-6">
+                      <div className="space-y-4 pt-4">
+                        <p className="text-slate-700">{study.description}</p>
+
+                        <div className="flex flex-wrap gap-3">
+                          <Badge variant="outline" className="bg-slate-50">
+                            <Users className="w-3 h-3 mr-1" />
+                            {study.participants} participants
+                          </Badge>
+                          <Badge variant="outline" className="bg-slate-50">
+                            <FileText className="w-3 h-3 mr-1" />
+                            {study.duration}
+                          </Badge>
+                          <a href={study.link} target="_blank" rel="noopener noreferrer">
+                            <Badge className="bg-gradient-to-r from-[#C9A961] to-[#F7F4EF] text-slate-900 border-0 hover:from-[#F7F4EF] hover:to-[#B89651] cursor-pointer transition-all shadow-sm hover:shadow-md">
+                              {study.journal} ({study.year}) →
+                            </Badge>
+                          </a>
+                        </div>
+
+                        <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#C9A961]/10">
+                          <h4 className="font-semibold text-slate-900 mb-2">Key Findings:</h4>
+                          <ul className="space-y-1">
+                            {study.findings.map((finding, i) => (
+                              <li key={i} className="text-sm text-slate-700 flex items-start gap-2">
+                                <span className="text-[#B89651] mt-0.5">✓</span>
+                                <span>{finding}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </AccordionContent>
+                  </AccordionItem>
                 );
               })}
-            </div>
+            </Accordion>
           </div>
         </div>
       </section>

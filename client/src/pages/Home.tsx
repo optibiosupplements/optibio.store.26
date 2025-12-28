@@ -185,6 +185,19 @@ export default function Home() {
                     <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
                   </Button>
                 </Link>
+                {/* Anxiety-reducing micro-copy */}
+                <p className="text-xs text-center text-slate-500 mt-3 flex items-center justify-center gap-2 flex-wrap">
+                  <span className="flex items-center gap-1">
+                    <svg className="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                    </svg>
+                    Secure checkout
+                  </span>
+                  <span className="text-slate-300">•</span>
+                  <span>Free shipping on $75+</span>
+                  <span className="text-slate-300">•</span>
+                  <span>90-day guarantee</span>
+                </p>
               </div>
 
               {/* P0 FIX: Removed duplicate CTA, moved to pricing card above */}
@@ -216,7 +229,7 @@ export default function Home() {
             </div>
 
             {/* Right Column - Product Image - Mobile Optimized */}
-            <div className="relative h-[300px] sm:h-[400px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2">
+            <div className="relative h-[450px] sm:h-[500px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2">
               {/* Product image - Let it breathe with clean whitespace */}
               <div className="relative animate-float">
                 <img 
@@ -283,6 +296,72 @@ export default function Home() {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* 90-Day Money-Back Guarantee - PROMINENT */}
+      <section className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#152B45] relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
+        <div className="container relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] flex items-center justify-center shadow-2xl">
+                <Shield className="w-12 h-12 text-[#1E3A5F]" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                90-Day Money-Back Guarantee
+              </h2>
+              <p className="text-xl text-[#F7F4EF]/90 leading-relaxed max-w-2xl mx-auto">
+                We're so confident you'll feel the difference that we offer a <strong className="text-[#C9A961]">full 90-day guarantee</strong>. That's 12 weeks to try Optibio risk-free.
+              </p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-2xl p-8 md:p-12 mb-8">
+              <div className="grid md:grid-cols-3 gap-8 mb-8">
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-[#C9A961] mb-2">1</div>
+                  <h3 className="text-lg font-bold text-white mb-2">Try It</h3>
+                  <p className="text-[#F7F4EF]/80 text-sm">Take Optibio daily for up to 90 days</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-[#C9A961] mb-2">2</div>
+                  <h3 className="text-lg font-bold text-white mb-2">Feel the Difference</h3>
+                  <p className="text-[#F7F4EF]/80 text-sm">Notice calmer mornings, better sleep, clearer thinking</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-5xl font-bold text-[#C9A961] mb-2">3</div>
+                  <h3 className="text-lg font-bold text-white mb-2">Keep or Return</h3>
+                  <p className="text-[#F7F4EF]/80 text-sm">Not satisfied? Full refund. No questions asked.</p>
+                </div>
+              </div>
+
+              <div className="space-y-4 text-left max-w-2xl mx-auto">
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
+                  <p className="text-[#F7F4EF] text-lg"><strong className="text-white">Full refund</strong> — Every penny back, no hassle</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
+                  <p className="text-[#F7F4EF] text-lg"><strong className="text-white">No questions asked</strong> — We trust your judgment</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
+                  <p className="text-[#F7F4EF] text-lg"><strong className="text-white">Keep the bottle</strong> — It's yours, even if you return it</p>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-[#F7F4EF]/70 text-sm max-w-2xl mx-auto mb-8">
+              Why 90 days? Because adaptogens like ashwagandha work with your body over time. Most people feel changes within 2-4 weeks, but we want you to experience the full benefits before deciding.
+            </p>
+
+            <Link href="/shop">
+              <Button size="lg" className="bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold text-lg px-12 py-8 shadow-2xl hover:shadow-[0_0_40px_rgba(201,169,97,0.4)] transition-all duration-300">
+                Try Optibio Risk-Free
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

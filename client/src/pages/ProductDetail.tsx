@@ -34,6 +34,7 @@ import ProductReviews from "@/components/ProductReviews";
 import SubscriptionToggle from "@/components/SubscriptionToggle";
 import StickyAddToCart from "@/components/StickyAddToCart";
 import UrgencyIndicators from "@/components/UrgencyIndicators";
+import StockIndicator from "@/components/StockIndicator";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:slug");
@@ -278,6 +279,9 @@ export default function ProductDetail() {
                   {product.description || "Premium full-spectrum Ashwagandha root extract standardized to 5% withanolides. Clinically studied KSM-66® formula for stress management, mental clarity, and overall wellness."}
                 </p>
 
+                {/* Stock Indicator - Scarcity */}
+                <StockIndicator stockQuantity={product.stockQuantity} threshold={100} />
+
                 {/* Pre-Order Shipping Info */}
                 <div className="flex items-center gap-2 p-4 bg-amber-50 border-2 border-amber-200 rounded-xl">
                   <Package className="w-5 h-5 text-amber-600 flex-shrink-0" />
@@ -303,6 +307,13 @@ export default function ProductDetail() {
                     </>
                   )}
                 </div>
+                {/* Cost per day - Value anchoring */}
+                <p className="text-sm text-slate-600 mt-2">
+                  That's just <span className="font-bold text-[#1E3A5F]">${((isSubscription ? subscriptionPrice : currentPrice) / 100 / 45).toFixed(2)}/day</span> for better sleep & less stress
+                </p>
+                <p className="text-xs text-slate-500 mt-1">
+                  ☕ Less than your daily coffee
+                </p>
               </div>
 
               {/* Variant Selection */}
@@ -485,6 +496,12 @@ export default function ProductDetail() {
                 >
                   Reviews (2,847)
                 </TabsTrigger>
+                <TabsTrigger 
+                  value="faq"
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-[#1E3A5F] data-[state=active]:bg-transparent px-8 py-4 text-base font-semibold"
+                >
+                  FAQ
+                </TabsTrigger>
               </TabsList>
 
               <TabsContent value="description" className="mt-8 space-y-6">
@@ -612,6 +629,90 @@ export default function ProductDetail() {
 
               <TabsContent value="reviews" className="mt-8">
                 {productData && <ProductReviews productId={productData.id} />}
+              </TabsContent>
+
+              <TabsContent value="faq" className="mt-8">
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h3>
+                  
+                  <div className="space-y-3">
+                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
+                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
+                        How long until I feel results?
+                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
+                      </summary>
+                      <p className="mt-4 text-slate-700 leading-relaxed">
+                        Most people notice subtle changes within 2-4 weeks, with peak benefits appearing around 8-12 weeks. You might first notice better sleep, then calmer mornings, then improved focus. Clinical studies show maximum benefits at 8 weeks of consistent daily use.
+                      </p>
+                    </details>
+
+                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
+                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
+                        Can I take this with other supplements?
+                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
+                      </summary>
+                      <p className="mt-4 text-slate-700 leading-relaxed">
+                        Yes! Ashwagandha works well with most supplements. It's commonly paired with magnesium for sleep, vitamin D for immunity, or omega-3s for brain health. However, if you're taking prescription medications (especially thyroid or blood pressure meds), consult your doctor first.
+                      </p>
+                    </details>
+
+                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
+                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
+                        What if I forget to take it?
+                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
+                      </summary>
+                      <p className="mt-4 text-slate-700 leading-relaxed">
+                        No worries! Just take your dose when you remember. Don't double up. Consistency matters more than perfection—taking it 5-6 days a week is better than skipping entire weeks. Set a phone reminder or keep the bottle where you'll see it (next to your coffee maker, toothbrush, etc.).
+                      </p>
+                    </details>
+
+                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
+                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
+                        Is this safe for long-term use?
+                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
+                      </summary>
+                      <p className="mt-4 text-slate-700 leading-relaxed">
+                        Yes. Ashwagandha has been used safely in Ayurvedic medicine for thousands of years. Clinical studies show it's well-tolerated for continuous use up to 12 months. Many people take it daily for years. That said, it's smart to take a 1-2 week break every 3-6 months to reset your body's response.
+                      </p>
+                    </details>
+
+                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
+                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
+                        What's your return policy?
+                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
+                      </summary>
+                      <p className="mt-4 text-slate-700 leading-relaxed">
+                        We offer a 90-day money-back guarantee. Try Optibio for a full 12 weeks. If you don't feel calmer, sleep better, or think more clearly, email us at support@optibio.com and we'll refund every penny. No questions asked. You can even keep the bottle.
+                      </p>
+                    </details>
+
+                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
+                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
+                        When should I take it—morning or night?
+                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
+                      </summary>
+                      <p className="mt-4 text-slate-700 leading-relaxed">
+                        Either works! Some people prefer mornings (helps manage daytime stress), others prefer evenings (promotes restful sleep). Try both and see what feels best. The key is consistency—same time every day helps your body adapt.
+                      </p>
+                    </details>
+
+                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
+                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
+                        Will this make me drowsy?
+                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
+                      </summary>
+                      <p className="mt-4 text-slate-700 leading-relaxed">
+                        No. Ashwagandha is an adaptogen, not a sedative. It helps your body manage stress, which can improve sleep quality, but it won't make you groggy or tired during the day. Most people report feeling more energized and focused.
+                      </p>
+                    </details>
+                  </div>
+
+                  <div className="mt-8 p-6 bg-[#F7F4EF] border-2 border-[#C9A961]/30 rounded-lg">
+                    <p className="text-slate-700 text-center">
+                      <strong className="text-[#1E3A5F]">Still have questions?</strong> Email us at <a href="mailto:support@optibio.com" className="text-[#C9A961] hover:underline font-semibold">support@optibio.com</a> — we typically respond within 2 hours.
+                    </p>
+                  </div>
+                </div>
               </TabsContent>
             </Tabs>
           </div>
