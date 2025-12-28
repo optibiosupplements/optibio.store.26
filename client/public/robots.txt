@@ -1,0 +1,16 @@
+# OptiBio Robots.txt
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Disallow admin and checkout pages from indexing
+Disallow: /checkout
+Disallow: /cart
+Disallow: /account
+
+# Sitemap location
+Sitemap: https://optibiosupplements.com/sitemap.xml
+
+# Crawl delay (optional, helps with server load)
+Crawl-delay: 1

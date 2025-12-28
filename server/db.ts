@@ -1,6 +1,24 @@
-import { eq } from "drizzle-orm";
+import { eq, and, lt, isNull, isNotNull, desc, sql } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { randomBytes } from "crypto";
+import { 
+  InsertUser, 
+  users, 
+  products, 
+  productVariants,
+  subscriptionPlans,
+  cartItems,
+  orders,
+  orderItems,
+  discountCodes,
+  subscriptions,
+  abandonedCarts,
+  InsertAbandonedCart,
+  AbandonedCart,
+  postPurchaseEmails,
+  PostPurchaseEmail,
+  InsertPostPurchaseEmail
+} from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -89,4 +107,629 @@ export async function getUserByOpenId(openId: string) {
   return result.length > 0 ? result[0] : undefined;
 }
 
-// TODO: add feature queries here as your schema grows.
+// Product queries
+export async function getAllProducts() {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(products).where(eq(products.isActive, true));
+}
+
+export async function getProductBySlug(slug: string) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(products).where(eq(products.slug, slug)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function getProductVariants(productId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(productVariants)
+    .where(and(
+      eq(productVariants.productId, productId),
+      eq(productVariants.isActive, true)
+    ))
+    .orderBy(productVariants.sortOrder);
+}
+
+export async function getSubscriptionPlans() {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(subscriptionPlans).where(eq(subscriptionPlans.isActive, true));
+}
+
+// Cart queries
+export async function getCartItems(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  const items = await db.select({
+    id: cartItems.id,
+    userId: cartItems.userId,
+    productId: cartItems.productId,
+    variantId: cartItems.variantId,
+    quantity: cartItems.quantity,
+    isSubscription: cartItems.isSubscription,
+    subscriptionPlanId: cartItems.subscriptionPlanId,
+    priceInCents: sql<number>`COALESCE(${productVariants.priceInCents}, ${products.priceInCents})`,
+    productName: products.name,
+    productSlug: products.slug,
+    productImage: products.imageUrl,
+    variantName: productVariants.name,
+  })
+  .from(cartItems)
+  .leftJoin(products, eq(cartItems.productId, products.id))
+  .leftJoin(productVariants, eq(cartItems.variantId, productVariants.id))
+  .where(eq(cartItems.userId, userId));
+  
+  return items;
+}
+
+export async function addToCart(item: typeof cartItems.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.insert(cartItems).values(item);
+}
+
+export async function updateCartItem(id: number, quantity: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.update(cartItems).set({ quantity }).where(eq(cartItems.id, id));
+}
+
+export async function removeCartItem(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.delete(cartItems).where(eq(cartItems.id, id));
+}
+
+export async function clearCart(userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.delete(cartItems).where(eq(cartItems.userId, userId));
+}
+
+// Order queries
+export async function createOrder(order: typeof orders.$inferInsert) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.insert(orders).values(order);
+}
+
+export async function createOrderItems(items: typeof orderItems.$inferInsert[]) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.insert(orderItems).values(items);
+}
+
+export async function getOrdersByUser(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(orders)
+    .where(eq(orders.userId, userId))
+    .orderBy(desc(orders.createdAt));
+}
+
+export async function getOrderById(orderId: number) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(orders).where(eq(orders.id, orderId)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function getOrderItems(orderId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(orderItems).where(eq(orderItems.orderId, orderId));
+}
+
+// Discount code queries
+export async function getDiscountCode(code: string) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(discountCodes)
+    .where(and(
+      eq(discountCodes.code, code),
+      eq(discountCodes.isActive, true)
+    ))
+    .limit(1);
+    
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function incrementDiscountCodeUsage(codeId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const code = await db.select().from(discountCodes).where(eq(discountCodes.id, codeId)).limit(1);
+  if (code.length === 0) throw new Error("Discount code not found");
+  
+  const currentCount = code[0]?.usedCount ?? 0;
+  return db.update(discountCodes)
+    .set({ usedCount: currentCount + 1 })
+    .where(eq(discountCodes.id, codeId));
+}
+
+// Product batch queries
+export async function getBatchByLotNumber(lotNumber: string) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const { productBatches } = await import("../drizzle/schema");
+  const result = await db.select().from(productBatches)
+    .where(and(
+      eq(productBatches.lotNumber, lotNumber),
+      eq(productBatches.isActive, true)
+    ))
+    .limit(1);
+    
+  return result.length > 0 ? result[0] : null;
+}
+
+// Subscription queries
+export async function createSubscription(data: {
+  userId: number;
+  planId: number;
+  productId: number;
+  variantId?: number;
+  priceInCents: number;
+  stripeSubscriptionId: string;
+  stripeCustomerId: string;
+  stripePriceId: string;
+  nextBillingDate: Date;
+}) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  const [result] = await db.insert(subscriptions).values({
+    userId: data.userId,
+    planId: data.planId,
+    productId: data.productId,
+    variantId: data.variantId,
+    priceInCents: data.priceInCents,
+    stripeSubscriptionId: data.stripeSubscriptionId,
+    stripeCustomerId: data.stripeCustomerId,
+    stripePriceId: data.stripePriceId,
+    nextBillingDate: data.nextBillingDate,
+    status: "active",
+  });
+  
+  return result;
+}
+
+export async function getSubscriptionsByUser(userId: number) {
+  const db = await getDb();
+  if (!db) return [];
+  
+  return db.select().from(subscriptions)
+    .where(eq(subscriptions.userId, userId))
+    .orderBy(desc(subscriptions.createdAt));
+}
+
+export async function getSubscriptionByStripeId(stripeSubscriptionId: string) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(subscriptions)
+    .where(eq(subscriptions.stripeSubscriptionId, stripeSubscriptionId))
+    .limit(1);
+    
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function updateSubscriptionStatus(
+  stripeSubscriptionId: string,
+  status: "active" | "paused" | "cancelled" | "expired"
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.update(subscriptions)
+    .set({ 
+      status,
+      ...(status === "cancelled" ? { cancelledAt: new Date() } : {}),
+      ...(status === "paused" ? { pausedAt: new Date() } : {}),
+    })
+    .where(eq(subscriptions.stripeSubscriptionId, stripeSubscriptionId));
+}
+
+export async function updateUserFounderTier(
+  userId: number,
+  founderTier: "founders" | "early_adopter" | "pre_launch" | "regular",
+  lifetimeDiscountPercent: number
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Only update if user doesn't already have a founder tier
+  // (first purchase locks in the tier)
+  const user = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+  if (user.length === 0) throw new Error("User not found");
+  
+  if (!user[0].founderTier) {
+    return db.update(users)
+      .set({ 
+        founderTier,
+        lifetimeDiscountPercent,
+      })
+      .where(eq(users.id, userId));
+  }
+  
+  return null;
+}
+
+export async function getUserById(userId: number) {
+  const db = await getDb();
+  if (!db) return null;
+  
+  const result = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
+export async function updateSubscriptionBillingDates(
+  stripeSubscriptionId: string,
+  lastBillingDate: Date,
+  nextBillingDate: Date
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  return db.update(subscriptions)
+    .set({ 
+      lastBillingDate,
+      nextBillingDate,
+    })
+    .where(eq(subscriptions.stripeSubscriptionId, stripeSubscriptionId));
+}
+
+
+/**
+ * Abandoned Cart Helper Functions
+ */
+
+/**
+ * Generate a unique recovery token for cart recovery links
+ */
+export function generateRecoveryToken(): string {
+  return randomBytes(32).toString("hex");
+}
+
+/**
+ * Create an abandoned cart record
+ */
+export async function createAbandonedCart(data: InsertAbandonedCart): Promise<AbandonedCart | null> {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create abandoned cart: database not available");
+    return null;
+  }
+
+  try {
+    const result = await db.insert(abandonedCarts).values(data);
+    const insertId = result[0].insertId;
+    
+    // Fetch and return the created record
+    const created = await db.select().from(abandonedCarts).where(eq(abandonedCarts.id, insertId)).limit(1);
+    return created[0] || null;
+  } catch (error) {
+    console.error("[Database] Failed to create abandoned cart:", error);
+    return null;
+  }
+}
+
+/**
+ * Get abandoned cart by recovery token
+ */
+export async function getAbandonedCartByToken(token: string): Promise<AbandonedCart | null> {
+  const db = await getDb();
+  if (!db) return null;
+
+  try {
+    const result = await db.select().from(abandonedCarts)
+      .where(eq(abandonedCarts.recoveryToken, token))
+      .limit(1);
+    return result[0] || null;
+  } catch (error) {
+    console.error("[Database] Failed to get abandoned cart by token:", error);
+    return null;
+  }
+}
+
+/**
+ * Update abandoned cart email sent timestamps
+ */
+export async function updateAbandonedCartEmailSent(
+  id: number,
+  emailNumber: 1 | 2 | 3
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    const field = emailNumber === 1 ? "firstEmailSentAt" :
+                  emailNumber === 2 ? "secondEmailSentAt" :
+                  "thirdEmailSentAt";
+    
+    await db.update(abandonedCarts)
+      .set({ [field]: new Date() })
+      .where(eq(abandonedCarts.id, id));
+    
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to update abandoned cart email sent:", error);
+    return false;
+  }
+}
+
+/**
+ * Mark abandoned cart as recovered
+ */
+export async function markAbandonedCartRecovered(
+  id: number,
+  orderId: number
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    await db.update(abandonedCarts)
+      .set({
+        isRecovered: true,
+        recoveredAt: new Date(),
+        recoveredOrderId: orderId,
+      })
+      .where(eq(abandonedCarts.id, id));
+    
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to mark abandoned cart as recovered:", error);
+    return false;
+  }
+}
+
+/**
+ * Get abandoned carts that need email follow-ups
+ * Returns carts where:
+ * - Not recovered
+ * - Email not sent yet based on time elapsed
+ */
+export async function getAbandonedCartsForEmail(emailNumber: 1 | 2 | 3): Promise<AbandonedCart[]> {
+  const db = await getDb();
+  if (!db) return [];
+
+  try {
+    const now = new Date();
+    const hoursAgo = emailNumber === 1 ? 1 : emailNumber === 2 ? 24 : 48;
+    const cutoffTime = new Date(now.getTime() - hoursAgo * 60 * 60 * 1000);
+
+    // Build conditions based on which email we're sending
+    let conditions = [
+      eq(abandonedCarts.isRecovered, false),
+      lt(abandonedCarts.createdAt, cutoffTime)
+    ];
+
+    if (emailNumber === 1) {
+      conditions.push(isNull(abandonedCarts.firstEmailSentAt));
+    } else if (emailNumber === 2) {
+      conditions.push(isNotNull(abandonedCarts.firstEmailSentAt));
+      conditions.push(isNull(abandonedCarts.secondEmailSentAt));
+    } else {
+      conditions.push(isNotNull(abandonedCarts.secondEmailSentAt));
+      conditions.push(isNull(abandonedCarts.thirdEmailSentAt));
+    }
+
+    return await db.select().from(abandonedCarts)
+      .where(and(...conditions));
+  } catch (error) {
+    console.error("[Database] Failed to get abandoned carts for email:", error);
+    return [];
+  }
+}
+
+
+// ============================================================================
+// POST-PURCHASE EMAIL HELPERS
+// ============================================================================
+
+/**
+ * Create post-purchase email tracking record
+ * Called when an order is completed
+ */
+export async function createPostPurchaseEmailTracking(data: {
+  orderId: number;
+  userId: number | null;
+  email: string;
+  productId: number;
+  purchaseDate: Date;
+}): Promise<PostPurchaseEmail | null> {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot create post-purchase email tracking: database not available");
+    return null;
+  }
+
+  try {
+    await db.insert(postPurchaseEmails).values({
+      orderId: data.orderId,
+      userId: data.userId,
+      email: data.email,
+      productId: data.productId,
+      purchaseDate: data.purchaseDate,
+    });
+
+    // MySQL doesn't support returning(), query the record separately
+    const [record] = await db.select().from(postPurchaseEmails)
+      .where(eq(postPurchaseEmails.orderId, data.orderId))
+      .limit(1);
+
+    return record || null;
+  } catch (error) {
+    console.error("[Database] Failed to create post-purchase email tracking:", error);
+    return null;
+  }
+}
+
+/**
+ * Get orders needing specific day email (7, 21, 60, or 90)
+ * Returns records where email hasn't been sent and enough days have passed
+ */
+export async function getOrdersNeedingPostPurchaseEmail(
+  dayNumber: 7 | 21 | 60 | 90
+): Promise<PostPurchaseEmail[]> {
+  const db = await getDb();
+  if (!db) return [];
+
+  try {
+    const now = new Date();
+    const daysAgo = dayNumber;
+    const cutoffDate = new Date(now.getTime() - daysAgo * 24 * 60 * 60 * 1000);
+
+    // Build conditions based on which email we're sending
+    let conditions = [
+      lt(postPurchaseEmails.purchaseDate, cutoffDate),
+      eq(postPurchaseEmails.hasReordered, false), // Don't send if they already reordered
+    ];
+
+    if (dayNumber === 7) {
+      conditions.push(isNull(postPurchaseEmails.day7EmailSentAt));
+    } else if (dayNumber === 21) {
+      conditions.push(isNotNull(postPurchaseEmails.day7EmailSentAt));
+      conditions.push(isNull(postPurchaseEmails.day21EmailSentAt));
+    } else if (dayNumber === 60) {
+      conditions.push(isNotNull(postPurchaseEmails.day21EmailSentAt));
+      conditions.push(isNull(postPurchaseEmails.day60EmailSentAt));
+    } else {
+      conditions.push(isNotNull(postPurchaseEmails.day60EmailSentAt));
+      conditions.push(isNull(postPurchaseEmails.day90EmailSentAt));
+      conditions.push(eq(postPurchaseEmails.hasSubscribed, false)); // Only send if not subscribed
+    }
+
+    return await db.select().from(postPurchaseEmails)
+      .where(and(...conditions));
+  } catch (error) {
+    console.error("[Database] Failed to get orders needing post-purchase email:", error);
+    return [];
+  }
+}
+
+/**
+ * Update email sent timestamp for specific day
+ */
+export async function updatePostPurchaseEmailSent(
+  id: number,
+  dayNumber: 7 | 21 | 60 | 90
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    const now = new Date();
+    const updateData: any = {};
+
+    if (dayNumber === 7) {
+      updateData.day7EmailSentAt = now;
+    } else if (dayNumber === 21) {
+      updateData.day21EmailSentAt = now;
+    } else if (dayNumber === 60) {
+      updateData.day60EmailSentAt = now;
+    } else {
+      updateData.day90EmailSentAt = now;
+    }
+
+    await db.update(postPurchaseEmails)
+      .set(updateData)
+      .where(eq(postPurchaseEmails.id, id));
+
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to update post-purchase email sent:", error);
+    return false;
+  }
+}
+
+/**
+ * Mark customer as reordered
+ * Called when customer makes a repeat purchase
+ */
+export async function markCustomerReordered(
+  orderId: number,
+  reorderOrderId: number
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    await db.update(postPurchaseEmails)
+      .set({
+        hasReordered: true,
+        reorderDate: new Date(),
+        reorderOrderId,
+      })
+      .where(eq(postPurchaseEmails.orderId, orderId));
+
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to mark customer as reordered:", error);
+    return false;
+  }
+}
+
+/**
+ * Mark customer as subscribed
+ * Called when customer converts to subscription
+ */
+export async function markCustomerSubscribed(orderId: number): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    await db.update(postPurchaseEmails)
+      .set({
+        hasSubscribed: true,
+        subscribedAt: new Date(),
+      })
+      .where(eq(postPurchaseEmails.orderId, orderId));
+
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to mark customer as subscribed:", error);
+    return false;
+  }
+}
+
+/**
+ * Mark customer as reviewed
+ * Called when customer leaves a review
+ */
+export async function markCustomerReviewed(orderId: number): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    await db.update(postPurchaseEmails)
+      .set({
+        hasReviewed: true,
+        reviewedAt: new Date(),
+      })
+      .where(eq(postPurchaseEmails.orderId, orderId));
+
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to mark customer as reviewed:", error);
+    return false;
+  }
+}

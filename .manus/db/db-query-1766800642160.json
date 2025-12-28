@@ -1,0 +1,37 @@
+{
+  "query": "\nSELECT id, name, sku, priceInCents, compareAtPriceInCents, stockQuantity, isActive \nFROM productVariants \nWHERE sku IN ('OPTIBIO-ASH-180', 'OPTIBIO-ASH-360') OR name LIKE '%Month Supply%';\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 26YcRyEmMHMZfUu.adf0f9e7dfe8 --database HZ2NtaFJFkAENvPvciWDsB --execute \nSELECT id, name, sku, priceInCents, compareAtPriceInCents, stockQuantity, isActive \nFROM productVariants \nWHERE sku IN ('OPTIBIO-ASH-180', 'OPTIBIO-ASH-360') OR name LIKE '%Month Supply%';\n",
+  "rows": [
+    {
+      "id": "30004",
+      "name": "90 Capsules (1-Month Supply)",
+      "sku": "OPTIBIO-ASH-90",
+      "priceInCents": "4999",
+      "compareAtPriceInCents": "6999",
+      "stockQuantity": "100",
+      "isActive": "1"
+    },
+    {
+      "id": "30005",
+      "name": "180 Capsules (3-Month Supply)",
+      "sku": "OPTIBIO-ASH-180",
+      "priceInCents": "12749",
+      "compareAtPriceInCents": "14997",
+      "stockQuantity": "100",
+      "isActive": "1"
+    },
+    {
+      "id": "30006",
+      "name": "270 Capsules (6-Month Supply)",
+      "sku": "OPTIBIO-ASH-270",
+      "priceInCents": "18749",
+      "compareAtPriceInCents": "24995",
+      "stockQuantity": "100",
+      "isActive": "1"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tname\tsku\tpriceInCents\tcompareAtPriceInCents\tstockQuantity\tisActive\n30004\t90 Capsules (1-Month Supply)\tOPTIBIO-ASH-90\t4999\t6999\t100\t1\n30005\t180 Capsules (3-Month Supply)\tOPTIBIO-ASH-180\t12749\t14997\t100\t1\n30006\t270 Capsules (6-Month Supply)\tOPTIBIO-ASH-270\t18749\t24995\t100\t1\n",
+  "stderr": "",
+  "execution_time_ms": 152
+}
