@@ -1,6 +1,16 @@
 # OptiBio E-Commerce Project TODO
 
-## 🚨 CURRENT: BRAND CAPITALIZATION FIX (User Requested - Dec 27, 2025)
+## 🚨 CURRENT: PRODUCT MOCKUP BRANDING UPDATE (User Requested - Dec 27, 2025)
+
+### Product Image Logo Replacement Task
+- [x] Find existing product bottle mockup images (front + angled views)
+- [x] Replace ONLY the logo on existing images (Python PIL overlay method)
+- [x] Use correct gradient logo with lowercase 'bio' from updatedlogo.png
+- [x] Maintain exact same bottle design, layout, and styling
+- [x] Verify logo replacement on all product images (both look perfect!)
+- [x] Ensure complete visual brand consistency (logo matches header/footer)
+
+## ✅ COMPLETED: BRAND CAPITALIZATION FIX (Dec 27, 2025)
 
 ### Brand Consistency Task
 - [x] Change "OptiBio" to "Optibio" (lowercase 'b') to match logo
