@@ -217,7 +217,7 @@ export default function Checkout() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
         <Loader2 className="h-12 w-12 animate-spin text-[#1E3A5F]" />
       </div>
     );
@@ -231,7 +231,7 @@ export default function Checkout() {
   // Show Stripe Elements payment confirmation for subscriptions
   if (subscriptionData) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16">
+      <div className="min-h-screen py-12 md:py-16" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
         <div className="container">
           <SubscriptionCheckout
             {...subscriptionData}
@@ -249,7 +249,7 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16">
+    <div className="min-h-screen py-12 md:py-16" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="mb-8">

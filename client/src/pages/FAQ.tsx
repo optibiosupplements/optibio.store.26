@@ -167,7 +167,7 @@ export default function FAQ() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+    <div className="min-h-screen" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
       {/* FAQ Schema for Rich Snippets */}
       <FAQSchema faqs={allFAQs} />
       {/* Hero Section */}

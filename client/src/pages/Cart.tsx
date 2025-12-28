@@ -91,7 +91,7 @@ export default function Cart() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
         <Loader2 className="h-12 w-12 animate-spin text-[#1E3A5F]" />
       </div>
     );
@@ -99,7 +99,7 @@ export default function Cart() {
 
   if (!cartItems || cartItems.length === 0) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+      <div className="min-h-screen flex items-center justify-center" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
         <div className="text-center space-y-6 p-8">
           <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#C9A961]/10 flex items-center justify-center">
             <ShoppingBag className="h-12 w-12 text-[#1E3A5F]" />
@@ -120,7 +120,7 @@ export default function Cart() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16">
+    <div className="min-h-screen py-12 md:py-16" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
       <div className="container">
         {/* Header */}
         <div className="mb-8">

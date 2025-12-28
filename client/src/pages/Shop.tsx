@@ -36,7 +36,7 @@ export default function Shop() {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: 'radial-gradient(ellipse at center, #E8F2F8 0%, #C8DFF0 40%, #7A9BB5 100%)' }}>
+    <div className="min-h-screen" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
       {/* Page Header */}
       <section className="relative py-12 md:py-16 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">

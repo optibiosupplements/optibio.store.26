@@ -24,6 +24,7 @@ import WellnessPlanPersonalizer from "@/components/WellnessPlanPersonalizer";
 import { SocialProofCounter } from "@/components/SocialProofCounter";
 import CountdownTimer from "@/components/CountdownTimer";
 import StickyAddToCart from "@/components/StickyAddToCart";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Home() {
   const { data: products } = trpc.products.list.useQuery();
@@ -110,7 +111,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden" style={{ background: 'radial-gradient(ellipse at center, #E8F2F8 0%, #C8DFF0 40%, #7A9BB5 100%)' }}>
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
         {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
@@ -141,7 +142,7 @@ export default function Home() {
               {/* Trust Indicators - Mobile Optimized */}
               <div className="flex flex-wrap gap-4 sm:gap-6 text-base">
                 {certifications.slice(0, 3).map((cert, i) => (
-                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[#1E3A5F]">
+                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[#1E3A5F] scroll-fade-in">
                     <cert.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#C9A961]" />
                     <div className="flex flex-col">
                       <span className="font-bold text-[#2D2D2D] text-base">{cert.text}</span>
@@ -270,7 +271,7 @@ export default function Home() {
               return (
                 <Card 
                   key={i} 
-                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-[#C9A961]/20 hover:border-[#C9A961]/40 cursor-pointer overflow-hidden border-t-4 border-t-[#C9A961]"
+                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-[#C9A961]/20 hover:border-[#C9A961]/40 cursor-pointer overflow-hidden border-t-4 border-t-[#C9A961] scroll-fade-in"
                 >
                   <div className="relative h-64 overflow-hidden">
                     <img 

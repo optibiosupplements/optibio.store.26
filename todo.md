@@ -752,3 +752,37 @@ ROOT CAUSE: EmailCaptureModal has its own custom close button (lines 85-91) whic
 - [x] Ensure text contrast and readability
 - [x] Test on mobile devices
 - [x] Create checkpoint with new gradient theme
+
+
+## 🎨 PHASE 2: LIGHTER SKY BLUE GRADIENT + ANIMATIONS (Dec 28, 2025)
+
+### Gradient Lightening (User Request)
+- [x] Lighten sky blue gradient to match reference (much brighter/lighter - almost white at center)
+- [x] Update gradient colors: lighter blues throughout
+- [x] Update Home page hero gradient
+- [x] Update Product Detail page gradient  
+- [x] Update Shop page gradient
+- [x] Verify text contrast remains excellent
+
+### Extend Gradient to All Pages
+- [x] Apply lighter gradient to About page
+- [x] Apply lighter gradient to Science page
+- [x] Apply lighter gradient to FAQ page
+- [x] Apply lighter gradient to Cart page
+- [x] Apply lighter gradient to Checkout page
+- [x] Apply lighter gradient to My Orders page
+
+### Scroll Animations
+- [x] Add fade-in animation for benefit cards on scroll
+- [x] Add fade-in animation for trust indicators on scroll
+- [x] Add fade-in animation for testimonials on scroll
+- [x] Add fade-in animation for pricing cards on scroll
+- [x] Implement smooth scroll behavior
+- [x] Test animations on mobile devices
+
+### Testing & Verification
+- [x] Test all pages for gradient consistency
+- [x] Verify animations work smoothly
+- [x] Check mobile responsiveness
+- [x] Verify text readability on lighter background
+- [ ] Create final checkpoint
