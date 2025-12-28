@@ -25,10 +25,19 @@ import { SocialProofCounter } from "@/components/SocialProofCounter";
 import CountdownTimer from "@/components/CountdownTimer";
 import StickyAddToCart from "@/components/StickyAddToCart";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Home() {
   const { data: products } = trpc.products.list.useQuery();
   const mainProduct = products?.[0];
+  const { theme } = useTheme();
+  
+  // Theme-aware product image selection
+  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const heroProductImage = isDark 
+    ? '/products/optibio-90cap-bottle-front-dark.jpg'
+    : '/products/optibio-90cap-bottle-front.jpg';
+  
   // Removed reservation modal - now using direct purchase
 
   const benefits = [
@@ -111,7 +120,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient transition-colors duration-500">
         {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
@@ -126,7 +135,7 @@ export default function Home() {
                   Science-Backed • Third-Party Tested
                 </Badge>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-[#2D2D2D]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-foreground">
                   Feel Like{" "}
                   <span className="text-gradient-optibio">
                     Yourself
@@ -134,7 +143,7 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-[#1E3A5F] leading-relaxed max-w-2xl">
+                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl dark:text-primary-foreground/90">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
@@ -145,15 +154,15 @@ export default function Home() {
                   <div key={i} className="flex items-center gap-2 sm:gap-3 text-[#1E3A5F] scroll-fade-in">
                     <cert.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#C9A961]" />
                     <div className="flex flex-col">
-                      <span className="font-bold text-[#2D2D2D] text-base">{cert.text}</span>
-                      <span className="text-sm text-[#1E3A5F]">Verified</span>
+                      <span className="font-bold text-foreground text-base">{cert.text}</span>
+                      <span className="text-sm text-primary dark:text-primary-foreground/80">Verified</span>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Pricing & Urgency - Mobile Optimized */}
-              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl">
+              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 dark:from-card/90 dark:to-card/70 backdrop-blur-sm border-2 border-[#C9A961]/40 dark:border-[#C9A961]/60 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl transition-colors duration-500">
                 {/* Countdown Timer - P0 FIX: Add urgency above fold */}
                 <CountdownTimer 
                   targetDate={new Date('2026-01-20T23:59:59')} 
@@ -161,13 +170,13 @@ export default function Home() {
                 />
                 
                 <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-3">
-                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#2D2D2D]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
                   <span className="text-xl sm:text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
                   <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1.5 shadow-md">
                     Save 46%
                   </Badge>
                 </div>
-                <p className="text-sm text-[#1E3A5F] mb-3 flex items-center gap-2">
+                <p className="text-sm text-primary dark:text-primary-foreground/80 mb-3 flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-[#C9A961]" />
                   <span className="font-semibold">Pre-Order Special:</span> Ships Jan 20-27, 2026
                 </p>
@@ -204,7 +213,7 @@ export default function Home() {
               {/* P0 FIX: Removed duplicate CTA, moved to pricing card above */}
 
               {/* Social Proof - Enhanced */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-5 shadow-md">
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/30 border-2 border-green-200 dark:border-green-800/50 rounded-xl p-5 shadow-md transition-colors duration-500">
                 <div className="flex items-center gap-4">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4, 5].map((i) => (
@@ -218,10 +227,10 @@ export default function Home() {
                       ))}
                       <span className="ml-2 text-sm font-bold text-slate-900">4.9/5</span>
                     </div>
-                    <p className="text-sm text-slate-700">
-                      <span className="font-bold text-slate-900 text-lg">5,247</span> happy customers
+                    <p className="text-sm text-slate-700 dark:text-slate-300">
+                      <span className="font-bold text-slate-900 dark:text-white text-lg">5,247</span> happy customers
                     </p>
-                    <p className="text-xs text-green-700 font-semibold mt-1">
+                    <p className="text-xs text-green-700 dark:text-green-400 font-semibold mt-1">
                       ✅ <span className="font-bold">127</span> bottles sold in last 24 hours
                     </p>
                   </div>
@@ -234,9 +243,9 @@ export default function Home() {
               {/* Product image - Let it breathe with clean whitespace */}
               <div className="relative animate-float">
                 <img 
-                  src="/products/optibio-90cap-bottle-front.jpg" 
+                  src={heroProductImage}
                   alt="Optibio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
-                  className="w-full max-w-lg mx-auto drop-shadow-2xl"
+                  className="w-full max-w-lg mx-auto drop-shadow-2xl transition-opacity duration-500"
                 />
               </div>
             </div>
@@ -245,17 +254,17 @@ export default function Home() {
       </section>
 
       {/* Scientifically-Backed Benefits */}
-      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] to-white">
+      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] to-white dark:from-card dark:to-background transition-colors duration-500">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
+            <Badge className="mb-4 bg-[#C9A961]/10 dark:bg-[#C9A961]/20 text-[#1E3A5F] dark:text-[#C9A961] border-[#C9A961]/30 dark:border-[#C9A961]/50">
               <Leaf className="w-3.5 h-3.5 mr-1.5" />
               Clinically Validated
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Scientifically-Backed Benefits
             </h2>
-            <p className="text-xl text-slate-600">
+            <p className="text-xl text-muted-foreground">
               KSM-66 is the most clinically studied ashwagandha extract, with research demonstrating significant benefits across multiple health markers.
             </p>
           </div>
@@ -538,17 +547,17 @@ export default function Home() {
       <WellnessPlanPersonalizer />
 
       {/* Who This Is For - Qualification Section */}
-      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] to-white">
+      <section className="py-24 bg-gradient-to-br from-[#F7F4EF] to-white dark:from-card dark:to-background transition-colors duration-500">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
+              <Badge className="mb-4 bg-[#C9A961]/10 dark:bg-[#C9A961]/20 text-[#1E3A5F] dark:text-[#C9A961] border-[#C9A961]/30 dark:border-[#C9A961]/50">
                 Is This Right for You?
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
                 Who This Is For (And Who It's Not)
               </h2>
-              <p className="text-xl text-slate-600">
+              <p className="text-xl text-muted-foreground">
                 Optibio works best for people dealing with specific challenges. Here's how to know if it's right for you.
               </p>
             </div>
@@ -787,7 +796,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Quality You Can Trust
             </h2>
-            <p className="text-xl text-slate-600">
+            <p className="text-xl text-muted-foreground">
               Every bottle meets the highest standards of purity, potency, and safety
             </p>
           </div>

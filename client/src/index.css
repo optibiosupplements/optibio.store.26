@@ -277,6 +277,15 @@ html {
     background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
   }
   
+  /* Theme-Aware Hero Gradients */
+  .bg-hero-gradient {
+    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%);
+  }
+  
+  .dark .bg-hero-gradient {
+    background: radial-gradient(ellipse at center, #1E3A5F 0%, #152B45 40%, #0F1F30 100%);
+  }
+  
   .gradient-optibio-reverse {
     background: linear-gradient(135deg, #152B45 0%, #1E3A5F 100%);
   }
@@ -320,6 +329,15 @@ html {
   
   .shadow-glow-gold {
     box-shadow: 0 0 40px rgba(201, 169, 97, 0.4);
+  }
+  
+  /* Brand Color Text Utilities */
+  .text-opti-navy {
+    color: #1E3A5F;
+  }
+  
+  .text-opti-gold {
+    color: #C9A961;
   }
   
   .shadow-ivory {

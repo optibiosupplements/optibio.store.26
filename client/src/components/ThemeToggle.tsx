@@ -32,8 +32,8 @@ export function ThemeToggle() {
       className={`
         relative w-10 h-10 rounded-full transition-all duration-500 ease-in-out overflow-hidden
         ${!isDark 
-          ? 'bg-white/80 hover:bg-white border border-slate-200 text-[#1E3A5F] shadow-sm hover:shadow-md' 
-          : 'bg-white/10 hover:bg-white/20 border border-white/10 text-[#C9A961] shadow-[0_0_15px_rgba(201,169,97,0.3)]'
+          ? 'bg-white/80 hover:bg-white border border-slate-200 text-opti-navy shadow-sm hover:shadow-md' 
+          : 'bg-white/10 hover:bg-white/20 border border-white/10 text-opti-gold shadow-glow-gold'
         }
       `}
       title={!isDark ? "Switch to Midnight Mode" : "Switch to Day Mode"}
