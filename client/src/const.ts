@@ -2,23 +2,7 @@ export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 
 export const APP_TITLE = import.meta.env.VITE_APP_TITLE || "App";
 
-// Brand guideline: Use gradient logo per specifications (OPTI: 180deg gradient, bio: 45deg gradient)
-export const APP_LOGO = "/optibio-logo-gradient-new.png";
-
-// E-commerce constants
-export const SHIPPING_THRESHOLD_CENTS = 7500; // Free shipping over $75
-export const STANDARD_SHIPPING_CENTS = 595; // $5.95 standard shipping
-export const TAX_RATE = 0.08; // 8% sales tax (adjust based on location)
-
-// Format price in cents to dollar string
-export function formatPrice(cents: number): string {
-  return `$${(cents / 100).toFixed(2)}`;
-}
-
-// Calculate discount price
-export function calculateDiscountPrice(priceInCents: number, discountPercentage: number): number {
-  return Math.round(priceInCents * (1 - discountPercentage / 100));
-}
+export const APP_LOGO = "https://placehold.co/128x128/E1E7EF/1F2937?text=App";
 
 // Generate login URL at runtime so redirect URI reflects the current origin.
 export const getLoginUrl = () => {
