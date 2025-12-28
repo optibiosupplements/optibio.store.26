@@ -58,12 +58,12 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo - Mobile Optimized */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 hover:opacity-90 transition-all group min-h-[44px]">
-            <div className="bg-white rounded-lg sm:rounded-xl p-1.5 sm:p-2 shadow-md group-hover:shadow-lg transition-shadow">
-              <img src={APP_LOGO} alt="OptiBio" className="h-[40px] sm:h-[50px] w-auto" />
-            </div>
+            {/* Logo with NO background - increased by 30% (52px mobile, 65px desktop) */}
+            <img src={APP_LOGO} alt="OptiBio" className="h-[52px] sm:h-[65px] w-auto" />
             <div className="flex flex-col">
+              {/* Unified typography - same font style and size */}
               <span className="text-lg sm:text-2xl font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>
-                OptiBio<sup className="text-xs">®</sup> <span className="hidden sm:inline text-base sm:text-lg font-semibold">Supplements</span>
+                OptiBio<sup className="text-xs">®</sup> <span className="hidden sm:inline">Supplements</span>
               </span>
               <span className="text-xs text-muted-foreground hidden sm:block">Science-Backed Wellness</span>
             </div>

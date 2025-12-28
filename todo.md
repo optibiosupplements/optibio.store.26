@@ -1,6 +1,14 @@
 # OptiBio E-Commerce Project TODO
 
-## 🚨 URGENT: CRITICAL DESIGN FIXES (User Reported - Dec 27, 2025)
+## 🚨 URGENT: HEADER LOGO REFINEMENTS (User Feedback - Dec 27, 2025)
+
+### Header Logo Styling Issues
+- [x] Remove white rounded background box from logo (logo should have NO background)
+- [x] Increase logo size by 30% (52px mobile, 65px desktop - up from 40px/50px)
+- [x] Unify typography: "OptiBio® Supplements" now uses same font style and size
+- [x] Test header appearance after changes
+
+## ✅ COMPLETED: CRITICAL DESIGN FIXES (Dec 27, 2025)
 
 ### Logo Consistency Crisis
 - [x] Audit all logo instances across entire site
