@@ -120,7 +120,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#F8FCFE] via-[#EBF5FB] to-[#D6EAF8] transition-colors duration-500">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-[radial-gradient(50%_50%_at_50%_50%,_#F8FCFE_0%,_#EBF5FB_50%,_#D6EAF8_100%)] transition-colors duration-500">
         {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
@@ -437,7 +437,7 @@ export default function Home() {
       </section>
 
       {/* How It Works - Timeline */}
-      <section className="py-24 bg-[#F8FAFC] border-t border-slate-100">
+      <section className="py-24 bg-[#F0F9FF] border-t border-slate-100">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-4">
