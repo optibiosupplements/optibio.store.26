@@ -120,7 +120,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient transition-colors duration-500">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#F8FCFE] via-[#EBF5FB] to-[#D6EAF8] transition-colors duration-500">
         {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
@@ -135,7 +135,7 @@ export default function Home() {
                   Science-Backed • Third-Party Tested
                 </Badge>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-foreground">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-[#1E3A5F]">
                   Feel Like{" "}
                   <span className="text-gradient-optibio">
                     Yourself
@@ -189,7 +189,7 @@ export default function Home() {
                 <Link href="/product/ashwagandha-ksm-66" className="block">
                   <Button 
                     size="lg" 
-                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:from-[#152B45] hover:to-[#0F1F30] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                   >
                     Pre-Order Now - Save 46%
                     <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
@@ -298,7 +298,7 @@ export default function Home() {
                       </h3>
                     </div>
                   </div>
-                  <CardContent className="p-6 bg-gradient-to-br from-[#F7F4EF]/80 to-[#EDE9E3]/80">
+                  <CardContent className="p-6 bg-white shadow-md">
                     <p className="text-slate-700 leading-relaxed">
                       {benefit.description}
                     </p>
@@ -437,108 +437,48 @@ export default function Home() {
       </section>
 
       {/* How It Works - Timeline */}
-      <section className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#152B45] text-white">
+      <section className="py-24 bg-white border-t border-slate-100">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge className="mb-4 bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30">
-              Your Journey
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              What to Expect Week by Week
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-4">
+              What to Expect: The Timeline
             </h2>
-            <p className="text-xl text-[#F7F4EF]">
-              Real results take time. Here's what thousands of customers experience as their bodies adapt to KSM-66®.
+            <p className="text-slate-500 text-lg">
+              Clinical results accumulate over time. Consistency is the key to the protocol.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto space-y-8">
-            {/* Week 1-2 */}
-            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-[#C9A961]/30">
-              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] border-4 border-[#1E3A5F]" />
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-[#C9A961]">Week 1-2: Settling In</h3>
-                  <Badge className="bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30 w-fit mt-2 md:mt-0">
-                    Early Days
-                  </Badge>
-                </div>
-                <p className="text-lg text-[#F7F4EF] leading-relaxed">
-                  Your body is adjusting. You might notice subtle changes in how you respond to stress—maybe you don't snap as quickly, or your mind feels a bit quieter. Some people feel nothing yet, and that's completely normal. Keep going.
-                </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="p-8 rounded-2xl bg-blue-50/50 border border-blue-100 hover:border-blue-200 transition-all hover:-translate-y-1">
+              <div className="text-xs font-extrabold text-[#2563EB] uppercase tracking-widest mb-3 bg-white inline-block px-3 py-1 rounded-full border border-blue-100">
+                Week 1
               </div>
+              <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Calm & Clarity</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Cortisol levels begin to stabilize. You may notice easier sleep onset and reduced morning grogginess.
+              </p>
             </div>
 
-            {/* Week 2-4 */}
-            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-[#C9A961]/30">
-              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] border-4 border-[#1E3A5F]" />
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-[#C9A961]">Week 2-4: Sleep Improves</h3>
-                  <Badge className="bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30 w-fit mt-2 md:mt-0">
-                    First Benefits
-                  </Badge>
-                </div>
-                <p className="text-lg text-[#F7F4EF] leading-relaxed mb-4">
-                  This is when most people notice they're falling asleep faster and waking up more refreshed. You might catch yourself thinking, "Huh, I actually slept through the night." Stress feels more manageable—not gone, but less overwhelming.
-                </p>
-                <div className="flex items-center gap-2 text-[#C9A961]">
-                  <CheckCircle2 className="w-5 h-5" />
-                  <span className="text-sm font-medium">72% of users report better sleep quality by week 3</span>
-                </div>
+            <div className="p-8 rounded-2xl bg-blue-50/50 border border-blue-100 hover:border-blue-200 transition-all hover:-translate-y-1">
+              <div className="text-xs font-extrabold text-[#2563EB] uppercase tracking-widest mb-3 bg-white inline-block px-3 py-1 rounded-full border border-blue-100">
+                Week 4
               </div>
+              <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Deep Restoration</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Full clinical saturation. Users report significantly improved sleep quality and reduced daytime fatigue.
+              </p>
             </div>
 
-            {/* Week 4-8 */}
-            <div className="relative pl-8 md:pl-16 pb-12 border-l-4 border-[#C9A961]/30">
-              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] border-4 border-[#1E3A5F]" />
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-[#C9A961]">Week 4-8: Sustained Benefits</h3>
-                  <Badge className="bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30 w-fit mt-2 md:mt-0">
-                    Peak Results
-                  </Badge>
-                </div>
-                <p className="text-lg text-[#F7F4EF] leading-relaxed mb-4">
-                  The magic window. Energy feels more consistent throughout the day. You're handling work stress without that constant edge of anxiety. Friends might ask, "What changed?" This is when the clinical benefits really show up.
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-[#C9A961]">
-                    <CheckCircle2 className="w-5 h-5" />
-                    <span className="text-sm font-medium">44% reduction in stress markers</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-[#C9A961]">
-                    <CheckCircle2 className="w-5 h-5" />
-                    <span className="text-sm font-medium">27.9% improvement in physical performance</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-[#C9A961]">
-                    <CheckCircle2 className="w-5 h-5" />
-                    <span className="text-sm font-medium">Noticeable improvement in focus and mental clarity</span>
-                  </div>
-                </div>
+            <div className="p-8 rounded-2xl bg-blue-50/50 border border-blue-100 hover:border-blue-200 transition-all hover:-translate-y-1">
+              <div className="text-xs font-extrabold text-[#2563EB] uppercase tracking-widest mb-3 bg-white inline-block px-3 py-1 rounded-full border border-blue-100">
+                Week 8+
               </div>
+              <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Optimized Performance</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Sustained stress resilience. Peak cognitive function and energy levels are restored.
+              </p>
             </div>
 
-            {/* Week 8+ */}
-            <div className="relative pl-8 md:pl-16">
-              <div className="absolute left-0 -ml-3 w-6 h-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] border-4 border-[#1E3A5F]" />
-              <div className="bg-gradient-to-br from-[#C9A961]/20 to-[#B89651]/20 backdrop-blur-sm rounded-2xl p-8 border-2 border-[#C9A961]/40">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-[#C9A961]">Week 8+: Your New Normal</h3>
-                  <Badge className="bg-[#C9A961] text-[#1E3A5F] border-0 w-fit mt-2 md:mt-0">
-                    Optimal
-                  </Badge>
-                </div>
-                <p className="text-lg text-[#F7F4EF] leading-relaxed">
-                  You've adapted. Stress still happens—life doesn't stop—but you're responding differently. You're sleeping well, thinking clearly, and feeling more like yourself. This is what "wellness" actually feels like: not perfect, just better equipped.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-[#F7F4EF]/80 text-lg">
-              💡 <strong>Remember:</strong> Everyone's timeline is different. Some feel changes in days, others in weeks. Consistency is what matters.
-            </p>
           </div>
         </div>
       </section>
@@ -747,36 +687,36 @@ export default function Home() {
       )}
 
       {/* Testimonials */}
-      <section className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#152B45] text-white">
+      <section className="py-24 bg-[#F7F4EF]">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
               Trusted by Thousands
             </h2>
-            <p className="text-xl text-[#F7F4EF]">
+            <p className="text-xl text-slate-600">
               See what our customers are saying about their Optibio experience
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, i) => (
-              <Card key={i} className="bg-white/15 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all duration-300">
+              <Card key={i} className="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-slate-200">
                 <CardContent className="p-8 space-y-4">
-                  <div className="flex items-center gap-1 text-[#C9A961]">
+                  <div className="flex items-center gap-1 text-[#FFD700]">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 fill-current" />
                     ))}
                   </div>
-                  <p className="text-white/90 leading-relaxed">
+                  <p className="text-slate-700 leading-relaxed">
                     "{testimonial.text}"
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-200">
                     <div>
-                      <div className="font-bold text-white">{testimonial.name}</div>
-                      <div className="text-sm text-[#F7F4EF]/80">{testimonial.role}</div>
+                      <div className="font-bold text-[#1E3A5F]">{testimonial.name}</div>
+                      <div className="text-sm text-slate-600">{testimonial.role}</div>
                     </div>
                     {testimonial.verified && (
-                      <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#C9A961] border-[#C9A961]/30">
+                      <Badge variant="secondary" className="bg-green-100 text-green-700 border-green-200">
                         <CheckCircle2 className="w-3 h-3 mr-1" />
                         Verified
                       </Badge>

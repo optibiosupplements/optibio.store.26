@@ -1,6 +1,51 @@
 # OptiBio E-Commerce Project TODO
 
-## 🚨 CURRENT: THEME CORRECTION - GLOBAL LIGHT MODE (Dec 28, 2025)
+## 🎨 CURRENT: GEMINI HOMEPAGE REDESIGN - Fix Theme Fracture (Dec 28, 2025)
+
+### Critical Issue: Theme Fracture
+Page currently mixes Dark Navy sections with Light Mode, destroying Clinical Authority aesthetic.
+
+### Section 1: Hero Section
+- [x] Apply Sky Blue Radial Gradient: bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#F8FCFE] via-[#EBF5FB] to-[#D6EAF8]
+- [x] Change main headline color to Deep Navy (#1E3A5F)
+- [x] Change primary CTA button to Trust Blue (#2563EB)
+- [ ] Change secondary button border to Deep Navy (#1E3A5F)
+
+### Section 2: Science Daily Grid
+- [x] Change card backgrounds from beige/grey to Pure White (#FFFFFF)
+- [x] Add shadow-md to lift cards off page
+- [x] Ensure headlines are Deep Navy (#1E3A5F)
+
+### Section 3: 90-Day Money-Back Banner
+- [x] Keep Navy background (#1E3A5F) - provides good contrast
+- [x] Verify Gold text (#C9A961) has high contrast
+
+### Section 4: What to Expect Timeline
+- [x] CRITICAL: Change section background from Dark Navy to White
+- [x] Change timeline cards to Pale Blue (bg-blue-50/50)
+- [x] Add border border-blue-100 with hover:border-blue-200
+- [x] Change text to Deep Navy (#1E3A5F)
+- [x] Add hover:-translate-y-1 animation
+- [x] Style week badges with bg-white inline-block px-3 py-1 rounded-full
+
+### Section 5: Personalized Wellness Plan
+- [x] CRITICAL: Already using Warm Ivory gradient (from-[#F7F4EF] via-white)
+- [x] Cards already use White with Navy text
+- [x] Subtle shadows already present
+
+### Section 6: Trusted by Thousands (Reviews)
+- [x] CRITICAL: Change section background from Dark Navy to Warm Ivory (#F7F4EF)
+- [x] Change review cards to White with subtle shadow
+- [x] Ensure stars are Gold (#FFD700)
+
+### Section 7: Footer
+- [x] Keep Dark Navy - correct for grounding the page
+- [x] No changes needed
+
+### Expected Outcome
+Continuous, bright, medical-grade experience without light/dark theme switching
+
+## ✅ COMPLETED: THEME CORRECTION - GLOBAL LIGHT MODE (Dec 28, 2025)
 
 ### Remove Route-Based Theme Switching
 - [x] Remove automatic dark mode switching on /shop route from Header.tsx
@@ -18,124 +63,6 @@
 - Shop page: Light Mode with Clinical Light aesthetic (white/sky blue for trust)
 - Theme changes: User-controlled only via toggle button
 - Consistency: Maintain brand trust with seamless page transitions
-
-## 🚨 PREVIOUS: DARK MODE SHOP PAGE REDESIGN (Dec 28, 2025)
-
-### Clinical Authority Dark Theme Implementation
-- [x] Implement dark navy Midnight Sophistication theme for Shop page
-- [x] Replace light sky blue gradient with deep navy backgrounds
-- [x] Update all text colors to white/light for dark mode
-- [x] Change CTAs to gold (#C9A961) for conversion optimization
-- [x] Add full-width hero card layout with product image
-- [x] Implement trust badges with dark theme styling
-- [x] Test dark mode Shop page rendering
-- [x] Verify all elements display correctly on dark background
-
-## 🚨 PREVIOUS: BRAND CAPITALIZATION FIX (User Requested - Dec 27, 2025)
-
-### Brand Consistency Task
-- [x] Change "OptiBio" to "Optibio" (lowercase 'b') to match logo
-- [x] Update all components (Header, Footer, etc.) - 51 instances updated
-- [x] Update all pages (Home, About, FAQ, etc.)
-- [x] Update meta tags and SEO content (index.html)
-- [x] Verify brand consistency across entire site
-
-## ✅ COMPLETED: VERIFICATION & DEPLOYMENT (Dec 27, 2025)
-
-### Verification Tasks
-- [x] Re-run Lighthouse audit to verify 90+ accessibility score (92/100 ✅)
-- [x] Provide favicon update instructions (FAVICON_AND_DEPLOYMENT_GUIDE.md)
-- [x] Guide user on production deployment (FAVICON_AND_DEPLOYMENT_GUIDE.md)
-
-## ✅ COMPLETED: LIGHTHOUSE AUDIT & MOBILE TESTING (Dec 27, 2025)
-
-### Audit & Testing Tasks
-- [x] Run Lighthouse audit on homepage (Score: 86/100)
-- [ ] Verify 90+ accessibility score (after fixes)
-- [ ] Verify 90+ performance score (production build required)
-- [x] Address critical accessibility issues:
-  - [x] Remove viewport zoom restriction (maximum-scale=1)
-  - [x] Add aria-labels to social media icon links
-  - [x] Improve muted-foreground color contrast (0.48 → 0.42 for WCAG AA)
-- [x] Test mobile experience on iPhone SE viewport (375x667) - Looks good!
-- [x] Test mobile experience on iPhone 14 viewport (390x844) - Responsive design working
-- [x] Verify touch interactions feel natural on mobile - All touch targets 44px+
-- [ ] Guide user to update favicon in Management UI (instructions provided)
-
-## ✅ COMPLETED: HEADER/FOOTER IMPROVEMENTS (Dec 27, 2025)
-
-### New Improvement Tasks
-- [x] Apply same logo style to footer (no background, h-12, inline with text)
-- [x] Verify sticky header works on product page (already implemented site-wide)
-- [x] Test mobile header on small screens (320px-375px width)
-- [x] Fix any layout issues or text wrapping on small mobile devices
-- [x] Ensure logo scales appropriately on very small screens (44px @ 320px, 52px @ 375px, 65px @ 640px)
-
-## ✅ COMPLETED: HEADER LOGO REFINEMENTS (Dec 27, 2025)
-
-### Header Logo Styling Issues
-- [x] Remove white rounded background box from logo (logo should have NO background)
-- [x] Increase logo size by 30% (52px mobile, 65px desktop - up from 40px/50px)
-- [x] Unify typography: "OptiBio® Supplements" now uses same font style and size
-- [x] Test header appearance after changes
-
-## ✅ COMPLETED: CRITICAL DESIGN FIXES (Dec 27, 2025)
-
-### Logo Consistency Crisis
-- [x] Audit all logo instances across entire site
-- [x] Identify which logo file is correct (optibio-logo-transparent.png with gradient)
-- [x] Replace all inconsistent logo references
-- [x] Ensure APP_LOGO constant is used everywhere
-- [x] Fix logo sizing and styling inconsistencies
-- [x] Test logo appearance on all pages
-
-### Mobile Optimization Emergency
-- [x] Test mobile responsiveness on all pages (iPhone, Android)
-- [x] Fix header/navigation for mobile (hamburger menu, touch targets)
-- [x] Ensure minimum 44px touch targets throughout (header: 44px+, mobile menu: 44px+, cart: 44px+)
-- [x] Fix product page mobile layout (hero section optimized)
-- [x] Optimize hero section for mobile (reduced min-height, responsive text sizes)
-- [x] Fix header logo sizing for mobile (40px mobile, 50px desktop)
-- [x] Improve mobile menu touch targets with proper padding and hover states
-- [ ] Test all interactive elements on mobile (requires further testing)
-- [ ] Verify mobile Lighthouse score 90+ (requires audit)
-
-### Visual Polish
-- [x] Fix spacing inconsistencies (hero section spacing optimized for mobile)
-- [x] Ensure typography hierarchy is clear (responsive text sizes implemented)
-- [x] Logo unified across all pages (gradient with transparent background)
-- [ ] Verify color contrast meets WCAG AA (requires audit)
-- [ ] Test all pages for visual consistency (requires comprehensive testing)
-
-## 🚀 PRIORITY 1: HIGH-IMPACT OPTIMIZATIONS (Current Session)
-
-### Mobile + Design Audit
-- [x] Test mobile responsiveness on all key pages (Home, Product, Cart, Checkout)
-- [x] Analyze visual hierarchy and spacing
-- [x] Check touch target sizes (minimum 44px)
-- [x] Evaluate typography scale and readability
-- [x] Assess color contrast and accessibility
-- [x] Review overall aesthetic balance and premium feel
-- [x] Document design issues and recommendations
-
-### Urgency Indicators
-- [x] Add "Only X left in stock" indicator to product page
-- [x] Add "Y people viewing this product" social proof
-- [x] Implement real-time inventory tracking
-- [x] Add viewing counter with realistic numbers
-- [x] Style urgency indicators to match premium aesthetic
-- [x] Test urgency indicators on mobile
-
-### Premium UI Optimization
-- [x] Fix logo branding: Update to "OptiBio® Supplements" (not just "OptiBio")
-- [x] Update logo in Header component
-- [x] Update logo in Footer component
-- [x] Update APP_TITLE constant if needed
-- [x] Review and refine spacing/padding across all pages
-- [x] Enhance visual hierarchy with better typography
-- [x] Add subtle animations and micro-interactions
-- [x] Ensure consistent premium feel across all pages
-- [x] Test all branding changes
 
 ## ✅ COMPLETED FEATURES
 
@@ -217,9 +144,4 @@
 - Subscription conversions: $100,800/year ARR
 - Total estimated impact: $50,000+ annually
 
-**Current Status:** Production-ready, all Priority 1 optimizations complete
-
-- [x] Convert Header component to dark mode to match Shop page
-- [x] Apply dark navy background to header when on Shop page
-- [x] Update header text colors to white/light for dark mode
-- [x] Test header dark mode implementation
+**Current Status:** Production-ready, implementing Gemini homepage redesign
