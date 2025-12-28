@@ -21,6 +21,7 @@ import { formatPrice } from "@/const";
 import { trpc } from "@/lib/trpc";
 import WellnessPlanPersonalizer from "@/components/WellnessPlanPersonalizer";
 import ComparisonTable from "@/components/ComparisonTable";
+import GuaranteeBadge from "@/components/GuaranteeBadge";
 
 import { SocialProofCounter } from "@/components/SocialProofCounter";
 import CountdownTimer from "@/components/CountdownTimer";
@@ -134,7 +135,8 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-[#1E3A5F] leading-relaxed max-w-2xl">
+                {/* Brand guideline: Body text uses Charcoal (#2D2D2D), not navy */}
+                <p className="text-lg sm:text-xl md:text-2xl text-[#2D2D2D] leading-relaxed max-w-2xl">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
@@ -174,6 +176,11 @@ export default function Home() {
                 <div className="flex items-center gap-2 text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">
                   <span className="animate-pulse text-amber-600">⏱️</span>
                   <span className="font-semibold">Free shipping</span> on orders $75+
+                </div>
+                
+                {/* P1 FIX: Add guarantee badge near CTA per audit recommendations */}
+                <div className="mb-3 flex justify-center">
+                  <GuaranteeBadge size="sm" />
                 </div>
                 
                 {/* P0 FIX: CTA moved inside pricing card, closer to price */}
@@ -281,7 +288,8 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A5F]/80 via-[#1E3A5F]/40 to-transparent" />
                     <div className="absolute bottom-4 left-4 right-4">
-                      <div className="text-4xl font-bold text-[#C9A961] mb-2">
+                      {/* P1 FIX: Increase stats to 60px (text-6xl) with 700 weight per audit */}
+                      <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#C9A961] mb-2 drop-shadow-lg">
                         {benefit.stat}
                       </div>
                       <h3 className="text-2xl font-bold text-white">

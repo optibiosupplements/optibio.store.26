@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+/* Brand guideline: Use system font stack only (no custom fonts) */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -160,13 +160,14 @@ html {
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    /* Brand guideline: System font stack for native feel and performance */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
   
-  /* Headings use Sora font */
+  /* Headings use system font stack with proper weights per brand guidelines */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; /* Brand guideline: 700 for headings */
   }
   
   h1 {

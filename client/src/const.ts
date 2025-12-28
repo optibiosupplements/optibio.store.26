@@ -2,7 +2,8 @@ export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 
 export const APP_TITLE = import.meta.env.VITE_APP_TITLE || "App";
 
-export const APP_LOGO = "/optibio-logo-transparent.png";
+// Brand guideline: Use gradient logo per specifications (OPTI: 180deg gradient, bio: 45deg gradient)
+export const APP_LOGO = "/optibio-logo-gradient-new.png";
 
 // E-commerce constants
 export const SHIPPING_THRESHOLD_CENTS = 7500; // Free shipping over $75

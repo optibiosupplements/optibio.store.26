@@ -77,7 +77,8 @@ export default function ComparisonTable() {
       </div>
 
       {/* Comparison Table */}
-      <Card className="border-2 border-slate-200 shadow-xl overflow-hidden">
+      {/* P2 FIX: Add visual emphasis with gold border per audit */}
+      <Card className="border-4 border-[#C9A961] shadow-2xl overflow-hidden ring-4 ring-[#C9A961]/20">
         <CardContent className="p-0">
           {/* Table Header */}
           <div className="grid grid-cols-3 gap-4 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] p-6 text-white">
