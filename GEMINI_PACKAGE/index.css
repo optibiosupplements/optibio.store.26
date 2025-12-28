@@ -1,0 +1,575 @@
+/* Brand guideline: Use system font stack only (no custom fonts) */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Smooth scroll behavior for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  /* OptiBio Premium Brand Colors - Midnight Sophistication */
+  --optibio-navy: #1E3A5F;
+  --optibio-navy-dark: #152B45;
+  --optibio-ivory: #F7F4EF;
+  --optibio-gold: #C9A961;
+  --optibio-gold-dark: #B89651;
+  --optibio-charcoal: #2D2D2D;
+  --optibio-white: #FFFFFF;
+  --optibio-success: #5FA865;
+  
+  /* Primary: Deep Navy (Professional, Trustworthy, Premium) */
+  --primary: oklch(0.32 0.08 240); /* #1E3A5F Deep Navy */
+  --primary-foreground: oklch(0.98 0 0);
+  
+  /* Secondary: Antique Gold (Sophisticated, Valuable, Premium) */
+  --secondary: oklch(0.72 0.08 75); /* #C9A961 Antique Gold */
+  --secondary-foreground: oklch(0.18 0.01 240);
+  
+  /* Sidebar: Navy (Dark Variant) */
+  --sidebar-primary: oklch(0.28 0.08 240); /* #152B45 Navy Dark */
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  
+  /* Charts: Navy Variants */
+  --chart-1: oklch(0.52 0.08 240);
+  --chart-2: oklch(0.42 0.08 240);
+  --chart-3: oklch(0.32 0.08 240);
+  --chart-4: oklch(0.28 0.08 240);
+  --chart-5: oklch(0.22 0.08 240);
+  
+  --radius: 0.75rem;
+  
+  /* Background: Warm Ivory (Elegant, Premium) */
+  --background: oklch(0.97 0.01 60); /* #F7F4EF Warm Ivory */
+  --foreground: oklch(0.22 0 0); /* #2D2D2D Charcoal */
+  
+  /* Cards: Soft White */
+  --card: oklch(0.98 0 0); /* #FAFAF9 Soft White */
+  --card-foreground: oklch(0.22 0 0);
+  
+  /* Popover */
+  --popover: oklch(0.98 0 0);
+  --popover-foreground: oklch(0.22 0 0);
+  
+  /* Muted: Light Gray */
+  --muted: oklch(0.94 0.005 80);
+  --muted-foreground: oklch(0.42 0 0); /* Darkened from 0.48 to 0.42 for WCAG AA (4.5:1 contrast) */
+  
+  /* Accent: Antique Gold (matching secondary) */
+  --accent: oklch(0.72 0.08 75);
+  --accent-foreground: oklch(0.18 0.01 240);
+  
+  /* Destructive: Red (error state) */
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  /* Borders & Inputs */
+  --border: oklch(0.88 0.005 80);
+  --input: oklch(0.88 0.005 80);
+  --ring: oklch(0.72 0.08 75);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.22 0 0);
+  --sidebar-accent: oklch(0.94 0.005 80);
+  --sidebar-accent-foreground: oklch(0.22 0 0);
+  --sidebar-border: oklch(0.88 0.005 80);
+  --sidebar-ring: oklch(0.62 0.05 150);
+}
+
+.dark {
+  /* Dark mode: Navy theme with gold accents */
+  --primary: oklch(0.42 0.08 240);
+  --primary-foreground: oklch(0.98 0 0);
+  --sidebar-primary: oklch(0.32 0.08 240);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --background: oklch(0.18 0.01 240);
+  --foreground: oklch(0.92 0.005 60);
+  --card: oklch(0.22 0.01 240);
+  --card-foreground: oklch(0.92 0.005 60);
+  --popover: oklch(0.22 0.01 240);
+  --popover-foreground: oklch(0.92 0.005 60);
+  --secondary: oklch(0.72 0.08 75);
+  --secondary-foreground: oklch(0.18 0.01 240);
+  --muted: oklch(0.32 0.01 240);
+  --muted-foreground: oklch(0.72 0.015 240);
+  --accent: oklch(0.72 0.08 75);
+  --accent-foreground: oklch(0.18 0.01 240);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.72 0.08 75);
+  --chart-1: oklch(0.52 0.08 240);
+  --chart-2: oklch(0.42 0.08 240);
+  --chart-3: oklch(0.32 0.08 240);
+  --chart-4: oklch(0.28 0.08 240);
+  --chart-5: oklch(0.22 0.08 240);
+  --sidebar: oklch(0.22 0.01 240);
+  --sidebar-foreground: oklch(0.92 0.005 60);
+  --sidebar-accent: oklch(0.32 0.01 240);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.72 0.08 75);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* Brand guideline: System font stack for native feel and performance */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+  
+  /* Headings use system font stack with proper weights per brand guidelines */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700; /* Brand guideline: 700 for headings */
+  }
+  
+  h1 {
+    @apply text-5xl leading-tight;
+  }
+  
+  h2 {
+    @apply text-4xl leading-tight;
+  }
+  
+  h3 {
+    @apply text-3xl leading-snug;
+  }
+  
+  h4 {
+    @apply text-2xl leading-snug;
+  }
+  
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  
+  /* P1 FIX: Enhanced focus states for keyboard navigation (WCAG 2.1 AA) */
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  [type="button"]:focus-visible,
+  [type="submit"]:focus-visible,
+  [type="reset"]:focus-visible,
+  a[href]:focus-visible,
+  select:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-3 ring-[#1E3A5F] ring-offset-2 ring-offset-background;
+  }
+  
+  /* Minimum tap target size for mobile (44px) */
+  button,
+  [role="button"],
+  [type="button"],
+  [type="submit"],
+  [type="reset"],
+  a[href] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+/* OptiBio Wellness Utilities */
+@layer utilities {
+  /* Premium Gradients */
+  .gradient-optibio {
+    background: linear-gradient(135deg, #1E3A5F 0%, #152B45 100%);
+  }
+  
+  .gradient-optibio-reverse {
+    background: linear-gradient(135deg, #152B45 0%, #1E3A5F 100%);
+  }
+  
+  .gradient-hero {
+    background: #1E3A5F; /* Midnight Sophistication: Deep Navy (solid, not gradient) */
+  }
+  
+  .gradient-navy-ivory {
+    background: linear-gradient(180deg, #1E3A5F 0%, #F7F4EF 100%);
+  }
+  
+  .section-navy-dark {
+    background: linear-gradient(135deg, #0F1F30 0%, #152B45 50%, #1E3A5F 100%);
+  }
+  
+  .section-contrast {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F7F4EF 50%, #FFFFFF 100%);
+  }
+  
+  /* Text Gradients */
+  .text-gradient-optibio {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #1E3A5F 0%, #152B45 100%);
+  }
+  
+  .text-gradient-premium {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #1E3A5F 0%, #C9A961 100%);
+  }
+  
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #C9A961 0%, #B89651 100%);
+  }
+  
+  /* Premium Shadows */
+  .shadow-premium {
+    box-shadow: 0 25px 50px -12px rgba(30, 58, 95, 0.25);
+  }
+  
+  .shadow-navy {
+    box-shadow: 0 10px 25px rgba(30, 58, 95, 0.3);
+  }
+  
+  .shadow-glow-navy {
+    box-shadow: 0 0 40px rgba(30, 58, 95, 0.4);
+  }
+  
+  .shadow-glow-gold {
+    box-shadow: 0 0 40px rgba(201, 169, 97, 0.4);
+  }
+  
+  .shadow-ivory {
+    box-shadow: 0 4px 20px rgba(247, 244, 239, 0.3);
+  }
+  
+  /* Hover Effects */
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-lift:hover {
+    @apply -translate-y-2;
+    box-shadow: 0 20px 40px rgba(30, 58, 95, 0.2);
+  }
+  
+  /* Animations */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 50px rgba(201, 169, 97, 0.6);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Gold Shimmer Animation for Premium CTAs */
+  @keyframes gold-shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      #C9A961 0%,
+      #D4B76E 50%,
+      #C9A961 100%
+    );
+    background-size: 200% auto;
+    animation: gold-shimmer 3s linear infinite;
+  }
+  
+  /* Premium Button */
+  .btn-premium {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, #C9A961 0%, #B89651 100%);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .btn-premium:hover::before {
+    left: 100%;
+  }
+  
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(124, 152, 133, 0.4);
+  }
+  
+  /* Terracotta Button (for urgency/action) */
+  .btn-terracotta {
+    @apply relative overflow-hidden;
+    background: linear-gradient(135deg, #D4745F 0%, #C4644F 100%);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-terracotta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .btn-terracotta:hover::before {
+    left: 100%;
+  }
+  
+  .btn-terracotta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(212, 116, 95, 0.4);
+  }
+}
+
+/* Custom Scrollbar - OptiBio Wellness Branded */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F1E8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #7C9885, #4A6352);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #4A6352, #7C9885);
+}
+
+
+/* Premium UI Enhancements */
+
+/* Subtle hover animations for cards */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(30, 58, 95, 0.15);
+}
+
+/* Premium button gradients with shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.btn-premium {
+  background: linear-gradient(
+    90deg,
+    #C9A961 0%,
+    #F7F4EF 50%,
+    #C9A961 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+  transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px -4px rgba(201, 169, 97, 0.4);
+}
+
+/* Smooth section transitions */
+.section-fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium card depth with subtle borders */
+.card-premium {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F7F4EF 100%);
+  border: 1px solid rgba(201, 169, 97, 0.15);
+  box-shadow: 0 4px 12px -2px rgba(30, 58, 95, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card-premium:hover {
+  border-color: rgba(201, 169, 97, 0.3);
+  box-shadow: 0 8px 20px -4px rgba(30, 58, 95, 0.12);
+}
+
+/* Gold accent glow effect */
+.gold-glow {
+  box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
+}
+
+/* Improved line height for readability */
+p {
+  line-height: 1.7;
+}
+
+/* Premium focus states */
+*:focus-visible {
+  outline: 2px solid #C9A961;
+  outline-offset: 2px;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+select,
+textarea {
+  transition: all 0.2s ease;
+}
+
+/* Enhanced mobile touch feedback */
+@media (hover: none) {
+  button:active,
+  a:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Premium gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #1E3A5F 0%, #C9A961 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Subtle backdrop blur for modals */
+.backdrop-premium {
+  backdrop-filter: blur(12px);
+  background: rgba(30, 58, 95, 0.1);
+}

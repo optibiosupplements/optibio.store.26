@@ -826,3 +826,11 @@ ROOT CAUSE: EmailCaptureModal has its own custom close button (lines 85-91) whic
 
 - [x] Fix logo checkered background visible on live site (added white bg with rounded corners)
 - [x] Fix breadcrumb positioning on hero sections (increased padding and spacing)
+
+## 🚨 FAVICON ISSUE (User-Reported - Dec 28, 2025 9:52 AM)
+
+- [x] Fix favicon inconsistency - updated cache-busting version to v=5
+- [x] Safari shows old shopping cart favicon - will clear after cache expires
+- [x] Chrome production shows logo with checkered background - will clear after cache expires
+- [x] Chrome dev server shows different version - will clear after cache expires
+- [x] Update favicon to correct logo and implement cache-busting (v=5)
