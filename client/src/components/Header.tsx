@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { APP_LOGO, getLoginUrl } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { trpc } from "@/lib/trpc";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import {
   Sheet,
   SheetContent,
@@ -127,6 +128,9 @@ export default function Header() {
                 <span>Sign In</span>
               </a>
             )}
+
+            {/* Theme Toggle */}
+            <ThemeToggle />
 
             {/* Cart - Mobile Optimized Touch Target */}
             <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full hover:bg-accent transition-colors">
