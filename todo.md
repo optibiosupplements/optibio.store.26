@@ -1,22 +1,28 @@
 # OptiBio E-Commerce Project TODO
 
-## 🎨 CURRENT: GEMINI HOMEPAGE REDESIGN - Fix Theme Fracture (Dec 28, 2025)
+## 🎨 CURRENT: GEMINI FINAL POLISH - Fix Beige Overload (Dec 28, 2025)
 
-### Critical Issue: Theme Fracture
-Page currently mixes Dark Navy sections with Light Mode, destroying Clinical Authority aesthetic.
+### Critical Issue: Beige Overload
+Page is almost entirely Warm Ivory (#F7F4EF), making it look like a spa/candle shop instead of pharmaceutical-grade. Need to inject Sky Blue and Pure White for Clinical/Apple Health aesthetic.
 
-### Section 1: Hero Section
-- [x] Apply Sky Blue Radial Gradient: bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#F8FCFE] via-[#EBF5FB] to-[#D6EAF8]
-- [x] Change main headline color to Deep Navy (#1E3A5F)
+### Section 1: Hero Section (CRITICAL)
+- [x] VERIFY Sky Blue Radial Gradient is applied (not solid beige)
+- [x] VERIFY headline "Feel Like Yourself Again" is Deep Navy (#1E3A5F), not black
 - [x] Change primary CTA button to Trust Blue (#2563EB)
-- [ ] Change secondary button border to Deep Navy (#1E3A5F)
+- [x] Change secondary button border to Deep Navy (#1E3A5F)
 
 ### Section 2: Science Daily Grid
 - [x] Change card backgrounds from beige/grey to Pure White (#FFFFFF)
 - [x] Add shadow-md to lift cards off page
 - [x] Ensure headlines are Deep Navy (#1E3A5F)
+- [x] Status: Good - keep as is
 
-### Section 3: 90-Day Money-Back Banner
+### Section 3: Why KSM-66 Section
+- [x] CRITICAL: Change background from Ivory to Pure White (#FFFFFF)
+- [x] Create visual rhythm: Gradient → Ivory → White alternation
+- [x] Ensure proper "breath" between beige sections
+
+### Section 3b: 90-Day Money-Back Banner
 - [x] Keep Navy background (#1E3A5F) - provides good contrast
 - [x] Verify Gold text (#C9A961) has high contrast
 
@@ -34,16 +40,29 @@ Page currently mixes Dark Navy sections with Light Mode, destroying Clinical Aut
 - [x] Subtle shadows already present
 
 ### Section 6: Trusted by Thousands (Reviews)
-- [x] CRITICAL: Change section background from Dark Navy to Warm Ivory (#F7F4EF)
+- [x] CRITICAL: Change section background from Warm Ivory to Sky Mist (#EBF5FB)
 - [x] Change review cards to White with subtle shadow
 - [x] Ensure stars are Gold (#FFD700)
+- [x] Subtle blue tint separates social proof from rest of page
 
-### Section 7: Footer
+### Section 7: Footer CTA (Bottom Blue Block)
+- [x] Apply Navy Depth Gradient: bg-gradient-to-br from-[#1E3A5F] to-[#0D1B2A]
+- [x] Add depth to final CTA section
+
+### Section 8: Footer
 - [x] Keep Dark Navy - correct for grounding the page
 - [x] No changes needed
 
 ### Expected Outcome
-Continuous, bright, medical-grade experience without light/dark theme switching
+✅ Theme Fracture FIXED (dark blocks removed)
+✅ Beige Overload FIXED (Dec 28, 2025):
+- ✅ Sky Blue gradient in hero (not solid beige) - VERIFIED
+- ✅ Pure White for "Why KSM-66" section - IMPLEMENTED
+- ✅ Sky Mist (#EBF5FB) for testimonials - IMPLEMENTED
+- ✅ Navy Depth Gradient for footer CTA - IMPLEMENTED
+- ✅ Visual rhythm achieved: Sky Blue → White → Navy → Pure White → Warm Ivory → Sky Mist → Navy Depth
+
+**RESULT: Clinical Light Mode transformation COMPLETE. Homepage now has pharmaceutical-grade aesthetic with proper visual rhythm and contrast.**
 
 ## ✅ COMPLETED: THEME CORRECTION - GLOBAL LIGHT MODE (Dec 28, 2025)
 

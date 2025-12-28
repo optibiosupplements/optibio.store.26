@@ -377,7 +377,7 @@ export default function Home() {
       </section>
 
       {/* Why KSM-66 Specifically */}
-      <section className="py-24 bg-gradient-to-br from-slate-50 to-[#F7F4EF]/30">
+      <section className="py-24 bg-white">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Image */}
@@ -687,7 +687,7 @@ export default function Home() {
       )}
 
       {/* Testimonials */}
-      <section className="py-24 bg-[#F7F4EF]">
+      <section className="py-24 bg-[#EBF5FB]">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
@@ -763,7 +763,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-gradient-to-br from-[#1E3A5F] via-[#152B45] to-[#C9A961] text-white">
+      <section className="py-24 bg-gradient-to-br from-[#1E3A5F] to-[#0D1B2A] text-white">
         <div className="container text-center">
           <div className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-4xl md:text-5xl font-bold">
