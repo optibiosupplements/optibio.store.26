@@ -47,21 +47,21 @@ export default function Footer() {
           <div className="space-y-4">
             {/* Logo with NO background - consistent with header */}
             <div className="flex items-center space-x-2">
-              <img src={APP_LOGO} alt="OptiBio" className="h-12 w-auto" />
-              <span className="text-lg font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>OptiBio<sup className="text-xs">®</sup> Supplements</span>
+              <img src={APP_LOGO} alt="Optibio" className="h-12 w-auto" />
+              <span className="text-lg font-bold text-foreground" style={{ fontFamily: 'Sora, sans-serif' }}>Optibio<sup className="text-xs">®</sup> Supplements</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Premium KSM-66® Ashwagandha backed by clinical research. 
               Supporting stress management and overall wellness naturally.
             </p>
             <div className="flex space-x-4 mt-4">
-              <a href="https://facebook.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow OptiBio on Facebook">
+              <a href="https://facebook.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow Optibio on Facebook">
                 <Facebook className="h-5 w-5" />
               </a>
-              <a href="https://instagram.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow OptiBio on Instagram">
+              <a href="https://instagram.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow Optibio on Instagram">
                 <Instagram className="h-5 w-5" />
               </a>
-              <a href="https://twitter.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow OptiBio on Twitter">
+              <a href="https://twitter.com/optibio" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" aria-label="Follow Optibio on Twitter">
                 <Twitter className="h-5 w-5" />
               </a>
             </div>
@@ -144,7 +144,7 @@ export default function Footer() {
         <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} OptiBio® Supplements. All rights reserved.
+              © {new Date().getFullYear()} Optibio® Supplements. All rights reserved.
             </p>
             <div className="flex space-x-6">
               <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">

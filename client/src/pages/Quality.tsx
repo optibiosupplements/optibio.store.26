@@ -499,7 +499,7 @@ export default function Quality() {
                   Experience the Difference Quality Makes
                 </h2>
                 <p className="text-slate-600 leading-relaxed">
-                  When you choose OptiBio, you're choosing a product backed by rigorous quality standards, transparent testing, and unwavering commitment to excellence.
+                  When you choose Optibio, you're choosing a product backed by rigorous quality standards, transparent testing, and unwavering commitment to excellence.
                 </p>
               </div>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

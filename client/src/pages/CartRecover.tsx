@@ -202,7 +202,7 @@ export default function CartRecover() {
         <Alert className="mb-6 bg-[#F7F4EF] border-[#C9A961]">
           <CheckCircle2 className="h-5 w-5 text-[#C9A961]" />
           <AlertDescription className="text-[#2D2D2D]">
-            <strong className="text-[#1E3A5F]">Why OptiBio?</strong><br />
+            <strong className="text-[#1E3A5F]">Why Optibio?</strong><br />
             ✓ 20+ clinical studies backing KSM-66® • ✓ Third-party tested for purity<br />
             ✓ 90-day money-back guarantee • ✓ Free shipping on orders over $75
           </AlertDescription>

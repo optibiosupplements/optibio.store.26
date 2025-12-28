@@ -1,6 +1,15 @@
 # OptiBio E-Commerce Project TODO
 
-## 🚨 CURRENT: VERIFICATION & DEPLOYMENT (User Requested - Dec 27, 2025)
+## 🚨 CURRENT: BRAND CAPITALIZATION FIX (User Requested - Dec 27, 2025)
+
+### Brand Consistency Task
+- [x] Change "OptiBio" to "Optibio" (lowercase 'b') to match logo
+- [x] Update all components (Header, Footer, etc.) - 51 instances updated
+- [x] Update all pages (Home, About, FAQ, etc.)
+- [x] Update meta tags and SEO content (index.html)
+- [x] Verify brand consistency across entire site
+
+## ✅ COMPLETED: VERIFICATION & DEPLOYMENT (Dec 27, 2025)
 
 ### Verification Tasks
 - [x] Re-run Lighthouse audit to verify 90+ accessibility score (92/100 ✅)

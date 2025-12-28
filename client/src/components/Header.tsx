@@ -59,11 +59,11 @@ export default function Header() {
           {/* Logo - Mobile Optimized for all screen sizes */}
           <Link href="/" className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-3 hover:opacity-90 transition-all group min-h-[44px]">
             {/* Logo with NO background - responsive scaling: 44px (320px), 52px (375px+), 65px (640px+) */}
-            <img src={APP_LOGO} alt="OptiBio" className="h-[44px] min-[375px]:h-[52px] sm:h-[65px] w-auto" />
+            <img src={APP_LOGO} alt="Optibio" className="h-[44px] min-[375px]:h-[52px] sm:h-[65px] w-auto" />
             <div className="flex flex-col">
               {/* Unified typography - responsive text sizing */}
               <span className="text-base min-[375px]:text-lg sm:text-2xl font-bold text-foreground leading-tight" style={{ fontFamily: 'Sora, sans-serif' }}>
-                OptiBio<sup className="text-[10px]">®</sup> <span className="hidden sm:inline">Supplements</span>
+                Optibio<sup className="text-[10px]">®</sup> <span className="hidden sm:inline">Supplements</span>
               </span>
               <span className="text-[10px] xs:text-xs text-muted-foreground hidden sm:block">Science-Backed Wellness</span>
             </div>

@@ -251,7 +251,7 @@ export default function MyOrders() {
             </BreadcrumbList>
           </Breadcrumb>
           <h1 className="text-4xl font-bold text-slate-900 mb-2">My Orders</h1>
-          <p className="text-slate-600">View and track your OptiBio orders</p>
+          <p className="text-slate-600">View and track your Optibio orders</p>
         </div>
 
         {/* Referral Stats Widget */}
@@ -294,7 +294,7 @@ export default function MyOrders() {
                   <div>
                     <h3 className="text-lg font-bold text-slate-900 mb-1">Refer friends, earn $10 credit</h3>
                     <p className="text-sm text-slate-600">
-                      Share OptiBio with friends and get $10 for each successful referral
+                      Share Optibio with friends and get $10 for each successful referral
                     </p>
                   </div>
                 </div>
