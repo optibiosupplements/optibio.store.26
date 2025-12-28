@@ -1,5 +1,23 @@
 # OptiBio E-Commerce Project TODO
 
+## 🚨🚨🚨 CRITICAL: COLOR CONTRAST FAILURES (BLOCKING LAUNCH - Dec 27, 2025)
+
+### EMERGENCY: Hero Text Invisible on Multiple Pages
+- [x] Fix Science page hero: White text invisible on ivory background ("The Science Behind KSM-66®") - FIXED by changing .gradient-hero to navy
+- [x] Fix About page hero: Check text visibility - PERFECT (navy bg + white text)
+- [x] Fix FAQ page hero: Check text visibility - PERFECT (navy bg + white text)
+- [x] Fix Shop page hero: Check text visibility - PERFECT (navy bg + white text)
+- [x] Fix Home page hero: Verify text contrast - PERFECT (navy text on ivory bg)
+- [x] Audit ALL hero sections across entire site - COMPLETED
+- [x] Change white/light text to navy (#1E3A5F) or charcoal (#2D2D2D) - FIXED via .gradient-hero class
+- [x] Run contrast checker tool on all text (target 4.5:1 minimum) - COMPLETED (10.48:1 to 14.35:1 on heroes)
+- [x] Verify WCAG AA compliance with screenshots - ALL PAGES PASS (see CONTRAST_AUDIT_RESULTS.md)
+- [ ] Re-run Lighthouse accessibility audit
+
+**User Feedback:** "I can barely see anything. How can we achieve high conversion numbers with something as critical as this?"
+
+---
+
 ## 🚨 CURRENT: BRAND CAPITALIZATION FIX (User Requested - Dec 27, 2025)
 
 ### Brand Consistency Task
