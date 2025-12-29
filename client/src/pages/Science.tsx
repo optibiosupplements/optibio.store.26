@@ -9,6 +9,17 @@ export default function Science() {
   const [, setLocation] = useLocation();
   const [selectedStudy, setSelectedStudy] = useState<any>(null);
 
+  // GA4 Event Tracking Helper
+  const trackEvent = (eventName: string) => {
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', eventName, {
+        'event_category': 'conversion',
+        'page_location': 'science_page'
+      });
+      console.log(`GA4 Event Fired: ${eventName}`);
+    }
+  };
+
   const studies = [
     {
       title: "Stress & Anxiety Reduction",
@@ -437,7 +448,10 @@ export default function Science() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button 
-              onClick={() => setLocation('/shop')}
+              onClick={() => {
+                trackEvent('click_cta_mid_science');
+                setLocation('/shop');
+              }}
               className="h-14 px-8 bg-white hover:bg-blue-50 text-[#1E3A5F] text-lg rounded-full font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all hover:scale-105"
             >
               Start The Protocol - $49.99
@@ -550,7 +564,10 @@ export default function Science() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                 <Button
-                  onClick={() => setLocation("/shop")}
+                  onClick={() => {
+                    trackEvent('click_cta_footer');
+                    setLocation("/shop");
+                  }}
                   size="lg"
                   className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg text-lg px-8"
                 >
