@@ -1,13 +1,6 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Microscope, Brain, Heart, Dumbbell, Moon, Shield, TrendingUp, Users, FileText, ExternalLink, ChevronRight } from "lucide-react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -16,6 +9,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useLocation } from "wouter";
 
 export default function Science() {
@@ -194,25 +188,25 @@ export default function Science() {
               <Microscope className="w-4 h-4 mr-2 inline" />
               <span className="font-bold">Evidence-Based Research</span>
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-[#1E3A5F] leading-tight">
               The Science Behind KSM-66®
             </h1>
-            <p className="text-xl text-slate-200 leading-relaxed">
+            <p className="text-xl text-slate-600 leading-relaxed">
               Over 20 peer-reviewed clinical studies validate the effectiveness of KSM-66® Ashwagandha. 
               Discover the research that makes it the gold standard in adaptogenic supplements.
             </p>
             <div className="flex flex-wrap justify-center gap-6 pt-4">
               <div className="text-center">
-                <div className="text-4xl font-bold text-gradient-wellness">20+</div>
-                <div className="text-sm text-slate-300">Clinical Studies</div>
+                <div className="text-4xl font-bold text-[#1E3A5F]">20+</div>
+                <div className="text-sm text-[#1E3A5F] font-semibold">Clinical Studies</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-gradient-wellness">1,000+</div>
-                <div className="text-sm text-slate-300">Participants</div>
+                <div className="text-4xl font-bold text-[#1E3A5F]">1,000+</div>
+                <div className="text-sm text-[#1E3A5F] font-semibold">Participants</div>
               </div>
               <div className="text-center">
-                <div className="text-4xl font-bold text-gradient-wellness">14</div>
-                <div className="text-sm text-slate-300">Years of Research</div>
+                <div className="text-4xl font-bold text-[#1E3A5F]">14</div>
+                <div className="text-sm text-[#1E3A5F] font-semibold">Years of Research</div>
               </div>
             </div>
           </div>
@@ -273,86 +267,39 @@ export default function Science() {
         </div>
       </section>
 
-      {/* Clinical Studies */}
-      <section className="py-16">
+      {/* Clinical Studies - Stat Cards Grid */}
+      <section className="py-24 bg-white">
         <div className="container">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Clinical Research & Results</h2>
+            <div className="text-center mb-16">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-4">Proven Clinical Outcomes</h2>
               <p className="text-slate-600 text-lg max-w-3xl mx-auto">
                 Every claim we make is backed by rigorous, peer-reviewed clinical trials. Here's what the science shows:
               </p>
             </div>
 
-            <Accordion type="multiple" className="space-y-4">
-              {studies.map((study, index) => {
-                const Icon = study.icon;
-                return (
-                  <AccordionItem key={index} value={`study-${index}`} className="border-2 border-[#C9A961]/20 rounded-xl bg-gradient-to-br from-[#F7F4EF]/80 to-white shadow-md hover:shadow-xl transition-all">
-                    <AccordionTrigger className="px-8 py-6 hover:no-underline group">
-                      <div className="flex items-center gap-6 w-full">
-                        {/* Left: Icon & Metric */}
-                        <div className="flex-shrink-0 text-center">
-                          <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]/20 flex items-center justify-center mb-2">
-                            <Icon className="w-8 h-8 text-[#B89651]" />
-                          </div>
-                          <div className="text-3xl font-bold text-gradient-gold">{study.percentage}</div>
-                        </div>
-
-                        {/* Right: Study Title & Summary */}
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-slate-900 mb-1 group-hover:text-[#1E3A5F] transition-colors">{study.title}</h3>
-                          <p className="text-sm text-slate-600">{study.metric}</p>
-                        </div>
-                      </div>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-8 pb-6">
-                      <div className="space-y-4 pt-4">
-                        <p className="text-slate-700">{study.description}</p>
-
-                        <div className="flex flex-wrap gap-3">
-                          <Badge variant="outline" className="bg-slate-50">
-                            <Users className="w-3 h-3 mr-1" />
-                            {study.participants} participants
-                          </Badge>
-                          <Badge variant="outline" className="bg-slate-50">
-                            <FileText className="w-3 h-3 mr-1" />
-                            {study.duration}
-                          </Badge>
-                          <a href={study.link} target="_blank" rel="noopener noreferrer">
-                            <Badge className="bg-gradient-to-r from-[#C9A961] to-[#F7F4EF] text-slate-900 border-0 hover:from-[#F7F4EF] hover:to-[#B89651] cursor-pointer transition-all shadow-sm hover:shadow-md">
-                              {study.journal} ({study.year}) →
-                            </Badge>
-                          </a>
-                        </div>
-
-                        <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-[#C9A961]/10">
-                          <h4 className="font-semibold text-slate-900 mb-2">Key Findings:</h4>
-                          <ul className="space-y-1">
-                            {study.findings.map((finding, i) => (
-                              <li key={i} className="text-sm text-slate-700 flex items-start gap-2">
-                                <span className="text-[#B89651] mt-0.5">✓</span>
-                                <span>{finding}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </AccordionContent>
-                  </AccordionItem>
-                );
-              })}
-            </Accordion>
+            <div className="grid md:grid-cols-3 gap-6">
+              {studies.map((study, i) => (
+                <div key={i} className="p-8 bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-center group">
+                  <div className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#2563EB] mb-2 group-hover:scale-110 transition-transform duration-500">
+                    {study.percentage}
+                  </div>
+                  <div className="h-1 w-12 bg-[#C9A961] mx-auto mb-4 rounded-full"></div>
+                  <h3 className="text-lg font-bold text-[#1E3A5F] mb-2">{study.title}</h3>
+                  <p className="text-slate-500 text-sm">{study.metric}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Benefits Overview */}
-      <section className="py-16 bg-gradient-to-br from-[#F7F4EF] to-white">
+      <section className="py-16 bg-white">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Comprehensive Health Benefits</h2>
+              <h2 className="text-3xl font-bold text-[#1E3A5F] mb-4">Comprehensive Health Benefits</h2>
               <p className="text-slate-600 text-lg">
                 KSM-66® supports multiple aspects of health and wellness through its adaptogenic properties.
               </p>
@@ -381,25 +328,25 @@ export default function Science() {
       </section>
 
       {/* Safety & Quality */}
-      <section className="py-16">
+      <section className="py-16 bg-[#1E3A5F]">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <Card className="border-2 border-slate-200 shadow-xl">
+            <Card className="border-0 shadow-xl bg-[#1E3A5F]">
               <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-3">
+                <CardTitle className="text-2xl flex items-center gap-3 text-white">
                   <Shield className="w-7 h-7 text-[#C9A961]" />
                   Safety & Quality Assurance
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="space-y-4 text-slate-700 leading-relaxed">
+                <div className="space-y-4 text-white leading-relaxed">
                   <p>
                     <strong>KSM-66® has an outstanding safety profile</strong> established through extensive clinical research. Across all studies, no significant adverse effects have been reported, making it suitable for long-term daily use.
                   </p>
 
-                  <div className="bg-[#C9A961]/10 border border-[#C9A961]/30 rounded-lg p-6 space-y-3">
-                    <h3 className="font-bold text-[#1E3A5F] text-lg">Clinical Safety Data:</h3>
-                    <ul className="space-y-2 text-[#1E3A5F]">
+                  <div className="bg-white/10 border border-white/20 rounded-lg p-6 space-y-3">
+                    <h3 className="font-bold text-white text-lg">Clinical Safety Data:</h3>
+                    <ul className="space-y-2 text-white">
                       <li className="flex items-start gap-2">
                         <span className="text-[#C9A961] mt-0.5">✓</span>
                         <span><strong>GRAS Status:</strong> Generally Recognized As Safe by regulatory authorities</span>
@@ -423,7 +370,7 @@ export default function Science() {
                     </ul>
                   </div>
 
-                  <p className="text-sm text-slate-600 italic">
+                  <p className="text-sm text-white/80 italic">
                     Note: As with any supplement, consult your healthcare provider before use, especially if you are pregnant, nursing, taking medications, or have a medical condition.
                   </p>
                 </div>
@@ -434,11 +381,11 @@ export default function Science() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-20 bg-white">
         <div className="container">
-          <Card className="border-2 border-[#C9A961]/30 shadow-2xl bg-gradient-to-br from-[#F7F4EF] to-white max-w-4xl mx-auto">
+          <Card className="border-2 border-[#C9A961]/30 shadow-2xl bg-white max-w-4xl mx-auto">
             <CardContent className="p-12 text-center space-y-6">
-              <h2 className="text-3xl font-bold text-slate-900">
+              <h2 className="text-3xl font-bold text-[#1E3A5F]">
                 Experience the Benefits of Research-Backed Ashwagandha
               </h2>
               <p className="text-lg text-slate-600 max-w-2xl mx-auto">
