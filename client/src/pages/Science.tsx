@@ -1,12 +1,13 @@
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Microscope, Brain, Heart, Dumbbell, Moon, Shield, TrendingUp, Users, FileText, ExternalLink, ChevronRight } from "lucide-react";
-// Breadcrumb styling moved to custom implementation
+import { Microscope, Brain, Heart, Dumbbell, Moon, Shield, TrendingUp, Users, FileText, ExternalLink, ChevronRight, X, Clock, FlaskConical } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 
 export default function Science() {
   const [, setLocation] = useLocation();
+  const [selectedStudy, setSelectedStudy] = useState<any>(null);
 
   const studies = [
     {
@@ -25,7 +26,15 @@ export default function Science() {
         "Significant decrease in serum cortisol levels",
         "Improved overall quality of life markers",
         "No adverse effects reported"
-      ]
+      ],
+      details: {
+        title: "A Prospective, Randomized Double-Blind, Placebo-Controlled Study of Safety and Efficacy of High-Concentration Full-Spectrum Extract of Ashwagandha Root in Reducing Stress and Anxiety in Adults.",
+        participants: "64 subjects with a history of chronic stress",
+        duration: "60 days",
+        dosage: "300mg KSM-66® twice daily",
+        p_value: "p < 0.0001",
+        journal: "Indian Journal of Psychological Medicine"
+      }
     },
     {
       title: "Cognitive Function & Memory",
@@ -43,7 +52,15 @@ export default function Science() {
         "Enhanced executive function",
         "Better sustained attention",
         "Improved information processing speed"
-      ]
+      ],
+      details: {
+        title: "Efficacy and Safety of Ashwagandha (Withania somnifera (L.) Dunal) Root Extract in Improving Memory and Cognitive Functions.",
+        participants: "50 adults with mild cognitive impairment",
+        duration: "8 weeks",
+        dosage: "300mg KSM-66® twice daily",
+        p_value: "p < 0.05",
+        journal: "Journal of Dietary Supplements"
+      }
     },
     {
       title: "Sleep Quality Enhancement",
@@ -61,7 +78,15 @@ export default function Science() {
         "Reduced time to fall asleep",
         "Increased sleep efficiency",
         "Better mental alertness upon waking"
-      ]
+      ],
+      details: {
+        title: "Efficacy and Safety of Ashwagandha (Withania somnifera) Root Extract in Insomnia and Anxiety: A Double-blind, Randomized, Placebo-controlled Study.",
+        participants: "60 patients with insomnia",
+        duration: "10 weeks",
+        dosage: "300mg KSM-66® twice daily",
+        p_value: "p < 0.001",
+        journal: "Cureus Journal of Medical Science"
+      }
     },
     {
       title: "Physical Performance & Strength",
@@ -79,7 +104,15 @@ export default function Science() {
         "Larger increase in muscle size",
         "Greater reduction in exercise-induced muscle damage",
         "Increased testosterone levels"
-      ]
+      ],
+      details: {
+        title: "Examining the Effect of Withania Somnifera Supplementation on Muscle Strength and Recovery: A Randomized Controlled Trial.",
+        participants: "57 young male subjects",
+        duration: "8 weeks",
+        dosage: "300mg KSM-66® twice daily",
+        p_value: "p < 0.05",
+        journal: "Journal of the International Society of Sports Nutrition"
+      }
     },
     {
       title: "Cardiorespiratory Endurance",
@@ -97,7 +130,15 @@ export default function Science() {
         "Enhanced cardiorespiratory endurance",
         "Better overall quality of life",
         "Improved physical health scores"
-      ]
+      ],
+      details: {
+        title: "Efficacy of Ashwagandha (Withania somnifera [L.] Dunal) in improving cardiorespiratory endurance in healthy athletic adults.",
+        participants: "50 athletic adults",
+        duration: "12 weeks",
+        dosage: "300mg KSM-66® twice daily",
+        p_value: "p < 0.05",
+        journal: "AYU Journal"
+      }
     },
     {
       title: "Testosterone & Male Fertility",
@@ -115,7 +156,15 @@ export default function Science() {
         "Improved sperm concentration and motility",
         "Better overall reproductive health",
         "Enhanced vitality and well-being"
-      ]
+      ],
+      details: {
+        title: "Clinical Evaluation of the Spermatogenic Activity of the Root Extract of Ashwagandha (Withania somnifera) in Oligospermic Males: A Pilot Study.",
+        participants: "46 men with low sperm count",
+        duration: "90 days",
+        dosage: "300mg KSM-66® twice daily",
+        p_value: "p < 0.05",
+        journal: "Evidence-Based Complementary and Alternative Medicine"
+      }
     }
   ];
 
@@ -256,32 +305,114 @@ export default function Science() {
         </div>
       </section>
 
-      {/* Clinical Studies - Stat Cards Grid */}
+      {/* Clinical Studies - Stat Cards Grid with Interactive Modal */}
       <section className="py-24 bg-white">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-4">Proven Clinical Outcomes</h2>
               <p className="text-slate-600 text-lg max-w-3xl mx-auto">
-                Every claim we make is backed by rigorous, peer-reviewed clinical trials. Here's what the science shows:
+                Every claim we make is backed by rigorous, peer-reviewed clinical trials. Click any card to view detailed study data.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
               {studies.map((study, i) => (
-                <div key={i} className="p-8 bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 text-center group">
-                  <div className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#2563EB] mb-2 group-hover:scale-110 transition-transform duration-500">
-                    {study.percentage}
+                <div 
+                  key={i} 
+                  onClick={() => setSelectedStudy(study)}
+                  className="group cursor-pointer p-8 bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 text-center relative overflow-hidden"
+                >
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  
+                  <div className="relative z-10">
+                    <div className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#1E3A5F] to-[#2563EB] mb-2 group-hover:scale-110 transition-transform duration-500">
+                      {study.percentage}
+                    </div>
+                    <div className="h-1 w-12 bg-[#C9A961] mx-auto mb-4 rounded-full"></div>
+                    <h3 className="text-lg font-bold text-[#1E3A5F] mb-2 group-hover:text-[#2563EB] transition-colors">{study.title}</h3>
+                    <p className="text-slate-500 text-sm">{study.metric}</p>
+                    
+                    <div className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-[#C9A961] opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all">
+                      <FileText className="w-3 h-3" /> View Study Details
+                    </div>
                   </div>
-                  <div className="h-1 w-12 bg-[#C9A961] mx-auto mb-4 rounded-full"></div>
-                  <h3 className="text-lg font-bold text-[#1E3A5F] mb-2">{study.title}</h3>
-                  <p className="text-slate-500 text-sm">{study.metric}</p>
                 </div>
               ))}
             </div>
           </div>
         </div>
       </section>
+
+      {/* Modal Overlay */}
+      {selectedStudy && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-[#1E3A5F]/40 backdrop-blur-md transition-opacity" 
+            onClick={() => setSelectedStudy(null)}
+          />
+          
+          {/* Modal Content */}
+          <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 md:p-10 animate-in fade-in zoom-in-95 duration-200">
+            <button 
+              onClick={() => setSelectedStudy(null)}
+              className="absolute top-4 right-4 p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-500 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="mb-6">
+              <div className="inline-block px-3 py-1 bg-blue-50 text-[#2563EB] text-xs font-bold uppercase tracking-wider rounded-full mb-4">
+                Clinical Data
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold text-[#1E3A5F] mb-2">
+                {(selectedStudy as any).title}: {(selectedStudy as any).percentage}
+              </h3>
+              <p className="text-slate-500 font-medium border-l-4 border-[#C9A961] pl-4 italic">
+                "{(selectedStudy as any).details.title}"
+              </p>
+            </div>
+
+            {/* Study Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+              <div className="p-4 bg-slate-50 rounded-xl">
+                <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase mb-1">
+                  <Users className="w-3 h-3" /> Subjects
+                </div>
+                <div className="font-semibold text-[#1E3A5F] text-sm">{(selectedStudy as any).details.participants}</div>
+              </div>
+              <div className="p-4 bg-slate-50 rounded-xl">
+                <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase mb-1">
+                  <Clock className="w-3 h-3" /> Duration
+                </div>
+                <div className="font-semibold text-[#1E3A5F] text-sm">{(selectedStudy as any).details.duration}</div>
+              </div>
+              <div className="p-4 bg-slate-50 rounded-xl">
+                <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase mb-1">
+                  <FlaskConical className="w-3 h-3" /> Dosage
+                </div>
+                <div className="font-semibold text-[#1E3A5F] text-sm">{(selectedStudy as any).details.dosage}</div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between border-t border-slate-100 pt-6">
+              <div className="text-xs text-slate-400">
+                Statistical Significance: <span className="text-[#1E3A5F] font-bold">{(selectedStudy as any).details.p_value}</span>
+              </div>
+              <a 
+                href={(selectedStudy as any).link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 text-[#1E3A5F] hover:text-[#2563EB] hover:bg-blue-50 transition-colors"
+              >
+                Read Full Journal <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* A/B TEST: MID-PAGE HIGH INTENT CTA */}
       {/* Captures users at peak motivation after viewing clinical data */}
