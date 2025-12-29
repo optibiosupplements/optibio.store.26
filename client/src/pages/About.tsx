@@ -40,14 +40,14 @@ export default function About() {
             </BreadcrumbList>
           </Breadcrumb>
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <Badge className="px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
-              <span className="font-bold">Our Story</span>
-            </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold text-[#1E3A5F] leading-tight">
-              Redefining Wellness Through Science
+            <div className="inline-block px-3 py-1 bg-[#C9A961]/10 border border-[#C9A961]/20 rounded-full text-[#C9A961] text-xs font-bold uppercase tracking-widest">
+              Our Story
+            </div>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-[#1E3A5F] mb-6 leading-tight">
+              Redefining Wellness <br/> Through Science
             </h1>
-            <p className="text-xl text-slate-200 leading-relaxed">
-              At Optibio, we believe that optimal health shouldn't be complicated. Our mission is to deliver premium, science-backed supplements that help you thrive in today's demanding world.
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
+              We started OptiBio with a simple mission: to bridge the gap between ancient wisdom and modern clinical research. No fillers, just results.
             </p>
           </div>
         </div>

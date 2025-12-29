@@ -39,7 +39,6 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // P1 FIX: Reduced navigation items from 5 to 4 (Hick's Law - reduce choices)
   const navigation = [
     { name: "Shop", href: "/shop" },
     { name: "Science", href: "/science" },
@@ -55,8 +54,8 @@ export default function Header() {
           : "bg-white/80 backdrop-blur-md border-b border-slate-100"
       }`}
     >
-      <div className="container">
-        <div className="flex h-16 items-center justify-between">
+      <div className="container mx-auto px-6">
+        <div className="h-20 flex items-center justify-between">
           {/* Logo - Mobile Optimized for all screen sizes */}
           <Link href="/" className="flex items-center space-x-1.5 xs:space-x-2 sm:space-x-3 hover:opacity-90 transition-all group min-h-[44px]">
             {/* Logo with NO background - responsive scaling: 44px (320px), 52px (375px+), 65px (640px+) */}
@@ -70,22 +69,26 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation - FIXED ALIGNMENT */}
+          <nav className="hidden md:flex items-center gap-8">
             {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="text-sm font-medium transition-colors text-[#1E3A5F] hover:text-[#1E3A5F]/80">
+              <Link 
+                key={item.name} 
+                href={item.href} 
+                className="text-sm font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors uppercase tracking-wide"
+              >
                 {item.name}
               </Link>
             ))}
           </nav>
 
-          {/* Right Side Actions */}
-          <div className="flex items-center space-x-4">
+          {/* Right Side Actions - FIXED ALIGNMENT */}
+          <div className="flex items-center gap-6">
             {/* Account */}
             {isAuthenticated ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="hidden md:flex items-center space-x-2 text-sm font-medium">
+                  <Button variant="ghost" className="hidden md:flex items-center gap-2 text-sm font-bold text-[#1E3A5F]">
                     <User className="h-5 w-5" />
                     <span>{user?.name || "Account"}</span>
                     <ChevronDown className="h-4 w-4" />
@@ -122,7 +125,7 @@ export default function Header() {
             ) : (
               <a
                 href={getLoginUrl()}
-                className="hidden md:flex items-center space-x-2 text-sm font-medium transition-colors text-foreground/80 hover:text-foreground"
+                className="hidden md:flex items-center gap-2 text-sm font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors"
               >
                 <User className="h-5 w-5" />
                 <span>Sign In</span>
@@ -133,10 +136,10 @@ export default function Header() {
             <ThemeToggle />
 
             {/* Cart - Mobile Optimized Touch Target */}
-            <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full transition-colors hover:bg-accent">
+            <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full transition-colors hover:bg-accent text-[#1E3A5F]">
               <ShoppingCart className="h-5 w-5" />
               {cartItemCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-primary rounded-full">
+                <span className="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-[#C9A961] rounded-full border-2 border-white">
                   {cartItemCount}
                 </span>
               )}
@@ -148,7 +151,7 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden h-11 w-11"
+                  className="md:hidden h-11 w-11 text-[#1E3A5F]"
                   aria-label="Open menu"
                 >
                   <Menu className="h-6 w-6" />
@@ -160,7 +163,7 @@ export default function Header() {
                     <Link 
                       key={item.name} 
                       href={item.href}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
+                      className="text-lg font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center uppercase tracking-wide"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -170,7 +173,7 @@ export default function Header() {
                   {isAuthenticated ? (
                     <Link 
                       href="/my-orders"
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
+                      className="text-lg font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       My Account
@@ -178,7 +181,7 @@ export default function Header() {
                   ) : (
                     <a
                       href={getLoginUrl()}
-                      className="text-lg font-medium text-foreground hover:text-primary transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
+                      className="text-lg font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
                     >
                       Sign In
                     </a>
