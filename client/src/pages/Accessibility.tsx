@@ -13,14 +13,7 @@ import {
   Volume2,
   ChevronRight
 } from "lucide-react";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+// Breadcrumb styling moved to custom implementation
 
 export default function Accessibility() {
   return (
@@ -32,28 +25,24 @@ export default function Accessibility() {
           <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
         </div>
         <div className="container relative z-10">
-          <Breadcrumb className="mb-6">
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/" className="text-slate-300 hover:text-white">Home</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-slate-400">
-                <ChevronRight className="h-4 w-4" />
-              </BreadcrumbSeparator>
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-white font-medium">Accessibility</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2">
+            <a href="/" className="text-slate-500 hover:text-[#1E3A5F] transition-colors">
+              Home
+            </a>
+            <ChevronRight className="w-4 h-4 text-slate-400" />
+            <span className="text-[#1E3A5F] font-bold">
+              Accessibility
+            </span>
+          </nav>
           <div className="max-w-3xl">
             <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
               <AccessibilityIcon className="w-4 h-4 mr-2" />
               <span className="font-bold">WCAG 2.1 AA Compliant</span>
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1E3A5F]">
               Accessibility Statement
             </h1>
-            <p className="text-lg text-slate-200">
+            <p className="text-lg text-slate-600">
               Optibio is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards.
             </p>
           </div>
