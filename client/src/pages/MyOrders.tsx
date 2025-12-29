@@ -230,12 +230,12 @@ export default function MyOrders() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12">
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="mb-8">
-          <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2">
-            <a href="/" className="text-slate-500 hover:text-[#1E3A5F] transition-colors">
+          <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2 h-6">
+            <a href="/" className="text-slate-500 hover:text-[#1E3A5F] transition-colors leading-none flex items-center">
               Home
             </a>
-            <ChevronRight className="w-4 h-4 text-slate-400" />
-            <span className="text-[#1E3A5F] font-bold">
+            <ChevronRight className="w-4 h-4 text-slate-400 flex-shrink-0" />
+            <span className="text-[#1E3A5F] font-bold leading-none flex items-center">
               My Orders
             </span>
           </nav>

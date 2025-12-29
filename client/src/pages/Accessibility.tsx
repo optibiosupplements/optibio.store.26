@@ -25,12 +25,12 @@ export default function Accessibility() {
           <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
         </div>
         <div className="container relative z-10">
-          <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2">
-            <a href="/" className="text-slate-500 hover:text-[#1E3A5F] transition-colors">
+          <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2 h-6">
+            <a href="/" className="text-slate-500 hover:text-[#1E3A5F] transition-colors leading-none flex items-center">
               Home
             </a>
-            <ChevronRight className="w-4 h-4 text-slate-400" />
-            <span className="text-[#1E3A5F] font-bold">
+            <ChevronRight className="w-4 h-4 text-slate-400 flex-shrink-0" />
+            <span className="text-[#1E3A5F] font-bold leading-none flex items-center">
               Accessibility
             </span>
           </nav>
