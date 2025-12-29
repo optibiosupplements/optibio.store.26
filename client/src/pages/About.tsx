@@ -43,7 +43,7 @@ export default function About() {
             <Badge className="px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
               <span className="font-bold">Our Story</span>
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-[#1E3A5F] leading-tight">
               Redefining Wellness Through Science
             </h1>
             <p className="text-xl text-slate-200 leading-relaxed">
@@ -57,36 +57,36 @@ export default function About() {
       <section className="py-16 -mt-12 relative z-20">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="border-2 border-[#C9A961]/10 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
+            <Card className="border-2 border-slate-200 shadow-md bg-white">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto">
-                  <Target className="w-8 h-8 text-[#B89651]" />
+                <div className="w-16 h-16 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
+                  <Target className="w-8 h-8 text-[#1E3A5F]" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">Our Mission</h3>
+                <h3 className="text-xl font-bold text-[#1E3A5F]">Our Mission</h3>
                 <p className="text-slate-600 leading-relaxed">
                   To empower individuals with premium, research-backed supplements that support mental clarity, physical vitality, and overall well-being.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-[#C9A961]/10 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
+            <Card className="border-2 border-slate-200 shadow-md bg-white">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto">
-                  <Leaf className="w-8 h-8 text-[#B89651]" />
+                <div className="w-16 h-16 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
+                  <Leaf className="w-8 h-8 text-[#1E3A5F]" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">Our Values</h3>
+                <h3 className="text-xl font-bold text-[#1E3A5F]">Our Values</h3>
                 <p className="text-slate-600 leading-relaxed">
                   Transparency, quality, and scientific integrity guide everything we do. We never compromise on purity or potency.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-[#C9A961]/10 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
+            <Card className="border-2 border-slate-200 shadow-md bg-white">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto">
-                  <Heart className="w-8 h-8 text-[#B89651]" />
+                <div className="w-16 h-16 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
+                  <Heart className="w-8 h-8 text-[#1E3A5F]" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">Our Promise</h3>
+                <h3 className="text-xl font-bold text-[#1E3A5F]">Our Promise</h3>
                 <p className="text-slate-600 leading-relaxed">
                   Every bottle is backed by our 90-day guarantee. If you don't feel the difference, we'll refund every penny—no questions asked.
                 </p>

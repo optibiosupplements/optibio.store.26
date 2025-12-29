@@ -197,7 +197,7 @@ export default function FAQ() {
               <HelpCircle className="w-4 h-4 mr-2 inline" />
               <span className="font-bold">Frequently Asked Questions</span>
             </Badge>
-            <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold text-[#1E3A5F] leading-tight">
               How Can We Help?
             </h1>
             <p className="text-xl text-slate-200 leading-relaxed">
@@ -212,9 +212,10 @@ export default function FAQ() {
         <div className="container">
           <div className="max-w-4xl mx-auto space-y-8">
             {faqs.map((section, sectionIndex) => (
-              <Card key={sectionIndex} className="border-2 border-[#C9A961]/10 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
+              <Card key={sectionIndex} className="border-2 border-slate-200 shadow-md bg-white">
                 <CardContent className="p-8">
-                  <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-4 border-b">
+                  <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6 pb-4 border-b-2 border-[#1E3A5F]/20 flex items-center gap-3">
+                    <HelpCircle className="w-6 h-6 text-[#1E3A5F]" />
                     {section.category}
                   </h2>
                   <Accordion type="single" collapsible className="space-y-4">
@@ -243,13 +244,13 @@ export default function FAQ() {
       {/* Contact CTA */}
       <section className="py-16">
         <div className="container">
-          <Card className="border-2 border-[#C9A961]/20 shadow-gold bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80 max-w-3xl mx-auto">
+          <Card className="border-2 border-slate-200 shadow-md bg-white max-w-3xl mx-auto">
             <CardContent className="p-12 text-center space-y-6">
-              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#C9A961]/20 to-[#F7F4EF]0/20 flex items-center justify-center mx-auto">
-                <Mail className="w-8 h-8 text-[#B89651]" />
+              <div className="w-16 h-16 rounded-full bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
+                <Mail className="w-8 h-8 text-[#1E3A5F]" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-3">
+                <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">
                   Still Have Questions?
                 </h2>
                 <p className="text-slate-600 leading-relaxed">
@@ -260,7 +261,7 @@ export default function FAQ() {
                 <Button
                   onClick={() => window.location.href = "mailto:support@optibio.com"}
                   size="lg"
-                  className="bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#B89651] text-slate-900 font-bold shadow-gold"
+                  className="bg-[#1E3A5F] hover:bg-[#2563EB] text-white font-bold"
                 >
                   <Mail className="w-4 h-4 mr-2" />
                   Email Support
