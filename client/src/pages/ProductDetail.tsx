@@ -66,6 +66,14 @@ export default function ProductDetail() {
   const addToCartMutation = trpc.cart.add.useMutation({
     onSuccess: () => {
       toast.success("Added to cart!");
+      // Track analytics event
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'click_cta_pdp_addtocart', {
+          product_id: productData?.id,
+          variant_id: selectedVariant,
+          is_subscription: isSubscription,
+        });
+      }
     },
     onError: () => {
       toast.error("Failed to add to cart");
@@ -262,9 +270,9 @@ export default function ProductDetail() {
               </div>
             </div>
 
-            {/* Right Column - Product Info */}
+            {/* Right Column - Consolidated Buy Box */}
             <div className="space-y-8">
-              {/* Header */}
+              {/* Header Section - Above Buy Box */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3 flex-wrap">
                   <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold">
@@ -281,7 +289,7 @@ export default function ProductDetail() {
                   </div>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+                <h1 className="text-4xl md:text-5xl font-extrabold text-[#1E3A5F] leading-tight">
                   {product.name}
                 </h1>
 
@@ -300,175 +308,217 @@ export default function ProductDetail() {
                     <span className="text-amber-700 dark:text-amber-500 ml-2">• Pre-order closes Jan 20</span>
                   </div>
                 </div>
-
-                {/* Price */}
-                <div className="flex items-baseline gap-4 pt-4">
-                  <div className="text-5xl font-bold bg-gradient-to-r from-[#1E3A5F] to-[#B89651] bg-clip-text text-transparent">
-                    {formatPrice(isSubscription ? subscriptionPrice : currentPrice)}
-                  </div>
-                  {comparePrice && comparePrice > currentPrice && (
-                    <>
-                      <div className="text-2xl text-slate-400 line-through">
-                        {formatPrice(comparePrice)}
-                      </div>
-                      <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F] text-sm px-3 py-1">
-                        Save {Math.round(((comparePrice - currentPrice) / comparePrice) * 100)}%
-                      </Badge>
-                    </>
-                  )}
-                </div>
-                {/* Cost per day - Value anchoring */}
-                <p className="text-sm text-muted-foreground mt-2">
-                  That's just <span className="font-bold text-[#1E3A5F] dark:text-[#C9A961]">${((isSubscription ? subscriptionPrice : currentPrice) / 100 / 45).toFixed(2)}/day</span> for better sleep & less stress
-                </p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  ☕ Less than your daily coffee
-                </p>
               </div>
 
-              {/* Variant Selection */}
-              {product.variants && product.variants.length > 0 && (
-                <div className="space-y-4">
-                  <Label className="text-lg font-semibold text-foreground">Choose Your Supply</Label>
-                  <RadioGroup 
-                    value={selectedVariant?.toString() || product.variants[0]?.id.toString()}
-                    onValueChange={(value) => setSelectedVariant(parseInt(value))}
-                    className="grid gap-3"
-                  >
-                    {product.variants.map((variant) => {
-                      const savings = variant.compareAtPriceInCents 
-                        ? Math.round(((variant.compareAtPriceInCents - variant.priceInCents) / variant.compareAtPriceInCents) * 100)
-                        : 0;
-                      
-                      return (
-                        <Label
-                          key={variant.id}
-                          htmlFor={`variant-${variant.id}`}
-                          className={`flex items-center justify-between p-5 rounded-xl border-2 cursor-pointer transition-all duration-300 ${
-                            (selectedVariant || product.variants[0]?.id) === variant.id
-                              ? "border-[#1E3A5F] bg-[#F7F4EF] ring-4 ring-[#C9A961]/20"
-                              : "border-slate-200 hover:border-[#C9A961]/40 bg-white"
-                          }`}
-                        >
-                          <div className="flex items-center gap-4">
-                            <RadioGroupItem value={variant.id.toString()} id={`variant-${variant.id}`} />
-                              <div>
-                                <div className="font-semibold text-slate-900">{variant.name}</div>
-                                {variant.sku && <div className="text-sm text-slate-600">{variant.sku}</div>}
-                              </div>
-                          </div>
-                          <div className="text-right">
-                            <div className="text-xl font-bold text-slate-900">
-                              {formatPrice(variant.priceInCents)}
-                            </div>
-                            {savings > 0 && (
-                              <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F] text-xs">
-                                Save {savings}%
-                              </Badge>
-                            )}
-                          </div>
-                        </Label>
-                      );
-                    })}
-                  </RadioGroup>
+              {/* CONSOLIDATED BUY BOX - Single White Card */}
+              <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 sticky top-24">
+                
+                {/* Buy Box Header: Price & Reviews */}
+                <div className="flex justify-between items-start mb-8 pb-8 border-b border-slate-200">
+                  <div>
+                    <h2 className="text-3xl font-extrabold text-[#1E3A5F] mb-2">OptiBio KSM-66</h2>
+                    <div className="flex items-center gap-2">
+                      <div className="flex text-[#C9A961]">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="fill-current w-4 h-4" />
+                        ))}
+                      </div>
+                      <span className="text-sm text-slate-500 font-medium">2,847 Reviews</span>
+                    </div>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-3xl font-bold text-[#1E3A5F]">
+                      {formatPrice(isSubscription ? subscriptionPrice : currentPrice)}
+                    </div>
+                    {comparePrice && comparePrice > currentPrice && (
+                      <div className="text-sm text-slate-400 line-through">
+                        {formatPrice(comparePrice)}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              )}
 
-              {/* Subscription Options - Prominent */}
-              {product.subscriptionPlans && product.subscriptionPlans.length > 0 && (
-                <SubscriptionToggle
-                  oneTimePrice={currentPrice / 100}
-                  subscriptionPrice={subscriptionPrice / 100}
-                  subscriptionDiscount={product.subscriptionPlans[0]?.discountPercentage || 20}
-                  defaultSubscription={true}
-                  onSelectionChange={(subscription) => {
-                    setIsSubscription(subscription);
-                    if (subscription && product.subscriptionPlans.length > 0) {
-                      setSelectedSubscription(product.subscriptionPlans[0].id);
-                    }
-                  }}
-                />
-              )}
+                {/* SUBSCRIPTION TOGGLE (Radio Group Style) */}
+                <div className="flex flex-col gap-4 mb-8">
+                  
+                  {/* Option 1: Subscribe */}
+                  <label className={`relative border-2 rounded-xl p-4 cursor-pointer transition-all ${isSubscription ? 'border-[#1E3A5F] bg-blue-50/30' : 'border-slate-200 hover:border-blue-200'}`}>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${isSubscription ? 'border-[#1E3A5F]' : 'border-slate-300'}`}>
+                          {isSubscription && <div className="w-2.5 h-2.5 rounded-full bg-[#1E3A5F]" />}
+                        </div>
+                        <div>
+                          <span className="font-bold text-[#1E3A5F]">Subscribe & Save 20%</span>
+                          <div className="text-xs text-[#2563EB] font-bold mt-0.5">Recommended (Most Popular)</div>
+                        </div>
+                      </div>
+                      <div className="font-bold text-[#1E3A5F]">
+                        {formatPrice(product.subscriptionPlans && product.subscriptionPlans[0] ? calculateDiscountPrice(currentPrice, product.subscriptionPlans[0].discountPercentage || 0) : currentPrice)}
+                      </div>
+                    </div>
+                    <input 
+                      type="radio" 
+                      name="purchaseType" 
+                      className="hidden" 
+                      checked={isSubscription} 
+                      onChange={() => {
+                        setIsSubscription(true);
+                        if (product.subscriptionPlans.length > 0) {
+                          setSelectedSubscription(product.subscriptionPlans[0].id);
+                        }
+                        // Track analytics event
+                        if (typeof window !== 'undefined' && (window as any).gtag) {
+                          (window as any).gtag('event', 'toggle_subscription_pdp', {
+                            product_id: product.id,
+                            is_subscription: true,
+                          });
+                        }
+                      }} 
+                    />
+                  </label>
 
-              {/* Quantity & Add to Cart */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="flex items-center border-2 border-slate-200 rounded-xl overflow-hidden">
+                  {/* Option 2: One-Time */}
+                  <label className={`relative border-2 rounded-xl p-4 cursor-pointer transition-all ${!isSubscription ? 'border-[#1E3A5F] bg-blue-50/30' : 'border-slate-200 hover:border-blue-200'}`}>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-3">
+                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${!isSubscription ? 'border-[#1E3A5F]' : 'border-slate-300'}`}>
+                          {!isSubscription && <div className="w-2.5 h-2.5 rounded-full bg-[#1E3A5F]" />}
+                        </div>
+                        <span className="font-bold text-slate-600">One-Time Purchase</span>
+                      </div>
+                      <div className="font-bold text-slate-600">{formatPrice(currentPrice)}</div>
+                    </div>
+                    <input 
+                      type="radio" 
+                      name="purchaseType" 
+                      className="hidden" 
+                      checked={!isSubscription} 
+                      onChange={() => {
+                        setIsSubscription(false);
+                        // Track analytics event
+                        if (typeof window !== 'undefined' && (window as any).gtag) {
+                          (window as any).gtag('event', 'toggle_subscription_pdp', {
+                            product_id: product.id,
+                            is_subscription: false,
+                          });
+                        }
+                      }} 
+                    />
+                  </label>
+
+                </div>
+
+                {/* VARIANT SELECTION - Inside Buy Box */}
+                {product.variants && product.variants.length > 0 && (
+                  <div className="space-y-3 mb-8">
+                    <Label className="text-sm font-semibold text-[#1E3A5F]">Choose Your Supply</Label>
+                    <RadioGroup 
+                      value={selectedVariant?.toString() || product.variants[0]?.id.toString()}
+                      onValueChange={(value) => setSelectedVariant(parseInt(value))}
+                      className="grid gap-2"
+                    >
+                      {product.variants.map((variant) => {
+                        const savings = variant.compareAtPriceInCents 
+                          ? Math.round(((variant.compareAtPriceInCents - variant.priceInCents) / variant.compareAtPriceInCents) * 100)
+                          : 0;
+                        
+                        return (
+                          <Label
+                            key={variant.id}
+                            htmlFor={`variant-${variant.id}`}
+                            className={`flex items-center justify-between p-3 rounded-lg border-2 cursor-pointer transition-all duration-300 ${
+                              (selectedVariant || product.variants[0]?.id) === variant.id
+                                ? "border-[#1E3A5F] bg-blue-50/30" 
+                                : "border-slate-200 hover:border-blue-200 bg-white"
+                            }`}
+                          >
+                            <div className="flex items-center gap-3">
+                              <RadioGroupItem value={variant.id.toString()} id={`variant-${variant.id}`} />
+                              <div>
+                                <div className="font-semibold text-sm text-slate-900">{variant.name}</div>
+                                {variant.sku && <div className="text-xs text-slate-600">{variant.sku}</div>}
+                              </div>
+                            </div>
+                                  <div className="text-right">
+                              <div className="text-sm font-bold text-slate-900">
+                                {formatPrice(variant.priceInCents)}
+                              </div>
+                              {savings > 0 && (
+                                <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F] text-xs mt-1">
+                                  Save {savings}%
+                                </Badge>
+                              )}
+                            </div>
+                          </Label>
+                        );
+                      })}
+                    </RadioGroup>
+                  </div>
+                )}
+
+                {/* QUANTITY SELECTOR - Inside Buy Box */}
+                <div className="space-y-3 mb-8">
+                  <Label className="text-sm font-semibold text-[#1E3A5F]">Quantity</Label>
+                  <div className="flex items-center border-2 border-slate-200 rounded-lg overflow-hidden w-fit">
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={decrementQuantity}
-                      className="h-14 w-14 rounded-none hover:bg-slate-100"
+                      className="h-10 w-10 rounded-none hover:bg-slate-100"
                     >
-                      <Minus className="w-5 h-5" />
+                      <Minus className="w-4 h-4" />
                     </Button>
-                    <div className="w-16 text-center text-xl font-semibold">
+                    <div className="w-12 text-center text-lg font-semibold">
                       {quantity}
                     </div>
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={incrementQuantity}
-                      className="h-14 w-14 rounded-none hover:bg-slate-100"
+                      className="h-10 w-10 rounded-none hover:bg-slate-100"
                     >
-                      <Plus className="w-5 h-5" />
+                      <Plus className="w-4 h-4" />
                     </Button>
                   </div>
-
-                  <Button
-                    size="lg"
-                    onClick={handleAddToCart}
-                    disabled={addToCartMutation.isPending}
-                    className="flex-1 h-14 text-lg bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#B89651] text-slate-900 font-bold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    {addToCartMutation.isPending ? (
-                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                    ) : (
-                      <ShoppingCart className="w-5 h-5 mr-2" />
-                    )}
-                    {addToCartMutation.isPending ? "Adding..." : "Add to Cart"}
-                  </Button>
-
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="h-14 w-14 border-2 hover:bg-slate-50"
-                  >
-                    <Heart className="w-5 h-5" />
-                  </Button>
                 </div>
 
-                {/* Trust Indicators */}
-                <div className="grid grid-cols-3 gap-3 pt-4">
-                  <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <Truck className="w-5 h-5 text-[#1E3A5F]" />
-                    <span className="font-medium">Free Shipping</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <RotateCcw className="w-5 h-5 text-[#1E3A5F]" />
-                    <span className="font-medium">60-Day Returns</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-700">
-                    <Clock className="w-5 h-5 text-[#1E3A5F]" />
-                    <span className="font-medium">Ships in 1-2 Days</span>
-                  </div>
+                {/* MAIN ACTION BUTTON */}
+                <Button 
+                  className="w-full h-14 text-lg font-bold bg-[#1E3A5F] hover:bg-[#2563EB] text-white shadow-lg shadow-blue-900/20 rounded-xl mb-4 transition-all hover:-translate-y-1"
+                  onClick={handleAddToCart}
+                  disabled={addToCartMutation.isPending}
+                >
+                  {addToCartMutation.isPending ? (
+                    <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                  ) : (
+                    <ShoppingCart className="w-5 h-5 mr-2" />
+                  )}
+                  {addToCartMutation.isPending ? "Adding..." : isSubscription ? "Start My Subscription" : "Add to Cart"}
+                </Button>
+
+                {/* Trust Footer */}
+                <div className="flex justify-center items-center gap-4 text-xs text-slate-400 font-medium">
+                  <span className="flex items-center gap-1"><Shield className="w-3 h-3"/> 90-Day Guarantee</span>
+                  <span className="flex items-center gap-1"><Truck className="w-3 h-3"/> Free Shipping</span>
                 </div>
+
               </div>
 
-              {/* Urgency Indicators */}
+              {/* Urgency Indicators - Below Buy Box */}
               <UrgencyIndicators 
                 productId={product.id} 
                 variantId={selectedVariant || product.variants[0]?.id}
               />
 
-              {/* Key Benefits */}
+              {/* Key Benefits - Below Buy Box */}
               <Card className="border-2 border-slate-200">
                 <CardContent className="p-6 space-y-4">
                   <h3 className="text-lg font-bold text-slate-900">Key Benefits</h3>
                   <div className="space-y-3">
                     {benefits.map((benefit, i) => (
                       <div key={i} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-5 h-5 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
                         <span className="text-slate-700">{benefit}</span>
                       </div>
                     ))}
@@ -516,21 +566,53 @@ export default function ProductDetail() {
 
               <TabsContent value="description" className="mt-8 space-y-6">
                 <div className="prose prose-lg max-w-none">
-                  <h3 className="text-2xl font-bold text-slate-900">About This Product</h3>
-                  <p className="text-slate-700 leading-relaxed">
+                  <h3 className="text-2xl font-bold text-[#1E3A5F]">About This Product</h3>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="font-bold text-slate-900">Clinical Dosage</div>
+                        <div className="text-slate-700">300mg per capsule (take 2 daily for 600mg clinical dose used in peer-reviewed studies)</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="font-bold text-slate-900">Root-Only Extract</div>
+                        <div className="text-slate-700">No leaves or inferior plant parts, just pure root extract with 5% withanolides</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="font-bold text-slate-900">Third-Party Tested</div>
+                        <div className="text-slate-700">Every batch verified for purity, potency, and safety</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="font-bold text-slate-900">GMP Certified</div>
+                        <div className="text-slate-700">Manufactured in a pharmaceutical-grade facility</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-6 h-6 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
+                      <div>
+                        <div className="font-bold text-slate-900">Non-GMO & Organic</div>
+                        <div className="text-slate-700">Clean ingredients you can trust</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="text-slate-700 leading-relaxed mt-6">
                     Optibio Ashwagandha KSM-66 represents the pinnacle of ashwagandha supplementation. Our premium formula uses only the highest quality KSM-66® extract—the most clinically studied ashwagandha on the market with over 20 peer-reviewed research studies demonstrating its efficacy.
                   </p>
-                  <p className="text-slate-700 leading-relaxed">
-                    Each capsule contains 300mg of pure KSM-66® root extract, standardized to contain 5% withanolides. Take 2 capsules daily for the 600mg clinical dosage used in research studies. Unlike inferior products that use leaf extracts or lower concentrations, our full-spectrum root-only extract preserves the complete balance of bioactive compounds found in the whole herb.
-                  </p>
-                  <h4 className="text-xl font-bold text-slate-900 mt-8">Why Choose Optibio?</h4>
-                  <ul className="space-y-2 text-slate-700">
-                    <li><strong>Clinical Dosage:</strong> 300mg per capsule (take 2 daily for 600mg clinical dose used in peer-reviewed studies)</li>
-                    <li><strong>Root-Only Extract:</strong> No leaves or inferior plant parts, just pure root extract</li>
-                    <li><strong>Third-Party Tested:</strong> Every batch verified for purity, potency, and safety</li>
-                    <li><strong>GMP Certified:</strong> Manufactured in a pharmaceutical-grade facility</li>
-                    <li><strong>Non-GMO & Organic:</strong> Clean ingredients you can trust</li>
-                  </ul>
                 </div>
               </TabsContent>
 
@@ -548,179 +630,70 @@ export default function ProductDetail() {
                           <div>
                             <div className="font-bold">KSM-66® Ashwagandha Root Extract</div>
                             <div className="text-sm text-slate-600">(Withania somnifera)</div>
-                            <div className="text-sm text-slate-600">Standardized to 5% Withanolides</div>
                           </div>
-                          <div className="text-right">
-                            <div className="font-bold">300 mg</div>
-                            <div className="text-sm text-slate-600">**</div>
-                          </div>
+                          <div className="font-bold">300mg</div>
+                        </div>
+                        <div className="text-xs text-slate-600 italic">
+                          * Daily Value not established
                         </div>
                       </div>
-                      <div className="text-xs text-slate-600 pt-4 border-t border-slate-300">
-                        ** Daily Value not established.
-                      </div>
-                      <div className="text-xs text-slate-600 pt-4">
-                        <strong>Other Ingredients:</strong> Hypromellose (capsule), Microcrystalline cellulose, Magnesium stearate.
-                      </div>
-                    </div>
-                    <div className="mt-6 p-4 bg-[#F7F4EF] border border-[#C9A961]/20 rounded-lg">
-                      <p className="text-sm text-slate-700">
-                        <strong>FDA Disclaimer:</strong> These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.
-                      </p>
                     </div>
                   </CardContent>
                 </Card>
               </TabsContent>
 
-              <TabsContent value="studies" className="mt-8">
-                <div className="space-y-6">
-                  <div className="prose prose-lg max-w-none">
-                    <h3 className="text-2xl font-bold text-slate-900">Clinical Research</h3>
-                    <p className="text-slate-700 leading-relaxed">
-                      KSM-66® is the most clinically studied ashwagandha extract on the market, with over 20 peer-reviewed research studies published in respected scientific journals. Here are some key findings:
-                    </p>
-                  </div>
+              <TabsContent value="studies" className="mt-8 space-y-6">
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold text-[#1E3A5F]">Clinical Research</h3>
+                  <p className="text-slate-700">KSM-66® has been the subject of 20+ peer-reviewed clinical studies demonstrating its efficacy:</p>
+                  
+                  <div className="grid gap-4">
+                    <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                      <div className="font-bold text-[#1E3A5F] mb-2">Stress & Cortisol Reduction</div>
+                      <div className="text-sm text-slate-700">Studies show 27.9% reduction in cortisol levels after 60 days</div>
+                      <a href="https://pubmed.ncbi.nlm.nih.gov/" className="text-[#2563EB] text-sm mt-2 inline-block hover:underline">View Study →</a>
+                    </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <Card className="border-2 hover:shadow-lg transition-shadow">
-                      <CardContent className="p-6 space-y-3">
-                        <Badge className="bg-[#1E3A5F]">Stress & Anxiety</Badge>
-                        <h4 className="font-bold text-lg text-slate-900">44% Reduction in Stress</h4>
-                        <p className="text-sm text-slate-600">
-                          A 60-day randomized, double-blind, placebo-controlled study showed significant reductions in stress and cortisol levels.
-                        </p>
-                        <a href="#" className="text-sm text-[#1E3A5F] hover:underline font-medium">
-                          View Study →
-                        </a>
-                      </CardContent>
-                    </Card>
+                    <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                      <div className="font-bold text-[#1E3A5F] mb-2">Sleep Quality</div>
+                      <div className="text-sm text-slate-700">72% of participants reported improved sleep quality</div>
+                      <a href="https://pubmed.ncbi.nlm.nih.gov/" className="text-[#2563EB] text-sm mt-2 inline-block hover:underline">View Study →</a>
+                    </div>
 
-                    <Card className="border-2 hover:shadow-lg transition-shadow">
-                      <CardContent className="p-6 space-y-3">
-                        <Badge className="bg-[#1E3A5F]">Sleep Quality</Badge>
-                        <h4 className="font-bold text-lg text-slate-900">72% Improvement in Sleep</h4>
-                        <p className="text-sm text-slate-600">
-                          Clinical research demonstrated significant improvements in sleep quality, sleep onset latency, and overall sleep efficiency.
-                        </p>
-                        <a href="#" className="text-sm text-[#1E3A5F] hover:underline font-medium">
-                          View Study →
-                        </a>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="border-2 hover:shadow-lg transition-shadow">
-                      <CardContent className="p-6 space-y-3">
-                        <Badge className="bg-[#1E3A5F]">Physical Performance</Badge>
-                        <h4 className="font-bold text-lg text-slate-900">27.9% Increase in VO2 Max</h4>
-                        <p className="text-sm text-slate-600">
-                          Athletes showed significant improvements in cardiorespiratory endurance and recovery time.
-                        </p>
-                        <a href="#" className="text-sm text-[#1E3A5F] hover:underline font-medium">
-                          View Study →
-                        </a>
-                      </CardContent>
-                    </Card>
-
-                    <Card className="border-2 hover:shadow-lg transition-shadow">
-                      <CardContent className="p-6 space-y-3">
-                        <Badge className="bg-[#1E3A5F]">Cognitive Function</Badge>
-                        <h4 className="font-bold text-lg text-slate-900">Enhanced Memory & Focus</h4>
-                        <p className="text-sm text-slate-600">
-                          Research showed improvements in immediate and general memory, executive function, and sustained attention.
-                        </p>
-                        <a href="#" className="text-sm text-[#1E3A5F] hover:underline font-medium">
-                          View Study →
-                        </a>
-                      </CardContent>
-                    </Card>
+                    <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                      <div className="font-bold text-[#1E3A5F] mb-2">Mental Clarity & Focus</div>
+                      <div className="text-sm text-slate-700">Significant improvements in cognitive function and reaction time</div>
+                      <a href="https://pubmed.ncbi.nlm.nih.gov/" className="text-[#2563EB] text-sm mt-2 inline-block hover:underline">View Study →</a>
+                    </div>
                   </div>
                 </div>
               </TabsContent>
 
               <TabsContent value="reviews" className="mt-8">
-                {productData && <ProductReviews productId={productData.id} />}
+                <ProductReviews productId={product.id} />
               </TabsContent>
 
-              <TabsContent value="faq" className="mt-8">
+              <TabsContent value="faq" className="mt-8 space-y-4">
+                <h3 className="text-2xl font-bold text-[#1E3A5F]">Frequently Asked Questions</h3>
                 <div className="space-y-4">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h3>
-                  
-                  <div className="space-y-3">
-                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
-                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
-                        How long until I feel results?
-                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
-                      </summary>
-                      <p className="mt-4 text-slate-700 leading-relaxed">
-                        Most people notice subtle changes within 2-4 weeks, with peak benefits appearing around 8-12 weeks. You might first notice better sleep, then calmer mornings, then improved focus. Clinical studies show maximum benefits at 8 weeks of consistent daily use.
-                      </p>
-                    </details>
-
-                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
-                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
-                        Can I take this with other supplements?
-                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
-                      </summary>
-                      <p className="mt-4 text-slate-700 leading-relaxed">
-                        Yes! Ashwagandha works well with most supplements. It's commonly paired with magnesium for sleep, vitamin D for immunity, or omega-3s for brain health. However, if you're taking prescription medications (especially thyroid or blood pressure meds), consult your doctor first.
-                      </p>
-                    </details>
-
-                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
-                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
-                        What if I forget to take it?
-                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
-                      </summary>
-                      <p className="mt-4 text-slate-700 leading-relaxed">
-                        No worries! Just take your dose when you remember. Don't double up. Consistency matters more than perfection—taking it 5-6 days a week is better than skipping entire weeks. Set a phone reminder or keep the bottle where you'll see it (next to your coffee maker, toothbrush, etc.).
-                      </p>
-                    </details>
-
-                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
-                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
-                        Is this safe for long-term use?
-                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
-                      </summary>
-                      <p className="mt-4 text-slate-700 leading-relaxed">
-                        Yes. Ashwagandha has been used safely in Ayurvedic medicine for thousands of years. Clinical studies show it's well-tolerated for continuous use up to 12 months. Many people take it daily for years. That said, it's smart to take a 1-2 week break every 3-6 months to reset your body's response.
-                      </p>
-                    </details>
-
-                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
-                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
-                        What's your return policy?
-                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
-                      </summary>
-                      <p className="mt-4 text-slate-700 leading-relaxed">
-                        We offer a 90-day money-back guarantee. Try Optibio for a full 12 weeks. If you don't feel calmer, sleep better, or think more clearly, email us at support@optibio.com and we'll refund every penny. No questions asked. You can even keep the bottle.
-                      </p>
-                    </details>
-
-                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
-                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
-                        When should I take it—morning or night?
-                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
-                      </summary>
-                      <p className="mt-4 text-slate-700 leading-relaxed">
-                        Either works! Some people prefer mornings (helps manage daytime stress), others prefer evenings (promotes restful sleep). Try both and see what feels best. The key is consistency—same time every day helps your body adapt.
-                      </p>
-                    </details>
-
-                    <details className="group border-2 border-slate-200 rounded-lg p-6 hover:border-[#C9A961]/40 transition-colors">
-                      <summary className="cursor-pointer font-semibold text-lg text-slate-900 flex justify-between items-center">
-                        Will this make me drowsy?
-                        <span className="text-[#C9A961] group-open:rotate-180 transition-transform">▼</span>
-                      </summary>
-                      <p className="mt-4 text-slate-700 leading-relaxed">
-                        No. Ashwagandha is an adaptogen, not a sedative. It helps your body manage stress, which can improve sleep quality, but it won't make you groggy or tired during the day. Most people report feeling more energized and focused.
-                      </p>
-                    </details>
+                  <div className="p-4 bg-slate-50 rounded-lg">
+                    <div className="font-bold text-slate-900 mb-2">How long does it take to feel the effects?</div>
+                    <div className="text-slate-700">Most users report noticeable improvements in sleep quality within 2-3 weeks. Stress reduction and mental clarity improvements typically appear within 4-6 weeks of consistent use.</div>
                   </div>
 
-                  <div className="mt-8 p-6 bg-[#F7F4EF] border-2 border-[#C9A961]/30 rounded-lg">
-                    <p className="text-slate-700 text-center">
-                      <strong className="text-[#1E3A5F]">Still have questions?</strong> Email us at <a href="mailto:support@optibio.com" className="text-[#C9A961] hover:underline font-semibold">support@optibio.com</a> — we typically respond within 2 hours.
-                    </p>
+                  <div className="p-4 bg-slate-50 rounded-lg">
+                    <div className="font-bold text-slate-900 mb-2">Is it safe to take daily?</div>
+                    <div className="text-slate-700">Yes. KSM-66® has been used safely in clinical studies for up to 12 weeks. We recommend consulting with a healthcare provider before starting any supplement regimen.</div>
+                  </div>
+
+                  <div className="p-4 bg-slate-50 rounded-lg">
+                    <div className="font-bold text-slate-900 mb-2">Can I take it with other supplements?</div>
+                    <div className="text-slate-700">Generally yes, but we recommend spacing it 2 hours apart from other medications or supplements. Consult your healthcare provider for personalized advice.</div>
+                  </div>
+
+                  <div className="p-4 bg-slate-50 rounded-lg">
+                    <div className="font-bold text-slate-900 mb-2">What if I'm not satisfied?</div>
+                    <div className="text-slate-700">We offer a 90-day money-back guarantee. If you're not completely satisfied, we'll refund your purchase—no questions asked.</div>
                   </div>
                 </div>
               </TabsContent>
@@ -729,14 +702,38 @@ export default function ProductDetail() {
         </div>
       </section>
 
-      {/* Sticky Add-to-Cart Bar */}
-      <StickyAddToCart
-        productId={product.id}
-        productName={product.name}
-        price={currentPrice / 100}
-        image={productImages[0]}
-        threshold={600}
-      />
+      {/* Footer Trust Badges */}
+      <section className="py-12 bg-slate-50 dark:bg-slate-900/20 border-t">
+        <div className="container">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+            <div className="text-center">
+              <Shield className="w-8 h-8 text-[#1E3A5F] mx-auto mb-2" />
+              <div className="text-sm font-bold text-slate-900">Integrity Tested</div>
+              <div className="text-xs text-slate-600">Third-party verified</div>
+            </div>
+            <div className="text-center">
+              <Truck className="w-8 h-8 text-[#1E3A5F] mx-auto mb-2" />
+              <div className="text-sm font-bold text-slate-900">Free Shipping</div>
+              <div className="text-xs text-slate-600">On all orders</div>
+            </div>
+            <div className="text-center">
+              <Award className="w-8 h-8 text-[#1E3A5F] mx-auto mb-2" />
+              <div className="text-sm font-bold text-slate-900">Made in USA</div>
+              <div className="text-xs text-slate-600">GMP Certified</div>
+            </div>
+            <div className="text-center">
+              <RotateCcw className="w-8 h-8 text-[#1E3A5F] mx-auto mb-2" />
+              <div className="text-sm font-bold text-slate-900">Secure Checkout</div>
+              <div className="text-xs text-slate-600">90-Day Guarantee</div>
+            </div>
+            <div className="text-center">
+              <Clock className="w-8 h-8 text-[#1E3A5F] mx-auto mb-2" />
+              <div className="text-sm font-bold text-slate-900">WCAG 2.1 AA</div>
+              <div className="text-xs text-slate-600">Accessibility</div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

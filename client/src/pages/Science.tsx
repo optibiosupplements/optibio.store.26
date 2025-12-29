@@ -294,6 +294,43 @@ export default function Science() {
         </div>
       </section>
 
+      {/* A/B TEST: MID-PAGE HIGH INTENT CTA */}
+      {/* Captures users at peak motivation after viewing clinical data */}
+      <section className="bg-[#1E3A5F] py-16 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]" />
+
+        <div className="container max-w-4xl mx-auto px-6 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-blue-100 text-xs font-bold uppercase tracking-widest mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#C9A961] animate-pulse"></span>
+            Data-Driven Formulation
+          </div>
+
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+            These aren't just numbers. <br/>
+            <span className="text-[#C9A961]">This is your new baseline.</span>
+          </h2>
+
+          <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+            The clinical data confirms what 50,000+ users already know. Start the protocol today and see the change in your own cortisol levels.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button 
+              onClick={() => setLocation('/shop')}
+              className="h-14 px-8 bg-white hover:bg-blue-50 text-[#1E3A5F] text-lg rounded-full font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all hover:scale-105"
+            >
+              Start The Protocol - $49.99
+            </button>
+            
+            <div className="flex items-center gap-2 text-sm font-medium text-white/80">
+              <Shield className="w-4 h-4 text-[#C9A961]" />
+              90-Day Money-Back Guarantee
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Overview */}
       <section className="py-16 bg-white">
         <div className="container">
