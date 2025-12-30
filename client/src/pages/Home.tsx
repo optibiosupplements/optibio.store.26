@@ -34,7 +34,7 @@ export default function Home() {
   
   // Theme-aware product image selection
   const isDark = theme === 'dark';
-  const heroProductImage = '/products/optibio-authentic-front-transparent.png';
+  const heroProductImage = '/bottle-transparent.png';
   
   // Removed reservation modal - now using direct purchase
 
@@ -282,10 +282,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             {benefits.map((benefit, i) => {
               const lifestyleImages = [
-                '/products/lifestyle-morning-routine.webp',
-                '/products/lifestyle-bedside.webp',
-                '/products/lifestyle-workspace.webp',
-                '/products/lifestyle-morning-routine.webp'
+                '/lifestyle-workspace.png',
+                '/lifestyle-bedside.png',
+                '/lifestyle-morning-routine.png',
+                '/lifestyle-workspace.png'
               ];
               return (
                 <Card 
@@ -298,8 +298,8 @@ export default function Home() {
                       alt={`${benefit.title} - ${benefit.description.split('.')[0]}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    {/* Phase 2: Enhanced black gradient overlay - 60% opacity for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/60 to-transparent" />
+                    {/* Dark gradient overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute bottom-4 left-6 right-6 px-2">
                       <div className="text-4xl font-bold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-lg">
                         {benefit.stat}
@@ -400,9 +400,10 @@ export default function Home() {
                 <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
               </div>
               <img 
-                src="/products/optibio-authentic-angle-marble.png" 
+                src="/bottle-transparent.png" 
                 alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
-                className="w-full max-w-lg mx-auto drop-shadow-2xl relative z-10 dark:drop-shadow-[0_0_40px_rgba(212,175,55,0.3)]"
+                className="w-full max-w-lg mx-auto relative z-10"
+                style={{ filter: 'drop-shadow(0 0 15px rgba(201, 169, 97, 0.3))' }}
               />
             </div>
 
@@ -622,7 +623,7 @@ export default function Home() {
           productId={mainProduct.id}
           productName={mainProduct.name}
           price={mainProduct.priceInCents / 100}
-          image={mainProduct.imageUrl || "/products/optibio-authentic-front-transparent.png"}
+          image={mainProduct.imageUrl || "/bottle-transparent.png"}
           threshold={600}
         />
       )}
@@ -641,9 +642,10 @@ export default function Home() {
                       <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
                     </div>
                     <img 
-                      src="/products/optibio-authentic-front-transparent.png"
+                      src="/bottle-transparent.png"
                       alt={`${mainProduct.name} - Premium KSM-66 Ashwagandha supplement for stress relief, sleep support, and natural energy`}
-                      className="w-full max-w-xs drop-shadow-2xl relative z-10 dark:drop-shadow-[0_0_40px_rgba(212,175,55,0.3)]"
+                      className="w-full max-w-xs relative z-10"
+                      style={{ filter: 'drop-shadow(0 0 15px rgba(201, 169, 97, 0.3))' }}
                     />
                   </div>
 

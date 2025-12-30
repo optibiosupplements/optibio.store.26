@@ -1099,3 +1099,27 @@ Current design lacks premium visual depth. Need pharmaceutical-grade luxury aest
 - 40-50% reduction in image file sizes with WebP
 - Enhanced social proof with lifestyle photography
 - Improved mobile page load times (<2 seconds)
+
+
+## 🎨 VISUAL UPGRADES - Premium Brand Polish (Dec 30, 2025)
+
+### Critical Visual Fixes:
+- [x] Replace white-box bottle images with transparent PNG (add gold glow shadow)
+- [x] Swap generic benefit photos with premium lifestyle shots (workspace, morning routine, bedside)
+- [x] Add metallic gradient to gold buttons for depth (linear-gradient 135deg)
+- [x] Add dark gradient overlays to benefit cards for text readability
+- [x] Establish pricing hierarchy (subscribe = solid gold, one-time = outline)
+
+### Assets Added:
+- bottle-transparent.png (transparent PNG with no white box)
+- bottle-hero.png (hero section bottle)
+- lifestyle-workspace.png (Focus/Work benefit)
+- lifestyle-morning-routine.png (Daily Routine benefit)
+- lifestyle-bedside.png (Sleep/Calm benefit)
+
+### Expected Outcome:
+✅ Eliminate "cheap white box" look on product images
+✅ Premium lifestyle photography matching $50 price point
+✅ Metallic button depth (not flat mustard paint)
+✅ Readable text on bright lifestyle photos
+✅ Visual hierarchy pushing subscription over one-time purchase
