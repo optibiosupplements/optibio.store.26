@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CookieBanner from "./components/CookieBanner";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import ProductDetail from "./pages/ProductDetail";
@@ -84,6 +85,7 @@ function App() {
           <Toaster />
           <Router />
           <EmailCaptureModal />
+          <CookieBanner />
           {/* <CrispChat websiteId="YOUR_WEBSITE_ID" /> */} {/* Removed - configure with real Crisp ID when ready */}
         </TooltipProvider>
       </ThemeProvider>
