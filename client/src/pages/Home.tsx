@@ -240,12 +240,12 @@ export default function Home() {
             <div className="relative h-[500px] sm:h-[600px] lg:h-[850px] flex items-center justify-center order-1 lg:order-2">
               {/* Cream/White background card behind bottle */}
               <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
-                <div className="w-full max-w-2xl h-[90%] bg-card dark:bg-primary rounded-3xl shadow-2xl" />
+                <div className="w-full max-w-2xl h-[90%] rounded-3xl shadow-2xl" style={{ backgroundColor: 'var(--optibio-soft-white)' }} />
               </div>
               {/* Large product bottle - takes up most of card space */}
               <div className="relative animate-float w-full h-full flex items-center justify-center z-10 p-8">
                 <img 
-                  src={heroProductImage}
+                  src="/optibio-bottle-real.png"
                   alt="Optibio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
                   className="w-full h-full max-w-xl max-h-[85%] object-contain mx-auto transition-opacity duration-500"
                   style={{ filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2))' }}

@@ -61,6 +61,7 @@ html {
   --optibio-navy-dark: #152B45;      /* Navy Dark - Hover states */
   --optibio-navy-depth: #0D1B2A;     /* Navy Depth - Footer gradient */
   --optibio-ivory: #F7F4EF;          /* Warm Ivory - Section backgrounds */
+  --optibio-soft-white: #FAFAF9;     /* Soft White - Card backgrounds (APPROVED V66B1D787) */
   --optibio-white: #FFFFFF;          /* Pure White - Cards, clean spaces */
   --optibio-gold: #C9A961;           /* Antique Gold - Accents, badges */
   --optibio-gold-dark: #B89651;      /* Gold Dark - Hover states */
@@ -69,10 +70,10 @@ html {
   --optibio-electric: #2563EB;       /* Electric Blue - Links, hover states */
   --optibio-success: #5FA865;        /* Success Green - Checkmarks */
   
-  /* SKY BLUE GRADIENT TOKENS (Hero/Page Backgrounds) */
-  --optibio-sky-light: #F8FCFE;      /* Sky gradient start */
-  --optibio-sky-mid: #EBF5FB;        /* Sky gradient middle */
-  --optibio-sky-deep: #D6EAF8;       /* Sky gradient end */
+  /* SKY BLUE GRADIENT TOKENS (Hero/Page Backgrounds) - APPROVED V66B1D787 */
+  --optibio-sky-light: #F8FCFE;      /* Sky gradient start - Lightest sky blue */
+  --optibio-sky-mid: #EBF5FB;        /* Sky gradient middle - Light sky blue */
+  --optibio-sky-deep: #D6EAF8;       /* Sky gradient end - Deeper sky blue */
   
   /* DARK MODE TOKENS */
   --optibio-abyssal: #0B1120;        /* Abyssal Navy - Dark mode bg */
@@ -426,7 +427,7 @@ html {
   
   /* Background Gradients */
   .bg-hero-gradient {
-    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 50%, #D6EAF8 100%);
+    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%);
   }
   
   .dark .bg-hero-gradient {
