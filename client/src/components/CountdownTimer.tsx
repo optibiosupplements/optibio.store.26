@@ -43,12 +43,13 @@ export default function CountdownTimer({ targetDate, className = '' }: Countdown
 
   return (
     <div className={`
-      border rounded-lg px-4 py-3
-      transition-colors duration-500
+      border rounded-xl px-4 py-3
+      transition-all duration-500
       ${className}
     `} style={{
-      backgroundColor: 'var(--optibio-countdown-bg)',
-      borderColor: '#FFC9C9'
+      background: 'linear-gradient(135deg, #FEF9F3 0%, #FFF5E8 100%)',
+      borderColor: '#FED7AA',
+      boxShadow: '0 4px 12px rgba(124, 45, 18, 0.15)'
     }}>
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">

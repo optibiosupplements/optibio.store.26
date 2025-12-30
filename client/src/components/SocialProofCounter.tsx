@@ -25,15 +25,22 @@ export function SocialProofCounter({ variant = "homepage" }: SocialProofCounterP
 
   // Homepage variant - larger, more prominent
   return (
-    <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[var(--optibio-ivory)] to-[var(--optibio-ivory)] px-6 py-3 border border-[var(--optibio-gold)]/20">
-      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--optibio-gold)]/10">
-        <Users className="h-5 w-5 text-[var(--optibio-gold-dark)]" />
+    <div 
+      className="inline-flex items-center gap-3 rounded-xl px-6 py-3 border transition-all duration-300 hover:shadow-lg"
+      style={{
+        background: 'linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%)',
+        borderColor: '#BBF7D0',
+        boxShadow: '0 4px 12px rgba(22, 163, 74, 0.1)'
+      }}
+    >
+      <div className="flex items-center justify-center w-10 h-10 rounded-full" style={{ backgroundColor: 'rgba(22, 163, 74, 0.1)' }}>
+        <Users className="h-5 w-5" style={{ color: '#16A34A' }} />
       </div>
       <div className="text-left">
-        <div className="text-2xl font-bold text-[var(--optibio-navy)]">
+        <div className="text-2xl font-bold" style={{ color: '#16A34A' }}>
           {totalReservations.toLocaleString()}
         </div>
-        <div className="text-sm text-[var(--optibio-navy)]">
+        <div className="text-xs font-semibold uppercase" style={{ color: '#16A34A', letterSpacing: '0.5px' }}>
           people joined the movement
         </div>
       </div>
