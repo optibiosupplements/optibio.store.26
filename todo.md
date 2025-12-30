@@ -1761,3 +1761,52 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - **Hover Blue:** `#1D4ED8` - CTA hover state
 
 **NOTE:** V3 Design System specifies NO DARK MODE - site is strictly Light Mode only.
+
+
+## 🎨 COLOR SYSTEM VERIFICATION - Design System v3.0 Compliance (Dec 30, 2025)
+
+### Core Brand Palette Verification
+- [ ] Audit index.css CSS variables match Design System v3.0 specs
+- [ ] Verify Deep Navy (#1E3A5F) used for primary text & headings
+- [ ] Verify Navy Darker (#1A2F4D) used for price tags and emphasis
+- [ ] Verify Antique Gold (#C9A961) used for accents only (icons, borders, stars)
+- [ ] Verify Pure White (#FFFFFF) used for cards & containers
+- [ ] Verify Sky Gradient (radial-gradient #F8FCFE, #D6EAF8) used for page backgrounds
+
+### Conversion Palette Verification (Urgency Red System)
+- [ ] Verify Alert Red (#DC2626) used for discount badges ("Save 46%")
+- [ ] Verify Muted Red Text (#991B1B) used for "Pre-orders close in" label
+- [ ] Verify Deep Timer Brown (#7C2D12) used for countdown numbers
+- [ ] Verify Warm Blush BG (#FFF1F2) used for countdown timer module background
+
+### Conversion Palette Verification (Social Proof Green System)
+- [ ] Verify Mint Background (#F0FDF4) used for review card backgrounds
+- [ ] Verify Success Green (#16A34A) used for "bottles sold" counters and checkmarks
+- [ ] Verify Review Star Gold (#FBBF24) used for review stars (distinct from Antique Gold)
+
+### Conversion Palette Verification (Action Blue System)
+- [ ] Verify Electric Blue (#2563EB) used for primary CTA background
+- [ ] Verify Hover Blue (#1D4ED8) used for primary CTA hover state
+
+### Component Recipe Verification
+- [ ] Social Proof Card: Linear gradient 135deg from #F0FDF4 to #DCFCE7
+- [ ] Social Proof Card: Border 1px solid #BBF7D0
+- [ ] Social Proof Card: Sales count text bold 12px color #16A34A
+- [ ] Countdown Timer: Linear gradient 135deg from #FEF9F3 to #FFF5E8
+- [ ] Countdown Timer: Border 1px solid #FED7AA
+- [ ] Countdown Timer: Numbers font Sora bold 700 color #7C2D12
+- [ ] Primary CTA Button: Background #2563EB with shadow 0 4px 16px rgba(37, 99, 235, 0.3)
+- [ ] Primary CTA Button: White text bold 16px with -2px lift on hover
+
+### Product Image Verification
+- [ ] Verify blue bottle image (product-card-hero-transparent-optimized.png) used throughout
+- [ ] Replace any old product images with correct blue bottle version
+
+### Font Verification
+- [ ] Verify Sora used for headings, prices, and timer numbers
+- [ ] Verify Inter used for body text, labels, and badges
+
+### Tailwind Config Verification
+- [ ] Ensure #DC2626 (Alert Red) not purged from Tailwind config
+- [ ] Ensure #F0FDF4 (Mint Background) not purged from Tailwind config
+- [ ] Verify all conversion palette colors registered in Tailwind config

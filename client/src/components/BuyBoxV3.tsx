@@ -38,7 +38,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           <div className="relative bg-gradient-to-br from-[#F7F4EF] to-white p-8 md:p-12 flex items-center justify-center">
             <div className="relative w-full max-w-sm">
               <img 
-                src="/bottlemockbluegold_beigebg.png"
+                src="/product-card-hero-transparent-optimized.png"
                 alt="OptiBio Ashwagandha KSM-66 - Premium Blue Bottle"
                 className="w-full h-auto object-contain"
                 style={{ filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15))' }}
