@@ -205,14 +205,14 @@ export default function Quality() {
         
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <Badge className="px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
+            <Badge className="px-5 py-2 bg-gradient-to-r from-[var(--color-accent-gold)] to-[var(--optibio-ivory)]0 text-[var(--color-text-primary)] border-0 shadow-gold">
               <Shield className="w-4 h-4 mr-2 inline" />
               <span className="font-bold">Quality You Can Trust</span>
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold text-white leading-tight">
               Our Quality System
             </h1>
-            <p className="text-xl text-slate-200 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 leading-relaxed max-w-3xl mx-auto">
               Every bottle meets the highest standards of purity, potency, and safety. Here's how we ensure exceptional quality from farm to bottle.
             </p>
           </div>
@@ -232,8 +232,8 @@ export default function Quality() {
                       <Icon className="w-8 h-8 text-[#B89651]" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-slate-900 mb-2">{cert.title}</h3>
-                      <p className="text-sm text-slate-600">{cert.description}</p>
+                      <h3 className="font-bold text-[var(--color-text-primary)] mb-2">{cert.title}</h3>
+                      <p className="text-sm text-[var(--color-text-secondary)]">{cert.description}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -248,8 +248,8 @@ export default function Quality() {
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Manufacturing Process</h2>
-              <p className="text-slate-600 text-lg max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">Manufacturing Process</h2>
+              <p className="text-[var(--color-text-secondary)] text-lg max-w-3xl mx-auto">
                 Our 6-step process ensures every capsule delivers consistent, reliable results backed by science.
               </p>
             </div>
@@ -258,7 +258,7 @@ export default function Quality() {
               {manufacturingSteps.map((step, index) => {
                 const Icon = step.icon;
                 return (
-                  <Card key={index} className="border-2 border-slate-200 shadow-lg hover:shadow-xl transition-shadow">
+                  <Card key={index} className="border-2 border-[var(--color-border-card)] shadow-lg hover:shadow-xl transition-shadow">
                     <CardContent className="p-8">
                       <div className="flex flex-col md:flex-row gap-6 items-start">
                         <div className="flex-shrink-0">
@@ -269,9 +269,9 @@ export default function Quality() {
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-3">
                             <Badge className="bg-[#1E3A5F] text-white">Step {step.step}</Badge>
-                            <h3 className="text-2xl font-bold text-slate-900">{step.title}</h3>
+                            <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">{step.title}</h3>
                           </div>
-                          <p className="text-slate-700 leading-relaxed">{step.description}</p>
+                          <p className="text-[var(--color-text-secondary)] leading-relaxed">{step.description}</p>
                         </div>
                       </div>
                     </CardContent>
@@ -284,12 +284,12 @@ export default function Quality() {
       </section>
 
       {/* Testing Protocols */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-[var(--color-bg-section)]">
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Comprehensive Testing Protocols</h2>
-              <p className="text-slate-600 text-lg max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">Comprehensive Testing Protocols</h2>
+              <p className="text-[var(--color-text-secondary)] text-lg max-w-3xl mx-auto">
                 Every batch undergoes rigorous third-party testing across multiple categories to ensure safety and efficacy.
               </p>
             </div>
@@ -302,11 +302,11 @@ export default function Quality() {
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
                         <Microscope className="w-6 h-6 text-[#C9A961]" />
                       </div>
-                      <h3 className="text-xl font-bold text-slate-900">{protocol.category}</h3>
+                      <h3 className="text-xl font-bold text-[var(--color-text-primary)]">{protocol.category}</h3>
                     </div>
                     <ul className="space-y-3">
                       {protocol.tests.map((test, i) => (
-                        <li key={i} className="flex items-start gap-2 text-slate-700">
+                          <li key={i} className="flex items-start gap-2 text-[var(--color-text-secondary)]">
                           <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
                           <span>{test}</span>
                         </li>
@@ -325,8 +325,8 @@ export default function Quality() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Quality Standards & Certifications</h2>
-              <p className="text-slate-600 text-lg">
+              <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">Quality Standards & Certifications</h2>
+              <p className="text-[var(--color-text-secondary)] text-lg">
                 We adhere to the highest industry standards and maintain multiple certifications.
               </p>
             </div>
@@ -340,8 +340,8 @@ export default function Quality() {
                         <Award className="w-5 h-5 text-[#C9A961]" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-slate-900 mb-2">{item.standard}</h3>
-                        <p className="text-slate-700 text-sm">{item.description}</p>
+                        <h3 className="font-bold text-[var(--color-text-primary)] mb-2">{item.standard}</h3>
+                        <p className="text-[var(--color-text-secondary)] text-sm">{item.description}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -362,10 +362,10 @@ export default function Quality() {
                   <Users className="w-10 h-10 text-[#C9A961]" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-bold text-slate-900 mb-4">
+                  <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">
                     Dedicated Quality Assurance Team
                   </h2>
-                  <p className="text-slate-700 leading-relaxed max-w-2xl mx-auto mb-6">
+                  <p className="text-[var(--color-text-secondary)] leading-relaxed max-w-2xl mx-auto mb-6">
                     Our quality assurance team includes PhD-level scientists, certified quality professionals, and experienced technicians who oversee every aspect of production. They conduct regular audits, review testing data, and ensure compliance with all regulatory requirements.
                   </p>
                   <div className="flex flex-wrap gap-3 justify-center">
@@ -394,12 +394,12 @@ export default function Quality() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
+              <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-[var(--color-accent-gold)] to-[var(--optibio-ivory)]0 text-[var(--color-text-primary)] border-0 shadow-gold">
                 <Shield className="w-4 h-4 mr-2 inline" />
                 <span className="font-bold">Batch Verification</span>
               </Badge>
               <h2 className="text-3xl font-bold text-white mb-4">Verify Your Product Batch</h2>
-              <p className="text-slate-300 text-lg max-w-3xl mx-auto">
+              <p className="text-white/90 text-lg max-w-3xl mx-auto">
                 Enter your product lot number to access batch-specific test results, certificates of analysis, and complete quality documentation for your specific bottle.
               </p>
             </div>
@@ -414,12 +414,12 @@ export default function Quality() {
         <div className="container">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
+              <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-[var(--color-accent-gold)] to-[var(--optibio-ivory)]0 text-[var(--color-text-primary)] border-0 shadow-gold">
                 <FileText className="w-4 h-4 mr-2 inline" />
                 <span className="font-bold">Transparency & Documentation</span>
               </Badge>
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Quality Documents Library</h2>
-              <p className="text-slate-600 text-lg max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">Quality Documents Library</h2>
+              <p className="text-[var(--color-text-secondary)] text-lg max-w-3xl mx-auto">
                 Download our complete quality documentation. All sensitive information has been redacted for privacy while maintaining full transparency about our testing standards.
               </p>
             </div>
@@ -438,8 +438,8 @@ export default function Quality() {
                           <Badge className="bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/20 mb-2">
                             {doc.category}
                           </Badge>
-                          <h3 className="text-xl font-bold text-slate-900 mb-2">{doc.title}</h3>
-                          <p className="text-sm text-slate-600 leading-relaxed">{doc.description}</p>
+                          <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">{doc.title}</h3>
+                          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{doc.description}</p>
                         </div>
                       </div>
                       <a
@@ -448,14 +448,14 @@ export default function Quality() {
                         className="block"
                       >
                         <Button
-                          className="w-full bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#B89651] text-slate-900 font-bold shadow-gold hover:shadow-glow-gold transition-all"
+                          className="w-full bg-gradient-to-r from-[var(--color-accent-gold)] to-[var(--optibio-ivory)]0 hover:from-[var(--optibio-ivory)]0 hover:to-[#B89651] text-[var(--color-text-primary)] font-bold shadow-gold hover:shadow-glow-gold transition-all"
                           size="lg"
                         >
                           <Download className="w-4 h-4 mr-2" />
                           Download PDF
                         </Button>
                       </a>
-                      <p className="text-xs text-slate-500 text-center mt-3">
+                      <p className="text-xs text-[var(--color-text-muted)] text-center mt-3">
                         <FileText className="w-3 h-3 inline mr-1" />
                         {doc.filename}
                       </p>
@@ -470,8 +470,8 @@ export default function Quality() {
                 <div className="flex items-start gap-4">
                   <Shield className="w-6 h-6 text-[#B89651] flex-shrink-0 mt-1" />
                   <div>
-                    <h4 className="font-bold text-slate-900 mb-2">About These Documents</h4>
-                    <p className="text-sm text-slate-700 leading-relaxed">
+                    <h4 className="font-bold text-[var(--color-text-primary)] mb-2">About These Documents</h4>
+                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
                       All documents are from third-party certified laboratories accredited to ISO/IEC 17025:2017 standards. 
                       Sensitive information including exact batch numbers, manufacturer details, and proprietary formulations 
                       have been redacted for privacy and competitive reasons. These sample documents represent our typical 
@@ -495,10 +495,10 @@ export default function Quality() {
                 <Shield className="w-8 h-8 text-[#C9A961]" />
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-slate-900 mb-3">
+                <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-3">
                   Experience the Difference Quality Makes
                 </h2>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   When you choose Optibio, you're choosing a product backed by rigorous quality standards, transparent testing, and unwavering commitment to excellence.
                 </p>
               </div>

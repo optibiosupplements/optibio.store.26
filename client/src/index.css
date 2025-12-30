@@ -83,16 +83,59 @@ html {
   --optibio-sky-grey: #94A3B8;       /* Sky Grey - Dark mode secondary text */
   --optibio-border-dark: #2D4A77;    /* Navy 700 - Dark mode borders */
   
-  /* SEMANTIC ALIASES (Use these in components) */
-  --color-bg-page: var(--optibio-white);           /* Page background */
-  --color-bg-section: var(--optibio-ivory);        /* Section background */
-  --color-bg-card: var(--optibio-white);           /* Card background */
-  --color-text-primary: var(--optibio-navy);       /* Headlines, emphasis */
-  --color-text-body: var(--optibio-charcoal);      /* Primary body text */
-  --color-text-secondary: var(--optibio-slate);    /* Secondary text */
-  --color-accent: var(--optibio-gold);             /* Accents, badges */
-  --color-link: var(--optibio-electric);           /* Links */
-  --color-border: #E0E0E0;                         /* Subtle borders */
+  /* ============================================
+     SEMANTIC ALIASES (Use these in components)
+     HARDCORE RULE: Use ONLY these semantic tokens
+     NO GENERIC TAILWIND COLORS (blue-500, gray-200, etc.)
+     ============================================ */
+  
+  /* BACKGROUNDS */
+  --color-bg-page: var(--optibio-white);              /* Page background */
+  --color-bg-section: var(--optibio-ivory);           /* Section background */
+  --color-bg-section-alt: var(--optibio-white);       /* Alternate section bg (white) */
+  --color-bg-card: var(--optibio-white);              /* Card background */
+  --color-bg-hero: transparent;                       /* Hero section (use gradient-hero class) */
+  --color-bg-footer: var(--optibio-navy);             /* Footer background */
+  --color-bg-cta: var(--optibio-navy);                /* CTA button background */
+  --color-bg-cta-hover: var(--optibio-electric);      /* CTA button hover */
+  --color-bg-badge: var(--optibio-gold);              /* Badge background */
+  
+  /* TEXT COLORS */
+  --color-text-primary: var(--optibio-navy);          /* Headlines, emphasis */
+  --color-text-body: var(--optibio-charcoal);         /* Primary body text */
+  --color-text-secondary: var(--optibio-slate);       /* Secondary text */
+  --color-text-inverse: var(--optibio-white);         /* Text on dark backgrounds */
+  --color-text-link: var(--optibio-electric);         /* Links */
+  --color-text-link-hover: var(--optibio-navy-dark);  /* Link hover */
+  --color-text-success: var(--optibio-success);       /* Success messages */
+  
+  /* ACCENTS & HIGHLIGHTS */
+  --color-accent: var(--optibio-gold);                /* Accents, badges */
+  --color-accent-hover: var(--optibio-gold-dark);     /* Accent hover */
+  --color-highlight: var(--optibio-electric);         /* Highlights, active states */
+  
+  /* BORDERS */
+  --color-border: #E0E0E0;                            /* Subtle borders */
+  --color-border-card: #E5E5E5;                       /* Card borders */
+  --color-border-input: #D1D5DB;                      /* Input borders */
+  --color-border-focus: var(--optibio-electric);      /* Focus borders */
+  
+  /* BUTTONS */
+  --color-btn-primary-bg: var(--optibio-navy);        /* Primary button bg */
+  --color-btn-primary-text: var(--optibio-white);     /* Primary button text */
+  --color-btn-primary-hover: var(--optibio-electric); /* Primary button hover */
+  --color-btn-secondary-bg: transparent;              /* Secondary button bg */
+  --color-btn-secondary-text: var(--optibio-navy);    /* Secondary button text */
+  --color-btn-secondary-border: var(--optibio-navy);  /* Secondary button border */
+  --color-btn-gold-bg: var(--optibio-gold);           /* Gold button bg */
+  --color-btn-gold-text: var(--optibio-white);        /* Gold button text */
+  
+  /* GRADIENTS (Use with gradient-* utility classes) */
+  --gradient-hero-start: var(--optibio-sky-light);    /* Hero gradient start */
+  --gradient-hero-mid: var(--optibio-sky-mid);        /* Hero gradient middle */
+  --gradient-hero-end: var(--optibio-sky-deep);       /* Hero gradient end */
+  --gradient-navy-start: var(--optibio-navy);         /* Navy gradient start */
+  --gradient-navy-end: var(--optibio-navy-depth);     /* Navy gradient end */
   
   /* Primary: Deep Navy (Professional, Trustworthy, Premium) */
   --primary: oklch(0.32 0.08 240); /* #1E3A5F Deep Navy */

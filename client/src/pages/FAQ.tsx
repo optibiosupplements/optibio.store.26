@@ -173,23 +173,23 @@ export default function FAQ() {
         
         <div className="container relative z-10">
           <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2 h-6">
-            <a href="/" className="text-slate-500 hover:text-[#1E3A5F] transition-colors leading-none flex items-center">
+            <a href="/" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors leading-none flex items-center">
               Home
             </a>
-            <ChevronRight className="w-4 h-4 text-slate-400 flex-shrink-0" />
+            <ChevronRight className="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0" />
             <span className="text-[#1E3A5F] font-bold leading-none flex items-center">
               FAQ
             </span>
           </nav>
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <Badge className="px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
+            <Badge className="px-5 py-2 bg-gradient-to-r from-[var(--color-accent-gold)] to-[var(--optibio-ivory)]0 text-[var(--color-text-primary)] border-0 shadow-gold">
               <HelpCircle className="w-4 h-4 mr-2 inline" />
               <span className="font-bold">Frequently Asked Questions</span>
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold text-[#1E3A5F] leading-tight">
               How Can We Help?
             </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
+            <p className="text-xl text-[var(--color-text-secondary)] leading-relaxed">
               Find answers to common questions about Optibio Ashwagandha, usage, shipping, and more.
             </p>
           </div>
@@ -201,7 +201,7 @@ export default function FAQ() {
         <div className="container">
           <div className="max-w-4xl mx-auto space-y-8">
             {faqs.map((section, sectionIndex) => (
-              <Card key={sectionIndex} className="border-2 border-slate-200 shadow-md bg-white">
+              <Card key={sectionIndex} className="border-2 border-[var(--color-border-card)] shadow-md bg-[var(--color-bg-card)]">
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-[#1E3A5F] mb-6 pb-4 border-b-2 border-[#1E3A5F]/20 flex items-center gap-3">
                     <HelpCircle className="w-6 h-6 text-[#1E3A5F]" />
@@ -212,12 +212,12 @@ export default function FAQ() {
                       <AccordionItem
                         key={faqIndex}
                         value={`${sectionIndex}-${faqIndex}`}
-                        className="border rounded-lg px-6 bg-slate-50/50"
+                        className="border rounded-lg px-6 bg-[var(--optibio-ivory)]/50"
                       >
-                        <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-[#1E3A5F] py-4">
+                        <AccordionTrigger className="text-left font-semibold text-[var(--color-text-primary)] hover:text-[var(--color-btn-primary-bg)] py-4">
                           {faq.q}
                         </AccordionTrigger>
-                        <AccordionContent className="text-slate-700 leading-relaxed pb-4">
+                        <AccordionContent className="text-[var(--color-text-secondary)] leading-relaxed pb-4">
                           {faq.a}
                         </AccordionContent>
                       </AccordionItem>
@@ -233,7 +233,7 @@ export default function FAQ() {
       {/* Contact CTA */}
       <section className="py-16">
         <div className="container">
-          <Card className="border-2 border-slate-200 shadow-md bg-white max-w-3xl mx-auto">
+          <Card className="border-2 border-[var(--color-border-card)] shadow-md bg-[var(--color-bg-card)] max-w-3xl mx-auto">
             <CardContent className="p-12 text-center space-y-6">
               <div className="w-16 h-16 rounded-full bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
                 <Mail className="w-8 h-8 text-[#1E3A5F]" />
@@ -242,7 +242,7 @@ export default function FAQ() {
                 <h2 className="text-2xl font-bold text-[#1E3A5F] mb-3">
                   Still Have Questions?
                 </h2>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   Our customer support team is here to help. We typically respond within 24 hours.
                 </p>
               </div>
@@ -264,7 +264,7 @@ export default function FAQ() {
                   Shop Now
                 </Button>
               </div>
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-[var(--color-text-muted)]">
                 Email: <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:underline">support@optibio.com</a>
               </p>
             </CardContent>

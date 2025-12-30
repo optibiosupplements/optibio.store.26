@@ -20,10 +20,10 @@ export default function About() {
         
         <div className="container relative z-10">
           <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2 h-6">
-            <a href="/" className="text-slate-500 hover:text-[#1E3A5F] transition-colors leading-none flex items-center">
+            <a href="/" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors leading-none flex items-center">
               Home
             </a>
-            <ChevronRight className="w-4 h-4 text-slate-400 flex-shrink-0" />
+            <ChevronRight className="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0" />
             <span className="text-[#1E3A5F] font-bold leading-none flex items-center">
               About
             </span>
@@ -35,7 +35,7 @@ export default function About() {
             <h1 className="text-4xl md:text-5xl font-extrabold text-[#1E3A5F] mb-6 leading-tight">
               Redefining Wellness <br/> Through Science
             </h1>
-            <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium">
+            <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed font-medium">
               We started OptiBio with a simple mission: to bridge the gap between ancient wisdom and modern clinical research. No fillers, just results.
             </p>
           </div>
@@ -46,37 +46,37 @@ export default function About() {
       <section className="py-16 -mt-12 relative z-20">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-6">
-            <Card className="border-2 border-slate-200 shadow-md bg-white">
+            <Card className="border-2 border-[var(--color-border-card)] shadow-md bg-[var(--color-bg-card)]">
               <CardContent className="p-8 text-center space-y-4">
                 <div className="w-16 h-16 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
                   <Target className="w-8 h-8 text-[#1E3A5F]" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1E3A5F]">Our Mission</h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   To empower individuals with premium, research-backed supplements that support mental clarity, physical vitality, and overall well-being.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-slate-200 shadow-md bg-white">
+            <Card className="border-2 border-[var(--color-border-card)] shadow-md bg-[var(--color-bg-card)]">
               <CardContent className="p-8 text-center space-y-4">
                 <div className="w-16 h-16 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
                   <Leaf className="w-8 h-8 text-[#1E3A5F]" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1E3A5F]">Our Values</h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   Transparency, quality, and scientific integrity guide everything we do. We never compromise on purity or potency.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-slate-200 shadow-md bg-white">
+            <Card className="border-2 border-[var(--color-border-card)] shadow-md bg-[var(--color-bg-card)]">
               <CardContent className="p-8 text-center space-y-4">
                 <div className="w-16 h-16 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
                   <Heart className="w-8 h-8 text-[#1E3A5F]" />
                 </div>
                 <h3 className="text-xl font-bold text-[#1E3A5F]">Our Promise</h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   Every bottle is backed by our 90-day guarantee. If you don't feel the difference, we'll refund every penny—no questions asked.
                 </p>
               </CardContent>
@@ -89,14 +89,14 @@ export default function About() {
       <section className="py-16">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <Card className="border-2 border-slate-200 shadow-xl">
+            <Card className="border-2 border-[var(--color-border-card)] shadow-xl">
               <CardContent className="p-12 space-y-8">
                 <div className="space-y-4">
-                  <h2 className="text-3xl font-bold text-slate-900">The Optibio Story</h2>
+                  <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">The Optibio Story</h2>
                   <div className="w-20 h-1 bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 rounded-full" />
                 </div>
 
-                <div className="space-y-6 text-slate-700 leading-relaxed">
+                <div className="space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
                   <p>
                     Optibio was founded on a simple observation: in our fast-paced, high-stress world, people need reliable, science-backed solutions to support their mental and physical well-being. Too many supplement companies make bold claims without the research to back them up. We knew there had to be a better way.
                   </p>
@@ -113,7 +113,7 @@ export default function About() {
                     Today, Optibio serves thousands of customers who trust us to deliver premium supplements that actually work. We're not just selling products—we're building a community of individuals committed to optimizing their health naturally.
                   </p>
 
-                  <p className="text-slate-900 font-semibold italic">
+                  <p className="text-[var(--color-text-primary)] font-semibold italic">
                     "We believe that when you feel your best, you can achieve your best. That's the Optibio difference."
                   </p>
                 </div>
@@ -127,8 +127,8 @@ export default function About() {
       <section className="py-16 bg-gradient-to-br from-[#F7F4EF] to-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Why We Choose KSM-66®</h2>
-            <p className="text-slate-600 text-lg">
+            <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">Why We Choose KSM-66®</h2>
+            <p className="text-[var(--color-text-secondary)] text-lg">
               Not all ashwagandha is created equal. Here's why we exclusively use KSM-66®:
             </p>
           </div>
@@ -141,8 +141,8 @@ export default function About() {
                     <Microscope className="w-6 h-6 text-[#1E3A5F]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-2">Gold Standard Extract</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-2">Gold Standard Extract</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
                       KSM-66® is the highest concentration full-spectrum ashwagandha extract, preserving all bioactive compounds in their natural ratios for maximum effectiveness.
                     </p>
                   </div>
@@ -157,8 +157,8 @@ export default function About() {
                     <CheckCircle2 className="w-6 h-6 text-[#C9A961]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-2">20+ Clinical Studies</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-2">20+ Clinical Studies</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
                       Backed by over 20 peer-reviewed studies demonstrating benefits for stress reduction, cognitive function, sleep quality, and physical performance.
                     </p>
                   </div>
@@ -173,8 +173,8 @@ export default function About() {
                     <Shield className="w-6 h-6 text-[#152B45]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-2">Organic & Pure</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-2">Organic & Pure</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
                       Certified organic, non-GMO, and free from chemical solvents. Extracted using a proprietary green chemistry process that uses only water and milk.
                     </p>
                   </div>
@@ -189,8 +189,8 @@ export default function About() {
                     <Award className="w-6 h-6 text-[#B89651]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-2">Award-Winning Quality</h3>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-2">Award-Winning Quality</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
                       Winner of multiple industry awards for innovation and quality, including the Nutraingredients Award for Ingredient of the Year.
                     </p>
                   </div>
@@ -206,8 +206,8 @@ export default function About() {
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Our Quality Standards</h2>
-              <p className="text-slate-600 text-lg">
+              <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">Our Quality Standards</h2>
+              <p className="text-[var(--color-text-secondary)] text-lg">
                 Every bottle meets the highest standards of purity, potency, and safety.
               </p>
             </div>
@@ -219,8 +219,8 @@ export default function About() {
                     <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">GMP Certified Facility</h3>
-                    <p className="text-sm text-slate-600">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-1">GMP Certified Facility</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">
                       Manufactured in FDA-registered, GMP-certified facilities in the USA with strict quality control protocols.
                     </p>
                   </div>
@@ -231,8 +231,8 @@ export default function About() {
                     <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Third-Party Tested</h3>
-                    <p className="text-sm text-slate-600">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Third-Party Tested</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">
                       Every batch is tested by independent laboratories for purity, potency, heavy metals, and contaminants.
                     </p>
                   </div>
@@ -243,8 +243,8 @@ export default function About() {
                     <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Non-GMO & Organic</h3>
-                    <p className="text-sm text-slate-600">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Non-GMO & Organic</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">
                       Made with certified organic KSM-66® ashwagandha, free from GMOs, gluten, and artificial additives.
                     </p>
                   </div>
@@ -255,8 +255,8 @@ export default function About() {
                     <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Vegan & Clean</h3>
-                    <p className="text-sm text-slate-600">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Vegan & Clean</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">
                       100% vegan capsules with no fillers, binders, or unnecessary ingredients. Just pure ashwagandha extract.
                     </p>
                   </div>
@@ -269,8 +269,8 @@ export default function About() {
                     <Shield className="w-5 h-5 text-[#1E3A5F]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">5% Withanolides</h3>
-                    <p className="text-sm text-slate-600">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-1">5% Withanolides</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">
                       Standardized to contain 5% withanolides, the active compounds responsible for ashwagandha's benefits.
                     </p>
                   </div>
@@ -281,8 +281,8 @@ export default function About() {
                     <Shield className="w-5 h-5 text-[#1E3A5F]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Full-Spectrum Extract</h3>
-                    <p className="text-sm text-slate-600">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Full-Spectrum Extract</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">
                       Made from root only (not leaves), preserving the complete profile of bioactive compounds found in nature.
                     </p>
                   </div>
@@ -293,8 +293,8 @@ export default function About() {
                     <Shield className="w-5 h-5 text-[#1E3A5F]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Sustainable Sourcing</h3>
-                    <p className="text-sm text-slate-600">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Sustainable Sourcing</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">
                       Ethically sourced from certified organic farms in India using sustainable agricultural practices.
                     </p>
                   </div>
@@ -305,8 +305,8 @@ export default function About() {
                     <Shield className="w-5 h-5 text-[#1E3A5F]" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-slate-900 mb-1">Batch Tracking</h3>
-                    <p className="text-sm text-slate-600">
+                    <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Batch Tracking</h3>
+                    <p className="text-sm text-[var(--color-text-secondary)]">
                       Every bottle has a unique batch number for complete traceability and quality assurance.
                     </p>
                   </div>
@@ -324,16 +324,16 @@ export default function About() {
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Users className="w-8 h-8 text-[#1E3A5F]" />
-                <h2 className="text-3xl font-bold text-slate-900">Meet Our Team</h2>
+                <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">Meet Our Team</h2>
               </div>
-              <p className="text-slate-600 text-lg">
+              <p className="text-[var(--color-text-secondary)] text-lg">
                 A dedicated group of health professionals, researchers, and wellness advocates committed to your success.
               </p>
             </div>
 
-            <Card className="border-2 border-slate-200 shadow-xl">
+            <Card className="border-2 border-[var(--color-border-card)] shadow-xl">
               <CardContent className="p-12 space-y-8">
-                <div className="space-y-6 text-slate-700 leading-relaxed">
+                <div className="space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
                   <p>
                     Our team brings together decades of experience in nutrition science, herbal medicine, and supplement manufacturing. We're not just business people—we're health enthusiasts who personally use and believe in every product we create.
                   </p>
@@ -344,7 +344,7 @@ export default function About() {
                         <span className="text-2xl font-bold text-[#1E3A5F]">R&D</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Research Team</h3>
-                      <p className="text-sm text-slate-600">
+                      <p className="text-sm text-[var(--color-text-secondary)]">
                         PhDs and nutritionists who evaluate every ingredient based on clinical evidence
                       </p>
                     </div>
@@ -354,7 +354,7 @@ export default function About() {
                         <span className="text-2xl font-bold text-[#C9A961]">QA</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Quality Assurance</h3>
-                      <p className="text-sm text-slate-600">
+                      <p className="text-sm text-[var(--color-text-secondary)]">
                         Certified specialists ensuring every batch meets our rigorous standards
                       </p>
                     </div>
@@ -364,7 +364,7 @@ export default function About() {
                         <span className="text-2xl font-bold text-[#B89651]">CS</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Customer Success</h3>
-                      <p className="text-sm text-slate-600">
+                      <p className="text-sm text-[var(--color-text-secondary)]">
                         Wellness coaches dedicated to supporting your health journey
                       </p>
                     </div>
@@ -374,7 +374,7 @@ export default function About() {
                     We're passionate about transparency and education. Our customer success team includes certified wellness coaches who are available to answer your questions and help you get the most from your supplements.
                   </p>
 
-                  <p className="text-slate-900 font-semibold">
+                  <p className="text-[var(--color-text-primary)] font-semibold">
                     Every member of our team uses Optibio products daily. We wouldn't sell anything we wouldn't take ourselves.
                   </p>
                 </div>
@@ -389,10 +389,10 @@ export default function About() {
         <div className="container">
           <Card className="border-2 border-[#C9A961]/30 shadow-2xl bg-gradient-to-br from-[#F7F4EF] to-white">
             <CardContent className="p-12 text-center space-y-6">
-              <h2 className="text-3xl font-bold text-slate-900">
+              <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">
                 Ready to Experience the Optibio Difference?
               </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
                 Join thousands of customers who trust Optibio for premium, science-backed supplements. Every purchase is backed by our 90-day money-back guarantee.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

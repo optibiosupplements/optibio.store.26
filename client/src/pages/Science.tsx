@@ -224,23 +224,23 @@ export default function Science() {
         
         <div className="container relative z-10">
           <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2 h-6">
-            <a href="/" className="text-slate-500 hover:text-[#1E3A5F] transition-colors leading-none flex items-center">
+            <a href="/" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors leading-none flex items-center">
               Home
             </a>
-            <ChevronRight className="w-4 h-4 text-slate-400 flex-shrink-0" />
+            <ChevronRight className="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0" />
             <span className="text-[#1E3A5F] font-bold leading-none flex items-center">
               Science
             </span>
           </nav>
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <Badge className="px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
+            <Badge className="px-5 py-2 bg-gradient-to-r from-[var(--color-accent-gold)] to-[var(--optibio-ivory)]0 text-[var(--color-text-primary)] border-0 shadow-gold">
               <Microscope className="w-4 h-4 mr-2 inline" />
               <span className="font-bold">Evidence-Based Research</span>
             </Badge>
             <h1 className="text-5xl md:text-6xl font-bold text-[#1E3A5F] leading-tight">
               The Science Behind KSM-66®
             </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
+            <p className="text-xl text-[var(--color-text-secondary)] leading-relaxed">
               Over 20 peer-reviewed clinical studies validate the effectiveness of KSM-66® Ashwagandha. 
               Discover the research that makes it the gold standard in adaptogenic supplements.
             </p>
@@ -265,14 +265,14 @@ export default function Science() {
       {/* What is KSM-66 */}
       <section className="py-16 -mt-12 relative z-20">
         <div className="container">
-          <Card className="border-2 border-slate-200 shadow-2xl max-w-4xl mx-auto">
+          <Card className="border-2 border-[var(--color-border-card)] shadow-2xl max-w-4xl mx-auto">
             <CardContent className="p-12 space-y-6">
               <div className="space-y-4">
-                <h2 className="text-3xl font-bold text-slate-900">What Makes KSM-66® Different?</h2>
+                <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">What Makes KSM-66® Different?</h2>
                 <div className="w-20 h-1 bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 rounded-full" />
               </div>
               
-              <div className="space-y-4 text-slate-700 leading-relaxed">
+              <div className="space-y-4 text-[var(--color-text-secondary)] leading-relaxed">
                 <p>
                   <strong>KSM-66®</strong> is the most clinically studied ashwagandha extract in the world. Unlike other ashwagandha supplements that use leaves or a mixture of plant parts, KSM-66® is made exclusively from the <strong>root of the ashwagandha plant</strong>—the part traditionally used in Ayurvedic medicine for thousands of years.
                 </p>
@@ -294,9 +294,9 @@ export default function Science() {
                     </ul>
                   </div>
 
-                  <div className="p-4 rounded-lg bg-red-50 border border-red-200">
-                    <h3 className="font-bold text-red-900 mb-2">✗ Generic Ashwagandha</h3>
-                    <ul className="text-sm text-red-800 space-y-1">
+                  <div className="p-4 rounded-lg bg-[var(--color-bg-error)] border border-[var(--color-border-error)]">
+                    <h3 className="font-bold text-[var(--color-text-error)] mb-2">✗ Generic Ashwagandha</h3>
+                    <ul className="text-sm text-[var(--color-text-error)] space-y-1">
                       <li>• Mixed leaves and roots</li>
                       <li>• Isolated compounds only</li>
                       <li>• Variable withanolide content</li>
@@ -332,7 +332,7 @@ export default function Science() {
                 <div 
                   key={i} 
                   onClick={() => setSelectedStudy(study)}
-                  className="group cursor-pointer p-8 bg-white rounded-2xl border border-slate-100 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 text-center relative overflow-hidden"
+                  className="group cursor-pointer p-8 bg-[var(--color-bg-card)] rounded-2xl border border-[var(--color-border-card)] shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 text-center relative overflow-hidden"
                 >
                   {/* Hover Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-blue-50/50 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -343,7 +343,7 @@ export default function Science() {
                     </div>
                     <div className="h-1 w-12 bg-[#C9A961] mx-auto mb-4 rounded-full"></div>
                     <h3 className="text-lg font-bold text-[#1E3A5F] mb-2 group-hover:text-[#2563EB] transition-colors">{study.title}</h3>
-                    <p className="text-slate-500 text-sm">{study.metric}</p>
+                    <p className="text-[var(--color-text-secondary)] text-sm">{study.metric}</p>
                     
                     <div className="mt-6 inline-flex items-center gap-2 text-xs font-bold text-[#C9A961] opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all">
                       <FileText className="w-3 h-3" /> View Study Details
@@ -369,54 +369,54 @@ export default function Science() {
           <div className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full p-8 md:p-10 animate-in fade-in zoom-in-95 duration-200">
             <button 
               onClick={() => setSelectedStudy(null)}
-              className="absolute top-4 right-4 p-2 bg-slate-100 rounded-full hover:bg-slate-200 text-slate-500 transition-colors"
+              className="absolute top-4 right-4 p-2 bg-[var(--optibio-ivory)] rounded-full hover:bg-[var(--color-bg-section)] text-[var(--color-text-secondary)] transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
 
             <div className="mb-6">
-              <div className="inline-block px-3 py-1 bg-blue-50 text-[#2563EB] text-xs font-bold uppercase tracking-wider rounded-full mb-4">
+              <div className="inline-block px-3 py-1 bg-[var(--color-bg-badge)] text-[var(--color-text-primary)] text-xs font-bold uppercase tracking-wider rounded-full mb-4">
                 Clinical Data
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-[#1E3A5F] mb-2">
                 {(selectedStudy as any).title}: {(selectedStudy as any).percentage}
               </h3>
-              <p className="text-slate-500 font-medium border-l-4 border-[#C9A961] pl-4 italic">
+              <p className="text-[var(--color-text-secondary)] font-medium border-l-4 border-[var(--color-accent-gold)] pl-4 italic">
                 "{(selectedStudy as any).details.title}"
               </p>
             </div>
 
             {/* Study Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-              <div className="p-4 bg-slate-50 rounded-xl">
-                <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase mb-1">
+              <div className="p-4 bg-[var(--optibio-ivory)] rounded-xl">
+                <div className="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-bold uppercase mb-1">
                   <Users className="w-3 h-3" /> Subjects
                 </div>
                 <div className="font-semibold text-[#1E3A5F] text-sm">{(selectedStudy as any).details.participants}</div>
               </div>
-              <div className="p-4 bg-slate-50 rounded-xl">
-                <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase mb-1">
+              <div className="p-4 bg-[var(--optibio-ivory)] rounded-xl">
+                <div className="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-bold uppercase mb-1">
                   <Clock className="w-3 h-3" /> Duration
                 </div>
                 <div className="font-semibold text-[#1E3A5F] text-sm">{(selectedStudy as any).details.duration}</div>
               </div>
-              <div className="p-4 bg-slate-50 rounded-xl">
-                <div className="flex items-center gap-2 text-slate-400 text-xs font-bold uppercase mb-1">
+              <div className="p-4 bg-[var(--optibio-ivory)] rounded-xl">
+                <div className="flex items-center gap-2 text-[var(--color-text-muted)] text-xs font-bold uppercase mb-1">
                   <FlaskConical className="w-3 h-3" /> Dosage
                 </div>
                 <div className="font-semibold text-[#1E3A5F] text-sm">{(selectedStudy as any).details.dosage}</div>
               </div>
             </div>
 
-            <div className="flex items-center justify-between border-t border-slate-100 pt-6">
-              <div className="text-xs text-slate-400">
+            <div className="flex items-center justify-between border-t border-[var(--color-border)] pt-6">
+              <div className="text-xs text-[var(--color-text-muted)]">
                 Statistical Significance: <span className="text-[#1E3A5F] font-bold">{(selectedStudy as any).details.p_value}</span>
               </div>
               <a 
                 href={(selectedStudy as any).link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 text-[#1E3A5F] hover:text-[#2563EB] hover:bg-blue-50 transition-colors"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-[var(--color-border-card)] text-[var(--color-text-primary)] hover:text-[var(--color-btn-primary-bg)] hover:bg-[var(--color-bg-badge)] transition-colors"
               >
                 Read Full Journal <ExternalLink className="w-4 h-4" />
               </a>
@@ -432,7 +432,7 @@ export default function Science() {
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:20px_20px]" />
 
         <div className="container max-w-4xl mx-auto px-6 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-blue-100 text-xs font-bold uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-white/90 text-xs font-bold uppercase tracking-widest mb-6">
             <span className="w-2 h-2 rounded-full bg-[#C9A961] animate-pulse"></span>
             Data-Driven Formulation
           </div>
@@ -442,7 +442,7 @@ export default function Science() {
             <span className="text-[#C9A961]">This is your new baseline.</span>
           </h2>
 
-          <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
             The clinical data confirms what 50,000+ users already know. Start the protocol today and see the change in your own cortisol levels.
           </p>
 
@@ -452,7 +452,7 @@ export default function Science() {
                 trackEvent('click_cta_mid_science');
                 setLocation('/shop');
               }}
-              className="h-14 px-8 bg-white hover:bg-blue-50 text-[#1E3A5F] text-lg rounded-full font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all hover:scale-105"
+              className="h-14 px-8 bg-white hover:bg-[var(--optibio-ivory)] text-[var(--color-text-primary)] text-lg rounded-full font-bold shadow-[0_0_20px_rgba(255,255,255,0.3)] transition-all hover:scale-105"
             >
               Start The Protocol - $49.99
             </button>
@@ -471,7 +471,7 @@ export default function Science() {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold text-[#1E3A5F] mb-4">Comprehensive Health Benefits</h2>
-              <p className="text-slate-600 text-lg">
+              <p className="text-[var(--color-text-secondary)] text-lg">
                 KSM-66® supports multiple aspects of health and wellness through its adaptogenic properties.
               </p>
             </div>
@@ -486,8 +486,8 @@ export default function Science() {
                         <Icon className="w-7 h-7 text-[#1E3A5F]" />
                       </div>
                       <div>
-                        <h3 className="font-bold text-slate-900 mb-2">{benefit.title}</h3>
-                        <p className="text-sm text-slate-600 leading-relaxed">{benefit.description}</p>
+                        <h3 className="font-bold text-[var(--color-text-primary)] mb-2">{benefit.title}</h3>
+                        <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">{benefit.description}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -559,7 +559,7 @@ export default function Science() {
               <h2 className="text-3xl font-bold text-[#1E3A5F]">
                 Experience the Benefits of Research-Backed Ashwagandha
               </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
                 Join thousands who have discovered the power of KSM-66®. Every bottle is backed by science and our 90-day money-back guarantee.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -588,11 +588,11 @@ export default function Science() {
       </section>
 
       {/* References Section */}
-      <section className="py-12 bg-slate-50">
+      <section className="py-12 bg-[var(--color-bg-section)]">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold text-slate-900 mb-4">Scientific References</h3>
-            <div className="space-y-2 text-sm text-slate-600">
+            <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-4">Scientific References</h3>
+            <div className="space-y-2 text-sm text-[var(--color-text-secondary)]">
               <p>1. Chandrasekhar, K., Kapoor, J., & Anishetty, S. (2012). A prospective, randomized double-blind, placebo-controlled study of safety and efficacy of a high-concentration full-spectrum extract of ashwagandha root in reducing stress and anxiety in adults. Indian Journal of Psychological Medicine, 34(3), 255-262.</p>
               <p>2. Choudhary, D., Bhattacharyya, S., & Bose, S. (2017). Efficacy and Safety of Ashwagandha (Withania somnifera (L.) Dunal) Root Extract in Improving Memory and Cognitive Functions. Journal of Dietary Supplements, 14(6), 599-612.</p>
               <p>3. Deshpande, A., Irani, N., Balkrishnan, R., & Benny, I. R. (2020). A randomized, double blind, placebo controlled study to evaluate the effects of ashwagandha (Withania somnifera) extract on sleep quality in healthy adults. Sleep Medicine, 72, 28-36.</p>

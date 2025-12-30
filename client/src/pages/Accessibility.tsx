@@ -26,23 +26,23 @@ export default function Accessibility() {
         </div>
         <div className="container relative z-10">
           <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2 h-6">
-            <a href="/" className="text-slate-500 hover:text-[#1E3A5F] transition-colors leading-none flex items-center">
+            <a href="/" className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors leading-none flex items-center">
               Home
             </a>
-            <ChevronRight className="w-4 h-4 text-slate-400 flex-shrink-0" />
+            <ChevronRight className="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0" />
             <span className="text-[#1E3A5F] font-bold leading-none flex items-center">
               Accessibility
             </span>
           </nav>
           <div className="max-w-3xl">
-            <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 border-0 shadow-gold">
+            <Badge className="mb-4 px-5 py-2 bg-gradient-to-r from-[var(--color-accent-gold)] to-[var(--optibio-ivory)]0 text-[var(--color-text-primary)] border-0 shadow-gold">
               <AccessibilityIcon className="w-4 h-4 mr-2" />
               <span className="font-bold">WCAG 2.1 AA Compliant</span>
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1E3A5F]">
               Accessibility Statement
             </h1>
-            <p className="text-lg text-slate-600">
+            <p className="text-lg text-[var(--color-text-secondary)]">
               Optibio is committed to ensuring digital accessibility for people with disabilities. We continually improve the user experience for everyone and apply relevant accessibility standards.
             </p>
           </div>
@@ -203,10 +203,10 @@ export default function Accessibility() {
                   Our website is optimized for accessibility in the following browsers (latest versions):
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
-                  <div className="p-2 bg-slate-50 rounded border text-center">Chrome</div>
-                  <div className="p-2 bg-slate-50 rounded border text-center">Firefox</div>
-                  <div className="p-2 bg-slate-50 rounded border text-center">Safari</div>
-                  <div className="p-2 bg-slate-50 rounded border text-center">Edge</div>
+                  <div className="p-2 bg-[var(--optibio-ivory)] rounded border text-center">Chrome</div>
+                  <div className="p-2 bg-[var(--optibio-ivory)] rounded border text-center">Firefox</div>
+                  <div className="p-2 bg-[var(--optibio-ivory)] rounded border text-center">Safari</div>
+                  <div className="p-2 bg-[var(--optibio-ivory)] rounded border text-center">Edge</div>
                 </div>
               </div>
             </CardContent>
@@ -247,7 +247,7 @@ export default function Accessibility() {
               </div>
 
               <div className="p-4 bg-[#F7F4EF] border border-[#C9A961]/20 rounded-lg">
-                <p className="text-sm text-slate-700">
+                <p className="text-sm text-[var(--color-text-secondary)]">
                   <strong>Response Time:</strong> We aim to respond to accessibility feedback within 2 business days. For urgent accessibility issues, please indicate "Urgent" in your subject line.
                 </p>
               </div>
