@@ -50,8 +50,8 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 dark:bg-[#1E3A5F]/90 backdrop-blur-md shadow-md border-b border-slate-100 dark:border-[#2D4A77]"
-          : "bg-white/80 dark:bg-[#1E3A5F]/90 backdrop-blur-md border-b border-slate-100 dark:border-[#2D4A77]"
+          ? "bg-white/80 dark:bg-[#0B1120]/95 backdrop-blur-md shadow-md border-b border-slate-100 dark:border-[#2D4A77]"
+          : "bg-white/80 dark:bg-[#0B1120]/95 backdrop-blur-md border-b border-slate-100 dark:border-[#2D4A77]"
       }`}
     >
       <div className="container mx-auto px-6">

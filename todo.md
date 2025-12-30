@@ -450,3 +450,20 @@ Implement sophisticated dark mode with spinning/morphing Sun→Moon animation, A
 - [x] Add smooth 500ms color transitions to all elements
 - [x] Integrate toggle into Header component
 - [x] Test dark mode across all pages
+
+## 🌙 DARK MODE POLISH - Deep Luxury Look (Dec 30, 2025)
+
+### Issue: Contrast Problems in Dark Mode
+The deep dark background looks great but has 3 contrast issues that break the "Night Mode" vibe.
+
+### Fix 1: Sticky Buy Bar (Bottom of Screen)
+- [x] Change from white (bg-white) to Brand Navy (dark:bg-[#1E3A5F])
+- [x] Ensure product name text turns white in dark mode
+
+### Fix 2: Trust Icons (Top of Footer)
+- [x] Change icons from dark blue to Luminous Gold (#D4AF37)
+- [x] Icons (Shield, Truck, Lock, etc.) need to be visible against dark background
+
+### Fix 3: Header in Dark Mode
+- [x] Ensure header turns Abyssal Navy (#0B1120) in dark mode
+- [x] Match top and bottom of site for seamless dark mode experience

@@ -8,33 +8,33 @@ export default function Footer() {
   return (
     <footer className="bg-muted/30 dark:bg-[#1E3A5F] border-t dark:border-t-white/10">
       {/* Trust Badges Bar */}
-      <div className="border-b dark:border-b-white/10 bg-background/50 dark:bg-[#1E3A5F]">
+      <div className="border-b dark:border-b-white/10 bg-background/50 dark:bg-[#0B1120]">
         <div className="container py-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             <div className="flex flex-col items-center text-center space-y-2">
               <Shield className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
               <p className="text-sm font-medium dark:text-white">Third-Party Tested</p>
-              <p className="text-xs text-muted-foreground">Quality Guaranteed</p>
+              <p className="text-xs text-muted-foreground dark:text-slate-400">Quality Guaranteed</p>
             </div>
             <div className="flex flex-col items-center text-center space-y-2">
               <Truck className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
               <p className="text-sm font-medium dark:text-white">Free Shipping</p>
-              <p className="text-xs text-muted-foreground">Orders Over $75</p>
+              <p className="text-xs text-muted-foreground dark:text-slate-400">Orders Over $75</p>
             </div>
             <div className="flex flex-col items-center text-center space-y-2">
               <Award className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
               <p className="text-sm font-medium dark:text-white">Made in USA</p>
-              <p className="text-xs text-muted-foreground">GMP Certified</p>
+              <p className="text-xs text-muted-foreground dark:text-slate-400">GMP Certified</p>
             </div>
             <div className="flex flex-col items-center text-center space-y-2">
               <Lock className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
               <p className="text-sm font-medium dark:text-white">Secure Checkout</p>
-              <p className="text-xs text-muted-foreground">256-bit SSL</p>
+              <p className="text-xs text-muted-foreground dark:text-slate-400">256-bit SSL</p>
             </div>
             <Link href="/accessibility" className="flex flex-col items-center text-center space-y-2 hover:opacity-80 transition-opacity">
               <Accessibility className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
               <p className="text-sm font-medium dark:text-white">WCAG 2.1 AA</p>
-              <p className="text-xs text-muted-foreground">Accessible Design</p>
+              <p className="text-xs text-muted-foreground dark:text-slate-400">Accessible Design</p>
             </Link>
           </div>
         </div>

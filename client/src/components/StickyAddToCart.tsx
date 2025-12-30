@@ -95,7 +95,7 @@ export default function StickyAddToCart({
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-border shadow-lg animate-slide-up"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#1E3A5F] border-t border-border dark:border-[#2D4A77] shadow-lg dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] animate-slide-up transition-colors duration-300"
       style={{
         animation: "slideUp 0.3s ease-out",
       }}
@@ -110,8 +110,8 @@ export default function StickyAddToCart({
               className="w-12 h-12 object-cover rounded-md border border-border flex-shrink-0"
             />
             <div className="min-w-0 flex-1">
-              <h3 className="font-semibold text-sm truncate">{productName}</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 className="font-semibold text-sm truncate text-slate-900 dark:text-white">{productName}</h3>
+              <p className="text-sm text-muted-foreground dark:text-slate-300">
                 ${price.toFixed(2)} / bottle
               </p>
             </div>
@@ -128,7 +128,7 @@ export default function StickyAddToCart({
             >
               <Minus className="h-4 w-4" />
             </Button>
-            <span className="w-8 text-center font-medium">{quantity}</span>
+            <span className="w-8 text-center font-medium text-slate-900 dark:text-white">{quantity}</span>
             <Button
               variant="outline"
               size="icon"
