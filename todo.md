@@ -125,6 +125,47 @@ Page is almost entirely Warm Ivory (#F7F4EF), making it look like a spa/candle s
 - [x] Schema markup (Product + FAQ)
 - [x] Sitemap and robots.txt
 
+## 🌙 DARK MODE SECTION MAPPING (December 29, 2025)
+
+### Section 1: Hero Section (Buy Box)
+- [x] Background: Change from Gradient Blue to Abyssal Navy (#0B1120)
+- [x] Buy Box Card: Change from White to Deep Brand Navy (#1E3A5F)
+- [x] Buy Box Border: Change to Navy-700 (#2D4A77)
+- [x] Headline: Change to White
+- [x] Price ($49.99): Change to Luminous Gold (#D4AF37)
+- [x] ATC Button: Add Gold Border (border-[#D4AF37])
+
+### Section 2: Scientifically Backed Benefits (Grid)
+- [x] Background: Abyssal Navy (#0B1120)
+- [x] Grid Cards: Change from White to Deep Brand Navy (#1E3A5F)
+- [x] Card Headlines: Flip to White
+- [x] Card Body Text: Sky Grey (#94A3B8)
+
+### Section 3: 90-Day Money-Back Guarantee Strip
+- [x] Background: Lighter Navy (#24426A) OR add Gold borders
+- [x] Add Gold Top/Bottom Border (border-y border-[#D4AF37]/30)
+- [x] Icons (shield): Ensure Gold (#D4AF37)
+
+### Section 4: Why KSM-66 Section
+- [x] Background: Abyssal Navy (#0B1120)
+- [x] Headline: White
+- [x] Checkmarks: Luminous Gold (#D4AF37)
+
+### Section 5: Who This Is For (Comparison Cards)
+- [x] Cards: Change from White to Deep Brand Navy (#1E3A5F)
+- [x] Text: Flip Navy text to White
+- [x] Check Icons: Green-400
+- [x] X Icons: Red-400
+
+### Section 6: Trusted by Thousands (Reviews)
+- [x] Background: Dark Slate (#0F172A) - NOT Abyssal
+- [x] Review Cards: Deep Brand Navy (#1E3A5F)
+- [x] Stars: Luminous Gold (#D4AF37)
+
+### Section 7: Footer
+- [x] Background: Keep Deep Brand Navy (#1E3A5F)
+- [x] Add White/10 border line (border-t border-white/10)
+
 ## 📋 NEXT PRIORITIES
 
 ### Short-Term (Next Week)

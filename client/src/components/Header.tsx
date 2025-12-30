@@ -50,8 +50,8 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-md shadow-md border-b border-slate-100"
-          : "bg-white/80 backdrop-blur-md border-b border-slate-100"
+          ? "bg-white/80 dark:bg-[#1E3A5F]/90 backdrop-blur-md shadow-md border-b border-slate-100 dark:border-[#2D4A77]"
+          : "bg-white/80 dark:bg-[#1E3A5F]/90 backdrop-blur-md border-b border-slate-100 dark:border-[#2D4A77]"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -75,7 +75,7 @@ export default function Header() {
               <Link 
                 key={item.name} 
                 href={item.href} 
-                className="text-sm font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors uppercase tracking-wide"
+                className="text-sm font-bold text-[#1E3A5F] dark:text-white hover:text-[#2563EB] dark:hover:text-[#D4AF37] transition-colors uppercase tracking-wide"
               >
                 {item.name}
               </Link>
@@ -88,7 +88,7 @@ export default function Header() {
             {isAuthenticated ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="hidden md:flex items-center gap-2 text-sm font-bold text-[#1E3A5F]">
+                  <Button variant="ghost" className="hidden md:flex items-center gap-2 text-sm font-bold text-[#1E3A5F] dark:text-white">
                     <User className="h-5 w-5" />
                     <span>{user?.name || "Account"}</span>
                     <ChevronDown className="h-4 w-4" />
@@ -125,7 +125,7 @@ export default function Header() {
             ) : (
               <a
                 href={getLoginUrl()}
-                className="hidden md:flex items-center gap-2 text-sm font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors"
+                className="hidden md:flex items-center gap-2 text-sm font-bold text-[#1E3A5F] dark:text-white hover:text-[#2563EB] dark:hover:text-[#D4AF37] transition-colors"
               >
                 <User className="h-5 w-5" />
                 <span>Sign In</span>
@@ -136,7 +136,7 @@ export default function Header() {
             <ThemeToggle />
 
             {/* Cart - Mobile Optimized Touch Target */}
-            <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full transition-colors hover:bg-accent text-[#1E3A5F]">
+            <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full transition-colors hover:bg-accent text-[#1E3A5F] dark:text-white">
               <ShoppingCart className="h-5 w-5" />
               {cartItemCount > 0 && (
                 <span className="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-[#C9A961] rounded-full border-2 border-white">
@@ -151,7 +151,7 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden h-11 w-11 text-[#1E3A5F]"
+                  className="md:hidden h-11 w-11 text-[#1E3A5F] dark:text-white"
                   aria-label="Open menu"
                 >
                   <Menu className="h-6 w-6" />

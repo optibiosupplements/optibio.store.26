@@ -120,7 +120,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-[radial-gradient(50%_50%_at_50%_50%,_#F8FCFE_0%,_#EBF5FB_50%,_#D6EAF8_100%)] transition-colors duration-500">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-[radial-gradient(50%_50%_at_50%_50%,_#F8FCFE_0%,_#EBF5FB_50%,_#D6EAF8_100%)] dark:bg-[#0B1120] transition-colors duration-500">
         {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
@@ -135,7 +135,7 @@ export default function Home() {
                   Science-Backed • Third-Party Tested
                 </Badge>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-[#1E3A5F]">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-[#1E3A5F] dark:text-white">
                   Feel Like{" "}
                   <span className="text-gradient-optibio">
                     Yourself
@@ -162,7 +162,7 @@ export default function Home() {
               </div>
 
               {/* Pricing & Urgency - Mobile Optimized */}
-              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl transition-colors duration-500">
+              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 dark:from-[#1E3A5F] dark:to-[#1E3A5F] backdrop-blur-sm border-2 border-[#C9A961]/40 dark:border-[#2D4A77] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl transition-colors duration-500">
                 {/* Countdown Timer - P0 FIX: Add urgency above fold */}
                 <CountdownTimer 
                   targetDate={new Date('2026-01-20T23:59:59')} 
@@ -170,7 +170,7 @@ export default function Home() {
                 />
                 
                 <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-3">
-                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-[#D4AF37]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
                   <span className="text-xl sm:text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
                   <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1.5 shadow-md">
                     Save 46%
@@ -189,7 +189,7 @@ export default function Home() {
                 <Link href="/product/ashwagandha-ksm-66" className="block">
                   <Button 
                     size="lg" 
-                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-[#2563EB] hover:bg-[#1D4ED8] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-[#1E3A5F] dark:hover:bg-[#24426A] dark:border dark:border-[#D4AF37] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                   >
                     Pre-Order Now - Save 46%
                     <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
@@ -254,17 +254,17 @@ export default function Home() {
       </section>
 
       {/* Scientifically-Backed Benefits */}
-      <section className="py-24 bg-white transition-colors duration-500">
+      <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
+            <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] dark:text-[#D4AF37] border-[#C9A961]/30">
               <Leaf className="w-3.5 h-3.5 mr-1.5" />
               Clinically Validated
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F] dark:text-white">
               Scientifically-Backed Benefits
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground dark:text-[#94A3B8]">
               KSM-66 is the most clinically studied ashwagandha extract, with research demonstrating significant benefits across multiple health markers.
             </p>
           </div>
@@ -280,7 +280,7 @@ export default function Home() {
               return (
                 <Card 
                   key={i} 
-                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-[#C9A961]/20 hover:border-[#C9A961]/40 cursor-pointer overflow-hidden border-t-4 border-t-[#C9A961] scroll-fade-in"
+                  className="group hover:shadow-2xl transition-all duration-300 border-2 border-[#C9A961]/20 hover:border-[#C9A961]/40 dark:bg-[#1E3A5F] dark:border-[#2D4A77] cursor-pointer overflow-hidden border-t-4 border-t-[#C9A961] scroll-fade-in"
                 >
                   <div className="relative h-64 overflow-hidden">
                     <img 
@@ -298,8 +298,8 @@ export default function Home() {
                       </h3>
                     </div>
                   </div>
-                  <CardContent className="p-6 bg-white shadow-md">
-                    <p className="text-slate-700 leading-relaxed">
+                  <CardContent className="p-6 bg-white dark:bg-[#1E3A5F] shadow-md">
+                    <p className="text-slate-700 dark:text-[#94A3B8] leading-relaxed">
                       {benefit.description}
                     </p>
                   </CardContent>
@@ -311,13 +311,13 @@ export default function Home() {
       </section>
 
       {/* 90-Day Money-Back Guarantee - PROMINENT */}
-      <section className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#152B45] relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#152B45] dark:from-[#24426A] dark:to-[#1E3A5F] dark:border-y dark:border-[#D4AF37]/30 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-8">
-              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] flex items-center justify-center shadow-2xl">
-                <Shield className="w-12 h-12 text-[#1E3A5F]" />
+              <div className="w-24 h-24 mx-auto mb-6 rounded-full bg-gradient-to-br from-[#C9A961] to-[#B89651] dark:from-[#D4AF37] dark:to-[#C9A961] flex items-center justify-center shadow-2xl">
+                <Shield className="w-12 h-12 text-[#1E3A5F] dark:text-[#0B1120]" />
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                 90-Day Money-Back Guarantee
@@ -377,7 +377,7 @@ export default function Home() {
       </section>
 
       {/* Why KSM-66 Specifically */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-[#0B1120]">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Image */}
@@ -392,13 +392,13 @@ export default function Home() {
             {/* Right - Content */}
             <div className="space-y-8">
               <div className="space-y-4">
-                <Badge variant="secondary" className="bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
+                <Badge variant="secondary" className="bg-[#C9A961]/10 text-[#1E3A5F] dark:text-[#D4AF37] border-[#C9A961]/30">
                   Premium Quality
                 </Badge>
-                <h2 className="text-4xl md:text-5xl font-bold">
+                <h2 className="text-4xl md:text-5xl font-bold dark:text-white">
                   Why KSM-66® Specifically?
                 </h2>
-                <p className="text-xl text-slate-600 leading-relaxed">
+                <p className="text-xl text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                   Not all ashwagandha is created equal. KSM-66 represents the pinnacle of ashwagandha supplementation—here's why it matters.
                 </p>
               </div>
@@ -406,14 +406,14 @@ export default function Home() {
               <div className="space-y-6">
                 {whyKSM66.map((item, i) => (
                   <div key={i} className="flex gap-4 group">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#C9A961] flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#C9A961] dark:from-[#D4AF37] dark:to-[#C9A961] flex items-center justify-center text-white dark:text-[#0B1120] font-bold text-sm group-hover:scale-110 transition-transform duration-300">
                       {i + 1}
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-slate-900 mb-1">
+                      <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1">
                         {item.title}
                       </h3>
-                      <p className="text-slate-600">
+                      <p className="text-slate-600 dark:text-[#94A3B8]">
                         {item.description}
                       </p>
                     </div>
@@ -437,44 +437,44 @@ export default function Home() {
       </section>
 
       {/* How It Works - Timeline */}
-      <section className="py-24 bg-[#F0F9FF] border-t border-slate-100">
+      <section className="py-24 bg-[#F0F9FF] dark:bg-[#0B1120] border-t border-slate-100 dark:border-[#2D4A77]">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#1E3A5F] dark:text-white mb-4">
               What to Expect: The Timeline
             </h2>
-            <p className="text-slate-500 text-lg">
+            <p className="text-slate-500 dark:text-[#94A3B8] text-lg">
               Clinical results accumulate over time. Consistency is the key to the protocol.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-2xl bg-blue-50/50 border border-blue-100 hover:border-blue-200 transition-all hover:-translate-y-1">
-              <div className="text-xs font-extrabold text-[#2563EB] uppercase tracking-widest mb-3 bg-white inline-block px-3 py-1 rounded-full border border-blue-100">
+            <div className="p-8 rounded-2xl bg-blue-50/50 dark:bg-[#1E3A5F] border border-blue-100 dark:border-[#2D4A77] hover:border-blue-200 dark:hover:border-[#D4AF37]/50 transition-all hover:-translate-y-1">
+              <div className="text-xs font-extrabold text-[#2563EB] dark:text-[#D4AF37] uppercase tracking-widest mb-3 bg-white dark:bg-[#0B1120] inline-block px-3 py-1 rounded-full border border-blue-100 dark:border-[#2D4A77]">
                 Week 1
               </div>
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Calm & Clarity</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-[#1E3A5F] dark:text-white mb-3">Calm & Clarity</h3>
+              <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                 Cortisol levels begin to stabilize. You may notice easier sleep onset and reduced morning grogginess.
               </p>
             </div>
 
-            <div className="p-8 rounded-2xl bg-blue-50/50 border border-blue-100 hover:border-blue-200 transition-all hover:-translate-y-1">
-              <div className="text-xs font-extrabold text-[#2563EB] uppercase tracking-widest mb-3 bg-white inline-block px-3 py-1 rounded-full border border-blue-100">
+            <div className="p-8 rounded-2xl bg-blue-50/50 dark:bg-[#1E3A5F] border border-blue-100 dark:border-[#2D4A77] hover:border-blue-200 dark:hover:border-[#D4AF37]/50 transition-all hover:-translate-y-1">
+              <div className="text-xs font-extrabold text-[#2563EB] dark:text-[#D4AF37] uppercase tracking-widest mb-3 bg-white dark:bg-[#0B1120] inline-block px-3 py-1 rounded-full border border-blue-100 dark:border-[#2D4A77]">
                 Week 4
               </div>
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Deep Restoration</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-[#1E3A5F] dark:text-white mb-3">Deep Restoration</h3>
+              <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                 Full clinical saturation. Users report significantly improved sleep quality and reduced daytime fatigue.
               </p>
             </div>
 
-            <div className="p-8 rounded-2xl bg-blue-50/50 border border-blue-100 hover:border-blue-200 transition-all hover:-translate-y-1">
-              <div className="text-xs font-extrabold text-[#2563EB] uppercase tracking-widest mb-3 bg-white inline-block px-3 py-1 rounded-full border border-blue-100">
+            <div className="p-8 rounded-2xl bg-blue-50/50 dark:bg-[#1E3A5F] border border-blue-100 dark:border-[#2D4A77] hover:border-blue-200 dark:hover:border-[#D4AF37]/50 transition-all hover:-translate-y-1">
+              <div className="text-xs font-extrabold text-[#2563EB] dark:text-[#D4AF37] uppercase tracking-widest mb-3 bg-white dark:bg-[#0B1120] inline-block px-3 py-1 rounded-full border border-blue-100 dark:border-[#2D4A77]">
                 Week 8+
               </div>
-              <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Optimized Performance</h3>
-              <p className="text-slate-600 leading-relaxed">
+              <h3 className="text-xl font-bold text-[#1E3A5F] dark:text-white mb-3">Optimized Performance</h3>
+              <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                 Sustained stress resilience. Peak cognitive function and energy levels are restored.
               </p>
             </div>
@@ -487,95 +487,95 @@ export default function Home() {
       <WellnessPlanPersonalizer />
 
       {/* Who This Is For - Qualification Section */}
-      <section className="py-24 bg-white transition-colors duration-500">
+      <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
+              <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] dark:text-[#D4AF37] border-[#C9A961]/30">
                 Is This Right for You?
               </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F] dark:text-white">
                 Who This Is For (And Who It's Not)
               </h2>
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-muted-foreground dark:text-[#94A3B8]">
                 Optibio works best for people dealing with specific challenges. Here's how to know if it's right for you.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* This IS for you */}
-              <Card className="border-2 border-[#C9A961]/30 bg-gradient-to-br frobg-[#F7F4EF]50 to-white">
+              <Card className="border-2 border-[#C9A961]/30 dark:border-[#2D4A77] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#1E3A5F] dark:to-[#1E3A5F]">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-[#C9A961]/10 flex items-center justify-center">
-                      <CheckCircle2 className="w-7 h-7 text-[#C9A961]" />
+                    <div className="w-12 h-12 rounded-full bg-[#C9A961]/10 dark:bg-green-500/20 flex items-center justify-center">
+                      <CheckCircle2 className="w-7 h-7 text-[#C9A961] dark:text-green-400" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900">This IS for you if:</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">This IS for you if:</h3>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
-                      <p className="text-slate-700">You're dealing with <strong>chronic stress</strong> from work, family, or life transitions</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-white">You're dealing with <strong>chronic stress</strong> from work, family, or life transitions</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
-                      <p className="text-slate-700">You struggle with <strong>racing thoughts</strong> or difficulty falling asleep</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-white">You struggle with <strong>racing thoughts</strong> or difficulty falling asleep</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
-                      <p className="text-slate-700">You feel <strong>mentally foggy</strong> or can't focus like you used to</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-white">You feel <strong>mentally foggy</strong> or can't focus like you used to</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
-                      <p className="text-slate-700">You're <strong>exhausted but wired</strong>—tired all day, restless at night</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-white">You're <strong>exhausted but wired</strong>—tired all day, restless at night</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
-                      <p className="text-slate-700">You want a <strong>science-backed solution</strong>, not just "wellness hype"</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-white">You want a <strong>science-backed solution</strong>, not just "wellness hype"</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-1" />
-                      <p className="text-slate-700">You're willing to <strong>commit to 8-12 weeks</strong> for real results</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-white">You're willing to <strong>commit to 8-12 weeks</strong> for real results</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
               {/* This is NOT for you */}
-              <Card className="border-2 border-[#C9A961]/20 bg-gradient-to-br from-[#F7F4EF]/50 to-white">
+              <Card className="border-2 border-[#C9A961]/20 dark:border-[#2D4A77] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#1E3A5F] dark:to-[#1E3A5F]">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-slate-600">✕</span>
+                    <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-red-500/20 flex items-center justify-center">
+                      <span className="text-2xl font-bold text-slate-600 dark:text-red-400">✕</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900">This is NOT for you if:</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">This is NOT for you if:</h3>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600">You're looking for <strong>instant energy</strong> or a caffeine replacement</p>
+                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-white">You're looking for <strong>instant energy</strong> or a caffeine replacement</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600">You want <strong>overnight results</strong> (adaptogens take time to work)</p>
+                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-white">You want <strong>overnight results</strong> (adaptogens take time to work)</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600">You're not willing to <strong>take it consistently</strong> for at least a month</p>
+                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-white">You're not willing to <strong>take it consistently</strong> for at least a month</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600">You're pregnant, nursing, or have a <strong>thyroid condition</strong> (consult your doctor first)</p>
+                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-white">You're pregnant, nursing, or have a <strong>thyroid condition</strong> (consult your doctor first)</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600">You prefer <strong>cheap supplements</strong> over premium, tested quality</p>
+                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-white">You prefer <strong>cheap supplements</strong> over premium, tested quality</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600">You're looking for a <strong>magic pill</strong> instead of a wellness tool</p>
+                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-white">You're looking for a <strong>magic pill</strong> instead of a wellness tool</p>
                     </div>
                   </div>
                 </CardContent>
@@ -583,8 +583,8 @@ export default function Home() {
             </div>
 
             <div className="mt-12 text-center">
-              <div className="bg-[#F7F4EF] border-2 border-[#C9A961]/30 rounded-2xl p-8 max-w-2xl mx-auto">
-                <p className="text-lg text-slate-700 leading-relaxed">
+              <div className="bg-[#F7F4EF] dark:bg-[#1E3A5F] border-2 border-[#C9A961]/30 dark:border-[#2D4A77] rounded-2xl p-8 max-w-2xl mx-auto">
+                <p className="text-lg text-slate-700 dark:text-white leading-relaxed">
                   <strong className="text-[#1E3A5F]">Still not sure?</strong> That's okay. We offer a <strong className="text-[#1E3A5F]">90-day money-back guarantee</strong>. Try it for 12 weeks. If you don't feel calmer, more focused, and better rested, we'll refund every penny. No questions asked.
                 </p>
                 <Link href="/shop">
@@ -612,13 +612,13 @@ export default function Home() {
 
       {/* Featured Product */}
       {mainProduct && (
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-white dark:bg-[#0B1120]">
           <div className="container">
             <div className="max-w-5xl mx-auto">
-              <Card className="overflow-hidden border-2 shadow-2xl">
+              <Card className="overflow-hidden border-2 dark:border-[#2D4A77] shadow-2xl dark:bg-[#1E3A5F]">
                 <div className="grid md:grid-cols-2">
                   {/* Product Image */}
-                  <div className="bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] p-12 flex items-center justify-center">
+                  <div className="bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] dark:from-[#0B1120] dark:to-[#1E3A5F] p-12 flex items-center justify-center">
                     <img 
                       src={mainProduct.imageUrl || "/products/optibio-90cap-bottle-front.jpg"}
                       alt={`${mainProduct.name} - Premium KSM-66 Ashwagandha supplement for stress relief, sleep support, and natural energy`}
@@ -632,16 +632,16 @@ export default function Home() {
                       <Badge className="bg-gradient-to-r from-[#1E3A5F] to-[#C9A961]">
                         Best Seller
                       </Badge>
-                      <h3 className="text-3xl font-bold text-slate-900">
+                      <h3 className="text-3xl font-bold text-slate-900 dark:text-white">
                         {mainProduct.name}
                       </h3>
-                      <p className="text-lg text-slate-600 leading-relaxed">
+                      <p className="text-lg text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                         Premium full-spectrum Ashwagandha root extract standardized to 5% withanolides. Clinically studied KSM-66® formula for stress management, mental clarity, and overall wellness.
                       </p>
                     </div>
 
                     <div className="flex items-baseline gap-3">
-                      <div className="text-4xl font-bold text-slate-900">
+                      <div className="text-4xl font-bold text-slate-900 dark:text-[#D4AF37]">
                         {formatPrice(mainProduct.priceInCents)}
                       </div>
                       {mainProduct.compareAtPriceInCents && (
@@ -655,15 +655,15 @@ export default function Home() {
                     </div>
 
                     <div className="space-y-3">
-                      <div className="flex items-center gap-2 text-slate-700">
+                      <div className="flex items-center gap-2 text-slate-700 dark:text-white">
                         <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                         <span>90 capsules - 45-day supply</span>
                       </div>
-                      <div className="flex items-center gap-2 text-slate-700">
+                      <div className="flex items-center gap-2 text-slate-700 dark:text-white">
                         <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                         <span>300mg per capsule (600mg clinical dose with 2 capsules)</span>
                       </div>
-                      <div className="flex items-center gap-2 text-slate-700">
+                      <div className="flex items-center gap-2 text-slate-700 dark:text-white">
                         <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
                         <span>60-day money-back guarantee</span>
                       </div>
@@ -687,33 +687,33 @@ export default function Home() {
       )}
 
       {/* Testimonials */}
-      <section className="py-24 bg-[#F7F4EF]">
+      <section className="py-24 bg-[#F7F4EF] dark:bg-[#0F172A]">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F] dark:text-white">
               Trusted by Thousands
             </h2>
-            <p className="text-xl text-slate-600">
+            <p className="text-xl text-slate-600 dark:text-[#94A3B8]">
               See what our customers are saying about their Optibio experience
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, i) => (
-              <Card key={i} className="bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-slate-200">
+              <Card key={i} className="bg-white dark:bg-[#1E3A5F] shadow-md hover:shadow-lg transition-all duration-300 border border-slate-200 dark:border-[#2D4A77]">
                 <CardContent className="p-8 space-y-4">
-                  <div className="flex items-center gap-1 text-[#FFD700]">
+                  <div className="flex items-center gap-1 text-[#FFD700] dark:text-[#D4AF37]">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <Star key={i} className="w-5 h-5 fill-current" />
                     ))}
                   </div>
-                  <p className="text-slate-700 leading-relaxed">
+                  <p className="text-slate-700 dark:text-[#94A3B8] leading-relaxed">
                     "{testimonial.text}"
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-200">
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-[#2D4A77]">
                     <div>
-                      <div className="font-bold text-[#1E3A5F]">{testimonial.name}</div>
-                      <div className="text-sm text-slate-600">{testimonial.role}</div>
+                      <div className="font-bold text-[#1E3A5F] dark:text-white">{testimonial.name}</div>
+                      <div className="text-sm text-slate-600 dark:text-[#94A3B8]">{testimonial.role}</div>
                     </div>
                     {testimonial.verified && (
                       <Badge variant="secondary" className="bg-green-100 text-green-700 border-green-200">
@@ -730,13 +730,13 @@ export default function Home() {
       </section>
 
       {/* Quality Certifications */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-[#0B1120]">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F] dark:text-white">
               Quality You Can Trust
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground dark:text-[#94A3B8]">
               Every bottle meets the highest standards of purity, potency, and safety
             </p>
           </div>
@@ -745,15 +745,15 @@ export default function Home() {
             {certifications.map((cert, i) => (
               <div 
                 key={i} 
-                className="text-center space-y-4 p-8 rounded-2xl hover:bg-slate-50 transition-colors duration-300"
+                className="text-center space-y-4 p-8 rounded-2xl hover:bg-slate-50 dark:hover:bg-[#1E3A5F] transition-colors duration-300"
               >
-                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-[#C9A961]/10 flex items-center justify-center mx-auto">
-                  <cert.icon className="w-8 h-8 text-[#1E3A5F]" />
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-[#C9A961]/10 dark:from-[#D4AF37]/20 dark:to-[#C9A961]/20 flex items-center justify-center mx-auto">
+                  <cert.icon className="w-8 h-8 text-[#1E3A5F] dark:text-[#D4AF37]" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">
                   {cert.text}
                 </h3>
-                <p className="text-slate-600">
+                <p className="text-slate-600 dark:text-[#94A3B8]">
                   {cert.desc}
                 </p>
               </div>

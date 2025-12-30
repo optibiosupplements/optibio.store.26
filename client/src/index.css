@@ -380,6 +380,35 @@ html {
     color: #C9A961;
   }
   
+  /* Dark Mode Section Colors */
+  .bg-abyssal {
+    background-color: #0B1120;
+  }
+  
+  .bg-dark-slate {
+    background-color: #0F172A;
+  }
+  
+  .bg-navy-brand {
+    background-color: #1E3A5F;
+  }
+  
+  .bg-navy-lighter {
+    background-color: #24426A;
+  }
+  
+  .text-luminous-gold {
+    color: #D4AF37;
+  }
+  
+  .text-sky-grey {
+    color: #94A3B8;
+  }
+  
+  .border-navy-700 {
+    border-color: #2D4A77;
+  }
+  
   .shadow-ivory {
     box-shadow: 0 4px 20px rgba(247, 244, 239, 0.3);
   }

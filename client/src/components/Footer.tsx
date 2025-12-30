@@ -6,34 +6,34 @@ import { Shield, Truck, Award, Lock, Facebook, Instagram, Twitter, Accessibility
 
 export default function Footer() {
   return (
-    <footer className="bg-muted/30 border-t">
+    <footer className="bg-muted/30 dark:bg-[#1E3A5F] border-t dark:border-t-white/10">
       {/* Trust Badges Bar */}
-      <div className="border-b bg-background/50">
+      <div className="border-b dark:border-b-white/10 bg-background/50 dark:bg-[#1E3A5F]">
         <div className="container py-8">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             <div className="flex flex-col items-center text-center space-y-2">
-              <Shield className="h-8 w-8 text-primary" />
-              <p className="text-sm font-medium">Third-Party Tested</p>
+              <Shield className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
+              <p className="text-sm font-medium dark:text-white">Third-Party Tested</p>
               <p className="text-xs text-muted-foreground">Quality Guaranteed</p>
             </div>
             <div className="flex flex-col items-center text-center space-y-2">
-              <Truck className="h-8 w-8 text-primary" />
-              <p className="text-sm font-medium">Free Shipping</p>
+              <Truck className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
+              <p className="text-sm font-medium dark:text-white">Free Shipping</p>
               <p className="text-xs text-muted-foreground">Orders Over $75</p>
             </div>
             <div className="flex flex-col items-center text-center space-y-2">
-              <Award className="h-8 w-8 text-primary" />
-              <p className="text-sm font-medium">Made in USA</p>
+              <Award className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
+              <p className="text-sm font-medium dark:text-white">Made in USA</p>
               <p className="text-xs text-muted-foreground">GMP Certified</p>
             </div>
             <div className="flex flex-col items-center text-center space-y-2">
-              <Lock className="h-8 w-8 text-primary" />
-              <p className="text-sm font-medium">Secure Checkout</p>
+              <Lock className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
+              <p className="text-sm font-medium dark:text-white">Secure Checkout</p>
               <p className="text-xs text-muted-foreground">256-bit SSL</p>
             </div>
             <Link href="/accessibility" className="flex flex-col items-center text-center space-y-2 hover:opacity-80 transition-opacity">
-              <Accessibility className="h-8 w-8 text-primary" />
-              <p className="text-sm font-medium">WCAG 2.1 AA</p>
+              <Accessibility className="h-8 w-8 text-primary dark:text-[#D4AF37]" />
+              <p className="text-sm font-medium dark:text-white">WCAG 2.1 AA</p>
               <p className="text-xs text-muted-foreground">Accessible Design</p>
             </Link>
           </div>
@@ -69,7 +69,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-semibold mb-4">Shop</h3>
+            <h3 className="font-semibold mb-4 dark:text-white">Shop</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/shop" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -91,7 +91,7 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h3 className="font-semibold mb-4">Support</h3>
+            <h3 className="font-semibold mb-4 dark:text-white">Support</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -118,7 +118,7 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className="font-semibold mb-4">Stay Updated</h3>
+            <h3 className="font-semibold mb-4 dark:text-white">Stay Updated</h3>
             <p className="text-sm text-muted-foreground mb-4">
               Get exclusive offers and wellness tips
             </p>
@@ -140,7 +140,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t">
+      <div className="border-t dark:border-t-white/10">
         <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-muted-foreground">
