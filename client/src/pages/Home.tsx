@@ -34,7 +34,7 @@ export default function Home() {
   
   // Theme-aware product image selection
   const isDark = theme === 'dark';
-  const heroProductImage = '/product-bottle-clean.png';
+  const heroProductImage = '/product-card-hero-transparent-optimized.png';
   
   // Removed reservation modal - now using direct purchase
 
@@ -405,7 +405,7 @@ export default function Home() {
                 <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
               </div>
               <img 
-                src="/product-bottle-clean.png" 
+                src="/product-card-hero-transparent-optimized.png" 
                 alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
                 className="w-full max-w-lg mx-auto relative z-10"
                 style={{ filter: 'drop-shadow(0 0 15px rgba(201, 169, 97, 0.3))' }}

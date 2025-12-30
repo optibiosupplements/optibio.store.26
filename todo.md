@@ -1355,3 +1355,57 @@ Create REAL enforcement system that prevents color changes, not just documentati
 **RESULT:** Complete color lock system with 60+ approved colors, automated validation, and business justification for all conversion colors. System prevents future color drift.
 
 - [x] Apply glowing gradient specifications to countdown timer and social proof components (pink/peach gradient for timer, green/mint gradient for social proof)
+
+
+## 🎨 NEW: Photorealistic Product Card Generation (Dec 30, 2025)
+
+### Objective: Replace Black Bottle with Approved Blue/Gold Bottle
+- [x] Generate photorealistic product card matching reference design (image_0.png)
+- [x] Use approved blue and gold bottle asset (image_3.png/image_5.png)
+- [x] Apply cream background (#F3F0EA) - solid, no gradient
+- [x] Implement studio lighting from top-left with specular highlights on gold cap
+- [x] Add contact shadow (ambient occlusion) under bottle base
+- [x] Add soft cast shadow extending from base
+- [x] Ensure shadows use warm grey/brown tone (not pure black)
+- [x] Center bottle horizontally and vertically with balanced padding
+- [x] Match scale and visual weight of reference bottle
+- [x] Export high-resolution flattened image (JPG/PNG) for web
+- [x] Optimize for web performance
+- [ ] Implement on website landing page
+
+
+## ✅ COMPLETED: TRANSPARENT PNG PRODUCT ASSET (Dec 30, 2025)
+
+### Objective: Create Flexible Transparent Product Image
+- [x] Generate transparent PNG with bottle and shadows preserved
+- [x] Remove cream background color completely
+- [x] Maintain all lighting, highlights, and shadow effects
+- [x] Ensure shadows have proper alpha channel transparency
+- [x] Export high-resolution transparent PNG
+- [x] Optimize for web performance while preserving transparency (6.1MB → 751KB, 88% reduction)
+- [x] Deliver to user for flexible background color control
+
+### Delivered Assets:
+✅ **ashwagandha-bottle-transparent-optimized.png** (751KB, 1536x2752px)
+✅ Transparent PNG that can be placed on any colored background
+✅ Shadows and lighting preserved for depth and realism
+✅ Developer can change card background color without needing new renders
+✅ Web-optimized with 88% file size reduction while maintaining premium quality
+
+
+## 🖼️ PRODUCT IMAGES & COLOR LOCK SYSTEM (Dec 30, 2025)
+
+### Product Image Updates
+- [x] Replace landing page product image with transparent background version
+- [x] ❌ CANCELLED - Do NOT generate new product mockups (bottle design is LOCKED)
+- [x] Product design is final: Blue gradient label + Gold cap + Black glass
+- [x] Use existing transparent image only: /product-card-hero-transparent-optimized.png
+
+### IRONCLAD COLOR LOCK SYSTEM
+- [x] Document complete color palette with hex codes
+- [x] Create separate light mode color rules (18 rules documented)
+- [x] Create separate dark mode color rules (8 rules documented)
+- [x] Implement color enforcement mechanisms (CSS variables verified)
+- [x] Create color usage guidelines document (COLOR_LOCK_SYSTEM.md)
+- [x] Lock CSS variables to prevent future drift (verified in index.css)
+- [x] WCAG AA contrast compliance verified for all combinations
