@@ -34,7 +34,7 @@ export default function Home() {
   
   // Theme-aware product image selection
   const isDark = theme === 'dark';
-  const heroProductImage = '/bottle-transparent.png';
+  const heroProductImage = '/product-bottle-transparent.png';
   
   // Removed reservation modal - now using direct purchase
 
@@ -236,27 +236,20 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Product Video/Image - Mobile Optimized */}
-            <div className="relative h-[450px] sm:h-[500px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2">
-              {/* Product video showcase - Premium presentation */}
-              <div className="relative animate-float">
-                <video 
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  poster={heroProductImage}
-                  className="w-full max-w-lg mx-auto drop-shadow-2xl transition-opacity duration-500 rounded-lg"
-                  aria-label="OptiBio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
-                >
-                  <source src="/products/product-showcase.mp4" type="video/mp4" />
-                  {/* Fallback image for browsers that don't support video */}
-                  <img 
-                    src={heroProductImage}
-                    alt="Optibio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
-                    className="w-full max-w-lg mx-auto drop-shadow-2xl"
-                  />
-                </video>
+            {/* Right Column - Product Image - Mobile Optimized & Enlarged */}
+            <div className="relative h-[500px] sm:h-[600px] lg:h-[850px] flex items-center justify-center order-1 lg:order-2">
+              {/* Gold glow behind bottle for premium aesthetic */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-[70%] h-[80%] bg-gradient-radial from-[#C9A961]/25 via-[#C9A961]/10 to-transparent blur-3xl dark:from-[#D4AF37]/20 dark:via-[#D4AF37]/8" />
+              </div>
+              {/* Enlarged product bottle with gold glow */}
+              <div className="relative animate-float w-full h-full flex items-center justify-center z-10">
+                <img 
+                  src={heroProductImage}
+                  alt="Optibio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
+                  className="w-full h-full max-w-3xl max-h-full object-contain mx-auto transition-opacity duration-500"
+                  style={{ filter: 'drop-shadow(0 0 20px rgba(201, 169, 97, 0.4))' }}
+                />
               </div>
             </div>
           </div>
@@ -400,7 +393,7 @@ export default function Home() {
                 <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
               </div>
               <img 
-                src="/bottle-transparent.png" 
+                src="/product-bottle-transparent.png" 
                 alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
                 className="w-full max-w-lg mx-auto relative z-10"
                 style={{ filter: 'drop-shadow(0 0 15px rgba(201, 169, 97, 0.3))' }}

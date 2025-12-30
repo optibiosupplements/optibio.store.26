@@ -1123,3 +1123,38 @@ Current design lacks premium visual depth. Need pharmaceutical-grade luxury aest
 ✅ Metallic button depth (not flat mustard paint)
 ✅ Readable text on bright lifestyle photos
 ✅ Visual hierarchy pushing subscription over one-time purchase
+
+- [x] Increase product bottle image size in hero section to match original reference design
+
+## 🖼️ White Box Fix - Product Bottle Images (Dec 30, 2025)
+
+### Critical Issue: White Background Boxes on Bottle Images
+Location: "Why Opti-Ash?" section (middle) and "Quality You Can Trust" section (bottom)
+Problem: Bottle currently sits inside white square box, looks cheap against Dark Mode navy background
+
+### Tasks:
+- [x] Copy transparent PNG (image_cdf094.jpg) to project public folder
+- [x] Replace bottle image in "Why KSM-66" section with transparent PNG
+- [x] Add gold glow effect: drop-shadow(0 0 15px rgba(201, 169, 97, 0.3))
+- [x] Verify bottle sits directly on navy background with gold glow in Why KSM-66 section
+
+### Expected Outcome:
+✅ Premium aesthetic: Bottle floats on navy background with soft gold glow
+✅ No white boxes - transparent PNG only
+✅ Consistent with Midnight Sophistication brand aesthetic
+
+## 🎯 Hero Section Product Bottle Enhancement (Dec 30, 2025)
+
+### Objective: Make Product More Prominent in Hero Section
+- [x] Update hero section to use actual OptiBio product mockup (/product-bottle-transparent.png)
+- [x] Enlarge bottle size for greater prominence (max-w-3xl, h-850px on desktop)
+- [x] Add enhanced gold glow effect: drop-shadow(0 0 20px rgba(201, 169, 97, 0.4))
+- [x] Add gold radial gradient background glow for premium aesthetic
+- [x] Ensure bottle sits on transparent background (no white box)
+- [x] Removed video element, using static image for better control
+
+### Expected Outcome:
+✅ Hero section features large, prominent product bottle
+✅ Uses actual OptiBio product mockup (not generic design)
+✅ Gold glow effect enhances premium aesthetic
+✅ No white background boxes
