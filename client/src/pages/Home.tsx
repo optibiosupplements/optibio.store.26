@@ -236,15 +236,27 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Product Image - Mobile Optimized */}
+            {/* Right Column - Product Video/Image - Mobile Optimized */}
             <div className="relative h-[450px] sm:h-[500px] lg:h-[700px] flex items-center justify-center order-1 lg:order-2">
-              {/* Product image - Let it breathe with clean whitespace */}
+              {/* Product video showcase - Premium presentation */}
               <div className="relative animate-float">
-                <img 
-                  src={heroProductImage}
-                  alt="Optibio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
-                  className="w-full max-w-lg mx-auto drop-shadow-2xl transition-opacity duration-500"
-                />
+                <video 
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  poster={heroProductImage}
+                  className="w-full max-w-lg mx-auto drop-shadow-2xl transition-opacity duration-500 rounded-lg"
+                  aria-label="OptiBio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
+                >
+                  <source src="/products/product-showcase.mp4" type="video/mp4" />
+                  {/* Fallback image for browsers that don't support video */}
+                  <img 
+                    src={heroProductImage}
+                    alt="Optibio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
+                    className="w-full max-w-lg mx-auto drop-shadow-2xl"
+                  />
+                </video>
               </div>
             </div>
           </div>
@@ -270,10 +282,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             {benefits.map((benefit, i) => {
               const lifestyleImages = [
-                '/images/lifestyle-morning-routine.jpg',
-                '/images/lifestyle-evening-relaxation.jpg',
-                '/images/lifestyle-focused-work.jpg',
-                '/images/lifestyle-active-wellness.jpg'
+                '/products/lifestyle-morning-routine.webp',
+                '/products/lifestyle-bedside.webp',
+                '/products/lifestyle-workspace.webp',
+                '/products/lifestyle-morning-routine.webp'
               ];
               return (
                 <Card 
