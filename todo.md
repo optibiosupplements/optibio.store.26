@@ -1629,3 +1629,135 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [ ] "Still Have Questions?" CTA card
 - [ ] Footer matches reference
 
+
+
+## 🎨 CRITICAL: DETAILED COLOR & DESIGN AUDIT (Dec 30, 2025)
+
+### User Request: Verify colors and designs match reference exactly
+
+**Issue:** Need to compare EVERY color, background, button, card, and design element against reference screenshots to ensure pixel-perfect match.
+
+### Homepage Color Audit Tasks:
+- [ ] Announcement banner - Verify navy color and gold "Save 46%" text
+- [ ] Navigation bar - Verify background color (white vs cream vs blue-tinted)
+- [ ] Hero section background - Compare current vs reference (blue gradient vs white/cream)
+- [ ] Buy box card - Verify background color, border, shadow
+- [ ] Countdown timer - Verify background color (pink/red tint in reference)
+- [ ] CTA button colors - Verify primary button color matches reference
+- [ ] Trust badges - Verify background colors and styling
+- [ ] Benefits section cards - Verify card backgrounds and text colors
+- [ ] 90-Day Guarantee section - Verify navy background shade
+- [ ] Timeline cards - Verify background colors
+- [ ] Testimonial cards - Verify background and border colors
+- [ ] Footer - Verify background color and text colors
+
+### Shop Page Color Audit:
+- [ ] "The Protocol" headline color
+- [ ] Product card background color
+- [ ] Button colors and styles
+
+### Science Page Color Audit:
+- [ ] Hero background color
+- [ ] Stat card colors
+- [ ] Comparison table styling
+
+### About Page Color Audit:
+- [ ] Mission cards background
+- [ ] Section backgrounds
+
+### FAQ Page Color Audit:
+- [ ] Accordion styling
+- [ ] Section backgrounds
+
+### Action Plan:
+1. Create detailed color comparison document
+2. Extract exact hex codes from reference designs
+3. Update all mismatched colors systematically
+4. Verify pixel-perfect match with reference
+
+**Priority:** CRITICAL - User specifically requested color/design verification
+
+
+## 🚨 CRITICAL: HOMEPAGE LAYOUT REDESIGN (Dec 30, 2025)
+
+### User Feedback: "Why is the Homepage different layout?"
+
+**ISSUE IDENTIFIED:** Current homepage uses wrong layout structure
+
+### Current Layout (WRONG):
+- Two-column hero: Text left, Buy Box right (side-by-side)
+- Buy box is separate component
+- Spread out, not focused
+
+### Reference Layout (CORRECT - pasted_file_2YqsG0_image.png):
+- Single-column centered layout
+- Headline + badges at top
+- **Integrated product card** with:
+  - Bottle image on LEFT
+  - Purchase details on RIGHT
+  - All in ONE unified white card
+- Compact, focused, conversion-optimized
+
+### Required Changes:
+- [ ] Remove two-column hero layout
+- [ ] Create single-column centered layout
+- [ ] Integrate bottle image INTO buy box card (not separate)
+- [ ] Bottle on left, purchase details on right WITHIN the card
+- [ ] Match exact spacing and proportions from reference
+- [ ] Apply v3 color system (Sky Gradient background, Pure White card, etc.)
+
+**Priority:** CRITICAL - Fundamental layout error affecting conversion
+
+### CRITICAL NOTE FROM V3 DESIGN SYSTEM:
+- [ ] **NO DARK MODE** - Site is strictly Light Mode only
+- [ ] Remove all dark mode variants and theme toggle
+- [ ] Use Light Mode colors exclusively
+
+
+## 🎨 V3 DESIGN SYSTEM IMPLEMENTATION (Dec 30, 2025)
+
+### Critical: Homepage Hero Redesign to Match Reference Layout
+- [x] Changed from two-column to single-column centered layout
+- [x] Headline section on top (centered with badge, title, description, trust badges)
+- [x] Product card below (integrated buy box)
+- [x] Created BuyBoxV3 component with horizontal layout (bottle LEFT, details RIGHT)
+- [x] Applied V3 color system to BuyBoxV3:
+  - [x] Sky gradient background
+  - [x] Peach gradient countdown timer
+  - [x] Green gradient social proof
+  - [x] Electric Blue CTA button
+  - [x] Deep Navy text
+  - [x] Antique Gold accents
+- [x] Copied blue bottle image (bottlemockbluegold_beigebg.png) to public folder
+- [x] Updated Home.tsx to use BuyBoxV3 component
+
+### Remaining Work:
+- [ ] Remove dark mode completely (V3 spec: Light Mode only)
+- [ ] Remove theme toggle button
+- [ ] Remove all `dark:` variants from components
+- [ ] Apply V3 colors to all remaining homepage sections
+- [ ] Update Shop page to match reference design
+- [ ] Update Product Detail page to match reference design
+- [ ] Update Cart page to match reference design
+- [ ] Update About page to match reference design
+- [ ] Update Science page to match reference design
+- [ ] Update FAQ page to match reference design
+- [ ] Final verification against all reference images
+
+### V3 Color Palette (Reference):
+- **Deep Navy:** `#1E3A5F` - Primary text & headings
+- **Navy Darker:** `#1A2F4D` - Price tags, strong headers
+- **Antique Gold:** `#C9A961` - Accents only
+- **Pure White:** `#FFFFFF` - Cards & containers
+- **Sky Gradient:** `radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)`
+- **Alert Red:** `#DC2626` - Save badges
+- **Muted Red:** `#991B1B` - Pre-orders label
+- **Deep Timer Brown:** `#7C2D12` - Countdown numbers
+- **Warm Blush BG:** `#FFF1F2` - Countdown background
+- **Mint Background:** `#F0FDF4` - Social proof
+- **Success Green:** `#16A34A` - Social proof text
+- **Review Star Gold:** `#FBBF24` - Star ratings
+- **Electric Blue:** `#2563EB` - Primary CTA
+- **Hover Blue:** `#1D4ED8` - CTA hover state
+
+**NOTE:** V3 Design System specifies NO DARK MODE - site is strictly Light Mode only.

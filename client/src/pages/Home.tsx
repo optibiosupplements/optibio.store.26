@@ -26,7 +26,7 @@ import CountdownTimer from "@/components/CountdownTimer";
 import StickyAddToCart from "@/components/StickyAddToCart";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTheme } from "@/contexts/ThemeContext";
-import BuyBox from "@/components/BuyBox";
+import BuyBoxV3 from "@/components/BuyBoxV3";
 
 export default function Home() {
   const { data: products } = trpc.products.list.useQuery();
@@ -118,49 +118,59 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section - Two Column Layout with Buy Box */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient transition-colors duration-500">
-        <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
-          <div className="grid lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12 xl:gap-16 items-start">
-            {/* Left Column - Headline & Description */}
-            <div className="space-y-6 sm:space-y-8 animate-fade-in order-2 lg:order-1">
-              <div className="space-y-6">
-                <Badge className="text-sm sm:text-base font-bold px-4 sm:px-6 py-2 sm:py-3 bg-primary text-primary-foreground border-0 shadow-lg">
-                  <Shield className="w-4 h-4 sm:w-5 sm:h-5 mr-2 inline" />
-                  Science-Backed • Third-Party Tested
-                </Badge>
-                
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05] text-primary dark:text-foreground">
-                  Feel Like{" "}
-                  <span className="text-gradient-optibio">
-                    Yourself
-                  </span>
-                  {" "}Again
-                </h1>
-                
-                <p className="text-lg sm:text-xl lg:text-2xl text-primary leading-relaxed font-semibold dark:font-bold dark:text-foreground">
-                  Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
-                </p>
-              </div>
+      {/* Hero Section - Single Column Centered Layout per Reference */}
+      <section 
+        className="relative py-12 sm:py-16 lg:py-20 overflow-hidden"
+        style={{
+          background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)'
+        }}
+      >
+        <div className="container relative z-10">
+          {/* Top: Headline Section (Centered) */}
+          <div className="max-w-4xl mx-auto text-center space-y-6 mb-12 animate-fade-in">
+            <Badge 
+              className="text-sm sm:text-base font-bold px-4 sm:px-6 py-2 sm:py-3 border-0 shadow-lg inline-flex items-center"
+              style={{ background: '#1E3A5F', color: 'white' }}
+            >
+              <Shield className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+              Science-Backed • Third-Party Tested
+            </Badge>
+            
+            <h1 
+              className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05]"
+              style={{ color: '#1E3A5F' }}
+            >
+              Feel Like{" "}
+              <span className="text-gradient-optibio">
+                Yourself
+              </span>
+              {" "}Again
+            </h1>
+            
+            <p 
+              className="text-lg sm:text-xl lg:text-2xl leading-relaxed font-semibold"
+              style={{ color: '#1E3A5F' }}
+            >
+              Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
+            </p>
 
-              {/* Trust Indicators */}
-              <div className="flex flex-wrap gap-4 sm:gap-6">
-                {certifications.slice(0, 3).map((cert, i) => (
-                  <div key={i} className="flex items-center gap-2 text-primary scroll-fade-in">
-                    <cert.icon className="w-8 h-8 sm:w-10 sm:h-10 text-secondary" />
-                    <div className="flex flex-col">
-                      <span className="font-bold text-foreground text-sm sm:text-base">{cert.text}</span>
-                      <span className="text-xs sm:text-sm text-primary">Verified</span>
-                    </div>
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap gap-4 sm:gap-6 justify-center pt-4">
+              {certifications.slice(0, 3).map((cert, i) => (
+                <div key={i} className="flex items-center gap-2 scroll-fade-in">
+                  <cert.icon className="w-8 h-8 sm:w-10 sm:h-10" style={{ color: '#C9A961' }} />
+                  <div className="flex flex-col">
+                    <span className="font-bold text-sm sm:text-base" style={{ color: '#1E3A5F' }}>{cert.text}</span>
+                    <span className="text-xs sm:text-sm" style={{ color: '#1E3A5F' }}>Verified</span>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* Right Column - Buy Box */}
-            <div className="order-1 lg:order-2 animate-fade-in">
-              <BuyBox product={mainProduct} />
-            </div>
+          {/* Bottom: Integrated Product Card */}
+          <div className="max-w-6xl mx-auto animate-fade-in">
+            <BuyBoxV3 product={mainProduct} />
           </div>
         </div>
       </section>
