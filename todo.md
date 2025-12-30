@@ -890,3 +890,51 @@ Mixing generic Tailwind colors (sky-50, blue-50, slate, zinc) with brand palette
 - [x] Smooth transitions between light/dark mode (duration-500)
 
 **RESULT: Comprehensive dark mode applied to ALL 24 pages across the entire website. Unified, aesthetically stunning dark mode experience with consistent navy, gold, and dark slate theming. Total: 15 pages updated + 9 pages already complete = 24/24 pages with dark mode.**
+
+## 🎨 PREMIUM LUXURY VISUAL POLISH (Dec 30, 2025)
+
+### Critical Issue: Flat Aesthetic
+Structure is solid but design lacks depth, premium feel, and luxury aesthetic. Need metallic gradients, transparency, and proper contrast.
+
+### 1. The "White Box" Error (CRITICAL FIX)
+- [x] Remove white background from bottle images in "Why Opti-Ash?" section
+- [x] Remove white background from bottle in product display section
+- [x] Use transparent PNG so bottle sits seamlessly on Deep Navy background
+- [x] Add soft subtle back-light glow behind bottle (no hard-edged box)
+
+### 2. Hero Section & Buttons
+- [x] Upgrade "Add to Cart" button to Metallic Gold Gradient (lighter gold top, darker bronze bottom)
+- [x] Add subtle inner glow to gold buttons
+- [x] Make buttons look like physical, clickable gold bars (not flat)
+- [x] Increase font weight of sub-headline ("Reclaim your calm...") to Regular or Medium
+- [x] Ensure sub-headline is legible against dark background
+
+### 3. "Scientifically-Backed Benefits" (Image Grid)
+- [x] Add black gradient overlay to each benefit image (60% opacity bottom → transparent top)
+- [x] Create readable "floor" for white text on bright photos
+- [x] Ensure text is legible without covering image
+
+### 4. "Who Is This For?" (The 3 Blue Cards)
+- [x] Add 1px Metallic Gold Border around cards to define them
+- [x] Alternative: Make card background slightly lighter Navy for depth/layers
+- [x] Ensure cards don't disappear into background
+
+### 5. "The Old You vs. The New You"
+- [x] Section does not exist on current homepage - skipped
+
+### 6. Footer Pricing Section
+- [x] Make Subscribe Card button Solid Gold (3-Month Bundle uses metallic gold)
+- [x] Make One-Time Card button Hollow Outline (Ghost Button)
+- [x] Visually force user toward subscription option
+
+### Summary of Priorities:
+- [x] Transparency: Fix bottle backgrounds
+- [x] Readability: Add dark overlays to image cards
+- [x] Depth: Use borders and gradients to stop flat design
+
+### Expected Outcome:
+✅ White box error eliminated (transparent bottle images)
+✅ Metallic gold gradients create premium feel
+✅ Dark overlays ensure text readability
+✅ Depth and layers prevent flat design
+✅ Visual hierarchy guides user to subscription

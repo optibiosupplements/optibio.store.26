@@ -143,7 +143,7 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl font-normal dark:font-semibold dark:text-[#F0F0F0]">
+                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl font-medium dark:font-semibold dark:text-[#F0F0F0]">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
@@ -189,7 +189,7 @@ export default function Home() {
                 <Link href="/product/ashwagandha-ksm-66" className="block">
                   <Button 
                     size="lg" 
-                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-gradient-to-r dark:from-[#D4AF37] dark:via-[#FFD700] dark:to-[#D4AF37] dark:text-[#0B1120] dark:hover:shadow-[0_0_40px_rgba(255,215,0,0.7)] dark:border-2 dark:border-[#FFD700]/50 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] dark:shadow-[0_0_25px_rgba(255,215,0,0.5),inset_0_2px_0_rgba(255,255,255,0.4)]"
+                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-[#2563EB] hover:bg-[#1D4ED8] dark:btn-metallic-gold text-white dark:text-[#0B1120] font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                   >
                     Pre-Order Now - Save 46%
                     <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
@@ -392,7 +392,7 @@ export default function Home() {
               <img 
                 src="/products/optibio-90cap-bottle-angle.jpg" 
                 alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
-                className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-3xl relative z-10 dark:rounded-none"
+                className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-3xl relative z-10 dark:rounded-none dark:drop-shadow-[0_0_40px_rgba(212,175,55,0.3)]"
               />
             </div>
 
@@ -511,7 +511,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* This IS for you */}
-              <Card className="border-2 border-[#C9A961]/30 dark:border-[#D4AF37] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#24426A] dark:to-[#1E3A5F] dark:shadow-[0_0_20px_rgba(212,175,55,0.15)]">
+              <Card className="border-2 border-[#C9A961]/30 dark:border-[#D4AF37] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#24426A] dark:to-[#1E3A5F] dark:shadow-[0_0_20px_rgba(212,175,55,0.15)] dark:border-2 dark:border-[#D4AF37]">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-[#C9A961]/10 dark:bg-[#D4AF37]/20 flex items-center justify-center">
@@ -633,7 +633,7 @@ export default function Home() {
                     <img 
                       src={mainProduct.imageUrl || "/products/optibio-90cap-bottle-front.jpg"}
                       alt={`${mainProduct.name} - Premium KSM-66 Ashwagandha supplement for stress relief, sleep support, and natural energy`}
-                      className="w-full max-w-xs drop-shadow-2xl relative z-10"
+                      className="w-full max-w-xs drop-shadow-2xl relative z-10 dark:drop-shadow-[0_0_40px_rgba(212,175,55,0.3)]"
                     />
                   </div>
 
@@ -890,7 +890,7 @@ export default function Home() {
                     </li>
                   </ul>
                   <Link href="/shop" className="block">
-                    <Button className="w-full bg-gradient-to-r from-[#FFD700] via-[#F4D03F] to-[#FFD700] hover:from-[#F4D03F] hover:via-[#FFD700] hover:to-[#F4D03F] text-[#0B1120] font-extrabold text-lg py-6 shadow-[0_0_30px_rgba(255,215,0,0.6),inset_0_2px_0_rgba(255,255,255,0.4)] hover:shadow-[0_0_50px_rgba(255,215,0,0.8)] border-2 border-[#FFD700]/60 transition-all">
+                    <Button className="w-full btn-metallic-gold text-[#0B1120] font-extrabold text-lg py-6 transition-all">
                       Get Best Value
                     </Button>
                   </Link>
