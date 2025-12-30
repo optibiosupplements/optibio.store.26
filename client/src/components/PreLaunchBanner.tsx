@@ -34,12 +34,12 @@ export default function PreLaunchBanner() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-[#152B45] via-[#152B45] to-slate-900 text-white py-4 px-4 sticky top-0 z-50 shadow-lg border-b-2 border-[#C9A961]/30">
+    <div className="bg-gradient-to-r from-[var(--optibio-navy-dark)] via-[var(--optibio-navy-dark)] to-slate-900 text-white py-4 px-4 sticky top-0 z-50 shadow-lg border-b-2 border-[var(--optibio-gold)]/30">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Left: Pre-Launch Message */}
           <div className="flex items-center gap-3">
-            <Sparkles className="w-6 h-6 text-[#C9A961] animate-pulse" />
+            <Sparkles className="w-6 h-6 text-[var(--optibio-gold)] animate-pulse" />
             <div>
               <p className="text-sm md:text-base font-bold">
                 🔥 LIMITED TIME: Founder Pricing Ends in {timeLeft.days} Days
@@ -52,25 +52,25 @@ export default function PreLaunchBanner() {
 
           {/* Center: Countdown Timer */}
           <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-white/20">
-            <Clock className="w-4 h-4 text-[#C9A961]" />
+            <Clock className="w-4 h-4 text-[var(--optibio-gold)]" />
             <div className="flex gap-3 text-center font-mono">
               <div>
-                <div className="text-lg md:text-xl font-bold text-[#C9A961]">{timeLeft.days}</div>
+                <div className="text-lg md:text-xl font-bold text-[var(--optibio-gold)]">{timeLeft.days}</div>
                 <div className="text-[10px] text-slate-300 uppercase">Days</div>
               </div>
-              <div className="text-[#C9A961]">:</div>
+              <div className="text-[var(--optibio-gold)]">:</div>
               <div>
-                <div className="text-lg md:text-xl font-bold text-[#C9A961]">{String(timeLeft.hours).padStart(2, '0')}</div>
+                <div className="text-lg md:text-xl font-bold text-[var(--optibio-gold)]">{String(timeLeft.hours).padStart(2, '0')}</div>
                 <div className="text-[10px] text-slate-300 uppercase">Hrs</div>
               </div>
-              <div className="text-[#C9A961]">:</div>
+              <div className="text-[var(--optibio-gold)]">:</div>
               <div>
-                <div className="text-lg md:text-xl font-bold text-[#C9A961]">{String(timeLeft.minutes).padStart(2, '0')}</div>
+                <div className="text-lg md:text-xl font-bold text-[var(--optibio-gold)]">{String(timeLeft.minutes).padStart(2, '0')}</div>
                 <div className="text-[10px] text-slate-300 uppercase">Min</div>
               </div>
-              <div className="text-[#C9A961] hidden md:block">:</div>
+              <div className="text-[var(--optibio-gold)] hidden md:block">:</div>
               <div className="hidden md:block">
-                <div className="text-lg md:text-xl font-bold text-[#C9A961]">{String(timeLeft.seconds).padStart(2, '0')}</div>
+                <div className="text-lg md:text-xl font-bold text-[var(--optibio-gold)]">{String(timeLeft.seconds).padStart(2, '0')}</div>
                 <div className="text-[10px] text-slate-300 uppercase">Sec</div>
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function PreLaunchBanner() {
           {/* Right: CTA Button */}
           <Link href="/shop">
             <Button
-              className="bg-[#C9A961] hover:bg-[#F7F4EF]0 text-slate-900 font-bold px-6 py-2 shadow-lg hover:shadow-xl transition-all whitespace-nowrap"
+              className="bg-[var(--optibio-gold)] hover:bg-[var(--optibio-ivory)]0 text-slate-900 font-bold px-6 py-2 shadow-lg hover:shadow-xl transition-all whitespace-nowrap"
             >
               Shop Founder Pricing
             </Button>

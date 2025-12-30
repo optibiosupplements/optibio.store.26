@@ -208,7 +208,7 @@ export default function PersonalizedDosageCalculator() {
     return (
       <div className="space-y-8 animate-fade-in">
         <div className="text-center">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 px-6 py-3 rounded-full font-bold text-lg mb-6">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--optibio-gold)] to-[var(--optibio-ivory)]0 text-slate-900 px-6 py-3 rounded-full font-bold text-lg mb-6">
             <Sparkles className="w-5 h-5" />
             Your Personalized Wellness Plan
           </div>
@@ -222,14 +222,14 @@ export default function PersonalizedDosageCalculator() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {/* Dosage */}
-          <Card className="border-2 border-[#C9A961]/30 bg-gradient-to-br from-[#F7F4EF] to-white">
+          <Card className="border-2 border-[var(--optibio-gold)]/30 bg-gradient-to-br from-[var(--optibio-ivory)] to-white">
             <CardContent className="p-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center mx-auto">
-                <Target className="w-8 h-8 text-[#1E3A5F]" />
+              <div className="w-16 h-16 rounded-full bg-[var(--optibio-gold)]/10 flex items-center justify-center mx-auto">
+                <Target className="w-8 h-8 text-[var(--optibio-navy)]" />
               </div>
               <div>
                 <div className="text-sm font-medium text-slate-600 mb-2">Recommended Dosage</div>
-                <div className="text-3xl font-bold text-[#1E3A5F]">{recommendation.dosage}</div>
+                <div className="text-3xl font-bold text-[var(--optibio-navy)]">{recommendation.dosage}</div>
                 <div className="text-sm text-slate-600 mt-1">
                   ({recommendation.dosage === "2 capsules" ? "600mg" : recommendation.dosage === "1 capsule" ? "300mg" : "300-600mg"} daily)
                 </div>
@@ -238,14 +238,14 @@ export default function PersonalizedDosageCalculator() {
           </Card>
 
           {/* Timing */}
-          <Card className="border-2 border-[#C9A961]/20 bg-gradient-to-br from-[#F7F4EF] to-white">
+          <Card className="border-2 border-[var(--optibio-gold)]/20 bg-gradient-to-br from-[var(--optibio-ivory)] to-white">
             <CardContent className="p-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center mx-auto">
-                <Clock className="w-8 h-8 text-[#B89651]" />
+              <div className="w-16 h-16 rounded-full bg-[var(--optibio-gold)]/10 flex items-center justify-center mx-auto">
+                <Clock className="w-8 h-8 text-[var(--optibio-gold-dark)]" />
               </div>
               <div>
                 <div className="text-sm font-medium text-slate-600 mb-2">Best Time to Take</div>
-                <div className="text-lg font-bold text-[#1E3A5F] leading-tight">
+                <div className="text-lg font-bold text-[var(--optibio-navy)] leading-tight">
                   {recommendation.timing}
                 </div>
               </div>
@@ -253,14 +253,14 @@ export default function PersonalizedDosageCalculator() {
           </Card>
 
           {/* Timeline */}
-          <Card className="border-2 border-[#C9A961]/20 bg-gradient-to-br from-[#F7F4EF] to-white">
+          <Card className="border-2 border-[var(--optibio-gold)]/20 bg-gradient-to-br from-[var(--optibio-ivory)] to-white">
             <CardContent className="p-8 text-center space-y-4">
-              <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center mx-auto">
-                <Calendar className="w-8 h-8 text-[#1E3A5F]" />
+              <div className="w-16 h-16 rounded-full bg-[var(--optibio-gold)]/10 flex items-center justify-center mx-auto">
+                <Calendar className="w-8 h-8 text-[var(--optibio-navy)]" />
               </div>
               <div>
                 <div className="text-sm font-medium text-slate-600 mb-2">Expected Results</div>
-                <div className="text-lg font-bold text-[#1E3A5F] leading-tight">
+                <div className="text-lg font-bold text-[var(--optibio-navy)] leading-tight">
                   {recommendation.expectedTimeline}
                 </div>
               </div>
@@ -272,7 +272,7 @@ export default function PersonalizedDosageCalculator() {
         <Card className="border-2 border-slate-200">
           <CardContent className="p-8 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#B89651] flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--optibio-navy)] to-[var(--optibio-gold-dark)] flex items-center justify-center">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900">Your Personalized Tips</h3>
@@ -280,7 +280,7 @@ export default function PersonalizedDosageCalculator() {
             <div className="space-y-3">
               {recommendation.personalizedTips.map((tip, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#B89651] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[var(--optibio-gold-dark)] flex-shrink-0 mt-0.5" />
                   <p className="text-slate-700">{tip}</p>
                 </div>
               ))}
@@ -292,7 +292,7 @@ export default function PersonalizedDosageCalculator() {
         <div className="text-center space-y-4">
           <Button 
             size="lg" 
-            className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] text-lg px-8 py-6"
+            className="bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)] text-lg px-8 py-6"
             onClick={() => window.location.href = "/shop"}
           >
             Get Your Personalized Plan
@@ -324,14 +324,14 @@ export default function PersonalizedDosageCalculator() {
           <div
             key={i}
             className={`h-2 rounded-full transition-all duration-300 ${
-              i === step ? "w-12 bg-[#1E3A5F]" : i < step ? "w-8 bg-[#1E3A5F]" : "w-8 bg-slate-200"
+              i === step ? "w-12 bg-[var(--optibio-navy)]" : i < step ? "w-8 bg-[var(--optibio-navy)]" : "w-8 bg-slate-200"
             }`}
           />
         ))}
       </div>
 
       <div className="text-center mb-8">
-        <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
+        <Badge className="mb-4 bg-[var(--optibio-gold)]/10 text-[var(--optibio-navy)] border-[var(--optibio-gold)]/30">
           Step {step + 1} of 4
         </Badge>
         <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
@@ -407,8 +407,8 @@ export default function PersonalizedDosageCalculator() {
                     onClick={() => toggleGoal(goal.id)}
                     className={`p-6 rounded-xl border-2 text-left transition-all duration-200 ${
                       userData.primaryGoals.includes(goal.id)
-                        ? "border-[#1E3A5F] bg-[#F7F4EF]"
-                        : "border-slate-200 hover:border-[#C9A961]/40"
+                        ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
+                        : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
                     }`}
                   >
                     <div className="flex items-center gap-3">
@@ -416,7 +416,7 @@ export default function PersonalizedDosageCalculator() {
                       <span className="font-semibold text-slate-900">{goal.label}</span>
                     </div>
                     {userData.primaryGoals.includes(goal.id) && (
-                      <CheckCircle2 className="w-6 h-6 text-[#1E3A5F] ml-auto mt-2" />
+                      <CheckCircle2 className="w-6 h-6 text-[var(--optibio-navy)] ml-auto mt-2" />
                     )}
                   </button>
                 ))}
@@ -440,7 +440,7 @@ export default function PersonalizedDosageCalculator() {
                   />
                   <div className="flex justify-between text-sm text-slate-600">
                     <span>Low (1)</span>
-                    <span className="font-bold text-[#1E3A5F]">{userData.stressLevel}</span>
+                    <span className="font-bold text-[var(--optibio-navy)]">{userData.stressLevel}</span>
                     <span>High (10)</span>
                   </div>
                 </div>
@@ -459,7 +459,7 @@ export default function PersonalizedDosageCalculator() {
                   />
                   <div className="flex justify-between text-sm text-slate-600">
                     <span>Poor (1)</span>
-                    <span className="font-bold text-[#1E3A5F]">{userData.sleepQuality}</span>
+                    <span className="font-bold text-[var(--optibio-navy)]">{userData.sleepQuality}</span>
                     <span>Excellent (10)</span>
                   </div>
                 </div>
@@ -505,8 +505,8 @@ export default function PersonalizedDosageCalculator() {
                     htmlFor="morning"
                     className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                       userData.timingPreference === "morning"
-                        ? "border-[#1E3A5F] bg-[#F7F4EF]"
-                        : "border-slate-200 hover:border-[#C9A961]/40"
+                        ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
+                        : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
                     }`}
                   >
                     <RadioGroupItem value="morning" id="morning" className="mt-1" />
@@ -520,8 +520,8 @@ export default function PersonalizedDosageCalculator() {
                     htmlFor="evening"
                     className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                       userData.timingPreference === "evening"
-                        ? "border-[#1E3A5F] bg-[#F7F4EF]"
-                        : "border-slate-200 hover:border-[#C9A961]/40"
+                        ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
+                        : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
                     }`}
                   >
                     <RadioGroupItem value="evening" id="evening" className="mt-1" />
@@ -535,8 +535,8 @@ export default function PersonalizedDosageCalculator() {
                     htmlFor="flexible"
                     className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                       userData.timingPreference === "flexible"
-                        ? "border-[#1E3A5F] bg-[#F7F4EF]"
-                        : "border-slate-200 hover:border-[#C9A961]/40"
+                        ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
+                        : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
                     }`}
                   >
                     <RadioGroupItem value="flexible" id="flexible" className="mt-1" />
@@ -566,7 +566,7 @@ export default function PersonalizedDosageCalculator() {
         <Button
           onClick={handleNext}
           disabled={!canProceed()}
-          className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45]"
+          className="bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)]"
         >
           {step === 3 ? "Get My Plan" : "Continue"}
           <ArrowRight className="ml-2 w-4 h-4" />

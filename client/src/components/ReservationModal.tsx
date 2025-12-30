@@ -91,15 +91,15 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
       <Dialog open={open} onOpenChange={handleClose}>
         <DialogContent className="max-w-2xl">
           <DialogHeader>
-            <DialogTitle className="text-center text-3xl font-bold text-[#B89651]">
+            <DialogTitle className="text-center text-3xl font-bold text-[var(--optibio-gold-dark)]">
               ✅ You're Reserved!
             </DialogTitle>
           </DialogHeader>
 
           <div className="space-y-6 py-6">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[#C9A961]/10 mb-4">
-                <CheckCircle2 className="w-12 h-12 text-[#B89651]" />
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-[var(--optibio-gold)]/10 mb-4">
+                <CheckCircle2 className="w-12 h-12 text-[var(--optibio-gold-dark)]" />
               </div>
               <h3 className="text-2xl font-bold mb-2">
                 You're {getTierName(selectedTier)} #{reservationNumber}
@@ -109,19 +109,19 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
               </p>
             </div>
 
-            <div className="bg-[#F7F4EF] border-2 border-[#C9A961]/30 rounded-lg p-6 space-y-3">
+            <div className="bg-[var(--optibio-ivory)] border-2 border-[var(--optibio-gold)]/30 rounded-lg p-6 space-y-3">
               <h4 className="font-bold text-lg">What Happens Next?</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[var(--optibio-navy)] flex-shrink-0 mt-0.5" />
                   <p><strong>Day 1-7:</strong> We'll share supplier visit photos and quality testing updates</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[var(--optibio-navy)] flex-shrink-0 mt-0.5" />
                   <p><strong>Day 15:</strong> Payment opens (we'll email you with your exclusive link)</p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-[#1E3A5F] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-[var(--optibio-navy)] flex-shrink-0 mt-0.5" />
                   <p><strong>Day 90:</strong> Your order ships with tracking number</p>
                 </div>
               </div>
@@ -134,7 +134,7 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
 
             <Button
               onClick={handleClose}
-              className="w-full bg-[#B89651] hover:bg-[#1E3A5F] text-white"
+              className="w-full bg-[var(--optibio-gold-dark)] hover:bg-[var(--optibio-navy)] text-white"
               size="lg"
             >
               Got It!
@@ -167,48 +167,48 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
               {/* Founder's Circle */}
               <div className={`relative border-2 rounded-lg p-6 cursor-pointer transition-all ${
                 selectedTier === "founders" 
-                  ? "border-[#C9A961] bg-[#F7F4EF] shadow-lg" 
-                  : "border-slate-200 hover:border-[#C9A961]/30"
+                  ? "border-[var(--optibio-gold)] bg-[var(--optibio-ivory)] shadow-lg" 
+                  : "border-slate-200 hover:border-[var(--optibio-gold)]/30"
               }`}>
                 <div className="flex items-start gap-4">
                   <RadioGroupItem value="founders" id="founders" className="mt-1" />
                   <Label htmlFor="founders" className="flex-1 cursor-pointer">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <Star className="w-5 h-5 text-[#F7F4EF]0" />
+                        <Star className="w-5 h-5 text-[var(--optibio-ivory)]0" />
                         <h3 className="text-xl font-bold">Founder's Circle</h3>
                       </div>
-                      <Badge className="bg-[#C9A961] text-slate-900 font-bold">BEST VALUE</Badge>
+                      <Badge className="bg-[var(--optibio-gold)] text-slate-900 font-bold">BEST VALUE</Badge>
                     </div>
                     
                     <div className="mb-3">
                       <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-bold">$69</span>
                         <span className="text-slate-500 line-through">$119.98</span>
-                        <span className="text-[#B89651] font-semibold">Save $51</span>
+                        <span className="text-[var(--optibio-gold-dark)] font-semibold">Save $51</span>
                       </div>
                       <p className="text-sm text-slate-600">2 bottles (90-day supply) • $34.50/bottle</p>
                     </div>
 
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>2 bottles (90-day supply)</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span><strong>25% off for life</strong> on all future orders</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>Founding Member #X certificate</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>Free shipping for life</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>First access to new products (30 days early)</span>
                       </div>
                     </div>
@@ -223,53 +223,53 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
               {/* Early Believer */}
               <div className={`relative border-2 rounded-lg p-6 cursor-pointer transition-all ${
                 selectedTier === "early_adopter" 
-                  ? "border-[#C9A961] bg-[#F7F4EF] shadow-lg" 
-                  : "border-slate-200 hover:border-[#C9A961]/40"
+                  ? "border-[var(--optibio-gold)] bg-[var(--optibio-ivory)] shadow-lg" 
+                  : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
               }`}>
                 <div className="flex items-start gap-4">
                   <RadioGroupItem value="early_adopter" id="early_adopter" className="mt-1" />
                   <Label htmlFor="early_adopter" className="flex-1 cursor-pointer">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <Zap className="w-5 h-5 text-[#C9A961]" />
+                        <Zap className="w-5 h-5 text-[var(--optibio-gold)]" />
                         <h3 className="text-xl font-bold">Early Believer</h3>
                       </div>
-                      <Badge className="bg-[#F7F4EF]0 text-white font-bold">MOST POPULAR</Badge>
+                      <Badge className="bg-[var(--optibio-ivory)]0 text-white font-bold">MOST POPULAR</Badge>
                     </div>
                     
                     <div className="mb-3">
                       <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-bold">$49</span>
                         <span className="text-slate-500 line-through">$59.99</span>
-                        <span className="text-[#B89651] font-semibold">Save $11</span>
+                        <span className="text-[var(--optibio-gold-dark)] font-semibold">Save $11</span>
                       </div>
                       <p className="text-sm text-slate-600">1 bottle (45-day supply)</p>
                     </div>
 
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>1 bottle (45-day supply)</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span><strong>15% off for life</strong> on all future orders</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>"Early Believer" badge on account</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>Early access to new products (14 days early)</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>Priority shipping at launch</span>
                       </div>
                     </div>
 
-                    <p className="text-xs text-[#B89651] font-semibold mt-3">
+                    <p className="text-xs text-[var(--optibio-gold-dark)] font-semibold mt-3">
                       ⚠️ Only 500 spots available
                     </p>
                   </Label>
@@ -279,15 +279,15 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
               {/* Pre-Launch */}
               <div className={`relative border-2 rounded-lg p-6 cursor-pointer transition-all ${
                 selectedTier === "pre_launch" 
-                  ? "border-[#1E3A5F] bg-[#F7F4EF] shadow-lg" 
-                  : "border-slate-200 hover:border-[#1E3A5F]/30"
+                  ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)] shadow-lg" 
+                  : "border-slate-200 hover:border-[var(--optibio-navy)]/30"
               }`}>
                 <div className="flex items-start gap-4">
                   <RadioGroupItem value="pre_launch" id="pre_launch" className="mt-1" />
                   <Label htmlFor="pre_launch" className="flex-1 cursor-pointer">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <Sparkles className="w-5 h-5 text-[#F7F4EF]0" />
+                        <Sparkles className="w-5 h-5 text-[var(--optibio-ivory)]0" />
                         <h3 className="text-xl font-bold">Pre-Launch</h3>
                       </div>
                     </div>
@@ -296,26 +296,26 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
                       <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-bold">$54.99</span>
                         <span className="text-slate-500 line-through">$59.99</span>
-                        <span className="text-[#B89651] font-semibold">Save $5</span>
+                        <span className="text-[var(--optibio-gold-dark)] font-semibold">Save $5</span>
                       </div>
                       <p className="text-sm text-slate-600">1 bottle (45-day supply)</p>
                     </div>
 
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>1 bottle (45-day supply)</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span><strong>10% off for life</strong> on all future orders</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>Pre-launch pricing locked in</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <CheckCircle2 className="w-4 h-4 text-[#B89651]" />
+                        <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold-dark)]" />
                         <span>Priority shipping at launch</span>
                       </div>
                     </div>
@@ -363,12 +363,12 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
           </div>
 
           {/* Guarantee */}
-          <div className="bg-[#F7F4EF] border-2 border-[#C9A961]/20 rounded-lg p-4">
+          <div className="bg-[var(--optibio-ivory)] border-2 border-[var(--optibio-gold)]/20 rounded-lg p-4">
             <div className="flex items-start gap-3">
-              <CheckCircle2 className="w-6 h-6 text-[#B89651] flex-shrink-0 mt-0.5" />
+              <CheckCircle2 className="w-6 h-6 text-[var(--optibio-gold-dark)] flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-bold text-[#1E3A5F]">90-Day Money-Back Guarantee</h4>
-                <p className="text-sm text-[#1E3A5F]">
+                <h4 className="font-bold text-[var(--optibio-navy)]">90-Day Money-Back Guarantee</h4>
+                <p className="text-sm text-[var(--optibio-navy)]">
                   If we don't ship by Day 90, you get a 100% refund. No questions asked.
                 </p>
               </div>
@@ -380,7 +380,7 @@ export default function ReservationModal({ open, onOpenChange }: ReservationModa
             type="submit"
             size="lg"
             disabled={createReservationMutation.isPending}
-            className="w-full bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#B89651] text-slate-900 font-bold text-lg py-6"
+            className="w-full bg-gradient-to-r from-[var(--optibio-gold)] to-[var(--optibio-ivory)]0 hover:from-[var(--optibio-ivory)]0 hover:to-[var(--optibio-gold-dark)] text-slate-900 font-bold text-lg py-6"
           >
             {createReservationMutation.isPending ? (
               <>

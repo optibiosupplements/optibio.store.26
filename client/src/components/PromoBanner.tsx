@@ -27,7 +27,7 @@ export default function PromoBanner() {
   const daysRemaining = Math.max(0, Math.ceil((preOrderEndDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)));
 
   return (
-    <div className="relative bg-gradient-to-r from-[#1E3A5F] to-[#152B45] text-white shadow-lg">
+    <div className="relative bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy-dark)] text-white shadow-lg">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4 flex-wrap md:flex-nowrap">
           {/* Left: Free Shipping Message */}
@@ -40,9 +40,9 @@ export default function PromoBanner() {
 
           {/* Center: Special Offer */}
           <div className="flex items-center gap-2.5 text-sm md:text-base font-bold bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/20">
-            <Sparkles className="w-5 h-5 flex-shrink-0 text-[#C9A961]" fill="currentColor" />
+            <Sparkles className="w-5 h-5 flex-shrink-0 text-[var(--optibio-gold)]" fill="currentColor" />
             <span className="whitespace-nowrap">
-              Pre-Order: <span className="text-[#C9A961]">Save 46%</span> • Ships Jan 20-27
+              Pre-Order: <span className="text-[var(--optibio-gold)]">Save 46%</span> • Ships Jan 20-27
             </span>
           </div>
 

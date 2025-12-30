@@ -10,7 +10,7 @@ export default function SkipNav() {
   return (
     <a
       href="#main-content"
-      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-[#1E3A5F] focus:text-white focus:rounded-lg focus:shadow-lg focus:ring-4 focus:ring-[#C9A961]/50 focus:font-semibold focus:transition-all"
+      className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-6 focus:py-3 focus:bg-[var(--optibio-navy)] focus:text-white focus:rounded-lg focus:shadow-lg focus:ring-4 focus:ring-[var(--optibio-gold)]/50 focus:font-semibold focus:transition-all"
     >
       Skip to main content
     </a>

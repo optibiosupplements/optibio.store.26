@@ -9,12 +9,12 @@ export default function About() {
   const [, setLocation] = useLocation();
 
   return (
-    <div className="min-h-screen" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
+    <div className="min-h-screen" style={{ background: 'radial-gradient(ellipse at center, var(--optibio-sky-light) 0%, var(--optibio-sky-mid) 40%, var(--optibio-sky-deep) 100%)' }}>
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[var(--optibio-gold)]/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[var(--optibio-navy)]/10 rounded-full blur-3xl" />
         </div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
         
@@ -24,15 +24,15 @@ export default function About() {
               Home
             </a>
             <ChevronRight className="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0" />
-            <span className="text-[#1E3A5F] font-bold leading-none flex items-center">
+            <span className="text-[var(--optibio-navy)] font-bold leading-none flex items-center">
               About
             </span>
           </nav>
           <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="inline-block px-3 py-1 bg-[#C9A961]/10 border border-[#C9A961]/20 rounded-full text-[#C9A961] text-xs font-bold uppercase tracking-widest">
+            <div className="inline-block px-3 py-1 bg-[var(--optibio-gold)]/10 border border-[var(--optibio-gold)]/20 rounded-full text-[var(--optibio-gold)] text-xs font-bold uppercase tracking-widest">
               Our Story
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold text-[#1E3A5F] mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--optibio-navy)] mb-6 leading-tight">
               Redefining Wellness <br/> Through Science
             </h1>
             <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed font-medium">
@@ -48,10 +48,10 @@ export default function About() {
           <div className="grid md:grid-cols-3 gap-6">
             <Card className="border-2 border-[var(--color-border-card)] shadow-md bg-[var(--color-bg-card)]">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
-                  <Target className="w-8 h-8 text-[#1E3A5F]" />
+                <div className="w-16 h-16 rounded-2xl bg-[var(--optibio-navy)]/10 flex items-center justify-center mx-auto">
+                  <Target className="w-8 h-8 text-[var(--optibio-navy)]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1E3A5F]">Our Mission</h3>
+                <h3 className="text-xl font-bold text-[var(--optibio-navy)]">Our Mission</h3>
                 <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   To empower individuals with premium, research-backed supplements that support mental clarity, physical vitality, and overall well-being.
                 </p>
@@ -60,10 +60,10 @@ export default function About() {
 
             <Card className="border-2 border-[var(--color-border-card)] shadow-md bg-[var(--color-bg-card)]">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
-                  <Leaf className="w-8 h-8 text-[#1E3A5F]" />
+                <div className="w-16 h-16 rounded-2xl bg-[var(--optibio-navy)]/10 flex items-center justify-center mx-auto">
+                  <Leaf className="w-8 h-8 text-[var(--optibio-navy)]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1E3A5F]">Our Values</h3>
+                <h3 className="text-xl font-bold text-[var(--optibio-navy)]">Our Values</h3>
                 <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   Transparency, quality, and scientific integrity guide everything we do. We never compromise on purity or potency.
                 </p>
@@ -72,10 +72,10 @@ export default function About() {
 
             <Card className="border-2 border-[var(--color-border-card)] shadow-md bg-[var(--color-bg-card)]">
               <CardContent className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-2xl bg-[#1E3A5F]/10 flex items-center justify-center mx-auto">
-                  <Heart className="w-8 h-8 text-[#1E3A5F]" />
+                <div className="w-16 h-16 rounded-2xl bg-[var(--optibio-navy)]/10 flex items-center justify-center mx-auto">
+                  <Heart className="w-8 h-8 text-[var(--optibio-navy)]" />
                 </div>
-                <h3 className="text-xl font-bold text-[#1E3A5F]">Our Promise</h3>
+                <h3 className="text-xl font-bold text-[var(--optibio-navy)]">Our Promise</h3>
                 <p className="text-[var(--color-text-secondary)] leading-relaxed">
                   Every bottle is backed by our 90-day guarantee. If you don't feel the difference, we'll refund every penny—no questions asked.
                 </p>
@@ -93,7 +93,7 @@ export default function About() {
               <CardContent className="p-12 space-y-8">
                 <div className="space-y-4">
                   <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">The Optibio Story</h2>
-                  <div className="w-20 h-1 bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 rounded-full" />
+                  <div className="w-20 h-1 bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-ivory)]0 rounded-full" />
                 </div>
 
                 <div className="space-y-6 text-[var(--color-text-secondary)] leading-relaxed">
@@ -124,7 +124,7 @@ export default function About() {
       </section>
 
       {/* Why KSM-66 */}
-      <section className="py-16 bg-gradient-to-br from-[#F7F4EF] to-white">
+      <section className="py-16 bg-gradient-to-br from-[var(--optibio-ivory)] to-white">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">Why We Choose KSM-66®</h2>
@@ -134,11 +134,11 @@ export default function About() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <Card className="border-2 border-[#C9A961]/30 shadow-lg">
+            <Card className="border-2 border-[var(--optibio-gold)]/30 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
-                    <Microscope className="w-6 h-6 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--optibio-gold)]/10 to-[var(--optibio-ivory)] flex items-center justify-center">
+                    <Microscope className="w-6 h-6 text-[var(--optibio-navy)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-2">Gold Standard Extract</h3>
@@ -150,11 +150,11 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-[#C9A961]/30 shadow-lg">
+            <Card className="border-2 border-[var(--optibio-gold)]/30 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
-                    <CheckCircle2 className="w-6 h-6 text-[#C9A961]" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--optibio-gold)]/10 to-[var(--optibio-ivory)] flex items-center justify-center">
+                    <CheckCircle2 className="w-6 h-6 text-[var(--optibio-gold)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-2">20+ Clinical Studies</h3>
@@ -166,11 +166,11 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-[#C9A961]/30 shadow-lg">
+            <Card className="border-2 border-[var(--optibio-gold)]/30 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#1E3A5F]/10 to-[#F7F4EF] flex items-center justify-center">
-                    <Shield className="w-6 h-6 text-[#152B45]" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--optibio-navy)]/10 to-[var(--optibio-ivory)] flex items-center justify-center">
+                    <Shield className="w-6 h-6 text-[var(--optibio-navy-dark)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-2">Organic & Pure</h3>
@@ -182,11 +182,11 @@ export default function About() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-[#C9A961]/30 shadow-lg">
+            <Card className="border-2 border-[var(--optibio-gold)]/30 shadow-lg">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
-                    <Award className="w-6 h-6 text-[#B89651]" />
+                  <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--optibio-gold)]/10 to-[var(--optibio-ivory)] flex items-center justify-center">
+                    <Award className="w-6 h-6 text-[var(--optibio-gold-dark)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-2">Award-Winning Quality</h3>
@@ -215,8 +215,8 @@ export default function About() {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--optibio-gold)]/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-[var(--optibio-gold)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-1">GMP Certified Facility</h3>
@@ -227,8 +227,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--optibio-gold)]/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-[var(--optibio-gold)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Third-Party Tested</h3>
@@ -239,8 +239,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--optibio-gold)]/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-[var(--optibio-gold)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Non-GMO & Organic</h3>
@@ -251,8 +251,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/20 flex items-center justify-center">
-                    <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--optibio-gold)]/20 flex items-center justify-center">
+                    <CheckCircle2 className="w-5 h-5 text-[var(--optibio-gold)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Vegan & Clean</h3>
@@ -265,8 +265,8 @@ export default function About() {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--optibio-gold)]/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-[var(--optibio-navy)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-1">5% Withanolides</h3>
@@ -277,8 +277,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--optibio-gold)]/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-[var(--optibio-navy)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Full-Spectrum Extract</h3>
@@ -289,8 +289,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--optibio-gold)]/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-[var(--optibio-navy)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Sustainable Sourcing</h3>
@@ -301,8 +301,8 @@ export default function About() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[#C9A961]/10 flex items-center justify-center">
-                    <Shield className="w-5 h-5 text-[#1E3A5F]" />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-[var(--optibio-gold)]/10 flex items-center justify-center">
+                    <Shield className="w-5 h-5 text-[var(--optibio-navy)]" />
                   </div>
                   <div>
                     <h3 className="font-bold text-[var(--color-text-primary)] mb-1">Batch Tracking</h3>
@@ -323,7 +323,7 @@ export default function About() {
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <Users className="w-8 h-8 text-[#1E3A5F]" />
+                <Users className="w-8 h-8 text-[var(--optibio-navy)]" />
                 <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">Meet Our Team</h2>
               </div>
               <p className="text-[var(--color-text-secondary)] text-lg">
@@ -340,8 +340,8 @@ export default function About() {
 
                   <div className="grid md:grid-cols-3 gap-6 py-6">
                     <div className="text-center space-y-2">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center mx-auto mb-3">
-                        <span className="text-2xl font-bold text-[#1E3A5F]">R&D</span>
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--optibio-gold)]/10 to-[var(--optibio-ivory)] flex items-center justify-center mx-auto mb-3">
+                        <span className="text-2xl font-bold text-[var(--optibio-navy)]">R&D</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Research Team</h3>
                       <p className="text-sm text-[var(--color-text-secondary)]">
@@ -350,8 +350,8 @@ export default function About() {
                     </div>
 
                     <div className="text-center space-y-2">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center mx-auto mb-3">
-                        <span className="text-2xl font-bold text-[#C9A961]">QA</span>
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--optibio-gold)]/10 to-[var(--optibio-ivory)] flex items-center justify-center mx-auto mb-3">
+                        <span className="text-2xl font-bold text-[var(--optibio-gold)]">QA</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Quality Assurance</h3>
                       <p className="text-sm text-[var(--color-text-secondary)]">
@@ -360,8 +360,8 @@ export default function About() {
                     </div>
 
                     <div className="text-center space-y-2">
-                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center mx-auto mb-3">
-                        <span className="text-2xl font-bold text-[#B89651]">CS</span>
+                      <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[var(--optibio-gold)]/10 to-[var(--optibio-ivory)] flex items-center justify-center mx-auto mb-3">
+                        <span className="text-2xl font-bold text-[var(--optibio-gold-dark)]">CS</span>
                       </div>
                       <h3 className="font-bold text-slate-900">Customer Success</h3>
                       <p className="text-sm text-[var(--color-text-secondary)]">
@@ -387,7 +387,7 @@ export default function About() {
       {/* CTA Section */}
       <section className="py-20">
         <div className="container">
-          <Card className="border-2 border-[#C9A961]/30 shadow-2xl bg-gradient-to-br from-[#F7F4EF] to-white">
+          <Card className="border-2 border-[var(--optibio-gold)]/30 shadow-2xl bg-gradient-to-br from-[var(--optibio-ivory)] to-white">
             <CardContent className="p-12 text-center space-y-6">
               <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">
                 Ready to Experience the Optibio Difference?
@@ -399,7 +399,7 @@ export default function About() {
                 <Button
                   onClick={() => setLocation("/shop")}
                   size="lg"
-                  className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg text-lg px-8"
+                  className="bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)] shadow-lg text-lg px-8"
                 >
                   Shop Now
                 </Button>

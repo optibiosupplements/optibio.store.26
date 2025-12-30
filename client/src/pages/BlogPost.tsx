@@ -14,7 +14,7 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center dark:bg-[#0B1120] dark:bg-[#0B1120]">
+      <div className="min-h-screen flex items-center justify-center dark:bg-[var(--optibio-abyssal)] dark:bg-[var(--optibio-abyssal)]">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
           <p className="text-muted-foreground mb-6">
@@ -57,7 +57,7 @@ export default function BlogPost() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 dark:bg-[#0B1120]">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 dark:bg-[var(--optibio-abyssal)]">
       {/* Breadcrumb */}
       <div className="border-b bg-background/50 backdrop-blur-sm">
         <div className="container py-4">
@@ -194,7 +194,7 @@ export default function BlogPost() {
           </div>
 
           {/* CTA Section */}
-          <div className="mt-12 bg-gradient-to-br from-[#1E3A5F] to-[#2A5F7F] rounded-2xl p-8 text-white text-center">
+          <div className="mt-12 bg-gradient-to-br from-[var(--optibio-navy)] to-[var(--optibio-navy)] rounded-2xl p-8 text-white text-center">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Experience KSM-66® Ashwagandha
             </h2>
@@ -203,7 +203,7 @@ export default function BlogPost() {
               full-spectrum extract in Optibio supplements.
             </p>
             <Link href="/shop">
-              <Button size="lg" variant="secondary" className="bg-white dark:bg-[#1E3A5F] text-[#1E3A5F] hover:bg-white/90">
+              <Button size="lg" variant="secondary" className="bg-white dark:bg-[var(--optibio-navy)] text-[var(--optibio-navy)] hover:bg-white/90">
                 Shop Now
               </Button>
             </Link>

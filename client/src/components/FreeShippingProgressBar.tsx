@@ -29,17 +29,17 @@ export default function FreeShippingProgressBar({
   const qualified = cartTotal >= threshold;
 
   return (
-    <div className="bg-gradient-to-r from-[#1E3A5F]/5 to-[#C9A961]/5 border border-[#C9A961]/20 rounded-lg p-4 space-y-3">
+    <div className="bg-gradient-to-r from-[var(--optibio-navy)]/5 to-[var(--optibio-gold)]/5 border border-[var(--optibio-gold)]/20 rounded-lg p-4 space-y-3">
       {/* Header */}
       <div className="flex items-center gap-2">
-        <Truck className={`h-5 w-5 ${qualified ? "text-[#C9A961]" : "text-[#1E3A5F]"}`} />
+        <Truck className={`h-5 w-5 ${qualified ? "text-[var(--optibio-gold)]" : "text-[var(--optibio-navy)]"}`} />
         <p className="text-sm font-semibold">
           {qualified ? (
-            <span className="text-[#C9A961]">
+            <span className="text-[var(--optibio-gold)]">
               🎉 You qualify for FREE shipping!
             </span>
           ) : (
-            <span className="text-[#1E3A5F]">
+            <span className="text-[var(--optibio-navy)]">
               You're {formatPrice(remaining)} away from FREE shipping
             </span>
           )}
@@ -50,7 +50,7 @@ export default function FreeShippingProgressBar({
       <div className="space-y-1">
         <Progress
           value={progress}
-          className="h-2 bg-[#1E3A5F]/10"
+          className="h-2 bg-[var(--optibio-navy)]/10"
         />
         <div className="flex justify-between text-xs text-muted-foreground">
           <span>{formatPrice(cartTotal)}</span>

@@ -81,17 +81,17 @@ export default function EmailCaptureModal() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-md email-popup-modal dark:bg-gradient-to-br dark:from-[#0B1120] dark:to-[#15233E] dark:border-[#2D4A77]">
+      <DialogContent className="sm:max-w-md email-popup-modal dark:bg-gradient-to-br dark:from-[var(--optibio-abyssal)] dark:to-[var(--optibio-navy-card)] dark:border-[var(--optibio-border-dark)]">
         <DialogHeader>
           <div className="flex items-center justify-center mb-4">
-            <div className="bg-[#C9A961]/10 dark:bg-[#D4AF37]/20 p-4 rounded-full">
-              <Gift className="h-8 w-8 text-[#C9A961] dark:text-[#D4AF37]" />
+            <div className="bg-[var(--optibio-gold)]/10 dark:bg-[var(--optibio-luminous-gold)]/20 p-4 rounded-full">
+              <Gift className="h-8 w-8 text-[var(--optibio-gold)] dark:text-[var(--optibio-luminous-gold)]" />
             </div>
           </div>
           <DialogTitle className="text-center text-2xl dark:text-white">
             Get 10% Off Your First Order
           </DialogTitle>
-          <DialogDescription className="text-center dark:text-[#CBD5E1]">
+          <DialogDescription className="text-center dark:text-[var(--optibio-sky-grey)]">
             Join our wellness community and receive an exclusive discount code plus
             science-backed tips for better health.
           </DialogDescription>
@@ -99,16 +99,16 @@ export default function EmailCaptureModal() {
 
         <form onSubmit={handleSubmit} className="space-y-4 pt-4">
           <div className="space-y-2">
-            <Label htmlFor="email" className="dark:text-[#CBD5E1]">Email Address</Label>
+            <Label htmlFor="email" className="dark:text-[var(--optibio-sky-grey)]">Email Address</Label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground dark:text-[#94A3B8]" />
+              <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground dark:text-[var(--optibio-sky-grey)]" />
               <Input
                 id="email"
                 type="email"
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="pl-10 dark:bg-[#1E3A5F] dark:border-[#2D4A77] dark:text-white dark:placeholder:text-[#94A3B8] dark:focus:border-[#D4AF37] dark:focus:ring-[#D4AF37]/20"
+                className="pl-10 dark:bg-[var(--optibio-navy)] dark:border-[var(--optibio-border-dark)] dark:text-white dark:placeholder:text-[var(--optibio-sky-grey)] dark:focus:border-[var(--optibio-luminous-gold)] dark:focus:ring-[var(--optibio-luminous-gold)]/20"
                 required
               />
             </div>
@@ -116,29 +116,29 @@ export default function EmailCaptureModal() {
 
           <Button
             type="submit"
-            className="w-full bg-[#C9A961] hover:bg-[#B8984F] text-white dark:bg-gradient-to-r dark:from-[#D4AF37] dark:to-[#E5B84C] dark:text-[#0B1120] dark:hover:from-[#E5B84C] dark:hover:to-[#F0C75D] dark:font-bold btn-gold-cta"
+            className="w-full bg-[var(--optibio-gold)] hover:bg-[var(--optibio-gold-dark)] text-white dark:bg-gradient-to-r dark:from-[var(--optibio-luminous-gold)] dark:to-[var(--optibio-luminous-gold)] dark:text-[var(--optibio-abyssal)] dark:hover:from-[var(--optibio-luminous-gold)] dark:hover:to-[var(--optibio-luminous-gold)] dark:font-bold btn-gold-cta"
             disabled={submitEmail.isPending}
           >
             {submitEmail.isPending ? "Subscribing..." : "Get My 10% Off Code"}
           </Button>
 
-          <p className="text-xs text-center text-muted-foreground dark:text-[#94A3B8]">
+          <p className="text-xs text-center text-muted-foreground dark:text-[var(--optibio-sky-grey)]">
             By subscribing, you agree to receive marketing emails. Unsubscribe anytime.
           </p>
         </form>
 
-        <div className="flex items-center gap-4 pt-4 border-t dark:border-[#2D4A77]">
+        <div className="flex items-center gap-4 pt-4 border-t dark:border-[var(--optibio-border-dark)]">
           <div className="flex-1 text-center">
-            <div className="text-2xl font-bold text-[#1E3A5F] dark:text-[#D4AF37]">20+</div>
-            <div className="text-xs text-muted-foreground dark:text-[#CBD5E1]">Clinical Studies</div>
+            <div className="text-2xl font-bold text-[var(--optibio-navy)] dark:text-[var(--optibio-luminous-gold)]">20+</div>
+            <div className="text-xs text-muted-foreground dark:text-[var(--optibio-sky-grey)]">Clinical Studies</div>
           </div>
-          <div className="flex-1 text-center border-x dark:border-[#2D4A77]">
-            <div className="text-2xl font-bold text-[#1E3A5F] dark:text-[#D4AF37]">GMP</div>
-            <div className="text-xs text-muted-foreground dark:text-[#CBD5E1]">Certified</div>
+          <div className="flex-1 text-center border-x dark:border-[var(--optibio-border-dark)]">
+            <div className="text-2xl font-bold text-[var(--optibio-navy)] dark:text-[var(--optibio-luminous-gold)]">GMP</div>
+            <div className="text-xs text-muted-foreground dark:text-[var(--optibio-sky-grey)]">Certified</div>
           </div>
           <div className="flex-1 text-center">
-            <div className="text-2xl font-bold text-[#1E3A5F] dark:text-[#D4AF37]">Made</div>
-            <div className="text-xs text-muted-foreground dark:text-[#CBD5E1]">In USA</div>
+            <div className="text-2xl font-bold text-[var(--optibio-navy)] dark:text-[var(--optibio-luminous-gold)]">Made</div>
+            <div className="text-xs text-muted-foreground dark:text-[var(--optibio-sky-grey)]">In USA</div>
           </div>
         </div>
       </DialogContent>

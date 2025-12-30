@@ -47,8 +47,8 @@ export default function SubscriptionToggle({
       <Card
         className={`cursor-pointer transition-all ${
           isSubscription
-            ? "border-2 border-[#C9A961] bg-[#C9A961]/5 shadow-lg"
-            : "border border-border hover:border-[#C9A961]/50"
+            ? "border-2 border-[var(--optibio-gold)] bg-[var(--optibio-gold)]/5 shadow-lg"
+            : "border border-border hover:border-[var(--optibio-gold)]/50"
         }`}
         onClick={() => handleToggle(true)}
       >
@@ -59,7 +59,7 @@ export default function SubscriptionToggle({
               <div
                 className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                   isSubscription
-                    ? "border-[#C9A961] bg-[#C9A961]"
+                    ? "border-[var(--optibio-gold)] bg-[var(--optibio-gold)]"
                     : "border-gray-300"
                 }`}
               >
@@ -73,38 +73,38 @@ export default function SubscriptionToggle({
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
                 <h3 className="font-bold text-lg">Subscribe & Save {subscriptionDiscount}%</h3>
-                <Badge className="bg-[#C9A961] text-[#1E3A5F] font-bold">
+                <Badge className="bg-[var(--optibio-gold)] text-[var(--optibio-navy)] font-bold">
                   BEST VALUE
                 </Badge>
               </div>
 
               <div className="flex items-baseline gap-2 mt-1">
-                <span className="text-2xl font-bold text-[#1E3A5F]">
+                <span className="text-2xl font-bold text-[var(--optibio-navy)]">
                   ${subscriptionPrice.toFixed(2)}
                 </span>
                 <span className="text-lg text-muted-foreground line-through">
                   ${oneTimePrice.toFixed(2)}
                 </span>
-                <span className="text-sm text-[#C9A961] font-semibold">
+                <span className="text-sm text-[var(--optibio-gold)] font-semibold">
                   Save ${savings.toFixed(2)}/month
                 </span>
               </div>
 
               <ul className="mt-3 space-y-1.5 text-sm">
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold)] flex-shrink-0 mt-0.5" />
                   <span>Free shipping on every order</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold)] flex-shrink-0 mt-0.5" />
                   <span>Cancel, pause, or skip anytime</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold)] flex-shrink-0 mt-0.5" />
                   <span>Never run out - automatic deliveries</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-4 h-4 text-[var(--optibio-gold)] flex-shrink-0 mt-0.5" />
                   <span>Manage your subscription online anytime</span>
                 </li>
               </ul>
@@ -117,8 +117,8 @@ export default function SubscriptionToggle({
       <Card
         className={`cursor-pointer transition-all ${
           !isSubscription
-            ? "border-2 border-[#1E3A5F] bg-[#1E3A5F]/5"
-            : "border border-border hover:border-[#1E3A5F]/50"
+            ? "border-2 border-[var(--optibio-navy)] bg-[var(--optibio-navy)]/5"
+            : "border border-border hover:border-[var(--optibio-navy)]/50"
         }`}
         onClick={() => handleToggle(false)}
       >
@@ -129,7 +129,7 @@ export default function SubscriptionToggle({
               <div
                 className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                   !isSubscription
-                    ? "border-[#1E3A5F] bg-[#1E3A5F]"
+                    ? "border-[var(--optibio-navy)] bg-[var(--optibio-navy)]"
                     : "border-gray-300"
                 }`}
               >
@@ -143,7 +143,7 @@ export default function SubscriptionToggle({
             <div className="flex-1 min-w-0">
               <h3 className="font-bold text-lg">One-Time Purchase</h3>
               <div className="flex items-baseline gap-2 mt-1">
-                <span className="text-2xl font-bold text-[#1E3A5F]">
+                <span className="text-2xl font-bold text-[var(--optibio-navy)]">
                   ${oneTimePrice.toFixed(2)}
                 </span>
               </div>
@@ -157,11 +157,11 @@ export default function SubscriptionToggle({
 
       {/* Why Subscribe Callout */}
       {isSubscription && (
-        <div className="bg-[#C9A961]/10 border border-[#C9A961]/30 rounded-lg p-4 mt-4">
+        <div className="bg-[var(--optibio-gold)]/10 border border-[var(--optibio-gold)]/30 rounded-lg p-4 mt-4">
           <div className="flex items-start gap-3">
-            <RefreshCw className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+            <RefreshCw className="w-5 h-5 text-[var(--optibio-gold)] flex-shrink-0 mt-0.5" />
             <div>
-              <h4 className="font-semibold text-[#1E3A5F] mb-1">
+              <h4 className="font-semibold text-[var(--optibio-navy)] mb-1">
                 Why 90% of customers choose Subscribe & Save
               </h4>
               <p className="text-sm text-slate-700">

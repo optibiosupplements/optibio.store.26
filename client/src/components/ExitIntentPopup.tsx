@@ -96,26 +96,26 @@ export default function ExitIntentPopup({
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-md bg-gradient-to-br from-[#1E3A5F] to-[#0F1F3F] border-2 border-[#C9A961] text-[#F7F4EF]">
+      <DialogContent className="sm:max-w-md bg-gradient-to-br from-[var(--optibio-navy)] to-[var(--optibio-navy-depth)] border-2 border-[var(--optibio-gold)] text-[var(--optibio-ivory)]">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-[#F7F4EF]">
+          <DialogTitle className="text-2xl font-bold text-[var(--optibio-ivory)]">
             Wait! Don't Leave Yet 👋
           </DialogTitle>
-          <DialogDescription className="text-[#F7F4EF]/80 text-base">
+          <DialogDescription className="text-[var(--optibio-ivory)]/80 text-base">
             You're so close to feeling calmer, sleeping better, and having more energy.
           </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-4 py-4">
           {/* Offer */}
-          <div className="bg-[#C9A961]/10 border border-[#C9A961]/30 rounded-lg p-4 text-center">
-            <p className="text-sm text-[#F7F4EF]/70 mb-2">Special Offer Just For You</p>
-            <p className="text-3xl font-bold text-[#C9A961] mb-1">
+          <div className="bg-[var(--optibio-gold)]/10 border border-[var(--optibio-gold)]/30 rounded-lg p-4 text-center">
+            <p className="text-sm text-[var(--optibio-ivory)]/70 mb-2">Special Offer Just For You</p>
+            <p className="text-3xl font-bold text-[var(--optibio-gold)] mb-1">
               {discountPercent}% OFF
             </p>
-            <p className="text-xs text-[#F7F4EF]/60 mb-3">Your First Order</p>
-            <div className="bg-[#1E3A5F] border border-[#C9A961] rounded px-4 py-2 inline-block">
-              <code className="text-[#C9A961] font-mono font-bold tracking-wider">
+            <p className="text-xs text-[var(--optibio-ivory)]/60 mb-3">Your First Order</p>
+            <div className="bg-[var(--optibio-navy)] border border-[var(--optibio-gold)] rounded px-4 py-2 inline-block">
+              <code className="text-[var(--optibio-gold)] font-mono font-bold tracking-wider">
                 {discountCode}
               </code>
             </div>
@@ -123,10 +123,10 @@ export default function ExitIntentPopup({
 
           {/* Benefits Reminder */}
           <div className="space-y-2">
-            <p className="text-sm font-semibold text-[#F7F4EF]">
+            <p className="text-sm font-semibold text-[var(--optibio-ivory)]">
               Why Optibio Customers Love Us:
             </p>
-            <ul className="space-y-1 text-sm text-[#F7F4EF]/80">
+            <ul className="space-y-1 text-sm text-[var(--optibio-ivory)]/80">
               <li>✓ 90-Day Money-Back Guarantee</li>
               <li>✓ Free Shipping on Orders Over $75</li>
               <li>✓ Clinically Proven KSM-66® Formula</li>
@@ -138,14 +138,14 @@ export default function ExitIntentPopup({
           <div className="space-y-2 pt-2">
             <Button
               onClick={handleContinueShopping}
-              className="w-full bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-gold"
+              className="w-full bg-gradient-to-r from-[var(--optibio-gold)] to-[var(--optibio-ivory)]0 hover:from-[var(--optibio-ivory)]0 hover:to-[var(--optibio-gold)] text-[var(--optibio-navy)] font-bold shadow-gold"
               size="lg"
             >
               Claim My {discountPercent}% Discount
             </Button>
             <button
               onClick={handleClose}
-              className="w-full text-sm text-[#F7F4EF]/60 hover:text-[#F7F4EF] transition-colors"
+              className="w-full text-sm text-[var(--optibio-ivory)]/60 hover:text-[var(--optibio-ivory)] transition-colors"
             >
               No thanks, I'll pay full price
             </button>
@@ -157,7 +157,7 @@ export default function ExitIntentPopup({
           onClick={handleClose}
           className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
         >
-          <X className="h-4 w-4 text-[#F7F4EF]" />
+          <X className="h-4 w-4 text-[var(--optibio-ivory)]" />
           <span className="sr-only">Close</span>
         </button>
       </DialogContent>

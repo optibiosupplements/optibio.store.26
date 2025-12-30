@@ -184,10 +184,10 @@ export default function WellnessPlanPersonalizer() {
   // Collapsed state
   if (!isExpanded) {
     return (
-      <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
+      <section className="py-24 bg-white dark:bg-[var(--optibio-abyssal)] transition-colors duration-500">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E3A5F] to-[#B89651] dark:from-[#D4AF37] dark:to-[#C9A961] text-white dark:text-[#0B1120] px-6 py-3 rounded-full font-bold text-sm">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-gold-dark)] dark:from-[var(--optibio-luminous-gold)] dark:to-[var(--optibio-gold)] text-white dark:text-[var(--optibio-abyssal)] px-6 py-3 rounded-full font-bold text-sm">
               <Sparkles className="w-5 h-5" />
               FREE PERSONALIZED PLAN
             </div>
@@ -196,15 +196,15 @@ export default function WellnessPlanPersonalizer() {
               Get Your Personalized Wellness Plan
             </h2>
             
-            <p className="text-xl text-slate-600 dark:text-[#94A3B8] max-w-2xl mx-auto">
-              Answer 3 quick questions to discover the best way to take Optibio for <span className="font-semibold text-[#1E3A5F]">YOUR</span> specific goals and lifestyle
+            <p className="text-xl text-slate-600 dark:text-[var(--optibio-sky-grey)] max-w-2xl mx-auto">
+              Answer 3 quick questions to discover the best way to take Optibio for <span className="font-semibold text-[var(--optibio-navy)]">YOUR</span> specific goals and lifestyle
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Button 
                 size="lg"
                 onClick={() => setIsExpanded(true)}
-                className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] text-lg px-8 py-6"
+                className="bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)] text-lg px-8 py-6"
               >
                 Create My Free Plan (90 seconds)
                 <ArrowRight className="ml-2 w-5 h-5" />
@@ -223,11 +223,11 @@ export default function WellnessPlanPersonalizer() {
   // Results page
   if (showResults && plan) {
     return (
-      <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
+      <section className="py-24 bg-white dark:bg-[var(--optibio-abyssal)] transition-colors duration-500">
         <div className="container">
           <div className="max-w-5xl mx-auto space-y-8 animate-fade-in">
             <div className="text-center">
-              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 text-slate-900 px-6 py-3 rounded-full font-bold text-lg mb-6">
+              <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[var(--optibio-gold)] to-[var(--optibio-ivory)]0 text-slate-900 px-6 py-3 rounded-full font-bold text-lg mb-6">
                 <Sparkles className="w-5 h-5" />
                 Your Personalized Wellness Plan
               </div>
@@ -241,17 +241,17 @@ export default function WellnessPlanPersonalizer() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Timing */}
-              <Card className="border-2 border-[#C9A961]/30 dark:border-[#2D4A77] bg-gradient-to-br from-[#F7F4EF] to-white dark:from-[#1E3A5F] dark:to-[#1E3A5F]">
+              <Card className="border-2 border-[var(--optibio-gold)]/30 dark:border-[var(--optibio-border-dark)] bg-gradient-to-br from-[var(--optibio-ivory)] to-white dark:from-[var(--optibio-navy)] dark:to-[var(--optibio-navy)]">
                 <CardContent className="p-8 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center">
-                    <Clock className="w-8 h-8 text-[#1E3A5F] dark:text-[#D4AF37]" />
+                  <div className="w-16 h-16 rounded-full bg-[var(--optibio-gold)]/10 flex items-center justify-center">
+                    <Clock className="w-8 h-8 text-[var(--optibio-navy)] dark:text-[var(--optibio-luminous-gold)]" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-slate-600 mb-2">Optimal Timing</div>
-                    <div className="text-lg font-bold text-[#1E3A5F] dark:text-white leading-tight">
+                    <div className="text-lg font-bold text-[var(--optibio-navy)] dark:text-white leading-tight">
                       {plan.timing}
                     </div>
-                    <div className="text-sm text-slate-600 dark:text-[#94A3B8] mt-3 p-3 bg-[#F7F4EF] dark:bg-[#0B1120]/50 rounded-lg">
+                    <div className="text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)] mt-3 p-3 bg-[var(--optibio-ivory)] dark:bg-[var(--optibio-abyssal)]/50 rounded-lg">
                       <strong>Clinical Dose:</strong> 2 capsules daily (600mg KSM-66®)
                     </div>
                   </div>
@@ -259,17 +259,17 @@ export default function WellnessPlanPersonalizer() {
               </Card>
 
               {/* Timeline */}
-              <Card className="border-2 border-[#C9A961]/20 dark:border-[#2D4A77] bg-gradient-to-br from-[#F7F4EF] to-white dark:from-[#1E3A5F] dark:to-[#1E3A5F]">
+              <Card className="border-2 border-[var(--optibio-gold)]/20 dark:border-[var(--optibio-border-dark)] bg-gradient-to-br from-[var(--optibio-ivory)] to-white dark:from-[var(--optibio-navy)] dark:to-[var(--optibio-navy)]">
                 <CardContent className="p-8 space-y-4">
-                  <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center">
-                    <Calendar className="w-8 h-8 text-[#1E3A5F] dark:text-[#D4AF37]" />
+                  <div className="w-16 h-16 rounded-full bg-[var(--optibio-gold)]/10 flex items-center justify-center">
+                    <Calendar className="w-8 h-8 text-[var(--optibio-navy)] dark:text-[var(--optibio-luminous-gold)]" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-slate-600 mb-2">Expected Results</div>
-                    <div className="text-lg font-bold text-[#1E3A5F] dark:text-white leading-tight">
+                    <div className="text-lg font-bold text-[var(--optibio-navy)] dark:text-white leading-tight">
                       {plan.expectedTimeline}
                     </div>
-                    <div className="text-sm text-slate-600 dark:text-[#94A3B8] mt-3 p-3 bg-[#F7F4EF] dark:bg-[#0B1120]/50 rounded-lg">
+                    <div className="text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)] mt-3 p-3 bg-[var(--optibio-ivory)] dark:bg-[var(--optibio-abyssal)]/50 rounded-lg">
                       Consistency is key for best results
                     </div>
                   </div>
@@ -278,19 +278,19 @@ export default function WellnessPlanPersonalizer() {
             </div>
 
             {/* Personalized Tips */}
-            <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:bg-[#1E3A5F]">
+            <Card className="border-2 border-slate-200 dark:border-[var(--optibio-border-dark)] dark:bg-[var(--optibio-navy)]">
               <CardContent className="p-8 space-y-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#B89651] flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--optibio-navy)] to-[var(--optibio-gold-dark)] flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Your Personalized Tips</h3>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   {plan.personalizedTips.map((tip, i) => (
-                    <div key={i} className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-[#0B1120]/50 rounded-lg">
-                      <CheckCircle2 className="w-5 h-5 text-[#B89651] flex-shrink-0 mt-0.5" />
-                      <p className="text-slate-700 dark:text-[#94A3B8] text-sm">{tip}</p>
+                    <div key={i} className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-[var(--optibio-abyssal)]/50 rounded-lg">
+                      <CheckCircle2 className="w-5 h-5 text-[var(--optibio-gold-dark)] flex-shrink-0 mt-0.5" />
+                      <p className="text-slate-700 dark:text-[var(--optibio-sky-grey)] text-sm">{tip}</p>
                     </div>
                   ))}
                 </div>
@@ -298,11 +298,11 @@ export default function WellnessPlanPersonalizer() {
             </Card>
 
             {/* Medical Disclaimer */}
-            <Card className="border-2 border-[#C9A961]/20 dark:border-[#2D4A77] bg-[#F7F4EF] dark:bg-[#1E3A5F]">
+            <Card className="border-2 border-[var(--optibio-gold)]/20 dark:border-[var(--optibio-border-dark)] bg-[var(--optibio-ivory)] dark:bg-[var(--optibio-navy)]">
               <CardContent className="p-6">
                 <div className="flex items-start gap-3">
-                  <AlertCircle className="w-6 h-6 text-[#B89651] flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-[#1E3A5F] dark:text-[#94A3B8]">
+                  <AlertCircle className="w-6 h-6 text-[var(--optibio-gold-dark)] flex-shrink-0 mt-0.5" />
+                  <div className="text-sm text-[var(--optibio-navy)] dark:text-[var(--optibio-sky-grey)]">
                     <strong>Important:</strong> This plan provides general guidance based on clinical research of KSM-66® Ashwagandha. 
                     It is not medical advice. The clinically studied dose is 600mg daily (2 capsules). 
                     Consult your healthcare provider before starting any new supplement regimen, especially if you are pregnant, nursing, 
@@ -316,7 +316,7 @@ export default function WellnessPlanPersonalizer() {
             <div className="text-center space-y-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] text-lg px-8 py-6"
+                className="bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)] text-lg px-8 py-6"
                 onClick={() => window.location.href = "/shop"}
               >
                 Get Started with Your Plan
@@ -345,7 +345,7 @@ export default function WellnessPlanPersonalizer() {
 
   // Quiz flow
   return (
-    <section className="py-24 bg-gradient-to-br from-[#F7F4EF] via-white to-[#F7F4EF]/30 dark:from-[#0B1120] dark:via-[#15233E] dark:to-[#0B1120] transition-colors duration-500">
+    <section className="py-24 bg-gradient-to-br from-[var(--optibio-ivory)] via-white to-[var(--optibio-ivory)]/30 dark:from-[var(--optibio-abyssal)] dark:via-[var(--optibio-navy-card)] dark:to-[var(--optibio-abyssal)] transition-colors duration-500">
       <div className="container">
         <div className="max-w-3xl mx-auto space-y-8">
           {/* Progress indicator */}
@@ -354,14 +354,14 @@ export default function WellnessPlanPersonalizer() {
               <div
                 key={i}
                 className={`h-2 rounded-full transition-all duration-300 ${
-                  i === step ? "w-12 bg-[#1E3A5F]" : i < step ? "w-8 bg-[#1E3A5F]" : "w-8 bg-slate-200"
+                  i === step ? "w-12 bg-[var(--optibio-navy)]" : i < step ? "w-8 bg-[var(--optibio-navy)]" : "w-8 bg-slate-200"
                 }`}
               />
             ))}
           </div>
 
           <div className="text-center mb-8">
-            <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
+            <Badge className="mb-4 bg-[var(--optibio-gold)]/10 text-[var(--optibio-navy)] border-[var(--optibio-gold)]/30">
               Step {step + 1} of 3
             </Badge>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
@@ -371,7 +371,7 @@ export default function WellnessPlanPersonalizer() {
             </h2>
           </div>
 
-          <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:bg-[#1E3A5F]">
+          <Card className="border-2 border-slate-200 dark:border-[var(--optibio-border-dark)] dark:bg-[var(--optibio-navy)]">
             <CardContent className="p-8 space-y-6">
               {/* Step 0: Goals */}
               {step === 0 && (
@@ -384,8 +384,8 @@ export default function WellnessPlanPersonalizer() {
                         onClick={() => toggleGoal(goal.id)}
                         className={`p-6 rounded-xl border-2 text-left transition-all duration-200 ${
                           userData.primaryGoals.includes(goal.id)
-                            ? "border-[#1E3A5F] bg-[#F7F4EF]"
-                            : "border-slate-200 hover:border-[#C9A961]/40"
+                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
+                            : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
                         }`}
                       >
                         <div className="flex items-center gap-3">
@@ -393,7 +393,7 @@ export default function WellnessPlanPersonalizer() {
                           <span className="font-semibold text-slate-900">{goal.label}</span>
                         </div>
                         {userData.primaryGoals.includes(goal.id) && (
-                          <CheckCircle2 className="w-6 h-6 text-[#1E3A5F] ml-auto mt-2" />
+                          <CheckCircle2 className="w-6 h-6 text-[var(--optibio-navy)] ml-auto mt-2" />
                         )}
                       </button>
                     ))}
@@ -417,7 +417,7 @@ export default function WellnessPlanPersonalizer() {
                       />
                       <div className="flex justify-between text-sm text-slate-600">
                         <span>Low (1)</span>
-                        <span className="font-bold text-[#1E3A5F]">{userData.stressLevel}</span>
+                        <span className="font-bold text-[var(--optibio-navy)]">{userData.stressLevel}</span>
                         <span>High (10)</span>
                       </div>
                     </div>
@@ -436,7 +436,7 @@ export default function WellnessPlanPersonalizer() {
                       />
                       <div className="flex justify-between text-sm text-slate-600">
                         <span>Poor (1)</span>
-                        <span className="font-bold text-[#1E3A5F]">{userData.sleepQuality}</span>
+                        <span className="font-bold text-[var(--optibio-navy)]">{userData.sleepQuality}</span>
                         <span>Excellent (10)</span>
                       </div>
                     </div>
@@ -482,8 +482,8 @@ export default function WellnessPlanPersonalizer() {
                         htmlFor="morning"
                         className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                           userData.timingPreference === "morning"
-                            ? "border-[#1E3A5F] bg-[#F7F4EF]"
-                            : "border-slate-200 hover:border-[#C9A961]/40"
+                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
+                            : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
                         }`}
                       >
                         <RadioGroupItem value="morning" id="morning" className="mt-1" />
@@ -497,8 +497,8 @@ export default function WellnessPlanPersonalizer() {
                         htmlFor="evening"
                         className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                           userData.timingPreference === "evening"
-                            ? "border-[#1E3A5F] bg-[#F7F4EF]"
-                            : "border-slate-200 hover:border-[#C9A961]/40"
+                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
+                            : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
                         }`}
                       >
                         <RadioGroupItem value="evening" id="evening" className="mt-1" />
@@ -512,8 +512,8 @@ export default function WellnessPlanPersonalizer() {
                         htmlFor="flexible"
                         className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                           userData.timingPreference === "flexible"
-                            ? "border-[#1E3A5F] bg-[#F7F4EF]"
-                            : "border-slate-200 hover:border-[#C9A961]/40"
+                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
+                            : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
                         }`}
                       >
                         <RadioGroupItem value="flexible" id="flexible" className="mt-1" />
@@ -543,7 +543,7 @@ export default function WellnessPlanPersonalizer() {
             <Button
               onClick={handleNext}
               disabled={!canProceed()}
-              className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45]"
+              className="bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)]"
             >
               {step === 2 ? "Get My Plan" : "Continue"}
               <ArrowRight className="ml-2 w-4 h-4" />

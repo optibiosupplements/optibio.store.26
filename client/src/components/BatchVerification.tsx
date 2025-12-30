@@ -31,7 +31,7 @@ export default function BatchVerification() {
   return (
     <div className="space-y-6">
       {/* Search Form */}
-      <Card className="border-2 border-[#C9A961]/20 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
+      <Card className="border-2 border-[var(--optibio-gold)]/20 shadow-cream bg-gradient-to-br from-[var(--optibio-ivory)]/80 to-[var(--optibio-ivory)]/80">
         <CardContent className="p-6">
           <div className="space-y-4">
             <div>
@@ -50,12 +50,12 @@ export default function BatchVerification() {
                 placeholder="Enter lot number (e.g., ASH-2024-11-001)"
                 value={lotNumber}
                 onChange={(e) => setLotNumber(e.target.value)}
-                className="flex-1 bg-white border-[#C9A961]/20 focus:border-[#C9A961]"
+                className="flex-1 bg-white border-[var(--optibio-gold)]/20 focus:border-[var(--optibio-gold)]"
               />
               <Button
                 type="submit"
                 disabled={!lotNumber.trim() || isLoading}
-                className="bg-gradient-to-r from-[#C9A961] to-[#F7F4EF]0 hover:from-[#F7F4EF]0 hover:to-[#B89651] text-slate-900 font-semibold shadow-gold"
+                className="bg-gradient-to-r from-[var(--optibio-gold)] to-[var(--optibio-ivory)]0 hover:from-[var(--optibio-ivory)]0 hover:to-[var(--optibio-gold-dark)] text-slate-900 font-semibold shadow-gold"
               >
                 <Search className="h-4 w-4 mr-2" />
                 {isLoading ? "Searching..." : "Verify"}
@@ -71,19 +71,19 @@ export default function BatchVerification() {
           {data.found ? (
             <>
               {/* Batch Info Card */}
-              <Card className="border-2 border-[#C9A961]/20 shadow-lg bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
+              <Card className="border-2 border-[var(--optibio-gold)]/20 shadow-lg bg-gradient-to-br from-[var(--optibio-ivory)]/80 to-[var(--optibio-ivory)]/80">
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <CheckCircle2 className="h-6 w-6 text-[#B89651]" />
+                        <CheckCircle2 className="h-6 w-6 text-[var(--optibio-gold-dark)]" />
                         <h3 className="text-xl font-bold text-slate-900">Batch Verified</h3>
                       </div>
                       <p className="text-sm text-slate-600">
                         This batch has passed all quality control tests
                       </p>
                     </div>
-                    <Badge className="bg-[#B89651] text-white">Authentic</Badge>
+                    <Badge className="bg-[var(--optibio-gold-dark)] text-white">Authentic</Badge>
                   </div>
 
                   <div className="grid md:grid-cols-3 gap-4">
@@ -115,47 +115,47 @@ export default function BatchVerification() {
 
               {/* Test Results */}
               {data.batch?.testResults && (
-                <Card className="border-2 border-[#C9A961]/20 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
+                <Card className="border-2 border-[var(--optibio-gold)]/20 shadow-cream bg-gradient-to-br from-[var(--optibio-ivory)]/80 to-[var(--optibio-ivory)]/80">
                   <CardContent className="p-6">
                     <h4 className="text-lg font-bold mb-4 text-slate-900">Test Results</h4>
                     
                     <div className="space-y-4">
                       {/* Potency */}
-                      <div className="bg-white/60 rounded-lg p-4 border border-[#C9A961]/10">
+                      <div className="bg-white/60 rounded-lg p-4 border border-[var(--optibio-gold)]/10">
                         <h5 className="font-semibold text-sm mb-2 text-slate-900">Potency & Purity</h5>
                         <div className="grid grid-cols-2 gap-3">
                           <div>
                             <p className="text-xs text-slate-500">Withanolides</p>
-                            <p className="text-sm font-bold text-[#B89651]">{data.batch.testResults.withanolides}</p>
+                            <p className="text-sm font-bold text-[var(--optibio-gold-dark)]">{data.batch.testResults.withanolides}</p>
                           </div>
                           <div>
                             <p className="text-xs text-slate-500">Purity</p>
-                            <p className="text-sm font-bold text-[#B89651]">{data.batch.testResults.purity}</p>
+                            <p className="text-sm font-bold text-[var(--optibio-gold-dark)]">{data.batch.testResults.purity}</p>
                           </div>
                         </div>
                       </div>
 
                       {/* Heavy Metals */}
-                      <div className="bg-white/60 rounded-lg p-4 border border-[#C9A961]/10">
+                      <div className="bg-white/60 rounded-lg p-4 border border-[var(--optibio-gold)]/10">
                         <h5 className="font-semibold text-sm mb-2 text-slate-900">Heavy Metals (ICP-MS)</h5>
                         <div className="grid grid-cols-2 gap-3">
                           {Object.entries(data.batch.testResults.heavyMetals).map(([metal, value]) => (
                             <div key={metal}>
                               <p className="text-xs text-slate-500 capitalize">{metal}</p>
-                              <p className="text-sm font-semibold text-[#B89651]">{value as string}</p>
+                              <p className="text-sm font-semibold text-[var(--optibio-gold-dark)]">{value as string}</p>
                             </div>
                           ))}
                         </div>
                       </div>
 
                       {/* Microbial */}
-                      <div className="bg-white/60 rounded-lg p-4 border border-[#C9A961]/10">
+                      <div className="bg-white/60 rounded-lg p-4 border border-[var(--optibio-gold)]/10">
                         <h5 className="font-semibold text-sm mb-2 text-slate-900">Microbial Testing</h5>
                         <div className="grid grid-cols-2 gap-3">
                           {Object.entries(data.batch.testResults.microbial).map(([test, value]) => (
                             <div key={test}>
                               <p className="text-xs text-slate-500 capitalize">{test.replace(/([A-Z])/g, ' $1').trim()}</p>
-                              <p className="text-sm font-semibold text-[#B89651]">{value as string}</p>
+                              <p className="text-sm font-semibold text-[var(--optibio-gold-dark)]">{value as string}</p>
                             </div>
                           ))}
                         </div>
@@ -166,7 +166,7 @@ export default function BatchVerification() {
               )}
 
               {/* Download Documents */}
-              <Card className="border-2 border-[#C9A961]/20 shadow-cream bg-gradient-to-br from-[#F7F4EF]/80 to-[#F7F4EF]/80">
+              <Card className="border-2 border-[var(--optibio-gold)]/20 shadow-cream bg-gradient-to-br from-[var(--optibio-ivory)]/80 to-[var(--optibio-ivory)]/80">
                 <CardContent className="p-6">
                   <h4 className="text-lg font-bold mb-4 text-slate-900">Download Documents</h4>
                   <div className="grid md:grid-cols-2 gap-3">
@@ -174,9 +174,9 @@ export default function BatchVerification() {
                       <a
                         href={data.batch?.coaUrl}
                         download
-                        className="flex items-center gap-2 p-3 bg-white/80 hover:bg-white border border-[#C9A961]/20 rounded-lg transition-colors"
+                        className="flex items-center gap-2 p-3 bg-white/80 hover:bg-white border border-[var(--optibio-gold)]/20 rounded-lg transition-colors"
                       >
-                        <Download className="h-4 w-4 text-[#B89651]" />
+                        <Download className="h-4 w-4 text-[var(--optibio-gold-dark)]" />
                         <span className="text-sm font-semibold text-slate-900">Certificate of Analysis</span>
                       </a>
                     )}
@@ -184,9 +184,9 @@ export default function BatchVerification() {
                       <a
                         href={data.batch?.heavyMetalsTestUrl}
                         download
-                        className="flex items-center gap-2 p-3 bg-white/80 hover:bg-white border border-[#C9A961]/20 rounded-lg transition-colors"
+                        className="flex items-center gap-2 p-3 bg-white/80 hover:bg-white border border-[var(--optibio-gold)]/20 rounded-lg transition-colors"
                       >
-                        <Download className="h-4 w-4 text-[#B89651]" />
+                        <Download className="h-4 w-4 text-[var(--optibio-gold-dark)]" />
                         <span className="text-sm font-semibold text-slate-900">Heavy Metals Test</span>
                       </a>
                     )}
@@ -194,9 +194,9 @@ export default function BatchVerification() {
                       <a
                         href={data.batch?.microbialTestUrl}
                         download
-                        className="flex items-center gap-2 p-3 bg-white/80 hover:bg-white border border-[#C9A961]/20 rounded-lg transition-colors"
+                        className="flex items-center gap-2 p-3 bg-white/80 hover:bg-white border border-[var(--optibio-gold)]/20 rounded-lg transition-colors"
                       >
-                        <Download className="h-4 w-4 text-[#B89651]" />
+                        <Download className="h-4 w-4 text-[var(--optibio-gold-dark)]" />
                         <span className="text-sm font-semibold text-slate-900">Microbial Test</span>
                       </a>
                     )}
@@ -204,9 +204,9 @@ export default function BatchVerification() {
                       <a
                         href={data.batch?.potencyTestUrl}
                         download
-                        className="flex items-center gap-2 p-3 bg-white/80 hover:bg-white border border-[#C9A961]/20 rounded-lg transition-colors"
+                        className="flex items-center gap-2 p-3 bg-white/80 hover:bg-white border border-[var(--optibio-gold)]/20 rounded-lg transition-colors"
                       >
-                        <Download className="h-4 w-4 text-[#B89651]" />
+                        <Download className="h-4 w-4 text-[var(--optibio-gold-dark)]" />
                         <span className="text-sm font-semibold text-slate-900">Potency Test (HPLC)</span>
                       </a>
                     )}

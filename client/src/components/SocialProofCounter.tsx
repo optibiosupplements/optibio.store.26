@@ -25,15 +25,15 @@ export function SocialProofCounter({ variant = "homepage" }: SocialProofCounterP
 
   // Homepage variant - larger, more prominent
   return (
-    <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#F7F4EF] to-[#F7F4EF] px-6 py-3 border border-[#C9A961]/20">
-      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[#C9A961]/10">
-        <Users className="h-5 w-5 text-[#B89651]" />
+    <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[var(--optibio-ivory)] to-[var(--optibio-ivory)] px-6 py-3 border border-[var(--optibio-gold)]/20">
+      <div className="flex items-center justify-center w-10 h-10 rounded-full bg-[var(--optibio-gold)]/10">
+        <Users className="h-5 w-5 text-[var(--optibio-gold-dark)]" />
       </div>
       <div className="text-left">
-        <div className="text-2xl font-bold text-[#1E3A5F]">
+        <div className="text-2xl font-bold text-[var(--optibio-navy)]">
           {totalReservations.toLocaleString()}
         </div>
-        <div className="text-sm text-[#1E3A5F]">
+        <div className="text-sm text-[var(--optibio-navy)]">
           people joined the movement
         </div>
       </div>

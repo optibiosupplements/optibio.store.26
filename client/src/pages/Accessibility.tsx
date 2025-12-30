@@ -17,12 +17,12 @@ import {
 
 export default function Accessibility() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[var(--optibio-ivory)]/20">
       {/* Header */}
       <section className="relative py-12 md:py-16 overflow-hidden gradient-hero">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 right-20 w-96 h-96 bg-[#C9A961]/10 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#1E3A5F]/10 rounded-full blur-3xl" />
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[var(--optibio-gold)]/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[var(--optibio-navy)]/10 rounded-full blur-3xl" />
         </div>
         <div className="container relative z-10">
           <nav className="flex items-center gap-2 text-sm font-medium mb-6 animate-in fade-in slide-in-from-bottom-2 h-6">
@@ -30,7 +30,7 @@ export default function Accessibility() {
               Home
             </a>
             <ChevronRight className="w-4 h-4 text-[var(--color-text-muted)] flex-shrink-0" />
-            <span className="text-[#1E3A5F] font-bold leading-none flex items-center">
+            <span className="text-[var(--optibio-navy)] font-bold leading-none flex items-center">
               Accessibility
             </span>
           </nav>
@@ -39,7 +39,7 @@ export default function Accessibility() {
               <AccessibilityIcon className="w-4 h-4 mr-2" />
               <span className="font-bold">WCAG 2.1 AA Compliant</span>
             </Badge>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1E3A5F]">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[var(--optibio-navy)]">
               Accessibility Statement
             </h1>
             <p className="text-lg text-[var(--color-text-secondary)]">
@@ -53,10 +53,10 @@ export default function Accessibility() {
       <section className="py-12 md:py-16">
         <div className="container max-w-4xl">
           {/* Compliance Status */}
-          <Card className="mb-8 border-2 border-[#C9A961]/20 shadow-cream">
+          <Card className="mb-8 border-2 border-[var(--optibio-gold)]/20 shadow-cream">
             <CardHeader>
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#C9A961] flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--optibio-navy)] to-[var(--optibio-gold)] flex items-center justify-center">
                   <Shield className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -97,14 +97,14 @@ export default function Accessibility() {
           </Card>
 
           {/* Accessibility Features */}
-          <Card className="mb-8 border-2 border-[#C9A961]/20 shadow-cream">
+          <Card className="mb-8 border-2 border-[var(--optibio-gold)]/20 shadow-cream">
             <CardHeader>
               <CardTitle className="text-2xl">Accessibility Features</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#C9A961]/10 flex items-center justify-center flex-shrink-0">
-                  <Keyboard className="w-5 h-5 text-[#1E3A5F]" />
+                <div className="w-10 h-10 rounded-full bg-[var(--optibio-gold)]/10 flex items-center justify-center flex-shrink-0">
+                  <Keyboard className="w-5 h-5 text-[var(--optibio-navy)]" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-2">Keyboard Navigation</h3>
@@ -115,8 +115,8 @@ export default function Accessibility() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#C9A961]/10 flex items-center justify-center flex-shrink-0">
-                  <Eye className="w-5 h-5 text-[#1E3A5F]" />
+                <div className="w-10 h-10 rounded-full bg-[var(--optibio-gold)]/10 flex items-center justify-center flex-shrink-0">
+                  <Eye className="w-5 h-5 text-[var(--optibio-navy)]" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-2">Visual Accessibility</h3>
@@ -142,8 +142,8 @@ export default function Accessibility() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#C9A961]/10 flex items-center justify-center flex-shrink-0">
-                  <Volume2 className="w-5 h-5 text-[#1E3A5F]" />
+                <div className="w-10 h-10 rounded-full bg-[var(--optibio-gold)]/10 flex items-center justify-center flex-shrink-0">
+                  <Volume2 className="w-5 h-5 text-[var(--optibio-navy)]" />
                 </div>
                 <div>
                   <h3 className="font-bold text-lg mb-2">Screen Reader Compatibility</h3>
@@ -174,7 +174,7 @@ export default function Accessibility() {
           </Card>
 
           {/* Technical Specifications */}
-          <Card className="mb-8 border-2 border-[#C9A961]/20 shadow-cream">
+          <Card className="mb-8 border-2 border-[var(--optibio-gold)]/20 shadow-cream">
             <CardHeader>
               <CardTitle className="text-2xl">Technical Specifications</CardTitle>
             </CardHeader>
@@ -213,7 +213,7 @@ export default function Accessibility() {
           </Card>
 
           {/* Feedback & Contact */}
-          <Card className="border-2 border-[#C9A961]/20 shadow-cream">
+          <Card className="border-2 border-[var(--optibio-gold)]/20 shadow-cream">
             <CardHeader>
               <CardTitle className="text-2xl">Feedback & Contact</CardTitle>
             </CardHeader>
@@ -224,21 +224,21 @@ export default function Accessibility() {
 
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-[#1E3A5F] mt-0.5 flex-shrink-0" />
+                  <Mail className="w-5 h-5 text-[var(--optibio-navy)] mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-semibold">Email</p>
-                    <a href="mailto:accessibility@optibiosupplements.com" className="text-[#1E3A5F] hover:underline">
+                    <a href="mailto:accessibility@optibiosupplements.com" className="text-[var(--optibio-navy)] hover:underline">
                       accessibility@optibiosupplements.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <ExternalLink className="w-5 h-5 text-[#1E3A5F] mt-0.5 flex-shrink-0" />
+                  <ExternalLink className="w-5 h-5 text-[var(--optibio-navy)] mt-0.5 flex-shrink-0" />
                   <div>
                     <p className="font-semibold">Contact Form</p>
                     <Link href="/about#contact">
-                      <span className="text-[#1E3A5F] hover:underline cursor-pointer">
+                      <span className="text-[var(--optibio-navy)] hover:underline cursor-pointer">
                         Visit our contact page
                       </span>
                     </Link>
@@ -246,7 +246,7 @@ export default function Accessibility() {
                 </div>
               </div>
 
-              <div className="p-4 bg-[#F7F4EF] border border-[#C9A961]/20 rounded-lg">
+              <div className="p-4 bg-[var(--optibio-ivory)] border border-[var(--optibio-gold)]/20 rounded-lg">
                 <p className="text-sm text-[var(--color-text-secondary)]">
                   <strong>Response Time:</strong> We aim to respond to accessibility feedback within 2 business days. For urgent accessibility issues, please indicate "Urgent" in your subject line.
                 </p>
@@ -260,7 +260,7 @@ export default function Accessibility() {
               Ready to experience premium wellness supplements?
             </p>
             <Link href="/shop">
-              <Button size="lg" className="bg-gradient-to-r from-[#1E3A5F] to-[#152B45] hover:opacity-90">
+              <Button size="lg" className="bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy-dark)] hover:opacity-90">
                 Shop Now
               </Button>
             </Link>

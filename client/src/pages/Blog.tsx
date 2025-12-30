@@ -9,7 +9,7 @@ export default function Blog() {
   const blogPosts = getAllBlogPosts();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 dark:bg-[#0B1120] dark:bg-[#0B1120]">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 dark:bg-[var(--optibio-abyssal)] dark:bg-[var(--optibio-abyssal)]">
       {/* Breadcrumb */}
       <div className="border-b bg-background/50 backdrop-blur-sm">
         <div className="container py-4">
@@ -25,7 +25,7 @@ export default function Blog() {
       </div>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-[#1E3A5F] to-[#2A5F7F] text-white py-16">
+      <div className="bg-gradient-to-br from-[var(--optibio-navy)] to-[var(--optibio-navy)] text-white py-16">
         <div className="container">
           <div className="max-w-3xl">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -94,7 +94,7 @@ export default function Blog() {
         </div>
 
         {/* CTA Section */}
-        <div className="mt-16 bg-gradient-to-br from-[#1E3A5F] to-[#2A5F7F] rounded-2xl p-8 md:p-12 text-white text-center">
+        <div className="mt-16 bg-gradient-to-br from-[var(--optibio-navy)] to-[var(--optibio-navy)] rounded-2xl p-8 md:p-12 text-white text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Experience the Benefits?
           </h2>
@@ -102,7 +102,7 @@ export default function Blog() {
             All our articles are based on clinical research using KSM-66® ashwagandha—the same premium extract in Optibio supplements.
           </p>
           <Link href="/shop">
-            <Button size="lg" variant="secondary" className="bg-white dark:bg-[#1E3A5F] text-[#1E3A5F] hover:bg-white/90">
+            <Button size="lg" variant="secondary" className="bg-white dark:bg-[var(--optibio-navy)] text-[var(--optibio-navy)] hover:bg-white/90">
               Shop KSM-66® Ashwagandha
             </Button>
           </Link>

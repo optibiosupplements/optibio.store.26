@@ -50,8 +50,8 @@ export default function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 dark:bg-[#0B1120]/95 backdrop-blur-md shadow-md border-b border-slate-100 dark:border-[#2D4A77]"
-          : "bg-white/80 dark:bg-[#0B1120]/95 backdrop-blur-md border-b border-slate-100 dark:border-[#2D4A77]"
+          ? "bg-white/80 dark:bg-[var(--optibio-abyssal)]/95 backdrop-blur-md shadow-md border-b border-slate-100 dark:border-[var(--optibio-border-dark)]"
+          : "bg-white/80 dark:bg-[var(--optibio-abyssal)]/95 backdrop-blur-md border-b border-slate-100 dark:border-[var(--optibio-border-dark)]"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -75,7 +75,7 @@ export default function Header() {
               <Link 
                 key={item.name} 
                 href={item.href} 
-                className="text-sm font-bold text-[#1E3A5F] dark:text-white hover:text-[#2563EB] dark:hover:text-[#D4AF37] transition-colors uppercase tracking-wide"
+                className="text-sm font-bold text-[var(--optibio-navy)] dark:text-white hover:text-[var(--optibio-electric)] dark:hover:text-[var(--optibio-luminous-gold)] transition-colors uppercase tracking-wide"
               >
                 {item.name}
               </Link>
@@ -88,7 +88,7 @@ export default function Header() {
             {isAuthenticated ? (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="hidden md:flex items-center gap-2 text-sm font-bold text-[#1E3A5F] dark:text-white">
+                  <Button variant="ghost" className="hidden md:flex items-center gap-2 text-sm font-bold text-[var(--optibio-navy)] dark:text-white">
                     <User className="h-5 w-5" />
                     <span>{user?.name || "Account"}</span>
                     <ChevronDown className="h-4 w-4" />
@@ -125,7 +125,7 @@ export default function Header() {
             ) : (
               <a
                 href={getLoginUrl()}
-                className="hidden md:flex items-center gap-2 text-sm font-bold text-[#1E3A5F] dark:text-white hover:text-[#2563EB] dark:hover:text-[#D4AF37] transition-colors"
+                className="hidden md:flex items-center gap-2 text-sm font-bold text-[var(--optibio-navy)] dark:text-white hover:text-[var(--optibio-electric)] dark:hover:text-[var(--optibio-luminous-gold)] transition-colors"
               >
                 <User className="h-5 w-5" />
                 <span>Sign In</span>
@@ -136,10 +136,10 @@ export default function Header() {
             <ThemeToggle />
 
             {/* Cart - Mobile Optimized Touch Target */}
-            <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full transition-colors hover:bg-accent text-[#1E3A5F] dark:text-white">
+            <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full transition-colors hover:bg-accent text-[var(--optibio-navy)] dark:text-white">
               <ShoppingCart className="h-5 w-5" />
               {cartItemCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-[#C9A961] rounded-full border-2 border-white">
+                <span className="absolute -top-1 -right-1 flex items-center justify-center h-5 w-5 text-xs font-bold text-white bg-[var(--optibio-gold)] rounded-full border-2 border-white">
                   {cartItemCount}
                 </span>
               )}
@@ -151,7 +151,7 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="md:hidden h-11 w-11 text-[#1E3A5F] dark:text-white"
+                  className="md:hidden h-11 w-11 text-[var(--optibio-navy)] dark:text-white"
                   aria-label="Open menu"
                 >
                   <Menu className="h-6 w-6" />
@@ -163,7 +163,7 @@ export default function Header() {
                     <Link 
                       key={item.name} 
                       href={item.href}
-                      className="text-lg font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center uppercase tracking-wide"
+                      className="text-lg font-bold text-[var(--optibio-navy)] hover:text-[var(--optibio-electric)] transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center uppercase tracking-wide"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -173,7 +173,7 @@ export default function Header() {
                   {isAuthenticated ? (
                     <Link 
                       href="/my-orders"
-                      className="text-lg font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
+                      className="text-lg font-bold text-[var(--optibio-navy)] hover:text-[var(--optibio-electric)] transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       My Account
@@ -181,7 +181,7 @@ export default function Header() {
                   ) : (
                     <a
                       href={getLoginUrl()}
-                      className="text-lg font-bold text-[#1E3A5F] hover:text-[#2563EB] transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
+                      className="text-lg font-bold text-[var(--optibio-navy)] hover:text-[var(--optibio-electric)] transition-colors py-3 px-4 rounded-lg hover:bg-accent min-h-[44px] flex items-center"
                     >
                       Sign In
                     </a>

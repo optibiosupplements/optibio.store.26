@@ -78,11 +78,11 @@ function CheckoutForm({
   const getTierBadgeColor = (tier: string) => {
     switch (tier) {
       case "founders":
-        return "bg-gradient-to-r from-[#F7F4EF]0 to-[#F7F4EF]0 text-white";
+        return "bg-gradient-to-r from-[var(--optibio-ivory)]0 to-[var(--optibio-ivory)]0 text-white";
       case "early_adopter":
-        return "bg-gradient-to-r from-[#F7F4EF]0 to-[#1E3A5F] text-white";
+        return "bg-gradient-to-r from-[var(--optibio-ivory)]0 to-[var(--optibio-navy)] text-white";
       case "pre_launch":
-        return "bg-gradient-to-r from-[#F7F4EF]0 to-[#F7F4EF]0 text-white";
+        return "bg-gradient-to-r from-[var(--optibio-ivory)]0 to-[var(--optibio-ivory)]0 text-white";
       default:
         return "bg-slate-500 text-white";
     }
@@ -128,7 +128,7 @@ function CheckoutForm({
 
           <div className="flex items-center justify-between">
             <span className="text-slate-600">Lifetime Discount</span>
-            <span className="font-semibold text-[#B89651]">
+            <span className="font-semibold text-[var(--optibio-gold-dark)]">
               {lifetimeDiscountPercent}% off forever
             </span>
           </div>
@@ -136,7 +136,7 @@ function CheckoutForm({
           <div className="border-t pt-4 mt-4">
             <div className="flex items-center justify-between text-lg">
               <span className="font-semibold text-slate-900">Monthly Price</span>
-              <span className="font-bold text-[#1E3A5F]">
+              <span className="font-bold text-[var(--optibio-navy)]">
                 {formatPrice(priceInCents)}/month
               </span>
             </div>
@@ -168,9 +168,9 @@ function CheckoutForm({
 
       {/* Success Message */}
       {succeeded && (
-        <Alert className="border-[#C9A961]/20 bg-[#F7F4EF]">
-          <CheckCircle2 className="h-4 w-4 text-[#B89651]" />
-          <AlertDescription className="text-[#1E3A5F]">
+        <Alert className="border-[var(--optibio-gold)]/20 bg-[var(--optibio-ivory)]">
+          <CheckCircle2 className="h-4 w-4 text-[var(--optibio-gold-dark)]" />
+          <AlertDescription className="text-[var(--optibio-navy)]">
             Subscription created successfully! Redirecting...
           </AlertDescription>
         </Alert>
@@ -222,8 +222,8 @@ export default function SubscriptionCheckout(props: SubscriptionCheckoutProps) {
     appearance: {
       theme: "stripe" as const,
       variables: {
-        colorPrimary: "#2563eb",
-        colorBackground: "#ffffff",
+        colorPrimary: "var(--optibio-electric)",
+        colorBackground: "var(--optibio-white)",
         colorText: "#1e293b",
         colorDanger: "#dc2626",
         fontFamily: "system-ui, sans-serif",

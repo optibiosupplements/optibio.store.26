@@ -51,8 +51,8 @@ export default function AdminAnalytics() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 dark:bg-[#0B1120] dark:bg-[#0B1120]">
-        <Loader2 className="h-12 w-12 animate-spin text-[#1E3A5F]" />
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[var(--optibio-ivory)]/20 dark:bg-[var(--optibio-abyssal)] dark:bg-[var(--optibio-abyssal)]">
+        <Loader2 className="h-12 w-12 animate-spin text-[var(--optibio-navy)]" />
       </div>
     );
   }
@@ -73,18 +73,18 @@ export default function AdminAnalytics() {
   const getTierColor = (tier: string) => {
     switch (tier) {
       case "founders":
-        return "from-[#F7F4EF]0 to-[#F7F4EF]0";
+        return "from-[var(--optibio-ivory)]0 to-[var(--optibio-ivory)]0";
       case "early_adopter":
-        return "from-[#F7F4EF]0 to-[#1E3A5F]";
+        return "from-[var(--optibio-ivory)]0 to-[var(--optibio-navy)]";
       case "pre_launch":
-        return "from-[#C9A961] to-[#B89651]";
+        return "from-[var(--optibio-gold)] to-[var(--optibio-gold-dark)]";
       default:
         return "from-slate-500 to-gray-500";
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16 dark:bg-[#0B1120]">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[var(--optibio-ivory)]/20 py-12 md:py-16 dark:bg-[var(--optibio-abyssal)]">
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="mb-8">
@@ -97,7 +97,7 @@ export default function AdminAnalytics() {
             Back to Home
           </Button>
           <div className="flex items-center gap-3 mb-2">
-            <BarChart3 className="w-10 h-10 text-[#1E3A5F]" />
+            <BarChart3 className="w-10 h-10 text-[var(--optibio-navy)]" />
             <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
               Analytics Dashboard
             </h1>
@@ -117,7 +117,7 @@ export default function AdminAnalytics() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-[#C9A961]">
+              <div className="text-3xl font-bold text-[var(--optibio-gold)]">
                 {formatPrice(overview?.mrr || 0)}
               </div>
               <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mt-1">
@@ -134,7 +134,7 @@ export default function AdminAnalytics() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-[#1E3A5F]">
+              <div className="text-3xl font-bold text-[var(--optibio-navy)]">
                 {overview?.activeSubscriptions || 0}
               </div>
               <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mt-1">
@@ -151,7 +151,7 @@ export default function AdminAnalytics() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-[#B89651]">
+              <div className="text-3xl font-bold text-[var(--optibio-gold-dark)]">
                 {overview?.churnRate?.toFixed(1) || "0.0"}%
               </div>
               <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mt-1">
@@ -168,7 +168,7 @@ export default function AdminAnalytics() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="text-3xl font-bold text-[#1E3A5F]">
+              <div className="text-3xl font-bold text-[var(--optibio-navy)]">
                 {formatPrice(overview?.totalRevenue || 0)}
               </div>
               <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mt-1">
@@ -211,20 +211,20 @@ export default function AdminAnalytics() {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div className="p-4 bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] rounded-lg border">
+                      <div className="p-4 bg-white dark:bg-[var(--optibio-navy)] dark:bg-[var(--optibio-navy)] rounded-lg border">
                         <div className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mb-1">
                           Monthly Recurring Revenue
                         </div>
-                        <div className="text-2xl font-bold text-[#C9A961]">
+                        <div className="text-2xl font-bold text-[var(--optibio-gold)]">
                           {formatPrice(tier.mrr)}
                         </div>
                       </div>
 
-                      <div className="p-4 bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] rounded-lg border">
+                      <div className="p-4 bg-white dark:bg-[var(--optibio-navy)] dark:bg-[var(--optibio-navy)] rounded-lg border">
                         <div className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mb-1">
                           Average Lifetime Value
                         </div>
-                        <div className="text-2xl font-bold text-[#1E3A5F]">
+                        <div className="text-2xl font-bold text-[var(--optibio-navy)]">
                           {formatPrice(tier.avgLTV)}
                         </div>
                       </div>
@@ -252,7 +252,7 @@ export default function AdminAnalytics() {
             </CardHeader>
             <CardContent>
               <div className="text-center py-8">
-                <div className="text-6xl font-bold text-[#1E3A5F] mb-4">
+                <div className="text-6xl font-bold text-[var(--optibio-navy)] mb-4">
                   {conversionMetrics?.conversionRate?.toFixed(1) || "0.0"}%
                 </div>
                 <div className="text-slate-600 dark:text-slate-300">

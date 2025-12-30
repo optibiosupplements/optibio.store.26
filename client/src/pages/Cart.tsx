@@ -91,7 +91,7 @@ export default function Cart() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-hero-gradient transition-colors duration-500 dark:bg-[#0B1120]">
+      <div className="min-h-screen flex items-center justify-center bg-hero-gradient transition-colors duration-500 dark:bg-[var(--optibio-abyssal)]">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
       </div>
     );
@@ -101,7 +101,7 @@ export default function Cart() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-hero-gradient transition-colors duration-500">
         <div className="text-center space-y-6 p-8">
-          <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[#C9A961]/10 to-[#C9A961]/10 flex items-center justify-center">
+          <div className="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[var(--optibio-gold)]/10 to-[var(--optibio-gold)]/10 flex items-center justify-center">
             <ShoppingBag className="h-12 w-12 text-primary" />
           </div>
           <div className="space-y-2">
@@ -109,7 +109,7 @@ export default function Cart() {
             <p className="text-lg text-muted-foreground">Discover our premium KSM-66 Ashwagandha</p>
           </div>
           <Link href="/shop">
-            <Button size="lg" className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg">
+            <Button size="lg" className="bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)] shadow-lg">
               Start Shopping
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -133,7 +133,7 @@ export default function Cart() {
           <div className="lg:col-span-2 space-y-6">
             {/* Free Shipping Progress */}
             {shipping > 0 && (
-              <Card className="border-2 border-[#C9A961]/30 bg-gradient-to-br from-[#F7F4EF] to-white transition-colors duration-500">
+              <Card className="border-2 border-[var(--optibio-gold)]/30 bg-gradient-to-br from-[var(--optibio-ivory)] to-white transition-colors duration-500">
                 <CardContent className="p-6 space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -149,7 +149,7 @@ export default function Cart() {
                   </div>
                   <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden transition-colors duration-500">
                     <div 
-                      className="h-full bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 transition-all duration-500 rounded-full"
+                      className="h-full bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-ivory)]0 transition-all duration-500 rounded-full"
                       style={{ width: `${shippingProgress}%` }}
                     />
                   </div>
@@ -160,12 +160,12 @@ export default function Cart() {
             {/* Cart Items List */}
             <div className="space-y-4">
               {cartItems.map((item) => (
-                <Card key={item.id} className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] hover:shadow-lg transition-all duration-300">
+                <Card key={item.id} className="border-2 border-slate-200 dark:border-[var(--optibio-border-dark)] dark:border-[var(--optibio-border-dark)] hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex gap-6">
                       {/* Product Image */}
                       <div className="flex-shrink-0">
-                        <div className="w-24 h-24 rounded-xl overflow-hidden bg-slate-100 border-2 border-slate-200 dark:border-[#2D4A77]">
+                        <div className="w-24 h-24 rounded-xl overflow-hidden bg-slate-100 border-2 border-slate-200 dark:border-[var(--optibio-border-dark)]">
                           <img
                             src={item.productImage || "/products/optibio-90cap-bottle-front.jpg"}
                             alt={item.productName || "Product"}
@@ -179,7 +179,7 @@ export default function Cart() {
                         <div className="flex items-start justify-between">
                           <div>
                             <Link href={`/product/${item.productSlug}`}>
-                              <h3 className="font-bold text-lg text-slate-900 dark:text-white hover:text-[#1E3A5F] transition-colors cursor-pointer">
+                              <h3 className="font-bold text-lg text-slate-900 dark:text-white hover:text-[var(--optibio-navy)] transition-colors cursor-pointer">
                                 {item.productName}
                               </h3>
                             </Link>
@@ -187,7 +187,7 @@ export default function Cart() {
                               <p className="text-sm text-slate-600 dark:text-slate-300">{item.variantName}</p>
                             )}
                             {item.isSubscription && (
-                              <Badge className="mt-2 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
+                              <Badge className="mt-2 bg-[var(--optibio-gold)]/10 text-[var(--optibio-navy)] border-[var(--optibio-gold)]/30">
                                 <Sparkles className="w-3 h-3 mr-1" />
                                 Subscription
                               </Badge>
@@ -203,7 +203,7 @@ export default function Cart() {
 
                         {/* Quantity Controls */}
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] rounded-xl overflow-hidden">
+                          <div className="flex items-center border-2 border-slate-200 dark:border-[var(--optibio-border-dark)] dark:border-[var(--optibio-border-dark)] rounded-xl overflow-hidden">
                             <Button
                               variant="ghost"
                               size="icon"
@@ -264,21 +264,21 @@ export default function Cart() {
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-6">
               {/* Discount Code */}
-              <Card className="border-2 border-slate-200 dark:border-[#2D4A77]">
+              <Card className="border-2 border-slate-200 dark:border-[var(--optibio-border-dark)]">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-2">
-                    <Tag className="w-5 h-5 text-[#1E3A5F]" />
+                    <Tag className="w-5 h-5 text-[var(--optibio-navy)]" />
                     <h3 className="font-bold text-lg text-slate-900 dark:text-white">Discount Code</h3>
                   </div>
                   
                   {appliedDiscount ? (
-                    <div className="p-4 rounded-xl bg-[#C9A961]/10 border-2 border-[#C9A961]/30">
+                    <div className="p-4 rounded-xl bg-[var(--optibio-gold)]/10 border-2 border-[var(--optibio-gold)]/30">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                          <CheckCircle2 className="w-5 h-5 text-[var(--optibio-gold)]" />
                           <div>
-                            <div className="font-semibold text-[#1E3A5F]">{appliedDiscount.code}</div>
-                            <div className="text-sm text-[#1E3A5F]/70">
+                            <div className="font-semibold text-[var(--optibio-navy)]">{appliedDiscount.code}</div>
+                            <div className="text-sm text-[var(--optibio-navy)]/70">
                               {appliedDiscount.discountType === "percentage" 
                                 ? `${appliedDiscount.discountValue}% off`
                                 : `${formatPrice(appliedDiscount.discountValue)} off`
@@ -290,7 +290,7 @@ export default function Cart() {
                           variant="ghost"
                           size="sm"
                           onClick={() => setAppliedDiscount(null)}
-                          className="text-[#1E3A5F] hover:text-[#1E3A5F]/80"
+                          className="text-[var(--optibio-navy)] hover:text-[var(--optibio-navy)]/80"
                         >
                           Remove
                         </Button>
@@ -307,7 +307,7 @@ export default function Cart() {
                       <Button
                         onClick={handleApplyDiscount}
                         disabled={!discountCode || !discountValidation?.valid}
-                        className="bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45]"
+                        className="bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)]"
                       >
                         Apply
                       </Button>
@@ -317,7 +317,7 @@ export default function Cart() {
               </Card>
 
               {/* Order Summary */}
-              <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl">
+              <Card className="border-2 border-slate-200 dark:border-[var(--optibio-border-dark)] dark:border-[var(--optibio-border-dark)] shadow-xl">
                 <CardContent className="p-6 space-y-6">
                   <h3 className="font-bold text-xl text-slate-900 dark:text-white">Order Summary</h3>
 
@@ -328,7 +328,7 @@ export default function Cart() {
                     </div>
 
                     {discountAmount > 0 && (
-                      <div className="flex justify-between text-[#C9A961]">
+                      <div className="flex justify-between text-[var(--optibio-gold)]">
                         <span>Discount</span>
                         <span className="font-semibold">-{formatPrice(discountAmount)}</span>
                       </div>
@@ -338,7 +338,7 @@ export default function Cart() {
                       <span>Shipping</span>
                       <span className="font-semibold">
                         {shipping === 0 ? (
-                          <span className="text-[#C9A961]">FREE</span>
+                          <span className="text-[var(--optibio-gold)]">FREE</span>
                         ) : (
                           formatPrice(shipping)
                         )}
@@ -350,11 +350,11 @@ export default function Cart() {
                       <span className="font-semibold">{formatPrice(tax)}</span>
                     </div>
 
-                    <div className="pt-3 border-t-2 border-slate-200 dark:border-[#2D4A77]">
+                    <div className="pt-3 border-t-2 border-slate-200 dark:border-[var(--optibio-border-dark)]">
                       <div className="flex justify-between items-baseline">
                         <span className="text-lg font-semibold text-slate-900 dark:text-white">Total</span>
                         <div className="text-right">
-                          <div className="text-3xl font-bold bg-gradient-to-r from-[#1E3A5F] to-[#B89651] bg-clip-text text-transparent">
+                          <div className="text-3xl font-bold bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-gold-dark)] bg-clip-text text-transparent">
                             {formatPrice(total)}
                           </div>
                           <div className="text-xs text-slate-600 dark:text-slate-300">or 4 payments of {formatPrice(Math.round(total / 4))}</div>
@@ -366,24 +366,24 @@ export default function Cart() {
                   <Button
                     size="lg"
                     onClick={() => setLocation("/checkout")}
-                    className="w-full bg-gradient-to-r from-[#1E3A5F] to-[#1E3A5F] hover:from-[#152B45] hover:to-[#152B45] shadow-lg hover:shadow-xl transition-all duration-300 text-lg h-14"
+                    className="w-full bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)] shadow-lg hover:shadow-xl transition-all duration-300 text-lg h-14"
                   >
                     Proceed to Checkout
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
 
                   {/* Trust Badges */}
-                  <div className="pt-4 border-t border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] space-y-3">
+                  <div className="pt-4 border-t border-slate-200 dark:border-[var(--optibio-border-dark)] dark:border-[var(--optibio-border-dark)] space-y-3">
                     <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
-                      <Shield className="w-5 h-5 text-[#1E3A5F] flex-shrink-0" />
+                      <Shield className="w-5 h-5 text-[var(--optibio-navy)] flex-shrink-0" />
                       <span>Secure 256-bit SSL encryption</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
-                      <RotateCcw className="w-5 h-5 text-[#1E3A5F] flex-shrink-0" />
+                      <RotateCcw className="w-5 h-5 text-[var(--optibio-navy)] flex-shrink-0" />
                       <span>60-day money-back guarantee</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
-                      <Truck className="w-5 h-5 text-[#1E3A5F] flex-shrink-0" />
+                      <Truck className="w-5 h-5 text-[var(--optibio-navy)] flex-shrink-0" />
                       <span>Free shipping on orders over {formatPrice(SHIPPING_THRESHOLD_CENTS)}</span>
                     </div>
                   </div>

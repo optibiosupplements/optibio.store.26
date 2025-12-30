@@ -6,47 +6,47 @@ import { Shield, Truck, Award, Lock, Facebook, Instagram, Twitter, Accessibility
 
 export default function Footer() {
   return (
-    <footer className="bg-muted/30 dark:bg-gradient-to-br dark:from-[#1E3A5F] dark:to-[#152B45] border-t dark:border-t-white/10">
+    <footer className="bg-muted/30 dark:bg-gradient-to-br dark:from-[var(--optibio-navy)] dark:to-[var(--optibio-navy-dark)] border-t dark:border-t-white/10">
       {/* Trust Badges Bar */}
-      <div className="border-b dark:border-b-white/10 bg-background/50 dark:bg-gradient-to-br dark:from-[#1E3A5F]/40 dark:to-[#24426A]/30">
+      <div className="border-b dark:border-b-white/10 bg-background/50 dark:bg-gradient-to-br dark:from-[var(--optibio-navy)]/40 dark:to-[var(--optibio-border-dark)]/30">
         <div className="container py-10">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             <div className="flex flex-col items-center text-center space-y-3 group">
               <div className="relative">
-                <Shield className="h-10 w-10 text-primary dark:text-[#D4AF37] relative z-10 transition-transform group-hover:scale-110" />
-                <div className="absolute inset-0 dark:bg-[#D4AF37]/20 dark:blur-xl dark:animate-pulse" />
+                <Shield className="h-10 w-10 text-primary dark:text-[var(--optibio-luminous-gold)] relative z-10 transition-transform group-hover:scale-110" />
+                <div className="absolute inset-0 dark:bg-[var(--optibio-luminous-gold)]/20 dark:blur-xl dark:animate-pulse" />
               </div>
               <p className="text-sm font-semibold dark:text-white">Third-Party Tested</p>
               <p className="text-xs text-muted-foreground dark:text-slate-300">Quality Guaranteed</p>
             </div>
             <div className="flex flex-col items-center text-center space-y-3 group">
               <div className="relative">
-                <Truck className="h-10 w-10 text-primary dark:text-[#D4AF37] relative z-10 transition-transform group-hover:scale-110" />
-                <div className="absolute inset-0 dark:bg-[#D4AF37]/20 dark:blur-xl dark:animate-pulse" />
+                <Truck className="h-10 w-10 text-primary dark:text-[var(--optibio-luminous-gold)] relative z-10 transition-transform group-hover:scale-110" />
+                <div className="absolute inset-0 dark:bg-[var(--optibio-luminous-gold)]/20 dark:blur-xl dark:animate-pulse" />
               </div>
               <p className="text-sm font-semibold dark:text-white">Free Shipping</p>
               <p className="text-xs text-muted-foreground dark:text-slate-300">Orders Over $75</p>
             </div>
             <div className="flex flex-col items-center text-center space-y-3 group">
               <div className="relative">
-                <Award className="h-10 w-10 text-primary dark:text-[#D4AF37] relative z-10 transition-transform group-hover:scale-110" />
-                <div className="absolute inset-0 dark:bg-[#D4AF37]/20 dark:blur-xl dark:animate-pulse" />
+                <Award className="h-10 w-10 text-primary dark:text-[var(--optibio-luminous-gold)] relative z-10 transition-transform group-hover:scale-110" />
+                <div className="absolute inset-0 dark:bg-[var(--optibio-luminous-gold)]/20 dark:blur-xl dark:animate-pulse" />
               </div>
               <p className="text-sm font-semibold dark:text-white">Made in USA</p>
               <p className="text-xs text-muted-foreground dark:text-slate-300">GMP Certified</p>
             </div>
             <div className="flex flex-col items-center text-center space-y-3 group">
               <div className="relative">
-                <Lock className="h-10 w-10 text-primary dark:text-[#D4AF37] relative z-10 transition-transform group-hover:scale-110" />
-                <div className="absolute inset-0 dark:bg-[#D4AF37]/20 dark:blur-xl dark:animate-pulse" />
+                <Lock className="h-10 w-10 text-primary dark:text-[var(--optibio-luminous-gold)] relative z-10 transition-transform group-hover:scale-110" />
+                <div className="absolute inset-0 dark:bg-[var(--optibio-luminous-gold)]/20 dark:blur-xl dark:animate-pulse" />
               </div>
               <p className="text-sm font-semibold dark:text-white">Secure Checkout</p>
               <p className="text-xs text-muted-foreground dark:text-slate-300">256-bit SSL</p>
             </div>
             <Link href="/accessibility" className="flex flex-col items-center text-center space-y-3 hover:opacity-80 transition-opacity group">
               <div className="relative">
-                <Accessibility className="h-10 w-10 text-primary dark:text-[#D4AF37] relative z-10 transition-transform group-hover:scale-110" />
-                <div className="absolute inset-0 dark:bg-[#D4AF37]/20 dark:blur-xl dark:animate-pulse" />
+                <Accessibility className="h-10 w-10 text-primary dark:text-[var(--optibio-luminous-gold)] relative z-10 transition-transform group-hover:scale-110" />
+                <div className="absolute inset-0 dark:bg-[var(--optibio-luminous-gold)]/20 dark:blur-xl dark:animate-pulse" />
               </div>
               <p className="text-sm font-semibold dark:text-white">WCAG 2.1 AA</p>
               <p className="text-xs text-muted-foreground dark:text-slate-300">Accessible Design</p>

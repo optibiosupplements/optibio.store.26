@@ -55,7 +55,7 @@ export default function CookieBanner() {
 
   return (
     <div className="fixed bottom-0 left-0 w-full z-50 animate-in slide-in-from-bottom-4 duration-500">
-      <div className="bg-[#1E3A5F] border-t-4 border-[#C9A961] shadow-[0_-4px_20px_rgba(0,0,0,0.15)] p-4 md:p-6">
+      <div className="bg-[var(--optibio-navy)] border-t-4 border-[var(--optibio-gold)] shadow-[0_-4px_20px_rgba(0,0,0,0.15)] p-4 md:p-6">
         <div className="container mx-auto max-w-7xl">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-6">
             
@@ -67,7 +67,7 @@ export default function CookieBanner() {
                 We use cookies to analyze clinical data performance and deliver a personalized 
                 wellness experience. By clicking "Accept", you agree to our use of cookies 
                 for analytics and site functionality. 
-                <a href="/privacy" className="text-[#C9A961] hover:text-white underline ml-1 transition-colors">
+                <a href="/privacy" className="text-[var(--optibio-gold)] hover:text-white underline ml-1 transition-colors">
                   Read our Privacy Policy.
                 </a>
               </p>
@@ -92,7 +92,7 @@ export default function CookieBanner() {
 
               <Button 
                 onClick={handleAccept}
-                className="px-6 md:px-8 py-2 md:py-3 text-sm font-bold text-[#1E3A5F] bg-[#C9A961] rounded-lg hover:bg-[#B89850] shadow-lg transition-all transform hover:scale-105 whitespace-nowrap"
+                className="px-6 md:px-8 py-2 md:py-3 text-sm font-bold text-[var(--optibio-navy)] bg-[var(--optibio-gold)] rounded-lg hover:bg-[#B89850] shadow-lg transition-all transform hover:scale-105 whitespace-nowrap"
               >
                 Accept All
               </Button>
