@@ -342,18 +342,18 @@ export default function ProductDetail() {
                 <div className="flex flex-col gap-4 mb-8">
                   
                   {/* Option 1: Subscribe - Phase 2: Solid Gold Primary */}
-                  <label className={`relative border-2 rounded-xl p-5 cursor-pointer transition-all shadow-lg hover:shadow-xl ${isSubscription ? 'border-[#C9A961] bg-gradient-to-br from-[#E5C578]/10 to-[#C9A961]/10' : 'border-[#C9A961]/40 hover:border-[#C9A961]/60 bg-white'}`}>
+                  <label className={`relative border-2 rounded-xl p-5 cursor-pointer transition-all shadow-lg hover:shadow-xl ${isSubscription ? 'border-[#C9A961] btn-metallic-gold' : 'border-[#C9A961]/40 hover:border-[#C9A961]/60 bg-white'}`}>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-3">
-                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${isSubscription ? 'border-[#C9A961] bg-gradient-to-br from-[#E5C578] to-[#C9A961]' : 'border-[#C9A961]/40'}`}>
-                          {isSubscription && <div className="w-3 h-3 rounded-full bg-white" />}
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${isSubscription ? 'border-white bg-white' : 'border-[#C9A961]/40'}`}>
+                          {isSubscription && <div className="w-3 h-3 rounded-full bg-[#C9A961]" />}
                         </div>
                         <div>
-                          <span className="font-bold text-[#1E3A5F] text-lg">Subscribe & Save 20%</span>
-                          <div className="text-xs text-[#C9A961] font-bold mt-0.5 flex items-center gap-1"><span className="text-base">⭐</span> Recommended (Most Popular)</div>
+                          <span className={`font-bold text-lg ${isSubscription ? 'text-white' : 'text-[#1E3A5F]'}`}>Subscribe & Save 20%</span>
+                          <div className={`text-xs font-bold mt-0.5 flex items-center gap-1 ${isSubscription ? 'text-white/90' : 'text-[#C9A961]'}`}><span className="text-base">⭐</span> Recommended (Most Popular)</div>
                         </div>
                       </div>
-                      <div className="font-bold text-[#1E3A5F] text-xl">
+                      <div className={`font-bold text-xl ${isSubscription ? 'text-white' : 'text-[#1E3A5F]'}`}>
                         {formatPrice(product.subscriptionPlans && product.subscriptionPlans[0] ? calculateDiscountPrice(currentPrice, product.subscriptionPlans[0].discountPercentage || 0) : currentPrice)}
                       </div>
                     </div>
@@ -379,10 +379,10 @@ export default function ProductDetail() {
                   </label>
 
                   {/* Option 2: One-Time - Phase 2: Ghost Outline Secondary */}
-                  <label className={`relative border-2 rounded-xl p-5 cursor-pointer transition-all ${!isSubscription ? 'border-[#1E3A5F] bg-blue-50/30' : 'border-slate-300 hover:border-slate-400 bg-white'}`}>
+                  <label className={`relative border-2 rounded-xl p-5 cursor-pointer transition-all ${!isSubscription ? 'border-[#C9A961] bg-[#C9A961]/5' : 'border-[#C9A961]/30 hover:border-[#C9A961]/50 bg-white'}`}>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-3">
-                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${!isSubscription ? 'border-[#1E3A5F] bg-[#1E3A5F]' : 'border-slate-300'}`}>
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${!isSubscription ? 'border-[#C9A961] bg-[#C9A961]' : 'border-[#C9A961]/30'}`}>
                           {!isSubscription && <div className="w-3 h-3 rounded-full bg-white" />}
                         </div>
                         <span className="font-bold text-slate-700 text-lg">One-Time Purchase</span>
@@ -485,7 +485,7 @@ export default function ProductDetail() {
 
                 {/* MAIN ACTION BUTTON */}
                 <Button 
-                  className="w-full h-14 text-lg font-bold bg-[#1E3A5F] hover:bg-[#2563EB] dark:bg-gradient-to-r dark:from-[#D4AF37] dark:to-[#E5B84C] dark:text-[#0B1120] dark:hover:from-[#E5B84C] dark:hover:to-[#F0C75D] text-white shadow-lg shadow-blue-900/20 dark:shadow-[0_4px_20px_rgba(212,175,55,0.3)] rounded-xl mb-4 transition-all hover:-translate-y-1 btn-gold-cta"
+                  className="w-full h-14 text-lg font-bold btn-metallic-gold text-white shadow-lg rounded-xl mb-4 transition-all hover:-translate-y-1"
                   onClick={handleAddToCart}
                   disabled={addToCartMutation.isPending}
                 >
