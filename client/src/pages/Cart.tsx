@@ -133,7 +133,7 @@ export default function Cart() {
           <div className="lg:col-span-2 space-y-6">
             {/* Free Shipping Progress */}
             {shipping > 0 && (
-              <Card className="border-2 border-[#C9A961]/30 dark:border-[#C9A961]/50 bg-gradient-to-br from-[#F7F4EF] to-white dark:from-card dark:to-card/80 transition-colors duration-500">
+              <Card className="border-2 border-[#C9A961]/30 bg-gradient-to-br from-[#F7F4EF] to-white transition-colors duration-500">
                 <CardContent className="p-6 space-y-3">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -147,7 +147,7 @@ export default function Cart() {
                     </div>
                     <span className="text-sm font-medium text-primary">{Math.round(shippingProgress)}%</span>
                   </div>
-                  <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden transition-colors duration-500">
+                  <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden transition-colors duration-500">
                     <div 
                       className="h-full bg-gradient-to-r from-[#1E3A5F] to-[#F7F4EF]0 transition-all duration-500 rounded-full"
                       style={{ width: `${shippingProgress}%` }}
@@ -160,7 +160,7 @@ export default function Cart() {
             {/* Cart Items List */}
             <div className="space-y-4">
               {cartItems.map((item) => (
-                <Card key={item.id} className="border-2 border-slate-200 dark:border-border hover:shadow-lg dark:hover:shadow-[#C9A961]/20 transition-all duration-300">
+                <Card key={item.id} className="border-2 border-slate-200 hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex gap-6">
                       {/* Product Image */}

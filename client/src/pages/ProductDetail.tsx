@@ -202,7 +202,7 @@ export default function ProductDetail() {
       />
 
       {/* Breadcrumb */}
-      <div className="border-b bg-white/80 dark:bg-card/80 backdrop-blur-sm sticky top-16 z-40 transition-colors duration-500">
+      <div className="border-b bg-white/80 backdrop-blur-sm sticky top-16 z-40 transition-colors duration-500">
         <div className="container py-4">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link href="/">
@@ -225,7 +225,7 @@ export default function ProductDetail() {
             {/* Left Column - Images */}
             <div className="space-y-6">
               {/* Main Image */}
-              <div className="aspect-square rounded-3xl overflow-hidden bg-white dark:bg-card border-2 border-slate-200 dark:border-border shadow-2xl group transition-colors duration-500">
+              <div className="aspect-square rounded-3xl overflow-hidden bg-white border-2 border-slate-200 shadow-2xl group transition-colors duration-500">
                 <img
                   src={productImages[selectedImage]}
                   alt={`${product.name} - ${selectedImage === 0 ? 'premium black glass bottle with gold cap, 300mg KSM-66 ashwagandha per capsule' : selectedImage === 1 ? 'supplement facts label with complete ingredient list and dosage information' : selectedImage === 2 ? 'close-up of premium ashwagandha capsules' : 'lifestyle image showing daily wellness routine'}`}
@@ -241,8 +241,8 @@ export default function ProductDetail() {
                     onClick={() => setSelectedImage(idx)}
                     className={`aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 hover:scale-105 ${
                       selectedImage === idx 
-                        ? "border-[#1E3A5F] dark:border-[#C9A961] ring-4 ring-[#C9A961]/20 dark:ring-[#C9A961]/40 scale-105" 
-                        : "border-slate-200 dark:border-border hover:border-[#C9A961]/40 dark:hover:border-[#C9A961]/60"
+                        ? "border-[#1E3A5F] ring-4 ring-[#C9A961]/20 scale-105" 
+                        : "border-slate-200 hover:border-[#C9A961]/40"
                     }`}
                   >
                     <img 
@@ -257,9 +257,9 @@ export default function ProductDetail() {
               {/* Trust Badges - Desktop */}
               <div className="hidden lg:grid grid-cols-2 gap-4 pt-6">
                 {certifications.map((cert, i) => (
-                  <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white dark:bg-card border border-slate-200 dark:border-border transition-colors duration-500">
+                  <div key={i} className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-200 transition-colors duration-500">
                     <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[#1E3A5F]/10 to-[#B89651]/10 flex items-center justify-center">
-                      <cert.icon className="w-5 h-5 text-[#1E3A5F] dark:text-[#C9A961]" />
+                      <cert.icon className="w-5 h-5 text-[#1E3A5F]" />
                     </div>
                     <div>
                       <div className="font-semibold text-sm text-foreground">{cert.text}</div>
@@ -301,11 +301,11 @@ export default function ProductDetail() {
                 <StockIndicator stockQuantity={product.stockQuantity} threshold={100} />
 
                 {/* Pre-Order Shipping Info */}
-                <div className="flex items-center gap-2 p-4 bg-amber-50 dark:bg-amber-950/30 border-2 border-amber-200 dark:border-amber-800/50 rounded-xl transition-colors duration-500">
+                <div className="flex items-center gap-2 p-4 bg-amber-50 border-2 border-amber-200 rounded-xl transition-colors duration-500">
                   <Package className="w-5 h-5 text-amber-600 flex-shrink-0" />
                   <div className="text-sm">
-                    <span className="font-bold text-amber-900 dark:text-amber-400">Ships Jan 20-27, 2026</span>
-                    <span className="text-amber-700 dark:text-amber-500 ml-2">• Pre-order closes Jan 20</span>
+                    <span className="font-bold text-amber-900">Ships Jan 20-27, 2026</span>
+                    <span className="text-amber-700 ml-2">• Pre-order closes Jan 20</span>
                   </div>
                 </div>
               </div>
@@ -703,7 +703,7 @@ export default function ProductDetail() {
       </section>
 
       {/* Footer Trust Badges */}
-      <section className="py-12 bg-slate-50 dark:bg-slate-900/20 border-t">
+      <section className="py-12 bg-slate-50 border-t">
         <div className="container">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
             <div className="text-center">

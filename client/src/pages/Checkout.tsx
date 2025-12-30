@@ -269,8 +269,8 @@ export default function Checkout() {
                   <div
                     className={`w-16 h-16 rounded-full flex items-center justify-center border-4 transition-all duration-300 ${
                       step >= s.num
-                        ? "bg-gradient-to-br from-[#1E3A5F] to-[#1E3A5F] border-[#1E3A5F] text-white dark:border-[#C9A961] shadow-lg"
-                        : "bg-white dark:bg-card border-slate-300 dark:border-border text-slate-400 dark:text-muted-foreground"
+                        ? "bg-gradient-to-br from-[#1E3A5F] to-[#1E3A5F] border-[#1E3A5F] text-white shadow-lg"
+                        : "bg-white border-slate-300 text-slate-400"
                     }`}
                   >
                     {step > s.num ? (

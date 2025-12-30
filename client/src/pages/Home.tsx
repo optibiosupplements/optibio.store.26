@@ -143,7 +143,7 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl dark:text-primary-foreground/90">
+                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
@@ -155,14 +155,14 @@ export default function Home() {
                     <cert.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#C9A961]" />
                     <div className="flex flex-col">
                       <span className="font-bold text-foreground text-base">{cert.text}</span>
-                      <span className="text-sm text-primary dark:text-primary-foreground/80">Verified</span>
+                      <span className="text-sm text-primary">Verified</span>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Pricing & Urgency - Mobile Optimized */}
-              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 dark:from-card/90 dark:to-card/70 backdrop-blur-sm border-2 border-[#C9A961]/40 dark:border-[#C9A961]/60 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl transition-colors duration-500">
+              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl transition-colors duration-500">
                 {/* Countdown Timer - P0 FIX: Add urgency above fold */}
                 <CountdownTimer 
                   targetDate={new Date('2026-01-20T23:59:59')} 
@@ -176,7 +176,7 @@ export default function Home() {
                     Save 46%
                   </Badge>
                 </div>
-                <p className="text-sm text-primary dark:text-primary-foreground/80 mb-3 flex items-center gap-2">
+                <p className="text-sm text-primary mb-3 flex items-center gap-2">
                   <Sparkles className="w-4 h-4 text-[#C9A961]" />
                   <span className="font-semibold">Pre-Order Special:</span> Ships Jan 20-27, 2026
                 </p>
@@ -213,7 +213,7 @@ export default function Home() {
               {/* P0 FIX: Removed duplicate CTA, moved to pricing card above */}
 
               {/* Social Proof - Enhanced */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/30 border-2 border-green-200 dark:border-green-800/50 rounded-xl p-5 shadow-md transition-colors duration-500">
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-5 shadow-md transition-colors duration-500">
                 <div className="flex items-center gap-4">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4, 5].map((i) => (
@@ -227,10 +227,10 @@ export default function Home() {
                       ))}
                       <span className="ml-2 text-sm font-bold text-slate-900">4.9/5</span>
                     </div>
-                    <p className="text-sm text-slate-700 dark:text-slate-300">
-                      <span className="font-bold text-slate-900 dark:text-white text-lg">5,247</span> happy customers
+                    <p className="text-sm text-slate-700">
+                      <span className="font-bold text-slate-900 text-lg">5,247</span> happy customers
                     </p>
-                    <p className="text-xs text-green-700 dark:text-green-400 font-semibold mt-1">
+                    <p className="text-xs text-green-700 font-semibold mt-1">
                       ✅ <span className="font-bold">127</span> bottles sold in last 24 hours
                     </p>
                   </div>
@@ -254,10 +254,10 @@ export default function Home() {
       </section>
 
       {/* Scientifically-Backed Benefits */}
-      <section className="py-24 bg-white dark:from-card dark:to-background transition-colors duration-500">
+      <section className="py-24 bg-white transition-colors duration-500">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <Badge className="mb-4 bg-[#C9A961]/10 dark:bg-[#C9A961]/20 text-[#1E3A5F] dark:text-[#C9A961] border-[#C9A961]/30 dark:border-[#C9A961]/50">
+            <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
               <Leaf className="w-3.5 h-3.5 mr-1.5" />
               Clinically Validated
             </Badge>
@@ -487,11 +487,11 @@ export default function Home() {
       <WellnessPlanPersonalizer />
 
       {/* Who This Is For - Qualification Section */}
-      <section className="py-24 bg-white dark:from-card dark:to-background transition-colors duration-500">
+      <section className="py-24 bg-white transition-colors duration-500">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <Badge className="mb-4 bg-[#C9A961]/10 dark:bg-[#C9A961]/20 text-[#1E3A5F] dark:text-[#C9A961] border-[#C9A961]/30 dark:border-[#C9A961]/50">
+              <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
                 Is This Right for You?
               </Badge>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F]">

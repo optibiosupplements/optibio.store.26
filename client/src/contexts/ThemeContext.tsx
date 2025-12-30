@@ -24,7 +24,7 @@ const ThemeContext = createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({
   children,
-  defaultTheme = "system",
+  defaultTheme = "light",
   storageKey = "optibio-ui-theme",
   switchable = false,
   ...props
@@ -39,19 +39,9 @@ export function ThemeProvider({
     // Remove old classes to prevent conflicts
     root.classList.remove("light", "dark");
 
-    // If system, check what the OS wants
-    if (theme === "system") {
-      const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-        .matches
-        ? "dark"
-        : "light";
-
-      root.classList.add(systemTheme);
-      return;
-    }
-
-    // Otherwise, force the selected theme
-    root.classList.add(theme);
+    // FORCE LIGHT MODE ONLY - OptiBio is light mode only
+    // Do not use system theme detection or allow dark mode
+    root.classList.add("light");
   }, [theme]);
 
   const value = {
