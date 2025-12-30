@@ -178,7 +178,11 @@ export default function Home() {
                   <Sparkles className="w-4 h-4 text-secondary" />
                   <span className="font-semibold">Pre-Order Special:</span> Ships Jan 20-27, 2026
                 </p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted dark:bg-muted/50 border border-border rounded-lg px-3 py-2 mb-4">
+                <div className="flex items-center gap-2 text-xs border rounded-lg px-3 py-2 mb-4" style={{
+                  backgroundColor: 'var(--optibio-shipping-bg)',
+                  color: 'var(--optibio-shipping-text)',
+                  borderColor: '#FDE68A'
+                }}>
                   <span className="animate-pulse text-amber-600">⏱️</span>
                   <span className="font-semibold">Free shipping</span> on orders $75+
                 </div>
@@ -187,7 +191,12 @@ export default function Home() {
                 <Link href="/product/ashwagandha-ksm-66" className="block">
                   <Button 
                     size="lg" 
-                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] btn-metallic-gold text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                    style={{
+                      backgroundColor: 'var(--optibio-bright-blue)',
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'var(--optibio-bright-blue-hover)'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'var(--optibio-bright-blue)'}
                   >
                     Pre-Order Now - Save 46%
                     <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
@@ -211,7 +220,10 @@ export default function Home() {
               {/* P0 FIX: Removed duplicate CTA, moved to pricing card above */}
 
               {/* Social Proof - Enhanced */}
-              <div className="bg-muted dark:bg-card border-2 border-border rounded-xl p-5 shadow-md transition-colors duration-500">
+              <div className="border-2 rounded-xl p-5 shadow-md transition-colors duration-500" style={{
+                backgroundColor: 'var(--optibio-social-proof-bg)',
+                borderColor: '#C8E6C9'
+              }}>
                 <div className="flex items-center gap-4">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4, 5].map((i) => (

@@ -1209,3 +1209,46 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Verify card background matches approved design (Soft White #FAFAF9, not cream)
 - [x] Update color tokens in index.css to match APPROVED_COLOR_SCHEMA_V66B1D787.md
 - [x] Replace fake bottle image with real OptiBio product bottle
+
+## ✅ COMPLETED: REFERENCE DESIGN COLOR MATCHING (Dec 30, 2025)
+
+### Objective: Match uploaded reference image exactly
+
+### Completed Changes:
+- [x] Added reference design color tokens to CSS variables
+  - --optibio-bright-blue: #0066FF (Primary CTA buttons)
+  - --optibio-bright-blue-hover: #0052CC
+  - --optibio-countdown-bg: #FFE5E5 (Light pink/red countdown background)
+  - --optibio-countdown-text: #DC2626 (Red countdown text)
+  - --optibio-social-proof-bg: #E8F5E9 (Light green social proof)
+  - --optibio-shipping-bg: #FFF9E5 (Light yellow shipping badge)
+  - --optibio-shipping-text: #92400E (Brown shipping text)
+
+- [x] Updated CountdownTimer component
+  - Changed background to light pink (#FFE5E5)
+  - Changed text color to red (#DC2626)
+  - Removed gradient, using solid color
+  - Added light pink border (#FFC9C9)
+
+- [x] Updated Home.tsx CTA button
+  - Changed from gold gradient to bright blue (#0066FF)
+  - Added hover state (#0052CC)
+  - Matches reference design exactly
+
+- [x] Updated Social Proof section
+  - Changed background to light green (#E8F5E9)
+  - Added green border (#C8E6C9)
+
+- [x] Updated Free Shipping badge
+  - Changed background to light yellow (#FFF9E5)
+  - Changed text color to brown (#92400E)
+  - Added yellow border (#FDE68A)
+
+### Visual Confirmation:
+✅ Countdown timer: Light pink background with red text
+✅ CTA button: Bright blue (#0066FF)
+✅ Social proof: Light green background
+✅ Free shipping: Light yellow background
+✅ All colors locked in CSS variables for consistency
+
+**RESULT: Homepage now matches reference design color scheme exactly. Design system locked and documented.**

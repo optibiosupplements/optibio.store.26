@@ -75,6 +75,15 @@ html {
   --optibio-sky-mid: #EBF5FB;        /* Sky gradient middle - Light sky blue */
   --optibio-sky-deep: #D6EAF8;       /* Sky gradient end - Deeper sky blue */
   
+  /* REFERENCE DESIGN TOKENS (Matching uploaded reference image) */
+  --optibio-bright-blue: #0066FF;    /* Bright Blue - Primary CTA buttons */
+  --optibio-bright-blue-hover: #0052CC; /* Bright Blue Hover */
+  --optibio-countdown-bg: #FFE5E5;   /* Light Pink/Red - Countdown timer background */
+  --optibio-countdown-text: #DC2626; /* Red - Countdown timer text */
+  --optibio-social-proof-bg: #E8F5E9; /* Light Green - Social proof section */
+  --optibio-shipping-bg: #FFF9E5;    /* Light Yellow - Free shipping badge */
+  --optibio-shipping-text: #92400E;  /* Brown - Free shipping text */
+  
   /* DARK MODE TOKENS */
   --optibio-abyssal: #0B1120;        /* Abyssal Navy - Dark mode bg */
   --optibio-dark-slate: #0F172A;     /* Dark Slate - Dark mode sections */

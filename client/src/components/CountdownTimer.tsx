@@ -43,46 +43,48 @@ export default function CountdownTimer({ targetDate, className = '' }: Countdown
 
   return (
     <div className={`
-      bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-lg px-4 py-3
-      dark:from-[var(--optibio-navy)]/80 dark:to-[var(--optibio-abyssal)]/80 dark:border-[var(--optibio-luminous-gold)]/40 dark:bg-[var(--optibio-abyssal)]
+      border rounded-lg px-4 py-3
       transition-colors duration-500
       ${className}
-    `}>
+    `} style={{
+      backgroundColor: 'var(--optibio-countdown-bg)',
+      borderColor: '#FFC9C9'
+    }}>
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <Clock className="w-4 h-4 text-red-900 dark:text-[var(--optibio-luminous-gold)] countdown-pulse" />
-          <span className="text-sm font-semibold text-red-900 dark:text-[var(--optibio-sky-grey)] whitespace-nowrap">
+          <Clock className="w-4 h-4 countdown-pulse" style={{ color: 'var(--optibio-countdown-text)' }} />
+          <span className="text-sm font-semibold whitespace-nowrap" style={{ color: 'var(--optibio-countdown-text)' }}>
             Pre-orders close in:
           </span>
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setIsPaused(!isPaused)}
-            className="h-6 w-6 p-0 hover:bg-red-100 dark:hover:bg-[var(--optibio-navy)]"
+className="h-6 w-6 p-0 hover:bg-red-100"
             aria-label={isPaused ? 'Resume countdown timer' : 'Pause countdown timer'}
             title={isPaused ? 'Resume timer' : 'Pause timer'}
           >
             {isPaused ? (
-              <Play className="h-3 w-3 text-red-900 dark:text-[var(--optibio-luminous-gold)]" />
+<Play className="h-3 w-3" style={{ color: 'var(--optibio-countdown-text)' }} />
             ) : (
-              <Pause className="h-3 w-3 text-red-900 dark:text-[var(--optibio-luminous-gold)]" />
+<Pause className="h-3 w-3" style={{ color: 'var(--optibio-countdown-text)' }} />
             )}
           </Button>
         </div>
-        <div className="flex gap-1 sm:gap-2 text-red-900 dark:text-[var(--optibio-luminous-gold)] font-bold">
+        <div className="flex gap-1 sm:gap-2 font-bold" style={{ color: 'var(--optibio-countdown-text)' }}>
           <div className="flex flex-col items-center min-w-[40px] countdown-pulse">
             <span className="text-xl sm:text-2xl leading-none countdown-number">{timeLeft.days}</span>
-            <span className="text-[10px] sm:text-xs uppercase text-red-800 dark:text-[var(--optibio-sky-grey)]">Days</span>
+<span className="text-[10px] sm:text-xs uppercase" style={{ color: 'var(--optibio-countdown-text)' }}>Days</span>
           </div>
           <span className="text-xl sm:text-2xl">:</span>
           <div className="flex flex-col items-center min-w-[40px] countdown-pulse">
             <span className="text-xl sm:text-2xl leading-none countdown-number">{timeLeft.hours.toString().padStart(2, '0')}</span>
-            <span className="text-[10px] sm:text-xs uppercase text-red-800 dark:text-[var(--optibio-sky-grey)]">Hrs</span>
+<span className="text-[10px] sm:text-xs uppercase" style={{ color: 'var(--optibio-countdown-text)' }}>Hrs</span>
           </div>
           <span className="text-xl sm:text-2xl">:</span>
           <div className="flex flex-col items-center min-w-[40px] countdown-pulse">
             <span className="text-xl sm:text-2xl leading-none countdown-number">{timeLeft.minutes.toString().padStart(2, '0')}</span>
-            <span className="text-[10px] sm:text-xs uppercase text-red-800 dark:text-[var(--optibio-sky-grey)]">Min</span>
+<span className="text-[10px] sm:text-xs uppercase" style={{ color: 'var(--optibio-countdown-text)' }}>Min</span>
           </div>
         </div>
       </div>
