@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -98,55 +97,38 @@ html {
   --color-bg-footer: var(--optibio-navy);             /* Footer background */
   --color-bg-cta: var(--optibio-navy);                /* CTA button background */
   --color-bg-cta-hover: var(--optibio-electric);      /* CTA button hover */
-  --color-bg-badge: var(--optibio-gold);              /* Badge background */
   
   /* TEXT COLORS */
-  --color-text-primary: var(--optibio-navy);          /* Headlines, emphasis */
-  --color-text-body: var(--optibio-charcoal);         /* Primary body text */
-  --color-text-secondary: var(--optibio-slate);       /* Secondary text */
-  --color-text-inverse: var(--optibio-white);         /* Text on dark backgrounds */
+  --color-text-primary: var(--optibio-charcoal);      /* Primary body text */
+  --color-text-secondary: var(--optibio-slate);       /* Secondary body text */
+  --color-text-headline: var(--optibio-navy);         /* Headlines */
+  --color-text-accent: var(--optibio-gold);           /* Accent text (gold) */
   --color-text-link: var(--optibio-electric);         /* Links */
-  --color-text-link-hover: var(--optibio-navy-dark);  /* Link hover */
   --color-text-success: var(--optibio-success);       /* Success messages */
   
-  /* ACCENTS & HIGHLIGHTS */
-  --color-accent: var(--optibio-gold);                /* Accents, badges */
-  --color-accent-hover: var(--optibio-gold-dark);     /* Accent hover */
-  --color-highlight: var(--optibio-electric);         /* Highlights, active states */
-  
   /* BORDERS */
-  --color-border: #E0E0E0;                            /* Subtle borders */
-  --color-border-card: #E5E5E5;                       /* Card borders */
-  --color-border-input: #D1D5DB;                      /* Input borders */
-  --color-border-focus: var(--optibio-electric);      /* Focus borders */
+  --color-border-default: #E2E8F0;                    /* Default border */
+  --color-border-accent: var(--optibio-gold);         /* Accent border (gold) */
+  --color-border-navy: var(--optibio-navy);           /* Navy border */
   
-  /* BUTTONS */
-  --color-btn-primary-bg: var(--optibio-navy);        /* Primary button bg */
+  /* COMPONENT-SPECIFIC */
+  --color-btn-primary-bg: var(--optibio-electric);    /* Primary button bg */
   --color-btn-primary-text: var(--optibio-white);     /* Primary button text */
-  --color-btn-primary-hover: var(--optibio-electric); /* Primary button hover */
-  --color-btn-secondary-bg: transparent;              /* Secondary button bg */
+  --color-btn-secondary-bg: var(--optibio-white);     /* Secondary button bg */
   --color-btn-secondary-text: var(--optibio-navy);    /* Secondary button text */
-  --color-btn-secondary-border: var(--optibio-navy);  /* Secondary button border */
-  --color-btn-gold-bg: var(--optibio-gold);           /* Gold button bg */
-  --color-btn-gold-text: var(--optibio-white);        /* Gold button text */
+  --color-badge-bg: var(--optibio-gold);              /* Badge background */
+  --color-badge-text: var(--optibio-white);           /* Badge text */
   
-  /* GRADIENTS (Use with gradient-* utility classes) */
-  --gradient-hero-start: var(--optibio-sky-light);    /* Hero gradient start */
-  --gradient-hero-mid: var(--optibio-sky-mid);        /* Hero gradient middle */
-  --gradient-hero-end: var(--optibio-sky-deep);       /* Hero gradient end */
-  --gradient-navy-start: var(--optibio-navy);         /* Navy gradient start */
-  --gradient-navy-end: var(--optibio-navy-depth);     /* Navy gradient end */
-  
-  /* Primary: Deep Navy (Professional, Trustworthy, Premium) */
+  /* Primary: Deep Navy (trust, authority) */
   --primary: oklch(0.32 0.08 240); /* #1E3A5F Deep Navy */
-  --primary-foreground: oklch(0.98 0 0);
+  --primary-foreground: oklch(0.98 0 0); /* Pure White */
   
-  /* Secondary: Antique Gold (Sophisticated, Valuable, Premium) */
+  /* Secondary: Antique Gold (premium, warmth) */
   --secondary: oklch(0.72 0.08 75); /* #C9A961 Antique Gold */
-  --secondary-foreground: oklch(0.18 0.01 240);
+  --secondary-foreground: oklch(0.18 0.01 240); /* Dark Navy text on gold */
   
-  /* Sidebar: Navy (Dark Variant) */
-  --sidebar-primary: oklch(0.28 0.08 240); /* #152B45 Navy Dark */
+  /* Sidebar: Deep Navy */
+  --sidebar-primary: oklch(0.32 0.08 240);
   --sidebar-primary-foreground: oklch(0.98 0 0);
   
   /* Charts: Navy Variants */
@@ -348,56 +330,40 @@ html {
    * - Set max-width for large screens
    *
    * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
+   * DO NOT add mx-auto or px-* classes when using .container
    */
   .container {
     width: 100%;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
+  
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
-
+  
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
     }
   }
-}
-
-/* OptiBio Wellness Utilities */
-@layer utilities {
-  /* Premium Gradients */
-  .gradient-optibio {
-    background: linear-gradient(135deg, #1E3A5F 0%, #152B45 100%);
+  
+  /* Flex utilities with min-width/height fix */
+  .flex {
+    min-width: 0;
+    min-height: 0;
   }
   
-  /* Sky Blue Radial Gradient - Wellness Theme */
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
-  }
-  
-  /* Theme-Aware Hero Gradients - LOCKED BRAND COLORS */
-  /* Light Mode: Sky Blue Radial Gradient (Master Brand Guidelines Page 4) */
-  /* EXACT SPECIFICATION - DO NOT MODIFY */
+  /* Background Gradients */
   .bg-hero-gradient {
-    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%) !important;
+    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 50%, #D6EAF8 100%);
   }
   
   .dark .bg-hero-gradient {
@@ -412,6 +378,10 @@ html {
     background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 50%, #D6EAF8 100%);
   }
   
+  .dark .gradient-hero {
+    background: radial-gradient(ellipse at center, #1E3A5F 0%, #152B45 40%, #0F1F30 100%);
+  }
+  
   .gradient-navy-ivory {
     background: linear-gradient(180deg, #1E3A5F 0%, #F7F4EF 100%);
   }
@@ -422,9 +392,20 @@ html {
     background-image: linear-gradient(135deg, #1E3A5F 0%, #152B45 100%);
   }
   
+  /* Dark mode: Luminous Gold gradient for "Yourself" */
+  .dark .text-gradient-optibio {
+    background-image: linear-gradient(135deg, #D4AF37 0%, #E5C158 50%, #D4AF37 100%);
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+  }
+  
   .text-gradient-premium {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, #1E3A5F 0%, #C9A961 100%);
+  }
+  
+  .dark .text-gradient-premium {
+    background-image: linear-gradient(135deg, #FFFFFF 0%, #D4AF37 100%);
+    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.2));
   }
   
   .text-gradient-gold {
@@ -432,21 +413,42 @@ html {
     background-image: linear-gradient(135deg, #C9A961 0%, #B89651 100%);
   }
   
+  .dark .text-gradient-gold {
+    background-image: linear-gradient(135deg, #D4AF37 0%, #E5C158 50%, #D4AF37 100%);
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+  }
+  
   /* Premium Shadows */
   .shadow-premium {
     box-shadow: 0 25px 50px -12px rgba(30, 58, 95, 0.25);
+  }
+  
+  .dark .shadow-premium {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.1);
   }
   
   .shadow-navy {
     box-shadow: 0 10px 25px rgba(30, 58, 95, 0.3);
   }
   
+  .dark .shadow-navy {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.15);
+  }
+  
   .shadow-glow-navy {
     box-shadow: 0 0 40px rgba(30, 58, 95, 0.4);
   }
   
+  .dark .shadow-glow-navy {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
   .shadow-glow-gold {
     box-shadow: 0 0 40px rgba(201, 169, 97, 0.4);
+  }
+  
+  .dark .shadow-glow-gold {
+    box-shadow: 0 0 50px rgba(212, 175, 55, 0.5), 0 10px 30px rgba(0, 0, 0, 0.6);
   }
   
   /* Brand Color Text Utilities */
@@ -454,8 +456,17 @@ html {
     color: #1E3A5F;
   }
   
+  .dark .text-opti-navy {
+    color: #FFFFFF;
+  }
+  
   .text-opti-gold {
     color: #C9A961;
+  }
+  
+  .dark .text-opti-gold {
+    color: #D4AF37;
+    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.3));
   }
   
   /* Dark Mode Section Colors */
@@ -498,690 +509,192 @@ html {
   }
   
   .dark button:not(:disabled):hover {
-    transform: translateY(-1px);
-  }
-  
-  .dark a:hover {
-    @apply text-[#C9A961];
-  }
-  
-  /* Hover Effects */
-  .hover-lift {
-    @apply transition-all duration-300;
-  }
-  
-  .hover-lift:hover {
-    @apply -translate-y-2;
-    box-shadow: 0 20px 40px rgba(30, 58, 95, 0.2);
+    transform: translateY(-2px);
   }
   
   /* Animations */
-  @keyframes pulse-glow {
-    0%, 100% {
-      box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
-    }
-    50% {
-      box-shadow: 0 0 50px rgba(201, 169, 97, 0.6);
-    }
-  }
-  
   @keyframes float {
     0%, 100% {
-      transform: translateY(0);
+      transform: translateY(0px);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-20px);
     }
   }
   
-  .animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scroll-fade-in {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
   
   .animate-float {
-    animation: float 3s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
   }
   
-  /* Gold Shimmer Animation for Premium CTAs */
-  @keyframes gold-shimmer {
-    0% { background-position: -200% center; }
-    100% { background-position: 200% center; }
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out;
   }
   
-  .gold-shimmer {
+  .scroll-fade-in {
+    animation: scroll-fade-in 0.6s ease-out;
+  }
+  
+  /* Shimmer effect for premium feel */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  .shimmer {
     background: linear-gradient(
       90deg,
-      #C9A961 0%,
-      #D4B76E 50%,
-      #C9A961 100%
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
     );
-    background-size: 200% auto;
-    animation: gold-shimmer 3s linear infinite;
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
   }
   
-  /* Premium Button */
-  .btn-premium {
-    @apply relative overflow-hidden;
-    background: linear-gradient(135deg, #C9A961 0%, #B89651 100%);
-    transition: all 0.3s ease;
+  /* Premium pulse animation for gold elements */
+  @keyframes gold-pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
   }
   
-  .btn-premium::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-  }
-  
-  .btn-premium:hover::before {
-    left: 100%;
-  }
-  
-  .btn-premium:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(124, 152, 133, 0.4);
-  }
-  
-  /* Terracotta Button (for urgency/action) */
-  .btn-terracotta {
-    @apply relative overflow-hidden;
-    background: linear-gradient(135deg, #D4745F 0%, #C4644F 100%);
-    transition: all 0.3s ease;
-  }
-  
-  .btn-terracotta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-  }
-  
-  .btn-terracotta:hover::before {
-    left: 100%;
-  }
-  
-  .btn-terracotta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(212, 116, 95, 0.4);
+  .animate-gold-pulse {
+    animation: gold-pulse 2s ease-in-out infinite;
   }
 }
-
-/* Custom Scrollbar - OptiBio Wellness Branded */
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: #F7F4EF; /* Warm Ivory */
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #1E3A5F, #152B45); /* Deep Navy gradient */
-  border-radius: 6px;
-  border: 2px solid #F7F4EF;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #C9A961, #B89651); /* Antique Gold on hover */
-  border-color: #F7F4EF;
-}
-
-/* Firefox Scrollbar */
-* {
-  scrollbar-color: #1E3A5F #F7F4EF;
-  scrollbar-width: thin;
-}
-
-
-/* Premium UI Enhancements */
-
-/* Subtle hover animations for cards */
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px -8px rgba(30, 58, 95, 0.15);
-}
-
-/* Premium button gradients with shimmer effect */
-@keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-  100% {
-    background-position: 200% center;
-  }
-}
-
-.btn-premium {
-  background: linear-gradient(
-    90deg,
-    #C9A961 0%,
-    #F7F4EF 50%,
-    #C9A961 100%
-  );
-  background-size: 200% auto;
-  animation: shimmer 3s linear infinite;
-  transition: all 0.3s ease;
-}
-
-.btn-premium:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 16px -4px rgba(201, 169, 97, 0.4);
-}
-
-/* Smooth section transitions */
-.section-fade-in {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Premium card depth with subtle borders */
-.card-premium {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F7F4EF 100%);
-  border: 1px solid rgba(201, 169, 97, 0.15);
-  box-shadow: 0 4px 12px -2px rgba(30, 58, 95, 0.08);
-  transition: all 0.3s ease;
-}
-
-.card-premium:hover {
-  border-color: rgba(201, 169, 97, 0.3);
-  box-shadow: 0 8px 20px -4px rgba(30, 58, 95, 0.12);
-}
-
-/* Gold accent glow effect */
-.gold-glow {
-  box-shadow: 0 0 20px rgba(201, 169, 97, 0.3);
-}
-
-/* Improved line height for readability */
-p {
-  line-height: 1.7;
-}
-
-/* Premium focus states */
-*:focus-visible {
-  outline: 2px solid #C9A961;
-  outline-offset: 2px;
-}
-
-/* Smooth transitions for all interactive elements */
-button,
-a,
-input,
-select,
-textarea {
-  transition: all 0.2s ease;
-}
-
-/* Enhanced mobile touch feedback */
-@media (hover: none) {
-  button:active,
-  a:active {
-    transform: scale(0.98);
-  }
-}
-
-/* Premium gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #1E3A5F 0%, #C9A961 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Subtle backdrop blur for modals */
-.backdrop-premium {
-  backdrop-filter: blur(12px);
-  background: rgba(30, 58, 95, 0.1);
-}
-
-/* Scroll-triggered Fade-in Animations */
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.scroll-fade-in {
-  opacity: 0;
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-
-/* Staggered animation delays for multiple items */
-.scroll-fade-in:nth-child(1) { animation-delay: 0.1s; }
-.scroll-fade-in:nth-child(2) { animation-delay: 0.2s; }
-.scroll-fade-in:nth-child(3) { animation-delay: 0.3s; }
-.scroll-fade-in:nth-child(4) { animation-delay: 0.4s; }
-.scroll-fade-in:nth-child(5) { animation-delay: 0.5s; }
-.scroll-fade-in:nth-child(6) { animation-delay: 0.6s; }
-
-/* Dark mode scrollbar */
-.dark ::-webkit-scrollbar-track {
-  background: #1E3A5F;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #C9A961, #B89651);
-  border-color: #1E3A5F;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #F7F4EF, #E8E5DC);
-  border-color: #1E3A5F;
-}
-
-.dark {
-  scrollbar-color: #C9A961 #1E3A5F;
-}
-
-/* ========================================
-   SME PANEL DARK MODE IMPROVEMENTS
-   Implemented: December 30, 2025
-   Score Target: 7.8/10 → 9/10
-   ======================================== */
-
-/* HIGH PRIORITY 1: Improved Body Text Contrast (WCAG AAA) */
-/* Upgrade all body text to #CBD5E1 (slate-300) minimum */
-.dark .text-muted-foreground,
-.dark .text-slate-400,
-.dark .text-slate-500 {
-  color: #CBD5E1 !important; /* slate-300 - WCAG AAA compliant */
-}
-
-/* Subtext that was failing WCAG AA now passes */
-.dark .text-sky-grey {
-  color: #CBD5E1 !important; /* Upgraded from #94A3B8 */
-}
-
-/* HIGH PRIORITY 2: Gold CTA Button Variant */
-/* A/B testable gold gradient button for 15-25% conversion lift */
-.dark .btn-gold-cta {
-  background: linear-gradient(135deg, #D4AF37 0%, #E5B84C 50%, #D4AF37 100%);
-  color: #0B1120;
-  font-weight: 700;
-  border: none;
-  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
-  transition: all 0.3s ease;
-}
-
-.dark .btn-gold-cta:hover {
-  background: linear-gradient(135deg, #E5B84C 0%, #F0C75D 50%, #E5B84C 100%);
-  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
-  transform: translateY(-2px);
-}
-
-/* HIGH PRIORITY 3: Enhanced Focus States for Dark Mode */
-.dark button:focus-visible,
-.dark [role="button"]:focus-visible,
-.dark a[href]:focus-visible,
-.dark input:focus-visible,
-.dark select:focus-visible,
-.dark textarea:focus-visible {
-  outline: none;
-  ring: 2px;
-  ring-color: #D4AF37;
-  ring-offset: 2px;
-  ring-offset-color: #0B1120;
-  box-shadow: 0 0 0 2px #0B1120, 0 0 0 4px #D4AF37;
-}
-
-/* MEDIUM PRIORITY 1: Warmer Gold Accent (#E5B84C) */
-/* More vibrant gold for key elements in dark mode */
-.dark .text-gold-warm {
-  color: #E5B84C;
-}
-
-.dark .bg-gold-warm {
-  background-color: #E5B84C;
-}
-
-.dark .border-gold-warm {
-  border-color: #E5B84C;
-}
-
-/* MEDIUM PRIORITY 2: Buy Box Glow Effect */
-/* Subtle gold glow for better visual separation */
-.dark .buy-box-glow {
-  box-shadow: 0 0 40px rgba(212, 175, 55, 0.1), 
-              0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.dark .buy-box-glow:hover {
-  box-shadow: 0 0 60px rgba(212, 175, 55, 0.15), 
-              0 8px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* MEDIUM PRIORITY 3: Countdown Timer Pulse Animation */
-@keyframes countdown-pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.05);
-    opacity: 0.9;
-  }
-}
-
-.dark .countdown-pulse {
-  animation: countdown-pulse 1.5s ease-in-out infinite;
-}
-
-/* Enhanced countdown number styling */
-.dark .countdown-number {
-  color: #D4AF37;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-}
-
-/* MEDIUM PRIORITY 4: Trust Badge Hover Effects */
-.dark .trust-badge {
-  transition: all 0.3s ease;
-  opacity: 0.85;
-}
-
-.dark .trust-badge:hover {
-  opacity: 1;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-}
-
-/* Dark Mode Modal Styling */
-.dark [role="dialog"],
-.dark [data-state="open"].dialog-content {
-  background-color: #15233E;
-  border-color: #2D4A77;
-  color: #F5F5F5;
-}
-
-.dark [role="dialog"] h2,
-.dark [role="dialog"] h3 {
-  color: #FFFFFF;
-}
-
-.dark [role="dialog"] p {
-  color: #CBD5E1;
-}
-
-/* Dark Mode Email Popup Specific */
-.dark .email-popup-modal {
-  background: linear-gradient(135deg, #0B1120 0%, #15233E 100%);
-  border: 1px solid #2D4A77;
-}
-
-.dark .email-popup-modal input {
-  background-color: #1E3A5F;
-  border-color: #2D4A77;
-  color: #FFFFFF;
-}
-
-.dark .email-popup-modal input::placeholder {
-  color: #94A3B8;
-}
-
-.dark .email-popup-modal input:focus {
-  border-color: #D4AF37;
-  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
-}
-
-/* LOW PRIORITY: Subtle Background Animation */
-@keyframes subtle-gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.dark .bg-animated-gradient {
-  background: linear-gradient(135deg, #0B1120 0%, #15233E 50%, #0B1120 100%);
-  background-size: 200% 200%;
-  animation: subtle-gradient-shift 15s ease infinite;
-}
-
-/* Card Hover with Gold Accent */
-.dark .card-gold-hover {
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-}
-
-.dark .card-gold-hover:hover {
-  border-color: rgba(212, 175, 55, 0.3);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
-}
-
 
 /* ============================================
-   DARK MODE REFINEMENTS (Dec 30, 2025)
-   Premium Midnight Sophistication Enhancements
+   DARK MODE ENHANCEMENTS - SME VISUAL POLISH
+   December 30, 2025
    ============================================ */
 
-/* 1. Hero Section - Metallic Gold CTA Buttons */
-.dark .btn-gold-metallic {
-  background: linear-gradient(145deg, #D4AF37 0%, #E5C158 25%, #D4AF37 50%, #C9A961 75%, #D4AF37 100%);
-  background-size: 200% 200%;
-  animation: metallic-shine 3s ease-in-out infinite;
-  box-shadow: 
-    0 0 20px rgba(212, 175, 55, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(212, 175, 55, 0.6);
-  color: #0B1120;
-  font-weight: 700;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.dark .btn-gold-metallic:hover {
-  background-size: 300% 300%;
-  box-shadow: 
-    0 0 35px rgba(212, 175, 55, 0.6),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
-}
-
-@keyframes metallic-shine {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-/* 2. Benefits Grid - Black Gradient Overlay for Images */
-.dark .benefit-card-image-overlay {
-  position: relative;
-}
-
-.dark .benefit-card-image-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.7) 0%,
-    rgba(0, 0, 0, 0.5) 30%,
-    rgba(0, 0, 0, 0.2) 60%,
-    transparent 100%
-  );
-  pointer-events: none;
-}
-
-/* 3. 60-Day Guarantee - Thicker Icon Strokes */
-.dark .guarantee-step-number {
-  font-size: 4rem;
-  font-weight: 800;
-  color: #D4AF37;
-  text-shadow: 
-    0 0 20px rgba(212, 175, 55, 0.5),
-    0 2px 4px rgba(0, 0, 0, 0.3);
-  -webkit-text-stroke: 2px #D4AF37;
-}
-
-.dark .guarantee-icon-thick {
-  stroke-width: 2.5;
-  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
-}
-
-/* 4. Why KSM-66 - Bottle Glow Effect (no white box) */
-.dark .bottle-glow-container {
-  position: relative;
-  background: transparent;
-}
-
-.dark .bottle-glow-container::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  height: 80%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(212, 175, 55, 0.15) 0%,
-    rgba(212, 175, 55, 0.08) 40%,
-    transparent 70%
-  );
-  filter: blur(40px);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.dark .bottle-glow-container img {
-  position: relative;
-  z-index: 1;
-}
-
-/* 5. Who Is KSM-66 For - Gold Border Cards */
-.dark .qualification-card {
-  background: linear-gradient(145deg, #1E3A5F 0%, #24426A 100%);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.dark .qualification-card:hover {
-  border-color: rgba(212, 175, 55, 0.5);
-  box-shadow: 
-    0 8px 30px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(212, 175, 55, 0.1);
-}
-
-/* 6. Old vs New Comparison - Color Coded */
-.dark .comparison-old {
-  background: linear-gradient(145deg, #1E3A5F 0%, #152B45 100%);
-}
-
-.dark .comparison-old .check-icon {
-  color: #6B7280; /* Muted grey */
-}
-
-.dark .comparison-old .x-icon {
-  color: #DC2626; /* Desaturated red */
-}
-
-.dark .comparison-new {
-  background: linear-gradient(145deg, #24426A 0%, #2D4A77 100%);
-  box-shadow: 
-    0 0 30px rgba(212, 175, 55, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-}
-
-.dark .comparison-new .check-icon {
-  color: #22C55E; /* Vibrant green */
-}
-
-/* 7. Reviews - Larger Metallic Gold Stars */
-.dark .review-star-large {
-  width: 1.5rem;
-  height: 1.5rem;
-  color: #D4AF37;
-  fill: #D4AF37;
-  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.5));
-}
-
-/* 8. Pricing - Subscribe vs One-time Visual Hierarchy */
-.dark .btn-subscribe-gold {
-  background: linear-gradient(145deg, #D4AF37 0%, #E5C158 25%, #D4AF37 50%, #C9A961 75%, #D4AF37 100%);
-  background-size: 200% 200%;
-  animation: metallic-shine 3s ease-in-out infinite;
-  color: #0B1120;
-  font-weight: 700;
-  border: none;
-  box-shadow: 
-    0 0 25px rgba(212, 175, 55, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-.dark .btn-subscribe-gold:hover {
-  box-shadow: 
-    0 0 40px rgba(212, 175, 55, 0.7),
-    inset 0 1px 0 rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
-}
-
-.dark .btn-onetime-ghost {
-  background: transparent;
-  border: 2px solid rgba(212, 175, 55, 0.4);
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 600;
-}
-
-.dark .btn-onetime-ghost:hover {
-  border-color: rgba(212, 175, 55, 0.6);
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(212, 175, 55, 0.1);
-}
-
-/* 9. Standardized Gold Color - Consistent #D4AF37 */
-.dark .text-gold-standard {
-  color: #D4AF37;
-}
-
-.dark .bg-gold-standard {
-  background-color: #D4AF37;
-}
-
-.dark .border-gold-standard {
-  border-color: #D4AF37;
-}
-
-/* Gold Glow Shadow Utility */
-.shadow-glow-gold-lg {
-  box-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
-}
-
-/* Ensure text contrast on dark backgrounds */
-.dark .text-contrast-white {
-  color: #F0F0F0;
-}
-
-.dark .text-contrast-offwhite {
-  color: #E5E5E5;
+.dark {
+  /* Enhanced card depth with gold accent glow */
+  .bg-card,
+  [class*="bg-white"],
+  [class*="bg-gradient-to"] {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.08);
+  }
+  
+  /* Enhanced borders with subtle gold tint */
+  .border,
+  [class*="border-"] {
+    border-color: rgba(212, 175, 55, 0.2);
+  }
+  
+  /* Premium text contrast for headlines */
+  h1, h2, h3, h4, h5, h6 {
+    color: #FFFFFF;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Enhanced stat numbers with gold glow */
+  .text-4xl,
+  .text-5xl,
+  .text-6xl {
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.2));
+  }
+  
+  /* Button enhancements */
+  button:not(:disabled) {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  button:not(:disabled):hover {
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.3), 0 4px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Enhanced visual separation between sections */
+  section {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  }
+  
+  /* Icon glow effects */
+  svg {
+    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.15));
+  }
+  
+  /* Enhanced input fields */
+  input,
+  textarea,
+  select {
+    background-color: rgba(30, 58, 95, 0.3);
+    border-color: rgba(212, 175, 55, 0.3);
+  }
+  
+  input:focus,
+  textarea:focus,
+  select:focus {
+    background-color: rgba(30, 58, 95, 0.5);
+    border-color: rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+  }
+  
+  /* Enhanced badge contrast */
+  .badge,
+  [class*="Badge"] {
+    background-color: rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #D4AF37;
+  }
+  
+  /* Enhanced link visibility */
+  a:not([class*="Button"]) {
+    color: #E5C158;
+  }
+  
+  a:not([class*="Button"]):hover {
+    color: #D4AF37;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+  }
+  
+  /* Premium scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #0B1120;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #1E3A5F 0%, #152B45 100%);
+    border-radius: 6px;
+    border: 2px solid #0B1120;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #D4AF37 0%, #C9A961 100%);
+  }
 }

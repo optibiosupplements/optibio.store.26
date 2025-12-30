@@ -643,3 +643,53 @@ Mixing generic Tailwind colors (sky-50, blue-50, slate, zinc) with brand palette
 - Luminous Gold (Dark Mode): #D4AF37
 
 ### Rule: If a hex code is not in our Brand Guide, it is FORBIDDEN in the code.
+
+
+## 🌙 DARK MODE VISUAL ENHANCEMENT - SME AUDIT (Dec 30, 2025)
+
+### Phase 1: Visual Audit (In Progress)
+- [x] Audit Homepage dark mode - all sections
+- [ ] Audit Shop page dark mode
+- [ ] Audit Product Detail page dark mode
+- [ ] Audit Cart page dark mode
+- [ ] Audit Checkout page dark mode
+- [ ] Audit About page dark mode
+- [ ] Audit Science page dark mode
+- [ ] Audit FAQ page dark mode
+- [ ] Audit Quality page dark mode
+- [ ] Document all visual issues and enhancement opportunities
+
+### Phase 2: Implementation
+- [x] Implement Homepage dark mode enhancements
+- [x] Add text gradient enhancements (gold glow for "Yourself")
+- [x] Add shadow enhancements (premium depth with gold accents)
+- [x] Add utility class overrides (text-opti-navy, text-opti-gold)
+- [x] Add .gradient-hero dark mode override
+- [x] Add comprehensive card and component enhancements
+- [x] Add button hover effects with gold glow
+- [x] Add enhanced borders with gold tint
+- [x] Add input field styling
+- [x] Add badge contrast improvements
+- [x] Add link visibility enhancements
+- [x] Add premium scrollbar styling
+- [ ] Implement Shop page dark mode enhancements
+- [ ] Implement Product Detail page dark mode enhancements
+- [ ] Implement Cart/Checkout dark mode enhancements
+- [ ] Implement content pages dark mode enhancements
+- [ ] Update CSS variables for dark mode if needed
+
+### Phase 3: Testing
+- [x] Test all pages in dark mode
+- [x] Verify contrast ratios (WCAG AA)
+- [x] Test theme toggle functionality
+- [x] Verify visual consistency
+- [x] Verify light mode remains unchanged
+- [x] Test dark mode enhancements (gradients, shadows, gold accents)
+- [x] Verify homepage hero section dark mode
+- [x] Verify benefits cards dark mode
+- [x] Verify buy box dark mode with gold price
+
+### Phase 4: Delivery
+- [ ] Save checkpoint
+- [ ] Create enhancement report
+- [ ] Document changes
