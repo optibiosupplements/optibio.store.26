@@ -29,34 +29,31 @@ export function ThemeProvider({
   switchable = false,
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  );
+  // PERMANENT LOCK: OptiBio Light Mode Only
+  // Light mode is locked as the official brand theme
+  // No dark mode switching or system preference detection
+  // This ensures consistent brand experience across all touchpoints
+  // LOCKED: Always use light mode, ignore localStorage
+  const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
     const root = window.document.documentElement;
 
-    // Remove old classes to prevent conflicts
+    // PERMANENT LOCK: Light mode only
+    // OptiBio brand is locked to light mode for all users
+    // This ensures consistent brand presentation across all devices and browsers
     root.classList.remove("light", "dark");
-
-    // FORCE LIGHT MODE ONLY - OptiBio is light mode only
-    // Do not use system theme detection or allow dark mode
     root.classList.add("light");
-  }, [theme]);
+  }, []);
 
   const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
+    theme: "light" as const,
+    setTheme: () => {
+      // LOCKED: Theme cannot be changed
+      // Light mode is permanent for OptiBio brand
+      console.warn("OptiBio theme is locked to light mode");
     },
-    toggleTheme: switchable
-      ? () => {
-          const newTheme = theme === "light" ? "dark" : "light";
-          localStorage.setItem(storageKey, newTheme);
-          setTheme(newTheme);
-        }
-      : undefined,
+    toggleTheme: undefined,
   };
 
   return (
