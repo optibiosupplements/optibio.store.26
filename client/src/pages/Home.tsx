@@ -127,13 +127,13 @@ export default function Home() {
             <div className="space-y-4 sm:space-y-6 lg:space-y-10 animate-fade-in order-2 lg:order-1">
               <div className="space-y-6">
                 <Badge 
-                  className="text-base md:text-lg font-bold px-6 py-3 bg-gradient-to-r from-[#1E3A5F] to-[#152B45] text-white border-0 shadow-lg"
+                  className="text-base md:text-lg font-bold px-6 py-3 bg-primary text-primary-foreground border-0 shadow-lg"
                 >
                   <Shield className="w-5 h-5 mr-2 inline" />
                   Science-Backed • Third-Party Tested
                 </Badge>
                 
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-[#1E3A5F] dark:text-white">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.05] text-primary dark:text-foreground">
                   Feel Like{" "}
                   <span className="text-gradient-optibio">
                     Yourself
@@ -141,7 +141,7 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl font-semibold dark:font-bold dark:text-[#F0F0F0]">
+                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl font-semibold dark:font-bold dark:text-foreground">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
@@ -149,8 +149,8 @@ export default function Home() {
               {/* Trust Indicators - Mobile Optimized */}
               <div className="flex flex-wrap gap-4 sm:gap-6 text-base">
                 {certifications.slice(0, 3).map((cert, i) => (
-                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-[#1E3A5F] scroll-fade-in">
-                    <cert.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#C9A961]" />
+                  <div key={i} className="flex items-center gap-2 sm:gap-3 text-primary scroll-fade-in">
+                    <cert.icon className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-secondary" />
                     <div className="flex flex-col">
                       <span className="font-bold text-foreground text-base">{cert.text}</span>
                       <span className="text-sm text-primary">Verified</span>
@@ -160,7 +160,7 @@ export default function Home() {
               </div>
 
               {/* Pricing & Urgency - Mobile Optimized */}
-              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 dark:from-[#1E3A5F] dark:to-[#1E3A5F] dark:bg-[#1E3A5F] backdrop-blur-sm border-2 border-[#C9A961]/40 dark:border-[#2D4A77] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl transition-colors duration-500">
+              <div className="bg-card/90 backdrop-blur-sm border-2 border-secondary/40 dark:border-border rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl transition-colors duration-500">
                 {/* Countdown Timer - P0 FIX: Add urgency above fold */}
                 <CountdownTimer 
                   targetDate={new Date('2026-01-20T23:59:59')} 
@@ -168,17 +168,17 @@ export default function Home() {
                 />
                 
                 <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-3">
-                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A5F] dark:bg-gradient-to-r dark:from-[#E5C578] dark:via-[#FFD700] dark:to-[#E5C578] dark:bg-clip-text dark:text-transparent dark:drop-shadow-[0_0_16px_rgba(229,197,120,0.6)]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
-                  <span className="text-xl sm:text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary dark:text-secondary">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
+                  <span className="text-xl sm:text-2xl text-muted-foreground line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
                   <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1.5 shadow-md">
                     Save 46%
                   </Badge>
                 </div>
                 <p className="text-sm text-primary mb-3 flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#C9A961]" />
+                  <Sparkles className="w-4 h-4 text-secondary" />
                   <span className="font-semibold">Pre-Order Special:</span> Ships Jan 20-27, 2026
                 </p>
-                <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 bg-amber-50 dark:bg-[#0B1120]/50 border border-amber-200 dark:border-[#2D4A77] rounded-lg px-3 py-2 mb-4">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground bg-muted dark:bg-muted/50 border border-border rounded-lg px-3 py-2 mb-4">
                   <span className="animate-pulse text-amber-600">⏱️</span>
                   <span className="font-semibold">Free shipping</span> on orders $75+
                 </div>
@@ -194,16 +194,16 @@ export default function Home() {
                   </Button>
                 </Link>
                 {/* Anxiety-reducing micro-copy */}
-                <p className="text-xs text-center text-slate-500 mt-3 flex items-center justify-center gap-2 flex-wrap">
+                <p className="text-xs text-center text-muted-foreground mt-3 flex items-center justify-center gap-2 flex-wrap">
                   <span className="flex items-center gap-1">
                     <svg className="w-3.5 h-3.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                     </svg>
                     Secure checkout
                   </span>
-                  <span className="text-slate-300">•</span>
+                  <span className="text-border">•</span>
                   <span>Free shipping on $75+</span>
-                  <span className="text-slate-300">•</span>
+                  <span className="text-border">•</span>
                   <span>90-day guarantee</span>
                 </p>
               </div>
@@ -211,24 +211,24 @@ export default function Home() {
               {/* P0 FIX: Removed duplicate CTA, moved to pricing card above */}
 
               {/* Social Proof - Enhanced */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-[#1E3A5F] dark:to-[#1E3A5F] border-2 border-green-200 dark:border-[#2D4A77] rounded-xl p-5 shadow-md transition-colors duration-500">
+              <div className="bg-muted dark:bg-card border-2 border-border rounded-xl p-5 shadow-md transition-colors duration-500">
                 <div className="flex items-center gap-4">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4, 5].map((i) => (
-                      <div key={i} className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#152B45] border-3 border-white shadow-lg" />
+                      <div key={i} className="w-12 h-12 rounded-full bg-primary border-3 border-card shadow-lg" />
                     ))}
                   </div>
                   <div>
                     <div className="flex items-center gap-1 mb-1">
                       {[1, 2, 3, 4, 5].map((i) => (
-                        <Star key={i} className="w-5 h-5 fill-[#D4AF37] text-[#D4AF37] dark:drop-shadow-[0_0_3px_rgba(212,175,55,0.4)]" />
+                        <Star key={i} className="w-5 h-5 fill-secondary text-secondary" />
                       ))}
-                      <span className="ml-2 text-sm font-bold text-slate-900 dark:text-white">4.9/5</span>
+                      <span className="ml-2 text-sm font-bold text-foreground">4.9/5</span>
                     </div>
-                    <p className="text-sm text-slate-700 dark:text-slate-300">
-                      <span className="font-bold text-slate-900 dark:text-white text-lg">5,247</span> happy customers
+                    <p className="text-sm text-muted-foreground">
+                      <span className="font-bold text-foreground text-lg">5,247</span> happy customers
                     </p>
-                    <p className="text-xs text-green-700 dark:text-green-400 font-semibold mt-1">
+                    <p className="text-xs text-foreground font-semibold mt-1">
                       ✅ <span className="font-bold">127</span> bottles sold in last 24 hours
                     </p>
                   </div>
@@ -240,7 +240,7 @@ export default function Home() {
             <div className="relative h-[500px] sm:h-[600px] lg:h-[850px] flex items-center justify-center order-1 lg:order-2">
               {/* Cream/White background card behind bottle */}
               <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
-                <div className="w-full max-w-2xl h-[90%] bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] dark:from-[#1E3A5F] dark:to-[#152B45] rounded-3xl shadow-2xl" />
+                <div className="w-full max-w-2xl h-[90%] bg-card dark:bg-primary rounded-3xl shadow-2xl" />
               </div>
               {/* Large product bottle - takes up most of card space */}
               <div className="relative animate-float w-full h-full flex items-center justify-center z-10 p-8">

@@ -1174,3 +1174,30 @@ Problem: Bottle currently sits inside white square box, looks cheap against Dark
 - [x] Verified image displays correctly in hero section
 
 **RESULT: Professional product photography now displayed in hero section with clean background matching brand aesthetic.**
+
+
+## 🚨 CRITICAL: SYSTEMATIC COLOR DRIFT FIX (Dec 30, 2025)
+
+### Root Cause Analysis:
+Despite comprehensive CSS variable system and 153 color replacements, colors still drift on every change. Issue: No enforcement mechanism to prevent hardcoded values from being reintroduced.
+
+### Systematic Fix Tasks:
+- [x] Audit Home.tsx for all hardcoded hex values (#F7F4EF, #1E3A5F, etc.)
+- [x] Create automated color validation script (colorLint.ts)
+- [x] Implement pre-commit hook to block hardcoded colors (via pnpm run color:lint)
+- [x] Fix hero section background (sky blue gradient restored)
+- [x] Fix product card background in hero section (semantic tokens applied)
+- [x] Create color usage documentation with ONLY allowed patterns
+- [x] Test light mode color consistency (VERIFIED - matches reference image)
+- [x] Test dark mode color consistency (VERIFIED - works correctly)
+- [ ] Add ESLint rule to flag hardcoded color values (optional - lint script works)
+- [x] Create color system enforcement guide for future changes
+
+### Specific Issues to Fix:
+1. Hero section using `bg-hero-gradient` class (line 121 Home.tsx)
+2. Product card using hardcoded gradient: `from-[#F7F4EF] to-[#EDE9E3]` (line 243 Home.tsx)
+3. Multiple inline hex values throughout components
+4. No automated validation preventing color drift
+
+### Goal:
+Create REAL enforcement system that prevents color changes, not just documentation that gets ignored.
