@@ -1252,3 +1252,88 @@ Create REAL enforcement system that prevents color changes, not just documentati
 ✅ All colors locked in CSS variables for consistency
 
 **RESULT: Homepage now matches reference design color scheme exactly. Design system locked and documented.**
+
+
+## 🎨 DUAL-THEME SYSTEM IMPLEMENTATION (Dec 30, 2025)
+
+### Phase 1: CSS Color System Corrections
+- [x] Update :root --background to use sky blue gradient (currently using warm ivory)
+- [x] Verify all color tokens match approved design specifications
+- [x] Implement strict button color hierarchy (electric blue for actions, gold for accents ONLY)
+- [x] Add comprehensive shadow system (soft shadows for light, glow effects for dark)
+- [x] Document all color specifications in DESIGN_SPECIFICATIONS.md
+
+### Phase 2: Button Component Specifications (CRITICAL)
+- [x] Create primary CTA button: Electric blue (#2563EB) fill + Deep navy (#1E3A5F) 2px border
+- [x] Create secondary button: White fill + Deep navy border + Deep navy text
+- [x] Add hover states: Darker shade + translateY(-1px) lift effect
+- [ ] Add arrow icons (→) to right side of CTA buttons (need to update components)
+- [x] Implement box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2)
+- [ ] Test button accessibility and keyboard navigation
+- [ ] Verify exact match with approved design reference
+
+### Phase 3: Theme Toggle Component
+- [x] Create ThemeToggle.tsx component with sun/moon icons
+- [x] Add smooth transition animations (200ms ease)
+- [x] Integrate into Header navigation
+- [x] Test theme persistence in localStorage
+- [ ] Verify theme switching works across all pages
+- [x] Add keyboard accessibility (Space/Enter to toggle)
+
+### Phase 4: Light Mode Refinements
+- [ ] Apply sky blue gradient to hero backgrounds (NOT warm ivory)
+- [ ] Ensure all headlines use Deep Navy (#2C4A6E or #1E3A5F)
+- [ ] White card backgrounds with soft drop shadows
+- [ ] Gold badges and certification icons only (no gold buttons)
+- [ ] Light pink countdown timer (#FFE5E5 bg, #DC2626 text)
+- [ ] Light green social proof section (#E8F5E9)
+- [ ] Verify all sections match approved design color specifications
+
+### Phase 5: Dark Mode "Night Clinic" Implementation
+- [x] Abyssal Navy (#0B1120) gradient background (top to bottom)
+- [x] White (#FFFFFF) headlines + Sky Grey (#94A3B8) body text
+- [x] Navy Card (#15233E) backgrounds with gold glow effects
+- [x] Luminous Gold (#D4AF37) accents (brighter than light mode)
+- [x] Brighter Electric Blue (#3B82F6) CTAs with glow
+- [x] CTA border: 2px solid Bright Blue (#60A5FA)
+- [x] Box-shadow glow: 0 0 20px rgba(59, 130, 246, 0.4)
+- [ ] Adjusted countdown timer for dark background contrast
+- [ ] Adjusted social proof section for dark background contrast
+- [x] White borders with opacity: rgba(255, 255, 255, 0.12)
+
+### Phase 6: Component Updates
+- [ ] Update all CTA buttons to use new primary button styles
+- [ ] Update all secondary buttons to use new secondary styles
+- [ ] Remove any gold buttons (replace with electric blue)
+- [ ] Add arrow icons to all primary CTAs
+- [ ] Update hover states across all interactive elements
+- [ ] Verify button hierarchy is consistent sitewide
+
+### Phase 7: Testing & Verification
+- [ ] Test theme switching on all pages (Home, Shop, Science, About, FAQ, Quality)
+- [ ] Verify color contrast meets WCAG AA standards in both themes
+- [ ] Test on mobile devices (iOS Safari, Android Chrome)
+- [ ] Verify button styles match approved design pixel-perfect
+- [ ] Cross-browser testing (Chrome, Firefox, Safari, Edge)
+- [ ] Performance testing (smooth transitions, no jank)
+- [ ] Verify theme toggle icon changes correctly
+- [ ] Test theme persistence across page navigation
+
+### Phase 8: Documentation
+- [ ] Document theme system architecture
+- [ ] Create theme customization guide
+- [ ] Document button component API
+- [ ] Add color token reference guide
+- [ ] Document UX rules for each theme mode
+
+### Success Criteria:
+✅ Sky blue gradient backgrounds in light mode (NOT warm ivory)
+✅ Electric blue CTAs with navy border (exact match to approved design)
+✅ Gold used ONLY for accents (badges, icons, stars) - NEVER for action buttons
+✅ Smooth theme toggle with persistence
+✅ "Night Clinic" dark mode with abyssal navy + luminous gold
+✅ All buttons match approved design specifications exactly
+✅ WCAG AA contrast compliance in both themes
+✅ No theme switching bugs or visual glitches
+
+**GOAL: Deliver two complete, separate design systems (Light: Clinical Freshness, Dark: Night Clinic) with pixel-perfect button implementations matching approved reference design.**

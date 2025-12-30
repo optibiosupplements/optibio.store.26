@@ -122,12 +122,19 @@ html {
   --color-border-navy: var(--optibio-navy);           /* Navy border */
   
   /* COMPONENT-SPECIFIC */
-  --color-btn-primary-bg: var(--optibio-electric);    /* Primary button bg */
+  --color-btn-primary-bg: var(--optibio-electric);    /* Primary button bg (#2563EB) */
+  --color-btn-primary-border: var(--optibio-navy);    /* Primary button border (#1E3A5F) - APPROVED DESIGN */
   --color-btn-primary-text: var(--optibio-white);     /* Primary button text */
   --color-btn-secondary-bg: var(--optibio-white);     /* Secondary button bg */
+  --color-btn-secondary-border: var(--optibio-navy);  /* Secondary button border (#1E3A5F) */
   --color-btn-secondary-text: var(--optibio-navy);    /* Secondary button text */
   --color-badge-bg: var(--optibio-gold);              /* Badge background */
   --color-badge-text: var(--optibio-white);           /* Badge text */
+  
+  /* SHADOW SYSTEM - Light Mode (Soft Shadows) */
+  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.1);      /* Card shadow */
+  --shadow-button: 0 2px 8px rgba(37, 99, 235, 0.2);  /* Button shadow */
+  --shadow-button-hover: 0 4px 12px rgba(37, 99, 235, 0.3); /* Button hover shadow */
   
   /* Primary: Deep Navy (trust, authority) */
   --primary: oklch(0.32 0.08 240); /* #1E3A5F Deep Navy */
@@ -150,8 +157,8 @@ html {
   
   --radius: 0.75rem;
   
-  /* Background: Warm Ivory (Elegant, Premium) */
-  --background: oklch(0.97 0.01 60); /* #F7F4EF Warm Ivory */
+  /* Background: Sky Blue Gradient (Clinical, Fresh) - MATCHES APPROVED DESIGN */
+  --background: oklch(0.97 0.01 210); /* #E8F3FB Sky Light (approximation for fallback) */
   --foreground: oklch(0.22 0 0); /* #2D2D2D Charcoal */
   
   /* Cards: Soft White */
@@ -236,6 +243,16 @@ html {
   --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.78 0.12 80); /* Luminous Gold ring */
+  
+  /* SHADOW SYSTEM - Dark Mode (Glow Effects) */
+  --shadow-card: 0 0 40px rgba(212, 175, 55, 0.15);   /* Gold glow on cards */
+  --shadow-button: 0 0 20px rgba(59, 130, 246, 0.4);  /* Blue glow on buttons */
+  --shadow-button-hover: 0 0 30px rgba(59, 130, 246, 0.6); /* Stronger blue glow on hover */
+  
+  /* COMPONENT-SPECIFIC - Dark Mode */
+  --color-btn-primary-bg: #3B82F6;                     /* Brighter blue for dark bg */
+  --color-btn-primary-border: #60A5FA;                 /* Lighter blue border */
+  --color-btn-primary-text: var(--optibio-white);      /* White text */
   
   /* Charts: Navy Variants with gold accent */
   --chart-1: oklch(0.78 0.12 80); /* Gold */
@@ -392,6 +409,96 @@ html {
   
   .btn-metallic-gold:hover::before {
     left: 100%;
+  }
+  
+  /* ============================================
+     APPROVED DESIGN BUTTON STYLES
+     Matches reference design exactly
+     ============================================ */
+  
+  /* Primary CTA Button - Electric Blue with Navy Border */
+  .btn-primary-cta {
+    background: #2563EB; /* Electric Blue fill */
+    border: 2px solid #1E3A5F; /* Deep Navy border - CRITICAL */
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 14px 24px;
+    height: 52px;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+    transition: all 200ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  
+  .btn-primary-cta:hover {
+    background: #1E40AF; /* Darker blue on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  }
+  
+  .btn-primary-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+  }
+  
+  /* Secondary Button - White with Navy Border */
+  .btn-secondary-cta {
+    background: #FFFFFF; /* White fill */
+    border: 2px solid #1E3A5F; /* Deep Navy border */
+    color: #1E3A5F; /* Deep Navy text */
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 14px 24px;
+    height: 52px;
+    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.1);
+    transition: all 200ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+  }
+  
+  .btn-secondary-cta:hover {
+    background: #F8FAFC; /* Very light gray on hover */
+    border-color: #2563EB; /* Change border to electric blue */
+    color: #2563EB;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.15);
+  }
+  
+  .btn-secondary-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(30, 58, 95, 0.12);
+  }
+  
+  /* Dark Mode Button Adjustments */
+  .dark .btn-primary-cta {
+    background: #3B82F6; /* Brighter blue for dark background */
+    border: 2px solid #60A5FA; /* Lighter blue border */
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); /* Glow effect */
+  }
+  
+  .dark .btn-primary-cta:hover {
+    background: #2563EB;
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); /* Stronger glow */
+  }
+  
+  .dark .btn-secondary-cta {
+    background: transparent;
+    border: 2px solid #60A5FA;
+    color: #FFFFFF;
+  }
+  
+  .dark .btn-secondary-cta:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: #3B82F6;
   }
   
   /* Dark overlay for benefit images */
