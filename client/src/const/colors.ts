@@ -38,16 +38,49 @@ export const OPTIBIO_COLORS = {
   
   // Light Mode Backgrounds
   ivory: '#F7F4EF',
+  ivoryLight: '#EDE9E3', // NEW: Hover states, subtle separators
   softWhite: '#FAFAF9',
   white: '#FFFFFF',
+  skyMist: '#F0F9FF', // NEW: Timeline sections, subtle blue tint
   
   // Text Colors
   charcoal: '#2D2D2D',
+  slate: '#475569', // NEW: Secondary body text
   lightGray: '#666666',
+  mutedGray: '#A0A0A0', // NEW: Placeholder text, hints
+  
+  // Interactive Colors
+  electricBlue: '#2563EB', // NEW: Links, hover states
   
   // Utility
   success: '#5FA865',
   error: '#DC2626',
+  
+  // Logo Gradient Colors
+  logoLightBlue: '#87CEEB', // NEW: OPTI gradient start
+  logoGold: '#FFD700', // NEW: OPTI gradient end
+  logoNavy: '#1E3ABA', // NEW: bio gradient start
+  logoAmber: '#F59E0B', // NEW: bio gradient end
+  
+  // CONVERSION & UTILITY PALETTE (v3.0) - E-commerce colors
+  
+  // Urgency Warmth System (Countdown Timers) - Warm Peach/Ivory for luxury urgency
+  timerBgStart: '#FEF9F3', // Warm Peach Start - Timer gradient start
+  timerBgEnd: '#FFF5E8', // Warm Peach End - Timer gradient end
+  timerBorder: '#FED7AA', // Timer Border - Pale Orange/Peach
+  timerText: '#7C2D12', // Deep Timer Brown - Countdown numbers and labels
+  
+  // Alert Red System (Discount Badges ONLY) - Bright red for immediate attention
+  alertRed: '#DC2626', // Alert Red - "Save 46%" badges ONLY
+  redMuted: '#991B1B', // Muted Red - Optional label text
+  
+  // Social Proof Green System
+  mintBg: '#F0FDF4', // Review card background
+  successGreen: '#16A34A', // "Bottles sold" text
+  starGold: '#FBBF24', // Review stars (brighter than Antique Gold)
+  
+  // Action Blue System
+  blueHover: '#1D4ED8', // CTA hover state
 } as const;
 
 // ============================================

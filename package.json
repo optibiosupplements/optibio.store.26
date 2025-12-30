@@ -12,7 +12,8 @@
     "test": "vitest run",
     "db:push": "drizzle-kit generate && drizzle-kit migrate",
     "color:lint": "tsx scripts/colorLint.ts",
-    "color:fix": "tsx scripts/colorLint.ts --fix"
+    "color:fix": "tsx scripts/colorLint.ts --fix",
+    "validate:colors": "node scripts/validate-colors.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.693.0",

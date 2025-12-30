@@ -69,6 +69,30 @@ html {
   --optibio-slate: #475569;          /* Slate Grey - Secondary body text */
   --optibio-electric: #2563EB;       /* Electric Blue - Links, hover states */
   --optibio-success: #5FA865;        /* Success Green - Checkmarks */
+  --optibio-ivory-light: #EDE9E3;    /* Ivory Light - Hover states, subtle separators */
+  --optibio-sky-mist: #F0F9FF;       /* Sky Mist - Timeline sections, subtle blue tint */
+  --optibio-light-gray: #666666;     /* Light Gray - Secondary text, captions */
+  --optibio-muted-gray: #A0A0A0;     /* Muted Gray - Placeholder text, hints */
+  
+  /* CONVERSION & UTILITY PALETTE (v3.0) - E-commerce colors for urgency, social proof, and action */
+  
+  /* Urgency Warmth System (Countdown Timers) - Warm Peach/Ivory tones for luxury urgency */
+  --optibio-timer-bg-start: #FEF9F3; /* Warm Peach Start - Timer gradient start */
+  --optibio-timer-bg-end: #FFF5E8;   /* Warm Peach End - Timer gradient end */
+  --optibio-timer-border: #FED7AA;   /* Timer Border - Pale Orange/Peach */
+  --optibio-timer-text: #7C2D12;     /* Deep Timer Brown - Countdown numbers and labels */
+  
+  /* Alert Red System (Discount Badges ONLY) - Bright red for immediate attention */
+  --optibio-alert-red: #DC2626;      /* Alert Red - "Save 46%" badges ONLY */
+  --optibio-red-muted: #991B1B;      /* Muted Red - Optional label text */
+  
+  /* Social Proof Green System */
+  --optibio-mint-bg: #F0FDF4;        /* Mint Background - Review cards */
+  --optibio-success-green: #16A34A;  /* Success Green - "Bottles sold" text */
+  --optibio-star-gold: #FBBF24;      /* Review Star Gold - Review stars (brighter than Antique Gold) */
+  
+  /* Action Blue System */
+  --optibio-blue-hover: #1D4ED8;     /* Hover Blue - CTA hover state */
   
   /* SKY BLUE GRADIENT TOKENS (Hero/Page Backgrounds) - APPROVED V66B1D787 */
   --optibio-sky-light: #F8FCFE;      /* Sky gradient start - Lightest sky blue */
