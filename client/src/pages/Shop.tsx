@@ -4,8 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { Star, CheckCircle2, Shield, Truck, FlaskConical } from "lucide-react";
 import { formatPrice } from "@/const";
 import { trpc } from "@/lib/trpc";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Shop() {
+  const { theme } = useTheme();
   const { data: products, isLoading } = trpc.products.list.useQuery();
   
   // Assuming the first product is the main KSM-66 bottle
@@ -13,8 +15,8 @@ export default function Shop() {
   
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center" style={{
-        background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)'
+      <div className="min-h-screen flex items-center justify-center dark:bg-[#0B1120]" style={{
+        background: theme === 'dark' ? '#0B1120' : 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)'
       }}>
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
@@ -23,14 +25,14 @@ export default function Shop() {
   
   return (
     <div className="min-h-screen font-sans" style={{
-      background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)'
+      background: theme === 'dark' ? '#0B1120' : 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)'
     }}>
       {/* HERO HEADER - Clinical Light Theme */}
       <section className="pt-32 pb-16 text-center px-6">
-        <Badge className="bg-[#1E3A5F]/5 text-[#1E3A5F] border-[#1E3A5F]/20 hover:bg-[#1E3A5F]/10 mb-6 px-4 py-1.5 text-xs font-bold tracking-widest uppercase rounded-full">
+        <Badge className="bg-[#1E3A5F]/5 text-[#1E3A5F] dark:text-white border-[#1E3A5F]/20 hover:bg-[#1E3A5F]/10 mb-6 px-4 py-1.5 text-xs font-bold tracking-widest uppercase rounded-full">
           STORE
         </Badge>
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-[#1E3A5F]">
+        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 text-[#1E3A5F] dark:text-white">
           The Protocol.
         </h1>
         <p className="text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto font-medium leading-relaxed">
@@ -65,7 +67,7 @@ export default function Shop() {
                   <span className="text-sm font-semibold text-[var(--color-text-secondary)]">2,847 Reviews</span>
                 </div>
                 
-                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1E3A5F]">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#1E3A5F] dark:text-white">
                   {product.name}
                 </h2>
                 
@@ -87,7 +89,7 @@ export default function Shop() {
                 
                 {/* Price & CTA */}
                 <div className="flex items-end gap-4 mb-8">
-                  <div className="text-5xl font-bold text-[#1E3A5F]">{formatPrice(product.priceInCents)}</div>
+                  <div className="text-5xl font-bold text-[#1E3A5F] dark:text-white">{formatPrice(product.priceInCents)}</div>
                   {product.compareAtPriceInCents && (
                     <div className="text-xl text-[var(--color-text-secondary)] line-through mb-2">
                       {formatPrice(product.compareAtPriceInCents)}
@@ -113,7 +115,7 @@ export default function Shop() {
       </section>
       
       {/* TRUST BADGES - Medical Spec Sheet */}
-      <section className="border-t border-[var(--color-border)] bg-white/50 backdrop-blur-md py-12">
+      <section className="border-t border-[var(--color-border)] bg-white dark:bg-[#1E3A5F]/50 backdrop-blur-md py-12">
         <div className="container max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { icon: Shield, title: "3rd Party Tested", sub: "Purity Verified" },
@@ -122,9 +124,9 @@ export default function Shop() {
             { icon: Truck, title: "Fast Shipping", sub: "Free over $75" },
           ].map((item, i) => (
             <div key={i} className="flex items-center gap-4 opacity-80 hover:opacity-100 transition-opacity">
-              <item.icon className="w-8 h-8 text-[#1E3A5F]" />
+              <item.icon className="w-8 h-8 text-[#1E3A5F] dark:text-white" />
               <div>
-                <div className="font-bold text-[#1E3A5F] text-sm">{item.title}</div>
+                <div className="font-bold text-[#1E3A5F] dark:text-white text-sm">{item.title}</div>
                 <div className="text-xs text-[var(--color-text-secondary)]">{item.sub}</div>
               </div>
             </div>

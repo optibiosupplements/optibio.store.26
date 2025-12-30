@@ -118,7 +118,7 @@ export default function Subscriptions() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-[#F7F4EF] py-12">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-[#F7F4EF] py-12 dark:bg-[#0B1120] dark:bg-[#0B1120]">
         <div className="container max-w-4xl">
           <div className="flex items-center justify-center py-20">
             <Loader2 className="w-8 h-8 animate-spin text-[#1E3A5F]" />
@@ -129,7 +129,7 @@ export default function Subscriptions() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-[#F7F4EF] py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-[#F7F4EF] py-12 dark:bg-[#0B1120]">
       <div className="container max-w-4xl">
         {/* Header */}
         <div className="mb-8">
@@ -144,10 +144,10 @@ export default function Subscriptions() {
 
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-bold text-slate-900 mb-2">
+              <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">
                 My Subscriptions
               </h1>
-              <p className="text-lg text-slate-600">
+              <p className="text-lg text-slate-600 dark:text-slate-300">
                 Manage your recurring orders and billing
               </p>
             </div>
@@ -176,10 +176,10 @@ export default function Subscriptions() {
           <Card className="border-2">
             <CardContent className="py-16 text-center">
               <Package className="w-16 h-16 mx-auto mb-4 text-slate-300" />
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">
                 No Active Subscriptions
               </h3>
-              <p className="text-slate-600 mb-6">
+              <p className="text-slate-600 dark:text-slate-300 mb-6">
                 You don't have any active subscriptions yet. Subscribe to save on your favorite products!
               </p>
               <Button onClick={() => setLocation("/shop")}>
@@ -224,10 +224,10 @@ export default function Subscriptions() {
                     {/* Subscription Details */}
                     <div className="grid md:grid-cols-2 gap-4 p-4 bg-slate-50 rounded-lg">
                       <div className="flex items-center gap-3">
-                        <Calendar className="w-5 h-5 text-slate-600" />
+                        <Calendar className="w-5 h-5 text-slate-600 dark:text-slate-300" />
                         <div>
-                          <div className="text-sm text-slate-600">Next Billing Date</div>
-                          <div className="font-semibold text-slate-900">
+                          <div className="text-sm text-slate-600 dark:text-slate-300">Next Billing Date</div>
+                          <div className="font-semibold text-slate-900 dark:text-white">
                             {nextBilling.toLocaleDateString("en-US", {
                               month: "long",
                               day: "numeric",
@@ -238,10 +238,10 @@ export default function Subscriptions() {
                       </div>
 
                       <div className="flex items-center gap-3">
-                        <CreditCard className="w-5 h-5 text-slate-600" />
+                        <CreditCard className="w-5 h-5 text-slate-600 dark:text-slate-300" />
                         <div>
-                          <div className="text-sm text-slate-600">Billing Amount</div>
-                          <div className="font-semibold text-slate-900">
+                          <div className="text-sm text-slate-600 dark:text-slate-300">Billing Amount</div>
+                          <div className="font-semibold text-slate-900 dark:text-white">
                             {formatPrice(subscription.priceInCents)}
                           </div>
                         </div>
@@ -306,7 +306,7 @@ export default function Subscriptions() {
                       )}
 
                       {isCancelled && (
-                        <div className="text-sm text-slate-600">
+                        <div className="text-sm text-slate-600 dark:text-slate-300">
                           This subscription will end on {nextBilling.toLocaleDateString()}
                         </div>
                       )}
@@ -328,7 +328,7 @@ export default function Subscriptions() {
                   Your subscription will remain active until the end of your current billing period.
                   You won't be charged again after that.
                 </p>
-                <p className="font-medium text-slate-900">
+                <p className="font-medium text-slate-900 dark:text-white">
                   Are you sure you want to cancel?
                 </p>
               </AlertDialogDescription>

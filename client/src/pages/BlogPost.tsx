@@ -14,7 +14,7 @@ export default function BlogPost() {
 
   if (!post) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center dark:bg-[#0B1120] dark:bg-[#0B1120]">
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
           <p className="text-muted-foreground mb-6">
@@ -57,7 +57,7 @@ export default function BlogPost() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 dark:bg-[#0B1120]">
       {/* Breadcrumb */}
       <div className="border-b bg-background/50 backdrop-blur-sm">
         <div className="container py-4">
@@ -203,7 +203,7 @@ export default function BlogPost() {
               full-spectrum extract in Optibio supplements.
             </p>
             <Link href="/shop">
-              <Button size="lg" variant="secondary" className="bg-white text-[#1E3A5F] hover:bg-white/90">
+              <Button size="lg" variant="secondary" className="bg-white dark:bg-[#1E3A5F] text-[#1E3A5F] hover:bg-white/90">
                 Shop Now
               </Button>
             </Link>

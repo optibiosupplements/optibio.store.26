@@ -32,22 +32,22 @@ export default function OrderSuccess() {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
-        <div className="animate-pulse text-slate-600">Loading...</div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 dark:bg-[#0B1120] dark:bg-[#0B1120]">
+        <div className="animate-pulse text-slate-600 dark:text-slate-300">Loading...</div>
       </div>
     );
   }
 
   if (!sessionId) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 dark:bg-[#0B1120]">
         <Card className="max-w-md">
           <CardContent className="p-8 text-center space-y-4">
             <div className="w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto">
               <span className="text-3xl">❌</span>
             </div>
-            <h1 className="text-2xl font-bold text-slate-900">Invalid Order</h1>
-            <p className="text-slate-600">No order session found. Please try again.</p>
+            <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Invalid Order</h1>
+            <p className="text-slate-600 dark:text-slate-300">No order session found. Please try again.</p>
             <Button onClick={() => setLocation("/")} className="w-full">
               Return Home
             </Button>
@@ -58,9 +58,9 @@ export default function OrderSuccess() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 dark:bg-[#0B1120]">
       {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+      <header className="bg-white dark:bg-[#1E3A5F]/80 backdrop-blur-md border-b border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -82,16 +82,16 @@ export default function OrderSuccess() {
             </div>
             
             <div className="space-y-3">
-              <h1 className="text-4xl font-bold text-slate-900">Order Confirmed!</h1>
-              <p className="text-xl text-slate-600">
+              <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Order Confirmed!</h1>
+              <p className="text-xl text-slate-600 dark:text-slate-300">
                 Thank you for your purchase. Your order has been received and is being processed.
               </p>
             </div>
 
             {sessionId && (
-              <div className="inline-block px-6 py-3 rounded-xl bg-slate-100 border-2 border-slate-200">
-                <p className="text-sm text-slate-600">Order Reference</p>
-                <p className="text-lg font-mono font-semibold text-slate-900">{sessionId.slice(-12).toUpperCase()}</p>
+              <div className="inline-block px-6 py-3 rounded-xl bg-slate-100 border-2 border-slate-200 dark:border-[#2D4A77]">
+                <p className="text-sm text-slate-600 dark:text-slate-300">Order Reference</p>
+                <p className="text-lg font-mono font-semibold text-slate-900 dark:text-white">{sessionId.slice(-12).toUpperCase()}</p>
               </div>
             )}
 
@@ -105,9 +105,9 @@ export default function OrderSuccess() {
         </Card>
 
         {/* What's Next */}
-        <Card className="border-2 border-slate-200 shadow-xl mb-8">
+        <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl mb-8">
           <CardContent className="p-8 space-y-6">
-            <h2 className="text-2xl font-bold text-slate-900">What Happens Next?</h2>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">What Happens Next?</h2>
             
             <div className="space-y-6">
               {/* Step 1 */}
@@ -118,8 +118,8 @@ export default function OrderSuccess() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">Order Processing</h3>
-                  <p className="text-slate-600">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Order Processing</h3>
+                  <p className="text-slate-600 dark:text-slate-300">
                     We're preparing your Optibio Ashwagandha KSM-66 for shipment. Our team ensures every bottle meets our premium quality standards.
                   </p>
                   <p className="text-sm text-slate-500 mt-2">
@@ -136,8 +136,8 @@ export default function OrderSuccess() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">Shipping & Delivery</h3>
-                  <p className="text-slate-600">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Shipping & Delivery</h3>
+                  <p className="text-slate-600 dark:text-slate-300">
                     Once shipped, you'll receive a tracking number via email. Most orders arrive within 3-5 business days.
                   </p>
                   <p className="text-sm text-slate-500 mt-2">
@@ -154,8 +154,8 @@ export default function OrderSuccess() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">Start Your Wellness Journey</h3>
-                  <p className="text-slate-600">
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">Start Your Wellness Journey</h3>
+                  <p className="text-slate-600 dark:text-slate-300">
                     Begin taking your premium KSM-66 Ashwagandha as directed. Most customers notice benefits within 2-4 weeks of consistent use.
                   </p>
                   <p className="text-sm text-slate-500 mt-2">
@@ -168,35 +168,35 @@ export default function OrderSuccess() {
         </Card>
 
         {/* Quality Guarantee */}
-        <Card className="border-2 border-slate-200 shadow-xl mb-8">
+        <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl mb-8">
           <CardContent className="p-8 space-y-4">
-            <h2 className="text-2xl font-bold text-slate-900">Our Quality Guarantee</h2>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Our Quality Guarantee</h2>
             
             <div className="grid md:grid-cols-2 gap-4">
               <div className="p-4 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/30">
-                <h3 className="font-bold text-slate-900 mb-2">✓ 100% Money-Back Guarantee</h3>
-                <p className="text-sm text-slate-600">
+                <h3 className="font-bold text-slate-900 dark:text-white mb-2">✓ 100% Money-Back Guarantee</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300">
                   Not satisfied? Get a full refund within 90 days, no questions asked.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/30">
-                <h3 className="font-bold text-slate-900 mb-2">✓ Third-Party Tested</h3>
-                <p className="text-sm text-slate-600">
+                <h3 className="font-bold text-slate-900 dark:text-white mb-2">✓ Third-Party Tested</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300">
                   Every batch is independently tested for purity and potency.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/30">
-                <h3 className="font-bold text-slate-900 mb-2">✓ Premium KSM-66®</h3>
-                <p className="text-sm text-slate-600">
+                <h3 className="font-bold text-slate-900 dark:text-white mb-2">✓ Premium KSM-66®</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300">
                   The most clinically studied ashwagandha extract with 22+ human trials.
                 </p>
               </div>
 
               <div className="p-4 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/30">
-                <h3 className="font-bold text-slate-900 mb-2">✓ Made in USA</h3>
-                <p className="text-sm text-slate-600">
+                <h3 className="font-bold text-slate-900 dark:text-white mb-2">✓ Made in USA</h3>
+                <p className="text-sm text-slate-600 dark:text-slate-300">
                   Manufactured in GMP-certified facilities with strict quality controls.
                 </p>
               </div>
@@ -205,18 +205,18 @@ export default function OrderSuccess() {
         </Card>
 
         {/* Product Recommendations */}
-        <Card className="border-2 border-slate-200 shadow-xl mb-8">
+        <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl mb-8">
           <CardContent className="p-8 space-y-6">
             <div className="text-center space-y-2">
-              <h2 className="text-2xl font-bold text-slate-900">Complete Your Wellness Journey</h2>
-              <p className="text-slate-600">Customers who bought this also loved:</p>
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Complete Your Wellness Journey</h2>
+              <p className="text-slate-600 dark:text-slate-300">Customers who bought this also loved:</p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Recommendation 1: Larger bottle */}
               <div className="p-6 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/30 space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-lg overflow-hidden bg-white border-2 border-slate-200 flex-shrink-0">
+                  <div className="w-20 h-20 rounded-lg overflow-hidden bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] flex-shrink-0">
                     <img
                       src="/products/optibio-90cap-bottle-front.jpg"
                       alt="Optibio 180 Capsules"
@@ -224,20 +224,20 @@ export default function OrderSuccess() {
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-slate-900">Optibio Ashwagandha</h3>
-                    <p className="text-sm text-slate-600">180 Capsules (3-Month Supply)</p>
+                    <h3 className="font-bold text-slate-900 dark:text-white">Optibio Ashwagandha</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">180 Capsules (3-Month Supply)</p>
                     <div className="flex items-baseline gap-2 mt-1">
-                      <span className="text-lg font-bold text-slate-900">$89.99</span>
+                      <span className="text-lg font-bold text-slate-900 dark:text-white">$89.99</span>
                       <span className="text-sm text-[#C9A961] font-semibold">Save 18%</span>
                     </div>
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                     <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>3-month supply for consistent results</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                     <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>Better value - $0.50 per serving</span>
                   </div>
@@ -254,7 +254,7 @@ export default function OrderSuccess() {
               {/* Recommendation 2: Subscription */}
               <div className="p-6 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/20 space-y-4">
                 <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-lg overflow-hidden bg-white border-2 border-slate-200 flex-shrink-0">
+                  <div className="w-20 h-20 rounded-lg overflow-hidden bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] flex-shrink-0">
                     <img
                       src="/products/optibio-90cap-bottle-front.jpg"
                       alt="Optibio Subscription"
@@ -265,24 +265,24 @@ export default function OrderSuccess() {
                     <div className="inline-block px-2 py-1 rounded-md bg-[#C9A961]/20 text-[#1E3A5F] text-xs font-bold mb-1">
                       BEST VALUE
                     </div>
-                    <h3 className="font-bold text-slate-900">Monthly Subscription</h3>
-                    <p className="text-sm text-slate-600">90 Capsules - Auto-Delivery</p>
+                    <h3 className="font-bold text-slate-900 dark:text-white">Monthly Subscription</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-300">90 Capsules - Auto-Delivery</p>
                     <div className="flex items-baseline gap-2 mt-1">
-                      <span className="text-lg font-bold text-slate-900">$44.99/mo</span>
+                      <span className="text-lg font-bold text-slate-900 dark:text-white">$44.99/mo</span>
                       <span className="text-sm text-[#C9A961] font-semibold">Save 25%</span>
                     </div>
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                     <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>Never run out - auto-delivery</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                     <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>Cancel or pause anytime</span>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
+                  <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-300">
                     <CheckCircle2 className="w-4 h-4 text-[#C9A961]" />
                     <span>Free shipping on all orders</span>
                   </div>
@@ -329,10 +329,10 @@ export default function OrderSuccess() {
 
         {/* Support */}
         <div className="mt-12 text-center space-y-2">
-          <p className="text-slate-600">
+          <p className="text-slate-600 dark:text-slate-300">
             Questions about your order?
           </p>
-          <p className="text-slate-900">
+          <p className="text-slate-900 dark:text-white">
             Contact us at{" "}
             <a href="mailto:support@optibio.com" className="text-[#1E3A5F] hover:text-[#1E3A5F] font-semibold underline">
               support@optibio.com

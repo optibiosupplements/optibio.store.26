@@ -51,7 +51,7 @@ export default function AdminAnalytics() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 dark:bg-[#0B1120] dark:bg-[#0B1120]">
         <Loader2 className="h-12 w-12 animate-spin text-[#1E3A5F]" />
       </div>
     );
@@ -84,7 +84,7 @@ export default function AdminAnalytics() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 md:py-16 dark:bg-[#0B1120]">
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="mb-8">
@@ -98,11 +98,11 @@ export default function AdminAnalytics() {
           </Button>
           <div className="flex items-center gap-3 mb-2">
             <BarChart3 className="w-10 h-10 text-[#1E3A5F]" />
-            <h1 className="text-4xl md:text-5xl font-bold text-slate-900">
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
               Analytics Dashboard
             </h1>
           </div>
-          <p className="text-lg text-slate-600">
+          <p className="text-lg text-slate-600 dark:text-slate-300">
             Real-time insights into your subscription business
           </p>
         </div>
@@ -120,7 +120,7 @@ export default function AdminAnalytics() {
               <div className="text-3xl font-bold text-[#C9A961]">
                 {formatPrice(overview?.mrr || 0)}
               </div>
-              <p className="text-sm text-slate-600 mt-1">
+              <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mt-1">
                 /month from active subscriptions
               </p>
             </CardContent>
@@ -137,7 +137,7 @@ export default function AdminAnalytics() {
               <div className="text-3xl font-bold text-[#1E3A5F]">
                 {overview?.activeSubscriptions || 0}
               </div>
-              <p className="text-sm text-slate-600 mt-1">
+              <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mt-1">
                 Recurring customers
               </p>
             </CardContent>
@@ -154,7 +154,7 @@ export default function AdminAnalytics() {
               <div className="text-3xl font-bold text-[#B89651]">
                 {overview?.churnRate?.toFixed(1) || "0.0"}%
               </div>
-              <p className="text-sm text-slate-600 mt-1">
+              <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mt-1">
                 Last 30 days
               </p>
             </CardContent>
@@ -171,7 +171,7 @@ export default function AdminAnalytics() {
               <div className="text-3xl font-bold text-[#1E3A5F]">
                 {formatPrice(overview?.totalRevenue || 0)}
               </div>
-              <p className="text-sm text-slate-600 mt-1">
+              <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mt-1">
                 All-time revenue
               </p>
             </CardContent>
@@ -201,18 +201,18 @@ export default function AdminAnalytics() {
                             tier.tier
                           )}`}
                         />
-                        <h3 className="text-xl font-semibold text-slate-900">
+                        <h3 className="text-xl font-semibold text-slate-900 dark:text-white">
                           {getTierName(tier.tier)}
                         </h3>
                       </div>
-                      <div className="text-2xl font-bold text-slate-900">
+                      <div className="text-2xl font-bold text-slate-900 dark:text-white">
                         {tier.count} subscribers
                       </div>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-4">
-                      <div className="p-4 bg-white rounded-lg border">
-                        <div className="text-sm text-slate-600 mb-1">
+                      <div className="p-4 bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] rounded-lg border">
+                        <div className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mb-1">
                           Monthly Recurring Revenue
                         </div>
                         <div className="text-2xl font-bold text-[#C9A961]">
@@ -220,8 +220,8 @@ export default function AdminAnalytics() {
                         </div>
                       </div>
 
-                      <div className="p-4 bg-white rounded-lg border">
-                        <div className="text-sm text-slate-600 mb-1">
+                      <div className="p-4 bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] rounded-lg border">
+                        <div className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mb-1">
                           Average Lifetime Value
                         </div>
                         <div className="text-2xl font-bold text-[#1E3A5F]">
@@ -255,7 +255,7 @@ export default function AdminAnalytics() {
                 <div className="text-6xl font-bold text-[#1E3A5F] mb-4">
                   {conversionMetrics?.conversionRate?.toFixed(1) || "0.0"}%
                 </div>
-                <div className="text-slate-600">
+                <div className="text-slate-600 dark:text-slate-300">
                   {conversionMetrics?.subscriptionOrders || 0} of{" "}
                   {conversionMetrics?.totalOrders || 0} customers
                 </div>
@@ -283,10 +283,10 @@ export default function AdminAnalytics() {
                     return (
                       <div key={tier.tier} className="space-y-2">
                         <div className="flex items-center justify-between text-sm">
-                          <span className="font-medium text-slate-900">
+                          <span className="font-medium text-slate-900 dark:text-white">
                             {getTierName(tier.tier)}
                           </span>
-                          <span className="text-slate-600">
+                          <span className="text-slate-600 dark:text-slate-300">
                             {formatPrice(total)}
                           </span>
                         </div>

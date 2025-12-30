@@ -67,7 +67,7 @@ export default function Referral() {
 
   if (authLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center dark:bg-[#0B1120] dark:bg-[#0B1120]">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#C9A961]"></div>
       </div>
     );
@@ -75,7 +75,7 @@ export default function Referral() {
 
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 dark:bg-[#0B1120]">
         <Card className="max-w-md">
           <CardHeader>
             <CardTitle>Sign In Required</CardTitle>
@@ -94,12 +94,12 @@ export default function Referral() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-[#F7F4EF]/20 py-12 dark:bg-[#0B1120]">
       <div className="container max-w-6xl">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-slate-900 mb-2">Referral Program</h1>
-          <p className="text-lg text-slate-600">
+          <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-2">Referral Program</h1>
+          <p className="text-lg text-slate-600 dark:text-slate-300">
             Share Optibio with friends and earn $10 credit for each successful referral
           </p>
         </div>
@@ -110,8 +110,8 @@ export default function Referral() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-slate-600 mb-1">Total Referrals</p>
-                  <p className="text-3xl font-bold text-slate-900">{stats?.totalReferrals || 0}</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mb-1">Total Referrals</p>
+                  <p className="text-3xl font-bold text-slate-900 dark:text-white">{stats?.totalReferrals || 0}</p>
                 </div>
                 <Users className="h-8 w-8 text-[#C9A961]" />
               </div>
@@ -122,7 +122,7 @@ export default function Referral() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-slate-600 mb-1">Pending</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mb-1">Pending</p>
                   <p className="text-3xl font-bold text-orange-600">{stats?.pendingReferrals || 0}</p>
                 </div>
                 <Clock className="h-8 w-8 text-orange-600" />
@@ -134,7 +134,7 @@ export default function Referral() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-slate-600 mb-1">Completed</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mb-1">Completed</p>
                   <p className="text-3xl font-bold text-green-600">{stats?.completedReferrals || 0}</p>
                 </div>
                 <CheckCircle2 className="h-8 w-8 text-green-600" />
@@ -146,7 +146,7 @@ export default function Referral() {
             <CardContent className="pt-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-slate-600 mb-1">Available Credits</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 mb-1">Available Credits</p>
                   <p className="text-3xl font-bold text-[#C9A961]">
                     ${((stats?.availableCredits || 0) / 100).toFixed(2)}
                   </p>
@@ -172,7 +172,7 @@ export default function Referral() {
             <CardContent className="space-y-6">
               {/* Referral Code */}
               <div>
-                <label className="text-sm font-medium text-slate-700 mb-2 block">
+                <label className="text-sm font-medium text-slate-700 dark:text-slate-200 dark:text-slate-200 mb-2 block">
                   Referral Code
                 </label>
                 <div className="flex gap-2">
@@ -193,7 +193,7 @@ export default function Referral() {
 
               {/* Referral URL */}
               <div>
-                <label className="text-sm font-medium text-slate-700 mb-2 block">
+                <label className="text-sm font-medium text-slate-700 dark:text-slate-200 dark:text-slate-200 mb-2 block">
                   Referral URL
                 </label>
                 <div className="flex gap-2">
@@ -216,7 +216,7 @@ export default function Referral() {
 
               {/* Share Buttons */}
               <div>
-                <label className="text-sm font-medium text-slate-700 mb-3 block">
+                <label className="text-sm font-medium text-slate-700 dark:text-slate-200 dark:text-slate-200 mb-3 block">
                   <Share2 className="h-4 w-4 inline mr-2" />
                   Share via
                 </label>
@@ -274,8 +274,8 @@ export default function Referral() {
                   1
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">Share Your Link</h3>
-                  <p className="text-sm text-slate-600">
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-1">Share Your Link</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">
                     Send your unique referral link to friends via email, social media, or messaging apps
                   </p>
                 </div>
@@ -286,8 +286,8 @@ export default function Referral() {
                   2
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">They Get $10 Off</h3>
-                  <p className="text-sm text-slate-600">
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-1">They Get $10 Off</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">
                     Your friend receives $10 credit on their first order when they use your link
                   </p>
                 </div>
@@ -298,8 +298,8 @@ export default function Referral() {
                   3
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900 mb-1">You Earn $10 Credit</h3>
-                  <p className="text-sm text-slate-600">
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-1">You Earn $10 Credit</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">
                     Once they complete their purchase, you'll receive $10 credit to use on your next order
                   </p>
                 </div>
@@ -308,8 +308,8 @@ export default function Referral() {
               <Separator />
 
               <div className="bg-[#F7F4EF]/50 p-4 rounded-lg border border-[#C9A961]/20">
-                <h4 className="font-semibold text-slate-900 mb-2">Terms & Conditions</h4>
-                <ul className="text-sm text-slate-600 space-y-1">
+                <h4 className="font-semibold text-slate-900 dark:text-white mb-2">Terms & Conditions</h4>
+                <ul className="text-sm text-slate-600 dark:text-slate-300 dark:text-slate-300 space-y-1">
                   <li>• Credits are applied automatically after successful referral</li>
                   <li>• No limit on the number of referrals you can make</li>
                   <li>• Credits never expire and can be stacked</li>
@@ -330,7 +330,7 @@ export default function Referral() {
             {!referrals || referrals.length === 0 ? (
               <div className="text-center py-12">
                 <Users className="h-12 w-12 text-slate-300 mx-auto mb-4" />
-                <p className="text-slate-600 mb-2">No referrals yet</p>
+                <p className="text-slate-600 dark:text-slate-300 mb-2">No referrals yet</p>
                 <p className="text-sm text-slate-500">
                   Start sharing your referral link to earn credits!
                 </p>
@@ -344,10 +344,10 @@ export default function Referral() {
                   >
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center">
-                        <Users className="h-5 w-5 text-slate-600" />
+                        <Users className="h-5 w-5 text-slate-600 dark:text-slate-300" />
                       </div>
                       <div>
-                        <p className="font-medium text-slate-900">
+                        <p className="font-medium text-slate-900 dark:text-white">
                           {referral.referredEmail || "Pending signup"}
                         </p>
                         <p className="text-sm text-slate-500">
@@ -357,7 +357,7 @@ export default function Referral() {
                     </div>
                     <div className="flex items-center gap-4">
                       {referral.orderValue && (
-                        <p className="text-sm text-slate-600">
+                        <p className="text-sm text-slate-600 dark:text-slate-300">
                           ${(referral.orderValue / 100).toFixed(2)}
                         </p>
                       )}
@@ -403,7 +403,7 @@ export default function Referral() {
                         <DollarSign className="h-5 w-5 text-[#C9A961]" />
                       </div>
                       <div>
-                        <p className="font-medium text-slate-900">
+                        <p className="font-medium text-slate-900 dark:text-white">
                           ${(credit.amount / 100).toFixed(2)} Credit
                         </p>
                         <p className="text-sm text-slate-500">

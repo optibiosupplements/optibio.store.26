@@ -34,7 +34,7 @@ export default function Analytics() {
   // Check if user is admin
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center dark:bg-[#0B1120] dark:bg-[#0B1120]">
         <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
       </div>
     );
@@ -47,9 +47,9 @@ export default function Analytics() {
   const isLoading = cartMetrics.isLoading || emailMetrics.isLoading || revenueImpact.isLoading;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-[#0B1120]">
       {/* Header */}
-      <div className="bg-white border-b">
+      <div className="bg-white dark:bg-[#1E3A5F] border-b">
         <div className="container mx-auto py-8">
           <div className="flex items-center justify-between">
             <div>
@@ -337,7 +337,7 @@ export default function Analytics() {
               <CardContent>
                 <div className="space-y-4">
                   {(cartMetrics.data?.recoveryRate || 0) < 15 && (
-                    <div className="p-4 bg-white rounded-lg border border-blue-200">
+                    <div className="p-4 bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] rounded-lg border border-blue-200">
                       <div className="font-semibold text-blue-900 mb-2">
                         📈 Improve Cart Recovery Rate
                       </div>
@@ -349,7 +349,7 @@ export default function Analytics() {
                   )}
 
                   {(emailMetrics.data?.reorderRate || 0) < 25 && (
-                    <div className="p-4 bg-white rounded-lg border border-blue-200">
+                    <div className="p-4 bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] rounded-lg border border-blue-200">
                       <div className="font-semibold text-blue-900 mb-2">
                         🔄 Boost Reorder Rate
                       </div>
@@ -361,7 +361,7 @@ export default function Analytics() {
                   )}
 
                   {(emailMetrics.data?.subscriptionRate || 0) < 10 && (
-                    <div className="p-4 bg-white rounded-lg border border-blue-200">
+                    <div className="p-4 bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] rounded-lg border border-blue-200">
                       <div className="font-semibold text-blue-900 mb-2">
                         💰 Increase Subscription Conversions
                       </div>
@@ -375,7 +375,7 @@ export default function Analytics() {
                   {(cartMetrics.data?.recoveryRate || 0) >= 15 && 
                    (emailMetrics.data?.reorderRate || 0) >= 25 && 
                    (emailMetrics.data?.subscriptionRate || 0) >= 10 && (
-                    <div className="p-4 bg-white rounded-lg border border-green-200">
+                    <div className="p-4 bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] rounded-lg border border-green-200">
                       <div className="font-semibold text-green-900 mb-2">
                         🎉 Excellent Performance!
                       </div>

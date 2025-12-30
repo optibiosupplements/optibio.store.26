@@ -217,7 +217,7 @@ export default function Checkout() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-hero-gradient transition-colors duration-500">
+      <div className="min-h-screen flex items-center justify-center bg-hero-gradient transition-colors duration-500 dark:bg-[#0B1120] dark:bg-[#0B1120]">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
       </div>
     );
@@ -231,7 +231,7 @@ export default function Checkout() {
   // Show Stripe Elements payment confirmation for subscriptions
   if (subscriptionData) {
     return (
-      <div className="min-h-screen py-12 md:py-16 bg-hero-gradient transition-colors duration-500">
+      <div className="min-h-screen py-12 md:py-16 bg-hero-gradient transition-colors duration-500 dark:bg-[#0B1120]">
         <div className="container">
           <SubscriptionCheckout
             {...subscriptionData}
@@ -249,7 +249,7 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen py-12 md:py-16 bg-hero-gradient transition-colors duration-500">
+    <div className="min-h-screen py-12 md:py-16 bg-hero-gradient transition-colors duration-500 dark:bg-[#0B1120]">
       <div className="container max-w-7xl">
         {/* Header */}
         <div className="mb-8">
@@ -270,7 +270,7 @@ export default function Checkout() {
                     className={`w-16 h-16 rounded-full flex items-center justify-center border-4 transition-all duration-300 ${
                       step >= s.num
                         ? "bg-gradient-to-br from-[#1E3A5F] to-[#1E3A5F] border-[#1E3A5F] text-white shadow-lg"
-                        : "bg-white border-slate-300 text-slate-400"
+                        : "bg-white dark:bg-[#1E3A5F] border-slate-300 text-slate-400"
                     }`}
                   >
                     {step > s.num ? (
@@ -304,21 +304,21 @@ export default function Checkout() {
           <div className="lg:col-span-2 space-y-6">
             {/* Step 1: Shipping Information */}
             {step === 1 && (
-              <Card className="border-2 border-slate-200 shadow-xl">
+              <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-6">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
                       <Truck className="w-6 h-6 text-[#1E3A5F]" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-slate-900">Shipping Information</h2>
-                      <p className="text-slate-600">Where should we deliver your order?</p>
+                      <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Shipping Information</h2>
+                      <p className="text-slate-600 dark:text-slate-300">Where should we deliver your order?</p>
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="firstName" className="text-slate-700 font-semibold">First Name *</Label>
+                      <Label htmlFor="firstName" className="text-slate-700 dark:text-slate-200 font-semibold">First Name *</Label>
                       <Input
                         id="firstName"
                         value={shippingData.firstName}
@@ -328,7 +328,7 @@ export default function Checkout() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="lastName" className="text-slate-700 font-semibold">Last Name *</Label>
+                      <Label htmlFor="lastName" className="text-slate-700 dark:text-slate-200 font-semibold">Last Name *</Label>
                       <Input
                         id="lastName"
                         value={shippingData.lastName}
@@ -341,7 +341,7 @@ export default function Checkout() {
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="email" className="text-slate-700 font-semibold">Email *</Label>
+                      <Label htmlFor="email" className="text-slate-700 dark:text-slate-200 font-semibold">Email *</Label>
                       <Input
                         id="email"
                         type="email"
@@ -352,7 +352,7 @@ export default function Checkout() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="phone" className="text-slate-700 font-semibold">Phone</Label>
+                      <Label htmlFor="phone" className="text-slate-700 dark:text-slate-200 font-semibold">Phone</Label>
                       <Input
                         id="phone"
                         type="tel"
@@ -365,7 +365,7 @@ export default function Checkout() {
                   </div>
 
                   <div>
-                    <Label htmlFor="address1" className="text-slate-700 font-semibold">Address Line 1 *</Label>
+                    <Label htmlFor="address1" className="text-slate-700 dark:text-slate-200 font-semibold">Address Line 1 *</Label>
                     <Input
                       id="address1"
                       value={shippingData.address1}
@@ -376,7 +376,7 @@ export default function Checkout() {
                   </div>
 
                   <div>
-                    <Label htmlFor="address2" className="text-slate-700 font-semibold">Address Line 2</Label>
+                    <Label htmlFor="address2" className="text-slate-700 dark:text-slate-200 font-semibold">Address Line 2</Label>
                     <Input
                       id="address2"
                       value={shippingData.address2}
@@ -388,7 +388,7 @@ export default function Checkout() {
 
                   <div className="grid md:grid-cols-3 gap-4">
                     <div>
-                      <Label htmlFor="city" className="text-slate-700 font-semibold">City *</Label>
+                      <Label htmlFor="city" className="text-slate-700 dark:text-slate-200 font-semibold">City *</Label>
                       <Input
                         id="city"
                         value={shippingData.city}
@@ -398,7 +398,7 @@ export default function Checkout() {
                       />
                     </div>
                     <div>
-                      <Label htmlFor="state" className="text-slate-700 font-semibold">State *</Label>
+                      <Label htmlFor="state" className="text-slate-700 dark:text-slate-200 font-semibold">State *</Label>
                       <Select value={shippingData.state} onValueChange={(value) => handleShippingChange("state", value)}>
                         <SelectTrigger className="mt-1.5 border-2 h-12">
                           <SelectValue placeholder="Select" />
@@ -413,7 +413,7 @@ export default function Checkout() {
                       </Select>
                     </div>
                     <div>
-                      <Label htmlFor="zipCode" className="text-slate-700 font-semibold">ZIP Code *</Label>
+                      <Label htmlFor="zipCode" className="text-slate-700 dark:text-slate-200 font-semibold">ZIP Code *</Label>
                       <Input
                         id="zipCode"
                         value={shippingData.zipCode}
@@ -451,25 +451,25 @@ export default function Checkout() {
             {step === 2 && (
               <div className="space-y-6">
                 {/* Billing Address */}
-                <Card className="border-2 border-slate-200 shadow-xl">
+                <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl">
                   <CardContent className="p-8 space-y-6">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
                         <MapPin className="w-6 h-6 text-[#1E3A5F]" />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-slate-900">Billing Address</h2>
-                        <p className="text-slate-600">Where should we send the invoice?</p>
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Billing Address</h2>
+                        <p className="text-slate-600 dark:text-slate-300">Where should we send the invoice?</p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 p-4 rounded-xl bg-slate-50 border-2 border-slate-200">
+                    <div className="flex items-center gap-3 p-4 rounded-xl bg-slate-50 border-2 border-slate-200 dark:border-[#2D4A77]">
                       <Checkbox
                         id="sameAsShipping"
                         checked={sameAsShipping}
                         onCheckedChange={(checked) => setSameAsShipping(checked as boolean)}
                       />
-                      <Label htmlFor="sameAsShipping" className="text-slate-900 font-medium cursor-pointer">
+                      <Label htmlFor="sameAsShipping" className="text-slate-900 dark:text-white font-medium cursor-pointer">
                         Same as shipping address
                       </Label>
                     </div>
@@ -478,7 +478,7 @@ export default function Checkout() {
                       <div className="space-y-4 pt-4">
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
-                            <Label className="text-slate-700 font-semibold">First Name *</Label>
+                            <Label className="text-slate-700 dark:text-slate-200 font-semibold">First Name *</Label>
                             <Input
                               value={billingData.firstName}
                               onChange={(e) => handleBillingChange("firstName", e.target.value)}
@@ -486,7 +486,7 @@ export default function Checkout() {
                             />
                           </div>
                           <div>
-                            <Label className="text-slate-700 font-semibold">Last Name *</Label>
+                            <Label className="text-slate-700 dark:text-slate-200 font-semibold">Last Name *</Label>
                             <Input
                               value={billingData.lastName}
                               onChange={(e) => handleBillingChange("lastName", e.target.value)}
@@ -501,22 +501,22 @@ export default function Checkout() {
                 </Card>
 
                 {/* Payment Method */}
-                <Card className="border-2 border-slate-200 shadow-xl">
+                <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl">
                   <CardContent className="p-8 space-y-6">
                     <div className="flex items-center gap-3 mb-6">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#C9A961]/10 to-[#F7F4EF] flex items-center justify-center">
                         <CreditCard className="w-6 h-6 text-[#1E3A5F]" />
                       </div>
                       <div>
-                        <h2 className="text-2xl font-bold text-slate-900">Payment Method</h2>
-                        <p className="text-slate-600">Your payment information is secure</p>
+                        <h2 className="text-2xl font-bold text-slate-900 dark:text-white">Payment Method</h2>
+                        <p className="text-slate-600 dark:text-slate-300">Your payment information is secure</p>
                       </div>
                     </div>
 
                     <div className="p-8 rounded-xl bg-gradient-to-br from-[#F7F4EF] to-white border-2 border-[#C9A961]/30 text-center space-y-3">
                       <Lock className="w-12 h-12 mx-auto text-[#1E3A5F]" />
-                      <h3 className="text-xl font-bold text-slate-900">Secure Payment with Stripe</h3>
-                      <p className="text-slate-600">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white">Secure Payment with Stripe</h3>
+                      <p className="text-slate-600 dark:text-slate-300">
                         Click "Proceed to Payment" to complete your purchase securely through Stripe.
                         <br />
                         You'll be redirected to our secure payment page.
@@ -571,15 +571,15 @@ export default function Checkout() {
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-1">
             <div className="sticky top-24">
-              <Card className="border-2 border-slate-200 shadow-xl">
+              <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl">
                 <CardContent className="p-6 space-y-6">
-                  <h3 className="text-xl font-bold text-slate-900">Order Summary</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">Order Summary</h3>
 
                   {/* Cart Items */}
                   <div className="space-y-4 max-h-64 overflow-y-auto">
                     {cartItems.map((item) => (
                       <div key={item.id} className="flex gap-4">
-                        <div className="w-16 h-16 rounded-lg overflow-hidden bg-slate-100 border-2 border-slate-200 flex-shrink-0">
+                        <div className="w-16 h-16 rounded-lg overflow-hidden bg-slate-100 border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] flex-shrink-0">
                           <img
                             src={item.productImage || "/products/optibio-90cap-bottle-front.jpg"}
                             alt={item.productName || "Product"}
@@ -587,25 +587,25 @@ export default function Checkout() {
                           />
                         </div>
                         <div className="flex-1">
-                          <h4 className="font-semibold text-sm text-slate-900">{item.productName}</h4>
+                          <h4 className="font-semibold text-sm text-slate-900 dark:text-white">{item.productName}</h4>
                           {item.variantName && (
-                            <p className="text-xs text-slate-600">{item.variantName}</p>
+                            <p className="text-xs text-slate-600 dark:text-slate-300">{item.variantName}</p>
                           )}
                           <div className="flex items-center justify-between mt-1">
-                            <span className="text-xs text-slate-600">Qty: {item.quantity}</span>
-                            <span className="font-semibold text-slate-900">{formatPrice(item.priceInCents * item.quantity)}</span>
+                            <span className="text-xs text-slate-600 dark:text-slate-300">Qty: {item.quantity}</span>
+                            <span className="font-semibold text-slate-900 dark:text-white">{formatPrice(item.priceInCents * item.quantity)}</span>
                           </div>
                         </div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="border-t-2 border-slate-200 pt-4 space-y-3">
-                    <div className="flex justify-between text-slate-700">
+                  <div className="border-t-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] pt-4 space-y-3">
+                    <div className="flex justify-between text-slate-700 dark:text-slate-200">
                       <span>Subtotal</span>
                       <span className="font-semibold">{formatPrice(subtotal)}</span>
                     </div>
-                    <div className="flex justify-between text-slate-700">
+                    <div className="flex justify-between text-slate-700 dark:text-slate-200">
                       <span>Shipping</span>
                       <span className="font-semibold">
                         {shipping === 0 ? (
@@ -615,14 +615,14 @@ export default function Checkout() {
                         )}
                       </span>
                     </div>
-                    <div className="flex justify-between text-slate-700">
+                    <div className="flex justify-between text-slate-700 dark:text-slate-200">
                       <span>Tax</span>
                       <span className="font-semibold">{formatPrice(tax)}</span>
                     </div>
 
                     {/* Referral Credits Toggle */}
                     {availableCredits > 0 && (
-                      <div className="pt-3 border-t border-slate-200">
+                      <div className="pt-3 border-t border-slate-200 dark:border-[#2D4A77]">
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-2">
                             <Checkbox
@@ -639,7 +639,7 @@ export default function Checkout() {
                             </Label>
                           </div>
                         </div>
-                        <div className="ml-6 text-xs text-slate-600">
+                        <div className="ml-6 text-xs text-slate-600 dark:text-slate-300">
                           {formatPrice(availableCredits)} available
                         </div>
                       </div>
@@ -653,9 +653,9 @@ export default function Checkout() {
                       </div>
                     )}
 
-                    <div className="pt-3 border-t-2 border-slate-200">
+                    <div className="pt-3 border-t-2 border-slate-200 dark:border-[#2D4A77]">
                       <div className="flex justify-between items-baseline">
-                        <span className="text-lg font-semibold text-slate-900">Total</span>
+                        <span className="text-lg font-semibold text-slate-900 dark:text-white">Total</span>
                         <div className="text-3xl font-bold bg-gradient-to-r from-[#1E3A5F] to-[#B89651] bg-clip-text text-transparent">
                           {formatPrice(total)}
                         </div>
@@ -664,12 +664,12 @@ export default function Checkout() {
                   </div>
 
                   {/* Trust Badges */}
-                  <div className="pt-4 border-t border-slate-200 space-y-2">
-                    <div className="flex items-center gap-2 text-xs text-slate-600">
+                  <div className="pt-4 border-t border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] space-y-2">
+                    <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
                       <Shield className="w-4 h-4 text-[#1E3A5F]" />
                       <span>Secure 256-bit SSL encryption</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-slate-600">
+                    <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
                       <CheckCircle2 className="w-4 h-4 text-[#1E3A5F]" />
                       <span>60-day money-back guarantee</span>
                     </div>

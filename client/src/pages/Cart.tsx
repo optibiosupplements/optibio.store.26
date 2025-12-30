@@ -91,7 +91,7 @@ export default function Cart() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-hero-gradient transition-colors duration-500">
+      <div className="min-h-screen flex items-center justify-center bg-hero-gradient transition-colors duration-500 dark:bg-[#0B1120]">
         <Loader2 className="h-12 w-12 animate-spin text-primary" />
       </div>
     );
@@ -160,12 +160,12 @@ export default function Cart() {
             {/* Cart Items List */}
             <div className="space-y-4">
               {cartItems.map((item) => (
-                <Card key={item.id} className="border-2 border-slate-200 hover:shadow-lg transition-all duration-300">
+                <Card key={item.id} className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] hover:shadow-lg transition-all duration-300">
                   <CardContent className="p-6">
                     <div className="flex gap-6">
                       {/* Product Image */}
                       <div className="flex-shrink-0">
-                        <div className="w-24 h-24 rounded-xl overflow-hidden bg-slate-100 border-2 border-slate-200">
+                        <div className="w-24 h-24 rounded-xl overflow-hidden bg-slate-100 border-2 border-slate-200 dark:border-[#2D4A77]">
                           <img
                             src={item.productImage || "/products/optibio-90cap-bottle-front.jpg"}
                             alt={item.productName || "Product"}
@@ -179,12 +179,12 @@ export default function Cart() {
                         <div className="flex items-start justify-between">
                           <div>
                             <Link href={`/product/${item.productSlug}`}>
-                              <h3 className="font-bold text-lg text-slate-900 hover:text-[#1E3A5F] transition-colors cursor-pointer">
+                              <h3 className="font-bold text-lg text-slate-900 dark:text-white hover:text-[#1E3A5F] transition-colors cursor-pointer">
                                 {item.productName}
                               </h3>
                             </Link>
                             {item.variantName && (
-                              <p className="text-sm text-slate-600">{item.variantName}</p>
+                              <p className="text-sm text-slate-600 dark:text-slate-300">{item.variantName}</p>
                             )}
                             {item.isSubscription && (
                               <Badge className="mt-2 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
@@ -194,16 +194,16 @@ export default function Cart() {
                             )}
                           </div>
                           <div className="text-right">
-                            <div className="text-xl font-bold text-slate-900">
+                            <div className="text-xl font-bold text-slate-900 dark:text-white">
                               {formatPrice(item.priceInCents)}
                             </div>
-                            <div className="text-sm text-slate-600">per item</div>
+                            <div className="text-sm text-slate-600 dark:text-slate-300">per item</div>
                           </div>
                         </div>
 
                         {/* Quantity Controls */}
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center border-2 border-slate-200 rounded-xl overflow-hidden">
+                          <div className="flex items-center border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] rounded-xl overflow-hidden">
                             <Button
                               variant="ghost"
                               size="icon"
@@ -213,7 +213,7 @@ export default function Cart() {
                             >
                               <Minus className="w-4 h-4" />
                             </Button>
-                            <div className="w-12 text-center font-semibold text-slate-900">
+                            <div className="w-12 text-center font-semibold text-slate-900 dark:text-white">
                               {item.quantity}
                             </div>
                             <Button
@@ -229,8 +229,8 @@ export default function Cart() {
 
                           <div className="flex items-center gap-4">
                             <div className="text-right">
-                              <div className="text-sm text-slate-600">Subtotal</div>
-                              <div className="text-xl font-bold text-slate-900">
+                              <div className="text-sm text-slate-600 dark:text-slate-300">Subtotal</div>
+                              <div className="text-xl font-bold text-slate-900 dark:text-white">
                                 {formatPrice(item.priceInCents * item.quantity)}
                               </div>
                             </div>
@@ -264,11 +264,11 @@ export default function Cart() {
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-6">
               {/* Discount Code */}
-              <Card className="border-2 border-slate-200">
+              <Card className="border-2 border-slate-200 dark:border-[#2D4A77]">
                 <CardContent className="p-6 space-y-4">
                   <div className="flex items-center gap-2">
                     <Tag className="w-5 h-5 text-[#1E3A5F]" />
-                    <h3 className="font-bold text-lg text-slate-900">Discount Code</h3>
+                    <h3 className="font-bold text-lg text-slate-900 dark:text-white">Discount Code</h3>
                   </div>
                   
                   {appliedDiscount ? (
@@ -317,12 +317,12 @@ export default function Cart() {
               </Card>
 
               {/* Order Summary */}
-              <Card className="border-2 border-slate-200 shadow-xl">
+              <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl">
                 <CardContent className="p-6 space-y-6">
-                  <h3 className="font-bold text-xl text-slate-900">Order Summary</h3>
+                  <h3 className="font-bold text-xl text-slate-900 dark:text-white">Order Summary</h3>
 
                   <div className="space-y-3">
-                    <div className="flex justify-between text-slate-700">
+                    <div className="flex justify-between text-slate-700 dark:text-slate-200">
                       <span>Subtotal</span>
                       <span className="font-semibold">{formatPrice(subtotal)}</span>
                     </div>
@@ -334,7 +334,7 @@ export default function Cart() {
                       </div>
                     )}
 
-                    <div className="flex justify-between text-slate-700">
+                    <div className="flex justify-between text-slate-700 dark:text-slate-200">
                       <span>Shipping</span>
                       <span className="font-semibold">
                         {shipping === 0 ? (
@@ -345,19 +345,19 @@ export default function Cart() {
                       </span>
                     </div>
 
-                    <div className="flex justify-between text-slate-700">
+                    <div className="flex justify-between text-slate-700 dark:text-slate-200">
                       <span>Tax</span>
                       <span className="font-semibold">{formatPrice(tax)}</span>
                     </div>
 
-                    <div className="pt-3 border-t-2 border-slate-200">
+                    <div className="pt-3 border-t-2 border-slate-200 dark:border-[#2D4A77]">
                       <div className="flex justify-between items-baseline">
-                        <span className="text-lg font-semibold text-slate-900">Total</span>
+                        <span className="text-lg font-semibold text-slate-900 dark:text-white">Total</span>
                         <div className="text-right">
                           <div className="text-3xl font-bold bg-gradient-to-r from-[#1E3A5F] to-[#B89651] bg-clip-text text-transparent">
                             {formatPrice(total)}
                           </div>
-                          <div className="text-xs text-slate-600">or 4 payments of {formatPrice(Math.round(total / 4))}</div>
+                          <div className="text-xs text-slate-600 dark:text-slate-300">or 4 payments of {formatPrice(Math.round(total / 4))}</div>
                         </div>
                       </div>
                     </div>
@@ -373,16 +373,16 @@ export default function Cart() {
                   </Button>
 
                   {/* Trust Badges */}
-                  <div className="pt-4 border-t border-slate-200 space-y-3">
-                    <div className="flex items-center gap-3 text-sm text-slate-700">
+                  <div className="pt-4 border-t border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] space-y-3">
+                    <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
                       <Shield className="w-5 h-5 text-[#1E3A5F] flex-shrink-0" />
                       <span>Secure 256-bit SSL encryption</span>
                     </div>
-                    <div className="flex items-center gap-3 text-sm text-slate-700">
+                    <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
                       <RotateCcw className="w-5 h-5 text-[#1E3A5F] flex-shrink-0" />
                       <span>60-day money-back guarantee</span>
                     </div>
-                    <div className="flex items-center gap-3 text-sm text-slate-700">
+                    <div className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-200">
                       <Truck className="w-5 h-5 text-[#1E3A5F] flex-shrink-0" />
                       <span>Free shipping on orders over {formatPrice(SHIPPING_THRESHOLD_CENTS)}</span>
                     </div>

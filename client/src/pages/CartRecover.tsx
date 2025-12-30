@@ -70,7 +70,7 @@ export default function CartRecover() {
   // Loading state
   if (authLoading || cartLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F7F4EF]">
+      <div className="min-h-screen flex items-center justify-center bg-[#F7F4EF] dark:bg-[#0B1120] dark:bg-[#0B1120]">
         <div className="text-center">
           <Loader2 className="h-12 w-12 animate-spin text-[#C9A961] mx-auto mb-4" />
           <p className="text-[#2D2D2D] text-lg">Loading your cart...</p>
@@ -82,7 +82,7 @@ export default function CartRecover() {
   // Error states
   if (!token) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F7F4EF] px-4">
+      <div className="min-h-screen flex items-center justify-center bg-[#F7F4EF] px-4 dark:bg-[#0B1120]">
         <Card className="max-w-md w-full">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
@@ -105,7 +105,7 @@ export default function CartRecover() {
 
   if (cartError || !cartData) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#F7F4EF] px-4">
+      <div className="min-h-screen flex items-center justify-center bg-[#F7F4EF] px-4 dark:bg-[#0B1120]">
         <Card className="max-w-md w-full">
           <CardHeader>
             <div className="flex items-center gap-3 mb-2">
@@ -134,7 +134,7 @@ export default function CartRecover() {
   const totalValue = cartData.totalValue || 0;
 
   return (
-    <div className="min-h-screen bg-[#F7F4EF] py-12 px-4">
+    <div className="min-h-screen bg-[#F7F4EF] py-12 px-4 dark:bg-[#0B1120]">
       <div className="container max-w-3xl">
         {/* Header */}
         <div className="text-center mb-8">
@@ -168,7 +168,7 @@ export default function CartRecover() {
                   <img
                     src={item.imageUrl}
                     alt={item.productName}
-                    className="w-20 h-20 object-cover rounded-lg bg-white"
+                    className="w-20 h-20 object-cover rounded-lg bg-white dark:bg-[#1E3A5F]"
                   />
                 )}
                 <div className="flex-1 min-w-0">

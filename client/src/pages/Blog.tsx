@@ -9,7 +9,7 @@ export default function Blog() {
   const blogPosts = getAllBlogPosts();
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
+    <div className="min-h-screen bg-gradient-to-b from-background to-muted/20 dark:bg-[#0B1120] dark:bg-[#0B1120]">
       {/* Breadcrumb */}
       <div className="border-b bg-background/50 backdrop-blur-sm">
         <div className="container py-4">
@@ -102,7 +102,7 @@ export default function Blog() {
             All our articles are based on clinical research using KSM-66® ashwagandha—the same premium extract in Optibio supplements.
           </p>
           <Link href="/shop">
-            <Button size="lg" variant="secondary" className="bg-white text-[#1E3A5F] hover:bg-white/90">
+            <Button size="lg" variant="secondary" className="bg-white dark:bg-[#1E3A5F] text-[#1E3A5F] hover:bg-white/90">
               Shop KSM-66® Ashwagandha
             </Button>
           </Link>
