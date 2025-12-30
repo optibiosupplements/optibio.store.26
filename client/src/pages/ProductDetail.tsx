@@ -46,7 +46,7 @@ export default function ProductDetail() {
   const { theme } = useTheme();
   
   // Theme-aware product image selection
-  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isDark = theme === 'dark';
   
   // Debug: Log product data to see variants
   useEffect(() => {

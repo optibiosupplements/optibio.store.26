@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
-type Theme = "dark" | "light" | "system";
+type Theme = "dark" | "light";
 
 type ThemeProviderProps = {
   children: React.ReactNode;
@@ -12,12 +12,13 @@ type ThemeProviderProps = {
 type ThemeProviderState = {
   theme: Theme;
   setTheme: (theme: Theme) => void;
-  toggleTheme?: () => void;
+  toggleTheme: () => void;
 };
 
 const initialState: ThemeProviderState = {
-  theme: "system",
+  theme: "light",
   setTheme: () => null,
+  toggleTheme: () => null,
 };
 
 const ThemeContext = createContext<ThemeProviderState>(initialState);
@@ -25,35 +26,76 @@ const ThemeContext = createContext<ThemeProviderState>(initialState);
 export function ThemeProvider({
   children,
   defaultTheme = "light",
-  storageKey = "optibio-ui-theme",
-  switchable = false,
+  storageKey = "optibio-theme",
+  switchable = true,
   ...props
 }: ThemeProviderProps) {
-  // PERMANENT LOCK: OptiBio Light Mode Only
-  // Light mode is locked as the official brand theme
-  // No dark mode switching or system preference detection
-  // This ensures consistent brand experience across all touchpoints
-  // LOCKED: Always use light mode, ignore localStorage
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>(defaultTheme);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const root = window.document.documentElement;
+    
+    // 1. Check Local Storage (User Override)
+    const savedTheme = localStorage.getItem(storageKey) as Theme | null;
+    
+    // 2. Check System Preference
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    // PERMANENT LOCK: Light mode only
-    // OptiBio brand is locked to light mode for all users
-    // This ensures consistent brand presentation across all devices and browsers
+    let initialTheme: Theme = defaultTheme;
+    
+    if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light')) {
+      initialTheme = savedTheme;
+    } else if (systemPrefersDark) {
+      initialTheme = 'dark';
+    }
+    
+    setThemeState(initialTheme);
     root.classList.remove("light", "dark");
-    root.classList.add("light");
-  }, []);
+    root.classList.add(initialTheme);
+  }, [defaultTheme, storageKey]);
 
-  const value = {
-    theme: "light" as const,
-    setTheme: () => {
-      // LOCKED: Theme cannot be changed
-      // Light mode is permanent for OptiBio brand
-      console.warn("OptiBio theme is locked to light mode");
-    },
-    toggleTheme: undefined,
+  // Listen for system preference changes
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      // Only auto-switch if user hasn't set a preference
+      const savedTheme = localStorage.getItem(storageKey);
+      if (!savedTheme) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        setThemeState(newTheme);
+        document.documentElement.classList.remove("light", "dark");
+        document.documentElement.classList.add(newTheme);
+      }
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, [storageKey]);
+
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
+    localStorage.setItem(storageKey, newTheme);
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(newTheme);
+  };
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
+
+  // Prevent hydration mismatch by not rendering until mounted
+  if (!mounted) {
+    return <>{children}</>;
+  }
+
+  const value: ThemeProviderState = {
+    theme,
+    setTheme,
+    toggleTheme,
   };
 
   return (

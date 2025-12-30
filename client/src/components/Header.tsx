@@ -132,8 +132,8 @@ export default function Header() {
               </a>
             )}
 
-            {/* Theme Toggle - Hidden (Light mode only) */}
-            {/* <ThemeToggle /> */}
+            {/* Theme Toggle - Night Clinic Mode */}
+            <ThemeToggle />
 
             {/* Cart - Mobile Optimized Touch Target */}
             <Link href="/cart" className="relative flex items-center justify-center h-11 w-11 sm:h-10 sm:w-10 rounded-full transition-colors hover:bg-accent text-[#1E3A5F]">

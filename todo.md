@@ -388,3 +388,24 @@ The header navigation was misaligned with hard-to-read links, and the About page
 - [x] Mobile: Navigation menu properly styled and readable
 
 **RESULT: Critical visibility issues resolved. Header and About page now have proper alignment, contrast, and readability. Ready for launch.**
+
+
+## 🌙 NIGHT CLINIC DARK MODE - Premium Implementation (Dec 29, 2025)
+
+### Objective: Expensive Morphing Dark Mode Toggle
+Implement sophisticated dark mode with spinning/morphing Sun→Moon animation, Abyssal Navy background transitions, and Luminous Gold accent ignition.
+
+### Brand Specs (Night Clinic Mode):
+- Background: Abyssal Navy (#0B1120) - Not black
+- Text: Pure White / Sky Grey
+- Accents: Luminous Gold (#D4AF37) - Brighter for visibility
+
+### Implementation Tasks:
+- [x] Update Tailwind config with Night Clinic palette (abyssal, navy-800/900, gold-400/500)
+- [x] Add morph animation keyframes (spin-slow, morph)
+- [x] Update ThemeContext with smart system preference detection
+- [x] Create premium ThemeToggle with morphing Sun/Moon animation
+- [x] Update global CSS with dark mode variables
+- [x] Add smooth 500ms color transitions to all elements
+- [x] Integrate toggle into Header component
+- [x] Test dark mode across all pages

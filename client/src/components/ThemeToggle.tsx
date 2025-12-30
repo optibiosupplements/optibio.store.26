@@ -1,10 +1,9 @@
 import { Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useEffect, useState } from "react";
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   // Avoid hydration mismatch by waiting for client load
@@ -14,54 +13,58 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="icon" className="w-10 h-10 opacity-0">
+      <button 
+        className="relative w-10 h-10 rounded-full opacity-0"
+        aria-label="Toggle Night Clinic Mode"
+      >
         <span className="sr-only">Toggle theme</span>
-      </Button>
+      </button>
     );
   }
 
-  const isDark = 
-    theme === 'dark' || 
-    (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isDark = theme === "dark";
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={() => setTheme(isDark ? "light" : "dark")}
+    <button
+      onClick={toggleTheme}
       className={`
-        relative w-10 h-10 rounded-full transition-all duration-500 ease-in-out overflow-hidden
-        ${!isDark 
-          ? 'bg-white/80 hover:bg-white border border-slate-200 text-opti-navy shadow-sm hover:shadow-md' 
-          : 'bg-white/10 hover:bg-white/20 border border-white/10 text-opti-gold shadow-glow-gold'
+        relative overflow-hidden
+        w-10 h-10 rounded-full 
+        flex items-center justify-center
+        transition-all duration-500 ease-out
+        focus:outline-none focus:ring-2 focus:ring-[#C9A961] focus:ring-offset-2
+        ${isDark 
+          ? "bg-slate-800/50 border border-slate-700 shadow-[0_0_15px_rgba(212,175,55,0.3)]" 
+          : "bg-white/80 border border-slate-200 shadow-sm hover:shadow-md"
         }
       `}
-      title={!isDark ? "Switch to Midnight Mode" : "Switch to Day Mode"}
+      aria-label="Toggle Night Clinic Mode"
+      title={isDark ? "Switch to Day Mode" : "Switch to Night Clinic Mode"}
     >
       <div className="relative w-5 h-5">
-        {/* Sun Icon (Day Mode) */}
+        {/* SUN ICON (Day Mode) */}
         <Sun 
           className={`
-            absolute top-0 left-0 w-full h-full transition-all duration-500 transform
-            ${!isDark 
-              ? 'rotate-0 scale-100 opacity-100' 
-              : 'rotate-90 scale-0 opacity-0'
-            }
+            absolute inset-0 w-full h-full text-[#1E3A5F]
+            transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
+            ${isDark ? "rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100"}
           `} 
         />
         
-        {/* Moon Icon (Night Mode) */}
+        {/* MOON ICON (Night Mode) - Gold filled */}
         <Moon 
           className={`
-            absolute top-0 left-0 w-full h-full transition-all duration-500 transform
-            ${isDark 
-              ? 'rotate-0 scale-100 opacity-100' 
-              : '-rotate-90 scale-0 opacity-0'
-            }
+            absolute inset-0 w-full h-full text-[#D4AF37] fill-[#D4AF37]
+            transition-all duration-500 ease-[cubic-bezier(0.68,-0.55,0.27,1.55)]
+            ${isDark ? "rotate-0 scale-100 opacity-100" : "-rotate-90 scale-0 opacity-0"}
           `} 
         />
       </div>
+      
+      {/* Background Blur Effect (Backdrop) */}
+      <div className="absolute inset-0 backdrop-blur-sm -z-10" />
+      
       <span className="sr-only">Toggle theme</span>
-    </Button>
+    </button>
   );
 }

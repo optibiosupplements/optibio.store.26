@@ -33,7 +33,7 @@ export default function Home() {
   const { theme } = useTheme();
   
   // Theme-aware product image selection
-  const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  const isDark = theme === 'dark';
   const heroProductImage = isDark 
     ? '/products/optibio-90cap-bottle-front-dark.jpg'
     : '/products/optibio-90cap-bottle-front.jpg';
