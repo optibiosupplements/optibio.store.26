@@ -50,3 +50,42 @@ The "Deep Luxury" dark mode look is now complete with:
 - Gold trust icons visible against dark background
 - Navy sticky buy bar (not white flashbang)
 - Consistent premium aesthetic throughout
+
+
+---
+
+## Hero Section Dark Mode Fixes - Dec 30, 2025 (Update)
+
+### Issue Reported
+The Hero Section was stuck in Light Mode with Sky Blue background while the rest of the page was in "Abyssal Navy" dark mode.
+
+### Fixes Applied
+
+#### Fix 1: Hero Background ✅ FIXED
+- Changed from `bg-[radial-gradient(...)]` to `bg-gradient-to-b from-blue-50 to-white dark:from-[#0B1120] dark:to-[#15233E]`
+- Hero section now transitions from Abyssal Navy (#0B1120) to Deep Navy (#15233E) in dark mode
+- No more Sky Blue band at the top of the page
+
+#### Fix 2: Buy Box Card ✅ FIXED
+- Added `dark:bg-[#1E3A5F]` background to the pricing card
+- Added `dark:border-[#2D4A77]` border
+- Price displays in Luminous Gold (#D4AF37) in dark mode
+- "Free shipping" notice has dark background with proper contrast
+- Social proof section also styled for dark mode
+
+#### Fix 3: Bottle Container ✅ FIXED
+- WellnessPlanPersonalizer sections updated with dark mode backgrounds
+- Cards use `dark:from-[#1E3A5F] dark:to-[#1E3A5F]` gradient
+- Quiz flow section uses `dark:from-[#0B1120] dark:via-[#15233E] dark:to-[#0B1120]`
+- Bottle blends naturally into dark background
+
+#### Fix 4: 90-Day Guarantee Strip ✅ ENHANCED
+- Changed from `dark:border-y dark:border-[#D4AF37]/30` to `border-y border-[#C9A961]/20 dark:border-[#D4AF37]/30`
+- Gold border now visible in both light and dark modes
+- Creates premium ribbon effect against dark background
+
+### Visual Verification
+- Screenshot captured showing dark hero section with navy gradient
+- Buy box card displays with navy background and gold price
+- Entire page is consistently dark from top pixel to bottom pixel
+- No "Sky Blue" bands remain in Night Mode

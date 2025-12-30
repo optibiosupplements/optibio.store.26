@@ -184,19 +184,19 @@ export default function WellnessPlanPersonalizer() {
   // Collapsed state
   if (!isExpanded) {
     return (
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
-            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E3A5F] to-[#B89651] text-white px-6 py-3 rounded-full font-bold text-sm">
+            <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#1E3A5F] to-[#B89651] dark:from-[#D4AF37] dark:to-[#C9A961] text-white dark:text-[#0B1120] px-6 py-3 rounded-full font-bold text-sm">
               <Sparkles className="w-5 h-5" />
               FREE PERSONALIZED PLAN
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
               Get Your Personalized Wellness Plan
             </h2>
             
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+            <p className="text-xl text-slate-600 dark:text-[#94A3B8] max-w-2xl mx-auto">
               Answer 3 quick questions to discover the best way to take Optibio for <span className="font-semibold text-[#1E3A5F]">YOUR</span> specific goals and lifestyle
             </p>
 
@@ -223,7 +223,7 @@ export default function WellnessPlanPersonalizer() {
   // Results page
   if (showResults && plan) {
     return (
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
         <div className="container">
           <div className="max-w-5xl mx-auto space-y-8 animate-fade-in">
             <div className="text-center">
@@ -241,17 +241,17 @@ export default function WellnessPlanPersonalizer() {
 
             <div className="grid md:grid-cols-2 gap-6">
               {/* Timing */}
-              <Card className="border-2 border-[#C9A961]/30 bg-gradient-to-br from-[#F7F4EF] to-white">
+              <Card className="border-2 border-[#C9A961]/30 dark:border-[#2D4A77] bg-gradient-to-br from-[#F7F4EF] to-white dark:from-[#1E3A5F] dark:to-[#1E3A5F]">
                 <CardContent className="p-8 space-y-4">
                   <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center">
-                    <Clock className="w-8 h-8 text-[#1E3A5F]" />
+                    <Clock className="w-8 h-8 text-[#1E3A5F] dark:text-[#D4AF37]" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-slate-600 mb-2">Optimal Timing</div>
-                    <div className="text-lg font-bold text-[#1E3A5F] leading-tight">
+                    <div className="text-lg font-bold text-[#1E3A5F] dark:text-white leading-tight">
                       {plan.timing}
                     </div>
-                    <div className="text-sm text-slate-600 mt-3 p-3 bg-[#F7F4EF] rounded-lg">
+                    <div className="text-sm text-slate-600 dark:text-[#94A3B8] mt-3 p-3 bg-[#F7F4EF] dark:bg-[#0B1120]/50 rounded-lg">
                       <strong>Clinical Dose:</strong> 2 capsules daily (600mg KSM-66®)
                     </div>
                   </div>
@@ -259,17 +259,17 @@ export default function WellnessPlanPersonalizer() {
               </Card>
 
               {/* Timeline */}
-              <Card className="border-2 border-[#C9A961]/20 bg-gradient-to-br from-[#F7F4EF] to-white">
+              <Card className="border-2 border-[#C9A961]/20 dark:border-[#2D4A77] bg-gradient-to-br from-[#F7F4EF] to-white dark:from-[#1E3A5F] dark:to-[#1E3A5F]">
                 <CardContent className="p-8 space-y-4">
                   <div className="w-16 h-16 rounded-full bg-[#C9A961]/10 flex items-center justify-center">
-                    <Calendar className="w-8 h-8 text-[#1E3A5F]" />
+                    <Calendar className="w-8 h-8 text-[#1E3A5F] dark:text-[#D4AF37]" />
                   </div>
                   <div>
                     <div className="text-sm font-medium text-slate-600 mb-2">Expected Results</div>
-                    <div className="text-lg font-bold text-[#1E3A5F] leading-tight">
+                    <div className="text-lg font-bold text-[#1E3A5F] dark:text-white leading-tight">
                       {plan.expectedTimeline}
                     </div>
-                    <div className="text-sm text-slate-600 mt-3 p-3 bg-[#F7F4EF] rounded-lg">
+                    <div className="text-sm text-slate-600 dark:text-[#94A3B8] mt-3 p-3 bg-[#F7F4EF] dark:bg-[#0B1120]/50 rounded-lg">
                       Consistency is key for best results
                     </div>
                   </div>
@@ -278,19 +278,19 @@ export default function WellnessPlanPersonalizer() {
             </div>
 
             {/* Personalized Tips */}
-            <Card className="border-2 border-slate-200">
+            <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:bg-[#1E3A5F]">
               <CardContent className="p-8 space-y-6">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1E3A5F] to-[#B89651] flex items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900">Your Personalized Tips</h3>
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Your Personalized Tips</h3>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   {plan.personalizedTips.map((tip, i) => (
-                    <div key={i} className="flex items-start gap-3 p-4 bg-slate-50 rounded-lg">
+                    <div key={i} className="flex items-start gap-3 p-4 bg-slate-50 dark:bg-[#0B1120]/50 rounded-lg">
                       <CheckCircle2 className="w-5 h-5 text-[#B89651] flex-shrink-0 mt-0.5" />
-                      <p className="text-slate-700 text-sm">{tip}</p>
+                      <p className="text-slate-700 dark:text-[#94A3B8] text-sm">{tip}</p>
                     </div>
                   ))}
                 </div>
@@ -298,11 +298,11 @@ export default function WellnessPlanPersonalizer() {
             </Card>
 
             {/* Medical Disclaimer */}
-            <Card className="border-2 border-[#C9A961]/20 bg-[#F7F4EF]">
+            <Card className="border-2 border-[#C9A961]/20 dark:border-[#2D4A77] bg-[#F7F4EF] dark:bg-[#1E3A5F]">
               <CardContent className="p-6">
                 <div className="flex items-start gap-3">
                   <AlertCircle className="w-6 h-6 text-[#B89651] flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-[#1E3A5F]">
+                  <div className="text-sm text-[#1E3A5F] dark:text-[#94A3B8]">
                     <strong>Important:</strong> This plan provides general guidance based on clinical research of KSM-66® Ashwagandha. 
                     It is not medical advice. The clinically studied dose is 600mg daily (2 capsules). 
                     Consult your healthcare provider before starting any new supplement regimen, especially if you are pregnant, nursing, 
@@ -345,7 +345,7 @@ export default function WellnessPlanPersonalizer() {
 
   // Quiz flow
   return (
-    <section className="py-24 bg-gradient-to-br from-[#F7F4EF] via-white to-[#F7F4EF]/30">
+    <section className="py-24 bg-gradient-to-br from-[#F7F4EF] via-white to-[#F7F4EF]/30 dark:from-[#0B1120] dark:via-[#15233E] dark:to-[#0B1120] transition-colors duration-500">
       <div className="container">
         <div className="max-w-3xl mx-auto space-y-8">
           {/* Progress indicator */}
@@ -364,14 +364,14 @@ export default function WellnessPlanPersonalizer() {
             <Badge className="mb-4 bg-[#C9A961]/10 text-[#1E3A5F] border-[#C9A961]/30">
               Step {step + 1} of 3
             </Badge>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
               {step === 0 && "What Are Your Wellness Goals?"}
               {step === 1 && "Tell Us About Your Lifestyle"}
               {step === 2 && "When Do You Prefer to Take Supplements?"}
             </h2>
           </div>
 
-          <Card className="border-2 border-slate-200">
+          <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:bg-[#1E3A5F]">
             <CardContent className="p-8 space-y-6">
               {/* Step 0: Goals */}
               {step === 0 && (

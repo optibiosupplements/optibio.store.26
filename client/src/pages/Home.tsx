@@ -120,7 +120,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-[radial-gradient(50%_50%_at_50%_50%,_#F8FCFE_0%,_#EBF5FB_50%,_#D6EAF8_100%)] dark:bg-[#0B1120] transition-colors duration-500">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-[#0B1120] dark:to-[#15233E] transition-colors duration-500">
         {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-12 sm:py-16 lg:py-20">
@@ -162,7 +162,7 @@ export default function Home() {
               </div>
 
               {/* Pricing & Urgency - Mobile Optimized */}
-              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 dark:from-[#1E3A5F] dark:to-[#1E3A5F] backdrop-blur-sm border-2 border-[#C9A961]/40 dark:border-[#2D4A77] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl transition-colors duration-500">
+              <div className="bg-gradient-to-br from-white/90 to-[#F7F4EF]/90 dark:from-[#1E3A5F] dark:to-[#1E3A5F] dark:bg-[#1E3A5F] backdrop-blur-sm border-2 border-[#C9A961]/40 dark:border-[#2D4A77] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl transition-colors duration-500">
                 {/* Countdown Timer - P0 FIX: Add urgency above fold */}
                 <CountdownTimer 
                   targetDate={new Date('2026-01-20T23:59:59')} 
@@ -170,7 +170,7 @@ export default function Home() {
                 />
                 
                 <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-3">
-                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground dark:text-[#D4AF37]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A5F] dark:text-[#D4AF37]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
                   <span className="text-xl sm:text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
                   <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1.5 shadow-md">
                     Save 46%
@@ -180,7 +180,7 @@ export default function Home() {
                   <Sparkles className="w-4 h-4 text-[#C9A961]" />
                   <span className="font-semibold">Pre-Order Special:</span> Ships Jan 20-27, 2026
                 </p>
-                <div className="flex items-center gap-2 text-xs text-slate-600 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">
+                <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300 bg-amber-50 dark:bg-[#0B1120]/50 border border-amber-200 dark:border-[#2D4A77] rounded-lg px-3 py-2 mb-4">
                   <span className="animate-pulse text-amber-600">⏱️</span>
                   <span className="font-semibold">Free shipping</span> on orders $75+
                 </div>
@@ -213,7 +213,7 @@ export default function Home() {
               {/* P0 FIX: Removed duplicate CTA, moved to pricing card above */}
 
               {/* Social Proof - Enhanced */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-5 shadow-md transition-colors duration-500">
+              <div className="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-[#1E3A5F] dark:to-[#1E3A5F] border-2 border-green-200 dark:border-[#2D4A77] rounded-xl p-5 shadow-md transition-colors duration-500">
                 <div className="flex items-center gap-4">
                   <div className="flex -space-x-3">
                     {[1, 2, 3, 4, 5].map((i) => (
@@ -225,12 +225,12 @@ export default function Home() {
                       {[1, 2, 3, 4, 5].map((i) => (
                         <Star key={i} className="w-5 h-5 fill-[#C9A961] text-[#C9A961]" />
                       ))}
-                      <span className="ml-2 text-sm font-bold text-slate-900">4.9/5</span>
+                      <span className="ml-2 text-sm font-bold text-slate-900 dark:text-white">4.9/5</span>
                     </div>
-                    <p className="text-sm text-slate-700">
-                      <span className="font-bold text-slate-900 text-lg">5,247</span> happy customers
+                    <p className="text-sm text-slate-700 dark:text-slate-300">
+                      <span className="font-bold text-slate-900 dark:text-white text-lg">5,247</span> happy customers
                     </p>
-                    <p className="text-xs text-green-700 font-semibold mt-1">
+                    <p className="text-xs text-green-700 dark:text-green-400 font-semibold mt-1">
                       ✅ <span className="font-bold">127</span> bottles sold in last 24 hours
                     </p>
                   </div>
@@ -311,7 +311,7 @@ export default function Home() {
       </section>
 
       {/* 90-Day Money-Back Guarantee - PROMINENT */}
-      <section className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#152B45] dark:from-[#24426A] dark:to-[#1E3A5F] dark:border-y dark:border-[#D4AF37]/30 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-[#1E3A5F] to-[#152B45] dark:from-[#24426A] dark:to-[#1E3A5F] border-y border-[#C9A961]/20 dark:border-[#D4AF37]/30 relative overflow-hidden transition-colors duration-500">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-30" />
         <div className="container relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -377,7 +377,7 @@ export default function Home() {
       </section>
 
       {/* Why KSM-66 Specifically */}
-      <section className="py-24 bg-white dark:bg-[#0B1120]">
+      <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Image */}
@@ -612,7 +612,7 @@ export default function Home() {
 
       {/* Featured Product */}
       {mainProduct && (
-        <section className="py-24 bg-white dark:bg-[#0B1120]">
+        <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
           <div className="container">
             <div className="max-w-5xl mx-auto">
               <Card className="overflow-hidden border-2 dark:border-[#2D4A77] shadow-2xl dark:bg-[#1E3A5F]">
@@ -730,7 +730,7 @@ export default function Home() {
       </section>
 
       {/* Quality Certifications */}
-      <section className="py-24 bg-white dark:bg-[#0B1120]">
+      <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1E3A5F] dark:text-white">

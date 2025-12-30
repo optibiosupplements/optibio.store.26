@@ -467,3 +467,32 @@ The deep dark background looks great but has 3 contrast issues that break the "N
 ### Fix 3: Header in Dark Mode
 - [x] Ensure header turns Abyssal Navy (#0B1120) in dark mode
 - [x] Match top and bottom of site for seamless dark mode experience
+
+## 🌙 DARK MODE CRITICAL FIXES - Hero Section (Dec 30, 2025)
+
+### Issue: Hero Section Stuck in Light Mode
+The body of the page looks great in "Abyssal Navy," but the Hero Section (Top) did not switch over. It is stuck in Light Mode with Sky Blue background.
+
+### Fix 1: Hero Background (CRITICAL)
+- [x] Change hero gradient from bg-gradient-to-b from-blue-50 to-white
+- [x] Add dark mode variant: dark:from-[#0B1120] dark:to-[#15233E]
+- [x] Ensure top of page matches rest of dark page
+
+### Fix 2: Hero "Buy Box" Card
+- [x] Add dark mode background: dark:bg-[#1E3A5F]
+- [x] Add dark mode border: dark:border-[#2D4A77]
+- [x] Ensure headline turns White in dark mode
+- [x] Ensure price turns Gold (#D4AF37) in dark mode
+
+### Fix 3: Bottle Container Backgrounds
+- [x] "Why KSM-66 Specifically?" section bottle container
+- [x] "Get Personalized Plan" section bottle container
+- [x] Set containers to transparent or Navy (dark:bg-[#1E3A5F])
+- [x] Bottle should blend into night mode, not look like a sticker
+
+### Fix 4: 90-Day Guarantee Strip Definition
+- [x] Add gold border: border-y border-[#D4AF37]/30
+- [x] Make strip visible as premium ribbon against dark background
+- [x] Navy strip currently blends into Navy background
+
+### Goal: Entire page dark from top pixel to bottom pixel. No "Sky Blue" bands in Night Mode.
