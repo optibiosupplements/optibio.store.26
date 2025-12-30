@@ -143,7 +143,7 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl">
+                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl font-normal dark:font-medium dark:text-[#F0F0F0]">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
@@ -189,7 +189,7 @@ export default function Home() {
                 <Link href="/product/ashwagandha-ksm-66" className="block">
                   <Button 
                     size="lg" 
-                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-[#1E3A5F] dark:hover:bg-[#24426A] dark:border dark:border-[#D4AF37] text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
+                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-gradient-to-r dark:from-[#D4AF37] dark:via-[#E5C158] dark:to-[#D4AF37] dark:text-[#0B1120] dark:hover:shadow-[0_0_35px_rgba(212,175,55,0.6)] dark:border-0 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] dark:shadow-[0_0_20px_rgba(212,175,55,0.4),inset_0_1px_0_rgba(255,255,255,0.3)]"
                   >
                     Pre-Order Now - Save 46%
                     <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
@@ -223,7 +223,7 @@ export default function Home() {
                   <div>
                     <div className="flex items-center gap-1 mb-1">
                       {[1, 2, 3, 4, 5].map((i) => (
-                        <Star key={i} className="w-5 h-5 fill-[#C9A961] text-[#C9A961]" />
+                        <Star key={i} className="w-5 h-5 fill-[#D4AF37] text-[#D4AF37] dark:drop-shadow-[0_0_3px_rgba(212,175,55,0.4)]" />
                       ))}
                       <span className="ml-2 text-sm font-bold text-slate-900 dark:text-white">4.9/5</span>
                     </div>
@@ -288,12 +288,13 @@ export default function Home() {
                       alt={`${benefit.title} - ${benefit.description.split('.')[0]}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1E3A5F]/80 via-[#1E3A5F]/40 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="text-4xl font-bold text-[#C9A961] mb-2">
+                    {/* Enhanced black gradient overlay for dark mode - 50-60% opacity from bottom */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/20 dark:from-black/80 dark:via-black/60 dark:to-transparent" />
+                    <div className="absolute bottom-4 left-6 right-6 px-2">
+                      <div className="text-4xl font-bold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-lg">
                         {benefit.stat}
                       </div>
-                      <h3 className="text-2xl font-bold text-white">
+                      <h3 className="text-2xl font-bold text-white drop-shadow-lg">
                         {benefit.title}
                       </h3>
                     </div>
@@ -330,17 +331,19 @@ export default function Home() {
             <div className="bg-white/10 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-2xl p-8 md:p-12 mb-8">
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-[#C9A961] mb-2">1</div>
+                  <div className="text-6xl font-extrabold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">1</div>
                   <h3 className="text-lg font-bold text-white mb-2">Try It</h3>
                   <p className="text-[#F7F4EF]/80 text-sm">Take Optibio daily for up to 90 days</p>
                 </div>
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-[#C9A961] mb-2">2</div>
+                <div className="text-center relative">
+                  {/* Connecting line - left */}
+                  <div className="hidden md:block absolute left-0 top-8 w-full h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
+                  <div className="text-6xl font-extrabold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] relative z-10">2</div>
                   <h3 className="text-lg font-bold text-white mb-2">Feel the Difference</h3>
                   <p className="text-[#F7F4EF]/80 text-sm">Notice calmer mornings, better sleep, clearer thinking</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-5xl font-bold text-[#C9A961] mb-2">3</div>
+                  <div className="text-6xl font-extrabold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">3</div>
                   <h3 className="text-lg font-bold text-white mb-2">Keep or Return</h3>
                   <p className="text-[#F7F4EF]/80 text-sm">Not satisfied? Full refund. No questions asked.</p>
                 </div>
@@ -348,15 +351,15 @@ export default function Home() {
 
               <div className="space-y-4 text-left max-w-2xl mx-auto">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-7 h-7 text-[#C9A961] dark:text-[#D4AF37] flex-shrink-0 mt-1 drop-shadow-[0_0_8px_rgba(212,175,55,0.5)]" strokeWidth={2.5} />
                   <p className="text-[#F7F4EF] text-lg"><strong className="text-white">Full refund</strong> — Every penny back, no hassle</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-7 h-7 text-[#C9A961] dark:text-[#D4AF37] flex-shrink-0 mt-1 drop-shadow-[0_0_8px_rgba(212,175,55,0.5)]" strokeWidth={2.5} />
                   <p className="text-[#F7F4EF] text-lg"><strong className="text-white">No questions asked</strong> — We trust your judgment</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-[#C9A961] flex-shrink-0 mt-1" />
+                  <CheckCircle2 className="w-7 h-7 text-[#C9A961] dark:text-[#D4AF37] flex-shrink-0 mt-1 drop-shadow-[0_0_8px_rgba(212,175,55,0.5)]" strokeWidth={2.5} />
                   <p className="text-[#F7F4EF] text-lg"><strong className="text-white">Keep the bottle</strong> — It's yours, even if you return it</p>
                 </div>
               </div>
@@ -380,12 +383,16 @@ export default function Home() {
       <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">
         <div className="container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left - Image */}
+            {/* Left - Image with glow effect (no white box in dark mode) */}
             <div className="relative">
+              {/* Subtle gold glow behind bottle in dark mode */}
+              <div className="hidden dark:block absolute inset-0 flex items-center justify-center">
+                <div className="w-[60%] h-[70%] bg-gradient-radial from-[#D4AF37]/15 via-[#D4AF37]/5 to-transparent blur-3xl" />
+              </div>
               <img 
                 src="/products/optibio-90cap-bottle-angle.jpg" 
                 alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
-                className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-3xl"
+                className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-3xl relative z-10 dark:rounded-none"
               />
             </div>
 
@@ -504,78 +511,78 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* This IS for you */}
-              <Card className="border-2 border-[#C9A961]/30 dark:border-[#2D4A77] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#1E3A5F] dark:to-[#1E3A5F]">
+              <Card className="border-2 border-[#C9A961]/30 dark:border-[#D4AF37]/40 bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#24426A] dark:to-[#1E3A5F] dark:shadow-[0_0_20px_rgba(212,175,55,0.08)]">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-[#C9A961]/10 dark:bg-green-500/20 flex items-center justify-center">
-                      <CheckCircle2 className="w-7 h-7 text-[#C9A961] dark:text-green-400" />
+                    <div className="w-12 h-12 rounded-full bg-[#C9A961]/10 dark:bg-[#D4AF37]/20 flex items-center justify-center">
+                      <CheckCircle2 className="w-7 h-7 text-[#C9A961] dark:text-[#22C55E]" />
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white">This IS for you if:</h3>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
-                      <p className="text-slate-700 dark:text-white">You're dealing with <strong>chronic stress</strong> from work, family, or life transitions</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-[#22C55E] flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-[#F0F0F0]">You're dealing with <strong className="dark:text-white">chronic stress</strong> from work, family, or life transitions</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
-                      <p className="text-slate-700 dark:text-white">You struggle with <strong>racing thoughts</strong> or difficulty falling asleep</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-[#22C55E] flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-[#F0F0F0]">You struggle with <strong className="dark:text-white">racing thoughts</strong> or difficulty falling asleep</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
-                      <p className="text-slate-700 dark:text-white">You feel <strong>mentally foggy</strong> or can't focus like you used to</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-[#22C55E] flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-[#F0F0F0]">You feel <strong className="dark:text-white">mentally foggy</strong> or can't focus like you used to</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
-                      <p className="text-slate-700 dark:text-white">You're <strong>exhausted but wired</strong>—tired all day, restless at night</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-[#22C55E] flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-[#F0F0F0]">You're <strong className="dark:text-white">exhausted but wired</strong>—tired all day, restless at night</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
-                      <p className="text-slate-700 dark:text-white">You want a <strong>science-backed solution</strong>, not just "wellness hype"</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-[#22C55E] flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-[#F0F0F0]">You want a <strong className="dark:text-white">science-backed solution</strong>, not just "wellness hype"</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-green-400 flex-shrink-0 mt-1" />
-                      <p className="text-slate-700 dark:text-white">You're willing to <strong>commit to 8-12 weeks</strong> for real results</p>
+                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] dark:text-[#22C55E] flex-shrink-0 mt-1" />
+                      <p className="text-slate-700 dark:text-[#F0F0F0]">You're willing to <strong className="dark:text-white">commit to 8-12 weeks</strong> for real results</p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
 
               {/* This is NOT for you */}
-              <Card className="border-2 border-[#C9A961]/20 dark:border-[#2D4A77] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#1E3A5F] dark:to-[#1E3A5F]">
+              <Card className="border-2 border-[#C9A961]/20 dark:border-[#D4AF37]/30 bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#1E3A5F] dark:to-[#152B45]">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-red-500/20 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-slate-600 dark:text-red-400">✕</span>
+                    <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-[#6B7280]/20 flex items-center justify-center">
+                      <span className="text-2xl font-bold text-slate-600 dark:text-[#6B7280]">✕</span>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-white">This is NOT for you if:</h3>
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600 dark:text-white">You're looking for <strong>instant energy</strong> or a caffeine replacement</p>
+                      <span className="text-slate-400 dark:text-[#6B7280] flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-[#94A3B8]">You're looking for <strong className="dark:text-[#E5E5E5]">instant energy</strong> or a caffeine replacement</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600 dark:text-white">You want <strong>overnight results</strong> (adaptogens take time to work)</p>
+                      <span className="text-slate-400 dark:text-[#6B7280] flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-[#94A3B8]">You want <strong className="dark:text-[#E5E5E5]">overnight results</strong> (adaptogens take time to work)</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600 dark:text-white">You're not willing to <strong>take it consistently</strong> for at least a month</p>
+                      <span className="text-slate-400 dark:text-[#6B7280] flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-[#94A3B8]">You're not willing to <strong className="dark:text-[#E5E5E5]">take it consistently</strong> for at least a month</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600 dark:text-white">You're pregnant, nursing, or have a <strong>thyroid condition</strong> (consult your doctor first)</p>
+                      <span className="text-slate-400 dark:text-[#6B7280] flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-[#94A3B8]">You're pregnant, nursing, or have a <strong className="dark:text-[#E5E5E5]">thyroid condition</strong> (consult your doctor first)</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600 dark:text-white">You prefer <strong>cheap supplements</strong> over premium, tested quality</p>
+                      <span className="text-slate-400 dark:text-[#6B7280] flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-[#94A3B8]">You prefer <strong className="dark:text-[#E5E5E5]">cheap supplements</strong> over premium, tested quality</p>
                     </div>
                     <div className="flex items-start gap-3">
-                      <span className="text-slate-400 dark:text-red-400 flex-shrink-0 mt-1 font-bold">✕</span>
-                      <p className="text-slate-600 dark:text-white">You're looking for a <strong>magic pill</strong> instead of a wellness tool</p>
+                      <span className="text-slate-400 dark:text-[#6B7280] flex-shrink-0 mt-1 font-bold">✕</span>
+                      <p className="text-slate-600 dark:text-[#94A3B8]">You're looking for a <strong className="dark:text-[#E5E5E5]">magic pill</strong> instead of a wellness tool</p>
                     </div>
                   </div>
                 </CardContent>
@@ -656,15 +663,15 @@ export default function Home() {
 
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-slate-700 dark:text-white">
-                        <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                        <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
                         <span>90 capsules - 45-day supply</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700 dark:text-white">
-                        <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                        <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
                         <span>300mg per capsule (600mg clinical dose with 2 capsules)</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700 dark:text-white">
-                        <CheckCircle2 className="w-5 h-5 text-[#C9A961]" />
+                        <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
                         <span>60-day money-back guarantee</span>
                       </div>
                     </div>
@@ -672,7 +679,7 @@ export default function Home() {
                     <Link href="/shop">
                       <Button 
                         size="lg" 
-                        className="w-full text-lg py-6 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
+                        className="w-full text-lg py-6 bg-gradient-to-r from-[#D4AF37] to-[#C9A961] hover:from-[#C9A961] hover:to-[#D4AF37] text-[#0B1120] font-bold shadow-glow-gold hover:shadow-glow-gold transition-all duration-300"
                       >
                         Pre-Order Now - Save 46%
                         <ArrowRight className="ml-2 w-5 h-5" />
@@ -702,9 +709,9 @@ export default function Home() {
             {testimonials.map((testimonial, i) => (
               <Card key={i} className="bg-white dark:bg-[#1E3A5F] shadow-md hover:shadow-lg transition-all duration-300 border border-slate-200 dark:border-[#2D4A77]">
                 <CardContent className="p-8 space-y-4">
-                  <div className="flex items-center gap-1 text-[#FFD700] dark:text-[#D4AF37]">
+                  <div className="flex items-center gap-1.5 text-[#FFD700] dark:text-[#D4AF37]">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-current" />
+                      <Star key={i} className="w-6 h-6 fill-current dark:drop-shadow-[0_0_4px_rgba(212,175,55,0.5)]" />
                     ))}
                   </div>
                   <p className="text-slate-700 dark:text-[#94A3B8] leading-relaxed">
@@ -779,7 +786,7 @@ export default function Home() {
               <Link href="/shop">
                 <Button 
                   size="lg" 
-                  className="text-lg px-8 py-6 bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold shadow-glow-gold"
+                  className="text-lg px-8 py-6 bg-gradient-to-r from-[#D4AF37] to-[#C9A961] hover:from-[#C9A961] hover:to-[#D4AF37] text-[#0B1120] font-bold shadow-glow-gold"
                 >
                   Shop Now - Save 29%
                   <ArrowRight className="ml-2 w-5 h-5" />
@@ -798,7 +805,7 @@ export default function Home() {
         <div className="container">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div>
-              <Badge className="bg-[#C9A961] text-[#1E3A5F] font-bold text-lg px-6 py-2 mb-4">
+              <Badge className="bg-[#D4AF37] text-[#0B1120] font-bold text-lg px-6 py-2 mb-4">
                 LIMITED TIME OFFER
               </Badge>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
@@ -811,31 +818,31 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto text-left">
               {/* Single Bottle - Entry Option */}
-              <Card className="bg-white/10 backdrop-blur-sm border-[#C9A961]/40 hover:border-[#C9A961]/70 transition-all relative">
+              <Card className="bg-white/10 backdrop-blur-sm border-[#D4AF37]/40 hover:border-[#D4AF37]/70 transition-all relative">
                 <CardContent className="p-8">
-                  <Zap className="w-10 h-10 text-[#C9A961] mb-4" />
+                  <Zap className="w-10 h-10 text-[#D4AF37] mb-4" />
                   <h3 className="font-bold text-2xl mb-3">Single Bottle</h3>
                   <div className="mb-4">
                     <p className="text-4xl font-bold mb-2">$49.99</p>
                     <p className="text-lg text-[#F7F4EF]">90 capsules • 45-day supply</p>
-                    <p className="text-sm text-[#C9A961] mt-2">Save 15% vs retail ($58.82)</p>
+                    <p className="text-sm text-[#D4AF37] mt-2">Save 15% vs retail ($58.82)</p>
                   </div>
                   <ul className="space-y-2 mb-6 text-[#F7F4EF]">
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                       <span>Perfect for first-time buyers</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                       <span>Free shipping on orders $75+</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                       <span>90-day money-back guarantee</span>
                     </li>
                   </ul>
                   <Link href="/shop" className="block">
-                    <Button className="w-full bg-[#C9A961] hover:bg-[#B89651] text-[#1E3A5F] font-bold text-lg py-6">
+                    <Button className="w-full bg-transparent border-2 border-[#D4AF37]/50 hover:border-[#D4AF37]/70 hover:bg-[#D4AF37]/10 text-white/80 hover:text-white font-semibold text-lg py-6 transition-all">
                       Get Started
                     </Button>
                   </Link>
@@ -843,14 +850,14 @@ export default function Home() {
               </Card>
 
               {/* 3-Month Bundle - Most Popular */}
-              <Card className="bg-white/10 backdrop-blur-sm border-3 border-[#C9A961] shadow-glow-gold hover:shadow-glow-gold-lg transition-all relative">
+              <Card className="bg-white/10 backdrop-blur-sm border-3 border-[#D4AF37] shadow-glow-gold hover:shadow-glow-gold-lg transition-all relative">
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <Badge className="bg-gradient-to-r from-[#C9A961] to-[#B89651] text-[#1E3A5F] font-bold text-sm px-6 py-1.5 shadow-lg">
+                  <Badge className="bg-gradient-to-r from-[#D4AF37] to-[#C9A961] text-[#0B1120] font-bold text-sm px-6 py-1.5 shadow-lg">
                     ⭐ MOST POPULAR
                   </Badge>
                 </div>
                 <CardContent className="p-8">
-                  <Star className="w-10 h-10 text-[#C9A961] mb-4" />
+                  <Star className="w-10 h-10 text-[#D4AF37] mb-4" />
                   <h3 className="font-bold text-2xl mb-3">3-Month Bundle</h3>
                   <div className="mb-4">
                     <div className="flex items-baseline gap-3">
@@ -858,28 +865,28 @@ export default function Home() {
                       <p className="text-xl text-[#F7F4EF]/60 line-through">$149.97</p>
                     </div>
                     <p className="text-lg text-[#F7F4EF] mt-1">270 capsules • 135-day supply</p>
-                    <p className="text-sm text-[#C9A961] mt-2 font-bold">Save $22.97 (15% off) + FREE shipping</p>
+                    <p className="text-sm text-[#D4AF37] mt-2 font-bold">Save $22.97 (15% off) + FREE shipping</p>
                   </div>
                   <ul className="space-y-2 mb-6 text-[#F7F4EF]">
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                       <span className="font-semibold">Best value - $42.33/bottle</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                       <span>FREE shipping (save $7.99)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                       <span>Full 90-day trial period covered</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-5 h-5 text-[#C9A961] flex-shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
                       <span>See results through week 8+ optimal phase</span>
                     </li>
                   </ul>
                   <Link href="/shop" className="block">
-                    <Button className="w-full bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold text-lg py-6 shadow-lg">
+                    <Button className="w-full bg-gradient-to-r from-[#D4AF37] via-[#E5C158] to-[#D4AF37] hover:from-[#E5C158] hover:via-[#D4AF37] hover:to-[#E5C158] text-[#0B1120] font-bold text-lg py-6 shadow-[0_0_25px_rgba(212,175,55,0.5)] hover:shadow-[0_0_40px_rgba(212,175,55,0.7)] transition-all">
                       Get Best Value
                     </Button>
                   </Link>
@@ -890,7 +897,7 @@ export default function Home() {
             <Link href="/shop">
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-[#C9A961] to-[#B89651] hover:from-[#B89651] hover:to-[#C9A961] text-[#1E3A5F] font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-glow-gold transition-all"
+                className="bg-gradient-to-r from-[#D4AF37] to-[#C9A961] hover:from-[#C9A961] hover:to-[#D4AF37] text-[#0B1120] font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-glow-gold transition-all"
               >
                 <Sparkles className="w-6 h-6 mr-2" />
                 Shop Now - Save 29%

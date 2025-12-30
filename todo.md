@@ -535,3 +535,49 @@ The body of the page looks great in "Abyssal Navy," but the Hero Section (Top) d
 - [x] Light mode components unchanged (only dark: variants added)
 
 **RESULT: Dark mode upgraded from 7.8/10 to 9/10 with improved contrast, gold CTAs, and premium visual effects.**
+
+
+## 🌙 DARK MODE DESIGN REFINEMENTS (Dec 30, 2025)
+
+### Section 1: Hero Section (Top)
+- [x] Brighten gold gradient on CTA buttons - metallic, not mustard/dull
+- [x] Add subtle inner glow to CTA buttons for clickable appearance
+- [x] Increase sub-headline font weight (Light → Regular) for legibility
+
+### Section 2: Scientifically-Backed Benefits (Image Grid)
+- [x] Add black gradient overlay (40-60% opacity) from bottom of each image card
+- [x] Add 10px more padding on left/right sides of text within boxes
+
+### Section 3: 60-Day Money-Back Guarantee
+- [x] Increase stroke width of gold icons (1, 2, 3)
+- [x] Increase stroke width of connecting lines
+
+### Section 4: Why KSM-66 (Product on Left, Text on Right)
+- [x] MAJOR: Remove white background card behind bottle
+- [x] Place bottle directly on dark navy background (transparent PNG)
+- [x] Add subtle back-light/glow behind bottle center (no hard-edged white box)
+
+### Section 5: Who Is KSM-66 For (3 Blue Cards)
+- [x] Fix flat cards - same color as background
+- [x] Option A: Make card background slightly lighter navy
+- [x] Option B: Add thin 1px gold border around boxes
+
+### Section 6: Old You vs New You (Comparison Section)
+- [x] "The Old You" (Left): Muted grey or desaturated red checkmarks
+- [x] "The New You" (Right): Lighter background or subtle gold glow
+- [x] "The New You" checkmarks: Vibrant Green or Gold
+
+### Section 7: Trusted by Thousands (Reviews)
+- [x] Make 5-star icons larger
+- [x] Ensure stars are bright, metallic gold (not dull)
+
+### Section 8: Footer/Pricing Section (Save 20%)
+- [x] "Subscribe & Save" card: Change button to bright Gold
+- [x] "One-time purchase" card: Change button to outline/ghost or duller color
+- [x] Visually push users toward subscription option
+
+### General Color Palette Standardization
+- [x] Standardize all gold to single metallic gradient or hex (#D4AF37)
+- [x] Remove inconsistent yellow/bronze golds
+- [x] Ensure text contrast: White or Off-White (#F0F0F0) on dark navy
+- [x] Avoid dark grey text on dark blue background

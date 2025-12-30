@@ -898,3 +898,212 @@ textarea {
   border-color: rgba(212, 175, 55, 0.3);
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
 }
+
+
+/* ============================================
+   DARK MODE REFINEMENTS (Dec 30, 2025)
+   Premium Midnight Sophistication Enhancements
+   ============================================ */
+
+/* 1. Hero Section - Metallic Gold CTA Buttons */
+.dark .btn-gold-metallic {
+  background: linear-gradient(145deg, #D4AF37 0%, #E5C158 25%, #D4AF37 50%, #C9A961 75%, #D4AF37 100%);
+  background-size: 200% 200%;
+  animation: metallic-shine 3s ease-in-out infinite;
+  box-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  color: #0B1120;
+  font-weight: 700;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dark .btn-gold-metallic:hover {
+  background-size: 300% 300%;
+  box-shadow: 
+    0 0 35px rgba(212, 175, 55, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+@keyframes metallic-shine {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* 2. Benefits Grid - Black Gradient Overlay for Images */
+.dark .benefit-card-image-overlay {
+  position: relative;
+}
+
+.dark .benefit-card-image-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 30%,
+    rgba(0, 0, 0, 0.2) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* 3. 60-Day Guarantee - Thicker Icon Strokes */
+.dark .guarantee-step-number {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #D4AF37;
+  text-shadow: 
+    0 0 20px rgba(212, 175, 55, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.3);
+  -webkit-text-stroke: 2px #D4AF37;
+}
+
+.dark .guarantee-icon-thick {
+  stroke-width: 2.5;
+  filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+}
+
+/* 4. Why KSM-66 - Bottle Glow Effect (no white box) */
+.dark .bottle-glow-container {
+  position: relative;
+  background: transparent;
+}
+
+.dark .bottle-glow-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 80%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(212, 175, 55, 0.15) 0%,
+    rgba(212, 175, 55, 0.08) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .bottle-glow-container img {
+  position: relative;
+  z-index: 1;
+}
+
+/* 5. Who Is KSM-66 For - Gold Border Cards */
+.dark .qualification-card {
+  background: linear-gradient(145deg, #1E3A5F 0%, #24426A 100%);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dark .qualification-card:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 
+    0 8px 30px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+/* 6. Old vs New Comparison - Color Coded */
+.dark .comparison-old {
+  background: linear-gradient(145deg, #1E3A5F 0%, #152B45 100%);
+}
+
+.dark .comparison-old .check-icon {
+  color: #6B7280; /* Muted grey */
+}
+
+.dark .comparison-old .x-icon {
+  color: #DC2626; /* Desaturated red */
+}
+
+.dark .comparison-new {
+  background: linear-gradient(145deg, #24426A 0%, #2D4A77 100%);
+  box-shadow: 
+    0 0 30px rgba(212, 175, 55, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dark .comparison-new .check-icon {
+  color: #22C55E; /* Vibrant green */
+}
+
+/* 7. Reviews - Larger Metallic Gold Stars */
+.dark .review-star-large {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #D4AF37;
+  fill: #D4AF37;
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.5));
+}
+
+/* 8. Pricing - Subscribe vs One-time Visual Hierarchy */
+.dark .btn-subscribe-gold {
+  background: linear-gradient(145deg, #D4AF37 0%, #E5C158 25%, #D4AF37 50%, #C9A961 75%, #D4AF37 100%);
+  background-size: 200% 200%;
+  animation: metallic-shine 3s ease-in-out infinite;
+  color: #0B1120;
+  font-weight: 700;
+  border: none;
+  box-shadow: 
+    0 0 25px rgba(212, 175, 55, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.dark .btn-subscribe-gold:hover {
+  box-shadow: 
+    0 0 40px rgba(212, 175, 55, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.dark .btn-onetime-ghost {
+  background: transparent;
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 600;
+}
+
+.dark .btn-onetime-ghost:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(212, 175, 55, 0.1);
+}
+
+/* 9. Standardized Gold Color - Consistent #D4AF37 */
+.dark .text-gold-standard {
+  color: #D4AF37;
+}
+
+.dark .bg-gold-standard {
+  background-color: #D4AF37;
+}
+
+.dark .border-gold-standard {
+  border-color: #D4AF37;
+}
+
+/* Gold Glow Shadow Utility */
+.shadow-glow-gold-lg {
+  box-shadow: 0 0 60px rgba(212, 175, 55, 0.5);
+}
+
+/* Ensure text contrast on dark backgrounds */
+.dark .text-contrast-white {
+  color: #F0F0F0;
+}
+
+.dark .text-contrast-offwhite {
+  color: #E5E5E5;
+}
