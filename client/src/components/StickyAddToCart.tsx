@@ -95,7 +95,7 @@ export default function StickyAddToCart({
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#1E3A5F] border-t border-border dark:border-[#2D4A77] shadow-lg dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] animate-slide-up transition-colors duration-300"
+      className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#1E3A5F] border-t border-border dark:border-[#2D4A77] shadow-lg dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] animate-slide-up transition-colors duration-300 buy-box-glow"
       style={{
         animation: "slideUp 0.3s ease-out",
       }}

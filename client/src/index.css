@@ -722,3 +722,179 @@ textarea {
 .dark {
   scrollbar-color: #C9A961 #1E3A5F;
 }
+
+/* ========================================
+   SME PANEL DARK MODE IMPROVEMENTS
+   Implemented: December 30, 2025
+   Score Target: 7.8/10 → 9/10
+   ======================================== */
+
+/* HIGH PRIORITY 1: Improved Body Text Contrast (WCAG AAA) */
+/* Upgrade all body text to #CBD5E1 (slate-300) minimum */
+.dark .text-muted-foreground,
+.dark .text-slate-400,
+.dark .text-slate-500 {
+  color: #CBD5E1 !important; /* slate-300 - WCAG AAA compliant */
+}
+
+/* Subtext that was failing WCAG AA now passes */
+.dark .text-sky-grey {
+  color: #CBD5E1 !important; /* Upgraded from #94A3B8 */
+}
+
+/* HIGH PRIORITY 2: Gold CTA Button Variant */
+/* A/B testable gold gradient button for 15-25% conversion lift */
+.dark .btn-gold-cta {
+  background: linear-gradient(135deg, #D4AF37 0%, #E5B84C 50%, #D4AF37 100%);
+  color: #0B1120;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+  transition: all 0.3s ease;
+}
+
+.dark .btn-gold-cta:hover {
+  background: linear-gradient(135deg, #E5B84C 0%, #F0C75D 50%, #E5B84C 100%);
+  box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+/* HIGH PRIORITY 3: Enhanced Focus States for Dark Mode */
+.dark button:focus-visible,
+.dark [role="button"]:focus-visible,
+.dark a[href]:focus-visible,
+.dark input:focus-visible,
+.dark select:focus-visible,
+.dark textarea:focus-visible {
+  outline: none;
+  ring: 2px;
+  ring-color: #D4AF37;
+  ring-offset: 2px;
+  ring-offset-color: #0B1120;
+  box-shadow: 0 0 0 2px #0B1120, 0 0 0 4px #D4AF37;
+}
+
+/* MEDIUM PRIORITY 1: Warmer Gold Accent (#E5B84C) */
+/* More vibrant gold for key elements in dark mode */
+.dark .text-gold-warm {
+  color: #E5B84C;
+}
+
+.dark .bg-gold-warm {
+  background-color: #E5B84C;
+}
+
+.dark .border-gold-warm {
+  border-color: #E5B84C;
+}
+
+/* MEDIUM PRIORITY 2: Buy Box Glow Effect */
+/* Subtle gold glow for better visual separation */
+.dark .buy-box-glow {
+  box-shadow: 0 0 40px rgba(212, 175, 55, 0.1), 
+              0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark .buy-box-glow:hover {
+  box-shadow: 0 0 60px rgba(212, 175, 55, 0.15), 
+              0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* MEDIUM PRIORITY 3: Countdown Timer Pulse Animation */
+@keyframes countdown-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.dark .countdown-pulse {
+  animation: countdown-pulse 1.5s ease-in-out infinite;
+}
+
+/* Enhanced countdown number styling */
+.dark .countdown-number {
+  color: #D4AF37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* MEDIUM PRIORITY 4: Trust Badge Hover Effects */
+.dark .trust-badge {
+  transition: all 0.3s ease;
+  opacity: 0.85;
+}
+
+.dark .trust-badge:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Dark Mode Modal Styling */
+.dark [role="dialog"],
+.dark [data-state="open"].dialog-content {
+  background-color: #15233E;
+  border-color: #2D4A77;
+  color: #F5F5F5;
+}
+
+.dark [role="dialog"] h2,
+.dark [role="dialog"] h3 {
+  color: #FFFFFF;
+}
+
+.dark [role="dialog"] p {
+  color: #CBD5E1;
+}
+
+/* Dark Mode Email Popup Specific */
+.dark .email-popup-modal {
+  background: linear-gradient(135deg, #0B1120 0%, #15233E 100%);
+  border: 1px solid #2D4A77;
+}
+
+.dark .email-popup-modal input {
+  background-color: #1E3A5F;
+  border-color: #2D4A77;
+  color: #FFFFFF;
+}
+
+.dark .email-popup-modal input::placeholder {
+  color: #94A3B8;
+}
+
+.dark .email-popup-modal input:focus {
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+/* LOW PRIORITY: Subtle Background Animation */
+@keyframes subtle-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.dark .bg-animated-gradient {
+  background: linear-gradient(135deg, #0B1120 0%, #15233E 50%, #0B1120 100%);
+  background-size: 200% 200%;
+  animation: subtle-gradient-shift 15s ease infinite;
+}
+
+/* Card Hover with Gold Accent */
+.dark .card-gold-hover {
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.dark .card-gold-hover:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+}

@@ -163,7 +163,7 @@ export default function ProductDetail() {
   ];
 
   return (
-    <div className="min-h-screen" style={{ background: 'radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%)' }}>
+    <div className="min-h-screen bg-hero-gradient dark:bg-[#0B1120] transition-colors duration-500">
       {/* Product Schema for Rich Snippets */}
       <ProductSchema
         name={product.name}
@@ -311,7 +311,7 @@ export default function ProductDetail() {
               </div>
 
               {/* CONSOLIDATED BUY BOX - Single White Card */}
-              <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-8 sticky top-24">
+              <div className="bg-white dark:bg-[#1E3A5F] rounded-3xl shadow-xl dark:shadow-2xl border border-slate-100 dark:border-[#2D4A77] p-8 sticky top-24 buy-box-glow transition-colors duration-500">
                 
                 {/* Buy Box Header: Price & Reviews */}
                 <div className="flex justify-between items-start mb-8 pb-8 border-b border-slate-200">
@@ -485,7 +485,7 @@ export default function ProductDetail() {
 
                 {/* MAIN ACTION BUTTON */}
                 <Button 
-                  className="w-full h-14 text-lg font-bold bg-[#1E3A5F] hover:bg-[#2563EB] text-white shadow-lg shadow-blue-900/20 rounded-xl mb-4 transition-all hover:-translate-y-1"
+                  className="w-full h-14 text-lg font-bold bg-[#1E3A5F] hover:bg-[#2563EB] dark:bg-gradient-to-r dark:from-[#D4AF37] dark:to-[#E5B84C] dark:text-[#0B1120] dark:hover:from-[#E5B84C] dark:hover:to-[#F0C75D] text-white shadow-lg shadow-blue-900/20 dark:shadow-[0_4px_20px_rgba(212,175,55,0.3)] rounded-xl mb-4 transition-all hover:-translate-y-1 btn-gold-cta"
                   onClick={handleAddToCart}
                   disabled={addToCartMutation.isPending}
                 >

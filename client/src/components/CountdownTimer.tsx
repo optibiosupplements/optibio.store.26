@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Pause, Play } from 'lucide-react';
+import { Pause, Play, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface CountdownTimerProps {
@@ -42,41 +42,47 @@ export default function CountdownTimer({ targetDate, className = '' }: Countdown
   }, [targetDate, isPaused]);
 
   return (
-    <div className={`bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-lg px-4 py-3 ${className}`}>
+    <div className={`
+      bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-lg px-4 py-3
+      dark:from-[#1E3A5F]/80 dark:to-[#0B1120]/80 dark:border-[#D4AF37]/40 dark:bg-[#0B1120]
+      transition-colors duration-500
+      ${className}
+    `}>
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold text-red-900 whitespace-nowrap">
+          <Clock className="w-4 h-4 text-red-900 dark:text-[#D4AF37] countdown-pulse" />
+          <span className="text-sm font-semibold text-red-900 dark:text-[#CBD5E1] whitespace-nowrap">
             Pre-orders close in:
           </span>
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setIsPaused(!isPaused)}
-            className="h-6 w-6 p-0 hover:bg-red-100"
+            className="h-6 w-6 p-0 hover:bg-red-100 dark:hover:bg-[#1E3A5F]"
             aria-label={isPaused ? 'Resume countdown timer' : 'Pause countdown timer'}
             title={isPaused ? 'Resume timer' : 'Pause timer'}
           >
             {isPaused ? (
-              <Play className="h-3 w-3 text-red-900" />
+              <Play className="h-3 w-3 text-red-900 dark:text-[#D4AF37]" />
             ) : (
-              <Pause className="h-3 w-3 text-red-900" />
+              <Pause className="h-3 w-3 text-red-900 dark:text-[#D4AF37]" />
             )}
           </Button>
         </div>
-        <div className="flex gap-1 sm:gap-2 text-red-900 font-bold">
-          <div className="flex flex-col items-center min-w-[40px]">
-            <span className="text-xl sm:text-2xl leading-none">{timeLeft.days}</span>
-            <span className="text-[10px] sm:text-xs uppercase">Days</span>
+        <div className="flex gap-1 sm:gap-2 text-red-900 dark:text-[#D4AF37] font-bold">
+          <div className="flex flex-col items-center min-w-[40px] countdown-pulse">
+            <span className="text-xl sm:text-2xl leading-none countdown-number">{timeLeft.days}</span>
+            <span className="text-[10px] sm:text-xs uppercase text-red-800 dark:text-[#CBD5E1]">Days</span>
           </div>
           <span className="text-xl sm:text-2xl">:</span>
-          <div className="flex flex-col items-center min-w-[40px]">
-            <span className="text-xl sm:text-2xl leading-none">{timeLeft.hours.toString().padStart(2, '0')}</span>
-            <span className="text-[10px] sm:text-xs uppercase">Hrs</span>
+          <div className="flex flex-col items-center min-w-[40px] countdown-pulse">
+            <span className="text-xl sm:text-2xl leading-none countdown-number">{timeLeft.hours.toString().padStart(2, '0')}</span>
+            <span className="text-[10px] sm:text-xs uppercase text-red-800 dark:text-[#CBD5E1]">Hrs</span>
           </div>
           <span className="text-xl sm:text-2xl">:</span>
-          <div className="flex flex-col items-center min-w-[40px]">
-            <span className="text-xl sm:text-2xl leading-none">{timeLeft.minutes.toString().padStart(2, '0')}</span>
-            <span className="text-[10px] sm:text-xs uppercase">Min</span>
+          <div className="flex flex-col items-center min-w-[40px] countdown-pulse">
+            <span className="text-xl sm:text-2xl leading-none countdown-number">{timeLeft.minutes.toString().padStart(2, '0')}</span>
+            <span className="text-[10px] sm:text-xs uppercase text-red-800 dark:text-[#CBD5E1]">Min</span>
           </div>
         </div>
       </div>

@@ -81,17 +81,17 @@ export default function EmailCaptureModal() {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md email-popup-modal dark:bg-gradient-to-br dark:from-[#0B1120] dark:to-[#15233E] dark:border-[#2D4A77]">
         <DialogHeader>
           <div className="flex items-center justify-center mb-4">
-            <div className="bg-[#C9A961]/10 p-4 rounded-full">
-              <Gift className="h-8 w-8 text-[#C9A961]" />
+            <div className="bg-[#C9A961]/10 dark:bg-[#D4AF37]/20 p-4 rounded-full">
+              <Gift className="h-8 w-8 text-[#C9A961] dark:text-[#D4AF37]" />
             </div>
           </div>
-          <DialogTitle className="text-center text-2xl">
+          <DialogTitle className="text-center text-2xl dark:text-white">
             Get 10% Off Your First Order
           </DialogTitle>
-          <DialogDescription className="text-center">
+          <DialogDescription className="text-center dark:text-[#CBD5E1]">
             Join our wellness community and receive an exclusive discount code plus
             science-backed tips for better health.
           </DialogDescription>
@@ -99,16 +99,16 @@ export default function EmailCaptureModal() {
 
         <form onSubmit={handleSubmit} className="space-y-4 pt-4">
           <div className="space-y-2">
-            <Label htmlFor="email">Email Address</Label>
+            <Label htmlFor="email" className="dark:text-[#CBD5E1]">Email Address</Label>
             <div className="relative">
-              <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+              <Mail className="absolute left-3 top-3 h-4 w-4 text-muted-foreground dark:text-[#94A3B8]" />
               <Input
                 id="email"
                 type="email"
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="pl-10"
+                className="pl-10 dark:bg-[#1E3A5F] dark:border-[#2D4A77] dark:text-white dark:placeholder:text-[#94A3B8] dark:focus:border-[#D4AF37] dark:focus:ring-[#D4AF37]/20"
                 required
               />
             </div>
@@ -116,29 +116,29 @@ export default function EmailCaptureModal() {
 
           <Button
             type="submit"
-            className="w-full bg-[#C9A961] hover:bg-[#B8984F] text-white"
+            className="w-full bg-[#C9A961] hover:bg-[#B8984F] text-white dark:bg-gradient-to-r dark:from-[#D4AF37] dark:to-[#E5B84C] dark:text-[#0B1120] dark:hover:from-[#E5B84C] dark:hover:to-[#F0C75D] dark:font-bold btn-gold-cta"
             disabled={submitEmail.isPending}
           >
             {submitEmail.isPending ? "Subscribing..." : "Get My 10% Off Code"}
           </Button>
 
-          <p className="text-xs text-center text-muted-foreground">
+          <p className="text-xs text-center text-muted-foreground dark:text-[#94A3B8]">
             By subscribing, you agree to receive marketing emails. Unsubscribe anytime.
           </p>
         </form>
 
-        <div className="flex items-center gap-4 pt-4 border-t">
+        <div className="flex items-center gap-4 pt-4 border-t dark:border-[#2D4A77]">
           <div className="flex-1 text-center">
-            <div className="text-2xl font-bold text-[#1E3A5F]">20+</div>
-            <div className="text-xs text-muted-foreground">Clinical Studies</div>
+            <div className="text-2xl font-bold text-[#1E3A5F] dark:text-[#D4AF37]">20+</div>
+            <div className="text-xs text-muted-foreground dark:text-[#CBD5E1]">Clinical Studies</div>
           </div>
-          <div className="flex-1 text-center border-x">
-            <div className="text-2xl font-bold text-[#1E3A5F]">GMP</div>
-            <div className="text-xs text-muted-foreground">Certified</div>
+          <div className="flex-1 text-center border-x dark:border-[#2D4A77]">
+            <div className="text-2xl font-bold text-[#1E3A5F] dark:text-[#D4AF37]">GMP</div>
+            <div className="text-xs text-muted-foreground dark:text-[#CBD5E1]">Certified</div>
           </div>
           <div className="flex-1 text-center">
-            <div className="text-2xl font-bold text-[#1E3A5F]">Made</div>
-            <div className="text-xs text-muted-foreground">In USA</div>
+            <div className="text-2xl font-bold text-[#1E3A5F] dark:text-[#D4AF37]">Made</div>
+            <div className="text-xs text-muted-foreground dark:text-[#CBD5E1]">In USA</div>
           </div>
         </div>
       </DialogContent>
