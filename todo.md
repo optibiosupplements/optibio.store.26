@@ -711,3 +711,40 @@ Mixing generic Tailwind colors (sky-50, blue-50, slate, zinc) with brand palette
 - [x] Enhanced overall dark mode premium aesthetic
 
 **Result:** Trust badges now have premium gold glow effects, better contrast, and clear visual hierarchy in dark mode.
+
+
+## 🎨 Dark Mode Polish - User Feedback Implementation (Dec 30, 2025)
+
+### 1. Hero Section
+- [x] Brighten gold color for price and button with metallic gradient and inner glow
+- [x] Increase sub-headline font weight for better readability
+
+### 2. Benefits Grid (Image Cards)
+- [x] Add dark gradient overlay (80-85% opacity black fading to transparent) on all benefit images
+- [x] Ensure white text pops clearly against photos
+
+### 3. 60-Day Guarantee Section
+- [x] Increase stroke width/thickness of gold icons (1, 2, 3)
+- [x] Make connecting lines thicker and more visible
+
+### 4. Product Bottle Sections (CRITICAL)
+- [x] Remove white background squares from bottle images in "Why KSM-66?" section
+- [x] Remove white background from second product section
+- [x] Add subtle gold glow behind bottles instead of hard-edged boxes
+
+### 5. "Who Is This For?" Cards
+- [x] Make card backgrounds lighter than section background for depth
+- [x] Add 1px metallic gold border around "This IS for you" card
+
+### 6. "Old You vs New You" Comparison
+- [x] Left side: Use muted grey checkmarks for negative items
+- [x] Right side: Add subtle warm/gold glow to background (gradient from #24426A to #1E3A5F)
+- [x] Right side: Use bright green (#22C55E) checkmarks for positive items
+
+### 7. Reviews Section
+- [x] Increase size of 5-star icons (w-7 h-7)
+- [x] Ensure stars are bright metallic gold (#FFD700 light, #D4AF37 dark with glow)
+
+### 8. Footer Pricing Section
+- [x] Subscribe & Save button: Made bright solid metallic gold (#FFD700) with enhanced glow (hero CTA)
+- [x] One-time purchase button: Downgraded to ghost/outline button with reduced opacity

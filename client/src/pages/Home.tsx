@@ -143,7 +143,7 @@ export default function Home() {
                   {" "}Again
                 </h1>
                 
-                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl font-normal dark:font-medium dark:text-[#F0F0F0]">
+                <p className="text-lg sm:text-xl md:text-2xl text-primary leading-relaxed max-w-2xl font-normal dark:font-semibold dark:text-[#F0F0F0]">
                   Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
                 </p>
               </div>
@@ -170,7 +170,7 @@ export default function Home() {
                 />
                 
                 <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-3">
-                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A5F] dark:text-[#D4AF37]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1E3A5F] dark:bg-gradient-to-r dark:from-[#D4AF37] dark:via-[#FFD700] dark:to-[#D4AF37] dark:bg-clip-text dark:text-transparent dark:drop-shadow-[0_0_12px_rgba(212,175,55,0.5)]">{mainProduct ? formatPrice(mainProduct.priceInCents) : '$37.49'}</span>
                   <span className="text-xl sm:text-2xl text-slate-500 line-through">{mainProduct?.compareAtPriceInCents ? formatPrice(mainProduct.compareAtPriceInCents) : '$69.99'}</span>
                   <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-sm font-bold px-3 py-1.5 shadow-md">
                     Save 46%
@@ -189,7 +189,7 @@ export default function Home() {
                 <Link href="/product/ashwagandha-ksm-66" className="block">
                   <Button 
                     size="lg" 
-                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-gradient-to-r dark:from-[#D4AF37] dark:via-[#E5C158] dark:to-[#D4AF37] dark:text-[#0B1120] dark:hover:shadow-[0_0_35px_rgba(212,175,55,0.6)] dark:border-0 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] dark:shadow-[0_0_20px_rgba(212,175,55,0.4),inset_0_1px_0_rgba(255,255,255,0.3)]"
+                    className="w-full text-base sm:text-lg lg:text-xl px-6 sm:px-8 lg:px-12 py-6 sm:py-8 lg:py-10 min-h-[56px] md:min-h-[64px] bg-[#2563EB] hover:bg-[#1D4ED8] dark:bg-gradient-to-r dark:from-[#D4AF37] dark:via-[#FFD700] dark:to-[#D4AF37] dark:text-[#0B1120] dark:hover:shadow-[0_0_40px_rgba(255,215,0,0.7)] dark:border-2 dark:border-[#FFD700]/50 text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] dark:shadow-[0_0_25px_rgba(255,215,0,0.5),inset_0_2px_0_rgba(255,255,255,0.4)]"
                   >
                     Pre-Order Now - Save 46%
                     <ArrowRight className="ml-2 w-5 h-5 sm:w-6 sm:h-6" />
@@ -288,8 +288,8 @@ export default function Home() {
                       alt={`${benefit.title} - ${benefit.description.split('.')[0]}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    {/* Enhanced black gradient overlay for dark mode - 50-60% opacity from bottom */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/20 dark:from-black/80 dark:via-black/60 dark:to-transparent" />
+                    {/* Enhanced black gradient overlay for dark mode - 60-80% opacity from bottom for text visibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/30 dark:from-black/85 dark:via-black/65 dark:to-transparent" />
                     <div className="absolute bottom-4 left-6 right-6 px-2">
                       <div className="text-4xl font-bold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-lg">
                         {benefit.stat}
@@ -331,19 +331,19 @@ export default function Home() {
             <div className="bg-white/10 backdrop-blur-sm border-2 border-[#C9A961]/40 rounded-2xl p-8 md:p-12 mb-8">
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div className="text-center">
-                  <div className="text-6xl font-extrabold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">1</div>
+                  <div className="text-6xl font-extrabold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]" style={{WebkitTextStroke: '2px currentColor', paintOrder: 'stroke fill'}}>1</div>
                   <h3 className="text-lg font-bold text-white mb-2">Try It</h3>
                   <p className="text-[#F7F4EF]/80 text-sm">Take Optibio daily for up to 90 days</p>
                 </div>
                 <div className="text-center relative">
-                  {/* Connecting line - left */}
-                  <div className="hidden md:block absolute left-0 top-8 w-full h-0.5 bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent" />
-                  <div className="text-6xl font-extrabold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] relative z-10">2</div>
+                  {/* Connecting line - left - thicker for visibility */}
+                  <div className="hidden md:block absolute left-0 top-8 w-full h-1 bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent" />
+                  <div className="text-6xl font-extrabold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)] relative z-10" style={{WebkitTextStroke: '2px currentColor', paintOrder: 'stroke fill'}}>2</div>
                   <h3 className="text-lg font-bold text-white mb-2">Feel the Difference</h3>
                   <p className="text-[#F7F4EF]/80 text-sm">Notice calmer mornings, better sleep, clearer thinking</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-6xl font-extrabold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">3</div>
+                  <div className="text-6xl font-extrabold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]" style={{WebkitTextStroke: '2px currentColor', paintOrder: 'stroke fill'}}>3</div>
                   <h3 className="text-lg font-bold text-white mb-2">Keep or Return</h3>
                   <p className="text-[#F7F4EF]/80 text-sm">Not satisfied? Full refund. No questions asked.</p>
                 </div>
@@ -511,7 +511,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* This IS for you */}
-              <Card className="border-2 border-[#C9A961]/30 dark:border-[#D4AF37]/40 bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#24426A] dark:to-[#1E3A5F] dark:shadow-[0_0_20px_rgba(212,175,55,0.08)]">
+              <Card className="border-2 border-[#C9A961]/30 dark:border-[#D4AF37] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#24426A] dark:to-[#1E3A5F] dark:shadow-[0_0_20px_rgba(212,175,55,0.15)]">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-[#C9A961]/10 dark:bg-[#D4AF37]/20 flex items-center justify-center">
@@ -550,7 +550,7 @@ export default function Home() {
               </Card>
 
               {/* This is NOT for you */}
-              <Card className="border-2 border-[#C9A961]/20 dark:border-[#D4AF37]/30 bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#1E3A5F] dark:to-[#152B45]">
+              <Card className="border-2 border-[#C9A961]/20 dark:border-[#6B7280] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#1E3A5F] dark:to-[#152B45]">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-[#6B7280]/20 flex items-center justify-center">
@@ -624,12 +624,16 @@ export default function Home() {
             <div className="max-w-5xl mx-auto">
               <Card className="overflow-hidden border-2 dark:border-[#2D4A77] shadow-2xl dark:bg-[#1E3A5F]">
                 <div className="grid md:grid-cols-2">
-                  {/* Product Image */}
-                  <div className="bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] dark:from-[#0B1120] dark:to-[#1E3A5F] p-12 flex items-center justify-center">
+                  {/* Product Image - Clean background with subtle gold glow in dark mode */}
+                  <div className="relative bg-white dark:bg-[#0B1120] p-12 flex items-center justify-center overflow-hidden">
+                    {/* Subtle gold glow behind bottle in dark mode */}
+                    <div className="hidden dark:block absolute inset-0 flex items-center justify-center">
+                      <div className="w-[60%] h-[70%] bg-gradient-radial from-[#D4AF37]/15 via-[#D4AF37]/5 to-transparent blur-3xl" />
+                    </div>
                     <img 
                       src={mainProduct.imageUrl || "/products/optibio-90cap-bottle-front.jpg"}
                       alt={`${mainProduct.name} - Premium KSM-66 Ashwagandha supplement for stress relief, sleep support, and natural energy`}
-                      className="w-full max-w-xs drop-shadow-2xl"
+                      className="w-full max-w-xs drop-shadow-2xl relative z-10"
                     />
                   </div>
 
@@ -711,7 +715,7 @@ export default function Home() {
                 <CardContent className="p-8 space-y-4">
                   <div className="flex items-center gap-1.5 text-[#FFD700] dark:text-[#D4AF37]">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-6 h-6 fill-current dark:drop-shadow-[0_0_4px_rgba(212,175,55,0.5)]" />
+                      <Star key={i} className="w-7 h-7 fill-current dark:drop-shadow-[0_0_6px_rgba(212,175,55,0.6)]" />
                     ))}
                   </div>
                   <p className="text-slate-700 dark:text-[#94A3B8] leading-relaxed">
@@ -842,7 +846,7 @@ export default function Home() {
                     </li>
                   </ul>
                   <Link href="/shop" className="block">
-                    <Button className="w-full bg-transparent border-2 border-[#D4AF37]/50 hover:border-[#D4AF37]/70 hover:bg-[#D4AF37]/10 text-white/80 hover:text-white font-semibold text-lg py-6 transition-all">
+                    <Button className="w-full bg-transparent border-2 border-[#D4AF37]/40 hover:border-[#D4AF37]/60 hover:bg-[#D4AF37]/5 text-white/70 hover:text-white/90 font-medium text-lg py-6 transition-all">
                       Get Started
                     </Button>
                   </Link>
@@ -886,7 +890,7 @@ export default function Home() {
                     </li>
                   </ul>
                   <Link href="/shop" className="block">
-                    <Button className="w-full bg-gradient-to-r from-[#D4AF37] via-[#E5C158] to-[#D4AF37] hover:from-[#E5C158] hover:via-[#D4AF37] hover:to-[#E5C158] text-[#0B1120] font-bold text-lg py-6 shadow-[0_0_25px_rgba(212,175,55,0.5)] hover:shadow-[0_0_40px_rgba(212,175,55,0.7)] transition-all">
+                    <Button className="w-full bg-gradient-to-r from-[#FFD700] via-[#F4D03F] to-[#FFD700] hover:from-[#F4D03F] hover:via-[#FFD700] hover:to-[#F4D03F] text-[#0B1120] font-extrabold text-lg py-6 shadow-[0_0_30px_rgba(255,215,0,0.6),inset_0_2px_0_rgba(255,255,255,0.4)] hover:shadow-[0_0_50px_rgba(255,215,0,0.8)] border-2 border-[#FFD700]/60 transition-all">
                       Get Best Value
                     </Button>
                   </Link>
