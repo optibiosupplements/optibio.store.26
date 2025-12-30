@@ -88,6 +88,7 @@ html {
   
   /* Social Proof Green System */
   --optibio-mint-bg: #F0FDF4;        /* Mint Background - Review cards */
+  --optibio-mint-border: #BBF7D0;    /* Mint Border - Social proof card borders */
   --optibio-success-green: #16A34A;  /* Success Green - "Bottles sold" text */
   --optibio-star-gold: #FBBF24;      /* Review Star Gold - Review stars (brighter than Antique Gold) */
   

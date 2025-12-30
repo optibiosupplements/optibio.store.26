@@ -137,9 +137,9 @@ export default function ProductDetail() {
 
   // Theme-aware product images - using authentic product photos
   const productImages = [
-    "/products/optibio-authentic-front-transparent.png",
-    "/products/optibio-authentic-angle-marble.png",
-    "/products/optibio-authentic-front-transparent.png"
+    "/bottlemockbluegold_beigebg.png",
+    "/bottlemockbluegold_beigebg.png",
+    "/bottlemockbluegold_beigebg.png"
   ];
 
   const benefits = [

@@ -1409,3 +1409,152 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Create color usage guidelines document (COLOR_LOCK_SYSTEM.md)
 - [x] Lock CSS variables to prevent future drift (verified in index.css)
 - [x] WCAG AA contrast compliance verified for all combinations
+
+
+## 🔧 SYSTEMATIC COMPREHENSIVE REVIEW & FIX (Dec 30, 2025)
+
+### Phase 1: Hero Section & Product Showcase
+- [ ] Verify hero gradient matches reference design exactly
+- [ ] Fix headline typography and sizing
+- [ ] Ensure product image positioning and sizing
+- [ ] Verify pricing display and discount badge
+- [ ] Fix CTA button styling and positioning
+- [ ] Check mobile responsiveness for hero section
+- [ ] Verify urgency indicators (stock, viewers, recent purchases)
+
+### Phase 2: Benefits & Trust Sections
+- [ ] Fix "Scientifically Backed Benefits" grid layout
+- [ ] Ensure benefit cards match reference design
+- [ ] Verify icon styling and positioning
+- [ ] Fix "90-Day Money-Back Guarantee" banner
+- [ ] Check guarantee section contrast and readability
+- [ ] Verify trust badges and certifications display
+
+### Phase 3: Product Details & Features
+- [ ] Fix "Why KSM-66" section layout
+- [ ] Verify checkmark styling and alignment
+- [ ] Fix "What to Expect" timeline cards
+- [ ] Ensure timeline progression is clear
+- [ ] Verify dosage and usage instructions
+- [ ] Check ingredient list formatting
+
+### Phase 4: Testimonials & Social Proof
+- [ ] Fix testimonial card layout and spacing
+- [ ] Verify star rating display (gold color)
+- [ ] Ensure customer photos/avatars display correctly
+- [ ] Fix testimonial text formatting
+- [ ] Verify "Trusted by Thousands" section background
+- [ ] Check review carousel functionality
+
+### Phase 5: Product Detail Page
+- [ ] Fix product image gallery
+- [ ] Verify image zoom functionality
+- [ ] Fix product variant selector (90/180/270 capsules)
+- [ ] Ensure quantity selector works correctly
+- [ ] Fix add-to-cart button behavior
+- [ ] Verify sticky buy box on scroll
+- [ ] Check product description formatting
+
+### Phase 6: Cart & Checkout
+- [ ] Fix cart page layout and item display
+- [ ] Verify cart calculations (subtotal, shipping, tax, total)
+- [ ] Fix quantity update functionality
+- [ ] Ensure remove item works correctly
+- [ ] Fix checkout form layout and validation
+- [ ] Verify Stripe payment integration
+- [ ] Test complete purchase flow
+- [ ] Check order confirmation display
+
+### Phase 7: Footer & Navigation
+- [ ] Fix footer layout and column alignment
+- [ ] Verify footer links functionality
+- [ ] Ensure newsletter signup works
+- [ ] Fix social media icon links
+- [ ] Verify copyright and legal links
+- [ ] Check mobile footer responsiveness
+
+### Phase 8: Cross-Page Consistency
+- [ ] Verify header/navigation consistency across all pages
+- [ ] Ensure color palette consistency (navy, ivory, gold)
+- [ ] Fix typography consistency (Sora headings, Inter body)
+- [ ] Verify button styling consistency
+- [ ] Check spacing and padding consistency
+- [ ] Ensure mobile responsiveness across all pages
+
+### Phase 9: Functionality Testing
+- [ ] Test all internal links
+- [ ] Verify external links open in new tabs
+- [ ] Test form submissions (contact, newsletter)
+- [ ] Verify error handling and validation messages
+- [ ] Test loading states and spinners
+- [ ] Check browser compatibility (Chrome, Firefox, Safari)
+
+### Phase 10: Performance & Polish
+- [ ] Optimize images for web (compression, WebP)
+- [ ] Verify page load speed (<2 seconds)
+- [ ] Check Lighthouse score (target 90+)
+- [ ] Fix any console errors or warnings
+- [ ] Verify accessibility (WCAG 2.1 AA)
+- [ ] Test with screen readers
+- [ ] Final QA pass on all pages
+
+
+
+## 🎨 COMPLETE REDESIGN - Match Reference Design (Dec 30, 2025)
+
+### Critical Changes Required:
+- [x] Replace ALL product images with blue bottle (bottlemockbluegold_beigebg.png)
+- [ ] Implement clean light aesthetic across ALL pages (white/cream backgrounds)
+- [ ] Simplify layouts - more whitespace, cleaner sections
+- [x] Update hero section to match reference (left text, right buy box with blue bottle)
+- [ ] Ensure consistent light theme (no dark navy sections in light mode)
+- [ ] Match reference typography and spacing
+- [ ] Update all page layouts to match reference design
+
+### Homepage Sections:
+- [x] Hero: Two-column with blue bottle in buy box
+- [ ] Benefits: Clean white cards with lifestyle images
+- [ ] Guarantee: Navy section (keep as accent)
+- [ ] Why KSM-66: Light background with numbered list
+- [ ] Timeline: Light blue tint with white cards
+- [ ] Testimonials: Clean white cards on light background
+- [ ] Footer CTA: Navy accent section
+- [ ] Footer: Dark navy grounding
+
+### Other Pages:
+- [ ] Shop: Match reference "The Protocol" layout
+- [ ] Product Detail: Match reference with blue bottle
+- [ ] Cart: Match reference clean layout
+- [ ] About: Match reference clean sections
+- [ ] Science: Match reference clinical layout
+- [ ] FAQ: Match reference accordion layout
+
+### Product Images:
+- [x] Copy blue bottle images to public folder
+- [x] Update ALL pages to use bottlemockbluegold_beigebg.png (Cart, Checkout, Home, MyOrders, OrderSuccess, ProductDetail, Shop, BuyBox)
+- [x] Update all product image references across entire site
+- [ ] Remove old brown/black bottle images
+
+
+
+## 🎨 DUAL-THEME REQUIREMENT (CRITICAL)
+
+### Light Mode (Default - Match Reference Design):
+- [ ] Clean white/cream backgrounds
+- [ ] Navy text and accents
+- [ ] Professional, airy aesthetic
+- [ ] Matches all 8 reference images provided
+
+### Dark Mode (Premium Midnight):
+- [ ] Navy/black backgrounds
+- [ ] Gold accents
+- [ ] Premium, sophisticated aesthetic
+- [ ] Maintains current dark mode quality
+
+### Both Modes Must:
+- [ ] Work perfectly with theme toggle
+- [ ] Have proper contrast (WCAG AA)
+- [ ] Maintain brand consistency
+- [ ] Look professional and polished
+- [ ] Test all pages in both modes before checkpoint
+

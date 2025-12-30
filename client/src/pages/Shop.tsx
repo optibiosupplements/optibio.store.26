@@ -52,7 +52,7 @@ export default function Shop() {
                 </div>
                 {/* Floating Bottle Effect */}
                 <img
-                  src="/products/optibio-authentic-front-transparent.png"
+                  src="/bottlemockbluegold_beigebg.png"
                   alt={product.name}
                   className="w-full max-w-[320px] h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-700"
                 />
