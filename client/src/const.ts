@@ -41,9 +41,14 @@ export const getLoginUrl = () => {
 // 
 // CRITICAL: These colors are LOCKED and APPROVED for Light Mode (Day Mode).
 // DO NOT MODIFY without explicit user approval.
-// Full documentation: /APPROVED_COLOR_SCHEMA_V66B1D787.md
+// 
+// GOVERNANCE:
+// - Primary Source: /home/ubuntu/projects/optibio-supplements-4f3cb533/OPTIBIO_UNIFIED_DESIGN_SYSTEM_v3.md
+// - Brand Constants: client/src/brand.ts (TypeScript constants)
+// - CSS Variables: client/src/index.css (CSS custom properties)
+// - Guidelines: /home/ubuntu/optibio-ecommerce/BRAND_GUIDELINES.md
 //
-// Last Updated: December 29, 2025
+// Last Updated: December 30, 2025
 // Focus: Light Mode (Day Mode) Design Only
 //
 // ============================================================================

@@ -65,7 +65,10 @@ export default function BuyBox({ product, className = "" }: BuyBoxProps) {
             <span className="text-2xl text-muted-foreground line-through">
               {comparePrice}
             </span>
-            <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-0 text-base font-bold px-4 py-1.5 shadow-md">
+            <Badge 
+              className="text-white border-0 text-base font-bold px-4 py-1.5 shadow-md"
+              style={{ backgroundColor: '#DC2626' }} // Alert Red - Discount badges only (per Design System v3.0)
+            >
               Save {discount}%
             </Badge>
           </div>

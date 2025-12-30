@@ -83,7 +83,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </span>
                 <Badge 
                   className="border-0 text-base font-bold px-4 py-1.5 shadow-md text-white"
-                  style={{ background: '#DC2626' }}
+                  style={{ background: '#DC2626' }} // Alert Red - Discount badges only (per Design System v3.0)
                 >
                   Save {discount}%
                 </Badge>

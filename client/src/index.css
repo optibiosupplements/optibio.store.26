@@ -1,3 +1,24 @@
+/**
+ * ============================================================================
+ * OptiBio Global Styles
+ * ============================================================================
+ * 
+ * ⚠️ CRITICAL: ALL COLORS IN THIS FILE ARE GOVERNED BY OFFICIAL BRAND GUIDELINES
+ * 
+ * Before making ANY color changes:
+ * 1. Read: /home/ubuntu/optibio-ecommerce/BRAND_GUIDELINES.md
+ * 2. Reference: /home/ubuntu/projects/optibio-supplements-4f3cb533/OPTIBIO_UNIFIED_DESIGN_SYSTEM_v3.md
+ * 3. Import from: client/src/brand.ts
+ * 
+ * DO NOT use generic Tailwind colors (blue-500, gray-200, slate-50, etc.)
+ * DO NOT invent new colors without explicit brand team approval
+ * 
+ * SOURCE: OptiBio Unified Design System v3.0 (The "Locked" Protocol)
+ * STATUS: FINAL AUTHORITY
+ * DATE: December 30, 2025
+ * ============================================================================
+ */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -52,11 +73,14 @@ html {
 :root {
   /* ============================================
      OPTIBIO BRAND COLOR TOKENS (LOCKED)
-     Per Master Brand Guidelines v2.0
+     Per OptiBio Unified Design System v3.0
      NO GENERIC TAILWIND COLORS ALLOWED
+     
+     Reference: /home/ubuntu/optibio-ecommerce/BRAND_GUIDELINES.md
+     Source: /home/ubuntu/projects/optibio-supplements-4f3cb533/OPTIBIO_UNIFIED_DESIGN_SYSTEM_v3.md
      ============================================ */
   
-  /* PRIMARY BRAND COLORS */
+  /* PRIMARY BRAND COLORS (The "DNA") */
   --optibio-navy: #1E3A5F;           /* Deep Navy - Headlines, primary text */
   --optibio-navy-dark: #152B45;      /* Navy Dark - Hover states */
   --optibio-navy-depth: #0D1B2A;     /* Navy Depth - Footer gradient */
@@ -74,7 +98,7 @@ html {
   --optibio-light-gray: #666666;     /* Light Gray - Secondary text, captions */
   --optibio-muted-gray: #A0A0A0;     /* Muted Gray - Placeholder text, hints */
   
-  /* CONVERSION & UTILITY PALETTE (v3.0) - E-commerce colors for urgency, social proof, and action */
+  /* CONVERSION & UTILITY PALETTE (The "Retail Engine") - E-commerce colors for urgency, social proof, and action */
   
   /* Urgency Warmth System (Countdown Timers) - Warm Peach/Ivory tones for luxury urgency */
   --optibio-timer-bg-start: #FEF9F3; /* Warm Peach Start - Timer gradient start */
@@ -399,159 +423,6 @@ html {
       padding-right: 1.5rem;
     }
   }
-    /* Metallic Gold Gradient Button - Premium Luxury (Phase 2 Update) */
-  .btn-metallic-gold {
-    background: linear-gradient(135deg, #E5C578 0%, #C9A961 100%);
-    box-shadow: 
-      0 4px 12px rgba(201, 169, 97, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .btn-metallic-gold::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
-  }
-  
-  .btn-metallic-gold:hover {
-    background: linear-gradient(135deg, #EDD18E 0%, #D4AF37 100%);
-    box-shadow: 
-      0 6px 20px rgba(212, 175, 55, 0.5),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    transform: translateY(-1px);
-  }
-  
-  .btn-metallic-gold:hover::before {
-    left: 100%;
-  }
-  
-  /* ============================================
-     APPROVED DESIGN BUTTON STYLES
-     Matches reference design exactly
-     ============================================ */
-  
-  /* Primary CTA Button - Electric Blue with Navy Border */
-  .btn-primary-cta {
-    background: #2563EB; /* Electric Blue fill */
-    border: 2px solid #1E3A5F; /* Deep Navy border - CRITICAL */
-    color: #FFFFFF;
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 14px 24px;
-    height: 52px;
-    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
-    transition: all 200ms ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-decoration: none;
-  }
-  
-  .btn-primary-cta:hover {
-    background: #1E40AF; /* Darker blue on hover */
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
-  }
-  
-  .btn-primary-cta:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
-  }
-  
-  /* Secondary Button - White with Navy Border */
-  .btn-secondary-cta {
-    background: #FFFFFF; /* White fill */
-    border: 2px solid #1E3A5F; /* Deep Navy border */
-    color: #1E3A5F; /* Deep Navy text */
-    font-size: 16px;
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 14px 24px;
-    height: 52px;
-    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.1);
-    transition: all 200ms ease;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-decoration: none;
-  }
-  
-  .btn-secondary-cta:hover {
-    background: #F8FAFC; /* Very light gray on hover */
-    border-color: #2563EB; /* Change border to electric blue */
-    color: #2563EB;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(30, 58, 95, 0.15);
-  }
-  
-  .btn-secondary-cta:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 6px rgba(30, 58, 95, 0.12);
-  }
-  
-  /* Dark Mode Button Adjustments */
-  .dark .btn-primary-cta {
-    background: #3B82F6; /* Brighter blue for dark background */
-    border: 2px solid #60A5FA; /* Lighter blue border */
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); /* Glow effect */
-  }
-  
-  .dark .btn-primary-cta:hover {
-    background: #2563EB;
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); /* Stronger glow */
-  }
-  
-  .dark .btn-secondary-cta {
-    background: transparent;
-    border: 2px solid #60A5FA;
-    color: #FFFFFF;
-  }
-  
-  .dark .btn-secondary-cta:hover {
-    background: rgba(59, 130, 246, 0.1);
-    border-color: #3B82F6;
-  }
-  
-  /* Dark overlay for benefit images */
-  .dark-gradient-overlay {
-    position: relative;
-  }
-  
-  .dark-gradient-overlay::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 100%);
-    pointer-events: none;
-  }
-  
-  /* Gold glow effect for "New You" section */
-  .gold-glow {
-    position: relative;
-  }
-  
-  .gold-glow::before {
-    content: '';
-    position: absolute;
-    inset: -20px;
-    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-    filter: blur(40px);
-    z-index: -1;
-  }
   
   @media (min-width: 1024px) {
     .container {
@@ -560,346 +431,202 @@ html {
     }
   }
   
-  /* Flex utilities with min-width/height fix */
-  .flex {
-    min-width: 0;
-    min-height: 0;
-  }
+  /* ============================================
+     GRADIENT UTILITIES (Brand-Approved)
+     ============================================ */
   
-  /* Background Gradients */
-  .bg-hero-gradient {
-    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%);
-  }
-  
-  .dark .bg-hero-gradient {
-    background: radial-gradient(ellipse at center, #1E3A5F 0%, #152B45 40%, #0F1F30 100%);
-  }
-  
-  .gradient-optibio-reverse {
-    background: linear-gradient(135deg, #152B45 0%, #1E3A5F 100%);
-  }
-  
+  /* Sky Gradient (Hero Sections) - APPROVED V66B1D787 */
   .gradient-hero {
-    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 50%, #D6EAF8 100%);
+    background: radial-gradient(ellipse at center, var(--optibio-sky-light) 0%, var(--optibio-sky-mid) 40%, var(--optibio-sky-deep) 100%);
   }
   
-  .dark .gradient-hero {
-    background: radial-gradient(ellipse at center, #1E3A5F 0%, #152B45 40%, #0F1F30 100%);
+  /* Navy Gradient (Footer) */
+  .gradient-footer {
+    background: linear-gradient(180deg, var(--optibio-navy) 0%, var(--optibio-navy-depth) 100%);
   }
   
-  .gradient-navy-ivory {
-    background: linear-gradient(180deg, #1E3A5F 0%, #F7F4EF 100%);
+  /* Gold Gradient (Badges, Premium Elements) */
+  .gradient-gold {
+    background: linear-gradient(135deg, #E5C578 0%, var(--optibio-gold) 100%);
   }
   
-  /* Text Gradients */
-  .text-gradient-optibio {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #1E3A5F 0%, #152B45 100%);
-  }
+  /* ============================================
+     BUTTON STYLES (Brand-Approved)
+     ============================================ */
   
-  /* Dark mode: Luminous Gold gradient for "Yourself" */
-  .dark .text-gradient-optibio {
-    background-image: linear-gradient(135deg, #D4AF37 0%, #E5C158 50%, #D4AF37 100%);
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
-  }
-  
-  .text-gradient-premium {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #1E3A5F 0%, #C9A961 100%);
-  }
-  
-  .dark .text-gradient-premium {
-    background-image: linear-gradient(135deg, #FFFFFF 0%, #D4AF37 100%);
-    filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.2));
-  }
-  
-  .text-gradient-gold {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #C9A961 0%, #B89651 100%);
-  }
-  
-  .dark .text-gradient-gold {
-    background-image: linear-gradient(135deg, #D4AF37 0%, #E5C158 50%, #D4AF37 100%);
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
-  }
-  
-  /* Premium Shadows */
-  .shadow-premium {
-    box-shadow: 0 25px 50px -12px rgba(30, 58, 95, 0.25);
-  }
-  
-  .dark .shadow-premium {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.1);
-  }
-  
-  .shadow-navy {
-    box-shadow: 0 10px 25px rgba(30, 58, 95, 0.3);
-  }
-  
-  .dark .shadow-navy {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7), 0 0 15px rgba(212, 175, 55, 0.15);
-  }
-  
-  .shadow-glow-navy {
-    box-shadow: 0 0 40px rgba(30, 58, 95, 0.4);
-  }
-  
-  .dark .shadow-glow-navy {
-    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3), 0 10px 30px rgba(0, 0, 0, 0.5);
-  }
-  
-  .shadow-glow-gold {
-    box-shadow: 0 0 40px rgba(201, 169, 97, 0.4);
-  }
-  
-  .dark .shadow-glow-gold {
-    box-shadow: 0 0 50px rgba(212, 175, 55, 0.5), 0 10px 30px rgba(0, 0, 0, 0.6);
-  }
-  
-  /* Brand Color Text Utilities */
-  .text-opti-navy {
+  /* Metallic Gold Gradient Button - Premium Luxury (Phase 2 Update) */
+  .btn-metallic-gold {
+    background: linear-gradient(135deg, #E5C578 0%, #C9A961 100%);
+    box-shadow: 
+      0 4px 12px rgba(201, 169, 97, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(201, 169, 97, 0.5);
     color: #1E3A5F;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  .dark .text-opti-navy {
-    color: #FFFFFF;
-  }
-  
-  .text-opti-gold {
-    color: #C9A961;
-  }
-  
-  .dark .text-opti-gold {
-    color: #D4AF37;
-    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.3));
-  }
-  
-  /* Dark Mode Section Colors */
-  .bg-abyssal {
-    background-color: #0B1120;
-  }
-  
-  .bg-dark-slate {
-    background-color: #0F172A;
-  }
-  
-  .bg-navy-brand {
-    background-color: #1E3A5F;
-  }
-  
-  .bg-navy-lighter {
-    background-color: #24426A;
-  }
-  
-  .text-luminous-gold {
-    color: #D4AF37;
-  }
-  
-  .text-sky-grey {
-    color: #94A3B8;
-  }
-  
-  .border-navy-700 {
-    border-color: #2D4A77;
-  }
-  
-  .shadow-ivory {
-    box-shadow: 0 4px 20px rgba(247, 244, 239, 0.3);
-  }
-  
-  /* Dark Mode Hover Animations */
-  .dark button:hover,
-  .dark a:hover {
-    @apply transition-all duration-300;
-  }
-  
-  .dark button:not(:disabled):hover {
+  .btn-metallic-gold:hover {
+    background: linear-gradient(135deg, #F0D68A 0%, #D4AF37 100%);
+    box-shadow: 
+      0 6px 20px rgba(201, 169, 97, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
   }
   
-  /* Animations */
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
+  .btn-metallic-gold:active {
+    transform: translateY(0);
+    box-shadow: 
+      0 2px 8px rgba(201, 169, 97, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
   
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  /* Primary CTA Button (Electric Blue) */
+  .btn-primary-action {
+    background: var(--optibio-electric);
+    color: var(--optibio-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    transition: all 0.2s ease-in-out;
+    font-weight: 600;
   }
   
-  @keyframes scroll-fade-in {
-    from {
-      opacity: 0;
-      transform: translateX(-30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  .btn-primary-action:hover {
+    background: var(--optibio-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
   }
   
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .btn-primary-action:active {
+    transform: translateY(0);
   }
   
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out;
+  .btn-primary-action:disabled {
+    background: rgb(156 163 175);
+    box-shadow: none;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
   
-  .scroll-fade-in {
-    animation: scroll-fade-in 0.6s ease-out;
+  /* Secondary Button (Navy Outline) */
+  .btn-secondary {
+    background: var(--optibio-white);
+    color: var(--optibio-navy);
+    border: 2px solid var(--optibio-navy);
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
   }
   
-  /* Shimmer effect for premium feel */
-  @keyframes shimmer {
-    0% {
-      background-position: -1000px 0;
-    }
-    100% {
-      background-position: 1000px 0;
-    }
+  .btn-secondary:hover {
+    background: var(--optibio-navy);
+    color: var(--optibio-white);
   }
   
-  .shimmer {
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(255, 255, 255, 0.2) 50%,
-      rgba(255, 255, 255, 0) 100%
-    );
-    background-size: 1000px 100%;
-    animation: shimmer 3s infinite;
+  /* ============================================
+     CARD STYLES (Brand-Approved)
+     From OptiBio Unified Design System v3.0
+     ============================================ */
+  
+  /* Social Proof Card (Green Gradient) */
+  .card-social-proof {
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+    border: 1px solid #BBF7D0;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
   }
   
-  /* Premium pulse animation for gold elements */
-  @keyframes gold-pulse {
-    0%, 100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-    50% {
-      opacity: 0.8;
-      transform: scale(1.05);
-    }
+  .card-social-proof:hover {
+    box-shadow: 0 6px 16px rgba(22, 163, 74, 0.15);
   }
   
-  .animate-gold-pulse {
-    animation: gold-pulse 2s ease-in-out infinite;
+  .text-social-proof {
+    color: #16A34A;
+    font-weight: 600;
+  }
+  
+  /* Countdown Timer Card (Peach Gradient) */
+  .card-countdown {
+    background: linear-gradient(135deg, #FEF9F3 0%, #FFF5E8 100%);
+    border: 1px solid #FED7AA;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(194, 65, 12, 0.1);
+  }
+  
+  .text-countdown-number {
+    color: #7C2D12;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+  }
+  
+  /* ============================================
+     UTILITY CLASSES (Brand-Specific)
+     ============================================ */
+  
+  /* Text colors */
+  .text-brand-navy {
+    color: var(--optibio-navy);
+  }
+  
+  .text-brand-gold {
+    color: var(--optibio-gold);
+  }
+  
+  .text-brand-charcoal {
+    color: var(--optibio-charcoal);
+  }
+  
+  .text-brand-slate {
+    color: var(--optibio-slate);
+  }
+  
+  /* Background colors */
+  .bg-brand-navy {
+    background-color: var(--optibio-navy);
+  }
+  
+  .bg-brand-ivory {
+    background-color: var(--optibio-ivory);
+  }
+  
+  .bg-brand-white {
+    background-color: var(--optibio-white);
+  }
+  
+  .bg-brand-gold {
+    background-color: var(--optibio-gold);
+  }
+  
+  /* Border colors */
+  .border-brand-navy {
+    border-color: var(--optibio-navy);
+  }
+  
+  .border-brand-gold {
+    border-color: var(--optibio-gold);
   }
 }
 
 /* ============================================
-   DARK MODE ENHANCEMENTS - SME VISUAL POLISH
-   December 30, 2025
+   ACCESSIBILITY UTILITIES
    ============================================ */
-
-.dark {
-  /* Enhanced card depth with gold accent glow */
-  .bg-card,
-  [class*="bg-white"],
-  [class*="bg-gradient-to"] {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.08);
+@layer utilities {
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
   }
   
-  /* Enhanced borders with subtle gold tint */
-  .border,
-  [class*="border-"] {
-    border-color: rgba(212, 175, 55, 0.2);
-  }
-  
-  /* Premium text contrast for headlines */
-  h1, h2, h3, h4, h5, h6 {
-    color: #FFFFFF;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Enhanced stat numbers with gold glow */
-  .text-4xl,
-  .text-5xl,
-  .text-6xl {
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.2));
-  }
-  
-  /* Button enhancements */
-  button:not(:disabled) {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  }
-  
-  button:not(:disabled):hover {
-    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.3), 0 4px 15px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Enhanced visual separation between sections */
-  section {
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-  }
-  
-  /* Icon glow effects */
-  svg {
-    filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.15));
-  }
-  
-  /* Enhanced input fields */
-  input,
-  textarea,
-  select {
-    background-color: rgba(30, 58, 95, 0.3);
-    border-color: rgba(212, 175, 55, 0.3);
-  }
-  
-  input:focus,
-  textarea:focus,
-  select:focus {
-    background-color: rgba(30, 58, 95, 0.5);
-    border-color: rgba(212, 175, 55, 0.5);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
-  }
-  
-  /* Enhanced badge contrast */
-  .badge,
-  [class*="Badge"] {
-    background-color: rgba(212, 175, 55, 0.2);
-    border: 1px solid rgba(212, 175, 55, 0.4);
-    color: #D4AF37;
-  }
-  
-  /* Enhanced link visibility */
-  a:not([class*="Button"]) {
-    color: #E5C158;
-  }
-  
-  a:not([class*="Button"]):hover {
-    color: #D4AF37;
-    text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
-  }
-  
-  /* Premium scrollbar styling */
-  ::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #0B1120;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #1E3A5F 0%, #152B45 100%);
-    border-radius: 6px;
-    border: 2px solid #0B1120;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #D4AF37 0%, #C9A961 100%);
+  /* Focus visible for keyboard navigation */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#1E3A5F] focus-visible:ring-offset-2;
   }
 }
