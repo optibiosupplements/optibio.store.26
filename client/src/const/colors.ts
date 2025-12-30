@@ -1,11 +1,26 @@
 /**
- * OptiBio Brand Color Constants - Version 66b1d787
+ * 🔒 OPTIBIO BRAND COLOR CONSTANTS - PRODUCTION LOCKED
  * 
- * CRITICAL: These colors are LOCKED and APPROVED.
- * DO NOT MODIFY without explicit user approval.
+ * ⚠️ CRITICAL RULES:
+ * 1. Light Mode = Day Mode = Brand Default (NEVER CHANGES)
+ * 2. Dark Mode = Optional Override (User Preference Only)
+ * 3. DO NOT MODIFY without explicit brand team approval
  * 
- * Focus: Light Mode (Day Mode) Design
- * Last Updated: December 29, 2025
+ * Last Updated: December 30, 2025
+ * Status: PRODUCTION LOCKED
+ * Authority: Brand Guidelines v1.0
+ * 
+ * 📚 REQUIRED READING:
+ * - COLORS_LOCKED.md - Full color system documentation
+ * - COLOR_USAGE_GUIDE.md - Developer guidelines
+ * - OptiBio Brand Style Guide.pdf - Brand guidelines
+ * 
+ * 🚨 BEFORE MODIFYING COLORS:
+ * 1. Read COLORS_LOCKED.md completely
+ * 2. Get brand team approval
+ * 3. Test WCAG contrast ratios
+ * 4. Update documentation
+ * 5. Run visual regression tests
  */
 
 // ============================================
@@ -36,8 +51,11 @@ export const OPTIBIO_COLORS = {
 } as const;
 
 // ============================================
-// LIGHT MODE THEME (DAY MODE - APPROVED)
+// LIGHT MODE THEME (DAY MODE - DEFAULT - NEVER CHANGES)
 // ============================================
+// ⚠️ WARNING: Light mode is the brand default (80%+ of users)
+// These colors follow brand guidelines exactly
+// DO NOT modify without explicit brand approval
 
 export const LIGHT_THEME = {
   // Primary
@@ -73,8 +91,11 @@ export const LIGHT_THEME = {
 } as const;
 
 // ============================================
-// DARK MODE THEME (NOT FOR LIGHT MODE)
+// DARK MODE THEME (OPTIONAL OVERRIDE - USER PREFERENCE)
 // ============================================
+// ℹ️ NOTE: Dark mode is optional, not the default
+// These colors override light mode for accessibility
+// Must maintain brand recognition (navy, gold, ivory)
 
 export const DARK_THEME = {
   primary: '#2E4A7F',

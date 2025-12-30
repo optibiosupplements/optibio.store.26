@@ -1,5 +1,19 @@
 import { createContext, useContext, useEffect, useState } from "react";
 
+/**
+ * 🔒 THEME SYSTEM - PRODUCTION LOCKED
+ * 
+ * ⚠️ CRITICAL RULES:
+ * 1. Light Mode = Brand Default (NEVER CHANGES)
+ * 2. Dark Mode = Optional User Preference Only
+ * 3. NO system preference detection (light mode always default)
+ * 4. Users can manually toggle to dark mode if desired
+ * 
+ * Last Updated: December 30, 2025
+ * Status: PRODUCTION LOCKED
+ * Authority: Brand Guidelines v1.0
+ */
+
 type Theme = "dark" | "light";
 
 type ThemeProviderProps = {
@@ -37,43 +51,31 @@ export function ThemeProvider({
     setMounted(true);
     const root = window.document.documentElement;
     
-    // 1. Check Local Storage (User Override)
+    // 🔒 LOCKED BEHAVIOR: Light mode is ALWAYS the default
+    // Only respect localStorage if user explicitly toggled to dark mode
     const savedTheme = localStorage.getItem(storageKey) as Theme | null;
     
-    // 2. Check System Preference
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-    let initialTheme: Theme = defaultTheme;
+    // ⚠️ REMOVED: System preference detection
+    // Brand guideline: Light mode is the default, period.
+    // Users can manually toggle to dark mode if they prefer.
     
+    let initialTheme: Theme = defaultTheme; // Always "light" by default
+    
+    // Only use saved theme if user explicitly set it
     if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light')) {
       initialTheme = savedTheme;
-    } else if (systemPrefersDark) {
-      initialTheme = 'dark';
     }
+    // NO system preference fallback - light mode is the brand default
     
     setThemeState(initialTheme);
     root.classList.remove("light", "dark");
     root.classList.add(initialTheme);
   }, [defaultTheme, storageKey]);
 
-  // Listen for system preference changes
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    const handleChange = (e: MediaQueryListEvent) => {
-      // Only auto-switch if user hasn't set a preference
-      const savedTheme = localStorage.getItem(storageKey);
-      if (!savedTheme) {
-        const newTheme = e.matches ? 'dark' : 'light';
-        setThemeState(newTheme);
-        document.documentElement.classList.remove("light", "dark");
-        document.documentElement.classList.add(newTheme);
-      }
-    };
-    
-    mediaQuery.addEventListener('change', handleChange);
-    return () => mediaQuery.removeEventListener('change', handleChange);
-  }, [storageKey]);
+  // ⚠️ REMOVED: System preference listener
+  // Brand guideline: Light mode is the default, no automatic switching.
+  // Users must manually toggle to dark mode if they prefer it.
+  // This ensures consistent brand experience for all users.
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);

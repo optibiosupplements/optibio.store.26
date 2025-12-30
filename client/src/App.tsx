@@ -75,12 +75,23 @@ function Router() {
   );
 }
 
+/**
+ * 🔒 THEME CONFIGURATION - PRODUCTION LOCKED
+ * 
+ * ⚠️ CRITICAL: defaultTheme="light" is PERMANENT
+ * - Light mode = Brand default (80%+ of users)
+ * - Dark mode = Optional user preference (manual toggle only)
+ * - NO system preference detection
+ * - DO NOT change defaultTheme without brand approval
+ * 
+ * See: COLORS_LOCKED.md for full documentation
+ */
 function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider
-        defaultTheme="light"
-        switchable
+        defaultTheme="light" // 🔒 LOCKED: Brand default, never change
+        switchable // Allows users to manually toggle to dark mode
       >
         <TooltipProvider>
           <Toaster />
