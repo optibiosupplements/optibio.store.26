@@ -218,7 +218,7 @@ export default function OrderSuccess() {
                 <div className="flex items-center gap-4">
                   <div className="w-20 h-20 rounded-lg overflow-hidden bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] flex-shrink-0">
                     <img
-                      src="/products/optibio-90cap-bottle-front.jpg"
+                      src="/products/optibio-authentic-front-transparent.png"
                       alt="Optibio 180 Capsules"
                       className="w-full h-full object-cover"
                     />
@@ -256,7 +256,7 @@ export default function OrderSuccess() {
                 <div className="flex items-center gap-4">
                   <div className="w-20 h-20 rounded-lg overflow-hidden bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] flex-shrink-0">
                     <img
-                      src="/products/optibio-90cap-bottle-front.jpg"
+                      src="/products/optibio-authentic-front-transparent.png"
                       alt="Optibio Subscription"
                       className="w-full h-full object-cover"
                     />

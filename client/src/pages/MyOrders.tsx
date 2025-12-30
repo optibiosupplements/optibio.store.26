@@ -153,7 +153,7 @@ export default function MyOrders() {
                   <div key={index} className="flex gap-4 p-4 rounded-xl bg-slate-50 border-2 border-slate-200 dark:border-[#2D4A77]">
                     <div className="w-20 h-20 rounded-lg overflow-hidden bg-white dark:bg-[#1E3A5F] dark:bg-[#1E3A5F] border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] flex-shrink-0">
                       <img
-                        src="/products/optibio-90cap-bottle-front.jpg"
+                        src="/products/optibio-authentic-front-transparent.png"
                         alt={item.productName}
                         className="w-full h-full object-cover"
                       />

@@ -115,12 +115,11 @@ Each serving provides 600mg of KSM-66® ashwagandha root extract - the same dosa
     sku: "OPTIBIO-ASH-60",
     stockQuantity: 1000,
     lowStockThreshold: 50,
-    imageUrl: "/products/ashwagandha-bottle.jpg",
+    imageUrl: "/products/optibio-authentic-front-transparent.png",
     galleryImages: JSON.stringify([
-      "/products/ashwagandha-bottle.jpg",
-      "/supplement-facts.png",
-      "/capsules-closeup.png",
-      "/lifestyle-usage.png"
+      "/products/optibio-authentic-front-transparent.png",
+      "/products/optibio-authentic-angle-marble.png",
+      "/products/optibio-authentic-front-transparent.png"
     ]),
     isActive: true,
     isFeatured: true,

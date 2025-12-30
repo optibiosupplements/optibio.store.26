@@ -167,7 +167,7 @@ export default function Cart() {
                       <div className="flex-shrink-0">
                         <div className="w-24 h-24 rounded-xl overflow-hidden bg-slate-100 border-2 border-slate-200 dark:border-[var(--optibio-border-dark)]">
                           <img
-                            src={item.productImage || "/products/optibio-90cap-bottle-front.jpg"}
+                            src={item.productImage || "/products/optibio-authentic-front-transparent.png"}
                             alt={item.productName || "Product"}
                             className="w-full h-full object-cover"
                           />

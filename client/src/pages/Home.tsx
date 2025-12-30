@@ -34,7 +34,7 @@ export default function Home() {
   
   // Theme-aware product image selection
   const isDark = theme === 'dark';
-  const heroProductImage = '/products/optibio-90cap-bottle-front-transparent.png';
+  const heroProductImage = '/products/optibio-authentic-front-transparent.png';
   
   // Removed reservation modal - now using direct purchase
 
@@ -388,7 +388,7 @@ export default function Home() {
                 <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
               </div>
               <img 
-                src="/products/optibio-90cap-bottle-angle-transparent.png" 
+                src="/products/optibio-authentic-angle-marble.png" 
                 alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
                 className="w-full max-w-lg mx-auto drop-shadow-2xl relative z-10 dark:drop-shadow-[0_0_40px_rgba(212,175,55,0.3)]"
               />
@@ -610,7 +610,7 @@ export default function Home() {
           productId={mainProduct.id}
           productName={mainProduct.name}
           price={mainProduct.priceInCents / 100}
-          image={mainProduct.imageUrl || "/products/optibio-90cap-bottle-front.jpg"}
+          image={mainProduct.imageUrl || "/products/optibio-authentic-front-transparent.png"}
           threshold={600}
         />
       )}
@@ -629,7 +629,7 @@ export default function Home() {
                       <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
                     </div>
                     <img 
-                      src="/products/optibio-90cap-bottle-front-transparent.png"
+                      src="/products/optibio-authentic-front-transparent.png"
                       alt={`${mainProduct.name} - Premium KSM-66 Ashwagandha supplement for stress relief, sleep support, and natural energy`}
                       className="w-full max-w-xs drop-shadow-2xl relative z-10 dark:drop-shadow-[0_0_40px_rgba(212,175,55,0.3)]"
                     />

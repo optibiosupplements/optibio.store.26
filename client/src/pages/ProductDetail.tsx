@@ -135,15 +135,11 @@ export default function ProductDetail() {
   const incrementQuantity = () => setQuantity(q => q + 1);
   const decrementQuantity = () => setQuantity(q => Math.max(1, q - 1));
 
-  // Theme-aware product images - automatically switch based on dark mode
-  const productImages = isDark ? [
-    "/products/optibio-90cap-bottle-front-dark.jpg",
-    "/products/optibio-product-dark-angle1.jpg",
-    "/products/optibio-product-dark-angle2.jpg"
-  ] : [
-    "/products/optibio-90cap-bottle-front.jpg",
-    "/products/optibio-90cap-bottle-angle.jpg",
-    "/products/optibio-lifestyle-professional.jpg"
+  // Theme-aware product images - using authentic product photos
+  const productImages = [
+    "/products/optibio-authentic-front-transparent.png",
+    "/products/optibio-authentic-angle-marble.png",
+    "/products/optibio-authentic-front-transparent.png"
   ];
 
   const benefits = [
