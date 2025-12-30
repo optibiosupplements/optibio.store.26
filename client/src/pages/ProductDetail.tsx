@@ -341,19 +341,19 @@ export default function ProductDetail() {
                 {/* SUBSCRIPTION TOGGLE (Radio Group Style) */}
                 <div className="flex flex-col gap-4 mb-8">
                   
-                  {/* Option 1: Subscribe */}
-                  <label className={`relative border-2 rounded-xl p-4 cursor-pointer transition-all ${isSubscription ? 'border-[#1E3A5F] bg-blue-50/30' : 'border-slate-200 hover:border-blue-200'}`}>
+                  {/* Option 1: Subscribe - Phase 2: Solid Gold Primary */}
+                  <label className={`relative border-2 rounded-xl p-5 cursor-pointer transition-all shadow-lg hover:shadow-xl ${isSubscription ? 'border-[#C9A961] bg-gradient-to-br from-[#E5C578]/10 to-[#C9A961]/10' : 'border-[#C9A961]/40 hover:border-[#C9A961]/60 bg-white'}`}>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-3">
-                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${isSubscription ? 'border-[#1E3A5F]' : 'border-slate-300'}`}>
-                          {isSubscription && <div className="w-2.5 h-2.5 rounded-full bg-[#1E3A5F]" />}
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${isSubscription ? 'border-[#C9A961] bg-gradient-to-br from-[#E5C578] to-[#C9A961]' : 'border-[#C9A961]/40'}`}>
+                          {isSubscription && <div className="w-3 h-3 rounded-full bg-white" />}
                         </div>
                         <div>
-                          <span className="font-bold text-[#1E3A5F]">Subscribe & Save 20%</span>
-                          <div className="text-xs text-[#2563EB] font-bold mt-0.5">Recommended (Most Popular)</div>
+                          <span className="font-bold text-[#1E3A5F] text-lg">Subscribe & Save 20%</span>
+                          <div className="text-xs text-[#C9A961] font-bold mt-0.5 flex items-center gap-1"><span className="text-base">⭐</span> Recommended (Most Popular)</div>
                         </div>
                       </div>
-                      <div className="font-bold text-[#1E3A5F]">
+                      <div className="font-bold text-[#1E3A5F] text-xl">
                         {formatPrice(product.subscriptionPlans && product.subscriptionPlans[0] ? calculateDiscountPrice(currentPrice, product.subscriptionPlans[0].discountPercentage || 0) : currentPrice)}
                       </div>
                     </div>
@@ -378,16 +378,16 @@ export default function ProductDetail() {
                     />
                   </label>
 
-                  {/* Option 2: One-Time */}
-                  <label className={`relative border-2 rounded-xl p-4 cursor-pointer transition-all ${!isSubscription ? 'border-[#1E3A5F] bg-blue-50/30' : 'border-slate-200 hover:border-blue-200'}`}>
+                  {/* Option 2: One-Time - Phase 2: Ghost Outline Secondary */}
+                  <label className={`relative border-2 rounded-xl p-5 cursor-pointer transition-all ${!isSubscription ? 'border-[#1E3A5F] bg-blue-50/30' : 'border-slate-300 hover:border-slate-400 bg-white'}`}>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-3">
-                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${!isSubscription ? 'border-[#1E3A5F]' : 'border-slate-300'}`}>
-                          {!isSubscription && <div className="w-2.5 h-2.5 rounded-full bg-[#1E3A5F]" />}
+                        <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${!isSubscription ? 'border-[#1E3A5F] bg-[#1E3A5F]' : 'border-slate-300'}`}>
+                          {!isSubscription && <div className="w-3 h-3 rounded-full bg-white" />}
                         </div>
-                        <span className="font-bold text-slate-600">One-Time Purchase</span>
+                        <span className="font-bold text-slate-700 text-lg">One-Time Purchase</span>
                       </div>
-                      <div className="font-bold text-slate-600">{formatPrice(currentPrice)}</div>
+                      <div className="font-bold text-slate-700 text-xl">{formatPrice(currentPrice)}</div>
                     </div>
                     <input 
                       type="radio" 

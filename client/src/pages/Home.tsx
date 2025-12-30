@@ -34,9 +34,7 @@ export default function Home() {
   
   // Theme-aware product image selection
   const isDark = theme === 'dark';
-  const heroProductImage = isDark 
-    ? '/products/optibio-90cap-bottle-front-dark.jpg'
-    : '/products/optibio-90cap-bottle-front.jpg';
+  const heroProductImage = '/products/optibio-90cap-bottle-front-transparent.png';
   
   // Removed reservation modal - now using direct purchase
 
@@ -288,8 +286,8 @@ export default function Home() {
                       alt={`${benefit.title} - ${benefit.description.split('.')[0]}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    {/* Enhanced black gradient overlay for dark mode - 60-80% opacity from bottom for text visibility */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/60 to-black/30 dark:from-black/85 dark:via-black/65 dark:to-transparent" />
+                    {/* Phase 2: Enhanced black gradient overlay - 60% opacity for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/50 to-black/20 dark:from-black/80 dark:via-black/60 dark:to-transparent" />
                     <div className="absolute bottom-4 left-6 right-6 px-2">
                       <div className="text-4xl font-bold text-[#C9A961] dark:text-[#D4AF37] mb-2 drop-shadow-lg">
                         {benefit.stat}
@@ -385,14 +383,14 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left - Image with glow effect (no white box in dark mode) */}
             <div className="relative">
-              {/* Subtle gold glow behind bottle in dark mode */}
-              <div className="hidden dark:block absolute inset-0 flex items-center justify-center">
-                <div className="w-[60%] h-[70%] bg-gradient-radial from-[#D4AF37]/15 via-[#D4AF37]/5 to-transparent blur-3xl" />
+              {/* Subtle gold glow behind bottle - ALWAYS visible for luxury aesthetic */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
               </div>
               <img 
-                src="/products/optibio-90cap-bottle-angle.jpg" 
+                src="/products/optibio-90cap-bottle-angle-transparent.png" 
                 alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
-                className="w-full max-w-lg mx-auto drop-shadow-2xl rounded-3xl relative z-10 dark:rounded-none dark:drop-shadow-[0_0_40px_rgba(212,175,55,0.3)]"
+                className="w-full max-w-lg mx-auto drop-shadow-2xl relative z-10 dark:drop-shadow-[0_0_40px_rgba(212,175,55,0.3)]"
               />
             </div>
 
@@ -511,7 +509,7 @@ export default function Home() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* This IS for you */}
-              <Card className="border-2 border-[#C9A961]/30 dark:border-[#D4AF37] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#24426A] dark:to-[#1E3A5F] dark:shadow-[0_0_20px_rgba(212,175,55,0.15)] dark:border-2 dark:border-[#D4AF37]">
+              <Card className="border-2 border-[#C9A961] dark:border-[#D4AF37] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#24426A] dark:to-[#1E3A5F] dark:shadow-[0_0_20px_rgba(212,175,55,0.15)] shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-[#C9A961]/10 dark:bg-[#D4AF37]/20 flex items-center justify-center">
@@ -550,7 +548,7 @@ export default function Home() {
               </Card>
 
               {/* This is NOT for you */}
-              <Card className="border-2 border-[#C9A961]/20 dark:border-[#6B7280] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#1E3A5F] dark:to-[#152B45]">
+              <Card className="border-2 border-[#C9A961] dark:border-[#6B7280] bg-gradient-to-br from-[#F7F4EF]/50 to-white dark:from-[#1E3A5F] dark:to-[#152B45] shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 rounded-full bg-slate-100 dark:bg-[#6B7280]/20 flex items-center justify-center">
@@ -626,12 +624,12 @@ export default function Home() {
                 <div className="grid md:grid-cols-2">
                   {/* Product Image - Clean background with subtle gold glow in dark mode */}
                   <div className="relative bg-white dark:bg-[#0B1120] p-12 flex items-center justify-center overflow-hidden">
-                    {/* Subtle gold glow behind bottle in dark mode */}
-                    <div className="hidden dark:block absolute inset-0 flex items-center justify-center">
-                      <div className="w-[60%] h-[70%] bg-gradient-radial from-[#D4AF37]/15 via-[#D4AF37]/5 to-transparent blur-3xl" />
+                    {/* Subtle gold glow behind bottle - ALWAYS visible for luxury aesthetic */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
                     </div>
                     <img 
-                      src={mainProduct.imageUrl || "/products/optibio-90cap-bottle-front.jpg"}
+                      src="/products/optibio-90cap-bottle-front-transparent.png"
                       alt={`${mainProduct.name} - Premium KSM-66 Ashwagandha supplement for stress relief, sleep support, and natural energy`}
                       className="w-full max-w-xs drop-shadow-2xl relative z-10 dark:drop-shadow-[0_0_40px_rgba(212,175,55,0.3)]"
                     />
