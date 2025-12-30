@@ -236,19 +236,19 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right Column - Product Image - Mobile Optimized & Enlarged */}
+            {/* Right Column - Product Image - Large Prominent Display */}
             <div className="relative h-[500px] sm:h-[600px] lg:h-[850px] flex items-center justify-center order-1 lg:order-2">
-              {/* Gold glow behind bottle for premium aesthetic */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[70%] h-[80%] bg-gradient-radial from-[#C9A961]/25 via-[#C9A961]/10 to-transparent blur-3xl dark:from-[#D4AF37]/20 dark:via-[#D4AF37]/8" />
+              {/* Cream/White background card behind bottle */}
+              <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-8">
+                <div className="w-full max-w-2xl h-[90%] bg-gradient-to-br from-[#F7F4EF] to-[#EDE9E3] dark:from-[#1E3A5F] dark:to-[#152B45] rounded-3xl shadow-2xl" />
               </div>
-              {/* Enlarged product bottle with gold glow */}
-              <div className="relative animate-float w-full h-full flex items-center justify-center z-10">
+              {/* Large product bottle - takes up most of card space */}
+              <div className="relative animate-float w-full h-full flex items-center justify-center z-10 p-8">
                 <img 
                   src={heroProductImage}
                   alt="Optibio Ashwagandha KSM-66 supplement bottle - 90 capsules, 300mg per capsule, premium black glass bottle with gold cap"
-                  className="w-full h-full max-w-3xl max-h-full object-contain mx-auto transition-opacity duration-500"
-                  style={{ filter: 'drop-shadow(0 0 20px rgba(201, 169, 97, 0.4))' }}
+                  className="w-full h-full max-w-xl max-h-[85%] object-contain mx-auto transition-opacity duration-500"
+                  style={{ filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2))' }}
                 />
               </div>
             </div>
