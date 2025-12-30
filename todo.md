@@ -1828,3 +1828,24 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Removed duplicate hero content from Home.tsx
 
 **RESULT: Hero section successfully matches reference design with two-column layout, premium blue bottle image, and complete purchase flow.**
+
+
+## 🎯 NEW: HERO SECTION UX REPLICATION (Dec 30, 2025)
+
+### Objective: Match Reference Design Exactly
+- [x] Copy product bottle image to public assets
+- [x] Update hero section layout to match reference (product right, content left)
+- [x] Add "Science-Backed • Third-Party Tested" badge at top
+- [x] Update headline to "Feel Like Yourself Again"
+- [x] Update subheadline with benefit copy
+- [x] Add trust indicator icons (Third-Party Tested, GMO Certified, Non-GMO & Organic)
+- [x] Implement countdown timer with proper styling
+- [x] Update pricing display ($49.99 with $69.99 strikethrough)
+- [x] Add "Pre-Order Special" badge
+- [x] Update CTA button text to "Pre-Order Now • Save 46%"
+- [x] Add shipping info and guarantee text below button
+- [x] Add social proof section (4.63 stars, 1,247 happy customers, 83,423 bottles sold)
+- [x] Ensure Sky Blue gradient background (following gradient rules)
+- [x] Maintain Deep Navy (#1E3A5F) for headlines
+- [x] Use Antique Gold (#C9A961) for accents
+- [x] Test mobile responsiveness
