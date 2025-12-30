@@ -581,3 +581,29 @@ The body of the page looks great in "Abyssal Navy," but the Hero Section (Top) d
 - [x] Remove inconsistent yellow/bronze golds
 - [x] Ensure text contrast: White or Off-White (#F0F0F0) on dark navy
 - [x] Avoid dark grey text on dark blue background
+
+
+## 🔒 HARDCORE RULE: CSS TOKEN SYSTEM REFACTOR (Dec 30, 2025)
+
+### Critical Issue: Color Hallucinations
+Mixing generic Tailwind colors (sky-50, blue-50, slate, zinc) with brand palette causing inconsistent design.
+
+### Implementation Requirements:
+- [ ] Create strict CSS variables (tokens) in index.css mapped to exact brand hex codes
+- [ ] Define semantic variables: --color-bg-primary, --color-bg-secondary, --color-text-primary, etc.
+- [ ] Light Mode (Master): bg-primary = Pure White (#FFFFFF) or Warm Ivory (#F7F4EF)
+- [ ] Dark Mode (Override): bg-primary = Deep Navy (#1E3A5F) or Abyssal Navy (#0B1120)
+- [ ] Purge ALL generic Tailwind colors from primary layout (sky, slate, zinc, blue-50, etc.)
+- [ ] Update Home.tsx hero section to use semantic variables
+- [ ] Audit all components for forbidden "nearest neighbor" colors
+- [ ] Verify Light Mode is default and Master state
+
+### Brand Palette (LOCKED - No Exceptions):
+- Deep Navy: #1E3A5F
+- Warm Ivory: #F7F4EF
+- Antique Gold: #C9A961
+- Pure White: #FFFFFF
+- Abyssal Navy (Dark Mode): #0B1120
+- Luminous Gold (Dark Mode): #D4AF37
+
+### Rule: If a hex code is not in our Brand Guide, it is FORBIDDEN in the code.

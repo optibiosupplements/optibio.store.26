@@ -120,7 +120,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section - The Future of Wellness */}
-      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-[#0B1120] dark:to-[#15233E] transition-colors duration-500">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-hero-gradient transition-colors duration-500">
         {/* Clean background - no visual noise */}
         
         <div className="container relative z-10 py-12 sm:py-16 lg:py-20">

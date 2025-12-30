@@ -51,15 +51,48 @@ html {
 }
 
 :root {
-  /* OptiBio Premium Brand Colors - Midnight Sophistication */
-  --optibio-navy: #1E3A5F;
-  --optibio-navy-dark: #152B45;
-  --optibio-ivory: #F7F4EF;
-  --optibio-gold: #C9A961;
-  --optibio-gold-dark: #B89651;
-  --optibio-charcoal: #2D2D2D;
-  --optibio-white: #FFFFFF;
-  --optibio-success: #5FA865;
+  /* ============================================
+     OPTIBIO BRAND COLOR TOKENS (LOCKED)
+     Per Master Brand Guidelines v2.0
+     NO GENERIC TAILWIND COLORS ALLOWED
+     ============================================ */
+  
+  /* PRIMARY BRAND COLORS */
+  --optibio-navy: #1E3A5F;           /* Deep Navy - Headlines, primary text */
+  --optibio-navy-dark: #152B45;      /* Navy Dark - Hover states */
+  --optibio-navy-depth: #0D1B2A;     /* Navy Depth - Footer gradient */
+  --optibio-ivory: #F7F4EF;          /* Warm Ivory - Section backgrounds */
+  --optibio-white: #FFFFFF;          /* Pure White - Cards, clean spaces */
+  --optibio-gold: #C9A961;           /* Antique Gold - Accents, badges */
+  --optibio-gold-dark: #B89651;      /* Gold Dark - Hover states */
+  --optibio-charcoal: #2D2D2D;       /* Charcoal - Primary body text */
+  --optibio-slate: #475569;          /* Slate Grey - Secondary body text */
+  --optibio-electric: #2563EB;       /* Electric Blue - Links, hover states */
+  --optibio-success: #5FA865;        /* Success Green - Checkmarks */
+  
+  /* SKY BLUE GRADIENT TOKENS (Hero/Page Backgrounds) */
+  --optibio-sky-light: #F8FCFE;      /* Sky gradient start */
+  --optibio-sky-mid: #EBF5FB;        /* Sky gradient middle */
+  --optibio-sky-deep: #D6EAF8;       /* Sky gradient end */
+  
+  /* DARK MODE TOKENS */
+  --optibio-abyssal: #0B1120;        /* Abyssal Navy - Dark mode bg */
+  --optibio-dark-slate: #0F172A;     /* Dark Slate - Dark mode sections */
+  --optibio-navy-card: #15233E;      /* Navy Card - Dark mode cards */
+  --optibio-luminous-gold: #D4AF37;  /* Luminous Gold - Dark mode accent */
+  --optibio-sky-grey: #94A3B8;       /* Sky Grey - Dark mode secondary text */
+  --optibio-border-dark: #2D4A77;    /* Navy 700 - Dark mode borders */
+  
+  /* SEMANTIC ALIASES (Use these in components) */
+  --color-bg-page: var(--optibio-white);           /* Page background */
+  --color-bg-section: var(--optibio-ivory);        /* Section background */
+  --color-bg-card: var(--optibio-white);           /* Card background */
+  --color-text-primary: var(--optibio-navy);       /* Headlines, emphasis */
+  --color-text-body: var(--optibio-charcoal);      /* Primary body text */
+  --color-text-secondary: var(--optibio-slate);    /* Secondary text */
+  --color-accent: var(--optibio-gold);             /* Accents, badges */
+  --color-link: var(--optibio-electric);           /* Links */
+  --color-border: #E0E0E0;                         /* Subtle borders */
   
   /* Primary: Deep Navy (Professional, Trustworthy, Premium) */
   --primary: oklch(0.32 0.08 240); /* #1E3A5F Deep Navy */
@@ -317,9 +350,11 @@ html {
     background: radial-gradient(ellipse at center, var(--tw-gradient-stops));
   }
   
-  /* Theme-Aware Hero Gradients */
+  /* Theme-Aware Hero Gradients - LOCKED BRAND COLORS */
+  /* Light Mode: Sky Blue Radial Gradient (Master Brand Guidelines Page 4) */
+  /* EXACT SPECIFICATION - DO NOT MODIFY */
   .bg-hero-gradient {
-    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%);
+    background: radial-gradient(ellipse at center, #F8FCFE 0%, #EBF5FB 40%, #D6EAF8 100%) !important;
   }
   
   .dark .bg-hero-gradient {
