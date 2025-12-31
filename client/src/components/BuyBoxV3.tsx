@@ -56,18 +56,27 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
         </p>
 
         {/* Trust Indicators Row */}
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap gap-6">
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-5 h-5" style={{ color: '#C9A961' }} />
-            <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>Third-Party Tested</span>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>Third-Party Tested</span>
+              <span className="text-xs" style={{ color: '#64748B' }}>Verified</span>
+            </div>
           </div>
           <div className="flex items-center gap-2">
             <Award className="w-5 h-5" style={{ color: '#C9A961' }} />
-            <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>GMP Certified</span>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>GMP Certified</span>
+              <span className="text-xs" style={{ color: '#64748B' }}>Verified</span>
+            </div>
           </div>
           <div className="flex items-center gap-2">
             <CheckCircle2 className="w-5 h-5" style={{ color: '#C9A961' }} />
-            <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>Non-GMO & Organic</span>
+            <div className="flex flex-col">
+              <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>Non-GMO & Organic</span>
+              <span className="text-xs" style={{ color: '#64748B' }}>Verified</span>
+            </div>
           </div>
         </div>
 
