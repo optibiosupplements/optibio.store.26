@@ -111,7 +111,7 @@ Each serving provides 600mg of KSM-66® ashwagandha root extract - the same dosa
 
 *These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.*`,
     priceInCents: 4999, // $49.99
-    compareAtPriceInCents: 6999, // $69.99
+    compareAtPriceInCents: 8900, // $89.00
     sku: "OPTIBIO-ASH-60",
     stockQuantity: 1000,
     lowStockThreshold: 50,
@@ -148,7 +148,7 @@ Each serving provides 600mg of KSM-66® ashwagandha root extract - the same dosa
       name: "60 Capsules (30-Day Supply)",
       sku: "OPTIBIO-ASH-60",
       priceInCents: 4999,
-      compareAtPriceInCents: 6999,
+      compareAtPriceInCents: 8900,
       stockQuantity: 1000,
       isActive: true,
       sortOrder: 1

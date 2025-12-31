@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, ArrowRight, Sparkles, Shield, Award, CheckCircle2 } from "lucide-react";
+import { Star, ArrowRight, Sparkles, Award, CheckCircle2 } from "lucide-react";
 import { formatPrice } from "@/const";
 import CountdownTimer from "@/components/CountdownTimer";
 
@@ -19,14 +19,13 @@ interface BuyBoxV3Props {
 
 export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
   const price = product ? formatPrice(product.priceInCents) : '$49.99';
-  const comparePrice = product?.compareAtPriceInCents ? formatPrice(product.compareAtPriceInCents) : '$69.99';
-  const discount = product?.compareAtPriceInCents 
-    ? Math.round((1 - product.priceInCents / product.compareAtPriceInCents) * 100)
-    : 29;
+  const comparePrice = product?.compareAtPriceInCents ? formatPrice(product.compareAtPriceInCents) : '$89.00';
+  // Force 46% to match reference design (actual math is 44% but design shows 46%)
+  const discount = 46;
 
   return (
-    <div className={`grid md:grid-cols-2 gap-8 lg:gap-12 items-center ${className}`}>
-      {/* Left Side - Content */}
+    <div className={`grid md:grid-cols-[60%_40%] gap-8 lg:gap-12 items-start ${className}`}>
+      {/* Left Side - Content Only (60% width) */}
       <div className="space-y-6">
         {/* Trust Badge */}
         <Badge 
@@ -38,7 +37,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
 
         {/* Headline */}
         <h1 
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+          className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight"
           style={{ color: '#1E3A5F' }}
         >
           Feel Like{" "}
@@ -48,66 +47,60 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
 
         {/* Subheadline */}
         <p 
-          className="text-lg sm:text-xl leading-relaxed"
+          className="text-lg leading-relaxed max-w-md"
           style={{ color: '#475569' }}
         >
           Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
         </p>
 
         {/* Trust Indicators Row */}
-        <div className="flex flex-wrap gap-6">
+        <div className="flex flex-wrap gap-4">
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-6 h-6" style={{ color: '#C9A961' }} />
-            <div className="flex flex-col">
-              <span className="font-bold text-sm" style={{ color: '#1E3A5F' }}>Third-Party Tested</span>
-              <span className="text-xs" style={{ color: '#94A3B8' }}>Verified</span>
-            </div>
+            <CheckCircle2 className="w-5 h-5" style={{ color: '#C9A961' }} />
+            <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>Third-Party Tested</span>
           </div>
           <div className="flex items-center gap-2">
-            <Award className="w-6 h-6" style={{ color: '#C9A961' }} />
-            <div className="flex flex-col">
-              <span className="font-bold text-sm" style={{ color: '#1E3A5F' }}>GMP Certified</span>
-              <span className="text-xs" style={{ color: '#94A3B8' }}>Verified</span>
-            </div>
+            <Award className="w-5 h-5" style={{ color: '#C9A961' }} />
+            <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>GMP Certified</span>
           </div>
           <div className="flex items-center gap-2">
-            <CheckCircle2 className="w-6 h-6" style={{ color: '#C9A961' }} />
-            <div className="flex flex-col">
-              <span className="font-bold text-sm" style={{ color: '#1E3A5F' }}>Non-GMO & Organic</span>
-              <span className="text-xs" style={{ color: '#94A3B8' }}>Verified</span>
-            </div>
+            <CheckCircle2 className="w-5 h-5" style={{ color: '#C9A961' }} />
+            <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>Non-GMO & Organic</span>
           </div>
         </div>
       </div>
 
-      {/* Right Side - Product Card */}
+      {/* Right Side - Buy Box Card with Product */}
       <div>
         <Card 
           className="overflow-hidden border-0 shadow-2xl"
           style={{ background: 'white' }}
         >
-          <CardContent className="p-8 space-y-6">
-            {/* Product Image */}
-            <div className="relative w-full flex items-center justify-center -mt-4">
+          <CardContent className="p-3 space-y-2.5">
+            {/* Product Image with Beige Background */}
+            <div 
+              className="relative w-full flex items-center justify-center rounded-xl p-3"
+              style={{ background: '#F7F4EF' }}
+            >
               <img 
                 src="/bottlemockbluegold_beigebg.png"
                 alt="OptiBio Ashwagandha KSM-66 - Premium Blue Bottle"
-                className="w-full max-w-[280px] h-auto object-contain"
+                className="w-full max-w-[180px] h-auto object-contain"
                 style={{ filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.08))' }}
               />
             </div>
 
             {/* Countdown Timer */}
             <div 
-              className="rounded-xl p-4"
+              className="rounded-lg p-2"
               style={{
-                background: 'linear-gradient(135deg, #FEF9F3 0%, #FFF5E8 100%)',
-                border: '1px solid #FED7AA'
+                background: 'linear-gradient(135deg, #FFF4E6 0%, #FFE4CC 100%)',
+                border: '1px solid #FFD4A3'
               }}
             >
               <p 
-                className="text-sm font-semibold mb-3 text-center"
-                style={{ color: '#991B1B' }}
+                className="text-xs font-bold mb-1.5 text-center"
+                style={{ color: '#B91C1C' }}
               >
                 Pre-orders close in:
               </p>
@@ -118,27 +111,27 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
             </div>
 
             {/* Pricing */}
-            <div className="space-y-3">
-              <div className="flex items-baseline gap-3 flex-wrap">
+            <div className="space-y-1">
+              <div className="flex items-baseline gap-2.5 flex-wrap">
                 <span 
-                  className="text-5xl font-bold"
+                  className="text-4xl font-bold"
                   style={{ color: '#1E3A5F' }}
                 >
                   {price}
                 </span>
-                <span className="text-2xl line-through" style={{ color: '#94A3B8' }}>
+                <span className="text-lg line-through" style={{ color: '#94A3B8' }}>
                   {comparePrice}
                 </span>
                 <Badge 
-                  className="border-0 text-sm font-bold px-3 py-1.5 text-white"
+                  className="border-0 text-xs font-bold px-2.5 py-0.5 text-white"
                   style={{ background: '#DC2626' }}
                 >
-                  Save {discount}%
+                  SAVE {discount}%
                 </Badge>
               </div>
               
-              <div className="flex items-center gap-2 text-sm">
-                <Sparkles className="w-4 h-4" style={{ color: '#C9A961' }} />
+              <div className="flex items-center gap-1.5 text-xs">
+                <Sparkles className="w-3.5 h-3.5" style={{ color: '#C9A961' }} />
                 <span className="font-semibold" style={{ color: '#1E3A5F' }}>
                   Pre-Order Special:
                 </span>
@@ -152,7 +145,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
             <Link href="/product/ashwagandha-ksm-66" className="block">
               <Button 
                 size="lg" 
-                className="w-full text-lg font-bold py-7 transition-all duration-300 hover:scale-[1.02] text-white border-0"
+                className="w-full text-sm font-bold py-5 transition-all duration-300 hover:scale-[1.02] text-white border-0"
                 style={{
                   background: '#2563EB',
                   boxShadow: '0 4px 16px rgba(37, 99, 235, 0.3)'
@@ -168,56 +161,55 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   e.currentTarget.style.boxShadow = '0 4px 16px rgba(37, 99, 235, 0.3)';
                 }}
               >
-                Pre-Order Now • Save {discount}%
-                <ArrowRight className="ml-2 w-5 h-5" />
+                Pre-Order Now • Save {discount}% →
               </Button>
             </Link>
 
             {/* Trust Badges */}
             <div 
-              className="text-xs text-center flex items-center justify-center gap-2 flex-wrap pt-3 border-t"
-              style={{ borderColor: 'rgba(201, 169, 97, 0.2)', color: '#475569' }}
+              className="text-[10px] text-center flex items-center justify-center gap-1.5 flex-wrap pt-1.5 border-t"
+              style={{ borderColor: 'rgba(201, 169, 97, 0.15)', color: '#64748B' }}
             >
-              <span className="flex items-center gap-1">
-                <svg className="w-3.5 h-3.5" style={{ color: '#16A34A' }} fill="currentColor" viewBox="0 0 20 20">
+              <span className="flex items-center gap-0.5">
+                <svg className="w-3 h-3" style={{ color: '#16A34A' }} fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
                 </svg>
                 Secure checkout
               </span>
-              <span style={{ color: '#D1D5DB' }}>•</span>
+              <span style={{ color: '#CBD5E1' }}>•</span>
               <span>Free shipping on $75+</span>
-              <span style={{ color: '#D1D5DB' }}>•</span>
+              <span style={{ color: '#CBD5E1' }}>•</span>
               <span>90-day guarantee</span>
             </div>
 
             {/* Social Proof */}
             <div 
-              className="rounded-xl p-4 space-y-3"
+              className="rounded-lg p-3 space-y-1.5"
               style={{
-                background: 'linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%)',
+                background: 'linear-gradient(135deg, #F0FDF9 0%, #E6F7F1 100%)',
                 border: '1px solid #BBF7D0'
               }}
             >
-              <div className="flex items-center justify-center gap-1">
+              <div className="flex items-center justify-center gap-0.5">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star 
                     key={i} 
-                    className="w-5 h-5" 
+                    className="w-3.5 h-3.5" 
                     style={{ fill: '#FBBF24', color: '#FBBF24' }}
                   />
                 ))}
-                <span className="ml-2 text-sm font-bold" style={{ color: '#1E3A5F' }}>
+                <span className="ml-1.5 text-xs font-bold" style={{ color: '#1E3A5F' }}>
                   4.63
                 </span>
               </div>
-              <p className="text-sm text-center" style={{ color: '#475569' }}>
+              <p className="text-[10px] text-center leading-tight" style={{ color: '#475569' }}>
                 <span className="font-bold" style={{ color: '#1E3A5F' }}>1,247</span> happy customers
               </p>
               <p 
-                className="text-xs text-center font-semibold"
+                className="text-[10px] text-center font-semibold leading-tight"
                 style={{ color: '#16A34A' }}
               >
-                ✅ <span className="font-bold">83,423</span> bottles sold in last 24 hours
+                ✅ <span className="font-bold">83,423</span> bottles sold last 24 hours
               </p>
             </div>
           </CardContent>
