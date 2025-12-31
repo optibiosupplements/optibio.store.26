@@ -1,8 +1,8 @@
-import { Link } from "wouter";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, ArrowRight, Sparkles, Award, CheckCircle2 } from "lucide-react";
+import { Star, ArrowRight, Sparkles, Award, CheckCircle2, Lock, Truck, Shield } from "lucide-react";
 import { formatPrice } from "@/const";
 import CountdownTimer from "@/components/CountdownTimer";
 
@@ -24,9 +24,9 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
   const discount = 46;
 
   return (
-    <div className={`grid md:grid-cols-[60%_40%] gap-8 lg:gap-12 items-start ${className}`}>
-      {/* Left Side - Content Only (60% width) */}
-      <div className="space-y-6">
+    <div className={`grid md:grid-cols-[55%_45%] gap-8 lg:gap-12 items-center ${className}`}>
+      {/* Left Side - All Content Including Buy Box (55% width) */}
+      <div className="space-y-5">
         {/* Trust Badge */}
         <Badge 
           className="text-sm font-semibold px-4 py-2 border-0 inline-flex items-center w-fit"
@@ -40,9 +40,11 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight"
           style={{ color: '#1E3A5F' }}
         >
-          Feel Like{" "}
-          <br className="hidden sm:block" />
-          Yourself Again
+          Feel Like
+          <br />
+          Yourself
+          <br />
+          Again
         </h1>
 
         {/* Subheadline */}
@@ -68,149 +70,131 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
             <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>Non-GMO & Organic</span>
           </div>
         </div>
+
+        {/* Countdown Timer */}
+        <div 
+          className="rounded-lg p-4 max-w-md"
+          style={{
+            background: 'white',
+            border: '2px solid #FFE4CC'
+          }}
+        >
+          <p 
+            className="text-sm font-bold mb-3 text-center"
+            style={{ color: '#B91C1C' }}
+          >
+            Pre-orders close in:
+          </p>
+          <CountdownTimer 
+            targetDate={new Date('2026-01-20T23:59:59')} 
+            className="justify-center"
+          />
+        </div>
+
+        {/* Pricing */}
+        <div className="space-y-2">
+          <div className="flex items-baseline gap-3 flex-wrap">
+            <span 
+              className="text-5xl font-bold"
+              style={{ color: '#1E3A5F' }}
+            >
+              {price}
+            </span>
+            <span className="text-xl line-through" style={{ color: '#94A3B8' }}>
+              {comparePrice}
+            </span>
+            <Badge 
+              className="border-0 text-sm font-bold px-3 py-1 text-white"
+              style={{ background: '#DC2626' }}
+            >
+              SAVE {discount}%
+            </Badge>
+          </div>
+          <p className="text-sm flex items-center gap-1.5" style={{ color: '#475569' }}>
+            <Sparkles className="w-4 h-4" style={{ color: '#C9A961' }} />
+            <span className="font-semibold">Pre-Order Special:</span> Ships Jan 20-27
+          </p>
+        </div>
+
+        {/* CTA Button */}
+        <Button
+          size="lg"
+          className="w-full max-w-md text-base font-bold py-6 border-0 shadow-lg hover:shadow-xl transition-all"
+          style={{ 
+            background: '#2563EB',
+            color: 'white'
+          }}
+        >
+          Pre-Order Now • Save {discount}% <ArrowRight className="ml-2 w-5 h-5" />
+        </Button>
+
+        {/* Trust Badges Below Button */}
+        <div className="flex items-center justify-center gap-4 text-xs max-w-md" style={{ color: '#64748B' }}>
+          <div className="flex items-center gap-1">
+            <Lock className="w-3.5 h-3.5" />
+            <span>Secure checkout</span>
+          </div>
+          <span>•</span>
+          <div className="flex items-center gap-1">
+            <Truck className="w-3.5 h-3.5" />
+            <span>Free shipping on $75+</span>
+          </div>
+          <span>•</span>
+          <div className="flex items-center gap-1">
+            <Shield className="w-3.5 h-3.5" />
+            <span>90-day guarantee</span>
+          </div>
+        </div>
+
+        {/* Social Proof */}
+        <div 
+          className="rounded-lg p-4 max-w-md"
+          style={{ background: '#F0FDF4', border: '1px solid #BBF7D0' }}
+        >
+          <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center gap-2">
+              <div className="flex">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star
+                    key={star}
+                    className="w-4 h-4 fill-current"
+                    style={{ color: '#EAB308' }}
+                  />
+                ))}
+              </div>
+              <span className="text-lg font-bold" style={{ color: '#1E3A5F' }}>
+                4.63
+              </span>
+            </div>
+          </div>
+          <p className="text-sm font-semibold mb-1" style={{ color: '#475569' }}>
+            1,247 happy customers
+          </p>
+          <p className="text-sm flex items-center gap-1.5" style={{ color: '#16A34A' }}>
+            <CheckCircle2 className="w-4 h-4" />
+            <span className="font-semibold">83,423 bottles sold last 24 hours</span>
+          </p>
+        </div>
       </div>
 
-      {/* Right Side - Buy Box Card with Product */}
+      {/* Right Side - Product Image ONLY (45% width) */}
       <div>
         <Card 
           className="overflow-hidden border-0 shadow-2xl"
           style={{ background: 'white' }}
         >
-          <CardContent className="p-3 space-y-2.5">
+          <CardContent className="p-6">
             {/* Product Image with Beige Background */}
             <div 
-              className="relative w-full flex items-center justify-center rounded-xl p-3"
+              className="relative w-full flex items-center justify-center rounded-xl p-8"
               style={{ background: '#F7F4EF' }}
             >
               <img 
                 src="/bottlemockbluegold_beigebg.png"
                 alt="OptiBio Ashwagandha KSM-66 - Premium Blue Bottle"
-                className="w-full max-w-[180px] h-auto object-contain"
+                className="w-full max-w-[280px] h-auto object-contain"
                 style={{ filter: 'drop-shadow(0 8px 24px rgba(0, 0, 0, 0.08))' }}
               />
-            </div>
-
-            {/* Countdown Timer */}
-            <div 
-              className="rounded-lg p-2"
-              style={{
-                background: 'linear-gradient(135deg, #FFF4E6 0%, #FFE4CC 100%)',
-                border: '1px solid #FFD4A3'
-              }}
-            >
-              <p 
-                className="text-xs font-bold mb-1.5 text-center"
-                style={{ color: '#B91C1C' }}
-              >
-                Pre-orders close in:
-              </p>
-              <CountdownTimer 
-                targetDate={new Date('2026-01-20T23:59:59')} 
-                className="justify-center"
-              />
-            </div>
-
-            {/* Pricing */}
-            <div className="space-y-1">
-              <div className="flex items-baseline gap-2.5 flex-wrap">
-                <span 
-                  className="text-4xl font-bold"
-                  style={{ color: '#1E3A5F' }}
-                >
-                  {price}
-                </span>
-                <span className="text-lg line-through" style={{ color: '#94A3B8' }}>
-                  {comparePrice}
-                </span>
-                <Badge 
-                  className="border-0 text-xs font-bold px-2.5 py-0.5 text-white"
-                  style={{ background: '#DC2626' }}
-                >
-                  SAVE {discount}%
-                </Badge>
-              </div>
-              
-              <div className="flex items-center gap-1.5 text-xs">
-                <Sparkles className="w-3.5 h-3.5" style={{ color: '#C9A961' }} />
-                <span className="font-semibold" style={{ color: '#1E3A5F' }}>
-                  Pre-Order Special:
-                </span>
-                <span style={{ color: '#475569' }}>
-                  Ships Jan 20-27
-                </span>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <Link href="/product/ashwagandha-ksm-66" className="block">
-              <Button 
-                size="lg" 
-                className="w-full text-sm font-bold py-5 transition-all duration-300 hover:scale-[1.02] text-white border-0"
-                style={{
-                  background: '#2563EB',
-                  boxShadow: '0 4px 16px rgba(37, 99, 235, 0.3)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = '#1D4ED8';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(37, 99, 235, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = '#2563EB';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(37, 99, 235, 0.3)';
-                }}
-              >
-                Pre-Order Now • Save {discount}% →
-              </Button>
-            </Link>
-
-            {/* Trust Badges */}
-            <div 
-              className="text-[10px] text-center flex items-center justify-center gap-1.5 flex-wrap pt-1.5 border-t"
-              style={{ borderColor: 'rgba(201, 169, 97, 0.15)', color: '#64748B' }}
-            >
-              <span className="flex items-center gap-0.5">
-                <svg className="w-3 h-3" style={{ color: '#16A34A' }} fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-                </svg>
-                Secure checkout
-              </span>
-              <span style={{ color: '#CBD5E1' }}>•</span>
-              <span>Free shipping on $75+</span>
-              <span style={{ color: '#CBD5E1' }}>•</span>
-              <span>90-day guarantee</span>
-            </div>
-
-            {/* Social Proof */}
-            <div 
-              className="rounded-lg p-3 space-y-1.5"
-              style={{
-                background: 'linear-gradient(135deg, #F0FDF9 0%, #E6F7F1 100%)',
-                border: '1px solid #BBF7D0'
-              }}
-            >
-              <div className="flex items-center justify-center gap-0.5">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star 
-                    key={i} 
-                    className="w-3.5 h-3.5" 
-                    style={{ fill: '#FBBF24', color: '#FBBF24' }}
-                  />
-                ))}
-                <span className="ml-1.5 text-xs font-bold" style={{ color: '#1E3A5F' }}>
-                  4.63
-                </span>
-              </div>
-              <p className="text-[10px] text-center leading-tight" style={{ color: '#475569' }}>
-                <span className="font-bold" style={{ color: '#1E3A5F' }}>1,247</span> happy customers
-              </p>
-              <p 
-                className="text-[10px] text-center font-semibold leading-tight"
-                style={{ color: '#16A34A' }}
-              >
-                ✅ <span className="font-bold">83,423</span> bottles sold last 24 hours
-              </p>
             </div>
           </CardContent>
         </Card>
