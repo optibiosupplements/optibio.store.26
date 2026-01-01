@@ -1973,3 +1973,41 @@ Create REAL enforcement system that prevents color changes, not just documentati
 ### Manus Hosting Issues
 - [ ] Identify and document specific Manus hosting issues
 - [ ] Compare Manus vs Cloud Run trade-offs
+
+
+---
+
+## 🚀 GOOGLE CLOUD APP HOSTING MIGRATION (Dec 31, 2025)
+
+### Phase 1: Audit & Planning
+- [ ] Audit Manus-specific dependencies
+- [ ] Document required environment variables
+- [ ] Identify authentication replacement strategy
+- [ ] Plan database migration approach
+
+### Phase 2: Google Cloud Configuration
+- [x] Create apphosting.yaml with runConfig
+- [x] Configure build scripts for Google Cloud
+- [x] Set up proper Node.js start command (node dist/index.js)
+- [x] Configure resource allocation (CPU: 1, Memory: 512MiB)
+
+### Phase 3: Service Replacements
+- [x] Replace Manus OAuth with Firebase Auth or custom JWT
+- [x] Replace Manus LLM integration (use OpenAI/Anthropic directly)
+- [x] Replace Manus storage with Google Cloud Storage
+- [x] Replace Manus notification system
+- [x] Update database connection (Cloud SQL MySQL or external provider)
+
+### Phase 4: Environment & Configuration
+- [x] Create .env.example with all required variables
+- [x] Document Stripe configuration for Google Cloud
+- [x] Update CORS and domain settings
+- [x] Configure session management without Manus cookies
+- [x] Set up JWT_SECRET generation
+
+### Phase 5: Documentation & Delivery
+- [x] Create deployment guide
+- [x] Document environment variable setup
+- [x] Provide database migration scripts
+- [x] Create rollback plan
+- [ ] Test deployment on Google Cloud (user responsibility)
