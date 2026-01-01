@@ -1,7 +1,6 @@
 import "dotenv/config";
 import express from "express";
 import { createServer } from "http";
-import net from "net";
 import { createExpressMiddleware } from "@trpc/server/adapters/express";
 import { registerOAuthRoutes } from "./oauth";
 import { appRouter } from "../routers";
@@ -11,26 +10,6 @@ import { handleStripeWebhook } from "../webhooks";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import cors from "cors";
-
-
-function isPortAvailable(port: number): Promise<boolean> {
-  return new Promise(resolve => {
-    const server = net.createServer();
-    server.listen(port, () => {
-      server.close(() => resolve(true));
-    });
-    server.on("error", () => resolve(false));
-  });
-}
-
-async function findAvailablePort(startPort: number = 3000): Promise<number> {
-  for (let port = startPort; port < startPort + 20; port++) {
-    if (await isPortAvailable(port)) {
-      return port;
-    }
-  }
-  throw new Error(`No available port found starting from ${startPort}`);
-}
 
 async function startServer() {
   const app = express();
@@ -170,23 +149,110 @@ async function startServer() {
       createContext,
     })
   );
-  // development mode uses Vite, production mode uses static files
-  if (process.env.NODE_ENV === "development") {
-    await setupVite(app, server);
-  } else {
-    serveStatic(app);
-  }
 
-  const preferredPort = parseInt(process.env.PORT || "3000");
-  const port = await findAvailablePort(preferredPort);
-
-  if (port !== preferredPort) {
-    console.log(`Port ${preferredPort} is busy, using port ${port} instead`);
-  }
-
-  server.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}/`);
+  // ============================================
+  // CLOUD RUN COMPLIANCE: NON-BLOCKING STARTUP
+  // ============================================
+  
+  // CRITICAL: Start server IMMEDIATELY before any blocking operations
+  // Use process.env.PORT (Cloud Run requirement) with 0.0.0.0 binding
+  const PORT = parseInt(process.env.PORT || "8080", 10);
+  const HOST = "0.0.0.0";
+  
+  server.listen(PORT, HOST, () => {
+    // CRITICAL: Log exact port and host for Cloud Logging verification
+    console.log(`[Server] Listening on ${HOST}:${PORT}`);
+    console.log(`[Server] Environment: ${process.env.NODE_ENV || 'production'}`);
+    console.log(`[Server] Process ID: ${process.pid}`);
   });
+
+  // ============================================
+  // POST-STARTUP: ASYNC INITIALIZATION
+  // ============================================
+  
+  // Initialize database connection AFTER server starts (non-blocking)
+  // This prevents timeout errors if DB is slow or unavailable
+  (async () => {
+    try {
+      const { getDb } = await import("../db");
+      const db = await getDb();
+      if (db) {
+        console.log("[Database] Connection established");
+      } else {
+        console.warn("[Database] Not configured - running without database");
+      }
+    } catch (error) {
+      console.error("[Database] Failed to connect:", error);
+      console.warn("[Database] Server will continue in degraded mode");
+      // Server stays online even if DB fails
+    }
+  })();
+  
+  // Setup Vite or static serving AFTER server starts
+  // This prevents blocking if Vite setup is slow
+  (async () => {
+    try {
+      if (process.env.NODE_ENV === "development") {
+        await setupVite(app, server);
+        console.log("[Vite] Development server ready");
+      } else {
+        serveStatic(app);
+        console.log("[Static] Production assets mounted");
+      }
+    } catch (error) {
+      console.error("[Frontend] Failed to setup:", error);
+      // Serve a basic maintenance page if frontend setup fails
+      app.use("*", (req, res) => {
+        res.status(503).send(`
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>OptiBio - Maintenance</title>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <style>
+                body {
+                  font-family: system-ui, -apple-system, sans-serif;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  min-height: 100vh;
+                  margin: 0;
+                  background: linear-gradient(135deg, #1E3A5F 0%, #2C5282 100%);
+                  color: white;
+                  text-align: center;
+                  padding: 20px;
+                }
+                .container {
+                  max-width: 500px;
+                }
+                h1 {
+                  font-size: 2.5rem;
+                  margin-bottom: 1rem;
+                  color: #C9A961;
+                }
+                p {
+                  font-size: 1.125rem;
+                  line-height: 1.6;
+                  opacity: 0.9;
+                }
+              </style>
+            </head>
+            <body>
+              <div class="container">
+                <h1>OptiBio</h1>
+                <p>We're performing maintenance to serve you better.</p>
+                <p>Please check back in a few minutes.</p>
+              </div>
+            </body>
+          </html>
+        `);
+      });
+    }
+  })();
 }
 
-startServer().catch(console.error);
+startServer().catch((error) => {
+  console.error("[Server] Fatal startup error:", error);
+  process.exit(1);
+});

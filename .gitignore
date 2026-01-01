@@ -127,3 +127,8 @@ platform_analysis_findings.md
 *Concept*.pdf
 *FINAL*.pdf
 *badge*.png
+
+# Gemini AI export artifacts
+optibio-gemini-export/
+optibio-for-gemini-*.zip
+todo.md.backup

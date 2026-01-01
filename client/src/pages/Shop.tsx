@@ -123,11 +123,11 @@ export default function Shop() {
             { icon: CheckCircle2, title: "FDA Registered", sub: "GMP Facility" },
             { icon: Truck, title: "Fast Shipping", sub: "Free over $75" },
           ].map((item, i) => (
-            <div key={i} className="flex items-center gap-4 opacity-80 hover:opacity-100 transition-opacity">
+            <div key={i} className="flex flex-col items-center text-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
               <item.icon className="w-8 h-8 text-[#1E3A5F] dark:text-white" />
               <div>
-                <div className="font-bold text-[#1E3A5F] dark:text-white text-sm">{item.title}</div>
-                <div className="text-xs text-[var(--color-text-secondary)]">{item.sub}</div>
+                <div className="font-bold text-[#1E3A5F] dark:text-white text-sm leading-tight">{item.title}</div>
+                <div className="text-xs text-[var(--color-text-secondary)] mt-0.5">{item.sub}</div>
               </div>
             </div>
           ))}

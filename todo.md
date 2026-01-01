@@ -1947,3 +1947,4 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Add "Verified" subtitle under each badge name (text-xs, gray color)
 - [x] Changed gap from gap-4 to gap-6 for better spacing
 - [x] Verify exact visual match with reference design - PERFECT MATCH ✓
+- [ ] Fix trust badges layout - ensure all 3 badges display in single horizontal row (not wrapping to 2 lines)
