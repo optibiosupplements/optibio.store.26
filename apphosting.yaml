@@ -1,0 +1,15 @@
+env:
+  - variable: STRIPE_SECRET_KEY
+    value: sk_test_placeholder123
+  - variable: STRIPE_WEBHOOK_SECRET
+    value: whsec_placeholder123
+  - variable: DATABASE_URL
+    value: postgres://user:pass@localhost/db
+  - variable: JWT_SECRET
+    value: mysecretpassword
+  - variable: VITE_APP_ID
+    value: optibio_store
+  - variable: OAUTH_SERVER_URL
+    value: https://optibiosupplements.com
+  - variable: OWNER_OPEN_ID
+    value: user_123
