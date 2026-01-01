@@ -156,11 +156,9 @@ async function startServer() {
     serveStatic(app);
   }
 
-  const port = parseInt(process.env.PORT || "8080", 10);
-
-  server.listen({ port, host: '0.0.0.0' }, () => {
-    console.log(`Server running on port ${port}`);
-  });
+  const port = Number(process.env.PORT) || 8080;
+  const host = '0.0.0.0';
+  app.listen(port, host, () => { console.log(`Server is running aggressively on http://${host}:${port}`); });
 }
 
 startServer().catch(console.error);
