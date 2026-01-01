@@ -1948,3 +1948,28 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Changed gap from gap-4 to gap-6 for better spacing
 - [x] Verify exact visual match with reference design - PERFECT MATCH ✓
 - [ ] Fix trust badges layout - ensure all 3 badges display in single horizontal row (not wrapping to 2 lines)
+
+
+## 🚀 CLOUD RUN DEPLOYMENT (Dec 31, 2025)
+
+### Critical Issues
+- [x] Fix port binding to use PORT environment variable (currently failing on Cloud Run)
+- [x] Ensure server listens on process.env.PORT || 8080
+
+### Deployment Infrastructure
+- [x] Create production-optimized Dockerfile
+- [x] Create .dockerignore file (already existed)
+- [x] Configure Cloud Run environment variables (documented)
+- [x] Set up Cloud Run service configuration (documented)
+- [ ] Test deployment on Cloud Run (user needs to deploy)
+
+### Documentation
+- [x] Document Cloud Run deployment process
+- [x] Create deployment checklist
+- [x] Document environment variable requirements
+- [x] Create troubleshooting guide
+- [x] Create rollback procedures
+
+### Manus Hosting Issues
+- [ ] Identify and document specific Manus hosting issues
+- [ ] Compare Manus vs Cloud Run trade-offs
