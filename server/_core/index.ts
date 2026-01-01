@@ -156,9 +156,9 @@ async function startServer() {
     serveStatic(app);
   }
 
-  const port = parseInt(process.env.PORT || "8080");
+  const port = parseInt(process.env.PORT || "8080", 10);
 
-  server.listen(port, () => {
+  server.listen({ port, host: '0.0.0.0' }, () => {
     console.log(`Server running on port ${port}`);
   });
 }
