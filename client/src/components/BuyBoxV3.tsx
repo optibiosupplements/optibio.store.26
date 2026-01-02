@@ -196,7 +196,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
             {/* Product Image with Beige Background */}
             <div 
               className="relative w-full flex items-center justify-center rounded-xl p-8"
-              style={{ background: '#F7F4EF' }}
+              style={{ background: '#FFFFFF' }}
             >
               <img 
                 src="/bottlemockbluegold_beigebg.png"
