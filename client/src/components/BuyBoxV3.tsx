@@ -1,8 +1,7 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, ArrowRight, Sparkles, Award, CheckCircle2, Lock, Truck, Shield } from "lucide-react";
+import { Star, ArrowRight, Sparkles, Award, CheckCircle2, Lock, Truck, Shield, Leaf, Zap } from "lucide-react";
 import { formatPrice } from "@/const";
 import CountdownTimer from "@/components/CountdownTimer";
 
@@ -19,14 +18,23 @@ interface BuyBoxV3Props {
 
 export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
   const price = product ? formatPrice(product.priceInCents) : '$49.99';
-  const comparePrice = product?.compareAtPriceInCents ? formatPrice(product.compareAtPriceInCents) : '$89.00';
-  // Force 46% to match reference design (actual math is 44% but design shows 46%)
-  const discount = 46;
+  const comparePrice = product?.compareAtPriceInCents ? formatPrice(product.compareAtPriceInCents) : '$69.99';
+  // 29% discount (49.99 vs 69.99)
+  const discount = 29;
+
+  // Gold circular badge icons
+  const badges = [
+    { icon: CheckCircle2, label: "Third-Party Tested" },
+    { icon: Award, label: "GMP Certified" },
+    { icon: Leaf, label: "Non-GMO & Organic" },
+    { icon: Zap, label: "Clinically Proven" },
+    { icon: Shield, label: "90-Day Guarantee" }
+  ];
 
   return (
-    <div className={`grid md:grid-cols-[55%_45%] gap-8 lg:gap-12 items-center ${className}`}>
-      {/* Left Side - All Content Including Buy Box (55% width) */}
-      <div className="space-y-5">
+    <div className={`grid md:grid-cols-[1fr_1fr] gap-6 lg:gap-12 items-center ${className}`}>
+      {/* Left Side - All Content (50% width on desktop) */}
+      <div className="space-y-6">
         {/* Trust Badge */}
         <Badge 
           className="text-sm font-semibold px-4 py-2 border-0 inline-flex items-center w-fit"
@@ -37,13 +45,11 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
 
         {/* Headline */}
         <h1 
-          className="text-4xl sm:text-5xl lg:text-5xl font-bold leading-tight"
+          className="text-5xl sm:text-6xl lg:text-6xl font-bold leading-tight"
           style={{ color: '#1E3A5F' }}
         >
-          Feel Like
-          <br />
-          Yourself
-          <br />
+          Feel Like<br />
+          Yourself<br />
           Again
         </h1>
 
@@ -104,7 +110,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
         <div className="space-y-2">
           <div className="flex items-baseline gap-3 flex-wrap">
             <span 
-              className="text-5xl font-bold"
+              className="text-5xl sm:text-6xl font-bold"
               style={{ color: '#1E3A5F' }}
             >
               {price}
@@ -138,7 +144,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
         </Button>
 
         {/* Trust Badges Below Button */}
-        <div className="flex items-center justify-center gap-4 text-xs max-w-md" style={{ color: '#64748B' }}>
+        <div className="flex items-center justify-center gap-4 text-xs max-w-md flex-wrap" style={{ color: '#64748B' }}>
           <div className="flex items-center gap-1">
             <Lock className="w-3.5 h-3.5" />
             <span>Secure checkout</span>
@@ -184,19 +190,46 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
             <span className="font-semibold">83,423 bottles sold last 24 hours</span>
           </p>
         </div>
+
+        {/* Gold Circular Icon Badges - Bottom */}
+        <div className="flex flex-wrap gap-3 justify-start pt-4">
+          {badges.map((badge, idx) => {
+            const IconComponent = badge.icon;
+            return (
+              <div
+                key={idx}
+                className="flex flex-col items-center gap-1"
+                title={badge.label}
+              >
+                <div
+                  className="w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-shadow"
+                  style={{
+                    background: 'linear-gradient(135deg, #C9A961 0%, #B89651 100%)',
+                    color: '#1E3A5F'
+                  }}
+                >
+                  <IconComponent className="w-6 h-6" />
+                </div>
+                <span className="text-xs text-center font-medium" style={{ color: '#1E3A5F', maxWidth: '60px' }}>
+                  {badge.label.split(' ')[0]}
+                </span>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Right Side - Product Image ONLY (45% width) */}
-      <div>
+      {/* Right Side - Product Image ONLY (50% width on desktop) */}
+      <div className="flex justify-center items-center">
         <Card 
-          className="overflow-hidden border-0 shadow-2xl"
+          className="overflow-hidden border-0 shadow-2xl w-full max-w-md"
           style={{ background: 'white' }}
         >
-          <CardContent className="p-6">
+          <CardContent className="p-6 sm:p-8">
             {/* Product Image with Beige Background */}
             <div 
               className="relative w-full flex items-center justify-center rounded-xl p-8"
-              style={{ background: '#FFFFFF' }}
+              style={{ background: '#F5F1EB' }}
             >
               <img 
                 src="/bottlemockbluegold_beigebg.png"
