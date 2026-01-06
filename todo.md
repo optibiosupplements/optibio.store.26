@@ -296,6 +296,16 @@ The `.gradient-hero` CSS class was using old beige gradient (#F7F4EF → #EDE9E3
 
 **RESULT: All Gemini color correction requirements met. Homepage and supporting pages now display the correct Clinical Light / Apple Health aesthetic.**
 
+## ✅ COMPLETED: HERO SECTION BADGES - Two-Line Layout with Visible Icons (Jan 6, 2026)
+- [x] Updated badge section to display with visible icons
+- [x] Changed layout from single line to two-line grid
+- [x] First line: Third-Party Tested + GMP Certified (side by side)
+- [x] Second line: Non-GMO & Organic (spans full width)
+- [x] Increased icon size from 5x5 to 6x6 for better visibility
+- [x] Added flex-shrink-0 to prevent icon compression
+- [x] Changed third badge icon from CheckCircle2 to Leaf (more appropriate)
+- [x] Verified changes in preview - working correctly
+
 ## COMPLETED: GEMINI SCIENCE PAGE REDESIGN - Clinical Authority (Dec 28, 2025)
 
 ### Status: 6/10 to 9+/10 - Premium Clinical Authority Achieved
@@ -2028,4 +2038,4 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Verify product image positioning and sizing
 - [x] Test responsive design on mobile devices
 - [x] Capture screenshot and verify match
-- [ ] Create checkpoint after completion
+- [x] Create checkpoint after completion
