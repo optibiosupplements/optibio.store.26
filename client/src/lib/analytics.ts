@@ -51,22 +51,29 @@ function getDeviceType(): 'mobile' | 'tablet' | 'desktop' {
  */
 export async function trackPageView(pageUrl: string, metadata?: Record<string, any>) {
   try {
-    const event: AnalyticsEvent = {
-      eventType: 'page_view',
-      pageUrl,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        deviceType: getDeviceType(),
-        ...metadata,
-      },
-    };
-
-    // Send to analytics API (non-blocking)
-    // In a real implementation, you'd batch these and send periodically
-    console.log('[Analytics] Page view tracked:', event);
+    const sessionId = getSessionId();
+    const deviceType = getDeviceType();
+    
+    console.log('[Analytics] Page view tracked:', { pageUrl, deviceType });
+    
+    // Send to backend (non-blocking)
+    try {
+      const response = await fetch('/api/trpc/events.pageView', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          json: {
+            sessionId,
+            pagePath: pageUrl,
+            pageTitle: document.title,
+            deviceType,
+          },
+        }),
+      });
+      if (!response.ok) console.warn('[Analytics] Failed to send page view to backend');
+    } catch (err) {
+      console.warn('[Analytics] Could not send page view to backend:', err);
+    }
   } catch (error) {
     console.error('[Analytics] Failed to track page view:', error);
   }
@@ -77,23 +84,29 @@ export async function trackPageView(pageUrl: string, metadata?: Record<string, a
  */
 export async function trackAddToCart(productId: number, variantId: number, quantity: number, price: number) {
   try {
-    const event: AnalyticsEvent = {
-      eventType: 'add_to_cart',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        productId,
-        variantId,
-        quantity,
-        price,
-        deviceType: getDeviceType(),
-      },
-    };
-
-    console.log('[Analytics] Add to cart tracked:', event);
+    const sessionId = getSessionId();
+    
+    console.log('[Analytics] Add to cart tracked:', { productId, variantId, quantity, price });
+    
+    // Send to backend (non-blocking)
+    try {
+      await fetch('/api/trpc/events.addToCart', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          json: {
+            sessionId,
+            productId,
+            variantId,
+            quantity,
+            price,
+            pagePath: window.location.href,
+          },
+        }),
+      });
+    } catch (err) {
+      console.warn('[Analytics] Could not send add-to-cart to backend:', err);
+    }
   } catch (error) {
     console.error('[Analytics] Failed to track add to cart:', error);
   }
@@ -104,21 +117,27 @@ export async function trackAddToCart(productId: number, variantId: number, quant
  */
 export async function trackCheckoutStarted(cartTotal: number, itemCount: number) {
   try {
-    const event: AnalyticsEvent = {
-      eventType: 'checkout_started',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        cartTotal,
-        itemCount,
-        deviceType: getDeviceType(),
-      },
-    };
-
-    console.log('[Analytics] Checkout started tracked:', event);
+    const sessionId = getSessionId();
+    
+    console.log('[Analytics] Checkout started tracked:', { cartTotal, itemCount });
+    
+    // Send to backend (non-blocking)
+    try {
+      await fetch('/api/trpc/events.checkoutStarted', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          json: {
+            sessionId,
+            cartTotal,
+            itemCount,
+            pagePath: window.location.href,
+          },
+        }),
+      });
+    } catch (err) {
+      console.warn('[Analytics] Could not send checkout started to backend:', err);
+    }
   } catch (error) {
     console.error('[Analytics] Failed to track checkout started:', error);
   }
@@ -129,22 +148,28 @@ export async function trackCheckoutStarted(cartTotal: number, itemCount: number)
  */
 export async function trackPurchaseCompleted(orderId: number, orderTotal: number, itemCount: number) {
   try {
-    const event: AnalyticsEvent = {
-      eventType: 'purchase_completed',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        orderId,
-        orderTotal,
-        itemCount,
-        deviceType: getDeviceType(),
-      },
-    };
-
-    console.log('[Analytics] Purchase completed tracked:', event);
+    const sessionId = getSessionId();
+    
+    console.log('[Analytics] Purchase completed tracked:', { orderId, orderTotal, itemCount });
+    
+    // Send to backend (non-blocking)
+    try {
+      await fetch('/api/trpc/events.purchaseCompleted', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          json: {
+            sessionId,
+            orderId,
+            orderTotal,
+            itemCount,
+            pagePath: window.location.href,
+          },
+        }),
+      });
+    } catch (err) {
+      console.warn('[Analytics] Could not send purchase completed to backend:', err);
+    }
   } catch (error) {
     console.error('[Analytics] Failed to track purchase completed:', error);
   }
@@ -155,22 +180,28 @@ export async function trackPurchaseCompleted(orderId: number, orderTotal: number
  */
 export async function trackProductViewed(productId: number, productName: string, price: number) {
   try {
-    const event: AnalyticsEvent = {
-      eventType: 'product_viewed',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        productId,
-        productName,
-        price,
-        deviceType: getDeviceType(),
-      },
-    };
-
-    console.log('[Analytics] Product viewed tracked:', event);
+    const sessionId = getSessionId();
+    
+    console.log('[Analytics] Product viewed tracked:', { productId, productName, price });
+    
+    // Send to backend (non-blocking)
+    try {
+      await fetch('/api/trpc/events.productView', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          json: {
+            sessionId,
+            productId,
+            productName,
+            productPrice: price,
+            pagePath: window.location.href,
+          },
+        }),
+      });
+    } catch (err) {
+      console.warn('[Analytics] Could not send product view to backend:', err);
+    }
   } catch (error) {
     console.error('[Analytics] Failed to track product viewed:', error);
   }
