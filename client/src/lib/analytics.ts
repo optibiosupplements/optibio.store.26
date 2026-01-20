@@ -1,4 +1,10 @@
-import { trpc } from './trpc';
+/**
+ * Analytics Tracking Utility
+ * Sends user interaction events to the backend for storage and analysis
+ */
+
+// We'll use fetch directly instead of tRPC hooks since these are standalone functions
+// that need to work outside of React component context
 
 export type EventType = 
   | 'page_view'
@@ -33,6 +39,9 @@ function getSessionId(): string {
   return sessionId;
 }
 
+// Export for use in other components
+export { getSessionId };
+
 // Get device type
 function getDeviceType(): 'mobile' | 'tablet' | 'desktop' {
   const ua = navigator.userAgent;
@@ -46,182 +55,179 @@ function getDeviceType(): 'mobile' | 'tablet' | 'desktop' {
   return 'desktop';
 }
 
+// Export for use in other components
+export { getDeviceType };
+
+/**
+ * Send event to backend via tRPC
+ * Uses fetch directly to avoid React hook dependencies
+ * Uses tRPC batch format for proper request handling
+ */
+async function sendToBackend(procedure: string, input: Record<string, any>): Promise<void> {
+  try {
+    const response = await fetch('/api/trpc/events.' + procedure + '?batch=1', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ "0": { json: input } }),
+    });
+    
+    if (!response.ok) {
+      console.warn(`[Analytics] Backend returned ${response.status}`);
+    }
+  } catch (error) {
+    // Silently fail - analytics should never break the user experience
+    console.warn('[Analytics] Failed to send to backend:', error);
+  }
+}
+
 /**
  * Track a page view event
  */
 export async function trackPageView(pageUrl: string, metadata?: Record<string, any>) {
-  try {
-    const event: AnalyticsEvent = {
-      eventType: 'page_view',
-      pageUrl,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        deviceType: getDeviceType(),
-        ...metadata,
-      },
-    };
-
-    // Send to analytics API (non-blocking)
-    // In a real implementation, you'd batch these and send periodically
-    console.log('[Analytics] Page view tracked:', event);
-  } catch (error) {
-    console.error('[Analytics] Failed to track page view:', error);
-  }
+  const sessionId = getSessionId();
+  const deviceType = getDeviceType();
+  
+  // Log locally for debugging
+  console.log('[Analytics] Page view:', pageUrl);
+  
+  // Send to backend
+  await sendToBackend('pageView', {
+    sessionId,
+    pagePath: pageUrl,
+    pageTitle: document.title,
+    referrer: document.referrer || undefined,
+    userAgent: navigator.userAgent,
+    deviceType,
+  });
 }
 
 /**
  * Track an add-to-cart event
  */
-export async function trackAddToCart(productId: number, variantId: number, quantity: number, price: number) {
-  try {
-    const event: AnalyticsEvent = {
-      eventType: 'add_to_cart',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        productId,
-        variantId,
-        quantity,
-        price,
-        deviceType: getDeviceType(),
-      },
-    };
-
-    console.log('[Analytics] Add to cart tracked:', event);
-  } catch (error) {
-    console.error('[Analytics] Failed to track add to cart:', error);
-  }
+export async function trackAddToCart(
+  productId: number, 
+  productName: string,
+  variantId: number | undefined, 
+  quantity: number, 
+  priceInCents: number
+) {
+  const sessionId = getSessionId();
+  
+  console.log('[Analytics] Add to cart:', { productId, productName, quantity });
+  
+  await sendToBackend('addToCart', {
+    sessionId,
+    productId,
+    productName,
+    variantId,
+    quantity,
+    priceInCents,
+    pagePath: window.location.pathname,
+  });
 }
 
 /**
  * Track checkout started event
  */
 export async function trackCheckoutStarted(cartTotal: number, itemCount: number) {
-  try {
-    const event: AnalyticsEvent = {
-      eventType: 'checkout_started',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        cartTotal,
-        itemCount,
-        deviceType: getDeviceType(),
-      },
-    };
-
-    console.log('[Analytics] Checkout started tracked:', event);
-  } catch (error) {
-    console.error('[Analytics] Failed to track checkout started:', error);
-  }
+  const sessionId = getSessionId();
+  
+  console.log('[Analytics] Checkout started:', { cartTotal, itemCount });
+  
+  await sendToBackend('checkoutStarted', {
+    sessionId,
+    cartTotal,
+    itemCount,
+    pagePath: window.location.pathname,
+  });
 }
 
 /**
  * Track purchase completed event
  */
 export async function trackPurchaseCompleted(orderId: number, orderTotal: number, itemCount: number) {
-  try {
-    const event: AnalyticsEvent = {
-      eventType: 'purchase_completed',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        orderId,
-        orderTotal,
-        itemCount,
-        deviceType: getDeviceType(),
-      },
-    };
-
-    console.log('[Analytics] Purchase completed tracked:', event);
-  } catch (error) {
-    console.error('[Analytics] Failed to track purchase completed:', error);
-  }
+  const sessionId = getSessionId();
+  
+  console.log('[Analytics] Purchase completed:', { orderId, orderTotal, itemCount });
+  
+  await sendToBackend('purchaseCompleted', {
+    sessionId,
+    orderId,
+    orderTotal,
+    itemCount,
+    pagePath: window.location.pathname,
+  });
 }
 
 /**
  * Track product viewed event
  */
-export async function trackProductViewed(productId: number, productName: string, price: number) {
-  try {
-    const event: AnalyticsEvent = {
-      eventType: 'product_viewed',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        productId,
-        productName,
-        price,
-        deviceType: getDeviceType(),
-      },
-    };
-
-    console.log('[Analytics] Product viewed tracked:', event);
-  } catch (error) {
-    console.error('[Analytics] Failed to track product viewed:', error);
-  }
+export async function trackProductViewed(productId: number, productName: string, price?: number) {
+  const sessionId = getSessionId();
+  
+  console.log('[Analytics] Product viewed:', { productId, productName });
+  
+  await sendToBackend('productView', {
+    sessionId,
+    productId,
+    productName,
+    pagePath: window.location.pathname,
+  });
 }
 
 /**
  * Track search event
  */
 export async function trackSearch(searchQuery: string, resultsCount: number) {
-  try {
-    const event: AnalyticsEvent = {
-      eventType: 'search',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        searchQuery,
-        resultsCount,
-        deviceType: getDeviceType(),
-      },
-    };
-
-    console.log('[Analytics] Search tracked:', event);
-  } catch (error) {
-    console.error('[Analytics] Failed to track search:', error);
-  }
+  const sessionId = getSessionId();
+  
+  console.log('[Analytics] Search:', { searchQuery, resultsCount });
+  
+  await sendToBackend('search', {
+    sessionId,
+    searchQuery,
+    resultsCount,
+    pagePath: window.location.pathname,
+  });
 }
 
 /**
  * Track filter applied event
  */
 export async function trackFilterApplied(filterType: string, filterValue: string) {
-  try {
-    const event: AnalyticsEvent = {
-      eventType: 'filter_applied',
-      pageUrl: window.location.href,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent,
-      timestamp: new Date().toISOString(),
-      sessionId: getSessionId(),
-      metadata: {
-        filterType,
-        filterValue,
-        deviceType: getDeviceType(),
-      },
-    };
+  const sessionId = getSessionId();
+  
+  console.log('[Analytics] Filter applied:', { filterType, filterValue });
+  
+  await sendToBackend('filterApplied', {
+    sessionId,
+    filterType,
+    filterValue,
+    pagePath: window.location.pathname,
+  });
+}
 
-    console.log('[Analytics] Filter applied tracked:', event);
-  } catch (error) {
-    console.error('[Analytics] Failed to track filter applied:', error);
-  }
+/**
+ * Track generic event
+ */
+export async function trackEvent(
+  eventType: string, 
+  eventCategory: string, 
+  eventLabel?: string,
+  eventData?: Record<string, any>
+) {
+  const sessionId = getSessionId();
+  
+  console.log('[Analytics] Event:', { eventType, eventCategory, eventLabel });
+  
+  await sendToBackend('track', {
+    sessionId,
+    eventType,
+    eventCategory,
+    eventLabel,
+    pagePath: window.location.pathname,
+    eventData: eventData ? JSON.stringify(eventData) : undefined,
+  });
 }

@@ -71,7 +71,7 @@ export default function ProductDetail() {
       toast.success("Added to cart!");
       if (productData && selectedVariant) {
         const variant = productData.variants.find(v => v.id === selectedVariant);
-        trackAddToCart(productData.id, selectedVariant, quantity, variant?.priceInCents || 0);
+        trackAddToCart(productData.id, productData.name, selectedVariant, quantity, variant?.priceInCents || 0);
       }
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'click_cta_pdp_addtocart', {
