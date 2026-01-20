@@ -2039,3 +2039,39 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Test responsive design on mobile devices
 - [x] Capture screenshot and verify match
 - [x] Create checkpoint after completion
+
+
+## 📊 NEW: ANALYTICS DASHBOARD - Traffic & Sales Performance Tracking
+
+### Phase 1: Design & Schema
+- [x] Define analytics data model (page views, events, conversions, orders)
+- [x] Design database schema for tracking
+- [x] Plan dashboard layout and key metrics
+
+### Phase 2: Database & Infrastructure
+- [x] Create analytics tables (page_views, events, conversions)
+- [x] Add tracking helpers and event logging
+- [x] Set up data aggregation queries
+
+### Phase 3: Dashboard UI
+- [x] Create analytics dashboard page component
+- [x] Build traffic trend charts (daily/weekly)
+- [x] Add conversion funnel visualization
+- [x] Display key metrics (visitors, conversion rate, revenue, CAC, ROAS)
+- [x] Add date range filters
+
+### Phase 4: Stripe Integration
+- [x] Added tRPC procedures for traffic dashboard, conversion funnel, traffic sources, and device breakdown
+- [x] Integrated with existing abandoned cart and post-purchase email metrics
+- [x] Stripe data already connected through orders table
+- [ ] Real-time tracking implementation (optional enhancement)
+
+### Phase 5: Testing
+- [ ] Verify page view tracking works
+- [ ] Test conversion funnel tracking
+- [ ] Validate Stripe data integration
+- [ ] Check dashboard calculations accuracy
+
+### Phase 6: Deployment
+- [ ] Save checkpoint
+- [ ] Deliver analytics dashboard

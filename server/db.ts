@@ -1,4 +1,4 @@
-import { eq, and, lt, isNull, isNotNull, desc, sql } from "drizzle-orm";
+import { eq, and, lt, isNull, isNotNull, desc, sql, gte, lte } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import { randomBytes } from "crypto";
 import { 
@@ -143,6 +143,7 @@ export async function getSubscriptionPlans() {
 }
 
 // Cart queries
+// Import for cart queries
 export async function getCartItems(userId: number) {
   const db = await getDb();
   if (!db) return [];
@@ -233,7 +234,7 @@ export async function getOrderItems(orderId: number) {
   const db = await getDb();
   if (!db) return [];
   
-  return db.select().from(orderItems).where(eq(orderItems.orderId, orderId));
+  return await db.select().from(orderItems).where(eq(orderItems.orderId, orderId));
 }
 
 // Discount code queries
@@ -246,7 +247,7 @@ export async function getDiscountCode(code: string) {
       eq(discountCodes.code, code),
       eq(discountCodes.isActive, true)
     ))
-    .limit(1);
+    .limit(1) as any;
     
   return result.length > 0 ? result[0] : null;
 }
@@ -255,7 +256,7 @@ export async function incrementDiscountCodeUsage(codeId: number) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   
-  const code = await db.select().from(discountCodes).where(eq(discountCodes.id, codeId)).limit(1);
+  const code = await db.select().from(discountCodes).where(eq(discountCodes.id, codeId)).limit(1) as any;
   if (code.length === 0) throw new Error("Discount code not found");
   
   const currentCount = code[0]?.usedCount ?? 0;
@@ -275,7 +276,7 @@ export async function getBatchByLotNumber(lotNumber: string) {
       eq(productBatches.lotNumber, lotNumber),
       eq(productBatches.isActive, true)
     ))
-    .limit(1);
+    .limit(1) as any;
     
   return result.length > 0 ? result[0] : null;
 }
@@ -731,5 +732,268 @@ export async function markCustomerReviewed(orderId: number): Promise<boolean> {
   } catch (error) {
     console.error("[Database] Failed to mark customer as reviewed:", error);
     return false;
+  }
+}
+
+
+// ============================================================================
+// ANALYTICS QUERIES
+// ============================================================================
+
+/**
+ * Track a page view
+ */
+export async function trackPageView(data: {
+  sessionId: string;
+  userId?: number;
+  pagePath: string;
+  pageTitle?: string;
+  referrer?: string;
+  userAgent?: string;
+  ipAddress?: string;
+  countryCode?: string;
+  deviceType: 'mobile' | 'tablet' | 'desktop';
+}) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Analytics] Cannot track page view: database not available");
+    return;
+  }
+
+  try {
+    const { pageViews } = await import("../drizzle/schema");
+    await db.insert(pageViews).values(data);
+  } catch (error) {
+    console.error("[Analytics] Failed to track page view:", error);
+  }
+}
+
+/**
+ * Track an analytics event
+ */
+export async function trackEvent(data: {
+  sessionId: string;
+  userId?: number;
+  eventType: string;
+  eventCategory: string;
+  eventLabel?: string;
+  pagePath: string;
+  eventData?: string; // JSON string
+}) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Analytics] Cannot track event: database not available");
+    return;
+  }
+
+  try {
+    const { analyticsEvents } = await import("../drizzle/schema");
+    await db.insert(analyticsEvents).values(data);
+  } catch (error) {
+    console.error("[Analytics] Failed to track event:", error);
+  }
+}
+
+/**
+ * Get or create conversion funnel record for a session
+ */
+export async function getOrCreateConversionFunnel(sessionId: string, userId?: number) {
+  const db = await getDb();
+  if (!db) return null;
+
+  try {
+    const { conversionFunnel } = await import("../drizzle/schema");
+    const existing = await db.select().from(conversionFunnel)
+      .where(eq(conversionFunnel.sessionId, sessionId))
+      .limit(1);
+    
+    if (existing.length > 0) {
+      return existing[0];
+    }
+
+    // Create new funnel record
+    const [result] = await db.insert(conversionFunnel).values({
+      sessionId,
+      userId,
+    });
+    
+    return result;
+  } catch (error) {
+    console.error("[Analytics] Failed to get/create conversion funnel:", error);
+    return null;
+  }
+}
+
+/**
+ * Update conversion funnel step
+ */
+export async function updateConversionFunnelStep(
+  sessionId: string,
+  step: 'viewedHomepage' | 'viewedProduct' | 'addedToCart' | 'startedCheckout' | 'completedPurchase',
+  data?: { orderId?: number; orderValue?: number }
+) {
+  const db = await getDb();
+  if (!db) return;
+
+  try {
+    const { conversionFunnel } = await import("../drizzle/schema");
+    const stepField = `${step}At` as const;
+    const updateData: any = {
+      [step]: true,
+      [stepField]: new Date(),
+    };
+
+    if (data?.orderId) {
+      updateData.orderId = data.orderId;
+    }
+    if (data?.orderValue) {
+      updateData.orderValue = data.orderValue;
+    }
+
+    await db.update(conversionFunnel)
+      .set(updateData)
+      .where(eq(conversionFunnel.sessionId, sessionId));
+  } catch (error) {
+    console.error("[Analytics] Failed to update conversion funnel:", error);
+  }
+}
+
+/**
+ * Get daily metrics for a specific date
+ */
+export async function getDailyMetrics(date: string) {
+  const db = await getDb();
+  if (!db) return null;
+
+  try {
+    const { dailyMetrics } = await import("../drizzle/schema");
+    const result = await db.select().from(dailyMetrics)
+      .where(eq(dailyMetrics.date, date))
+      .limit(1);
+    
+    return result.length > 0 ? result[0] : null;
+  } catch (error) {
+    console.error("[Analytics] Failed to get daily metrics:", error);
+    return null;
+  }
+}
+
+/**
+ * Get analytics dashboard data for a date range
+ */
+export async function getAnalyticsDashboard(startDate: string, endDate: string) {
+  const db = await getDb();
+  if (!db) return null;
+
+  try {
+    const { dailyMetrics } = await import("../drizzle/schema");
+
+    // Get daily metrics for the range
+    const metrics = await db.select().from(dailyMetrics)
+      .where(and(
+        gte(dailyMetrics.date, startDate),
+        lte(dailyMetrics.date, endDate)
+      ))
+      .orderBy(dailyMetrics.date);
+
+    // Calculate totals
+    const totals = {
+      uniqueVisitors: 0,
+      totalPageViews: 0,
+      totalSessions: 0,
+      addToCartEvents: 0,
+      checkoutStartedEvents: 0,
+      purchasesCompleted: 0,
+      totalRevenueInCents: 0,
+      averageOrderValueInCents: 0,
+      mobileViews: 0,
+      tabletViews: 0,
+      desktopViews: 0,
+    };
+
+    metrics.forEach(metric => {
+      totals.uniqueVisitors += metric.uniqueVisitors || 0;
+      totals.totalPageViews += metric.totalPageViews || 0;
+      totals.totalSessions += metric.totalSessions || 0;
+      totals.addToCartEvents += metric.addToCartEvents || 0;
+      totals.checkoutStartedEvents += metric.checkoutStartedEvents || 0;
+      totals.purchasesCompleted += metric.purchasesCompleted || 0;
+      totals.totalRevenueInCents += metric.totalRevenueInCents || 0;
+      totals.mobileViews += metric.mobileViews || 0;
+      totals.tabletViews += metric.tabletViews || 0;
+      totals.desktopViews += metric.desktopViews || 0;
+    });
+
+    // Calculate conversion rates
+    const conversionRate = totals.totalPageViews > 0 
+      ? ((totals.purchasesCompleted / totals.totalPageViews) * 100).toFixed(2)
+      : '0.00';
+
+    const cartToCheckoutRate = totals.addToCartEvents > 0
+      ? ((totals.checkoutStartedEvents / totals.addToCartEvents) * 100).toFixed(2)
+      : '0.00';
+
+    return {
+      metrics,
+      totals,
+      conversionRate: parseFloat(conversionRate),
+      cartToCheckoutRate: parseFloat(cartToCheckoutRate),
+      averageOrderValue: totals.purchasesCompleted > 0 
+        ? Math.round(totals.totalRevenueInCents / totals.purchasesCompleted)
+        : 0,
+    };
+  } catch (error) {
+    console.error("[Analytics] Failed to get dashboard data:", error);
+    return null;
+  }
+}
+
+/**
+ * Get traffic sources for a date range
+ */
+export async function getTrafficSources(startDate: string, endDate: string) {
+  const db = await getDb();
+  if (!db) return [];
+
+  try {
+    const { trafficSources } = await import("../drizzle/schema");
+    return await db.select().from(trafficSources)
+      .where(and(
+        gte(trafficSources.date, startDate),
+        lte(trafficSources.date, endDate)
+      ))
+      .orderBy(desc(trafficSources.revenue));
+  } catch (error) {
+    console.error("[Analytics] Failed to get traffic sources:", error);
+    return [];
+  }
+}
+
+/**
+ * Get conversion funnel data
+ */
+export async function getConversionFunnelData(startDate: string, endDate: string) {
+  const db = await getDb();
+  if (!db) return null;
+
+  try {
+    const { conversionFunnel } = await import("../drizzle/schema");
+    const funnels = await db.select().from(conversionFunnel)
+      .where(and(
+        gte(conversionFunnel.createdAt, new Date(startDate)),
+        lte(conversionFunnel.createdAt, new Date(endDate))
+      )) as any;
+
+    return {
+      totalSessions: funnels.length,
+      viewedHomepage: funnels.filter((f: any) => f.viewedHomepage).length,
+      viewedProduct: funnels.filter((f: any) => f.viewedProduct).length,
+      addedToCart: funnels.filter((f: any) => f.addedToCart).length,
+      startedCheckout: funnels.filter((f: any) => f.startedCheckout).length,
+      completedPurchase: funnels.filter((f: any) => f.completedPurchase).length,
+    };
+  } catch (error) {
+    console.error("[Analytics] Failed to get conversion funnel data:", error);
+    return null;
   }
 }

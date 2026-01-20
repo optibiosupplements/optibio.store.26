@@ -457,5 +457,129 @@ export const postPurchaseEmails = mysqlTable("postPurchaseEmails", {
 export type PostPurchaseEmail = typeof postPurchaseEmails.$inferSelect;
 export type InsertPostPurchaseEmail = typeof postPurchaseEmails.$inferInsert;
 
+/**
+ * Analytics - Page Views
+ * Tracks all visitor page views for traffic analysis
+ */
+export const pageViews = mysqlTable("pageViews", {
+  id: int("id").autoincrement().primaryKey(),
+  sessionId: varchar("sessionId", { length: 255 }).notNull(),
+  userId: int("userId"), // Null for anonymous visitors
+  pagePath: varchar("pagePath", { length: 500 }).notNull(), // e.g., "/shop", "/product/ashwagandha"
+  pageTitle: varchar("pageTitle", { length: 255 }),
+  referrer: varchar("referrer", { length: 500 }), // Referring page/source
+  userAgent: text("userAgent"), // Browser info
+  ipAddress: varchar("ipAddress", { length: 45 }), // IPv4 or IPv6
+  countryCode: varchar("countryCode", { length: 2 }), // ISO country code
+  deviceType: mysqlEnum("deviceType", ["mobile", "tablet", "desktop"]).notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type PageView = typeof pageViews.$inferSelect;
+export type InsertPageView = typeof pageViews.$inferInsert;
+
+/**
+ * Analytics - Events
+ * Tracks user interactions (clicks, form submissions, etc.)
+ */
+export const analyticsEvents = mysqlTable("analyticsEvents", {
+  id: int("id").autoincrement().primaryKey(),
+  sessionId: varchar("sessionId", { length: 255 }).notNull(),
+  userId: int("userId"), // Null for anonymous visitors
+  eventType: varchar("eventType", { length: 100 }).notNull(), // e.g., "click_add_to_cart", "view_product", "submit_email"
+  eventCategory: varchar("eventCategory", { length: 100 }).notNull(), // e.g., "engagement", "conversion", "error"
+  eventLabel: varchar("eventLabel", { length: 255 }), // Additional context
+  pagePath: varchar("pagePath", { length: 500 }).notNull(),
+  eventData: text("eventData"), // JSON with additional event properties
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;
+export type InsertAnalyticsEvent = typeof analyticsEvents.$inferInsert;
+
+/**
+ * Analytics - Conversion Funnel
+ * Tracks steps in the purchase funnel
+ */
+export const conversionFunnel = mysqlTable("conversionFunnel", {
+  id: int("id").autoincrement().primaryKey(),
+  sessionId: varchar("sessionId", { length: 255 }).notNull(),
+  userId: int("userId"), // Null for anonymous visitors
+  // Funnel steps
+  viewedHomepage: boolean("viewedHomepage").default(false),
+  viewedProduct: boolean("viewedProduct").default(false),
+  addedToCart: boolean("addedToCart").default(false),
+  startedCheckout: boolean("startedCheckout").default(false),
+  completedPurchase: boolean("completedPurchase").default(false),
+  // Timestamps for each step
+  homepageViewedAt: timestamp("homepageViewedAt"),
+  productViewedAt: timestamp("productViewedAt"),
+  addedToCartAt: timestamp("addedToCartAt"),
+  checkoutStartedAt: timestamp("checkoutStartedAt"),
+  purchaseCompletedAt: timestamp("purchaseCompletedAt"),
+  // Order reference
+  orderId: int("orderId"),
+  orderValue: int("orderValue"), // Total in cents
+  // Session info
+  source: varchar("source", { length: 100 }), // e.g., "organic", "paid_ad", "direct"
+  medium: varchar("medium", { length: 100 }), // e.g., "cpc", "email", "social"
+  campaign: varchar("campaign", { length: 255 }), // Campaign name
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type ConversionFunnel = typeof conversionFunnel.$inferSelect;
+export type InsertConversionFunnel = typeof conversionFunnel.$inferInsert;
+
+/**
+ * Analytics - Daily Aggregates
+ * Pre-calculated daily metrics for faster dashboard queries
+ */
+export const dailyMetrics = mysqlTable("dailyMetrics", {
+  id: int("id").autoincrement().primaryKey(),
+  date: varchar("date", { length: 10 }).notNull().unique(), // YYYY-MM-DD format
+  uniqueVisitors: int("uniqueVisitors").default(0),
+  totalPageViews: int("totalPageViews").default(0),
+  totalSessions: int("totalSessions").default(0),
+  // Conversion metrics
+  addToCartEvents: int("addToCartEvents").default(0),
+  checkoutStartedEvents: int("checkoutStartedEvents").default(0),
+  purchasesCompleted: int("purchasesCompleted").default(0),
+  // Revenue metrics
+  totalRevenueInCents: int("totalRevenueInCents").default(0),
+  averageOrderValueInCents: int("averageOrderValueInCents").default(0),
+  // Device breakdown
+  mobileViews: int("mobileViews").default(0),
+  tabletViews: int("tabletViews").default(0),
+  desktopViews: int("desktopViews").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type DailyMetric = typeof dailyMetrics.$inferSelect;
+export type InsertDailyMetric = typeof dailyMetrics.$inferInsert;
+
+/**
+ * Analytics - Traffic Sources
+ * Aggregated data by traffic source (organic, paid, direct, etc.)
+ */
+export const trafficSources = mysqlTable("trafficSources", {
+  id: int("id").autoincrement().primaryKey(),
+  date: varchar("date", { length: 10 }).notNull(), // YYYY-MM-DD format
+  source: varchar("source", { length: 100 }).notNull(), // e.g., "google", "facebook", "direct"
+  medium: varchar("medium", { length: 100 }).notNull(), // e.g., "organic", "cpc", "social"
+  campaign: varchar("campaign", { length: 255 }), // Campaign name
+  sessions: int("sessions").default(0),
+  pageViews: int("pageViews").default(0),
+  users: int("users").default(0),
+  conversions: int("conversions").default(0),
+  revenue: int("revenue").default(0), // In cents
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type TrafficSource = typeof trafficSources.$inferSelect;
+export type InsertTrafficSource = typeof trafficSources.$inferInsert;
+
 // Pre-Sale System Tables
 export * from "./presale-schema";

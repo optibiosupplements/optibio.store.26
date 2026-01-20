@@ -1,8 +1,8 @@
 import { z } from "zod";
 import { adminProcedure, router } from "../_core/trpc";
 import { getDb } from "../db";
-import { abandonedCarts, postPurchaseEmails, orders } from "../../drizzle/schema";
-import { sql, and, gte, lte, eq, isNotNull } from "drizzle-orm";
+import { abandonedCarts, postPurchaseEmails, orders, dailyMetrics, conversionFunnel, trafficSources } from "../../drizzle/schema";
+import { sql, and, gte, lte, eq, isNotNull, desc } from "drizzle-orm";
 
 export const analyticsRouter = router({
   /**
@@ -331,5 +331,232 @@ export const analyticsRouter = router({
       }
     }),
 
+  /**
+   * Get traffic and conversion dashboard data
+   * Shows visitor metrics, conversion rates, and revenue performance
+   */
+  getTrafficDashboard: adminProcedure
+    .input(
+      z.object({
+        startDate: z.string(),
+        endDate: z.string(),
+      })
+    )
+    .query(async ({ input }) => {
+      const db = await getDb();
+      if (!db) {
+        return {
+          metrics: [],
+          totals: {
+            uniqueVisitors: 0,
+            totalPageViews: 0,
+            totalSessions: 0,
+            addToCartEvents: 0,
+            checkoutStartedEvents: 0,
+            purchasesCompleted: 0,
+            totalRevenueInCents: 0,
+            mobileViews: 0,
+            tabletViews: 0,
+            desktopViews: 0,
+          },
+          conversionRate: 0,
+          cartToCheckoutRate: 0,
+          averageOrderValue: 0,
+        };
+      }
+
+      try {
+        const { dailyMetrics } = await import("../../drizzle/schema");
+        
+        // Get daily metrics for the range
+        const metrics = await db.select().from(dailyMetrics)
+          .where(and(
+            gte(dailyMetrics.date, input.startDate),
+            lte(dailyMetrics.date, input.endDate)
+          ))
+          .orderBy(dailyMetrics.date);
+
+        // Calculate totals
+        const totals = {
+          uniqueVisitors: 0,
+          totalPageViews: 0,
+          totalSessions: 0,
+          addToCartEvents: 0,
+          checkoutStartedEvents: 0,
+          purchasesCompleted: 0,
+          totalRevenueInCents: 0,
+          mobileViews: 0,
+          tabletViews: 0,
+          desktopViews: 0,
+        };
+
+        metrics.forEach(metric => {
+          totals.uniqueVisitors += metric.uniqueVisitors || 0;
+          totals.totalPageViews += metric.totalPageViews || 0;
+          totals.totalSessions += metric.totalSessions || 0;
+          totals.addToCartEvents += metric.addToCartEvents || 0;
+          totals.checkoutStartedEvents += metric.checkoutStartedEvents || 0;
+          totals.purchasesCompleted += metric.purchasesCompleted || 0;
+          totals.totalRevenueInCents += metric.totalRevenueInCents || 0;
+          totals.mobileViews += metric.mobileViews || 0;
+          totals.tabletViews += metric.tabletViews || 0;
+          totals.desktopViews += metric.desktopViews || 0;
+        });
+
+        // Calculate conversion rates
+        const conversionRate = totals.totalPageViews > 0 
+          ? ((totals.purchasesCompleted / totals.totalPageViews) * 100)
+          : 0;
+
+        const cartToCheckoutRate = totals.addToCartEvents > 0
+          ? ((totals.checkoutStartedEvents / totals.addToCartEvents) * 100)
+          : 0;
+
+        return {
+          metrics,
+          totals,
+          conversionRate: Math.round(conversionRate * 100) / 100,
+          cartToCheckoutRate: Math.round(cartToCheckoutRate * 100) / 100,
+          averageOrderValue: totals.purchasesCompleted > 0 
+            ? Math.round(totals.totalRevenueInCents / totals.purchasesCompleted)
+            : 0,
+        };
+      } catch (error) {
+        console.error("[Analytics] Error getting traffic dashboard:", error);
+        throw error;
+      }
+    }),
+
+  /**
+   * Get conversion funnel data
+   * Shows how many users progress through each step of the purchase funnel
+   */
+  getConversionFunnel: adminProcedure
+    .input(
+      z.object({
+        startDate: z.string(),
+        endDate: z.string(),
+      })
+    )
+    .query(async ({ input }) => {
+      const db = await getDb();
+      if (!db) {
+        return {
+          totalSessions: 0,
+          viewedHomepage: 0,
+          viewedProduct: 0,
+          addedToCart: 0,
+          startedCheckout: 0,
+          completedPurchase: 0,
+        };
+      }
+
+      try {
+        const { conversionFunnel } = await import("../../drizzle/schema");
+        const funnels = await db.select().from(conversionFunnel)
+          .where(and(
+            gte(conversionFunnel.createdAt, new Date(input.startDate)),
+            lte(conversionFunnel.createdAt, new Date(input.endDate))
+          ));
+
+        return {
+          totalSessions: funnels.length,
+          viewedHomepage: funnels.filter(f => f.viewedHomepage).length,
+          viewedProduct: funnels.filter(f => f.viewedProduct).length,
+          addedToCart: funnels.filter(f => f.addedToCart).length,
+          startedCheckout: funnels.filter(f => f.startedCheckout).length,
+          completedPurchase: funnels.filter(f => f.completedPurchase).length,
+        };
+      } catch (error) {
+        console.error("[Analytics] Error getting conversion funnel:", error);
+        throw error;
+      }
+    }),
+
+  /**
+   * Get traffic sources breakdown
+   * Shows which sources (organic, paid, direct, etc.) drive the most traffic and revenue
+   */
+  getTrafficSources: adminProcedure
+    .input(
+      z.object({
+        startDate: z.string(),
+        endDate: z.string(),
+      })
+    )
+    .query(async ({ input }) => {
+      const db = await getDb();
+      if (!db) return [];
+
+      try {
+        const { trafficSources } = await import("../../drizzle/schema");
+        return db.select().from(trafficSources)
+          .where(and(
+            gte(trafficSources.date, input.startDate),
+            lte(trafficSources.date, input.endDate)
+          ))
+          .orderBy(desc(trafficSources.revenue));
+      } catch (error) {
+        console.error("[Analytics] Error getting traffic sources:", error);
+        throw error;
+      }
+    }),
+
+  /**
+   * Get device breakdown
+   * Shows traffic distribution across mobile, tablet, and desktop
+   */
+  getDeviceBreakdown: adminProcedure
+    .input(
+      z.object({
+        startDate: z.string(),
+        endDate: z.string(),
+      })
+    )
+    .query(async ({ input }) => {
+      const db = await getDb();
+      if (!db) {
+        return {
+          mobile: 0,
+          tablet: 0,
+          desktop: 0,
+          total: 0,
+        };
+      }
+
+      try {
+        const { dailyMetrics } = await import("../../drizzle/schema");
+        const metrics = await db.select().from(dailyMetrics)
+          .where(and(
+            gte(dailyMetrics.date, input.startDate),
+            lte(dailyMetrics.date, input.endDate)
+          ));
+
+        const totals = {
+          mobile: 0,
+          tablet: 0,
+          desktop: 0,
+        };
+
+        metrics.forEach(metric => {
+          totals.mobile += metric.mobileViews || 0;
+          totals.tablet += metric.tabletViews || 0;
+          totals.desktop += metric.desktopViews || 0;
+        });
+
+        const total = totals.mobile + totals.tablet + totals.desktop;
+
+        return {
+          ...totals,
+          total,
+          mobilePercent: total > 0 ? Math.round((totals.mobile / total) * 100) : 0,
+          tabletPercent: total > 0 ? Math.round((totals.tablet / total) * 100) : 0,
+          desktopPercent: total > 0 ? Math.round((totals.desktop / total) * 100) : 0,
+        };
+      } catch (error) {
+        console.error("[Analytics] Error getting device breakdown:", error);
+        throw error;
+      }
+    }),
 
 });
