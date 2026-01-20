@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { AnalyticsProvider } from "./contexts/AnalyticsContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CookieBanner from "./components/CookieBanner";
@@ -95,13 +96,15 @@ function App() {
         defaultTheme="light" // 🔒 LOCKED: Brand default, never change
         switchable // Allows users to manually toggle to dark mode
       >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-          <EmailCaptureModal />
-          <CookieBanner />
+        <AnalyticsProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+            <EmailCaptureModal />
+            <CookieBanner />
           {/* <CrispChat websiteId="YOUR_WEBSITE_ID" /> */} {/* Removed - configure with real Crisp ID when ready */}
-        </TooltipProvider>
+          </TooltipProvider>
+        </AnalyticsProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

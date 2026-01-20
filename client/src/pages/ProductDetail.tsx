@@ -36,6 +36,7 @@ import StickyAddToCart from "@/components/StickyAddToCart";
 import UrgencyIndicators from "@/components/UrgencyIndicators";
 import StockIndicator from "@/components/StockIndicator";
 import { useTheme } from "@/contexts/ThemeContext";
+import { trackProductViewed, trackAddToCart } from "@/lib/analytics";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:slug");
@@ -48,12 +49,14 @@ export default function ProductDetail() {
   // Theme-aware product image selection
   const isDark = theme === 'dark';
   
-  // Debug: Log product data to see variants
+  // Track product view and debug
   useEffect(() => {
     if (productData) {
       console.log('Product Data:', productData);
       console.log('Variants:', productData.variants);
       console.log('Variants Length:', productData.variants?.length);
+      const price = productData.variants[0]?.priceInCents || 0;
+      trackProductViewed(productData.id, productData.name, price);
     }
   }, [productData]);
   
@@ -66,7 +69,10 @@ export default function ProductDetail() {
   const addToCartMutation = trpc.cart.add.useMutation({
     onSuccess: () => {
       toast.success("Added to cart!");
-      // Track analytics event
+      if (productData && selectedVariant) {
+        const variant = productData.variants.find(v => v.id === selectedVariant);
+        trackAddToCart(productData.id, selectedVariant, quantity, variant?.priceInCents || 0);
+      }
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'click_cta_pdp_addtocart', {
           product_id: productData?.id,

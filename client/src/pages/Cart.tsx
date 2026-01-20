@@ -21,6 +21,7 @@ import {
 import { formatPrice, SHIPPING_THRESHOLD_CENTS, STANDARD_SHIPPING_CENTS, TAX_RATE } from "@/const";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
+import { trackCheckoutStarted } from "@/lib/analytics";
 
 export default function Cart() {
   const [, setLocation] = useLocation();
@@ -365,7 +366,10 @@ export default function Cart() {
 
                   <Button
                     size="lg"
-                    onClick={() => setLocation("/checkout")}
+                    onClick={() => {
+                      trackCheckoutStarted(total, cartItems.length);
+                      setLocation("/checkout");
+                    }}
                     className="w-full bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)] shadow-lg hover:shadow-xl transition-all duration-300 text-lg h-14"
                   >
                     Proceed to Checkout
