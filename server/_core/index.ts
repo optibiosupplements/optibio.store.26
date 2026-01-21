@@ -18,19 +18,38 @@ async function startServer() {
   // ============================================
   // CANONICAL URL REDIRECT (www → non-www)
   // ============================================
-  // This MUST be the first middleware to ensure session cookies work correctly
+  // This MUST be the VERY FIRST middleware to ensure:
+  // 1. Session cookies work correctly (same domain)
+  // 2. Shopping cart persists across all visits
+  // 3. Login state is unified
+  // 4. SEO signals are consolidated (no duplicate content)
   // Redirects www.optibiosupplements.com → optibiosupplements.com
-  // Prevents session cookie domain mismatch issues
   app.use((req, res, next) => {
     const host = req.headers.host || '';
+    const forwardedHost = req.headers['x-forwarded-host'] as string || '';
+    const effectiveHost = forwardedHost || host;
     
-    // Only redirect in production (not localhost or dev domains)
-    if (host.startsWith('www.') && !host.includes('localhost') && !host.includes('manus')) {
-      const newHost = host.replace(/^www\./, '');
-      const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'https';
+    // Log all incoming requests for debugging
+    if (effectiveHost.includes('optibiosupplements')) {
+      console.log(`[Request] Host: ${effectiveHost}, Path: ${req.originalUrl}, X-Forwarded-Host: ${forwardedHost}`);
+    }
+    
+    // Check if this is a www request that needs redirecting
+    const isWwwRequest = effectiveHost.startsWith('www.');
+    const isDevEnvironment = effectiveHost.includes('localhost') || 
+                             effectiveHost.includes('manus') || 
+                             effectiveHost.includes('127.0.0.1');
+    
+    if (isWwwRequest && !isDevEnvironment) {
+      const newHost = effectiveHost.replace(/^www\./, '');
+      const protocol = req.headers['x-forwarded-proto'] || 'https';
       const redirectUrl = `${protocol}://${newHost}${req.originalUrl}`;
       
-      console.log(`[Redirect] www → non-www: ${host}${req.originalUrl} → ${redirectUrl}`);
+      console.log(`[REDIRECT 301] www → non-www: ${effectiveHost}${req.originalUrl} → ${redirectUrl}`);
+      
+      // Set cache headers to ensure browsers remember this redirect
+      res.setHeader('Cache-Control', 'public, max-age=31536000'); // 1 year
+      res.setHeader('Vary', 'Host');
       
       // 301 Permanent Redirect for SEO
       return res.redirect(301, redirectUrl);

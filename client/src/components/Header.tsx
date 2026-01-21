@@ -23,7 +23,7 @@ import {
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, logout } = useAuth();
   const { data: cartItems } = trpc.cart.get.useQuery(undefined, {
     enabled: isAuthenticated,
   });
@@ -111,11 +111,11 @@ export default function Header() {
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
-                    onClick={() => {
-                      trpc.auth.logout.useMutation().mutate();
+                    onClick={async () => {
+                      await logout();
                       window.location.href = "/";
                     }}
-                    className="cursor-pointer"
+                    className="cursor-pointer text-red-600 hover:text-red-700 hover:bg-red-50"
                   >
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Sign Out</span>

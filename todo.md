@@ -2124,3 +2124,10 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Remove visible "Admin" button from public UI (no admin links in header/footer)
 - [x] Admin access via direct URL only (optibiosupplements.com/admin)
 - [x] Add role-based access control for admin routes (redirects non-admin users to home)
+
+
+## Critical Fixes (Jan 21, 2026)
+- [x] Investigate Manus Settings for www → root redirect option (Note: Manus handles at edge level, server redirect is backup)
+- [x] Fix logout functionality not working on optibiosupplements.com (Fixed: using proper logout() from useAuth hook)
+- [x] Strengthen server-side www redirect to force 301 before page loads (Enhanced with x-forwarded-host support and cache headers)
+- [ ] Test all fixes across both domains
