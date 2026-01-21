@@ -2111,3 +2111,16 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [ ] Identify if there's a mismatch between what's live and what's in Manus
 - [ ] Fix any configuration issues found
 - [ ] Validate all systems are properly connected
+
+## 🔧 CURRENT: Domain & Admin Access Issues (Jan 21, 2026)
+
+### Version Discrepancy Investigation
+- [x] Investigate why www and non-www may show different login states (Session cookie domain mismatch)
+- [x] Implement canonical URL redirect (www → non-www) - Server middleware added
+- [ ] Configure SSL certificate for www subdomain (Requires publishing + Manus domain settings)
+
+### Hidden Admin Access Implementation
+- [x] Create hidden admin route (/admin) with sidebar dashboard
+- [x] Remove visible "Admin" button from public UI (no admin links in header/footer)
+- [x] Admin access via direct URL only (optibiosupplements.com/admin)
+- [x] Add role-based access control for admin routes (redirects non-admin users to home)

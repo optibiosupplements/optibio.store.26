@@ -16,6 +16,30 @@ async function startServer() {
   const server = createServer(app);
   
   // ============================================
+  // CANONICAL URL REDIRECT (www → non-www)
+  // ============================================
+  // This MUST be the first middleware to ensure session cookies work correctly
+  // Redirects www.optibiosupplements.com → optibiosupplements.com
+  // Prevents session cookie domain mismatch issues
+  app.use((req, res, next) => {
+    const host = req.headers.host || '';
+    
+    // Only redirect in production (not localhost or dev domains)
+    if (host.startsWith('www.') && !host.includes('localhost') && !host.includes('manus')) {
+      const newHost = host.replace(/^www\./, '');
+      const protocol = req.headers['x-forwarded-proto'] || req.protocol || 'https';
+      const redirectUrl = `${protocol}://${newHost}${req.originalUrl}`;
+      
+      console.log(`[Redirect] www → non-www: ${host}${req.originalUrl} → ${redirectUrl}`);
+      
+      // 301 Permanent Redirect for SEO
+      return res.redirect(301, redirectUrl);
+    }
+    
+    next();
+  });
+  
+  // ============================================
   // SECURITY MIDDLEWARE
   // ============================================
   
