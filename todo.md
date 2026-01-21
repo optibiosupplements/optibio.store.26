@@ -2101,3 +2101,13 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Update analytics utility to send events to backend
 - [x] Test event tracking and verify database storage
 - [ ] Save checkpoint and publish
+
+
+## 🔧 TROUBLESHOOT: Preview & Domain Issues (Jan 20, 2026)
+
+- [ ] Investigate why preview is not working in Manus UI
+- [ ] Check why domain settings are not showing in Settings panel
+- [ ] Verify GoDaddy DNS configuration for optibiosupplements.com
+- [ ] Identify if there's a mismatch between what's live and what's in Manus
+- [ ] Fix any configuration issues found
+- [ ] Validate all systems are properly connected
