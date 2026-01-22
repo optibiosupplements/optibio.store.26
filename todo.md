@@ -2180,3 +2180,23 @@ Create REAL enforcement system that prevents color changes, not just documentati
 ### Content Cleanup
 - [x] Delete duplicate bottom row of 5 icons (Third-Party, GMP, Non-GMO, Clinically, 90-Day) - only 3 trust badges in hero
 - [x] Update Social Proof to "12,000+ Happy Customers"
+
+
+## 🔍 HERO SECTION V2 vs APPROVED DESIGN COMPARISON (Jan 21, 2026)
+- [x] Document all discrepancies between current implementation and approved design
+- [x] Create action plan for each fix
+- [ ] Implement all 13 fixes identified in discrepancy report
+
+### Phase 1 Implementation (Structural)
+- [x] Create white card wrapper around Timer, Price, Yellow Box, CTA, Trust Footer
+- [x] Move Social Proof card outside white card with visible blue gap (mt-4)
+- [x] Delete bottom 5-icon row entirely (was never in BuyBoxV3, confirmed clean)
+
+### Phase 2 Implementation (Timer)
+- [x] Restyle timer as solid pink strip (#FEF2F2) at top of white card
+- [x] Remove duplicate "Pre-orders close in:" label (now single inline label)
+- [x] Remove timer border/outline styling (now borderless pink strip)
+
+### Additional Fixes Applied
+- [x] Added "Verified" subtext under each trust badge
+- [x] Updated headline to italic Sora font per approved design

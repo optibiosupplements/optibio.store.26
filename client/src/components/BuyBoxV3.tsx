@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, ArrowRight, Sparkles, Award, Lock, Truck, Shield, Leaf, Package } from "lucide-react";
-import CountdownTimer from "@/components/CountdownTimer";
+import { Star, ArrowRight, Sparkles, Award, Lock, Truck, Shield, Leaf, Package, Clock } from "lucide-react";
 
 interface BuyBoxV3Props {
   product?: {
@@ -17,7 +16,7 @@ interface BuyBoxV3Props {
 }
 
 export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
-  // Pricing: $49.99 (46% off $95.00) - UPDATED per audit
+  // Pricing: $49.99 (46% off $95.00)
   const currentPrice = "$49.99";
   const originalPrice = "$95.00";
   const discount = 46;
@@ -26,6 +25,25 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
   const [stockCount, setStockCount] = useState(43);
   useEffect(() => {
     setStockCount(Math.floor(Math.random() * 11) + 40); // 40-50
+  }, []);
+
+  // Countdown timer state
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
+  useEffect(() => {
+    const targetDate = new Date('2026-02-14T23:59:59');
+    const calculateTimeLeft = () => {
+      const difference = targetDate.getTime() - new Date().getTime();
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+          minutes: Math.floor((difference / 1000 / 60) % 60),
+        });
+      }
+    };
+    calculateTimeLeft();
+    const timer = setInterval(calculateTimeLeft, 60000); // Update every minute
+    return () => clearInterval(timer);
   }, []);
 
   // Customer avatars for social proof
@@ -45,13 +63,13 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           className="text-sm font-semibold px-4 py-2 border-0 inline-flex items-center w-fit rounded-full"
           style={{ background: '#1E3A5F', color: 'white' }}
         >
-          SCIENCE-BACKED • THIRD-PARTY TESTED
+          Science-Backed • Third-Party Tested
         </Badge>
 
         {/* 2. Headline H1 */}
         <h1 
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1]"
-          style={{ color: '#1E3A5F' }}
+          className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] italic"
+          style={{ color: '#1E3A5F', fontFamily: "'Sora', sans-serif" }}
         >
           Feel Like<br />
           Yourself<br />
@@ -63,22 +81,31 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           className="text-lg leading-relaxed max-w-lg"
           style={{ color: '#2D2D2D' }}
         >
-          Our clinically-proven ashwagandha helps you manage stress, sleep deeper, and reclaim the energy you've been missing. Wake up calm. Work with focus. Sleep deeply.
+          Clinically-proven ashwagandha for the stress, overwhelm, and exhaustion of modern life. Wake up calm. Work with focus. Sleep deeply.
         </p>
 
-        {/* 4. Trust Badge Icons Row - ONLY 3 badges, no duplicates */}
-        <div className="flex flex-wrap gap-6 items-center">
-          <div className="flex items-center gap-2">
-            <Shield className="w-5 h-5 flex-shrink-0" style={{ color: '#C9A961' }} />
-            <span className="text-sm font-medium" style={{ color: '#1E3A5F' }}>Third-Party Tested</span>
+        {/* 4. Trust Badge Icons Row - 3 badges with "Verified" subtext */}
+        <div className="flex flex-wrap gap-x-8 gap-y-4 items-start">
+          <div className="flex flex-col items-start gap-1">
+            <div className="flex items-center gap-2">
+              <Shield className="w-5 h-5 flex-shrink-0" style={{ color: '#C9A961' }} />
+              <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>Third-Party Tested</span>
+            </div>
+            <span className="text-xs ml-7" style={{ color: '#64748B' }}>Verified</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Award className="w-5 h-5 flex-shrink-0" style={{ color: '#C9A961' }} />
-            <span className="text-sm font-medium" style={{ color: '#1E3A5F' }}>GMP Certified</span>
+          <div className="flex flex-col items-start gap-1">
+            <div className="flex items-center gap-2">
+              <Award className="w-5 h-5 flex-shrink-0" style={{ color: '#C9A961' }} />
+              <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>GMP Certified</span>
+            </div>
+            <span className="text-xs ml-7" style={{ color: '#64748B' }}>Verified</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Leaf className="w-5 h-5 flex-shrink-0" style={{ color: '#C9A961' }} />
-            <span className="text-sm font-medium" style={{ color: '#1E3A5F' }}>Non-GMO & Organic</span>
+          <div className="flex flex-col items-start gap-1">
+            <div className="flex items-center gap-2">
+              <Leaf className="w-5 h-5 flex-shrink-0" style={{ color: '#C9A961' }} />
+              <span className="text-sm font-semibold" style={{ color: '#1E3A5F' }}>Non-GMO & Organic</span>
+            </div>
+            <span className="text-xs ml-7" style={{ color: '#64748B' }}>Verified</span>
           </div>
         </div>
 
@@ -92,27 +119,34 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           }}
         >
           <CardContent className="p-0">
-            {/* Timer Strip - Solid Pink Strip at TOP of card (NO duplicate label) */}
+            {/* Timer Strip - Solid Pink Strip at TOP of card */}
             <div 
               className="px-4 py-3 flex items-center justify-center gap-3"
-              style={{
-                background: '#FEF2F2'
-              }}
+              style={{ background: '#FEF2F2' }}
             >
-              <span 
-                className="text-sm font-bold"
-                style={{ color: '#DC2626' }}
-              >
-                Sale Ends In:
+              <span className="text-sm font-semibold" style={{ color: '#DC2626' }}>
+                Pre-orders close in:
               </span>
-              <CountdownTimer 
-                targetDate={new Date('2026-02-14T23:59:59')} 
-                inline={true}
-              />
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1">
+                  <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>{timeLeft.days}</span>
+                  <span className="text-xs uppercase" style={{ color: '#7C2D12' }}>DAYS</span>
+                </div>
+                <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>:</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>{timeLeft.hours.toString().padStart(2, '0')}</span>
+                  <span className="text-xs uppercase" style={{ color: '#7C2D12' }}>HRS</span>
+                </div>
+                <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>:</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>{timeLeft.minutes.toString().padStart(2, '0')}</span>
+                  <span className="text-xs uppercase" style={{ color: '#7C2D12' }}>MIN</span>
+                </div>
+              </div>
             </div>
 
             <div className="p-6 space-y-4">
-              {/* Price Row - UPDATED: $49.99 from $95.00, Save 46% */}
+              {/* Price Row */}
               <div className="flex items-baseline gap-3 flex-wrap">
                 <span 
                   className="text-4xl sm:text-5xl font-bold"
@@ -131,7 +165,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </Badge>
               </div>
 
-              {/* Yellow Info Box - Proper container with background and border */}
+              {/* Yellow Info Box */}
               <div 
                 className="rounded-lg p-4 space-y-2"
                 style={{ 
@@ -142,10 +176,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 <div className="flex items-center gap-2">
                   <Sparkles className="w-4 h-4" style={{ color: '#C9A961' }} />
                   <span className="font-semibold text-sm" style={{ color: '#1E3A5F' }}>Pre-Order Special:</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm" style={{ color: '#475569' }}>
-                  <Package className="w-4 h-4" style={{ color: '#C9A961' }} />
-                  <span>Ships Feb 14th, 2026</span>
+                  <span className="text-sm" style={{ color: '#475569' }}>Ships Jan 20-27</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm" style={{ color: '#475569' }}>
                   <Truck className="w-4 h-4" style={{ color: '#C9A961' }} />
@@ -170,10 +201,10 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   color: 'white'
                 }}
               >
-                Pre-Order Now - Save Extra 25% <ArrowRight className="ml-2 w-5 h-5" />
+                Pre-Order Now • Save {discount}% <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
 
-              {/* Trust Footer - Inside the card */}
+              {/* Trust Footer */}
               <div 
                 className="flex items-center justify-center gap-4 text-xs flex-wrap pt-4 border-t"
                 style={{ color: '#64748B', borderColor: 'rgba(201, 169, 97, 0.2)' }}
@@ -184,12 +215,17 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </div>
                 <span>•</span>
                 <div className="flex items-center gap-1">
+                  <Truck className="w-3.5 h-3.5" />
+                  <span>Free shipping on $75+</span>
+                </div>
+                <span>•</span>
+                <div className="flex items-center gap-1">
                   <Shield className="w-3.5 h-3.5" />
                   <span>90-day guarantee</span>
                 </div>
               </div>
 
-              {/* Stock Urgency - Inside the card */}
+              {/* Stock Urgency */}
               <div 
                 className="flex items-center justify-center gap-2 text-xs rounded-lg px-3 py-2"
                 style={{ 
@@ -226,7 +262,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
               ))}
             </div>
             
-            {/* Stars and Rating - SIMPLIFIED to "12,000+ Reviews" */}
+            {/* Stars and Rating */}
             <div className="flex flex-col">
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
