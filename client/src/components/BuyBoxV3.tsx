@@ -16,9 +16,9 @@ interface BuyBoxV3Props {
 }
 
 export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
-  // Pricing: $49.99 (46% off $95.00)
-  const currentPrice = "$49.99";
-  const originalPrice = "$95.00";
+  // Pricing: $37.79 (46% off $69.99) - Per Master Repair Command
+  const currentPrice = "$37.79";
+  const originalPrice = "$69.99";
   const discount = 46;
   
   // Dynamic stock urgency (40-50 range)
@@ -201,7 +201,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   color: 'white'
                 }}
               >
-                Pre-Order Now • Save {discount}% <ArrowRight className="ml-2 w-5 h-5" />
+                Pre-Order Now - Save Extra 25% <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
 
               {/* Trust Footer */}
