@@ -2162,3 +2162,21 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Add "Plus Extra 25% Off at Checkout" bonus text near CTA
 - [x] Verify timer is at top of Offer Card with pink background
 - [x] Verify Yellow Info Box contains Pre-Order Special + Ship Date + Free Shipping
+
+
+## 🚨 HERO SECTION AUDIT FIXES (Jan 21, 2026)
+### Critical Structural Errors
+- [x] Create White Offer Card wrapper (Left column) with white bg, 24px rounded corners, drop shadow
+- [x] Move Timer, Price, Yellow Box, Button, Trust Footer INSIDE the white card
+- [x] Ensure Social Proof card floats OUTSIDE and BELOW the White Offer Card with visible blue gap
+
+### Component & Styling Fixes
+- [x] Fix Timer: Change from orange outline box to solid pink strip (#FEF2F2) at top of card
+- [x] Delete duplicate "Pre-orders close in:" label - show only once inside timer strip (now "Sale Ends In:")
+- [x] Fix Shipping Info: Build proper Yellow Box container (bg #FFFBEB, border #FDE68A)
+- [x] Update Price strikethrough from $89.00 to $95.00
+- [x] Update Discount Badge from "Save 29%" to "Save 46%"
+
+### Content Cleanup
+- [x] Delete duplicate bottom row of 5 icons (Third-Party, GMP, Non-GMO, Clinically, 90-Day) - only 3 trust badges in hero
+- [x] Update Social Proof to "12,000+ Happy Customers"

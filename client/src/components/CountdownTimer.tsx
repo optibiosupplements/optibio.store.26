@@ -6,9 +6,11 @@ import { URGENCY_COLORS } from '@/brand';
 interface CountdownTimerProps {
   targetDate: Date;
   className?: string;
+  /** If true, renders as inline text without container styling */
+  inline?: boolean;
 }
 
-export default function CountdownTimer({ targetDate, className = '' }: CountdownTimerProps) {
+export default function CountdownTimer({ targetDate, className = '', inline = false }: CountdownTimerProps) {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -42,6 +44,18 @@ export default function CountdownTimer({ targetDate, className = '' }: Countdown
     }
   }, [targetDate, isPaused]);
 
+  // Inline mode - just the numbers, no container
+  if (inline) {
+    return (
+      <div className={`flex items-center gap-1 ${className}`}>
+        <span className="font-bold" style={{ color: '#7C2D12' }}>
+          {timeLeft.days}d {timeLeft.hours.toString().padStart(2, '0')}h {timeLeft.minutes.toString().padStart(2, '0')}m
+        </span>
+      </div>
+    );
+  }
+
+  // Full mode with container
   return (
     <div className={`
       border rounded-xl px-4 py-3

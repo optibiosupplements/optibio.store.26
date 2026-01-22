@@ -2,8 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, ArrowRight, Sparkles, Award, CheckCircle2, Lock, Truck, Shield, Leaf, Package } from "lucide-react";
-import { formatPrice } from "@/const";
+import { Star, ArrowRight, Sparkles, Award, Lock, Truck, Shield, Leaf, Package } from "lucide-react";
 import CountdownTimer from "@/components/CountdownTimer";
 
 interface BuyBoxV3Props {
@@ -18,9 +17,9 @@ interface BuyBoxV3Props {
 }
 
 export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
-  // Pricing: $37.79 (46% off $69.99)
-  const currentPrice = "$37.79";
-  const originalPrice = "$69.99";
+  // Pricing: $49.99 (46% off $95.00) - UPDATED per audit
+  const currentPrice = "$49.99";
+  const originalPrice = "$95.00";
   const discount = 46;
   
   // Dynamic stock urgency (40-50 range)
@@ -67,7 +66,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           Our clinically-proven ashwagandha helps you manage stress, sleep deeper, and reclaim the energy you've been missing. Wake up calm. Work with focus. Sleep deeply.
         </p>
 
-        {/* 4. Trust Badge Icons Row */}
+        {/* 4. Trust Badge Icons Row - ONLY 3 badges, no duplicates */}
         <div className="flex flex-wrap gap-6 items-center">
           <div className="flex items-center gap-2">
             <Shield className="w-5 h-5 flex-shrink-0" style={{ color: '#C9A961' }} />
@@ -83,38 +82,37 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           </div>
         </div>
 
-        {/* 5. WHITE OFFER CARD */}
+        {/* 5. WHITE OFFER CARD - Main container with all purchase elements */}
         <Card 
           className="border-2 shadow-xl overflow-hidden max-w-lg"
           style={{ 
             background: 'white', 
             borderColor: 'rgba(201, 169, 97, 0.2)',
-            borderRadius: '20px'
+            borderRadius: '24px'
           }}
         >
           <CardContent className="p-0">
-            {/* Timer Strip - Top of Card */}
+            {/* Timer Strip - Solid Pink Strip at TOP of card (NO duplicate label) */}
             <div 
-              className="p-4"
+              className="px-4 py-3 flex items-center justify-center gap-3"
               style={{
-                background: 'linear-gradient(to right, #FEF2F2, #FFF7ED)',
-                borderBottom: '2px solid #FECACA'
+                background: '#FEF2F2'
               }}
             >
-              <p 
-                className="text-sm font-bold mb-2 text-center"
+              <span 
+                className="text-sm font-bold"
                 style={{ color: '#DC2626' }}
               >
-                Pre-orders close in:
-              </p>
+                Sale Ends In:
+              </span>
               <CountdownTimer 
                 targetDate={new Date('2026-02-14T23:59:59')} 
-                className="justify-center"
+                inline={true}
               />
             </div>
 
             <div className="p-6 space-y-4">
-              {/* Price Row */}
+              {/* Price Row - UPDATED: $49.99 from $95.00, Save 46% */}
               <div className="flex items-baseline gap-3 flex-wrap">
                 <span 
                   className="text-4xl sm:text-5xl font-bold"
@@ -133,7 +131,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </Badge>
               </div>
 
-              {/* Yellow Info Box */}
+              {/* Yellow Info Box - Proper container with background and border */}
               <div 
                 className="rounded-lg p-4 space-y-2"
                 style={{ 
@@ -175,7 +173,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 Pre-Order Now - Save Extra 25% <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
 
-              {/* Trust Footer */}
+              {/* Trust Footer - Inside the card */}
               <div 
                 className="flex items-center justify-center gap-4 text-xs flex-wrap pt-4 border-t"
                 style={{ color: '#64748B', borderColor: 'rgba(201, 169, 97, 0.2)' }}
@@ -191,9 +189,9 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </div>
               </div>
 
-              {/* Stock Urgency */}
+              {/* Stock Urgency - Inside the card */}
               <div 
-                className="flex items-center gap-2 text-xs rounded-lg px-3 py-2"
+                className="flex items-center justify-center gap-2 text-xs rounded-lg px-3 py-2"
                 style={{ 
                   background: '#FFF7ED', 
                   border: '1px solid #FED7AA',
@@ -207,7 +205,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           </CardContent>
         </Card>
 
-        {/* 6. SOCIAL PROOF CARD - FLOATING OUTSIDE OFFER CARD */}
+        {/* 6. SOCIAL PROOF CARD - FLOATING OUTSIDE OFFER CARD with visible blue gap */}
         <div 
           className="rounded-xl p-4 max-w-lg"
           style={{ 
@@ -228,7 +226,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
               ))}
             </div>
             
-            {/* Stars and Rating */}
+            {/* Stars and Rating - SIMPLIFIED to "12,000+ Reviews" */}
             <div className="flex flex-col">
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -242,8 +240,8 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   4.9/5
                 </span>
               </div>
-              <p className="text-sm" style={{ color: '#475569' }}>
-                <span className="font-semibold" style={{ color: '#1E3A5F' }}>5,247</span> happy customers
+              <p className="text-sm" style={{ color: '#1E3A5F' }}>
+                <span className="font-semibold">12,000+</span> Happy Customers
               </p>
             </div>
           </div>
