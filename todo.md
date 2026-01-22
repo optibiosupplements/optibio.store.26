@@ -2131,3 +2131,34 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Fix logout functionality not working on optibiosupplements.com (Fixed: using proper logout() from useAuth hook)
 - [x] Strengthen server-side www redirect to force 301 before page loads (Enhanced with x-forwarded-host support and cache headers)
 - [ ] Test all fixes across both domains
+
+
+## 📋 HERO SECTION SPECIFICATION DOCUMENT (Jan 21, 2026)
+- [x] Create detailed hero section specification document matching reference image
+- [x] Document all CTAs, borders, gradients, positioning for exact recreation
+- [x] Include complete color reference table
+- [x] Include typography specifications
+- [x] Include spacing system
+- [x] Include responsive breakpoints
+- [x] Include implementation checklist
+
+
+## 📊 HERO SECTION DISCREPANCY REPORT (Jan 21, 2026)
+- [x] Read and analyze Manus hero section specification (17 pages)
+- [x] Read and analyze ChatGPT hero section specification (8 pages)
+- [x] Read and analyze NotebookLLM hero section specification (8 pages)
+- [x] Create comprehensive discrepancy comparison document
+- [x] Document 17 major discrepancy categories with options for each
+- [x] Provide decision checkboxes for user selection
+- [ ] Implement hero section based on user's selected options
+
+
+## 🔧 HERO SECTION UPDATE - Twin-Card Layout (Jan 21, 2026)
+- [x] Update hero section to match approved Twin-Card layout specification
+- [x] Move Social Proof card outside the Offer Card (floating separately with gap)
+- [x] Ensure Product Card is in white container on right column
+- [x] Verify Product Card vertical centering against left column (Subheadline to CTA level)
+- [x] Confirm pricing: $37.79 (discounted from $69.99) with 46% badge
+- [x] Add "Plus Extra 25% Off at Checkout" bonus text near CTA
+- [x] Verify timer is at top of Offer Card with pink background
+- [x] Verify Yellow Info Box contains Pre-Order Special + Ship Date + Free Shipping
