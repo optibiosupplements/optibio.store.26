@@ -21,11 +21,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
   const originalPrice = "$69.99";
   const discount = 46;
   
-  // Dynamic stock urgency (40-50 range)
-  const [stockCount, setStockCount] = useState(43);
-  useEffect(() => {
-    setStockCount(Math.floor(Math.random() * 11) + 40); // 40-50
-  }, []);
+  // Stock urgency removed per approved design
 
   // Countdown timer state
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
@@ -225,18 +221,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </div>
               </div>
 
-              {/* Stock Urgency */}
-              <div 
-                className="flex items-center justify-center gap-2 text-xs rounded-lg px-3 py-2"
-                style={{ 
-                  background: '#FFF7ED', 
-                  border: '1px solid #FED7AA',
-                  color: '#C2410C'
-                }}
-              >
-                <span className="animate-pulse">🔥</span>
-                <span className="font-semibold">Only {stockCount} left in stock</span>
-              </div>
+
             </div>
           </CardContent>
         </Card>
