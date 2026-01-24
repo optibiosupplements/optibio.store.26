@@ -123,14 +123,15 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           }}
         >
           <CardContent className="p-0">
-            {/* Timer Strip - Approved Design: 3 segments with labels, pause icon, centered */}
-            <div 
-              className="px-6 py-4 flex items-center justify-center gap-4"
-              style={{ 
-                background: 'linear-gradient(to right, #FEF2F2, #FFF7ED)',
-                borderBottom: '1px solid #FECACA'
-              }}
-            >
+            {/* Timer Strip - Approved Design: Rounded pill container with border on all sides */}
+            <div className="p-4">
+              <div 
+                className="px-8 py-5 flex items-center justify-center gap-6 rounded-2xl"
+                style={{ 
+                  background: 'linear-gradient(to right, #FEF2F2, #FFF7ED)',
+                  border: '1px solid #FECACA'
+                }}
+              >
               <span className="text-sm font-medium" style={{ color: '#7C2D12' }}>
                 Pre-orders close in:
               </span>
@@ -159,6 +160,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   </span>
                   <span className="text-[10px] font-medium uppercase tracking-wide" style={{ color: '#7C2D12' }}>MIN</span>
                 </div>
+              </div>
               </div>
             </div>
 
