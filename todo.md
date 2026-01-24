@@ -2240,3 +2240,35 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Verify pricing matches - CONFIRMED $37.79 from $69.99 (46% off) ✅
 - [x] Stock Urgency bar - REMOVED per user confirmation ✅
 - [x] Create comprehensive discrepancy report ✅
+
+
+## 🔧 Buy Box Fix - Match Approved Design (Jan 23, 2026)
+
+- [ ] Remove "Free shipping on orders $75+" line from yellow info box
+- [ ] Remove sparkle emoji from "Pre-Order Special"  
+- [ ] Remove truck emoji from shipping line
+- [ ] Verify yellow box has only ONE line (ship date info)
+- [ ] Verify all other elements match approved design
+
+
+## 🔧 Timer Strip Fix - Match Approved Design (Jan 23, 2026)
+- [ ] Change timer from 4 segments to 3 segments (remove seconds)
+- [ ] Add labels "DAYS", "HRS", "MIN" below each number
+- [ ] Add pause/play icon between text and timer
+- [ ] Center the entire timer content in a single row
+- [ ] Match the approved design layout exactly
+
+
+## ✅ COMPLETED: Hero Section Timer Update (Jan 24, 2026)
+
+### Timer Format Changes (to match approved wantheromockup.png design)
+- [x] Changed from 4 segments (DD:HH:MM:SS) to 3 segments (DAYS, HRS, MIN)
+- [x] Removed seconds from countdown display
+- [x] Added labels below each number (DAYS, HRS, MIN)
+- [x] Added pause icon (||) between text and countdown
+- [x] Maintained centered single-row layout
+- [x] Kept pink gradient background with subtle border
+- [x] Updated interval from 1 second to 60 seconds (since no seconds displayed)
+
+**RESULT: Timer now matches approved design exactly - "Pre-orders close in: || 22 DAYS : 00 HRS : 28 MIN"**
+

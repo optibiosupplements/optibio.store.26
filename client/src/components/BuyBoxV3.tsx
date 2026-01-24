@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, ArrowRight, Sparkles, Award, Lock, Truck, Shield, Leaf, Package, Clock } from "lucide-react";
+import { Star, ArrowRight, Award, Lock, Shield, Leaf } from "lucide-react";
 
 interface BuyBoxV3Props {
   product?: {
@@ -21,9 +21,10 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
   const originalPrice = "$69.99";
   const discount = 46;
   
-  // Stock urgency removed per approved design
+  // Random stock number between 40-50
+  const [stockLeft] = useState(() => Math.floor(Math.random() * 11) + 40);
 
-  // Countdown timer state
+  // Countdown timer state - 3 segments only (days, hours, minutes)
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
   useEffect(() => {
     const targetDate = new Date('2026-02-14T23:59:59');
@@ -54,18 +55,25 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
     <div className={`grid lg:grid-cols-[3fr_2fr] gap-8 lg:gap-12 items-start ${className}`}>
       {/* LEFT COLUMN - 60% */}
       <div className="space-y-6">
-        {/* 1. Navy Pill Badge */}
+        {/* 1. Navy Pill Badge - ALL CAPS */}
         <Badge 
           className="text-sm font-semibold px-4 py-2 border-0 inline-flex items-center w-fit rounded-full"
           style={{ background: '#1E3A5F', color: 'white' }}
         >
-          Science-Backed • Third-Party Tested
+          SCIENCE-BACKED • THIRD-PARTY TESTED
         </Badge>
 
-        {/* 2. Headline H1 */}
+        {/* 2. Headline H1 - BOLD, NOT ITALIC - Sora Bold */}
         <h1 
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] italic"
-          style={{ color: '#1E3A5F', fontFamily: "'Sora', sans-serif" }}
+          className="text-5xl sm:text-6xl lg:text-7xl leading-[1.1]"
+          style={{ 
+            color: '#1E3A5F',
+            fontFamily: "'Sora', sans-serif",
+            fontWeight: 700,
+            fontStyle: 'normal',
+            fontVariationSettings: "'slnt' 0",
+            fontSynthesis: 'none'
+          }}
         >
           Feel Like<br />
           Yourself<br />
@@ -115,28 +123,41 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           }}
         >
           <CardContent className="p-0">
-            {/* Timer Strip - Solid Pink Strip at TOP of card */}
+            {/* Timer Strip - Approved Design: 3 segments with labels, pause icon, centered */}
             <div 
-              className="px-4 py-3 flex items-center justify-center gap-3"
-              style={{ background: '#FEF2F2' }}
+              className="px-6 py-4 flex items-center justify-center gap-4"
+              style={{ 
+                background: 'linear-gradient(to right, #FEF2F2, #FFF7ED)',
+                borderBottom: '1px solid #FECACA'
+              }}
             >
-              <span className="text-sm font-semibold" style={{ color: '#DC2626' }}>
+              <span className="text-sm font-medium" style={{ color: '#7C2D12' }}>
                 Pre-orders close in:
               </span>
+              <span className="text-lg font-bold tracking-tight" style={{ color: '#7C2D12' }}>||</span>
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-1">
-                  <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>{timeLeft.days}</span>
-                  <span className="text-xs uppercase" style={{ color: '#7C2D12' }}>DAYS</span>
+                {/* Days */}
+                <div className="flex flex-col items-center">
+                  <span className="text-2xl font-bold" style={{ color: '#7C2D12', fontFamily: "'Sora', sans-serif" }}>
+                    {timeLeft.days.toString().padStart(2, '0')}
+                  </span>
+                  <span className="text-[10px] font-medium uppercase tracking-wide" style={{ color: '#7C2D12' }}>DAYS</span>
                 </div>
-                <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>:</span>
-                <div className="flex items-center gap-1">
-                  <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>{timeLeft.hours.toString().padStart(2, '0')}</span>
-                  <span className="text-xs uppercase" style={{ color: '#7C2D12' }}>HRS</span>
+                <span className="text-2xl font-bold" style={{ color: '#7C2D12' }}>:</span>
+                {/* Hours */}
+                <div className="flex flex-col items-center">
+                  <span className="text-2xl font-bold" style={{ color: '#7C2D12', fontFamily: "'Sora', sans-serif" }}>
+                    {timeLeft.hours.toString().padStart(2, '0')}
+                  </span>
+                  <span className="text-[10px] font-medium uppercase tracking-wide" style={{ color: '#7C2D12' }}>HRS</span>
                 </div>
-                <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>:</span>
-                <div className="flex items-center gap-1">
-                  <span className="text-lg font-bold" style={{ color: '#7C2D12' }}>{timeLeft.minutes.toString().padStart(2, '0')}</span>
-                  <span className="text-xs uppercase" style={{ color: '#7C2D12' }}>MIN</span>
+                <span className="text-2xl font-bold" style={{ color: '#7C2D12' }}>:</span>
+                {/* Minutes */}
+                <div className="flex flex-col items-center">
+                  <span className="text-2xl font-bold" style={{ color: '#7C2D12', fontFamily: "'Sora', sans-serif" }}>
+                    {timeLeft.minutes.toString().padStart(2, '0')}
+                  </span>
+                  <span className="text-[10px] font-medium uppercase tracking-wide" style={{ color: '#7C2D12' }}>MIN</span>
                 </div>
               </div>
             </div>
@@ -161,34 +182,29 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </Badge>
               </div>
 
-              {/* Yellow Info Box */}
+              {/* Yellow Info Box - Single line only, no emojis */}
               <div 
-                className="rounded-lg p-4 space-y-2"
+                className="rounded-lg p-4"
                 style={{ 
                   background: '#FFFBEB', 
                   border: '1px solid #FDE68A' 
                 }}
               >
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4" style={{ color: '#C9A961' }} />
-                  <span className="font-semibold text-sm" style={{ color: '#1E3A5F' }}>Pre-Order Special:</span>
-                  <span className="text-sm" style={{ color: '#475569' }}>Ships Jan 20-27</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm" style={{ color: '#475569' }}>
-                  <Truck className="w-4 h-4" style={{ color: '#C9A961' }} />
-                  <span>Free shipping on orders $75+</span>
+                  <span className="font-semibold text-sm" style={{ color: '#1E3A5F' }}>Pre-Order Special</span>
+                  <span className="text-sm" style={{ color: '#475569' }}>Ships Feb 14th, 2026</span>
                 </div>
               </div>
 
-              {/* Bonus Text */}
+              {/* Bonus Text - No emoji */}
               <p 
                 className="text-center font-semibold text-sm"
                 style={{ color: '#16A34A' }}
               >
-                ✨ Plus Extra 25% Off at Checkout
+                Plus Extra 25% Off at Checkout
               </p>
 
-              {/* CTA Button */}
+              {/* CTA Button - Em-dash instead of hyphen */}
               <Button
                 size="lg"
                 className="w-full text-base font-bold py-6 border-0 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
@@ -197,10 +213,10 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   color: 'white'
                 }}
               >
-                Pre-Order Now - Save Extra 25% <ArrowRight className="ml-2 w-5 h-5" />
+                Pre-Order Now – Save Extra 25% <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
 
-              {/* Trust Footer */}
+              {/* Trust Footer - Only 2 items: Secure checkout and 90-day guarantee */}
               <div 
                 className="flex items-center justify-center gap-4 text-xs flex-wrap pt-4 border-t"
                 style={{ color: '#64748B', borderColor: 'rgba(201, 169, 97, 0.2)' }}
@@ -211,17 +227,22 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </div>
                 <span>•</span>
                 <div className="flex items-center gap-1">
-                  <Truck className="w-3.5 h-3.5" />
-                  <span>Free shipping on $75+</span>
-                </div>
-                <span>•</span>
-                <div className="flex items-center gap-1">
                   <Shield className="w-3.5 h-3.5" />
                   <span>90-day guarantee</span>
                 </div>
               </div>
 
-
+              {/* Stock Urgency Indicator */}
+              <div 
+                className="rounded-lg px-4 py-2 text-center text-sm font-medium"
+                style={{ 
+                  background: '#FFF7ED',
+                  border: '1px solid #FED7AA',
+                  color: '#C2410C'
+                }}
+              >
+                🔥 Only {stockLeft} left in stock
+              </div>
             </div>
           </CardContent>
         </Card>
@@ -262,7 +283,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </span>
               </div>
               <p className="text-sm" style={{ color: '#1E3A5F' }}>
-                <span className="font-semibold">12,000+</span> Happy Customers
+                <span className="font-semibold">5,247</span> happy customers
               </p>
             </div>
           </div>
@@ -275,7 +296,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           className="overflow-hidden border-2 shadow-2xl w-full max-w-sm"
           style={{ 
             background: 'white',
-            borderColor: 'rgba(201, 169, 97, 0.2)',
+            borderColor: '#C9A961',
             borderRadius: '24px'
           }}
         >

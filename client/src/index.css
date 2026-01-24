@@ -337,14 +337,27 @@ html {
     transition: background-color 0.5s ease, border-color 0.5s ease, color 0.3s ease;
   }
   
-  /* Headings use Sora font */
+  /* Headings use Poppins font - BOLD, NOT ITALIC */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 600;
+    font-style: normal !important;
   }
   
   h1 {
     @apply text-5xl leading-tight;
+    font-style: normal !important;
+  }
+  
+  /* Hero headline - MUST be bold upright Sora font, never italic */
+  .hero-headline {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    font-synthesis: none !important;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   
   h2 {
