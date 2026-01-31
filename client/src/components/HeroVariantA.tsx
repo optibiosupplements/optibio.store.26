@@ -126,6 +126,15 @@ function IconGuarantee(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+// FIX #4: Proper Star icon for Pre-Order Special line
+function IconStar(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+    </svg>
+  );
+}
+
 export default function HeroVariantA() {
   // =========
   // SETTINGS
@@ -137,10 +146,10 @@ export default function HeroVariantA() {
   // Homepage CTA destination:
   const CTA_HREF = "/shop";
 
-  // FIX #1: Hardcoded prices - NO dynamic math rounding
-  const ORIGINAL_PRICE = 69.99;
-  const NORMAL_PRICE = 37.79;
-  const PREORDER_PRICE = 28.35; // HARDCODED - not computed
+  // FIX #1: Hardcoded prices - NO dynamic math, display as literal strings
+  const ORIGINAL_PRICE_DISPLAY = "$69.99";
+  const NORMAL_PRICE_DISPLAY = "$37.79";
+  const PREORDER_PRICE_DISPLAY = "$28.35";
 
   // Social proof (keep only claims you're comfortable with)
   const RATING = "4.9/5";
@@ -157,16 +166,16 @@ export default function HeroVariantA() {
             "radial-gradient(circle at 30% 20%, #F8FCFE 0%, #EBF5FB 45%, #D6EAF8 100%)",
         }}
       >
-        <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10 lg:py-16">
+        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-14">
           <div className="grid items-center gap-8 lg:grid-cols-[1.1fr,0.9fr]">
             {/* LEFT: Copy + Offer */}
-            <div className="space-y-5">
+            <div className="space-y-4">
               {/* Top pill */}
               <div className="inline-flex items-center rounded-full border border-[#C9A961]/35 bg-[#0F2A44] px-5 py-2 text-[11px] font-semibold tracking-[0.16em] text-white shadow-sm">
                 SCIENCE-BACKED&nbsp;&nbsp;•&nbsp;&nbsp;THIRD-PARTY TESTED
               </div>
 
-              {/* FIX #2: Headline - Locked typography (Sora, weight 800, letter-spacing -0.03em, line-height 0.95) */}
+              {/* Headline - Locked typography (Sora, weight 800, letter-spacing -0.03em, line-height 0.95) */}
               <h1
                 className="text-[#132B4C] [font-family:Sora,ui-sans-serif,system-ui]"
                 style={{ 
@@ -188,73 +197,73 @@ export default function HeroVariantA() {
                 one capsule daily.
               </p>
 
-              {/* FIX #3: Proof row - Tighter spacing (gap-4 instead of gap-6) */}
-              <div className="flex flex-wrap items-center gap-4 text-[#1E3A5F]">
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#C9A961]/35 bg-white/70 text-[#C9A961]">
-                    <IconBeaker className="h-4 w-4" />
+              {/* FIX #3: Proof row - LARGER icons (h-12 w-12 containers, h-6 w-6 icons) and bigger font */}
+              <div className="flex flex-wrap items-start gap-5 text-[#1E3A5F]">
+                <div className="flex items-start gap-3">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#C9A961]/40 bg-white/80 text-[#C9A961] shadow-sm">
+                    <IconBeaker className="h-6 w-6" />
                   </span>
                   <div className="leading-tight">
-                    <div className="text-sm font-semibold [font-family:Inter,ui-sans-serif,system-ui]">
+                    <div className="text-[15px] font-semibold [font-family:Inter,ui-sans-serif,system-ui]">
                       Clinically studied extract
                     </div>
-                    <div className="text-xs text-[#1E3A5F]/70 [font-family:Inter,ui-sans-serif,system-ui]">
+                    <div className="text-[13px] text-[#1E3A5F]/70 [font-family:Inter,ui-sans-serif,system-ui]">
                       Transparent sourcing
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#C9A961]/35 bg-white/70 text-[#C9A961]">
-                    <IconShield className="h-4 w-4" />
+                <div className="flex items-start gap-3">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#C9A961]/40 bg-white/80 text-[#C9A961] shadow-sm">
+                    <IconShield className="h-6 w-6" />
                   </span>
                   <div className="leading-tight">
-                    <div className="text-sm font-semibold [font-family:Inter,ui-sans-serif,system-ui]">
+                    <div className="text-[15px] font-semibold [font-family:Inter,ui-sans-serif,system-ui]">
                       3rd-party tested
                     </div>
-                    <div className="text-xs text-[#1E3A5F]/70 [font-family:Inter,ui-sans-serif,system-ui]">
+                    <div className="text-[13px] text-[#1E3A5F]/70 [font-family:Inter,ui-sans-serif,system-ui]">
                       COA-backed quality
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-[#C9A961]/35 bg-white/70 text-[#C9A961]">
-                    <IconLeaf className="h-4 w-4" />
+                <div className="flex items-start gap-3">
+                  <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl border border-[#C9A961]/40 bg-white/80 text-[#C9A961] shadow-sm">
+                    <IconLeaf className="h-6 w-6" />
                   </span>
                   <div className="leading-tight">
-                    <div className="text-sm font-semibold [font-family:Inter,ui-sans-serif,system-ui]">
+                    <div className="text-[15px] font-semibold [font-family:Inter,ui-sans-serif,system-ui]">
                       Non-GMO &amp; Organic
                     </div>
-                    <div className="text-xs text-[#1E3A5F]/70 [font-family:Inter,ui-sans-serif,system-ui]">
+                    <div className="text-[13px] text-[#1E3A5F]/70 [font-family:Inter,ui-sans-serif,system-ui]">
                       Clean label
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* FIX #4: Offer Card - Reduced vertical padding (~10-15% less) */}
+              {/* FIX #4: Offer Card - Further reduced vertical padding */}
               <div className="max-w-xl rounded-[22px] border border-[#C9A961]/30 bg-white/80 shadow-[0_16px_50px_rgba(15,42,68,0.12)] backdrop-blur">
-                <div className="p-5 sm:p-6">
+                <div className="p-4 sm:p-5">
                   {/* "No timer" strip - tighter */}
-                  <div className="rounded-[14px] border border-[#FECACA] bg-gradient-to-r from-[#FEF2F2] to-[#FFF7ED] px-4 py-3">
+                  <div className="rounded-[14px] border border-[#FECACA] bg-gradient-to-r from-[#FEF2F2] to-[#FFF7ED] px-4 py-2.5">
                     <div className="text-sm font-semibold text-[#7C2D12] [font-family:Inter,ui-sans-serif,system-ui]">
                       Limited pre-order pricing ends soon
                     </div>
                   </div>
 
-                  {/* Price stack - tighter */}
-                  <div className="mt-4 flex flex-wrap items-end justify-between gap-3">
+                  {/* FIX #1 & #2: Price stack - HARDCODED strings, no .toFixed() */}
+                  <div className="mt-3 flex flex-wrap items-end justify-between gap-3">
                     <div className="flex items-end gap-3">
-                      <div className="text-[52px] font-extrabold leading-none text-[#132B4C] [font-family:Sora,ui-sans-serif,system-ui]">
-                        ${PREORDER_PRICE.toFixed(2)}
+                      <div className="text-[48px] font-extrabold leading-none text-[#132B4C] [font-family:Sora,ui-sans-serif,system-ui]">
+                        {PREORDER_PRICE_DISPLAY}
                       </div>
                       <div className="pb-1">
                         <div className="text-base text-[#94A3B8] line-through [font-family:Inter,ui-sans-serif,system-ui]">
-                          ${ORIGINAL_PRICE.toFixed(2)}
+                          {ORIGINAL_PRICE_DISPLAY}
                         </div>
                         <div className="text-xs text-[#64748B] [font-family:Inter,ui-sans-serif,system-ui]">
-                          Normal: ${NORMAL_PRICE.toFixed(2)} (46% off)
+                          Normal: {NORMAL_PRICE_DISPLAY} (46% off)
                         </div>
                       </div>
                     </div>
@@ -272,34 +281,34 @@ export default function HeroVariantA() {
                     <span className="font-semibold">extra 25% pre-order savings</span>
                   </div>
 
-                  {/* Pre-order ship line - tighter */}
-                  <div className="mt-3 flex items-center gap-2 text-[14px] [font-family:Inter,ui-sans-serif,system-ui]">
-                    <span className="text-[#C9A961]">✦</span>
+                  {/* FIX #5: Pre-order ship line - Proper Star icon instead of ✦ */}
+                  <div className="mt-2.5 flex items-center gap-2 text-[14px] [font-family:Inter,ui-sans-serif,system-ui]">
+                    <IconStar className="h-4 w-4 text-[#C9A961]" />
                     <span className="font-semibold text-[#1E3A5F]">Pre-Order Special:</span>
                     <span className="text-[#1E3A5F]/85">Ships Feb 14–21, 2026</span>
                   </div>
 
                   {/* Free shipping bar - tighter */}
-                  <div className="mt-3 rounded-[12px] border border-[#FDE68A] bg-[#FFFBEB] px-3 py-2">
+                  <div className="mt-2.5 rounded-[12px] border border-[#FDE68A] bg-[#FFFBEB] px-3 py-1.5">
                     <div className="flex items-center justify-center gap-2 text-sm text-[#7C2D12] [font-family:Inter,ui-sans-serif,system-ui]">
-                      <IconTruck className="h-4 w-4 text-[#C9A961]" />
+                      <IconTruck className="h-4 w-4" />
                       <span className="font-semibold">Free shipping on orders $75+</span>
                     </div>
                   </div>
 
-                  {/* FIX #5: CTA - Adjusted hierarchy (slightly lighter weight, arrow more prominent) */}
+                  {/* CTA - Adjusted hierarchy (slightly lighter weight, arrow more prominent) */}
                   <a
                     href={CTA_HREF}
-                    className="mt-4 inline-flex w-full items-center justify-center gap-3 rounded-[14px] bg-[#2563EB] px-5 py-3.5 text-[15px] font-semibold text-white shadow-[0_10px_22px_rgba(37,99,235,0.30)] transition hover:brightness-95 [font-family:Inter,ui-sans-serif,system-ui]"
+                    className="mt-3 inline-flex w-full items-center justify-center gap-3 rounded-[14px] bg-[#2563EB] px-5 py-3 text-[15px] font-semibold text-white shadow-[0_10px_22px_rgba(37,99,235,0.30)] transition hover:brightness-95 [font-family:Inter,ui-sans-serif,system-ui]"
                   >
-                    <span>Pre-Order Now — Only ${PREORDER_PRICE.toFixed(2)}/bottle</span>
+                    <span>Pre-Order Now — Only {PREORDER_PRICE_DISPLAY}/bottle</span>
                     <span aria-hidden className="text-2xl font-light">
                       →
                     </span>
                   </a>
 
                   {/* Trust micro row - tighter */}
-                  <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-[#E2E8F0] pt-3 text-xs text-[#475569] [font-family:Inter,ui-sans-serif,system-ui]">
+                  <div className="mt-3 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t border-[#E2E8F0] pt-2.5 text-xs text-[#475569] [font-family:Inter,ui-sans-serif,system-ui]">
                     <div className="flex items-center gap-1.5">
                       <IconLock className="h-3.5 w-3.5" />
                       Secure checkout
@@ -312,12 +321,12 @@ export default function HeroVariantA() {
                 </div>
               </div>
 
-              {/* FIX #6: Social proof - Reduced prominence (lighter bg, less padding, smaller shadow) */}
-              <div className="max-w-xl rounded-[18px] border border-[#BBF7D0]/60 bg-[#F0FDF4]/70 p-4 shadow-[0_8px_25px_rgba(15,42,68,0.06)]">
+              {/* FIX #6: Social proof - Further reduced prominence (even lighter bg, less padding) */}
+              <div className="max-w-xl rounded-[16px] border border-[#BBF7D0]/50 bg-[#F0FDF4]/50 p-3 shadow-[0_4px_15px_rgba(15,42,68,0.04)]">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <div className="flex items-center gap-2">
                     {/* Avatars */}
-                    <div className="flex -space-x-2.5">
+                    <div className="flex -space-x-2">
                       {[
                         "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=64&q=60",
                         "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=64&q=60",
@@ -328,7 +337,7 @@ export default function HeroVariantA() {
                           key={idx}
                           src={src}
                           alt=""
-                          className="h-9 w-9 rounded-full border-2 border-[#F0FDF4] object-cover"
+                          className="h-8 w-8 rounded-full border-2 border-[#F0FDF4] object-cover"
                           loading="lazy"
                         />
                       ))}
@@ -339,7 +348,7 @@ export default function HeroVariantA() {
                     <div className="flex items-center gap-2">
                       <div className="flex text-[#C9A961]" aria-label="5 stars">
                         {"★★★★★".split("").map((s, i) => (
-                          <span key={i} className="text-base leading-none">
+                          <span key={i} className="text-sm leading-none">
                             {s}
                           </span>
                         ))}
@@ -349,11 +358,11 @@ export default function HeroVariantA() {
                       </div>
                     </div>
 
-                    <div className="mt-0.5 text-[14px] font-semibold text-[#132B4C] [font-family:Inter,ui-sans-serif,system-ui]">
+                    <div className="mt-0.5 text-[13px] font-semibold text-[#132B4C] [font-family:Inter,ui-sans-serif,system-ui]">
                       {HAPPY_CUSTOMERS} happy customers
                     </div>
 
-                    <div className="mt-0.5 flex items-center gap-1.5 text-[13px] font-semibold text-[#16A34A] [font-family:Inter,ui-sans-serif,system-ui]">
+                    <div className="mt-0.5 flex items-center gap-1.5 text-[12px] font-semibold text-[#16A34A] [font-family:Inter,ui-sans-serif,system-ui]">
                       <span>✓</span>
                       {SOCIAL_TREND_LINE}
                     </div>
@@ -362,15 +371,15 @@ export default function HeroVariantA() {
               </div>
             </div>
 
-            {/* FIX #7: RIGHT: Product card - Raised bottle, reduced padding */}
+            {/* RIGHT: Product card - Raised bottle, reduced padding */}
             <div className="flex justify-center lg:justify-end">
-              <div className="relative w-full max-w-[380px]">
-                <div className="rounded-[24px] border border-[#C9A961]/35 bg-white/85 p-4 shadow-[0_24px_60px_rgba(15,42,68,0.16)] backdrop-blur">
+              <div className="relative w-full max-w-[360px]">
+                <div className="rounded-[24px] border border-[#C9A961]/35 bg-white/85 p-3 shadow-[0_24px_60px_rgba(15,42,68,0.16)] backdrop-blur">
                   <div className="flex items-center justify-center">
                     <img
                       src={PRODUCT_IMAGE_SRC}
                       alt="OptiBio Ashwagandha KSM-66 bottle"
-                      className="h-[380px] w-auto drop-shadow-[0_24px_35px_rgba(0,0,0,0.22)] -mt-4"
+                      className="h-[360px] w-auto drop-shadow-[0_24px_35px_rgba(0,0,0,0.22)] -mt-6"
                       loading="eager"
                     />
                   </div>

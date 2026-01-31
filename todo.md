@@ -2369,3 +2369,12 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [ ] 5. Adjust CTA text hierarchy so it does not compete with the price
 - [ ] 6. Slightly reduce prominence of the social proof card
 - [ ] 7. Raise the product bottle slightly and reduce image card padding
+
+
+## 🔧 IN PROGRESS: HERO SECTION BUG FIXES (Jan 31, 2026)
+- [ ] Fix pre-order price from $28.34 to $28.35 (hardcode, no computation)
+- [ ] Fix Normal price formatting from $3.779 to $37.79 (46% off)
+- [ ] Increase trust row icon size (h-12 w-12) and font size
+- [ ] Reduce offer card padding by ~15%
+- [ ] Replace ✦ with proper Star icon for Pre-Order Special line
+- [ ] Reduce social proof card prominence (lighter bg, less padding)
