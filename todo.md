@@ -2357,3 +2357,15 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - Trust footer: Secure checkout, 90-day guarantee
 - Social proof card with avatars, stars, customer count
 - Product image in white card with gold border and glow effect
+
+
+## 🔧 IN PROGRESS: HERO SECTION REFINEMENTS (Jan 31, 2026)
+
+### 7 Precise Adjustments (No Redesign)
+- [ ] 1. Hardcode pre-order price to $28.35 everywhere (no math rounding)
+- [ ] 2. Lock headline typography (Sora, weight 800/900, letter-spacing -0.03em, line-height 0.95)
+- [ ] 3. Slightly tighten spacing in the 3-icon proof row
+- [ ] 4. Reduce vertical padding in the offer card by ~10-15%
+- [ ] 5. Adjust CTA text hierarchy so it does not compete with the price
+- [ ] 6. Slightly reduce prominence of the social proof card
+- [ ] 7. Raise the product bottle slightly and reduce image card padding
