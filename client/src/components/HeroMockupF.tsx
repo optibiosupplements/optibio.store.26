@@ -1,21 +1,26 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Link } from "wouter";
 import { BRAND_COLORS, URGENCY_COLORS, ACTION_COLORS, SOCIAL_PROOF_COLORS, TYPOGRAPHY } from "@/brand";
 
 /**
- * HeroMockupF - Optimized V2 Implementation
+ * HeroMockupF - Optimized V2 with Laws of UX Applied
  * 
- * Based on CRO research and Mockup F - Optimized V2 design:
- * - Radial gradient background (white center → soft sky blue edges)
- * - Golden glow effect behind product with bokeh particles
- * - Reviews badge (⭐ 4.9 from 2,847 reviews)
- * - Quantity bundle selector (1/3/6 bottles)
- * - Working countdown timer
- * - Sticky header with mini CTA on scroll
+ * UX Laws Implemented:
+ * - Fitts's Law: Large, accessible CTA buttons with proper touch targets
+ * - Hick's Law: Pre-selected best value, limited choices (3 bundles)
+ * - Jakob's Law: Familiar e-commerce patterns
+ * - Miller's Law: Information chunked into 3-5 groups
+ * - Peak-End Rule: Memorable golden glow effect, satisfying interactions
+ * - Serial Position Effect: Key info at start (headline) and end (guarantee)
+ * - Von Restorff Effect: "BEST VALUE" badge stands out
+ * - Aesthetic-Usability Effect: Premium polish throughout
+ * - Law of Proximity: Related elements grouped together
+ * - Law of Similarity: Consistent styling for related items
+ * - Law of Common Region: Cards/containers for grouping
  */
 
 // ============================================================================
-// SVG Icons
+// SVG Icons - Premium Refined
 // ============================================================================
 
 function IconBeaker(props: React.SVGProps<SVGSVGElement>) {
@@ -109,8 +114,34 @@ function IconSparkle(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
+function IconCheck(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <path
+        d="M5 12l5 5L20 7"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function IconTruck(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" {...props}>
+      <path d="M1 3h15v13H1V3z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <path d="M16 8h4l3 4v4h-7V8z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <circle cx="5.5" cy="18.5" r="2.5" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="18.5" cy="18.5" r="2.5" stroke="currentColor" strokeWidth="1.6" />
+    </svg>
+  );
+}
+
 // ============================================================================
-// Countdown Timer Component
+// Countdown Timer Component - Enhanced with UX Laws
+// Peak-End Rule: Creates memorable urgency moment
 // ============================================================================
 
 interface CountdownTimerProps {
@@ -139,29 +170,70 @@ function CountdownTimer({ targetDate }: CountdownTimerProps) {
 
   return (
     <div 
-      className="rounded-2xl px-5 py-4 border"
+      className="rounded-2xl px-5 py-4 border transition-all duration-300 hover:shadow-lg"
       style={{
-        background: URGENCY_COLORS.BACKGROUND_GRADIENT,
-        borderColor: URGENCY_COLORS.BORDER,
-        boxShadow: URGENCY_COLORS.SHADOW,
+        background: 'linear-gradient(135deg, #FFFBF5 0%, #FFF8ED 100%)',
+        borderColor: 'rgba(201, 169, 97, 0.3)',
+        boxShadow: '0 4px 20px rgba(201, 169, 97, 0.15)',
       }}
     >
       <div className="flex items-center justify-between gap-4">
-        <span 
-          className="text-sm font-semibold"
-          style={{ color: URGENCY_COLORS.TEXT, fontFamily: TYPOGRAPHY.BODY_FONT }}
-        >
-          Pre-order window closes in:
-        </span>
+        <div className="flex items-center gap-2">
+          <div 
+            className="w-8 h-8 rounded-full flex items-center justify-center"
+            style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}
+          >
+            <IconSparkle className="h-4 w-4" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }} />
+          </div>
+          <span 
+            className="text-sm font-semibold"
+            style={{ color: BRAND_COLORS.DEEP_NAVY, fontFamily: TYPOGRAPHY.BODY_FONT }}
+          >
+            Pre-order window closes in:
+          </span>
+        </div>
         <div 
-          className="flex items-center gap-1 text-2xl font-bold tabular-nums"
-          style={{ color: URGENCY_COLORS.TEXT, fontFamily: TYPOGRAPHY.HEADING_FONT }}
+          className="flex items-center gap-1"
+          style={{ fontFamily: TYPOGRAPHY.HEADING_FONT }}
         >
-          <span>{timeLeft.hours.toString().padStart(2, '0')}</span>
-          <span className="animate-pulse">:</span>
-          <span>{timeLeft.minutes.toString().padStart(2, '0')}</span>
-          <span className="animate-pulse">:</span>
-          <span>{timeLeft.seconds.toString().padStart(2, '0')}</span>
+          {/* Hours */}
+          <div className="flex flex-col items-center">
+            <span 
+              className="text-2xl font-bold tabular-nums px-2 py-1 rounded-lg"
+              style={{ 
+                color: BRAND_COLORS.DEEP_NAVY,
+                background: 'rgba(255, 255, 255, 0.8)',
+              }}
+            >
+              {timeLeft.hours.toString().padStart(2, '0')}
+            </span>
+          </div>
+          <span className="text-xl font-bold animate-pulse" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }}>:</span>
+          {/* Minutes */}
+          <div className="flex flex-col items-center">
+            <span 
+              className="text-2xl font-bold tabular-nums px-2 py-1 rounded-lg"
+              style={{ 
+                color: BRAND_COLORS.DEEP_NAVY,
+                background: 'rgba(255, 255, 255, 0.8)',
+              }}
+            >
+              {timeLeft.minutes.toString().padStart(2, '0')}
+            </span>
+          </div>
+          <span className="text-xl font-bold animate-pulse" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }}>:</span>
+          {/* Seconds */}
+          <div className="flex flex-col items-center">
+            <span 
+              className="text-2xl font-bold tabular-nums px-2 py-1 rounded-lg"
+              style={{ 
+                color: BRAND_COLORS.DEEP_NAVY,
+                background: 'rgba(255, 255, 255, 0.8)',
+              }}
+            >
+              {timeLeft.seconds.toString().padStart(2, '0')}
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -169,7 +241,10 @@ function CountdownTimer({ targetDate }: CountdownTimerProps) {
 }
 
 // ============================================================================
-// Quantity Bundle Selector
+// Quantity Bundle Selector - Enhanced with UX Laws
+// Hick's Law: Limited to 3 choices with pre-selection
+// Von Restorff Effect: "BEST VALUE" badge stands out
+// Fitts's Law: Large touch targets (min 48px)
 // ============================================================================
 
 interface BundleOption {
@@ -179,12 +254,13 @@ interface BundleOption {
   totalPrice: number;
   savings: string;
   popular?: boolean;
+  supplyDays: string;
 }
 
 const bundleOptions: BundleOption[] = [
-  { quantity: 1, label: "1 Bottle", pricePerBottle: 28.35, totalPrice: 28.35, savings: "59% OFF" },
-  { quantity: 3, label: "3 Bottles", pricePerBottle: 25.52, totalPrice: 76.55, savings: "63% OFF", popular: true },
-  { quantity: 6, label: "6 Bottles", pricePerBottle: 22.68, totalPrice: 136.08, savings: "68% OFF" },
+  { quantity: 1, label: "1 Bottle", pricePerBottle: 28.35, totalPrice: 28.35, savings: "59% OFF", supplyDays: "30-day supply" },
+  { quantity: 3, label: "3 Bottles", pricePerBottle: 25.52, totalPrice: 76.55, savings: "63% OFF", popular: true, supplyDays: "90-day supply" },
+  { quantity: 6, label: "6 Bottles", pricePerBottle: 22.68, totalPrice: 136.08, savings: "68% OFF", supplyDays: "180-day supply" },
 ];
 
 interface QuantitySelectorProps {
@@ -195,58 +271,136 @@ interface QuantitySelectorProps {
 function QuantitySelector({ selected, onSelect }: QuantitySelectorProps) {
   return (
     <div className="grid grid-cols-3 gap-3">
-      {bundleOptions.map((option) => (
-        <button
-          key={option.quantity}
-          onClick={() => onSelect(option.quantity)}
-          className={`
-            relative rounded-xl p-3 border-2 transition-all duration-200
-            ${selected === option.quantity 
-              ? 'border-[#2563EB] bg-blue-50/50 shadow-md' 
-              : 'border-gray-200 bg-white hover:border-gray-300'
-            }
-          `}
-        >
-          {option.popular && (
-            <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 text-[10px] font-bold bg-[#C9A961] text-white rounded-full whitespace-nowrap">
-              BEST VALUE
-            </span>
-          )}
-          <div className="text-center">
-            <div 
-              className="text-sm font-bold"
-              style={{ color: BRAND_COLORS.DEEP_NAVY, fontFamily: TYPOGRAPHY.BODY_FONT }}
-            >
-              {option.label}
+      {bundleOptions.map((option) => {
+        const isSelected = selected === option.quantity;
+        return (
+          <button
+            key={option.quantity}
+            onClick={() => onSelect(option.quantity)}
+            className={`
+              relative rounded-2xl p-4 border-2 transition-all duration-300 ease-out
+              min-h-[120px] flex flex-col items-center justify-center
+              ${isSelected 
+                ? 'border-[#2563EB] bg-gradient-to-b from-blue-50 to-white shadow-lg scale-[1.02]' 
+                : 'border-gray-200 bg-white hover:border-gray-300 hover:shadow-md hover:-translate-y-0.5'
+              }
+            `}
+            style={{
+              boxShadow: isSelected 
+                ? '0 8px 30px rgba(37, 99, 235, 0.2), 0 4px 12px rgba(37, 99, 235, 0.1)' 
+                : undefined,
+            }}
+          >
+            {/* Von Restorff Effect: Make BEST VALUE stand out */}
+            {option.popular && (
+              <span 
+                className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-[10px] font-bold tracking-wider text-white rounded-full whitespace-nowrap shadow-md"
+                style={{ 
+                  background: 'linear-gradient(135deg, #D4AF37 0%, #C9A961 100%)',
+                  boxShadow: '0 4px 12px rgba(201, 169, 97, 0.4)',
+                }}
+              >
+                BEST VALUE
+              </span>
+            )}
+            
+            {/* Selection indicator */}
+            {isSelected && (
+              <div 
+                className="absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center"
+                style={{ backgroundColor: '#2563EB' }}
+              >
+                <IconCheck className="w-3 h-3 text-white" />
+              </div>
+            )}
+            
+            <div className="text-center">
+              <div 
+                className="text-sm font-bold"
+                style={{ color: BRAND_COLORS.DEEP_NAVY, fontFamily: TYPOGRAPHY.BODY_FONT }}
+              >
+                {option.label}
+              </div>
+              <div 
+                className="text-2xl font-extrabold mt-1"
+                style={{ 
+                  color: isSelected ? '#2563EB' : BRAND_COLORS.NAVY_DARKER, 
+                  fontFamily: TYPOGRAPHY.HEADING_FONT 
+                }}
+              >
+                ${option.pricePerBottle.toFixed(2)}
+              </div>
+              <div 
+                className="text-[10px] mt-0.5"
+                style={{ color: '#64748B' }}
+              >
+                per bottle
+              </div>
+              <div 
+                className="text-xs font-bold mt-2 px-2 py-0.5 rounded-full inline-block"
+                style={{ 
+                  backgroundColor: isSelected ? 'rgba(34, 197, 94, 0.15)' : 'rgba(34, 197, 94, 0.1)',
+                  color: '#16A34A',
+                }}
+              >
+                {option.savings}
+              </div>
             </div>
-            <div 
-              className="text-lg font-extrabold mt-1"
-              style={{ color: BRAND_COLORS.NAVY_DARKER, fontFamily: TYPOGRAPHY.HEADING_FONT }}
-            >
-              ${option.pricePerBottle.toFixed(2)}
-            </div>
-            <div className="text-[10px] text-gray-500">per bottle</div>
-            <div 
-              className="text-xs font-bold mt-1 text-green-600"
-            >
-              {option.savings}
-            </div>
-          </div>
-        </button>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+// ============================================================================
+// Bokeh Particles - Memoized for Performance
+// ============================================================================
+
+function BokehParticles() {
+  const particles = useMemo(() => {
+    return [...Array(15)].map((_, i) => ({
+      id: i,
+      width: Math.random() * 25 + 10,
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      opacity: Math.random() * 0.5 + 0.2,
+      delay: Math.random() * 3,
+      duration: Math.random() * 3 + 3,
+    }));
+  }, []);
+
+  return (
+    <div className="absolute inset-0 overflow-visible pointer-events-none" style={{ zIndex: 2 }}>
+      {particles.map((p) => (
+        <div
+          key={p.id}
+          className="absolute rounded-full"
+          style={{
+            width: `${p.width}px`,
+            height: `${p.width}px`,
+            left: `${p.left}%`,
+            top: `${p.top}%`,
+            background: `radial-gradient(circle, rgba(212, 175, 55, ${p.opacity}) 0%, transparent 70%)`,
+            animation: `pulse ${p.duration}s ease-in-out infinite`,
+            animationDelay: `${p.delay}s`,
+          }}
+        />
       ))}
     </div>
   );
 }
 
 // ============================================================================
-// Main Hero Component
+// Main Hero Component - Premium UX Implementation
 // ============================================================================
 
 export default function HeroMockupF() {
+  // Hick's Law: Pre-select best value option to reduce decision time
   const [selectedQuantity, setSelectedQuantity] = useState(3);
   const selectedBundle = bundleOptions.find(b => b.quantity === selectedQuantity) || bundleOptions[1];
   
-  // Set countdown target to 15 hours from now (or a fixed date)
+  // Set countdown target to 15 hours from now
   const [targetDate] = useState(() => {
     const target = new Date();
     target.setHours(target.getHours() + 15);
@@ -259,89 +413,120 @@ export default function HeroMockupF() {
   const CTA_HREF = "/shop";
 
   return (
-    <section className="w-full relative">
-      {/* Background with radial gradient */}
+    <section className="w-full relative overflow-hidden">
+      {/* Background with premium radial gradient - Aesthetic-Usability Effect */}
       <div
-        className="relative w-full overflow-hidden"
+        className="relative w-full"
         style={{
-          background: "radial-gradient(ellipse at 50% 30%, #FFFFFF 0%, #F5FAFD 25%, #EBF5FB 50%, #D6EAF8 100%)",
+          background: `
+            radial-gradient(ellipse 120% 80% at 50% 20%, 
+              #FFFFFF 0%, 
+              #F8FBFD 20%,
+              #F0F7FB 40%, 
+              #E8F4FA 60%,
+              #E1F0F8 80%,
+              #D6EAF8 100%
+            )
+          `,
         }}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 lg:px-10 lg:py-16">
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
+        {/* Subtle decorative elements */}
+        <div 
+          className="absolute top-0 right-0 w-[600px] h-[600px] opacity-30 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle at center, rgba(201, 169, 97, 0.15) 0%, transparent 70%)',
+            transform: 'translate(30%, -30%)',
+          }}
+        />
+        
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 lg:px-10 lg:py-20">
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             
-            {/* Left Column: Copy + Offer */}
+            {/* Left Column: Copy + Offer - Law of Common Region */}
             <div className="space-y-6 order-2 lg:order-1">
               
-              {/* Top Badge */}
+              {/* Serial Position Effect: Start with trust badge */}
               <div 
-                className="inline-flex items-center rounded-full border px-4 py-2 text-[11px] font-semibold tracking-[0.14em] shadow-sm"
+                className="inline-flex items-center rounded-full border px-4 py-2.5 text-[11px] font-semibold tracking-[0.14em] shadow-sm transition-all duration-300 hover:shadow-md"
                 style={{ 
                   backgroundColor: BRAND_COLORS.DEEP_NAVY,
                   borderColor: `${BRAND_COLORS.ANTIQUE_GOLD}50`,
                   color: BRAND_COLORS.ANTIQUE_GOLD,
                 }}
               >
+                <IconShield className="w-3.5 h-3.5 mr-2" />
                 SCIENCE-BACKED • THIRD-PARTY TESTED
               </div>
 
-              {/* Headline */}
+              {/* Headline - Typography hierarchy for premium feel */}
               <h1
-                className="leading-[1.05] tracking-[-0.03em]"
+                className="leading-[1.02] tracking-[-0.03em]"
                 style={{ 
                   color: BRAND_COLORS.DEEP_NAVY, 
                   fontFamily: TYPOGRAPHY.HEADING_FONT,
                   fontWeight: 800,
                 }}
               >
-                <span className="block text-4xl sm:text-5xl lg:text-[3.5rem]">Feel calm again.</span>
-                <span className="block text-4xl sm:text-5xl lg:text-[3.5rem]">Think clearly,</span>
-                <span className="block text-4xl sm:text-5xl lg:text-[3.5rem]">Sleep deeply.</span>
+                <span className="block text-4xl sm:text-5xl lg:text-[3.75rem] xl:text-[4rem]">Feel calm again.</span>
+                <span className="block text-4xl sm:text-5xl lg:text-[3.75rem] xl:text-[4rem]">Think clearly,</span>
+                <span className="block text-4xl sm:text-5xl lg:text-[3.75rem] xl:text-[4rem]">Sleep deeply.</span>
               </h1>
 
-              {/* Reviews Badge - CRO Enhancement */}
-              <div className="flex items-center gap-2">
-                <div className="flex text-[#FFB800]">
-                  {"★★★★★".split("").map((s, i) => (
-                    <span key={i} className="text-lg">{s}</span>
-                  ))}
+              {/* Reviews Badge - Social Proof with Law of Proximity */}
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-1.5 bg-white/80 rounded-full px-3 py-1.5 shadow-sm border border-amber-100">
+                  <div className="flex text-[#FFB800]">
+                    {"★★★★★".split("").map((s, i) => (
+                      <span key={i} className="text-base">{s}</span>
+                    ))}
+                  </div>
+                  <span 
+                    className="text-sm font-bold"
+                    style={{ color: BRAND_COLORS.DEEP_NAVY, fontFamily: TYPOGRAPHY.BODY_FONT }}
+                  >
+                    4.9
+                  </span>
+                  <span 
+                    className="text-sm"
+                    style={{ color: '#64748B', fontFamily: TYPOGRAPHY.BODY_FONT }}
+                  >
+                    (2,847 reviews)
+                  </span>
                 </div>
-                <span 
-                  className="text-sm font-semibold"
-                  style={{ color: BRAND_COLORS.DEEP_NAVY, fontFamily: TYPOGRAPHY.BODY_FONT }}
-                >
-                  4.9 (2,847 reviews)
-                </span>
                 <Link 
                   href="/science" 
-                  className="text-sm font-medium text-[#2563EB] hover:underline ml-2"
-                  style={{ fontFamily: TYPOGRAPHY.BODY_FONT }}
+                  className="text-sm font-semibold transition-all duration-200 hover:underline flex items-center gap-1 group"
+                  style={{ color: '#2563EB', fontFamily: TYPOGRAPHY.BODY_FONT }}
                 >
-                  See the science →
+                  See the science 
+                  <span className="transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                 </Link>
               </div>
 
-              {/* Subheadline */}
+              {/* Subheadline - Clear value proposition */}
               <p 
-                className="max-w-xl text-base leading-7"
-                style={{ color: '#4A5568', fontFamily: TYPOGRAPHY.BODY_FONT }}
+                className="max-w-xl text-lg leading-relaxed"
+                style={{ color: '#475569', fontFamily: TYPOGRAPHY.BODY_FONT }}
               >
-                Clinically studied ashwagandha for stress support, better sleep, and clearer focus — one capsule daily.
+                Clinically studied ashwagandha for stress support, better sleep, and clearer focus — <span className="font-semibold" style={{ color: BRAND_COLORS.DEEP_NAVY }}>one capsule daily</span>.
               </p>
 
-              {/* Trust Icons Row */}
-              <div className="flex flex-wrap items-center gap-4 lg:gap-6 pt-1">
+              {/* Trust Icons Row - Miller's Law: 3 items (within 7±2) */}
+              <div className="flex flex-wrap items-center gap-5 lg:gap-8 pt-2">
                 {[
                   { icon: IconBeaker, title: "Clinically studied", subtitle: "extract" },
                   { icon: IconShield, title: "3rd-party", subtitle: "tested" },
                   { icon: IconLeaf, title: "Non-GMO &", subtitle: "Organic" },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5">
+                  <div 
+                    key={idx} 
+                    className="flex items-center gap-3 group transition-all duration-200 hover:-translate-y-0.5"
+                  >
                     <span 
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-xl border bg-white/80"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-xl border bg-white shadow-sm transition-all duration-200 group-hover:shadow-md"
                       style={{ borderColor: `${BRAND_COLORS.ANTIQUE_GOLD}40` }}
                     >
-                      <item.icon className="h-5 w-5" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }} />
+                      <item.icon className="h-5 w-5 transition-transform duration-200 group-hover:scale-110" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }} />
                     </span>
                     <div className="leading-tight">
                       <div 
@@ -352,60 +537,73 @@ export default function HeroMockupF() {
                       </div>
                       <div 
                         className="text-xs"
-                        style={{ color: `${BRAND_COLORS.DEEP_NAVY}99`, fontFamily: TYPOGRAPHY.BODY_FONT }}
+                        style={{ color: '#64748B', fontFamily: TYPOGRAPHY.BODY_FONT }}
                       >
                         {item.subtitle}
                       </div>
                     </div>
                     {idx < 2 && (
-                      <div className="hidden sm:block h-8 w-px ml-2" style={{ backgroundColor: `${BRAND_COLORS.ANTIQUE_GOLD}30` }} />
+                      <div className="hidden lg:block h-10 w-px ml-3" style={{ backgroundColor: `${BRAND_COLORS.ANTIQUE_GOLD}25` }} />
                     )}
                   </div>
                 ))}
               </div>
 
-              {/* Offer Card */}
+              {/* Offer Card - Law of Common Region: Container groups related content */}
               <div 
-                className="max-w-xl rounded-[24px] border bg-white/90 shadow-xl backdrop-blur"
-                style={{ borderColor: `${BRAND_COLORS.ANTIQUE_GOLD}30` }}
+                className="max-w-xl rounded-3xl border bg-white/95 shadow-2xl backdrop-blur-sm transition-all duration-300"
+                style={{ 
+                  borderColor: `${BRAND_COLORS.ANTIQUE_GOLD}25`,
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 12px 24px -8px rgba(0, 0, 0, 0.1)',
+                }}
               >
-                <div className="p-5 sm:p-6">
+                <div className="p-6 sm:p-7">
                   
-                  {/* Countdown Timer */}
+                  {/* Countdown Timer - Zeigarnik Effect */}
                   <CountdownTimer targetDate={targetDate} />
 
-                  {/* Quantity Selector - CRO Enhancement */}
-                  <div className="mt-5">
+                  {/* Quantity Selector - Hick's Law applied */}
+                  <div className="mt-6">
                     <div 
-                      className="text-sm font-semibold mb-3"
+                      className="text-sm font-semibold mb-4 flex items-center gap-2"
                       style={{ color: BRAND_COLORS.DEEP_NAVY, fontFamily: TYPOGRAPHY.BODY_FONT }}
                     >
-                      Choose your supply:
+                      <span>Choose your supply:</span>
+                      <span 
+                        className="text-xs px-2 py-0.5 rounded-full"
+                        style={{ backgroundColor: 'rgba(34, 197, 94, 0.1)', color: '#16A34A' }}
+                      >
+                        {selectedBundle.supplyDays}
+                      </span>
                     </div>
                     <QuantitySelector selected={selectedQuantity} onSelect={setSelectedQuantity} />
                   </div>
 
-                  {/* Price Display */}
-                  <div className="mt-5 flex flex-wrap items-end justify-between gap-3">
+                  {/* Price Display - Law of Proximity: Price elements grouped */}
+                  <div className="mt-6 flex flex-wrap items-end justify-between gap-4">
                     <div className="flex items-end gap-3">
                       <div 
-                        className="text-5xl font-extrabold leading-none"
+                        className="text-5xl sm:text-[3.5rem] font-extrabold leading-none tracking-tight"
                         style={{ color: BRAND_COLORS.NAVY_DARKER, fontFamily: TYPOGRAPHY.HEADING_FONT }}
                       >
                         ${selectedBundle.totalPrice.toFixed(2)}
                       </div>
-                      <div className="pb-1">
+                      <div className="pb-1.5">
                         <div 
-                          className="text-lg line-through"
+                          className="text-lg line-through opacity-60"
                           style={{ color: '#94A3B8', fontFamily: TYPOGRAPHY.BODY_FONT }}
                         >
                           ${(selectedBundle.quantity * 69.99).toFixed(2)}
                         </div>
                       </div>
                     </div>
+                    {/* Von Restorff Effect: PRE-ORDER badge stands out */}
                     <span 
-                      className="inline-flex rounded-full px-3 py-1.5 text-xs font-bold tracking-wide text-white"
-                      style={{ backgroundColor: '#DC2626' }}
+                      className="inline-flex items-center rounded-full px-4 py-2 text-xs font-bold tracking-wide text-white shadow-lg transition-transform duration-200 hover:scale-105"
+                      style={{ 
+                        background: 'linear-gradient(135deg, #DC2626 0%, #B91C1C 100%)',
+                        boxShadow: '0 4px 14px rgba(220, 38, 38, 0.4)',
+                      }}
                     >
                       PRE-ORDER PRICE
                     </span>
@@ -413,46 +611,63 @@ export default function HeroMockupF() {
 
                   {/* Savings Description */}
                   <div 
-                    className="mt-2 text-sm"
+                    className="mt-3 text-sm flex items-center gap-2"
                     style={{ color: '#475569', fontFamily: TYPOGRAPHY.BODY_FONT }}
                   >
-                    Includes: <span className="font-semibold">46% off</span> + <span className="font-semibold">extra 25% pre-order savings</span>
+                    <IconCheck className="w-4 h-4 text-green-500 flex-shrink-0" />
+                    <span>
+                      Includes: <span className="font-semibold">46% off</span> + <span className="font-semibold">extra 25% pre-order savings</span>
+                    </span>
                   </div>
 
                   {/* Pre-order Shipping */}
                   <div 
-                    className="mt-4 flex items-center gap-2 text-sm"
-                    style={{ fontFamily: TYPOGRAPHY.BODY_FONT }}
+                    className="mt-4 flex items-center gap-3 text-sm p-3 rounded-xl"
+                    style={{ 
+                      backgroundColor: 'rgba(201, 169, 97, 0.08)',
+                      fontFamily: TYPOGRAPHY.BODY_FONT 
+                    }}
                   >
-                    <IconSparkle className="h-4 w-4" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }} />
-                    <span className="font-semibold" style={{ color: BRAND_COLORS.DEEP_NAVY }}>Pre-Order Special:</span>
-                    <span style={{ color: `${BRAND_COLORS.DEEP_NAVY}DD` }}>Ships Feb 14–21, 2026</span>
+                    <div 
+                      className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+                      style={{ backgroundColor: 'rgba(201, 169, 97, 0.15)' }}
+                    >
+                      <IconTruck className="h-4 w-4" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }} />
+                    </div>
+                    <div>
+                      <span className="font-semibold" style={{ color: BRAND_COLORS.DEEP_NAVY }}>Pre-Order Special:</span>
+                      <span className="ml-1" style={{ color: '#475569' }}>Ships Feb 14–21, 2026</span>
+                    </div>
                   </div>
 
-                  {/* CTA Button */}
+                  {/* CTA Button - Fitts's Law: Large, accessible target */}
                   <Link
                     href={CTA_HREF}
-                    className="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-2xl px-6 py-4 text-base font-bold text-white transition-all duration-200 hover:brightness-110 hover:-translate-y-0.5"
+                    className="mt-6 inline-flex w-full items-center justify-center gap-3 rounded-2xl px-8 py-5 text-lg font-bold text-white transition-all duration-300 hover:brightness-110 hover:-translate-y-1 hover:shadow-2xl active:scale-[0.98]"
                     style={{ 
-                      backgroundColor: ACTION_COLORS.PRIMARY,
-                      boxShadow: ACTION_COLORS.SHADOW,
+                      background: 'linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)',
+                      boxShadow: '0 10px 40px rgba(37, 99, 235, 0.4), 0 4px 12px rgba(37, 99, 235, 0.2)',
                       fontFamily: TYPOGRAPHY.BODY_FONT,
                     }}
                   >
                     Pre-Order Now — ${selectedBundle.totalPrice.toFixed(2)}
-                    <span className="text-xl">→</span>
+                    <span className="text-xl transition-transform duration-200 group-hover:translate-x-1">→</span>
                   </Link>
 
-                  {/* Trust Micro Row */}
+                  {/* Serial Position Effect: End with trust/guarantee */}
                   <div 
-                    className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 border-t pt-4 text-sm"
+                    className="mt-5 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 border-t pt-5 text-sm"
                     style={{ borderColor: '#E2E8F0', color: '#64748B', fontFamily: TYPOGRAPHY.BODY_FONT }}
                   >
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 transition-colors duration-200 hover:text-gray-700">
                       <IconLock className="h-4 w-4" />
-                      Secure checkout
+                      <span>Secure checkout</span>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 transition-colors duration-200 hover:text-gray-700">
+                      <IconTruck className="h-4 w-4" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }} />
+                      <span>Free shipping</span>
+                    </div>
+                    <div className="flex items-center gap-2 transition-colors duration-200 hover:text-gray-700">
                       <IconGuarantee className="h-4 w-4" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }} />
                       <span className="font-semibold">90-day guarantee</span>
                     </div>
@@ -460,13 +675,13 @@ export default function HeroMockupF() {
                 </div>
               </div>
 
-              {/* Social Proof Card */}
+              {/* Social Proof Card - Law of Similarity: Consistent card styling */}
               <div 
-                className="max-w-xl rounded-2xl border p-4 shadow-lg"
+                className="max-w-xl rounded-2xl border p-5 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
                 style={{
-                  background: SOCIAL_PROOF_COLORS.BACKGROUND_GRADIENT,
-                  borderColor: SOCIAL_PROOF_COLORS.BORDER,
-                  boxShadow: SOCIAL_PROOF_COLORS.SHADOW,
+                  background: 'linear-gradient(135deg, #F0FDF4 0%, #ECFDF5 100%)',
+                  borderColor: 'rgba(34, 197, 94, 0.2)',
+                  boxShadow: '0 4px 20px rgba(34, 197, 94, 0.1)',
                 }}
               >
                 <div className="flex flex-wrap items-center justify-between gap-4">
@@ -481,24 +696,26 @@ export default function HeroMockupF() {
                         key={idx}
                         src={src}
                         alt=""
-                        className="h-10 w-10 rounded-full border-2 object-cover"
-                        style={{ borderColor: '#F0FDF4' }}
+                        className="h-11 w-11 rounded-full border-3 object-cover shadow-sm transition-transform duration-200 hover:scale-110 hover:z-10"
+                        style={{ borderColor: '#F0FDF4', borderWidth: '3px' }}
                         loading="lazy"
                       />
                     ))}
                   </div>
                   <div className="flex-1 min-w-[200px]">
                     <div 
-                      className="text-sm font-bold"
+                      className="text-base font-bold"
                       style={{ color: BRAND_COLORS.DEEP_NAVY, fontFamily: TYPOGRAPHY.BODY_FONT }}
                     >
                       12,000+ people have found their calm
                     </div>
                     <div 
-                      className="mt-1 flex items-center gap-2 text-sm font-semibold"
-                      style={{ color: SOCIAL_PROOF_COLORS.TEXT, fontFamily: TYPOGRAPHY.BODY_FONT }}
+                      className="mt-1.5 flex items-center gap-2 text-sm font-semibold"
+                      style={{ color: '#16A34A', fontFamily: TYPOGRAPHY.BODY_FONT }}
                     >
-                      <span>✓</span>
+                      <span className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center">
+                        <IconCheck className="w-3 h-3" />
+                      </span>
                       127 bottles sold in the last 24 hours
                     </div>
                   </div>
@@ -506,109 +723,95 @@ export default function HeroMockupF() {
               </div>
             </div>
 
-            {/* Right Column: Product Image with Golden Glow */}
+            {/* Right Column: Product Image with Golden Glow - Peak-End Rule */}
             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-              <div className="relative w-full max-w-[480px]" style={{ overflow: 'visible' }}>
+              <div className="relative w-full max-w-[520px]" style={{ overflow: 'visible' }}>
                 
                 {/* Golden Glow Background Effect - Enhanced & More Visible */}
                 <div 
-                  className="absolute"
+                  className="absolute pointer-events-none"
                   style={{
-                    top: '-20%',
-                    left: '-30%',
-                    right: '-30%',
-                    bottom: '-20%',
+                    top: '-25%',
+                    left: '-35%',
+                    right: '-35%',
+                    bottom: '-25%',
                     background: `
-                      radial-gradient(ellipse 80% 80% at 50% 50%, 
-                        rgba(201, 169, 97, 0.7) 0%, 
-                        rgba(201, 169, 97, 0.5) 20%, 
-                        rgba(201, 169, 97, 0.3) 40%, 
-                        rgba(201, 169, 97, 0.15) 60%,
+                      radial-gradient(ellipse 75% 75% at 50% 50%, 
+                        rgba(212, 175, 55, 0.6) 0%, 
+                        rgba(201, 169, 97, 0.45) 20%, 
+                        rgba(201, 169, 97, 0.25) 40%, 
+                        rgba(201, 169, 97, 0.1) 60%,
                         transparent 80%
                       )
                     `,
-                    filter: 'blur(60px)',
+                    filter: 'blur(50px)',
                     zIndex: 0,
+                    animation: 'pulse 4s ease-in-out infinite',
                   }}
                 />
                 
-                {/* Secondary Inner Glow */}
+                {/* Secondary Inner Glow - Creates depth */}
                 <div 
-                  className="absolute inset-0"
+                  className="absolute inset-0 pointer-events-none"
                   style={{
                     background: `
-                      radial-gradient(circle at 50% 50%, 
-                        rgba(255, 215, 0, 0.25) 0%, 
-                        rgba(201, 169, 97, 0.15) 30%, 
+                      radial-gradient(circle at 50% 45%, 
+                        rgba(255, 215, 0, 0.3) 0%, 
+                        rgba(212, 175, 55, 0.15) 30%, 
                         transparent 60%
                       )
                     `,
-                    filter: 'blur(30px)',
-                    transform: 'scale(1.2)',
+                    filter: 'blur(25px)',
+                    transform: 'scale(1.3)',
                     zIndex: 1,
                   }}
                 />
                 
-                {/* Bokeh Particles */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 2 }}>
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute rounded-full animate-pulse"
-                      style={{
-                        width: `${Math.random() * 20 + 8}px`,
-                        height: `${Math.random() * 20 + 8}px`,
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        background: `radial-gradient(circle, rgba(201, 169, 97, ${Math.random() * 0.4 + 0.2}) 0%, transparent 70%)`,
-                        animationDelay: `${Math.random() * 2}s`,
-                        animationDuration: `${Math.random() * 2 + 2}s`,
-                      }}
-                    />
-                  ))}
-                </div>
+                {/* Bokeh Particles - Premium detail */}
+                <BokehParticles />
 
                 {/* Product Image */}
                 <div className="relative" style={{ zIndex: 10 }}>
                   <img
                     src={PRODUCT_IMAGE_SRC}
                     alt="OptiBio Ashwagandha KSM-66 Premium Supplement Bottle"
-                    className="w-full h-auto max-h-[550px] object-contain drop-shadow-2xl"
+                    className="w-full h-auto max-h-[600px] object-contain transition-transform duration-500 hover:scale-[1.02]"
                     style={{
-                      filter: 'drop-shadow(0 30px 60px rgba(0, 0, 0, 0.25))',
+                      filter: 'drop-shadow(0 35px 70px rgba(0, 0, 0, 0.3)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15))',
                     }}
                     loading="eager"
                   />
                 </div>
 
-                {/* Light Rays Effect */}
+                {/* Light Rays Effect - Subtle premium touch */}
                 <div 
-                  className="absolute inset-0 -z-5 pointer-events-none"
+                  className="absolute inset-0 pointer-events-none"
                   style={{
                     background: `
                       conic-gradient(
-                        from 0deg at 50% 60%,
+                        from 0deg at 50% 55%,
                         transparent 0deg,
-                        rgba(201, 169, 97, 0.08) 15deg,
+                        rgba(212, 175, 55, 0.06) 15deg,
                         transparent 30deg,
-                        rgba(201, 169, 97, 0.06) 60deg,
+                        rgba(212, 175, 55, 0.04) 60deg,
                         transparent 75deg,
-                        rgba(201, 169, 97, 0.08) 105deg,
+                        rgba(212, 175, 55, 0.06) 105deg,
                         transparent 120deg,
-                        rgba(201, 169, 97, 0.06) 150deg,
+                        rgba(212, 175, 55, 0.04) 150deg,
                         transparent 165deg,
-                        rgba(201, 169, 97, 0.08) 195deg,
+                        rgba(212, 175, 55, 0.06) 195deg,
                         transparent 210deg,
-                        rgba(201, 169, 97, 0.06) 240deg,
+                        rgba(212, 175, 55, 0.04) 240deg,
                         transparent 255deg,
-                        rgba(201, 169, 97, 0.08) 285deg,
+                        rgba(212, 175, 55, 0.06) 285deg,
                         transparent 300deg,
-                        rgba(201, 169, 97, 0.06) 330deg,
+                        rgba(212, 175, 55, 0.04) 330deg,
                         transparent 345deg
                       )
                     `,
-                    transform: 'scale(1.5)',
-                    opacity: 0.7,
+                    transform: 'scale(1.6)',
+                    opacity: 0.8,
+                    zIndex: 3,
                   }}
                 />
               </div>
@@ -616,6 +819,14 @@ export default function HeroMockupF() {
           </div>
         </div>
       </div>
+      
+      {/* CSS Animation for glow pulse */}
+      <style>{`
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.85; transform: scale(1.05); }
+        }
+      `}</style>
     </section>
   );
 }
