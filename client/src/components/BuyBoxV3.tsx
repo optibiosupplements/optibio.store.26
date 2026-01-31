@@ -16,13 +16,13 @@ interface BuyBoxV3Props {
 }
 
 export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
-  // Pricing: $37.79 (46% off $69.99) - Per Master Repair Command
-  const currentPrice = "$37.79";
+  // Pricing: $28.35 (59% off $69.99) - Pre-order price with extra 25% off
+  const currentPrice = "$28.35";
   const originalPrice = "$69.99";
-  const discount = 46;
+  const discount = 59;
   
-  // Random stock number between 40-50
-  const [stockLeft] = useState(() => Math.floor(Math.random() * 11) + 40);
+  // Bottles sold counter - random number for social proof
+  const [bottlesSold] = useState(() => Math.floor(Math.random() * 50) + 120);
 
   // Countdown timer state - 3 segments only (days, hours, minutes)
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0 });
@@ -123,10 +123,10 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
           }}
         >
           <CardContent className="p-0">
-            {/* Timer Strip - Approved Design: Rounded pill container with border on all sides */}
+            {/* Timer Strip - Approved Design: Skinnier rounded pill container */}
             <div className="p-4">
               <div 
-                className="px-8 py-5 flex items-center justify-center gap-6 rounded-2xl"
+                className="px-6 py-3 flex items-center justify-center gap-4 rounded-2xl"
                 style={{ 
                   background: 'linear-gradient(to right, #FEF2F2, #FFF7ED)',
                   border: '1px solid #FECACA'
@@ -184,43 +184,41 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 </Badge>
               </div>
 
-              {/* Yellow Info Box - Single line only, no emojis */}
-              <div 
-                className="rounded-lg p-4"
-                style={{ 
-                  background: '#FFFBEB', 
-                  border: '1px solid #FDE68A' 
-                }}
-              >
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-sm" style={{ color: '#1E3A5F' }}>Pre-Order Special</span>
-                  <span className="text-sm" style={{ color: '#475569' }}>Ships Feb 14th, 2026</span>
-                </div>
+              {/* Ship Date - Simple text with spark icon (no box) */}
+              <div className="flex items-center justify-center gap-2">
+                <span style={{ color: '#DC2626' }}>✨</span>
+                <span className="text-sm font-medium"><span style={{ color: '#DC2626' }}>Pre-Order Special:</span> <span style={{ color: '#1E293B' }}>Ships Feb 14-21, 2026</span></span>
               </div>
 
-              {/* Bonus Text - No emoji */}
-              <p 
-                className="text-center font-semibold text-sm"
-                style={{ color: '#16A34A' }}
+              {/* Free Shipping Line - Yellow box with gold border per Word doc */}
+              <div 
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg"
+                style={{ 
+                  backgroundColor: '#FFFBEB',
+                  border: '1px solid #FDE68A'
+                }}
               >
-                Plus Extra 25% Off at Checkout
-              </p>
+                <svg className="w-4 h-4" style={{ color: '#D97706' }} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                </svg>
+                <span className="text-sm font-medium" style={{ color: '#92400E' }}>Free shipping on orders $75+</span>
+              </div>
 
-              {/* CTA Button - Em-dash instead of hyphen */}
+              {/* CTA Button - Shows final pre-order price */}
               <Button
                 size="lg"
-                className="w-full text-base font-bold py-6 border-0 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
+                className="w-full text-base font-bold py-7 border-0 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
                 style={{ 
                   background: '#2563EB',
                   color: 'white'
                 }}
               >
-                Pre-Order Now – Save Extra 25% <ArrowRight className="ml-2 w-5 h-5" />
+                Pre-Order Now – Only $28.35/bottle <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
 
-              {/* Trust Footer - Only 2 items: Secure checkout and 90-day guarantee */}
+              {/* Trust Footer - 3 items: Secure checkout, Free shipping, 90-day guarantee */}
               <div 
-                className="flex items-center justify-center gap-4 text-xs flex-wrap pt-4 border-t"
+                className="flex items-center justify-center gap-3 text-xs flex-wrap pt-4 border-t"
                 style={{ color: '#64748B', borderColor: 'rgba(201, 169, 97, 0.2)' }}
               >
                 <div className="flex items-center gap-1">
@@ -228,28 +226,18 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   <span>Secure checkout</span>
                 </div>
                 <span>•</span>
+                <span>Free shipping on $75+</span>
+                <span>•</span>
                 <div className="flex items-center gap-1">
                   <Shield className="w-3.5 h-3.5" />
                   <span>90-day guarantee</span>
                 </div>
               </div>
-
-              {/* Stock Urgency Indicator */}
-              <div 
-                className="rounded-lg px-4 py-2 text-center text-sm font-medium"
-                style={{ 
-                  background: '#FFF7ED',
-                  border: '1px solid #FED7AA',
-                  color: '#C2410C'
-                }}
-              >
-                🔥 Only {stockLeft} left in stock
-              </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* 6. SOCIAL PROOF CARD - FLOATING OUTSIDE OFFER CARD with visible blue gap */}
+        {/* 6. SOCIAL PROOF CARD - FLOATING OUTSIDE OFFER CARD with mint green background */}
         <div 
           className="rounded-xl p-4 max-w-lg"
           style={{ 
@@ -270,8 +258,9 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
               ))}
             </div>
             
-            {/* Stars and Rating */}
-            <div className="flex flex-col">
+            {/* 3-Row Social Proof Content */}
+            <div className="flex flex-col gap-0.5">
+              {/* Row 1: Stars + Rating */}
               <div className="flex items-center gap-1">
                 {[1, 2, 3, 4, 5].map((star) => (
                   <Star
@@ -284,9 +273,15 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   4.9/5
                 </span>
               </div>
+              {/* Row 2: Happy Customers */}
               <p className="text-sm" style={{ color: '#1E3A5F' }}>
                 <span className="font-semibold">5,247</span> happy customers
               </p>
+              {/* Row 3: Bottles Sold Counter */}
+              <div className="flex items-center gap-1 text-sm" style={{ color: '#16A34A' }}>
+                <span className="text-green-500">✓</span>
+                <span className="font-medium">{bottlesSold} bottles sold in last 24 hours</span>
+              </div>
             </div>
           </div>
         </div>

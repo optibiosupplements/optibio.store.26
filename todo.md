@@ -2281,3 +2281,43 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [x] Add more internal padding for breathing room (px-8 py-5)
 - [x] Ensure timer sits inside a pill-shaped container like the approved design
 
+
+
+## 🔧 IN PROGRESS: Hero Section Edits to Match Approved Mockup (Jan 27, 2026)
+
+### Phase 1: Removals
+- [x] Remove gray "Pre-Order Special" info box
+- [x] Remove "Plus Extra 25% Off at Checkout" line
+- [x] Remove "🔥 Only X left in stock" urgency bar
+
+### Phase 2: Modifications
+- [x] Make timer strip skinnier (reduce vertical padding)
+- [x] Change SAVE badge from green to red (#DC2626)
+- [x] Change top badge text to ALL CAPS
+- [x] Increase headline size and make bolder
+- [x] Change trust badge icons to gold/amber color
+- [x] Make "Verified" text lighter color
+- [x] Update CTA button text to "Pre-Order Now – Only $28.35/bottle"
+- [x] Make CTA button slightly taller
+- [x] Update trust footer to 3 items
+- [x] Update price display to show $28.35 with 59% savings
+
+### Phase 3: Additions
+- [x] Add simple ship date text with spark icon
+- [x] Add yellow "Free shipping on $75+" box
+- [x] Add social proof card with mint green background
+- [x] Add avatar images to social proof
+- [x] Add bottles sold counter (dynamic random number)
+
+### Fix: Free Shipping Box Styling
+- [x] Change free shipping box from yellow to green background
+- [x] Add white checkmark icon instead of current styling
+
+### Fix: Free Shipping Line Styling (Correction)
+- [x] Change free shipping from green box back to simple text with subtle icon
+- [x] Match approved design: circle/dot icon + "Free shipping" in red + "on orders $75+" in gray
+
+
+### Fix: Ship Date Line Format (Jan 27, 2026)
+- [x] Change to "✨ Pre-Order Special: Ships Feb 14-21, 2026" format (red label + gray date)
+- [x] Keep free shipping line below as "○ Free shipping on orders $75+"
