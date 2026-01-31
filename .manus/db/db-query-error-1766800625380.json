@@ -1,0 +1,10 @@
+{
+  "query": "\n-- Get the product ID for Ashwagandha KSM-66\nSELECT id FROM products WHERE slug = 'ashwagandha-ksm-66' LIMIT 1;\n\n-- Add 3-Month Bundle (180 capsules)\nINSERT INTO productVariants (productId, name, sku, priceInCents, compareAtPriceInCents, inventory, isActive, sortOrder)\nSELECT id, '3-Month Supply (180 Capsules)', 'OPTIBIO-ASH-180', 12700, 14997, 500, 1, 2\nFROM products WHERE slug = 'ashwagandha-ksm-66' LIMIT 1;\n\n-- Add 6-Month Bundle (360 capsules)\nINSERT INTO productVariants (productId, name, sku, priceInCents, compareAtPriceInCents, inventory, isActive, sortOrder)\nSELECT id, '6-Month Supply (360 Capsules)', 'OPTIBIO-ASH-360', 23999, 29994, 300, 1, 3\nFROM products WHERE slug = 'ashwagandha-ksm-66' LIMIT 1;\n\n-- Verify bundles were added\nSELECT * FROM productVariants WHERE sku IN ('OPTIBIO-ASH-180', 'OPTIBIO-ASH-360');\n",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 26YcRyEmMHMZfUu.adf0f9e7dfe8 --database HZ2NtaFJFkAENvPvciWDsB --execute \n-- Get the product ID for Ashwagandha KSM-66\nSELECT id FROM products WHERE slug = 'ashwagandha-ksm-66' LIMIT 1;\n\n-- Add 3-Month Bundle (180 capsules)\nINSERT INTO productVariants (productId, name, sku, priceInCents, compareAtPriceInCents, inventory, isActive, sortOrder)\nSELECT id, '3-Month Supply (180 Capsules)', 'OPTIBIO-ASH-180', 12700, 14997, 500, 1, 2\nFROM products WHERE slug = 'ashwagandha-ksm-66' LIMIT 1;\n\n-- Add 6-Month Bundle (360 capsules)\nINSERT INTO productVariants (productId, name, sku, priceInCents, compareAtPriceInCents, inventory, isActive, sortOrder)\nSELECT id, '6-Month Supply (360 Capsules)', 'OPTIBIO-ASH-360', 23999, 29994, 300, 1, 3\nFROM products WHERE slug = 'ashwagandha-ksm-66' LIMIT 1;\n\n-- Verify bundles were added\nSELECT * FROM productVariants WHERE sku IN ('OPTIBIO-ASH-180', 'OPTIBIO-ASH-360');\n",
+  "returncode": 1,
+  "logs": [
+    "id",
+    "60001",
+    "ERROR 1054 (42S22) at line 6: Unknown column 'inventory' in 'field list'"
+  ]
+}

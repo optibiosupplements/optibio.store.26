@@ -1,5 +1,104 @@
 {
   "version": "7",
   "dialect": "mysql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1762826915991,
+      "tag": "0000_slippery_mastermind",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1762826991257,
+      "tag": "0001_young_goliath",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1762862767706,
+      "tag": "0002_deep_the_stranger",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1762869289963,
+      "tag": "0003_simple_harpoon",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1762877774121,
+      "tag": "0004_bent_mongoose",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "5",
+      "when": 1766760451138,
+      "tag": "0005_broad_master_chief",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "5",
+      "when": 1766764805457,
+      "tag": "0006_useful_mastermind",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "5",
+      "when": 1766765836568,
+      "tag": "0007_gorgeous_lethal_legion",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "5",
+      "when": 1766765980264,
+      "tag": "0008_lively_aaron_stack",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1766801072672,
+      "tag": "0009_flawless_darwin",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1766803349055,
+      "tag": "0010_dazzling_blackheart",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "5",
+      "when": 1766950451883,
+      "tag": "0011_even_tombstone",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "5",
+      "when": 1766950559351,
+      "tag": "0012_blue_smiling_tiger",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "5",
+      "when": 1768946349544,
+      "tag": "0013_true_black_bird",
+      "breakpoints": true
+    }
+  ]
 }

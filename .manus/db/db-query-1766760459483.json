@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE productVariants \nSET \n  stripePriceId = CASE \n    WHEN sku = 'OPTIBIO-ASH-90' THEN 'price_1SicHTDHegvEeKVXfvfKPM2E'\n    WHEN sku = 'OPTIBIO-ASH-180' THEN 'price_1SicHVDHegvEeKVXgf6yKo8T'\n    WHEN sku = 'OPTIBIO-ASH-270' THEN 'price_1SicHdDHegvEeKVXqqYYmyMV'\n  END,\n  stripeSubscriptionPriceId = CASE \n    WHEN sku = 'OPTIBIO-ASH-90' THEN 'price_1SicHUDHegvEeKVXGlhnKH3E'\n    WHEN sku = 'OPTIBIO-ASH-180' THEN 'price_1SicHaDHegvEeKVXDi5mR6GW'\n    WHEN sku = 'OPTIBIO-ASH-270' THEN 'price_1SicHeDHegvEeKVXMH8n1C4k'\n  END\nWHERE sku IN ('OPTIBIO-ASH-90', 'OPTIBIO-ASH-180', 'OPTIBIO-ASH-270');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 26YcRyEmMHMZfUu.adf0f9e7dfe8 --database HZ2NtaFJFkAENvPvciWDsB --execute UPDATE productVariants \nSET \n  stripePriceId = CASE \n    WHEN sku = 'OPTIBIO-ASH-90' THEN 'price_1SicHTDHegvEeKVXfvfKPM2E'\n    WHEN sku = 'OPTIBIO-ASH-180' THEN 'price_1SicHVDHegvEeKVXgf6yKo8T'\n    WHEN sku = 'OPTIBIO-ASH-270' THEN 'price_1SicHdDHegvEeKVXqqYYmyMV'\n  END,\n  stripeSubscriptionPriceId = CASE \n    WHEN sku = 'OPTIBIO-ASH-90' THEN 'price_1SicHUDHegvEeKVXGlhnKH3E'\n    WHEN sku = 'OPTIBIO-ASH-180' THEN 'price_1SicHaDHegvEeKVXDi5mR6GW'\n    WHEN sku = 'OPTIBIO-ASH-270' THEN 'price_1SicHeDHegvEeKVXMH8n1C4k'\n  END\nWHERE sku IN ('OPTIBIO-ASH-90', 'OPTIBIO-ASH-180', 'OPTIBIO-ASH-270');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 61
+}

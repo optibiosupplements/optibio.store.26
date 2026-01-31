@@ -105,3 +105,30 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+
+# Sensitive business documents
+*Strategy*.md
+*CEO*.md
+*Marketing*.md
+*PreSale*.md
+*Business*.md
+*Revenue*.md
+*Projection*.md
+ksm66_research_findings.md
+supplement_payment_processing_findings.md
+ecommerce_platform_comparison.md
+ecommerce_sme_analysis.md
+platform_analysis_findings.md
+
+# Label designs and assets (proprietary)
+*Label*.pdf
+*Label*.png
+*Label*.ai
+*Concept*.pdf
+*FINAL*.pdf
+*badge*.png
+
+# Gemini AI export artifacts
+optibio-gemini-export/
+optibio-for-gemini-*.zip
+todo.md.backup

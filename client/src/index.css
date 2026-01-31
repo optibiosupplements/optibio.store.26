@@ -1,3 +1,24 @@
+/**
+ * ============================================================================
+ * OptiBio Global Styles
+ * ============================================================================
+ * 
+ * ⚠️ CRITICAL: ALL COLORS IN THIS FILE ARE GOVERNED BY OFFICIAL BRAND GUIDELINES
+ * 
+ * Before making ANY color changes:
+ * 1. Read: /home/ubuntu/optibio-ecommerce/BRAND_GUIDELINES.md
+ * 2. Reference: /home/ubuntu/projects/optibio-supplements-4f3cb533/OPTIBIO_UNIFIED_DESIGN_SYSTEM_v3.md
+ * 3. Import from: client/src/brand.ts
+ * 
+ * DO NOT use generic Tailwind colors (blue-500, gray-200, slate-50, etc.)
+ * DO NOT invent new colors without explicit brand team approval
+ * 
+ * SOURCE: OptiBio Unified Design System v3.0 (The "Locked" Protocol)
+ * STATUS: FINAL AUTHORITY
+ * DATE: December 30, 2025
+ * ============================================================================
+ */
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -42,75 +63,260 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Smooth scroll behavior for better UX */
+html {
+  scroll-behavior: smooth;
+  /* Premium theme transition for Night Clinic mode */
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  /* ============================================
+     OPTIBIO BRAND COLOR TOKENS (LOCKED)
+     Per OptiBio Unified Design System v3.0
+     NO GENERIC TAILWIND COLORS ALLOWED
+     
+     Reference: /home/ubuntu/optibio-ecommerce/BRAND_GUIDELINES.md
+     Source: /home/ubuntu/projects/optibio-supplements-4f3cb533/OPTIBIO_UNIFIED_DESIGN_SYSTEM_v3.md
+     ============================================ */
+  
+  /* PRIMARY BRAND COLORS (The "DNA") */
+  --optibio-navy: #1E3A5F;           /* Deep Navy - Headlines, primary text */
+  --optibio-navy-dark: #152B45;      /* Navy Dark - Hover states */
+  --optibio-navy-depth: #0D1B2A;     /* Navy Depth - Footer gradient */
+  --optibio-ivory: #F7F4EF;          /* Warm Ivory - Section backgrounds */
+  --optibio-soft-white: #FAFAF9;     /* Soft White - Card backgrounds (APPROVED V66B1D787) */
+  --optibio-white: #FFFFFF;          /* Pure White - Cards, clean spaces */
+  --optibio-gold: #C9A961;           /* Antique Gold - Accents, badges */
+  --optibio-gold-dark: #B89651;      /* Gold Dark - Hover states */
+  --optibio-charcoal: #2D2D2D;       /* Charcoal - Primary body text */
+  --optibio-slate: #475569;          /* Slate Grey - Secondary body text */
+  --optibio-electric: #2563EB;       /* Electric Blue - Links, hover states */
+  --optibio-success: #5FA865;        /* Success Green - Checkmarks */
+  --optibio-ivory-light: #EDE9E3;    /* Ivory Light - Hover states, subtle separators */
+  --optibio-sky-mist: #F0F9FF;       /* Sky Mist - Timeline sections, subtle blue tint */
+  --optibio-light-gray: #666666;     /* Light Gray - Secondary text, captions */
+  --optibio-muted-gray: #A0A0A0;     /* Muted Gray - Placeholder text, hints */
+  
+  /* CONVERSION & UTILITY PALETTE (The "Retail Engine") - E-commerce colors for urgency, social proof, and action */
+  
+  /* Urgency Warmth System (Countdown Timers) - Warm Peach/Ivory tones for luxury urgency */
+  --optibio-timer-bg-start: #FEF9F3; /* Warm Peach Start - Timer gradient start */
+  --optibio-timer-bg-end: #FFF5E8;   /* Warm Peach End - Timer gradient end */
+  --optibio-timer-border: #FED7AA;   /* Timer Border - Pale Orange/Peach */
+  --optibio-timer-text: #7C2D12;     /* Deep Timer Brown - Countdown numbers and labels */
+  
+  /* Alert Red System (Discount Badges ONLY) - Bright red for immediate attention */
+  --optibio-alert-red: #DC2626;      /* Alert Red - "Save 46%" badges ONLY */
+  --optibio-red-muted: #991B1B;      /* Muted Red - Optional label text */
+  
+  /* Social Proof Green System */
+  --optibio-mint-bg: #F0FDF4;        /* Mint Background - Review cards */
+  --optibio-mint-border: #BBF7D0;    /* Mint Border - Social proof card borders */
+  --optibio-success-green: #16A34A;  /* Success Green - "Bottles sold" text */
+  --optibio-star-gold: #FBBF24;      /* Review Star Gold - Review stars (brighter than Antique Gold) */
+  
+  /* Action Blue System */
+  --optibio-blue-hover: #1D4ED8;     /* Hover Blue - CTA hover state */
+  
+  /* SKY BLUE GRADIENT TOKENS (Hero/Page Backgrounds) - APPROVED V66B1D787 */
+  --optibio-sky-light: #F8FCFE;      /* Sky gradient start - Lightest sky blue */
+  --optibio-sky-mid: #EBF5FB;        /* Sky gradient middle - Light sky blue */
+  --optibio-sky-deep: #D6EAF8;       /* Sky gradient end - Deeper sky blue */
+  
+  /* REFERENCE DESIGN TOKENS (Matching uploaded reference image) */
+  --optibio-bright-blue: #0066FF;    /* Bright Blue - Primary CTA buttons */
+  --optibio-bright-blue-hover: #0052CC; /* Bright Blue Hover */
+  --optibio-countdown-bg: #FFE5E5;   /* Light Pink/Red - Countdown timer background */
+  --optibio-countdown-text: #DC2626; /* Red - Countdown timer text */
+  --optibio-social-proof-bg: #E8F5E9; /* Light Green - Social proof section */
+  --optibio-shipping-bg: #FFF9E5;    /* Light Yellow - Free shipping badge */
+  --optibio-shipping-text: #92400E;  /* Brown - Free shipping text */
+  
+  /* DARK MODE TOKENS */
+  --optibio-abyssal: #0B1120;        /* Abyssal Navy - Dark mode bg */
+  --optibio-dark-slate: #0F172A;     /* Dark Slate - Dark mode sections */
+  --optibio-navy-card: #15233E;      /* Navy Card - Dark mode cards */
+  --optibio-luminous-gold: #D4AF37;  /* Luminous Gold - Dark mode accent */
+  --optibio-sky-grey: #94A3B8;       /* Sky Grey - Dark mode secondary text */
+  --optibio-border-dark: #2D4A77;    /* Navy 700 - Dark mode borders */
+  
+  /* ============================================
+     SEMANTIC ALIASES (Use these in components)
+     HARDCORE RULE: Use ONLY these semantic tokens
+     NO GENERIC TAILWIND COLORS (blue-500, gray-200, etc.)
+     ============================================ */
+  
+  /* BACKGROUNDS */
+  --color-bg-page: var(--optibio-white);              /* Page background */
+  --color-bg-section: var(--optibio-ivory);           /* Section background */
+  --color-bg-section-alt: var(--optibio-white);       /* Alternate section bg (white) */
+  --color-bg-card: var(--optibio-white);              /* Card background */
+  --color-bg-hero: transparent;                       /* Hero section (use gradient-hero class) */
+  --color-bg-footer: var(--optibio-navy);             /* Footer background */
+  --color-bg-cta: var(--optibio-navy);                /* CTA button background */
+  --color-bg-cta-hover: var(--optibio-electric);      /* CTA button hover */
+  
+  /* TEXT COLORS */
+  --color-text-primary: var(--optibio-charcoal);      /* Primary body text */
+  --color-text-secondary: var(--optibio-slate);       /* Secondary body text */
+  --color-text-headline: var(--optibio-navy);         /* Headlines */
+  --color-text-accent: var(--optibio-gold);           /* Accent text (gold) */
+  --color-text-link: var(--optibio-electric);         /* Links */
+  --color-text-success: var(--optibio-success);       /* Success messages */
+  
+  /* BORDERS */
+  --color-border-default: #E2E8F0;                    /* Default border */
+  --color-border-accent: var(--optibio-gold);         /* Accent border (gold) */
+  --color-border-navy: var(--optibio-navy);           /* Navy border */
+  
+  /* COMPONENT-SPECIFIC */
+  --color-btn-primary-bg: var(--optibio-electric);    /* Primary button bg (#2563EB) */
+  --color-btn-primary-border: var(--optibio-navy);    /* Primary button border (#1E3A5F) - APPROVED DESIGN */
+  --color-btn-primary-text: var(--optibio-white);     /* Primary button text */
+  --color-btn-secondary-bg: var(--optibio-white);     /* Secondary button bg */
+  --color-btn-secondary-border: var(--optibio-navy);  /* Secondary button border (#1E3A5F) */
+  --color-btn-secondary-text: var(--optibio-navy);    /* Secondary button text */
+  --color-badge-bg: var(--optibio-gold);              /* Badge background */
+  --color-badge-text: var(--optibio-white);           /* Badge text */
+  
+  /* SHADOW SYSTEM - Light Mode (Soft Shadows) */
+  --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.1);      /* Card shadow */
+  --shadow-button: 0 2px 8px rgba(37, 99, 235, 0.2);  /* Button shadow */
+  --shadow-button-hover: 0 4px 12px rgba(37, 99, 235, 0.3); /* Button hover shadow */
+  
+  /* Primary: Deep Navy (trust, authority) */
+  --primary: oklch(0.32 0.08 240); /* #1E3A5F Deep Navy */
+  --primary-foreground: oklch(0.98 0 0); /* Pure White */
+  
+  /* Secondary: Antique Gold (premium, warmth) */
+  --secondary: oklch(0.72 0.08 75); /* #C9A961 Antique Gold */
+  --secondary-foreground: oklch(0.18 0.01 240); /* Dark Navy text on gold */
+  
+  /* Sidebar: Deep Navy */
+  --sidebar-primary: oklch(0.32 0.08 240);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  
+  /* Charts: Navy Variants */
+  --chart-1: oklch(0.52 0.08 240);
+  --chart-2: oklch(0.42 0.08 240);
+  --chart-3: oklch(0.32 0.08 240);
+  --chart-4: oklch(0.28 0.08 240);
+  --chart-5: oklch(0.22 0.08 240);
+  
+  --radius: 0.75rem;
+  
+  /* Background: Sky Blue Gradient (Clinical, Fresh) - MATCHES APPROVED DESIGN */
+  --background: oklch(0.97 0.01 210); /* #E8F3FB Sky Light (approximation for fallback) */
+  --foreground: oklch(0.22 0 0); /* #2D2D2D Charcoal */
+  
+  /* Cards: Soft White */
+  --card: oklch(0.98 0 0); /* #FAFAF9 Soft White */
+  --card-foreground: oklch(0.22 0 0);
+  
+  /* Popover */
+  --popover: oklch(0.98 0 0);
+  --popover-foreground: oklch(0.22 0 0);
+  
+  /* Muted: Light Gray */
+  --muted: oklch(0.94 0.005 80);
+  --muted-foreground: oklch(0.42 0 0); /* Darkened from 0.48 to 0.42 for WCAG AA (4.5:1 contrast) */
+  
+  /* Accent: Antique Gold (matching secondary) */
+  --accent: oklch(0.72 0.08 75);
+  --accent-foreground: oklch(0.18 0.01 240);
+  
+  /* Destructive: Red (error state) */
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  /* Borders & Inputs */
+  --border: oklch(0.88 0.005 80);
+  --input: oklch(0.88 0.005 80);
+  --ring: oklch(0.72 0.08 75);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.22 0 0);
+  --sidebar-accent: oklch(0.94 0.005 80);
+  --sidebar-accent-foreground: oklch(0.22 0 0);
+  --sidebar-border: oklch(0.88 0.005 80);
+  --sidebar-ring: oklch(0.62 0.05 150);
 }
 
 .dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
+  /* Night Clinic Mode: Abyssal Navy (#0B1120) + Luminous Gold (#D4AF37) */
+  /* Abyssal Navy - NOT black, deep navy for premium feel */
+  --optibio-navy: #0B1120;
+  --optibio-navy-dark: #0F172A;
+  --optibio-gold: #D4AF37; /* Luminous Gold - brighter for dark mode visibility */
+  --optibio-gold-dark: #C9A961;
+  
+  /* Primary: Lighter Navy for dark mode contrast */
+  --primary: oklch(0.45 0.08 240);
+  --primary-foreground: oklch(0.98 0 0);
+  
+  /* Secondary: Luminous Gold (brighter for dark mode) */
+  --secondary: oklch(0.78 0.12 80); /* #D4AF37 Luminous Gold */
+  --secondary-foreground: oklch(0.12 0.02 240);
+  
+  /* Sidebar: Abyssal Navy */
+  --sidebar-primary: oklch(0.35 0.08 240);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  
+  /* Background: Abyssal Navy (#0B1120) */
+  --background: oklch(0.12 0.02 240); /* #0B1120 Abyssal Navy */
+  --foreground: oklch(0.95 0.005 60); /* Pure White / Sky Grey */
+  
+  /* Cards: Dark Navy Card (#15233E) */
+  --card: oklch(0.18 0.03 240); /* #15233E Navy-800 */
+  --card-foreground: oklch(0.95 0.005 60);
+  
+  /* Popover: Dark Navy */
+  --popover: oklch(0.18 0.03 240);
+  --popover-foreground: oklch(0.95 0.005 60);
+  
+  /* Muted: Darker Navy sections (#0F172A) */
+  --muted: oklch(0.15 0.02 240); /* #0F172A Navy-900 */
+  --muted-foreground: oklch(0.75 0.01 60); /* Sky Grey */
+  
+  /* Accent: Luminous Gold (ignites in dark mode) */
+  --accent: oklch(0.78 0.12 80); /* #D4AF37 Luminous Gold */
+  --accent-foreground: oklch(0.12 0.02 240);
+  
+  /* Destructive: Red (error state) */
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  
+  /* Borders & Inputs: Subtle white/gold borders */
+  --border: oklch(1 0 0 / 12%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
+  --ring: oklch(0.78 0.12 80); /* Luminous Gold ring */
+  
+  /* SHADOW SYSTEM - Dark Mode (Glow Effects) */
+  --shadow-card: 0 0 40px rgba(212, 175, 55, 0.15);   /* Gold glow on cards */
+  --shadow-button: 0 0 20px rgba(59, 130, 246, 0.4);  /* Blue glow on buttons */
+  --shadow-button-hover: 0 0 30px rgba(59, 130, 246, 0.6); /* Stronger blue glow on hover */
+  
+  /* COMPONENT-SPECIFIC - Dark Mode */
+  --color-btn-primary-bg: #3B82F6;                     /* Brighter blue for dark bg */
+  --color-btn-primary-border: #60A5FA;                 /* Lighter blue border */
+  --color-btn-primary-text: var(--optibio-white);      /* White text */
+  
+  /* Charts: Navy Variants with gold accent */
+  --chart-1: oklch(0.78 0.12 80); /* Gold */
+  --chart-2: oklch(0.52 0.08 240);
+  --chart-3: oklch(0.42 0.08 240);
+  --chart-4: oklch(0.32 0.08 240);
+  --chart-5: oklch(0.22 0.08 240);
+  
+  /* Sidebar: Abyssal Navy */
+  --sidebar: oklch(0.15 0.02 240);
+  --sidebar-foreground: oklch(0.95 0.005 60);
+  --sidebar-accent: oklch(0.22 0.03 240);
+  --sidebar-accent-foreground: oklch(0.98 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --sidebar-ring: oklch(0.78 0.12 80); /* Luminous Gold */
 }
 
 @layer base {
@@ -119,7 +325,53 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    /* Premium smooth color transition for Night Clinic mode */
+    transition: background-color 0.5s ease, color 0.5s ease;
   }
+  
+  /* Smooth color transitions for all elements during theme switch */
+  *,
+  *::before,
+  *::after {
+    transition: background-color 0.5s ease, border-color 0.5s ease, color 0.3s ease;
+  }
+  
+  /* Headings use Poppins font - BOLD, NOT ITALIC */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    font-style: normal !important;
+  }
+  
+  h1 {
+    @apply text-5xl leading-tight;
+    font-style: normal !important;
+  }
+  
+  /* Hero headline - MUST be bold upright Sora font, never italic */
+  .hero-headline {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-weight: 700 !important;
+    font-style: normal !important;
+    font-synthesis: none !important;
+    text-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h2 {
+    @apply text-4xl leading-tight;
+  }
+  
+  h3 {
+    @apply text-3xl leading-snug;
+  }
+  
+  h4 {
+    @apply text-2xl leading-snug;
+  }
+  
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -130,6 +382,30 @@
   input[type="checkbox"]:not(:disabled),
   input[type="radio"]:not(:disabled) {
     @apply cursor-pointer;
+  }
+  
+  /* P1 FIX: Enhanced focus states for keyboard navigation (WCAG 2.1 AA) */
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  [type="button"]:focus-visible,
+  [type="submit"]:focus-visible,
+  [type="reset"]:focus-visible,
+  a[href]:focus-visible,
+  select:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    @apply outline-none ring-3 ring-[#1E3A5F] ring-offset-2 ring-offset-background;
+  }
+  
+  /* Minimum tap target size for mobile (44px) */
+  button,
+  [role="button"],
+  [type="button"],
+  [type="submit"],
+  [type="reset"],
+  a[href] {
+    min-height: 44px;
+    min-width: 44px;
   }
 }
 
@@ -143,35 +419,227 @@
    * - Set max-width for large screens
    *
    * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
+   * DO NOT add mx-auto or px-* classes when using .container
    */
   .container {
     width: 100%;
+    max-width: 1280px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
+  
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
-
+  
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
     }
+  }
+  
+  /* ============================================
+     GRADIENT UTILITIES (Brand-Approved)
+     ============================================ */
+  
+  /* Sky Gradient (Hero Sections) - APPROVED V66B1D787 */
+  .gradient-hero {
+    background: radial-gradient(ellipse at center, var(--optibio-sky-light) 0%, var(--optibio-sky-mid) 40%, var(--optibio-sky-deep) 100%);
+  }
+  
+  /* Navy Gradient (Footer) */
+  .gradient-footer {
+    background: linear-gradient(180deg, var(--optibio-navy) 0%, var(--optibio-navy-depth) 100%);
+  }
+  
+  /* Gold Gradient (Badges, Premium Elements) */
+  .gradient-gold {
+    background: linear-gradient(135deg, #E5C578 0%, var(--optibio-gold) 100%);
+  }
+  
+  /* ============================================
+     BUTTON STYLES (Brand-Approved)
+     ============================================ */
+  
+  /* Metallic Gold Gradient Button - Premium Luxury (Phase 2 Update) */
+  .btn-metallic-gold {
+    background: linear-gradient(135deg, #E5C578 0%, #C9A961 100%);
+    box-shadow: 
+      0 4px 12px rgba(201, 169, 97, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(201, 169, 97, 0.5);
+    color: #1E3A5F;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .btn-metallic-gold:hover {
+    background: linear-gradient(135deg, #F0D68A 0%, #D4AF37 100%);
+    box-shadow: 
+      0 6px 20px rgba(201, 169, 97, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .btn-metallic-gold:active {
+    transform: translateY(0);
+    box-shadow: 
+      0 2px 8px rgba(201, 169, 97, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Primary CTA Button (Electric Blue) */
+  .btn-primary-action {
+    background: var(--optibio-electric);
+    color: var(--optibio-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+    transition: all 0.2s ease-in-out;
+    font-weight: 600;
+  }
+  
+  .btn-primary-action:hover {
+    background: var(--optibio-blue-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+  }
+  
+  .btn-primary-action:active {
+    transform: translateY(0);
+  }
+  
+  .btn-primary-action:disabled {
+    background: rgb(156 163 175);
+    box-shadow: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Secondary Button (Navy Outline) */
+  .btn-secondary {
+    background: var(--optibio-white);
+    color: var(--optibio-navy);
+    border: 2px solid var(--optibio-navy);
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .btn-secondary:hover {
+    background: var(--optibio-navy);
+    color: var(--optibio-white);
+  }
+  
+  /* ============================================
+     CARD STYLES (Brand-Approved)
+     From OptiBio Unified Design System v3.0
+     ============================================ */
+  
+  /* Social Proof Card (Green Gradient) */
+  .card-social-proof {
+    background: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+    border: 1px solid #BBF7D0;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+  }
+  
+  .card-social-proof:hover {
+    box-shadow: 0 6px 16px rgba(22, 163, 74, 0.15);
+  }
+  
+  .text-social-proof {
+    color: #16A34A;
+    font-weight: 600;
+  }
+  
+  /* Countdown Timer Card (Peach Gradient) */
+  .card-countdown {
+    background: linear-gradient(135deg, #FEF9F3 0%, #FFF5E8 100%);
+    border: 1px solid #FED7AA;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(194, 65, 12, 0.1);
+  }
+  
+  .text-countdown-number {
+    color: #7C2D12;
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+  }
+  
+  /* ============================================
+     UTILITY CLASSES (Brand-Specific)
+     ============================================ */
+  
+  /* Text colors */
+  .text-brand-navy {
+    color: var(--optibio-navy);
+  }
+  
+  .text-brand-gold {
+    color: var(--optibio-gold);
+  }
+  
+  .text-brand-charcoal {
+    color: var(--optibio-charcoal);
+  }
+  
+  .text-brand-slate {
+    color: var(--optibio-slate);
+  }
+  
+  /* Background colors */
+  .bg-brand-navy {
+    background-color: var(--optibio-navy);
+  }
+  
+  .bg-brand-ivory {
+    background-color: var(--optibio-ivory);
+  }
+  
+  .bg-brand-white {
+    background-color: var(--optibio-white);
+  }
+  
+  .bg-brand-gold {
+    background-color: var(--optibio-gold);
+  }
+  
+  /* Border colors */
+  .border-brand-navy {
+    border-color: var(--optibio-navy);
+  }
+  
+  .border-brand-gold {
+    border-color: var(--optibio-gold);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY UTILITIES
+   ============================================ */
+@layer utilities {
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Focus visible for keyboard navigation */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-[#1E3A5F] focus-visible:ring-offset-2;
   }
 }
