@@ -28,6 +28,8 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTheme } from "@/contexts/ThemeContext";
 import BuyBoxV3 from "@/components/BuyBoxV3";
 import HeroVariantA from "@/components/HeroVariantA";
+import HeroMockupF from "@/components/HeroMockupF";
+import StickyHeader from "@/components/StickyHeader";
 
 export default function Home() {
   const { data: products } = trpc.products.list.useQuery();
@@ -119,8 +121,11 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section - HeroVariantA "Luxury Clinical" */}
-      <HeroVariantA />
+      {/* Sticky Header with Mini CTA */}
+      <StickyHeader scrollThreshold={500} price={28.35} ctaHref="/shop" />
+      
+      {/* Hero Section - Mockup F Optimized V2 */}
+      <HeroMockupF />
 
       {/* Scientifically-Backed Benefits */}
       <section className="py-24 bg-white dark:bg-[#0B1120] transition-colors duration-500">

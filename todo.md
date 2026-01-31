@@ -2378,3 +2378,94 @@ Create REAL enforcement system that prevents color changes, not just documentati
 - [ ] Reduce offer card padding by ~15%
 - [ ] Replace ✦ with proper Star icon for Pre-Order Special line
 - [ ] Reduce social proof card prominence (lighter bg, less padding)
+
+
+## 🚀 MOCKUP F - OPTIMIZED V2 IMPLEMENTATION (Jan 31, 2026)
+
+### Hero Section Redesign - Mockup F V2
+- [ ] Implement full responsive hero section with Mockup F-V2 design
+- [ ] Add radial gradient background (white center → soft sky blue edges)
+- [ ] Implement golden glow effect behind product image with bokeh particles
+- [ ] Add "SCIENCE-BACKED • THIRD-PARTY TESTED" badge with gold text
+- [ ] Style headline "Feel calm again. Think clearly, Sleep deeply." in deep navy serif
+- [ ] Add three trust icons with gold accents (Clinically studied, 3rd-party tested, Non-GMO)
+
+### CRO Enhancements
+- [ ] Add "⭐ 4.9 (2,847 reviews)" badge below headline
+- [ ] Implement quantity bundle selector (1/3/6 bottles with savings)
+- [ ] Add 90-day guarantee badge with shield icon
+- [ ] Add "See the science →" secondary link for research-driven buyers
+
+### Countdown Timer
+- [ ] Create working countdown timer component
+- [ ] Style with warm peach background and deep rust numbers
+- [ ] Add "Pre-order window closes in:" label
+
+### Sticky Header & Mobile
+- [ ] Implement sticky header on scroll
+- [ ] Add mini CTA button in sticky header
+- [ ] Ensure full mobile responsiveness
+- [ ] Test on various screen sizes
+
+### Offer Card
+- [ ] Create cream offer card with peach border
+- [ ] Display price $28.35 with strikethrough $69.99
+- [ ] Add "PRE-ORDER PRICE" coral badge
+- [ ] Add "Includes: 46% off + extra 25% pre-order savings" text
+- [ ] Add "Pre-Order Special: Ships Feb 14-21, 2026" with sparkle icon
+
+### CTA Button
+- [ ] Style royal blue CTA button with gradient and shadow
+- [ ] Add "Pre-Order Now — Only $28.35/bottle →" text
+- [ ] Add hover effects
+
+### Trust Elements
+- [ ] Add "Secure checkout • 90-day guarantee" trust line
+- [ ] Add lock and shield icons
+
+### Admin Dashboard Enhancements
+- [ ] Review and enhance admin dashboard UX/UI
+- [ ] Improve order management interface
+- [ ] Add analytics/metrics display
+
+### Testing & QA
+- [ ] Test responsive design on mobile/tablet/desktop
+- [ ] Verify countdown timer functionality
+- [ ] Test CTA button and checkout flow
+- [ ] Cross-browser testing
+
+
+## 🚀 MOCKUP F - OPTIMIZED V2 IMPLEMENTATION (Jan 31, 2026)
+
+### Hero Section Redesign
+- [x] Implement two-column layout (content left, product right)
+- [x] Add sky blue radial gradient background
+- [x] Add golden glow effect behind product image
+- [x] Add bokeh particles animation
+- [x] Add reviews badge (⭐ 4.9 from 2,847 reviews)
+- [x] Add "See the science →" link
+- [x] Implement quantity bundle selector (1/3/6 bottles)
+- [x] Add working countdown timer
+- [x] Add social proof card ("12,000+ people have found their calm")
+- [x] Add "127 bottles sold in last 24 hours" indicator
+- [x] Implement PRE-ORDER PRICE badge with savings breakdown
+
+### Sticky Header with Mini CTA
+- [x] Create StickyHeader component
+- [x] Show on scroll (after 500px)
+- [x] Display price and Pre-Order Now button
+- [x] Mobile responsive design
+
+### CRO Enhancements
+- [x] Trust badges (Clinically studied, 3rd-party tested, Non-GMO)
+- [x] Price anchoring ($28.35 vs $69.99 = 59% savings)
+- [x] Urgency mechanism (countdown timer)
+- [x] Social proof proximity to CTA
+- [x] 90-day guarantee mention
+
+### Visual Design
+- [x] Golden glow effect with radial gradient
+- [x] Enhanced glow visibility with overflow visible
+- [x] Light rays effect (conic gradient)
+- [x] Drop shadow on product image
+- [x] Premium typography (Sora + Inter)
