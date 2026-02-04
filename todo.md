@@ -3029,3 +3029,9 @@ npm run run-audit -- --input ./sample-input.json
 - 100 points referral bonus (both parties)
 - 25 points for leaving reviews
 
+
+
+## SEO Fixes (Feb 4, 2026)
+
+- [x] Add H1 heading to /product/:slug page
+
