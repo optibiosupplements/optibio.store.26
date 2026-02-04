@@ -19,6 +19,7 @@ import { abandonedCartRouter } from "./routers/abandoned-cart";
 import { postPurchaseRouter } from "./routers/post-purchase";
 import { analyticsRouter } from "./routers/analytics";
 import { eventsRouter } from "./routers/events";
+import { shippingRouter } from "./routers/shipping";
 
 export const appRouter = router({
   system: systemRouter,
@@ -26,6 +27,7 @@ export const appRouter = router({
   postPurchase: postPurchaseRouter,
   revenueAnalytics: analyticsRouter,
   events: eventsRouter,
+  shipping: shippingRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

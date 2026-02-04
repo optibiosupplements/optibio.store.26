@@ -23,9 +23,13 @@ export default function CookieBanner() {
     setIsVisible(false);
     
     if (typeof window !== 'undefined' && (window as any).gtag) {
+      // Google Consent Mode V2 - Grant all consent types
       (window as any).gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
         'analytics_storage': 'granted',
-        'ad_storage': 'granted'
+        'personalization_storage': 'granted'
       });
       (window as any).gtag('event', 'cookie_consent', {
         'consent_type': 'all_accepted',
@@ -40,9 +44,13 @@ export default function CookieBanner() {
     setIsVisible(false);
     
     if (typeof window !== 'undefined' && (window as any).gtag) {
+      // Google Consent Mode V2 - Deny non-essential consent types
       (window as any).gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
         'analytics_storage': 'denied',
-        'ad_storage': 'denied'
+        'personalization_storage': 'denied'
       });
     }
   };

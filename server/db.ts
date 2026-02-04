@@ -998,3 +998,99 @@ export async function getConversionFunnelData(startDate: string, endDate: string
   }
 }
 
+
+
+// ============================================================================
+// SHIPPING HELPERS
+// ============================================================================
+
+/**
+ * Update order shipping information
+ */
+export async function updateOrderShipping(
+  orderId: number,
+  data: {
+    trackingNumber?: string;
+    shippingCarrier?: string;
+    status?: "pending" | "processing" | "shipped" | "delivered" | "cancelled" | "refunded";
+    shippedAt?: Date;
+  }
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    await db.update(orders)
+      .set(data)
+      .where(eq(orders.id, orderId));
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to update order shipping:", error);
+    return false;
+  }
+}
+
+/**
+ * Get orders by status
+ */
+export async function getOrdersByStatus(
+  status: "pending" | "processing" | "shipped" | "delivered" | "cancelled" | "refunded"
+) {
+  const db = await getDb();
+  if (!db) return [];
+
+  try {
+    return await db.select().from(orders)
+      .where(eq(orders.status, status))
+      .orderBy(desc(orders.createdAt));
+  } catch (error) {
+    console.error("[Database] Failed to get orders by status:", error);
+    return [];
+  }
+}
+
+/**
+ * Update order status
+ */
+export async function updateOrderStatus(
+  orderId: number,
+  status: "pending" | "processing" | "shipped" | "delivered" | "cancelled" | "refunded"
+): Promise<boolean> {
+  const db = await getDb();
+  if (!db) return false;
+
+  try {
+    const updateData: any = { status };
+    
+    if (status === "shipped") {
+      updateData.shippedAt = new Date();
+    } else if (status === "delivered") {
+      updateData.deliveredAt = new Date();
+    }
+
+    await db.update(orders)
+      .set(updateData)
+      .where(eq(orders.id, orderId));
+    return true;
+  } catch (error) {
+    console.error("[Database] Failed to update order status:", error);
+    return false;
+  }
+}
+
+/**
+ * Get all orders (admin)
+ */
+export async function getAllOrders(limit: number = 100) {
+  const db = await getDb();
+  if (!db) return [];
+
+  try {
+    return await db.select().from(orders)
+      .orderBy(desc(orders.createdAt))
+      .limit(limit);
+  } catch (error) {
+    console.error("[Database] Failed to get all orders:", error);
+    return [];
+  }
+}

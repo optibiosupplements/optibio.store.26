@@ -409,7 +409,7 @@ export default function HeroMockupF() {
     return target;
   });
 
-  const PRODUCT_IMAGE_SRC = "/bottle-mockup-angle.png";
+  const PRODUCT_IMAGE_SRC = "/product-golden-radiance.png";
   const CTA_HREF = "/shop";
 
   return (

@@ -132,6 +132,15 @@ export default function Shop() {
             </div>
           ))}
         </div>
+        
+        {/* FDA Disclaimer */}
+        <div className="container max-w-4xl mx-auto px-6 mt-8 pt-6 border-t border-[var(--color-border)]">
+          <p className="text-xs text-center text-[var(--color-text-secondary)] leading-relaxed">
+            *These statements have not been evaluated by the Food and Drug Administration. 
+            This product is not intended to diagnose, treat, cure, or prevent any disease. 
+            Consult your healthcare provider before starting any supplement regimen.
+          </p>
+        </div>
       </section>
     </div>
   );

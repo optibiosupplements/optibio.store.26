@@ -300,3 +300,170 @@ export async function sendSubscriptionWelcomeEmail(
     return false;
   }
 }
+
+/**
+ * Send enhanced shipping notification email with tracking URL
+ */
+export async function sendEnhancedShippingNotificationEmail(data: {
+  customerEmail: string;
+  customerName: string;
+  orderNumber: string;
+  trackingNumber: string;
+  carrier: string;
+  trackingUrl: string;
+  estimatedDelivery?: string;
+  items: Array<{
+    productName: string;
+    variantName?: string;
+    quantity: number;
+  }>;
+}): Promise<boolean> {
+  try {
+    const itemsList = data.items
+      .map(item => `- ${item.quantity}x ${item.productName}${item.variantName ? ` (${item.variantName})` : ''}`)
+      .join('\n');
+
+    const emailContent = `
+Your OptiBio Order Has Shipped! 📦
+
+Hi ${data.customerName},
+
+Great news! Your OptiBio order #${data.orderNumber} has been shipped and is on its way to you.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TRACKING INFORMATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Carrier: ${data.carrier}
+Tracking Number: ${data.trackingNumber}
+${data.estimatedDelivery ? `Estimated Delivery: ${data.estimatedDelivery}` : ''}
+
+Track your package here:
+${data.trackingUrl}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ITEMS IN THIS SHIPMENT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+${itemsList}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Questions? Contact us at support@optibio.com
+
+Thank you for choosing OptiBio!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OptiBio - Premium Supplements for Modern Living
+https://optibio.com
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`;
+
+    // Build endpoint URL for email service
+    const endpoint = `${ENV.forgeApiUrl.replace(/\/$/, "")}/webdevtoken.v1.WebDevService/SendEmail`;
+
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "accept": "application/json",
+        "authorization": `Bearer ${ENV.forgeApiKey}`,
+        "content-type": "application/json",
+        "connect-protocol-version": "1",
+      },
+      body: JSON.stringify({
+        to: data.customerEmail,
+        subject: `Your OptiBio Order Has Shipped! 📦 - ${data.orderNumber}`,
+        textBody: emailContent,
+      }),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.error(`[Email] Failed to send shipping notification (${response.status})${detail ? `: ${detail}` : ""}`);
+      return false;
+    }
+
+    console.log("[Email] Enhanced shipping notification sent to:", data.customerEmail);
+    return true;
+  } catch (error: any) {
+    console.error("[Email] Error sending enhanced shipping notification:", error.message);
+    return false;
+  }
+}
+
+/**
+ * Send delivery confirmation email
+ */
+export async function sendDeliveryConfirmationEmail(data: {
+  customerEmail: string;
+  customerName: string;
+  orderNumber: string;
+}): Promise<boolean> {
+  try {
+    const emailContent = `
+Your OptiBio Order Has Been Delivered! ✅
+
+Hi ${data.customerName},
+
+Your OptiBio order #${data.orderNumber} has been delivered! We hope you love your new supplements.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+HOW WAS YOUR EXPERIENCE?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+We'd love to hear your feedback! Your review helps others discover OptiBio.
+
+Leave a review: https://optibio.com/reviews
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GETTING STARTED TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+• Take 1-2 capsules daily with food for best absorption
+• Consistency is key - take at the same time each day
+• Results typically appear within 2-4 weeks of daily use
+• Store in a cool, dry place away from direct sunlight
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Questions? Contact us at support@optibio.com
+
+Thank you for choosing OptiBio!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OptiBio - Premium Supplements for Modern Living
+https://optibio.com
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`;
+
+    // Build endpoint URL for email service
+    const endpoint = `${ENV.forgeApiUrl.replace(/\/$/, "")}/webdevtoken.v1.WebDevService/SendEmail`;
+
+    const response = await fetch(endpoint, {
+      method: "POST",
+      headers: {
+        "accept": "application/json",
+        "authorization": `Bearer ${ENV.forgeApiKey}`,
+        "content-type": "application/json",
+        "connect-protocol-version": "1",
+      },
+      body: JSON.stringify({
+        to: data.customerEmail,
+        subject: `Your OptiBio Order Has Been Delivered! ✅ - ${data.orderNumber}`,
+        textBody: emailContent,
+      }),
+    });
+
+    if (!response.ok) {
+      const detail = await response.text().catch(() => "");
+      console.error(`[Email] Failed to send delivery confirmation (${response.status})${detail ? `: ${detail}` : ""}`);
+      return false;
+    }
+
+    console.log("[Email] Delivery confirmation sent to:", data.customerEmail);
+    return true;
+  } catch (error: any) {
+    console.error("[Email] Error sending delivery confirmation:", error.message);
+    return false;
+  }
+}

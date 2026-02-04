@@ -734,6 +734,15 @@ export default function ProductDetail() {
               <div className="text-xs text-slate-600">Accessibility</div>
             </div>
           </div>
+          
+          {/* FDA Disclaimer */}
+          <div className="max-w-4xl mx-auto mt-8 pt-6 border-t border-slate-200">
+            <p className="text-xs text-center text-slate-500 leading-relaxed">
+              *These statements have not been evaluated by the Food and Drug Administration. 
+              This product is not intended to diagnose, treat, cure, or prevent any disease. 
+              Consult your healthcare provider before starting any supplement regimen.
+            </p>
+          </div>
         </div>
       </section>
     </div>
