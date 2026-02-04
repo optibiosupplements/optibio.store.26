@@ -5,6 +5,9 @@ import { Badge } from "@/components/ui/badge";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
+import { Input } from "@/components/ui/input";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 import { 
   ArrowRight, 
   ArrowLeft, 
@@ -13,7 +16,10 @@ import {
   Sparkles,
   Calendar,
   TrendingUp,
-  AlertCircle
+  AlertCircle,
+  Mail,
+  Lock,
+  Gift
 } from "lucide-react";
 
 interface UserData {
@@ -34,6 +40,10 @@ export default function WellnessPlanPersonalizer() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [step, setStep] = useState(0);
   const [showResults, setShowResults] = useState(false);
+  const [showEmailCapture, setShowEmailCapture] = useState(false);
+  const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [userData, setUserData] = useState<UserData>({
     primaryGoals: [],
     stressLevel: 5,
@@ -41,6 +51,9 @@ export default function WellnessPlanPersonalizer() {
     exerciseFrequency: "",
     timingPreference: "",
   });
+
+  // tRPC mutation for lead capture
+  const captureLeadMutation = trpc.leads.captureQuizLead.useMutation();
 
   const goalOptions = [
     { id: "stress", label: "Reduce Stress & Anxiety", icon: "🧘" },
@@ -156,13 +169,50 @@ export default function WellnessPlanPersonalizer() {
     if (step < 2) {
       setStep(step + 1);
     } else {
-      setShowResults(true);
+      // Show email capture instead of results directly
+      setShowEmailCapture(true);
     }
   };
 
   const handleBack = () => {
     if (step > 0) {
       setStep(step - 1);
+    }
+  };
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email || !firstName) {
+      toast.error("Please enter your name and email");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      await captureLeadMutation.mutateAsync({
+        email,
+        firstName,
+        source: "wellness_quiz",
+        quizData: {
+          goals: userData.primaryGoals,
+          stressLevel: userData.stressLevel,
+          sleepQuality: userData.sleepQuality,
+          exerciseFrequency: userData.exerciseFrequency,
+          timingPreference: userData.timingPreference,
+        },
+      });
+      
+      toast.success("Your personalized plan is ready!");
+      setShowEmailCapture(false);
+      setShowResults(true);
+    } catch (error) {
+      console.error("Lead capture error:", error);
+      // Still show results even if lead capture fails
+      toast.info("Here's your personalized plan!");
+      setShowEmailCapture(false);
+      setShowResults(true);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -212,8 +262,133 @@ export default function WellnessPlanPersonalizer() {
             </div>
 
             <p className="text-sm text-slate-500">
-              No email required • Instant results • Based on clinical research
+              <Gift className="w-4 h-4 inline mr-1" />
+              Plus get a 10% discount code when you complete the quiz
             </p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Email capture gate (shown after quiz completion, before results)
+  if (showEmailCapture) {
+    return (
+      <section className="py-24 bg-gradient-to-br from-[var(--optibio-ivory)] via-white to-[var(--optibio-ivory)]/30 dark:from-[var(--optibio-abyssal)] dark:via-[var(--optibio-navy-card)] dark:to-[var(--optibio-abyssal)] transition-colors duration-500">
+        <div className="container">
+          <div className="max-w-xl mx-auto space-y-8">
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-[var(--optibio-gold)] to-[var(--optibio-gold-dark)] flex items-center justify-center">
+                <Sparkles className="w-10 h-10 text-white" />
+              </div>
+              <Badge className="mb-4 bg-green-100 text-green-800 border-green-200">
+                <CheckCircle2 className="w-4 h-4 mr-1" />
+                Quiz Complete!
+              </Badge>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+                Your Personalized Plan is Ready
+              </h2>
+              <p className="text-lg text-slate-600 dark:text-[var(--optibio-sky-grey)]">
+                Enter your email to unlock your custom wellness protocol based on your goals
+              </p>
+            </div>
+
+            <Card className="border-2 border-[var(--optibio-gold)]/30 dark:border-[var(--optibio-border-dark)] bg-white dark:bg-[var(--optibio-navy)]">
+              <CardContent className="p-8">
+                <form onSubmit={handleEmailSubmit} className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="firstName">First Name</Label>
+                    <Input
+                      id="firstName"
+                      type="text"
+                      placeholder="Enter your first name"
+                      value={firstName}
+                      onChange={(e) => setFirstName(e.target.value)}
+                      className="h-12"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Address</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="h-12"
+                      required
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit"
+                    size="lg"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)] text-lg py-6"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Clock className="mr-2 w-5 h-5 animate-spin" />
+                        Creating Your Plan...
+                      </>
+                    ) : (
+                      <>
+                        <Mail className="mr-2 w-5 h-5" />
+                        Get My Personalized Plan
+                      </>
+                    )}
+                  </Button>
+                </form>
+
+                {/* Benefits of signing up */}
+                <div className="mt-6 pt-6 border-t border-slate-200 dark:border-[var(--optibio-border-dark)]">
+                  <p className="text-sm font-medium text-slate-700 dark:text-white mb-3">
+                    What you'll receive:
+                  </p>
+                  <ul className="space-y-2">
+                    <li className="flex items-center gap-2 text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">
+                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      Your personalized dosing schedule
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">
+                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      Expected results timeline for your goals
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">
+                      <CheckCircle2 className="w-4 h-4 text-green-500 flex-shrink-0" />
+                      Custom tips based on your lifestyle
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">
+                      <Gift className="w-4 h-4 text-[var(--optibio-gold)] flex-shrink-0" />
+                      <span className="font-semibold text-[var(--optibio-navy)] dark:text-[var(--optibio-gold)]">
+                        Exclusive 10% discount code
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <p className="mt-4 text-xs text-center text-slate-500 dark:text-[var(--optibio-sky-grey)]">
+                  <Lock className="w-3 h-3 inline mr-1" />
+                  We respect your privacy. Unsubscribe anytime.
+                </p>
+              </CardContent>
+            </Card>
+
+            <div className="text-center">
+              <Button 
+                variant="ghost" 
+                onClick={() => {
+                  setShowEmailCapture(false);
+                  setStep(2);
+                }}
+                className="text-slate-500"
+              >
+                <ArrowLeft className="mr-2 w-4 h-4" />
+                Go Back
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -231,10 +406,10 @@ export default function WellnessPlanPersonalizer() {
                 <Sparkles className="w-5 h-5" />
                 Your Personalized Wellness Plan
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-4">
                 Here's How to Maximize Your Results
               </h2>
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              <p className="text-lg text-slate-600 dark:text-[var(--optibio-sky-grey)] max-w-2xl mx-auto">
                 Based on your goals of {userData.primaryGoals.map(g => goalOptions.find(opt => opt.id === g)?.label.toLowerCase()).join(", ")}
               </p>
             </div>
@@ -247,7 +422,7 @@ export default function WellnessPlanPersonalizer() {
                     <Clock className="w-8 h-8 text-[var(--optibio-navy)] dark:text-[var(--optibio-luminous-gold)]" />
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-slate-600 mb-2">Optimal Timing</div>
+                    <div className="text-sm font-medium text-slate-600 dark:text-[var(--optibio-sky-grey)] mb-2">Optimal Timing</div>
                     <div className="text-lg font-bold text-[var(--optibio-navy)] dark:text-white leading-tight">
                       {plan.timing}
                     </div>
@@ -265,7 +440,7 @@ export default function WellnessPlanPersonalizer() {
                     <Calendar className="w-8 h-8 text-[var(--optibio-navy)] dark:text-[var(--optibio-luminous-gold)]" />
                   </div>
                   <div>
-                    <div className="text-sm font-medium text-slate-600 mb-2">Expected Results</div>
+                    <div className="text-sm font-medium text-slate-600 dark:text-[var(--optibio-sky-grey)] mb-2">Expected Results</div>
                     <div className="text-lg font-bold text-[var(--optibio-navy)] dark:text-white leading-tight">
                       {plan.expectedTimeline}
                     </div>
@@ -297,6 +472,26 @@ export default function WellnessPlanPersonalizer() {
               </CardContent>
             </Card>
 
+            {/* Discount Code Banner */}
+            {email && (
+              <Card className="border-2 border-[var(--optibio-gold)] bg-gradient-to-r from-[var(--optibio-gold)]/10 to-[var(--optibio-ivory)] dark:from-[var(--optibio-gold)]/20 dark:to-[var(--optibio-navy)]">
+                <CardContent className="p-6">
+                  <div className="flex items-center justify-between flex-wrap gap-4">
+                    <div className="flex items-center gap-3">
+                      <Gift className="w-8 h-8 text-[var(--optibio-gold-dark)]" />
+                      <div>
+                        <p className="font-bold text-[var(--optibio-navy)] dark:text-white">Your Exclusive 10% Discount</p>
+                        <p className="text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">Use code at checkout</p>
+                      </div>
+                    </div>
+                    <div className="bg-white dark:bg-[var(--optibio-abyssal)] px-6 py-3 rounded-lg border-2 border-dashed border-[var(--optibio-gold)]">
+                      <span className="font-mono font-bold text-xl text-[var(--optibio-navy)] dark:text-[var(--optibio-gold)]">WELCOME10</span>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
             {/* Medical Disclaimer */}
             <Card className="border-2 border-[var(--optibio-gold)]/20 dark:border-[var(--optibio-border-dark)] bg-[var(--optibio-ivory)] dark:bg-[var(--optibio-navy)]">
               <CardContent className="p-6">
@@ -322,15 +517,18 @@ export default function WellnessPlanPersonalizer() {
                 Get Started with Your Plan
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">
                 90-day money-back guarantee • Free shipping on all orders
               </p>
               <Button 
                 variant="ghost" 
                 onClick={() => {
                   setShowResults(false);
+                  setShowEmailCapture(false);
                   setStep(0);
                   setIsExpanded(false);
+                  setEmail("");
+                  setFirstName("");
                 }}
                 className="text-slate-600"
               >
@@ -376,7 +574,7 @@ export default function WellnessPlanPersonalizer() {
               {/* Step 0: Goals */}
               {step === 0 && (
                 <div className="space-y-4">
-                  <p className="text-slate-600">Select all that apply:</p>
+                  <p className="text-slate-600 dark:text-[var(--optibio-sky-grey)]">Select all that apply:</p>
                   <div className="grid md:grid-cols-2 gap-4">
                     {goalOptions.map((goal) => (
                       <button
@@ -384,16 +582,16 @@ export default function WellnessPlanPersonalizer() {
                         onClick={() => toggleGoal(goal.id)}
                         className={`p-6 rounded-xl border-2 text-left transition-all duration-200 ${
                           userData.primaryGoals.includes(goal.id)
-                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
-                            : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
+                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)] dark:bg-[var(--optibio-abyssal)]"
+                            : "border-slate-200 dark:border-[var(--optibio-border-dark)] hover:border-[var(--optibio-gold)]/40"
                         }`}
                       >
                         <div className="flex items-center gap-3">
                           <span className="text-3xl">{goal.icon}</span>
-                          <span className="font-semibold text-slate-900">{goal.label}</span>
+                          <span className="font-semibold text-slate-900 dark:text-white">{goal.label}</span>
                         </div>
                         {userData.primaryGoals.includes(goal.id) && (
-                          <CheckCircle2 className="w-6 h-6 text-[var(--optibio-navy)] ml-auto mt-2" />
+                          <CheckCircle2 className="w-6 h-6 text-[var(--optibio-navy)] dark:text-[var(--optibio-gold)] ml-auto mt-2" />
                         )}
                       </button>
                     ))}
@@ -405,7 +603,7 @@ export default function WellnessPlanPersonalizer() {
               {step === 1 && (
                 <div className="space-y-8">
                   <div className="space-y-4">
-                    <Label>Current Stress Level (1-10)</Label>
+                    <Label className="dark:text-white">Current Stress Level (1-10)</Label>
                     <div className="space-y-2">
                       <Slider
                         value={[userData.stressLevel]}
@@ -415,16 +613,16 @@ export default function WellnessPlanPersonalizer() {
                         step={1}
                         className="w-full"
                       />
-                      <div className="flex justify-between text-sm text-slate-600">
+                      <div className="flex justify-between text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">
                         <span>Low (1)</span>
-                        <span className="font-bold text-[var(--optibio-navy)]">{userData.stressLevel}</span>
+                        <span className="font-bold text-[var(--optibio-navy)] dark:text-[var(--optibio-gold)]">{userData.stressLevel}</span>
                         <span>High (10)</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="space-y-4">
-                    <Label>Sleep Quality (1-10)</Label>
+                    <Label className="dark:text-white">Sleep Quality (1-10)</Label>
                     <div className="space-y-2">
                       <Slider
                         value={[userData.sleepQuality]}
@@ -434,35 +632,35 @@ export default function WellnessPlanPersonalizer() {
                         step={1}
                         className="w-full"
                       />
-                      <div className="flex justify-between text-sm text-slate-600">
+                      <div className="flex justify-between text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">
                         <span>Poor (1)</span>
-                        <span className="font-bold text-[var(--optibio-navy)]">{userData.sleepQuality}</span>
+                        <span className="font-bold text-[var(--optibio-navy)] dark:text-[var(--optibio-gold)]">{userData.sleepQuality}</span>
                         <span>Excellent (10)</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label>Exercise Frequency</Label>
+                    <Label className="dark:text-white">Exercise Frequency</Label>
                     <RadioGroup
                       value={userData.exerciseFrequency}
                       onValueChange={(value: any) => setUserData({ ...userData, exerciseFrequency: value })}
                     >
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="none" id="none" />
-                        <Label htmlFor="none" className="font-normal cursor-pointer">Little to no exercise</Label>
+                        <Label htmlFor="none" className="font-normal cursor-pointer dark:text-[var(--optibio-sky-grey)]">Little to no exercise</Label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="light" id="light" />
-                        <Label htmlFor="light" className="font-normal cursor-pointer">Light (1-2 days/week)</Label>
+                        <Label htmlFor="light" className="font-normal cursor-pointer dark:text-[var(--optibio-sky-grey)]">Light (1-2 days/week)</Label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="moderate" id="moderate" />
-                        <Label htmlFor="moderate" className="font-normal cursor-pointer">Moderate (3-4 days/week)</Label>
+                        <Label htmlFor="moderate" className="font-normal cursor-pointer dark:text-[var(--optibio-sky-grey)]">Moderate (3-4 days/week)</Label>
                       </div>
                       <div className="flex items-center space-x-2">
                         <RadioGroupItem value="intense" id="intense" />
-                        <Label htmlFor="intense" className="font-normal cursor-pointer">Intense (5+ days/week)</Label>
+                        <Label htmlFor="intense" className="font-normal cursor-pointer dark:text-[var(--optibio-sky-grey)]">Intense (5+ days/week)</Label>
                       </div>
                     </RadioGroup>
                   </div>
@@ -472,7 +670,7 @@ export default function WellnessPlanPersonalizer() {
               {/* Step 2: Timing */}
               {step === 2 && (
                 <div className="space-y-4">
-                  <p className="text-slate-600">When do you usually take supplements?</p>
+                  <p className="text-slate-600 dark:text-[var(--optibio-sky-grey)]">When do you usually take supplements?</p>
                   <RadioGroup
                     value={userData.timingPreference}
                     onValueChange={(value: any) => setUserData({ ...userData, timingPreference: value })}
@@ -482,14 +680,14 @@ export default function WellnessPlanPersonalizer() {
                         htmlFor="morning"
                         className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                           userData.timingPreference === "morning"
-                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
-                            : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
+                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)] dark:bg-[var(--optibio-abyssal)]"
+                            : "border-slate-200 dark:border-[var(--optibio-border-dark)] hover:border-[var(--optibio-gold)]/40"
                         }`}
                       >
                         <RadioGroupItem value="morning" id="morning" className="mt-1" />
                         <div className="ml-4">
-                          <div className="font-semibold text-slate-900">Morning (with breakfast)</div>
-                          <div className="text-sm text-slate-600">Best for daytime energy and focus</div>
+                          <div className="font-semibold text-slate-900 dark:text-white">Morning (with breakfast)</div>
+                          <div className="text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">Best for daytime energy and focus</div>
                         </div>
                       </label>
 
@@ -497,14 +695,14 @@ export default function WellnessPlanPersonalizer() {
                         htmlFor="evening"
                         className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                           userData.timingPreference === "evening"
-                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
-                            : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
+                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)] dark:bg-[var(--optibio-abyssal)]"
+                            : "border-slate-200 dark:border-[var(--optibio-border-dark)] hover:border-[var(--optibio-gold)]/40"
                         }`}
                       >
                         <RadioGroupItem value="evening" id="evening" className="mt-1" />
                         <div className="ml-4">
-                          <div className="font-semibold text-slate-900">Evening (before bed)</div>
-                          <div className="text-sm text-slate-600">Best for sleep support and overnight recovery</div>
+                          <div className="font-semibold text-slate-900 dark:text-white">Evening (before bed)</div>
+                          <div className="text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">Best for sleep support and overnight recovery</div>
                         </div>
                       </label>
 
@@ -512,14 +710,14 @@ export default function WellnessPlanPersonalizer() {
                         htmlFor="flexible"
                         className={`flex items-start p-6 rounded-xl border-2 cursor-pointer transition-all ${
                           userData.timingPreference === "flexible"
-                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)]"
-                            : "border-slate-200 hover:border-[var(--optibio-gold)]/40"
+                            ? "border-[var(--optibio-navy)] bg-[var(--optibio-ivory)] dark:bg-[var(--optibio-abyssal)]"
+                            : "border-slate-200 dark:border-[var(--optibio-border-dark)] hover:border-[var(--optibio-gold)]/40"
                         }`}
                       >
                         <RadioGroupItem value="flexible" id="flexible" className="mt-1" />
                         <div className="ml-4">
-                          <div className="font-semibold text-slate-900">Flexible (whatever works)</div>
-                          <div className="text-sm text-slate-600">We'll recommend the best timing for your goals</div>
+                          <div className="font-semibold text-slate-900 dark:text-white">Flexible (whatever works)</div>
+                          <div className="text-sm text-slate-600 dark:text-[var(--optibio-sky-grey)]">We'll recommend the best timing for your goals</div>
                         </div>
                       </label>
                     </div>

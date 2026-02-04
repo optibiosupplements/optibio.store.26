@@ -28,6 +28,7 @@ import Accessibility from "./pages/Accessibility";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Referral from "./pages/Referral";
+import Rewards from "./pages/Rewards";
 import CartRecover from "./pages/CartRecover";
 import Analytics from "./pages/Analytics";
 import AnalyticsDashboard from "./pages/AnalyticsDashboard";
@@ -40,6 +41,7 @@ import AdminAudit from "./pages/AdminAudit";
 import AdminOrders from "./pages/AdminOrders";
 import AdminDiscounts from "./pages/AdminDiscounts";
 import AdminEmailScheduler from "./pages/AdminEmailScheduler";
+import AdminLoyalty from "./pages/AdminLoyalty";
 
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
@@ -62,6 +64,7 @@ function Router() {
       <Route path="/admin/orders" component={AdminOrders} />
       <Route path="/admin/discounts" component={AdminDiscounts} />
       <Route path="/admin/email-scheduler" component={AdminEmailScheduler} />
+      <Route path="/admin/loyalty" component={AdminLoyalty} />
       
       {/* Public routes with header/footer */}
       <Route>
@@ -92,6 +95,7 @@ function Router() {
                 <Route path="/blog" component={Blog} />
                 <Route path="/blog/:slug" component={BlogPost} />
                 <Route path="/referral" component={Referral} />
+                <Route path="/rewards" component={Rewards} />
                 <Route path="/404" component={NotFound} />
                 {/* Final fallback route */}
                 <Route component={NotFound} />

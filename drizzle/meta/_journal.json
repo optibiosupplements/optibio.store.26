@@ -113,6 +113,20 @@
       "when": 1770191214765,
       "tag": "0015_condemned_vance_astro",
       "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "5",
+      "when": 1770207909539,
+      "tag": "0016_bumpy_justin_hammer",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "5",
+      "when": 1770208183223,
+      "tag": "0017_legal_ozymandias",
+      "breakpoints": true
     }
   ]
 }

@@ -28,6 +28,9 @@ import { adminDashboardRouter } from "./routers/admin-dashboard";
 import { adminOrdersRouter } from "./routers/admin-orders";
 import { adminDiscountsRouter } from "./routers/admin-discounts";
 import { adminEmailSchedulerRouter } from "./routers/admin-email-scheduler";
+import { leadsRouter } from "./routers/leads";
+import { loyaltyRouter } from "./routers/loyalty";
+import { adminLoyaltyRouter } from "./routers/admin-loyalty";
 
 export const appRouter = router({
   system: systemRouter,
@@ -44,6 +47,9 @@ export const appRouter = router({
   adminOrders: adminOrdersRouter,
   adminDiscounts: adminDiscountsRouter,
   adminEmailScheduler: adminEmailSchedulerRouter,
+  leads: leadsRouter,
+  loyalty: loyaltyRouter,
+  adminLoyalty: adminLoyaltyRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

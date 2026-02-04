@@ -26,6 +26,7 @@ import {
   Gift,
 } from "lucide-react";
 import { formatPrice, SHIPPING_THRESHOLD_CENTS, STANDARD_SHIPPING_CENTS, TAX_RATE } from "@/const";
+import { Badge } from "@/components/ui/badge";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import SubscriptionCheckout from "@/components/SubscriptionCheckout";
@@ -45,6 +46,24 @@ export default function Checkout() {
   const [sameAsShipping, setSameAsShipping] = useState(true);
   const [useReferralCredits, setUseReferralCredits] = useState(false);
   const [discountCode, setDiscountCode] = useState<string | null>(null);
+  
+  // Order Bumps state
+  const [orderBumps, setOrderBumps] = useState<{
+    extendedGuarantee: boolean;
+    priorityShipping: boolean;
+    bundleDiscount: boolean;
+  }>({
+    extendedGuarantee: false,
+    priorityShipping: false,
+    bundleDiscount: false,
+  });
+
+  // Order Bump prices (in cents)
+  const ORDER_BUMP_PRICES = {
+    extendedGuarantee: 999, // $9.99 - Extend 60-day to 90-day guarantee
+    priorityShipping: 495, // $4.95 - Priority 2-day shipping upgrade
+    bundleDiscount: -500, // -$5.00 - Add 2nd bottle for $5 off
+  };
 
   // Read discount code from URL params
   useEffect(() => {
@@ -123,9 +142,16 @@ export default function Checkout() {
   }
   const subtotalAfterDiscount = subtotal - discountAmount;
 
+  // Calculate order bumps total
+  const orderBumpsTotal = (
+    (orderBumps.extendedGuarantee ? ORDER_BUMP_PRICES.extendedGuarantee : 0) +
+    (orderBumps.priorityShipping ? ORDER_BUMP_PRICES.priorityShipping : 0) +
+    (orderBumps.bundleDiscount ? ORDER_BUMP_PRICES.bundleDiscount : 0)
+  );
+  
   const shipping = subtotalAfterDiscount >= SHIPPING_THRESHOLD_CENTS ? 0 : STANDARD_SHIPPING_CENTS;
   const tax = Math.round(subtotalAfterDiscount * TAX_RATE);
-  const subtotalWithShippingAndTax = subtotalAfterDiscount + shipping + tax;
+  const subtotalWithShippingAndTax = subtotalAfterDiscount + shipping + tax + orderBumpsTotal;
   
   // Apply referral credits
   const availableCredits = Number(referralStats?.availableCredits || 0);
@@ -333,6 +359,7 @@ export default function Checkout() {
           <div className="lg:col-span-2 space-y-6">
             {/* Step 1: Shipping Information */}
             {step === 1 && (
+              <>
               <Card className="border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] shadow-xl">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-3 mb-6">
@@ -474,6 +501,111 @@ export default function Checkout() {
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Order Bumps Section */}
+              <Card className="border-2 border-[#C9A961]/30 bg-gradient-to-br from-[#F7F4EF] to-white dark:from-[#1E3A5F]/20 dark:to-[#0B1120] shadow-xl overflow-hidden">
+                <div className="bg-gradient-to-r from-[#C9A961] to-[#B89651] px-6 py-3">
+                  <div className="flex items-center gap-2">
+                    <Gift className="w-5 h-5 text-white" />
+                    <span className="font-bold text-white">EXCLUSIVE OFFERS - Add to Your Order</span>
+                    <Badge className="bg-white/20 text-white border-0 ml-auto">Limited Time</Badge>
+                  </div>
+                </div>
+                <CardContent className="p-6 space-y-4">
+                  {/* Extended Guarantee */}
+                  <div 
+                    className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
+                      orderBumps.extendedGuarantee 
+                        ? 'border-[#C9A961] bg-[#C9A961]/10' 
+                        : 'border-slate-200 dark:border-[#2D4A77] hover:border-[#C9A961]/50'
+                    }`}
+                    onClick={() => setOrderBumps(prev => ({ ...prev, extendedGuarantee: !prev.extendedGuarantee }))}
+                  >
+                    <div className="flex items-start gap-4">
+                      <Checkbox 
+                        checked={orderBumps.extendedGuarantee}
+                        className="mt-1"
+                      />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-bold text-slate-900 dark:text-white">90-Day Extended Guarantee</span>
+                          <Badge variant="secondary" className="bg-green-100 text-green-700 border-0">Most Popular</Badge>
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 mb-2">
+                          Upgrade from 60 to 90 days. Extra peace of mind for your wellness journey.
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg font-bold text-[#1E3A5F] dark:text-[#C9A961]">+{formatPrice(ORDER_BUMP_PRICES.extendedGuarantee)}</span>
+                          <span className="text-sm text-slate-500 line-through">$19.99</span>
+                          <Badge className="bg-red-100 text-red-700 border-0">50% OFF</Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Priority Shipping */}
+                  <div 
+                    className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
+                      orderBumps.priorityShipping 
+                        ? 'border-[#C9A961] bg-[#C9A961]/10' 
+                        : 'border-slate-200 dark:border-[#2D4A77] hover:border-[#C9A961]/50'
+                    }`}
+                    onClick={() => setOrderBumps(prev => ({ ...prev, priorityShipping: !prev.priorityShipping }))}
+                  >
+                    <div className="flex items-start gap-4">
+                      <Checkbox 
+                        checked={orderBumps.priorityShipping}
+                        className="mt-1"
+                      />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-bold text-slate-900 dark:text-white">Priority 2-Day Shipping</span>
+                          <Badge variant="secondary" className="bg-blue-100 text-blue-700 border-0">Fast</Badge>
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 mb-2">
+                          Get your order in 2 business days. Start your wellness journey faster!
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg font-bold text-[#1E3A5F] dark:text-[#C9A961]">+{formatPrice(ORDER_BUMP_PRICES.priorityShipping)}</span>
+                          <span className="text-sm text-slate-500 line-through">$12.95</span>
+                          <Badge className="bg-red-100 text-red-700 border-0">62% OFF</Badge>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bundle Discount - Add 2nd Bottle */}
+                  <div 
+                    className={`p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
+                      orderBumps.bundleDiscount 
+                        ? 'border-[#C9A961] bg-[#C9A961]/10' 
+                        : 'border-slate-200 dark:border-[#2D4A77] hover:border-[#C9A961]/50'
+                    }`}
+                    onClick={() => setOrderBumps(prev => ({ ...prev, bundleDiscount: !prev.bundleDiscount }))}
+                  >
+                    <div className="flex items-start gap-4">
+                      <Checkbox 
+                        checked={orderBumps.bundleDiscount}
+                        className="mt-1"
+                      />
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <span className="font-bold text-slate-900 dark:text-white">Add 2nd Bottle & Save $5</span>
+                          <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#B89651] border-0">Best Value</Badge>
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-300 mb-2">
+                          Stock up and save! Perfect for sharing with a friend or family member.
+                        </p>
+                        <div className="flex items-center gap-2">
+                          <span className="text-lg font-bold text-green-600">{formatPrice(ORDER_BUMP_PRICES.bundleDiscount)}</span>
+                          <span className="text-sm text-slate-600 dark:text-slate-300">off your 2nd bottle</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+              </>
             )}
 
             {/* Step 2: Payment */}

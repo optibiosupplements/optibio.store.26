@@ -581,6 +581,84 @@ export const trafficSources = mysqlTable("trafficSources", {
 export type TrafficSource = typeof trafficSources.$inferSelect;
 export type InsertTrafficSource = typeof trafficSources.$inferInsert;
 
+/**
+ * Leads - Quiz and Ebook lead capture
+ */
+export const leads = mysqlTable("leads", {
+  id: int("id").autoincrement().primaryKey(),
+  email: varchar("email", { length: 320 }).notNull().unique(),
+  firstName: varchar("firstName", { length: 100 }),
+  source: varchar("source", { length: 100 }).default("wellness_quiz"), // wellness_quiz, ebook_download, etc.
+  quizData: text("quizData"), // JSON string of quiz responses
+  status: mysqlEnum("status", ["new", "contacted", "converted", "unsubscribed"]).default("new").notNull(),
+  discountCodeSent: varchar("discountCodeSent", { length: 50 }),
+  welcomeEmailSent: boolean("welcomeEmailSent").default(false),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Lead = typeof leads.$inferSelect;
+export type InsertLead = typeof leads.$inferInsert;
+
+/**
+ * Loyalty Program - Points balance and tier tracking
+ */
+export const loyaltyAccounts = mysqlTable("loyaltyAccounts", {
+  id: int("id").autoincrement().primaryKey(),
+  userId: int("userId").notNull().unique(),
+  pointsBalance: int("pointsBalance").default(0).notNull(),
+  lifetimePoints: int("lifetimePoints").default(0).notNull(),
+  tier: mysqlEnum("tier", ["bronze", "silver", "gold", "platinum"]).default("bronze").notNull(),
+  tierExpiresAt: timestamp("tierExpiresAt"), // Tier status expiration
+  referralCode: varchar("referralCode", { length: 20 }).unique(),
+  referredBy: int("referredBy"), // User ID who referred them
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type LoyaltyAccount = typeof loyaltyAccounts.$inferSelect;
+export type InsertLoyaltyAccount = typeof loyaltyAccounts.$inferInsert;
+
+/**
+ * Loyalty Points Transactions - History of points earned/redeemed
+ */
+export const loyaltyTransactions = mysqlTable("loyaltyTransactions", {
+  id: int("id").autoincrement().primaryKey(),
+  loyaltyAccountId: int("loyaltyAccountId").notNull(),
+  userId: int("userId").notNull(),
+  type: mysqlEnum("type", ["earn", "redeem", "expire", "bonus", "referral"]).notNull(),
+  points: int("points").notNull(), // Positive for earn, negative for redeem/expire
+  description: varchar("description", { length: 255 }).notNull(),
+  orderId: int("orderId"), // Related order if applicable
+  expiresAt: timestamp("expiresAt"), // When these points expire
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+export type LoyaltyTransaction = typeof loyaltyTransactions.$inferSelect;
+export type InsertLoyaltyTransaction = typeof loyaltyTransactions.$inferInsert;
+
+/**
+ * Loyalty Rewards - Available rewards for redemption
+ */
+export const loyaltyRewards = mysqlTable("loyaltyRewards", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  description: text("description"),
+  pointsCost: int("pointsCost").notNull(),
+  rewardType: mysqlEnum("rewardType", ["discount_percent", "discount_fixed", "free_shipping", "free_product", "exclusive_access"]).notNull(),
+  rewardValue: int("rewardValue").notNull(), // Percentage or cents depending on type
+  minTier: mysqlEnum("minTier", ["bronze", "silver", "gold", "platinum"]).default("bronze"),
+  isActive: boolean("isActive").default(true).notNull(),
+  limitPerUser: int("limitPerUser"), // Max redemptions per user
+  totalLimit: int("totalLimit"), // Total available redemptions
+  timesRedeemed: int("timesRedeemed").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type LoyaltyReward = typeof loyaltyRewards.$inferSelect;
+export type InsertLoyaltyReward = typeof loyaltyRewards.$inferInsert;
+
 // Pre-Sale System Tables
 export * from "./presale-schema";
 

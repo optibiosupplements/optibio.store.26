@@ -2933,3 +2933,99 @@ npm run run-audit -- --input ./sample-input.json
 - [ ] Verify webhook endpoint is registered in Stripe dashboard
 - [ ] Test live payment flow
 
+
+
+## 🚀 SALES FUNNEL IMPLEMENTATION (From Strategy Document)
+
+### Stage 1: Awareness (Content Marketing)
+- [ ] Blog section with SEO-optimized articles
+- [ ] Content pillars: Science of Ashwagandha, Stress Management, Holistic Health
+
+### Stage 2: Consideration (Lead Generation)
+- [ ] Optimize Wellness Quiz to require email for results
+- [ ] Create downloadable Ebook lead magnet
+- [ ] 6-Email Welcome Sequence
+  - [ ] Email 1: Welcome & Lead Magnet Delivery
+  - [ ] Email 2: The OptiBio Story
+  - [ ] Email 3: Problem & Solution
+  - [ ] Email 4: Science Behind KSM-66
+  - [ ] Email 5: Social Proof & Testimonials
+  - [ ] Email 6: The Offer
+
+### Stage 3: Conversion (Sales Funnel)
+- [ ] Order Bump on checkout (travel-sized bottle or pill organizer)
+- [ ] Upsell page after purchase (6-month supply at discount)
+- [ ] Downsell offer if upsell declined (single bottle discount)
+- [ ] Abandoned cart email sequence (already implemented)
+
+### Stage 4: Retention (Customer Loyalty)
+- [ ] Subscription/Auto-refill model enhancement
+- [ ] Loyalty points program
+- [ ] Post-purchase email sequence optimization
+  - [ ] Email 1: Order Confirmation + Cross-sell
+  - [ ] Email 2: Shipping Confirmation
+  - [ ] Email 3: Product Education (3 days after delivery)
+  - [ ] Email 4: Check-in & Support (14 days)
+  - [ ] Email 5: Review Request (30 days)
+- [ ] Refill reminder emails when supply runs low
+
+
+
+## ✅ COMPLETED: Loyalty Program Implementation (Feb 4, 2026)
+
+### Database Schema
+- [x] Created loyaltyAccounts table (points balance, tier status, referral codes)
+- [x] Created loyaltyTransactions table (points history: earn, redeem, bonus, referral, expire)
+- [x] Created loyaltyRewards table (available rewards for redemption)
+- [x] Tier system: Bronze → Silver → Gold → Platinum
+
+### Backend API (server/routers/loyalty.ts)
+- [x] getAccount - Get or create loyalty account with signup bonus (50 points)
+- [x] getTransactions - Points history with pagination
+- [x] getRewards - Available rewards filtered by tier eligibility
+- [x] redeemReward - Redeem points for rewards with validation
+- [x] applyReferralCode - Apply friend's code for 100 bonus points (both parties)
+- [x] awardPurchasePoints - Award points after purchase with tier multiplier
+- [x] getTierBenefits - Public endpoint for tier info
+
+### Admin Backend (server/routers/admin-loyalty.ts)
+- [x] getStats - Program statistics (members, points, redemptions)
+- [x] listRewards - All rewards for management
+- [x] createReward - Create new rewards
+- [x] updateReward - Edit existing rewards
+- [x] deleteReward - Remove rewards
+- [x] listAccounts - View all loyalty members
+- [x] awardBonusPoints - Manually award points to users
+- [x] getRecentTransactions - Activity log
+
+### Frontend Pages
+- [x] /rewards - Customer-facing rewards page with:
+  - Points balance and tier progress
+  - Available rewards with redemption
+  - Transaction history
+  - Tier benefits comparison
+  - Referral code sharing
+  - How to earn points guide
+- [x] /admin/loyalty - Admin management page with:
+  - Program statistics dashboard
+  - Tier distribution chart
+  - Rewards CRUD management
+  - Member list with bonus awarding
+  - Recent activity log
+
+### Navigation Integration
+- [x] Added "Rewards" link to Header dropdown menu
+- [x] Added "Loyalty Program" to Admin sidebar
+
+### Tier System Details
+- Bronze: 0+ points, 1x multiplier
+- Silver: 500+ points, 1.25x multiplier
+- Gold: 1,500+ points, 1.5x multiplier
+- Platinum: 5,000+ points, 2x multiplier
+
+### Points Earning
+- 1 point per $1 spent (multiplied by tier)
+- 50 points signup bonus
+- 100 points referral bonus (both parties)
+- 25 points for leaving reviews
+

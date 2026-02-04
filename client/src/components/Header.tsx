@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { ShoppingCart, Menu, X, User, Gift, Package, LogOut, ChevronDown } from "lucide-react";
+import { ShoppingCart, Menu, X, User, Gift, Package, LogOut, ChevronDown, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { APP_LOGO, getLoginUrl } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
@@ -107,6 +107,12 @@ export default function Header() {
                     <Link href="/referral" className="flex items-center cursor-pointer">
                       <Gift className="mr-2 h-4 w-4" />
                       <span>Refer & Earn</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/rewards" className="flex items-center cursor-pointer">
+                      <Star className="mr-2 h-4 w-4" />
+                      <span>Rewards</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />

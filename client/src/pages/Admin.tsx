@@ -41,6 +41,7 @@ import {
   ClipboardList,
   Tag,
   Mail,
+  Gift,
 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { formatPrice } from "@/const";
@@ -58,6 +59,7 @@ const adminMenuItems = [
   { icon: DollarSign, label: "Revenue", path: "/admin/revenue" },
   { icon: Activity, label: "Traffic", path: "/admin/traffic" },
   { icon: Mail, label: "Email Scheduler", path: "/admin/email-scheduler" },
+  { icon: Gift, label: "Loyalty Program", path: "/admin/loyalty" },
   { icon: History, label: "Audit Log", path: "/admin/audit" },
 ];
 
