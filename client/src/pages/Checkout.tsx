@@ -31,6 +31,7 @@ import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import SubscriptionCheckout from "@/components/SubscriptionCheckout";
 import { trackCheckoutStarted, trackGA4BeginCheckout } from "@/lib/analytics";
+import { getUTMParamsForAPI } from "@/lib/utm";
 
 const US_STATES = [
   "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
@@ -283,10 +284,19 @@ export default function Checkout() {
       })) || [];
 
       toast.info("Redirecting to secure checkout...");
+      const utmParams = getUTMParamsForAPI();
       createCheckoutMutation.mutate({
         items: orderItems,
         creditsToApply: creditsToApply,
         discountCode: discountCode || undefined,
+        // UTM tracking for marketing attribution
+        utmSource: utmParams.utmSource || undefined,
+        utmMedium: utmParams.utmMedium || undefined,
+        utmCampaign: utmParams.utmCampaign || undefined,
+        utmTerm: utmParams.utmTerm || undefined,
+        utmContent: utmParams.utmContent || undefined,
+        landingPage: utmParams.landingPage || undefined,
+        referrer: utmParams.referrer || undefined,
       });
     }
   };

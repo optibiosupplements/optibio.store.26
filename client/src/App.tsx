@@ -47,7 +47,9 @@ import DoNotSell from "./pages/DoNotSell";
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
 import SkipNav from "./components/SkipNav";
+import { captureUTMParams } from "./lib/utm";
 // import CrispChat from "./components/CrispChat"; // Removed - no website ID configured
+import { useEffect } from "react";
 
 function Router() {
   return (
@@ -123,6 +125,11 @@ function Router() {
  * See: COLORS_LOCKED.md for full documentation
  */
 function App() {
+  // Capture UTM parameters on initial page load for marketing attribution
+  useEffect(() => {
+    captureUTMParams();
+  }, []);
+
   return (
     <ErrorBoundary>
       <ThemeProvider

@@ -188,6 +188,15 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
 
     // Create order in database with transaction
     const { orderId, orderItemsData } = await withTransaction(async (connection) => {
+      // Extract UTM params from session metadata
+      const utmSource = session.metadata?.utm_source || null;
+      const utmMedium = session.metadata?.utm_medium || null;
+      const utmCampaign = session.metadata?.utm_campaign || null;
+      const utmTerm = session.metadata?.utm_term || null;
+      const utmContent = session.metadata?.utm_content || null;
+      const landingPage = session.metadata?.landing_page || null;
+      const referrer = session.metadata?.referrer || null;
+
       // Create order
       const orderQuery = `
         INSERT INTO orders (
@@ -196,8 +205,10 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
           shippingAddress1, shippingAddress2, shippingCity, shippingState, 
           shippingZipCode, shippingCountry, shippingPhone, billingFirstName, 
           billingLastName, billingAddress1, billingAddress2, billingCity, 
-          billingState, billingZipCode, billingCountry, status, createdAt, updatedAt
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW(), NOW())
+          billingState, billingZipCode, billingCountry, 
+          utmSource, utmMedium, utmCampaign, utmTerm, utmContent, landingPage, referrer,
+          status, createdAt, updatedAt
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending', NOW(), NOW())
       `;
       
       const orderParams = [
@@ -226,6 +237,14 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
         shippingDetails.address.state || "",
         shippingDetails.address.postal_code || "",
         shippingDetails.address.country || "US",
+        // UTM tracking for marketing attribution
+        utmSource,
+        utmMedium,
+        utmCampaign,
+        utmTerm,
+        utmContent,
+        landingPage,
+        referrer,
       ];
       
       const orderResult = await executeQuery(connection, orderQuery, orderParams);

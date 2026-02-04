@@ -170,6 +170,14 @@ export const orders = mysqlTable("orders", {
   // Notes
   customerNotes: text("customerNotes"),
   adminNotes: text("adminNotes"),
+  // UTM tracking for marketing attribution
+  utmSource: varchar("utmSource", { length: 255 }),
+  utmMedium: varchar("utmMedium", { length: 255 }),
+  utmCampaign: varchar("utmCampaign", { length: 255 }),
+  utmTerm: varchar("utmTerm", { length: 255 }),
+  utmContent: varchar("utmContent", { length: 255 }),
+  landingPage: varchar("landingPage", { length: 500 }),
+  referrer: varchar("referrer", { length: 500 }),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
   paidAt: timestamp("paidAt"),

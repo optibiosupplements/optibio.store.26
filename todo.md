@@ -3149,3 +3149,22 @@ npm run run-audit -- --input ./sample-input.json
 - [x] Implement Meta Pixel (ViewContent, AddToCart, InitiateCheckout, Purchase)
 - [ ] Add UTM parameter capture
 
+
+
+## UTM & GTM Implementation (Feb 4, 2026)
+
+### Audit Findings
+- No existing UTM capture implementation found
+- GA4 already configured with gtag (G-BMT4HP6FX1)
+- Meta Pixel placeholder exists (needs real ID)
+- No GTM container currently installed
+- Orders table does NOT have UTM fields
+
+### Tasks
+- [x] Add UTM fields to orders table (utmSource, utmMedium, utmCampaign, utmTerm, utmContent, landingPage, referrer)
+- [x] Create UTM capture utility to read and store UTM params from URL
+- [x] Store UTM params in sessionStorage on landing
+- [x] Pass UTM params to checkout and save on order creation
+- [x] Set up Google Tag Manager container (GTM-XXXXXXX placeholder - replace with actual ID)
+- [x] GTM and existing gtag/fbq coexist (can migrate later via GTM interface)
+

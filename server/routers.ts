@@ -415,6 +415,14 @@ export const appRouter = router({
         discountCode: z.string().optional(),
         successUrl: z.string().optional(),
         cancelUrl: z.string().optional(),
+        // UTM tracking for marketing attribution
+        utmSource: z.string().optional(),
+        utmMedium: z.string().optional(),
+        utmCampaign: z.string().optional(),
+        utmTerm: z.string().optional(),
+        utmContent: z.string().optional(),
+        landingPage: z.string().optional(),
+        referrer: z.string().optional(),
       }))
       .mutation(async ({ ctx, input }) => {
         const origin = ctx.req.headers.origin || "http://localhost:3000";
@@ -483,6 +491,14 @@ export const appRouter = router({
             customer_name: ctx.user.name || "",
             credits_applied: input.creditsToApply?.toString() || "0",
             discount_code: input.discountCode || "",
+            // UTM tracking for marketing attribution
+            utm_source: input.utmSource || "",
+            utm_medium: input.utmMedium || "",
+            utm_campaign: input.utmCampaign || "",
+            utm_term: input.utmTerm || "",
+            utm_content: input.utmContent || "",
+            landing_page: input.landingPage || "",
+            referrer: input.referrer || "",
           },
           shipping_address_collection: {
             allowed_countries: ["US"],
