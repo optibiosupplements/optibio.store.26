@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO discountCodes (code, description, discountType, discountValue, minPurchaseInCents, maxUsesTotal, maxUsesPerCustomer, usedCount, isActive, expiresAt) VALUES ('MANUS100OFFUJx', 'Manus 99.99% test discount', 'percentage', 9999, 0, NULL, 100, 0, 1, '2027-12-31 23:59:59');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 26YcRyEmMHMZfUu.adf0f9e7dfe8 --database HZ2NtaFJFkAENvPvciWDsB --execute INSERT INTO discountCodes (code, description, discountType, discountValue, minPurchaseInCents, maxUsesTotal, maxUsesPerCustomer, usedCount, isActive, expiresAt) VALUES ('MANUS100OFFUJx', 'Manus 99.99% test discount', 'percentage', 9999, 0, NULL, 100, 0, 1, '2027-12-31 23:59:59');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 89
+}

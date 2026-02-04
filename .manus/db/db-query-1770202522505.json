@@ -1,0 +1,32 @@
+{
+  "query": "SHOW CREATE TABLE discountCodes;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 26YcRyEmMHMZfUu.adf0f9e7dfe8 --database HZ2NtaFJFkAENvPvciWDsB --execute SHOW CREATE TABLE discountCodes;",
+  "rows": [
+    {
+      "Table": "discountCodes",
+      "Create Table": "CREATE TABLE `discountCodes` ("
+    }
+  ],
+  "messages": [
+    "  `id` int(11) NOT NULL AUTO_INCREMENT,",
+    "  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,",
+    "  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,",
+    "  `discountType` enum('percentage','fixed') COLLATE utf8mb4_unicode_ci NOT NULL,",
+    "  `discountValue` int(11) NOT NULL,",
+    "  `minPurchaseInCents` int(11) DEFAULT '0',",
+    "  `maxUsesTotal` int(11) DEFAULT NULL,",
+    "  `maxUsesPerCustomer` int(11) DEFAULT '1',",
+    "  `usedCount` int(11) DEFAULT '0',",
+    "  `isActive` tinyint(1) NOT NULL DEFAULT '1',",
+    "  `startsAt` timestamp NULL DEFAULT NULL,",
+    "  `expiresAt` timestamp NULL DEFAULT NULL,",
+    "  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,",
+    "  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,",
+    "  PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */,",
+    "  UNIQUE KEY `discountCodes_code_unique` (`code`)",
+    ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=30001"
+  ],
+  "stdout": "Table\tCreate Table\ndiscountCodes\tCREATE TABLE `discountCodes` (\n  `id` int(11) NOT NULL AUTO_INCREMENT,\n  `code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,\n  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,\n  `discountType` enum('percentage','fixed') COLLATE utf8mb4_unicode_ci NOT NULL,\n  `discountValue` int(11) NOT NULL,\n  `minPurchaseInCents` int(11) DEFAULT '0',\n  `maxUsesTotal` int(11) DEFAULT NULL,\n  `maxUsesPerCustomer` int(11) DEFAULT '1',\n  `usedCount` int(11) DEFAULT '0',\n  `isActive` tinyint(1) NOT NULL DEFAULT '1',\n  `startsAt` timestamp NULL DEFAULT NULL,\n  `expiresAt` timestamp NULL DEFAULT NULL,\n  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\n  PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */,\n  UNIQUE KEY `discountCodes_code_unique` (`code`)\n) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=30001\n",
+  "stderr": "",
+  "execution_time_ms": 53
+}

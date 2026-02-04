@@ -355,6 +355,7 @@ export const appRouter = router({
           priceInCents: z.number(),
         })),
         creditsToApply: z.number().optional().default(0),
+        discountCode: z.string().optional(),
         successUrl: z.string().optional(),
         cancelUrl: z.string().optional(),
       }))
@@ -378,7 +379,7 @@ export const appRouter = router({
         }));
 
         // Add referral credits as discount if provided
-        const discounts = [];
+        const discounts: Array<{ coupon?: string; promotion_code?: string }> = [];
         if (input.creditsToApply && input.creditsToApply > 0) {
           // Create a one-time coupon for the credit amount
           const coupon = await stripe.coupons.create({
@@ -388,6 +389,23 @@ export const appRouter = router({
             name: "Referral Credits",
           });
           discounts.push({ coupon: coupon.id });
+        }
+
+        // If a discount code was applied in cart, create/find Stripe coupon
+        if (input.discountCode) {
+          // Look up the discount code in our database
+          const discountCodeData = await db.getDiscountCode(input.discountCode);
+          if (discountCodeData && discountCodeData.isActive) {
+            // Create a Stripe coupon based on our discount code
+            const stripeCoupon = await stripe.coupons.create({
+              ...(discountCodeData.discountType === 'percentage' 
+                ? { percent_off: discountCodeData.discountValue }
+                : { amount_off: discountCodeData.discountValue, currency: 'usd' }),
+              duration: 'once',
+              name: `Discount: ${input.discountCode}`,
+            });
+            discounts.push({ coupon: stripeCoupon.id });
+          }
         }
 
         // Create checkout session

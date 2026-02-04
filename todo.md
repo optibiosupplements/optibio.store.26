@@ -2916,3 +2916,20 @@ npm run run-audit -- --input ./sample-input.json
 - [x] Fixed null check issues for empty database responses
 - [x] All tests passing
 
+
+
+## 🔧 IN PROGRESS: Product Inventory & Live Stripe (Feb 4, 2026)
+
+### Product Inventory Setup
+- [ ] Check current products in database
+- [ ] Add/update Ashwagandha KSM-66 product with 5,000 bottles stock
+- [ ] Verify product variants and pricing
+
+### Live Stripe Configuration
+- [ ] Guide user to obtain live Stripe API keys from dashboard.stripe.com
+- [ ] Configure STRIPE_SECRET_KEY (live)
+- [ ] Configure VITE_STRIPE_PUBLISHABLE_KEY (live)
+- [ ] Configure STRIPE_WEBHOOK_SECRET for production
+- [ ] Verify webhook endpoint is registered in Stripe dashboard
+- [ ] Test live payment flow
+

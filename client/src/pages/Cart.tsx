@@ -368,7 +368,11 @@ export default function Cart() {
                     size="lg"
                     onClick={() => {
                       trackCheckoutStarted(total, cartItems.length);
-                      setLocation("/checkout");
+                      // Pass discount code to checkout via URL params
+                      const checkoutUrl = appliedDiscount 
+                        ? `/checkout?discount=${encodeURIComponent(appliedDiscount.code)}`
+                        : "/checkout";
+                      setLocation(checkoutUrl);
                     }}
                     className="w-full bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy)] hover:from-[var(--optibio-navy-dark)] hover:to-[var(--optibio-navy-dark)] shadow-lg hover:shadow-xl transition-all duration-300 text-lg h-14"
                   >

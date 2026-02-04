@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useLocation } from "wouter";
+import { useState, useEffect } from "react";
+import { useLocation, useSearch } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -40,9 +40,20 @@ const US_STATES = [
 
 export default function Checkout() {
   const [, setLocation] = useLocation();
+  const searchString = useSearch();
   const [step, setStep] = useState(1);
   const [sameAsShipping, setSameAsShipping] = useState(true);
   const [useReferralCredits, setUseReferralCredits] = useState(false);
+  const [discountCode, setDiscountCode] = useState<string | null>(null);
+
+  // Read discount code from URL params
+  useEffect(() => {
+    const params = new URLSearchParams(searchString);
+    const discount = params.get('discount');
+    if (discount) {
+      setDiscountCode(discount);
+    }
+  }, [searchString]);
   const [subscriptionData, setSubscriptionData] = useState<{
     clientSecret: string;
     productName: string;
@@ -211,6 +222,7 @@ export default function Checkout() {
       createCheckoutMutation.mutate({
         items: orderItems,
         creditsToApply: creditsToApply,
+        discountCode: discountCode || undefined,
       });
     }
   };
