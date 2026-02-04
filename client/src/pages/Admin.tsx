@@ -42,6 +42,7 @@ import { formatPrice } from "@/const";
 // Admin sidebar menu items - hidden from public, accessed via direct URL only
 const adminMenuItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/admin" },
+  { icon: Package, label: "Shipping", path: "/admin/shipping" },
   { icon: BarChart3, label: "Analytics", path: "/admin/analytics" },
   { icon: DollarSign, label: "Revenue", path: "/admin/revenue" },
   { icon: Activity, label: "Traffic", path: "/admin/traffic" },

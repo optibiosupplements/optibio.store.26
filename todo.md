@@ -2740,3 +2740,35 @@ npm run run-audit -- --input ./sample-input.json
 - [ ] Create admin UI for shipping management
 - [ ] Test end-to-end order fulfillment flow
 - [ ] Configure production EasyPost API key when ready
+
+
+## 📋 REMAINING OPERATIONAL TASKS - Week 1-2 Post-Launch (Feb 4, 2026)
+
+### Task: Admin Shipping Management UI
+- [x] Create shipping management page in admin dashboard
+- [x] Display pending orders ready for shipment
+- [x] Add rate shopping interface (compare carriers)
+- [x] Add label generation button
+- [x] Add packing slip print button
+- [ ] Show tracking information for shipped orders (Shipped tab - coming soon)
+
+### Task: Abandoned Cart Email Flow Enhancement
+- [x] Verify 3-email sequence is properly configured (ALREADY IMPLEMENTED)
+- [x] Test email delivery timing (1hr, 24hr, 48hr) - 13/14 tests passing
+- [x] Add recovery tracking metrics (ALREADY IMPLEMENTED)
+- [x] Test recovery link functionality (ALREADY IMPLEMENTED)
+- [ ] Set up cron job for automated email sending
+
+### Task: Post-Purchase Email Sequence Enhancement
+- [x] Verify order confirmation email template (ALREADY IMPLEMENTED)
+- [x] Verify shipping confirmation email (ALREADY IMPLEMENTED)
+- [x] Add delivery confirmation email trigger (ALREADY IMPLEMENTED)
+- [x] Add review request email (Day 21 - ALREADY IMPLEMENTED)
+- [x] Add reorder reminder email (Day 60 - ALREADY IMPLEMENTED)
+- [x] Add subscribe & save email (Day 90 - ALREADY IMPLEMENTED)
+- [ ] Set up cron job for automated email sending
+
+### Completed Shipping Configuration:
+- [x] Updated warehouse address to: 131 Heartland Blvd, Edgewood, NY 11717
+- [x] EasyPost Test API key configured
+- [x] All 6 shipping tests passing

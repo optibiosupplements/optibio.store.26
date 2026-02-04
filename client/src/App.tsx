@@ -32,6 +32,7 @@ import CartRecover from "./pages/CartRecover";
 import Analytics from "./pages/Analytics";
 import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import Admin from "./pages/Admin";
+import AdminShipping from "./pages/AdminShipping";
 
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
@@ -46,6 +47,7 @@ function Router() {
       <Route path="/admin/analytics" component={AdminAnalytics} />
       <Route path="/admin/revenue" component={Analytics} />
       <Route path="/admin/traffic" component={AnalyticsDashboard} />
+      <Route path="/admin/shipping" component={AdminShipping} />
       
       {/* Public routes with header/footer */}
       <Route>
