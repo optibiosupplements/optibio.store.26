@@ -37,6 +37,8 @@ import AdminProducts from "./pages/AdminProducts";
 import AdminCustomers from "./pages/AdminCustomers";
 import AdminContent from "./pages/AdminContent";
 import AdminAudit from "./pages/AdminAudit";
+import AdminOrders from "./pages/AdminOrders";
+import AdminDiscounts from "./pages/AdminDiscounts";
 
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
@@ -56,6 +58,8 @@ function Router() {
       <Route path="/admin/revenue" component={Analytics} />
       <Route path="/admin/traffic" component={AnalyticsDashboard} />
       <Route path="/admin/audit" component={AdminAudit} />
+      <Route path="/admin/orders" component={AdminOrders} />
+      <Route path="/admin/discounts" component={AdminDiscounts} />
       
       {/* Public routes with header/footer */}
       <Route>

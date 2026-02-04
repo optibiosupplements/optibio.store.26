@@ -38,6 +38,8 @@ import {
   FileText,
   History,
   Boxes,
+  ClipboardList,
+  Tag,
 } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { formatPrice } from "@/const";
@@ -45,7 +47,9 @@ import { formatPrice } from "@/const";
 // Admin sidebar menu items - hidden from public, accessed via direct URL only
 const adminMenuItems = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/admin" },
+  { icon: ClipboardList, label: "Orders", path: "/admin/orders" },
   { icon: Boxes, label: "Products", path: "/admin/products" },
+  { icon: Tag, label: "Discounts", path: "/admin/discounts" },
   { icon: Package, label: "Shipping", path: "/admin/shipping" },
   { icon: Users, label: "Customers", path: "/admin/customers" },
   { icon: FileText, label: "Content", path: "/admin/content" },

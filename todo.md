@@ -2835,3 +2835,38 @@ npm run run-audit -- --input ./sample-input.json
 - staff - Limited admin access
 - user - Regular customer (default)
 
+
+
+## 🔧 ADMIN MVP - Orders & Discounts (Feb 4, 2026)
+
+### Admin Orders Management Page
+- [x] Create admin-orders.ts router with fulfillment workflow
+- [x] List orders with pagination, search, status filter
+- [x] Get order details with items
+- [x] Update order status (pending → processing → shipped → delivered)
+- [x] Cancel order functionality
+- [x] Process refund functionality
+- [x] Add admin notes to orders
+- [x] Create AdminOrders.tsx UI page
+- [x] Order list table with status badges
+- [x] Order detail modal/page
+- [x] Fulfillment actions (mark shipped, add tracking)
+- [x] Refund dialog with reason
+
+### Admin Discounts Management Page
+- [x] Create admin-discounts.ts router
+- [x] List discount codes with pagination
+- [x] Create new discount code (percentage/fixed, limits, dates)
+- [x] Update discount code
+- [x] Deactivate discount code
+- [x] View discount usage statistics
+- [x] Create AdminDiscounts.tsx UI page
+- [x] Discount list table
+- [x] Create/Edit discount dialog
+- [x] Usage analytics display
+
+### Dashboard Enhancements
+- [ ] Wire adminDashboard.getMetrics to Admin.tsx
+- [x] Register AdminOrders route in App.tsx
+- [x] Register AdminDiscounts route in App.tsx
+- [x] Add Orders and Discounts to admin sidebar navigation
