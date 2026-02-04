@@ -88,6 +88,12 @@ export default function Checkout() {
 
   const { data: cartItems, isLoading } = trpc.cart.get.useQuery();
   const { data: referralStats } = trpc.referral.getMyReferralStats.useQuery();
+  
+  // Validate discount code if present
+  const { data: discountData } = trpc.cart.validateDiscount.useQuery(
+    { code: discountCode || "" },
+    { enabled: !!discountCode }
+  );
   const utils = trpc.useUtils();
 
   const createOrderMutation = trpc.orders.create.useMutation({
@@ -106,9 +112,20 @@ export default function Checkout() {
     return sum + (item.priceInCents * item.quantity);
   }, 0) || 0;
 
-  const shipping = subtotal >= SHIPPING_THRESHOLD_CENTS ? 0 : STANDARD_SHIPPING_CENTS;
-  const tax = Math.round(subtotal * TAX_RATE);
-  const subtotalWithShippingAndTax = subtotal + shipping + tax;
+  // Calculate discount amount
+  let discountAmount = 0;
+  if (discountData?.valid && discountData.discount) {
+    if (discountData.discount.type === 'percentage') {
+      discountAmount = Math.round(subtotal * (discountData.discount.value / 100));
+    } else {
+      discountAmount = discountData.discount.value;
+    }
+  }
+  const subtotalAfterDiscount = subtotal - discountAmount;
+
+  const shipping = subtotalAfterDiscount >= SHIPPING_THRESHOLD_CENTS ? 0 : STANDARD_SHIPPING_CENTS;
+  const tax = Math.round(subtotalAfterDiscount * TAX_RATE);
+  const subtotalWithShippingAndTax = subtotalAfterDiscount + shipping + tax;
   
   // Apply referral credits
   const availableCredits = Number(referralStats?.availableCredits || 0);
@@ -617,6 +634,13 @@ export default function Checkout() {
                       <span>Subtotal</span>
                       <span className="font-semibold">{formatPrice(subtotal)}</span>
                     </div>
+                    {/* Discount Applied */}
+                    {discountAmount > 0 && discountData?.discount && (
+                      <div className="flex justify-between text-green-600 font-semibold">
+                        <span>Discount ({discountData.discount.code})</span>
+                        <span>-{formatPrice(discountAmount)}</span>
+                      </div>
+                    )}
                     <div className="flex justify-between text-slate-700 dark:text-slate-200">
                       <span>Shipping</span>
                       <span className="font-semibold">

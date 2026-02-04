@@ -122,6 +122,40 @@ export const appRouter = router({
       await db.clearCart(ctx.user.id);
       return { success: true };
     }),
+    
+    validateDiscount: publicProcedure
+      .input(z.object({ code: z.string() }))
+      .query(async ({ input }) => {
+        if (!input.code) {
+          return { valid: false, message: "No code provided" };
+        }
+        
+        const discount = await db.getDiscountCode(input.code);
+        if (!discount) {
+          return { valid: false, message: "Invalid discount code" };
+        }
+        
+        // Check if code has expired
+        if (discount.expiresAt && new Date(discount.expiresAt) < new Date()) {
+          return { valid: false, message: "Discount code has expired" };
+        }
+        
+        // Check usage limit (use maxUsesTotal from schema)
+        if (discount.maxUsesTotal && discount.usedCount >= discount.maxUsesTotal) {
+          return { valid: false, message: "Discount code usage limit reached" };
+        }
+        
+        return {
+          valid: true,
+          discount: {
+            id: discount.id,
+            code: discount.code,
+            type: discount.discountType, // Schema uses discountType
+            value: discount.discountValue, // Schema uses discountValue
+            minPurchaseInCents: discount.minPurchaseInCents,
+          },
+        };
+      }),
   }),
 
   // Order routes
