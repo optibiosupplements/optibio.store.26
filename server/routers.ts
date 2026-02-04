@@ -443,10 +443,13 @@ export const appRouter = router({
         }
 
         // Create checkout session
+        // Note: Stripe doesn't allow both allow_promotion_codes and discounts at the same time
         const session = await stripe.checkout.sessions.create({
           mode: "payment",
           line_items: lineItems,
-          ...(discounts.length > 0 && { discounts }),
+          ...(discounts.length > 0 
+            ? { discounts } 
+            : { allow_promotion_codes: true }),
           success_url: successUrl,
           cancel_url: cancelUrl,
           customer_email: ctx.user.email || undefined,
@@ -456,8 +459,8 @@ export const appRouter = router({
             customer_email: ctx.user.email || "",
             customer_name: ctx.user.name || "",
             credits_applied: input.creditsToApply?.toString() || "0",
+            discount_code: input.discountCode || "",
           },
-          allow_promotion_codes: true,
           shipping_address_collection: {
             allowed_countries: ["US"],
           },
