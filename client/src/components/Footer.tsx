@@ -171,6 +171,9 @@ export default function Footer() {
               <Link href="/accessibility" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 Accessibility
               </Link>
+              <Link href="/do-not-sell" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Do Not Sell My Info
+              </Link>
             </div>
           </div>
           <p className="text-xs text-muted-foreground mt-4 text-center md:text-left">

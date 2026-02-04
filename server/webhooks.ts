@@ -7,6 +7,9 @@ import { sendOrderConfirmationEmail, sendSubscriptionWelcomeEmail } from "./emai
 import { getSubscriptionWelcomeEmail } from "./email-templates";
 import { notifyOwner } from "./_core/notification";
 import { withTransaction, executeQuery } from "./db-transaction";
+import { getDb } from "./db";
+import { processedWebhookEvents } from "../drizzle/schema";
+import { eq } from "drizzle-orm";
 
 /**
  * Stripe webhook handler for processing payment events
@@ -34,7 +37,33 @@ export async function handleStripeWebhook(req: Request, res: Response) {
     return res.status(400).json({ error: `Webhook Error: ${err.message}` });
   }
 
-  console.log("[Stripe Webhook] Received event:", event.type);
+  console.log("[Stripe Webhook] Received event:", event.type, "ID:", event.id);
+
+  // Handle test events for webhook verification
+  if (event.id.startsWith('evt_test_')) {
+    console.log("[Webhook] Test event detected, returning verification response");
+    return res.json({ verified: true });
+  }
+
+  // Idempotency check - prevent duplicate processing
+  try {
+    const dbInstance = await getDb();
+    if (dbInstance) {
+      const existingEvent = await dbInstance
+        .select()
+        .from(processedWebhookEvents)
+        .where(eq(processedWebhookEvents.eventId, event.id))
+        .limit(1);
+      
+      if (existingEvent.length > 0) {
+        console.log("[Stripe Webhook] Event already processed, skipping:", event.id);
+        return res.status(200).json({ verified: true, received: true, duplicate: true });
+      }
+    }
+  } catch (idempotencyError) {
+    console.error("[Stripe Webhook] Idempotency check failed:", idempotencyError);
+    // Continue processing - better to risk duplicate than miss event
+  }
 
   // Handle the event
   try {
@@ -85,6 +114,21 @@ export async function handleStripeWebhook(req: Request, res: Response) {
 
       default:
         console.log("[Stripe Webhook] Unhandled event type:", event.type);
+    }
+
+    // Record successful processing for idempotency
+    try {
+      const dbInstance = await getDb();
+      if (dbInstance) {
+        await dbInstance.insert(processedWebhookEvents).values({
+          eventId: event.id,
+          eventType: event.type,
+          status: "success",
+          metadata: JSON.stringify({ processedAt: new Date().toISOString() }),
+        });
+      }
+    } catch (recordError) {
+      console.error("[Stripe Webhook] Failed to record processed event:", recordError);
     }
 
     // Always return 200 with valid JSON, even if processing fails
@@ -224,6 +268,52 @@ async function handleCheckoutSessionCompleted(session: Stripe.Checkout.Session) 
           item.totalInCents,
         ]);
       }
+      
+      // Deduct inventory for each item purchased
+      for (const item of orderItemsData) {
+        // Deduct from product stock (with row locking to prevent overselling)
+        const deductStockQuery = `
+          UPDATE products 
+          SET stockQuantity = GREATEST(stockQuantity - ?, 0),
+              updatedAt = NOW()
+          WHERE id = ?
+        `;
+        await executeQuery(connection, deductStockQuery, [item.quantity, item.productId]);
+        
+        // If variant exists, also deduct from variant stock
+        if (item.variantId) {
+          const deductVariantStockQuery = `
+            UPDATE productVariants 
+            SET stockQuantity = GREATEST(stockQuantity - ?, 0),
+                updatedAt = NOW()
+            WHERE id = ?
+          `;
+          await executeQuery(connection, deductVariantStockQuery, [item.quantity, item.variantId]);
+        }
+        
+        // Log inventory adjustment for audit trail
+        const logAdjustmentQuery = `
+          INSERT INTO inventoryAdjustments (
+            productId, variantId, adjustmentType, quantity, previousQuantity,
+            newQuantity, reason, orderId, performedBy, createdAt
+          ) 
+          SELECT 
+            ?, ?, 'sale', ?, 
+            stockQuantity + ?, stockQuantity,
+            'Order checkout', ?, 'system', NOW()
+          FROM products WHERE id = ?
+        `;
+        await executeQuery(connection, logAdjustmentQuery, [
+          item.productId,
+          item.variantId,
+          -item.quantity,
+          item.quantity,
+          orderId,
+          item.productId,
+        ]);
+      }
+      
+      console.log("[Stripe Webhook] Inventory deducted for order:", orderNumber);
       
       // Clear user's cart
       const clearCartQuery = `DELETE FROM cart_items WHERE userId = ?`;

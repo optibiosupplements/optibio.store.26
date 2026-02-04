@@ -7,7 +7,7 @@ import { CheckCircle2, Package, Truck, Mail, ArrowRight, Home } from "lucide-rea
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { toast } from "sonner";
-import { trackPurchaseCompleted } from "@/lib/analytics";
+import { trackPurchaseCompleted, trackGA4Purchase } from "@/lib/analytics";
 
 export default function OrderSuccess() {
   const [, setLocation] = useLocation();
@@ -20,16 +20,51 @@ export default function OrderSuccess() {
   // Clear cart after successful payment
   const clearCartMutation = trpc.cart.clear.useMutation();
 
+  // Fetch order details from session for accurate tracking
+  const { data: orderDetails } = trpc.orders.getBySessionId.useQuery(
+    { sessionId: sessionId || '' },
+    { enabled: !!sessionId }
+  );
+
   useEffect(() => {
     if (sessionId && user) {
       clearCartMutation.mutate();
       toast.success("Order placed successfully! Check your email for confirmation.", {
         duration: 5000,
       });
-      // Track purchase completion (use placeholder values - ideally fetch from order data)
-      trackPurchaseCompleted(Math.random() * 10000, 0, 1);
     }
   }, [sessionId, user]);
+
+  // Track purchase when order details are available
+  useEffect(() => {
+    if (orderDetails && sessionId) {
+      // Track to backend analytics
+      trackPurchaseCompleted(
+        orderDetails.id,
+        orderDetails.totalInCents,
+        orderDetails.items?.length || 1
+      );
+      // GA4 + Meta Pixel purchase event
+      trackGA4Purchase({
+        orderId: orderDetails.orderNumber || String(orderDetails.id),
+        items: orderDetails.items?.map((item: any) => ({
+          id: item.productId,
+          name: item.productName,
+          priceInCents: item.priceInCents,
+          quantity: item.quantity,
+          variant: item.variantName,
+        })) || [{
+          id: 1,
+          name: 'OptiBio Ashwagandha KSM-66',
+          priceInCents: orderDetails.subtotalInCents,
+          quantity: 1,
+        }],
+        totalInCents: orderDetails.totalInCents,
+        shippingInCents: orderDetails.shippingInCents,
+        taxInCents: orderDetails.taxInCents,
+      });
+    }
+  }, [orderDetails, sessionId]);
 
   if (authLoading) {
     return (

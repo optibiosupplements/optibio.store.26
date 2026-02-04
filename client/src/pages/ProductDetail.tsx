@@ -36,7 +36,7 @@ import StickyAddToCart from "@/components/StickyAddToCart";
 import UrgencyIndicators from "@/components/UrgencyIndicators";
 import StockIndicator from "@/components/StockIndicator";
 import { useTheme } from "@/contexts/ThemeContext";
-import { trackProductViewed, trackAddToCart } from "@/lib/analytics";
+import { trackProductViewed, trackAddToCart, trackGA4ViewItem, trackGA4AddToCart } from "@/lib/analytics";
 
 export default function ProductDetail() {
   const [, params] = useRoute("/product/:slug");
@@ -57,6 +57,13 @@ export default function ProductDetail() {
       console.log('Variants Length:', productData.variants?.length);
       const price = productData.variants[0]?.priceInCents || 0;
       trackProductViewed(productData.id, productData.name, price);
+      // GA4 + Meta Pixel view_item event
+      trackGA4ViewItem({
+        id: productData.id,
+        name: productData.name,
+        priceInCents: price,
+        category: 'Supplements',
+      });
     }
   }, [productData]);
   
@@ -71,7 +78,17 @@ export default function ProductDetail() {
       toast.success("Added to cart!");
       if (productData && selectedVariant) {
         const variant = productData.variants.find(v => v.id === selectedVariant);
-        trackAddToCart(productData.id, productData.name, selectedVariant, quantity, variant?.priceInCents || 0);
+        const priceInCents = variant?.priceInCents || 0;
+        trackAddToCart(productData.id, productData.name, selectedVariant, quantity, priceInCents);
+        // GA4 + Meta Pixel add_to_cart event
+        trackGA4AddToCart({
+          id: productData.id,
+          name: productData.name,
+          priceInCents,
+          quantity,
+          variant: variant?.name,
+          category: 'Supplements',
+        });
       }
       if (typeof window !== 'undefined' && (window as any).gtag) {
         (window as any).gtag('event', 'click_cta_pdp_addtocart', {

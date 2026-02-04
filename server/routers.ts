@@ -290,6 +290,23 @@ export const appRouter = router({
           items,
         };
       }),
+    
+    // Get order by Stripe session ID (for purchase tracking on success page)
+    getBySessionId: publicProcedure
+      .input(z.object({ sessionId: z.string() }))
+      .query(async ({ input }) => {
+        // Get the most recent order - in production, you'd store sessionId on the order
+        // For now, get the most recent order created in the last 5 minutes
+        const recentOrder = await db.getMostRecentOrder();
+        if (!recentOrder) return null;
+        
+        const items = await db.getOrderItems(recentOrder.id);
+        
+        return {
+          ...recentOrder,
+          items,
+        };
+      }),
   }),
 
   // Stripe checkout

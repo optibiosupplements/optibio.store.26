@@ -3035,3 +3035,117 @@ npm run run-audit -- --input ./sample-input.json
 
 - [x] Add H1 heading to /product/:slug page
 
+
+
+## Phase 2 Implementation Plan V3 (Feb 4, 2026)
+
+### TIER 1: FOUNDATION (Week 1-2)
+
+#### Agent 1: Systems Architect
+**Task 1.1: Inventory & Cart System**
+- [ ] 1.1.1 Audit current inventory locking mechanism in database
+- [ ] 1.1.2 Implement database-level row locking for checkout (CRITICAL)
+- [ ] 1.1.3 Add inventory reservation on cart add (15-min hold)
+- [ ] 1.1.4 Implement cart persistence across sessions/devices
+- [ ] 1.1.5 Add pre-order inventory pool separation
+- [ ] 1.1.6 Create inventory sync reconciliation job
+
+**Task 1.2: Webhook & API Security**
+- [ ] 1.2.1 Audit Stripe webhook signature verification (CRITICAL)
+- [ ] 1.2.2 Implement idempotency keys for all webhooks (CRITICAL)
+- [ ] 1.2.3 Add webhook retry logic with exponential backoff
+- [ ] 1.2.4 Create webhook failure notification system
+- [ ] 1.2.5 Document all API contracts and endpoints
+
+**Task 1.3: Performance & Reliability**
+- [ ] 1.3.1 Run Core Web Vitals audit (LCP, FID, CLS)
+- [ ] 1.3.2 Optimize database queries with proper indexing
+- [ ] 1.3.3 Implement lazy loading for images and components
+- [ ] 1.3.4 Add error boundaries for graceful degradation
+- [ ] 1.3.5 Configure load testing for 10x traffic
+- [ ] 1.3.6 Implement basic failover handling
+
+#### Agent 2: Compliance Guardian
+**Task 2.1: FDA/FTC Compliance Audit**
+- [ ] 2.1.1 Audit homepage for disease claims (CRITICAL)
+- [ ] 2.1.2 Audit product pages for prohibited language (CRITICAL)
+- [ ] 2.1.3 Audit email templates for compliance (CRITICAL)
+- [ ] 2.1.4 Review all testimonials for "results may vary"
+- [ ] 2.1.5 Verify FDA disclaimer placement on all pages (CRITICAL)
+- [ ] 2.1.6 Create prohibited language reference guide
+- [ ] 2.1.7 Audit planned Google/Meta ad copy (CRITICAL)
+
+**Task 2.2: Legal Documentation**
+- [ ] 2.2.1 Review Terms of Service for arbitration clause (CRITICAL)
+- [ ] 2.2.2 Verify Privacy Policy GDPR compliance (CRITICAL)
+- [ ] 2.2.3 Verify Privacy Policy CCPA compliance (CRITICAL)
+- [ ] 2.2.4 Add "Do Not Sell My Info" link (CCPA) (CRITICAL)
+- [ ] 2.2.5 Implement cookie consent banner (CRITICAL)
+- [ ] 2.2.6 Create data retention policy documentation
+
+**Task 2.3: Product Documentation**
+- [ ] 2.3.1 Verify COA matches current inventory batch
+- [ ] 2.3.2 Verify GMP certification is current
+- [ ] 2.3.3 Review product liability insurance coverage
+- [ ] 2.3.4 Create compliance documentation repository
+- [ ] 2.3.5 Document Supplement Facts panel accuracy
+
+#### Agent 3: Security Engineer
+**Task 3.1: PCI DSS Compliance**
+- [ ] 3.1.1 Verify card data never touches our servers (CRITICAL)
+- [ ] 3.1.2 Audit Stripe Elements implementation (CRITICAL)
+- [ ] 3.1.3 Verify HTTPS on all pages (TLS 1.3) (CRITICAL)
+- [ ] 3.1.4 Implement HSTS headers (CRITICAL)
+- [ ] 3.1.5 Document PCI scope minimization
+
+**Task 3.2: Authentication & Authorization**
+- [ ] 3.2.1 Audit session management (secure cookies) (CRITICAL)
+- [ ] 3.2.2 Implement CSRF protection on all forms (CRITICAL)
+- [ ] 3.2.3 Configure admin role separation (CRITICAL)
+- [ ] 3.2.4 Enable MFA for admin accounts (CRITICAL)
+- [ ] 3.2.5 Implement admin audit logging
+- [ ] 3.2.6 Verify marketing cannot access financial settings (CRITICAL)
+
+**Task 3.3: Vulnerability Management**
+- [ ] 3.3.1 Run npm audit and fix vulnerabilities (CRITICAL)
+- [ ] 3.3.2 Implement input validation on all forms (CRITICAL)
+- [ ] 3.3.3 Add Content Security Policy headers
+- [ ] 3.3.4 Configure rate limiting on API endpoints
+- [ ] 3.3.5 Verify secrets management (no hardcoded creds) (CRITICAL)
+- [ ] 3.3.6 Test backup restoration procedures
+
+### TIER 1 QUALITY GATE CHECKLIST
+- [ ] QG1.1 Inventory locking prevents overselling (100 concurrent checkout test)
+- [ ] QG1.2 Cart persists across sessions
+- [ ] QG1.3 Webhooks are idempotent and signed
+- [ ] QG1.4 LCP < 2.5 seconds
+- [ ] QG1.5 Zero FDA/FTC compliance violations
+- [ ] QG1.6 FDA disclaimer on all health claim pages
+- [ ] QG1.7 Terms of Service with arbitration live
+- [ ] QG1.8 Privacy Policy GDPR/CCPA compliant
+- [ ] QG1.9 Cookie consent banner functional
+- [ ] QG1.10 "Do Not Sell My Info" link present
+- [ ] QG1.11 PCI scope minimized (SAQ-A eligible)
+- [ ] QG1.12 HTTPS everywhere with HSTS
+- [ ] QG1.13 Admin MFA enabled
+- [ ] QG1.14 Role separation verified
+- [ ] QG1.15 Zero critical vulnerabilities
+
+
+
+## Phase 2 Critical Implementation (Feb 4, 2026)
+
+### Compliance & Security
+- [x] Add CCPA "Do Not Sell My Info" link to footer
+- [x] Create Do Not Sell request page
+- [x] Fix npm vulnerabilities (reduced from 38 to 15 moderate - remaining are in mermaid/streamdown dev deps)
+
+### Revenue Protection
+- [x] Add webhook idempotency (prevent duplicate orders)
+- [x] Add inventory deduction at checkout
+
+### Analytics & Tracking
+- [x] Implement GA4 e-commerce events (view_item, add_to_cart, begin_checkout, purchase)
+- [x] Implement Meta Pixel (ViewContent, AddToCart, InitiateCheckout, Purchase)
+- [ ] Add UTM parameter capture
+

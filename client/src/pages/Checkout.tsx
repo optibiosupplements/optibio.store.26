@@ -30,6 +30,7 @@ import { Badge } from "@/components/ui/badge";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 import SubscriptionCheckout from "@/components/SubscriptionCheckout";
+import { trackCheckoutStarted, trackGA4BeginCheckout } from "@/lib/analytics";
 
 const US_STATES = [
   "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA",
@@ -157,6 +158,26 @@ export default function Checkout() {
   const availableCredits = Number(referralStats?.availableCredits || 0);
   const creditsToApply = useReferralCredits ? Math.min(availableCredits, subtotalWithShippingAndTax) : 0;
   const total = subtotalWithShippingAndTax - creditsToApply;
+
+  // Track begin_checkout when page loads with cart data
+  useEffect(() => {
+    if (cartItems && cartItems.length > 0) {
+      const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+      trackCheckoutStarted(subtotal, itemCount);
+      // GA4 + Meta Pixel begin_checkout event
+      trackGA4BeginCheckout({
+        items: cartItems.map(item => ({
+          id: item.productId,
+          name: item.productName || 'OptiBio Product',
+          priceInCents: item.priceInCents,
+          quantity: item.quantity,
+          variant: item.variantName || undefined,
+        })),
+        totalInCents: subtotal,
+        coupon: discountCode || undefined,
+      });
+    }
+  }, [cartItems?.length]); // Only run once when cart loads
 
   const handleShippingChange = (field: string, value: string) => {
     setShippingData(prev => ({ ...prev, [field]: value }));

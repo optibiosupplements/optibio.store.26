@@ -42,6 +42,7 @@ import AdminOrders from "./pages/AdminOrders";
 import AdminDiscounts from "./pages/AdminDiscounts";
 import AdminEmailScheduler from "./pages/AdminEmailScheduler";
 import AdminLoyalty from "./pages/AdminLoyalty";
+import DoNotSell from "./pages/DoNotSell";
 
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
@@ -96,6 +97,7 @@ function Router() {
                 <Route path="/blog/:slug" component={BlogPost} />
                 <Route path="/referral" component={Referral} />
                 <Route path="/rewards" component={Rewards} />
+                <Route path="/do-not-sell" component={DoNotSell} />
                 <Route path="/404" component={NotFound} />
                 {/* Final fallback route */}
                 <Route component={NotFound} />

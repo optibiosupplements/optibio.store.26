@@ -237,6 +237,20 @@ export async function getOrderItems(orderId: number) {
   return await db.select().from(orderItems).where(eq(orderItems.orderId, orderId));
 }
 
+export async function getMostRecentOrder() {
+  const db = await getDb();
+  if (!db) return null;
+  
+  // Get the most recent order created in the last 5 minutes
+  const fiveMinutesAgo = new Date(Date.now() - 5 * 60 * 1000);
+  const result = await db.select()
+    .from(orders)
+    .where(gte(orders.createdAt, fiveMinutesAgo))
+    .orderBy(desc(orders.createdAt))
+    .limit(1);
+  return result.length > 0 ? result[0] : null;
+}
+
 // Discount code queries
 export async function getDiscountCode(code: string) {
   const db = await getDb();

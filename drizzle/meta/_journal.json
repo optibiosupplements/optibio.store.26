@@ -127,6 +127,13 @@
       "when": 1770208183223,
       "tag": "0017_legal_ozymandias",
       "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "5",
+      "when": 1770217519989,
+      "tag": "0018_black_darkstar",
+      "breakpoints": true
     }
   ]
 }

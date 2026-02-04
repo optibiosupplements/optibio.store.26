@@ -659,6 +659,21 @@ export const loyaltyRewards = mysqlTable("loyaltyRewards", {
 export type LoyaltyReward = typeof loyaltyRewards.$inferSelect;
 export type InsertLoyaltyReward = typeof loyaltyRewards.$inferInsert;
 
+/**
+ * Processed Webhook Events - For idempotency to prevent duplicate processing
+ */
+export const processedWebhookEvents = mysqlTable("processedWebhookEvents", {
+  id: int("id").autoincrement().primaryKey(),
+  eventId: varchar("eventId", { length: 255 }).notNull().unique(), // Stripe event ID
+  eventType: varchar("eventType", { length: 100 }).notNull(),
+  processedAt: timestamp("processedAt").defaultNow().notNull(),
+  status: mysqlEnum("status", ["success", "failed", "skipped"]).default("success").notNull(),
+  metadata: text("metadata"), // JSON for any additional info
+});
+
+export type ProcessedWebhookEvent = typeof processedWebhookEvents.$inferSelect;
+export type InsertProcessedWebhookEvent = typeof processedWebhookEvents.$inferInsert;
+
 // Pre-Sale System Tables
 export * from "./presale-schema";
 
