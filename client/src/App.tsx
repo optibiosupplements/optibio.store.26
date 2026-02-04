@@ -33,6 +33,10 @@ import Analytics from "./pages/Analytics";
 import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 import Admin from "./pages/Admin";
 import AdminShipping from "./pages/AdminShipping";
+import AdminProducts from "./pages/AdminProducts";
+import AdminCustomers from "./pages/AdminCustomers";
+import AdminContent from "./pages/AdminContent";
+import AdminAudit from "./pages/AdminAudit";
 
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
@@ -44,10 +48,14 @@ function Router() {
     <Switch>
       {/* Admin routes - no header/footer for clean dashboard experience */}
       <Route path="/admin" component={Admin} />
+      <Route path="/admin/products" component={AdminProducts} />
+      <Route path="/admin/shipping" component={AdminShipping} />
+      <Route path="/admin/customers" component={AdminCustomers} />
+      <Route path="/admin/content" component={AdminContent} />
       <Route path="/admin/analytics" component={AdminAnalytics} />
       <Route path="/admin/revenue" component={Analytics} />
       <Route path="/admin/traffic" component={AnalyticsDashboard} />
-      <Route path="/admin/shipping" component={AdminShipping} />
+      <Route path="/admin/audit" component={AdminAudit} />
       
       {/* Public routes with header/footer */}
       <Route>

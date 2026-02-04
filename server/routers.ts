@@ -20,6 +20,10 @@ import { postPurchaseRouter } from "./routers/post-purchase";
 import { analyticsRouter } from "./routers/analytics";
 import { eventsRouter } from "./routers/events";
 import { shippingRouter } from "./routers/shipping";
+import { adminProductsRouter } from "./routers/admin-products";
+import { adminCustomersRouter } from "./routers/admin-customers";
+import { adminContentRouter } from "./routers/admin-content";
+import { adminAuditRouter } from "./routers/admin-audit";
 
 export const appRouter = router({
   system: systemRouter,
@@ -28,6 +32,10 @@ export const appRouter = router({
   revenueAnalytics: analyticsRouter,
   events: eventsRouter,
   shipping: shippingRouter,
+  adminProducts: adminProductsRouter,
+  adminCustomers: adminCustomersRouter,
+  adminContent: adminContentRouter,
+  adminAudit: adminAuditRouter,
   
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),

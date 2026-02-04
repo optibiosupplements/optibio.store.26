@@ -9,7 +9,7 @@ export const users = mysqlTable("users", {
   name: text("name"),
   email: varchar("email", { length: 320 }),
   loginMethod: varchar("loginMethod", { length: 64 }),
-  role: mysqlEnum("role", ["user", "admin"]).default("user").notNull(),
+  role: mysqlEnum("role", ["user", "staff", "admin", "owner"]).default("user").notNull(),
   // Founder tier tracking for lifetime discounts
   founderTier: mysqlEnum("founderTier", ["founders", "early_adopter", "pre_launch", "regular"]),
   lifetimeDiscountPercent: int("lifetimeDiscountPercent").default(0),
@@ -583,3 +583,6 @@ export type InsertTrafficSource = typeof trafficSources.$inferInsert;
 
 // Pre-Sale System Tables
 export * from "./presale-schema";
+
+// Admin System Tables (Audit Logs, Content, Inventory Adjustments)
+export * from "./admin-schema";
