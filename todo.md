@@ -207,7 +207,8 @@ Page is almost entirely Warm Ivory (#F7F4EF), making it look like a spa/candle s
 ### Short-Term (Next Week)
 - [ ] Test complete purchase flow with Stripe test card
 - [ ] Integrate professional email service (SendGrid/Mailgun)
-- [ ] Add Facebook Pixel ID and Google Analytics 4 Measurement ID
+- [x] Add Google Analytics 4 Measurement ID (G-BMT4HP6FX1) - COMPLETE
+- [ ] Add Facebook Pixel ID (pending Meta Business Portfolio setup)
 - [ ] Publish site and complete live test purchase
 - [ ] Monitor analytics dashboard metrics
 

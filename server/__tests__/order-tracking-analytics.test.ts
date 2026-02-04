@@ -56,7 +56,7 @@ describe("Order Tracking & Analytics", () => {
       billingCountry: "US",
     });
 
-    testOrderId = (orderResult as any).insertId;
+    testOrderId = orderResult.insertId;
   });
 
   describe("Post-Purchase Email Tracking", () => {
@@ -70,7 +70,7 @@ describe("Order Tracking & Analytics", () => {
       });
 
       expect(tracking).toBeDefined();
-      expect((tracking as any).insertId).toBeGreaterThan(0);
+      expect(tracking?.id).toBeGreaterThan(0);
     });
 
     it("should retrieve orders needing Day 7 email", async () => {
@@ -155,7 +155,7 @@ describe("Order Tracking & Analytics", () => {
         billingCountry: "US",
       });
 
-      const reorderId = (reorderResult as any).insertId;
+      const reorderId = reorderResult.insertId;
       await db.markCustomerReordered(trackingId, reorderId);
 
       // Verify the reorder was tracked
@@ -208,10 +208,11 @@ describe("Order Tracking & Analytics", () => {
           items: [{ name: "Test Product", quantity: 1, price: 49.99 }],
           total: 49.99,
         }),
+        totalValue: 4999, // Required field in cents
       });
 
       expect(cart).toBeDefined();
-      expect((cart as any).insertId).toBeGreaterThan(0);
+      expect(cart?.id).toBeGreaterThan(0);
     });
 
     it("should track cart recovery", async () => {
@@ -223,6 +224,7 @@ describe("Order Tracking & Analytics", () => {
           items: [{ name: "Test Product", quantity: 1, price: 49.99 }],
           total: 49.99,
         }),
+        totalValue: 4999,
       });
 
       if (!cart) throw new Error("Failed to create cart");
@@ -248,6 +250,7 @@ describe("Order Tracking & Analytics", () => {
           items: [{ name: "Test Product", quantity: 1, price: 49.99 }],
           total: 49.99,
         }),
+        totalValue: 4999,
       });
 
       if (!cart) throw new Error("Failed to create cart");
@@ -275,6 +278,7 @@ describe("Order Tracking & Analytics", () => {
           items: [{ name: "Test Product", quantity: 2, price: 49.99 }],
           total: 99.98,
         }),
+        totalValue: 9998,
       });
 
       if (!cart) throw new Error("Failed to create cart");
@@ -335,7 +339,7 @@ describe("Order Tracking & Analytics", () => {
         billingCountry: "US",
       });
 
-      const orderId = (orderResult as any).insertId;
+      const orderId = orderResult.insertId;
       if (!orderId) {
         console.log("Order result:", orderResult);
         throw new Error("Failed to get order ID");
@@ -379,6 +383,7 @@ describe("Order Tracking & Analytics", () => {
           items: [{ name: "Test Product", quantity: 1, price: 49.99 }],
           total: 49.99,
         }),
+        totalValue: 4999,
       });
 
       if (!cart) throw new Error("Failed to create cart");

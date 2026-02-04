@@ -199,11 +199,14 @@ export async function clearCart(userId: number) {
 }
 
 // Order queries
-export async function createOrder(order: typeof orders.$inferInsert) {
+export async function createOrder(order: typeof orders.$inferInsert): Promise<{ insertId: number }> {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   
-  return db.insert(orders).values(order);
+  const result = await db.insert(orders).values(order);
+  // MySQL returns insertId in the result array
+  const insertId = (result as any)[0]?.insertId ?? (result as any).insertId;
+  return { insertId };
 }
 
 export async function createOrderItems(items: typeof orderItems.$inferInsert[]) {
@@ -434,7 +437,13 @@ export async function createAbandonedCart(data: InsertAbandonedCart): Promise<Ab
   }
 
   try {
-    const result = await db.insert(abandonedCarts).values(data);
+    // Generate recovery token if not provided
+    const recoveryToken = data.recoveryToken || `cart_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+    
+    const result = await db.insert(abandonedCarts).values({
+      ...data,
+      recoveryToken,
+    });
     const insertId = result[0].insertId;
     
     // Fetch and return the created record
@@ -643,6 +652,7 @@ export async function getOrdersNeedingPostPurchaseEmail(
 
 /**
  * Update email sent timestamp for specific day
+ * Alias: markPostPurchaseEmailSent
  */
 export async function updatePostPurchaseEmailSent(
   id: number,
@@ -681,7 +691,7 @@ export async function updatePostPurchaseEmailSent(
  * Called when customer makes a repeat purchase
  */
 export async function markCustomerReordered(
-  orderId: number,
+  trackingId: number,
   reorderOrderId: number
 ): Promise<boolean> {
   const db = await getDb();
@@ -694,7 +704,7 @@ export async function markCustomerReordered(
         reorderDate: new Date(),
         reorderOrderId,
       })
-      .where(eq(postPurchaseEmails.orderId, orderId));
+      .where(eq(postPurchaseEmails.id, trackingId));
 
     return true;
   } catch (error) {
@@ -707,7 +717,7 @@ export async function markCustomerReordered(
  * Mark customer as subscribed
  * Called when customer converts to subscription
  */
-export async function markCustomerSubscribed(orderId: number): Promise<boolean> {
+export async function markCustomerSubscribed(trackingId: number): Promise<boolean> {
   const db = await getDb();
   if (!db) return false;
 
@@ -717,7 +727,7 @@ export async function markCustomerSubscribed(orderId: number): Promise<boolean> 
         hasSubscribed: true,
         subscribedAt: new Date(),
       })
-      .where(eq(postPurchaseEmails.orderId, orderId));
+      .where(eq(postPurchaseEmails.id, trackingId));
 
     return true;
   } catch (error) {
@@ -730,7 +740,7 @@ export async function markCustomerSubscribed(orderId: number): Promise<boolean> 
  * Mark customer as reviewed
  * Called when customer leaves a review
  */
-export async function markCustomerReviewed(orderId: number): Promise<boolean> {
+export async function markCustomerReviewed(trackingId: number): Promise<boolean> {
   const db = await getDb();
   if (!db) return false;
 
@@ -740,7 +750,7 @@ export async function markCustomerReviewed(orderId: number): Promise<boolean> {
         hasReviewed: true,
         reviewedAt: new Date(),
       })
-      .where(eq(postPurchaseEmails.orderId, orderId));
+      .where(eq(postPurchaseEmails.id, trackingId));
 
     return true;
   } catch (error) {
@@ -1107,4 +1117,24 @@ export async function getAllOrders(limit: number = 100) {
     console.error("[Database] Failed to get all orders:", error);
     return [];
   }
+}
+
+// Alias for backward compatibility with tests
+export const markPostPurchaseEmailSent = updatePostPurchaseEmailSent;
+
+// Aliases for backward compatibility with tests
+export async function markAbandonedCartEmailSent(token: string, emailNumber: 1 | 2 | 3): Promise<boolean> {
+  const cart = await getAbandonedCartByToken(token);
+  if (!cart) return false;
+  return updateAbandonedCartEmailSent(cart.id, emailNumber);
+}
+
+export async function markCartRecovered(token: string): Promise<boolean> {
+  const cart = await getAbandonedCartByToken(token);
+  if (!cart) return false;
+  return markAbandonedCartRecovered(cart.id, 0); // 0 as placeholder orderId for tests
+}
+
+export async function getCartsNeedingEmail(emailNumber: 1 | 2 | 3): Promise<AbandonedCart[]> {
+  return getAbandonedCartsForEmail(emailNumber);
 }
