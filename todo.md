@@ -2870,3 +2870,49 @@ npm run run-audit -- --input ./sample-input.json
 - [x] Register AdminOrders route in App.tsx
 - [x] Register AdminDiscounts route in App.tsx
 - [x] Add Orders and Discounts to admin sidebar navigation
+
+
+## ✅ COMPLETED: EMAIL SCHEDULER INFRASTRUCTURE (Feb 4, 2026)
+
+### Email Provider Integration
+- [x] Using Manus built-in notification system (no external API keys needed)
+- [x] sendEmail({ to, subject, template, data }) function via notifyOwner
+- [x] Email templates already exist for abandoned cart and post-purchase
+
+### Cron Job Scheduler
+- [x] Installed node-cron for scheduling
+- [x] Created email-scheduler.ts with unified scheduler
+- [x] Abandoned Cart Job: Runs every 10 minutes
+  - Email 1: 1 hour after abandonment (gentle reminder)
+  - Email 2: 24 hours after abandonment (5% discount offer)
+  - Email 3: 48 hours after abandonment (final urgency)
+- [x] Post-Purchase Job: Runs every hour
+  - Day 7: Check-in + usage tips
+  - Day 21: Review request
+  - Day 60: Replenishment reminder
+  - Day 90: Subscribe & Save offer
+- [x] Daily Summary: 9:00 AM owner notification
+
+### Admin UI for Email Scheduler
+- [x] Created AdminEmailScheduler.tsx page at /admin/email-scheduler
+- [x] Dashboard showing scheduler status (running/stopped)
+- [x] Abandoned cart statistics (total, recovered, recovery rate)
+- [x] Post-purchase statistics (emails sent, reorder rate, subscription rate)
+- [x] Manual trigger buttons for testing
+- [x] Recent abandoned carts table with email status badges
+- [x] Added to admin sidebar navigation
+
+### Backend Router
+- [x] Created admin-email-scheduler.ts router
+- [x] getStatus - scheduler status and stats
+- [x] getAbandonedCartStats - cart recovery metrics
+- [x] getPostPurchaseStats - retention metrics
+- [x] getRecentAbandonedCarts - recent activity
+- [x] triggerAbandonedCartEmails - manual trigger
+- [x] triggerPostPurchaseEmails - manual trigger
+
+### Testing
+- [x] Created email-scheduler.test.ts with 9 passing tests
+- [x] Fixed null check issues for empty database responses
+- [x] All tests passing
+

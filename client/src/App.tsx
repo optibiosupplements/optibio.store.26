@@ -39,6 +39,7 @@ import AdminContent from "./pages/AdminContent";
 import AdminAudit from "./pages/AdminAudit";
 import AdminOrders from "./pages/AdminOrders";
 import AdminDiscounts from "./pages/AdminDiscounts";
+import AdminEmailScheduler from "./pages/AdminEmailScheduler";
 
 import PromoBanner from "./components/PromoBanner";
 import EmailCaptureModal from "./components/EmailCaptureModal";
@@ -60,6 +61,7 @@ function Router() {
       <Route path="/admin/audit" component={AdminAudit} />
       <Route path="/admin/orders" component={AdminOrders} />
       <Route path="/admin/discounts" component={AdminDiscounts} />
+      <Route path="/admin/email-scheduler" component={AdminEmailScheduler} />
       
       {/* Public routes with header/footer */}
       <Route>

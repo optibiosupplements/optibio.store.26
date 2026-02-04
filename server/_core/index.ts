@@ -231,6 +231,20 @@ async function startServer() {
     }
   })();
   
+  // Initialize email scheduler AFTER server starts
+  // This ensures database is ready before scheduling emails
+  (async () => {
+    try {
+      // Wait a bit for database to be ready
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      const { startEmailScheduler } = await import("../email-scheduler");
+      startEmailScheduler();
+    } catch (error) {
+      console.error("[EmailScheduler] Failed to start:", error);
+      console.warn("[EmailScheduler] Server will continue without email automation");
+    }
+  })();
+  
   // Setup Vite or static serving AFTER server starts
   // This prevents blocking if Vite setup is slow
   (async () => {
