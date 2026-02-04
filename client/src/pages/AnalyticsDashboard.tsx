@@ -1,5 +1,8 @@
 import { useState, useMemo } from 'react';
+import { useAuth } from '@/_core/hooks/useAuth';
 import { trpc } from '@/lib/trpc';
+import { Redirect } from 'wouter';
+import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
@@ -9,6 +12,8 @@ import { formatPrice } from '@/const';
 const COLORS = ['#1E3A5F', '#C9A961', '#5FA865', '#EBF5FB'];
 
 export default function AnalyticsDashboard() {
+  const { user, loading: authLoading } = useAuth();
+  
   const [startDate, setStartDate] = useState(() => {
     const d = new Date();
     d.setDate(d.getDate() - 30);
@@ -16,6 +21,19 @@ export default function AnalyticsDashboard() {
   });
   
   const [endDate, setEndDate] = useState(new Date().toISOString().split('T')[0]);
+
+  // Admin authentication check
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F7F4EF] to-white">
+        <Loader2 className="h-8 w-8 animate-spin text-[#1E3A5F]" />
+      </div>
+    );
+  }
+
+  if (!user || user.role !== 'admin') {
+    return <Redirect to="/" />;
+  }
 
   // Fetch analytics data
   const trafficQuery = trpc.revenueAnalytics.getTrafficDashboard.useQuery(
