@@ -537,14 +537,14 @@ export default function Home() {
                         </div>
                       )}
                       <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F]">
-                        Save 25%
+                        Save 44%
                       </Badge>
                     </div>
 
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-slate-700 dark:text-white">
                         <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
-                        <span>90 capsules - 45-day supply</span>
+                        <span>60 capsules - 30-day supply</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700 dark:text-white">
                         <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
@@ -552,7 +552,7 @@ export default function Home() {
                       </div>
                       <div className="flex items-center gap-2 text-slate-700 dark:text-white">
                         <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
-                        <span>60-day money-back guarantee</span>
+                        <span>90-day money-back guarantee</span>
                       </div>
                     </div>
 
@@ -561,7 +561,7 @@ export default function Home() {
                         size="lg" 
                         className="w-full text-lg py-6 btn-metallic-gold text-white font-bold transition-all duration-300"
                       >
-                        Pre-Order Now - Save 46%
+                        Shop Now - Save 44%
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </Button>
                     </Link>
@@ -668,7 +668,7 @@ export default function Home() {
                   size="lg" 
                   className="text-lg px-8 py-6 bg-gradient-to-r from-[#D4AF37] to-[#C9A961] hover:from-[#C9A961] hover:to-[#D4AF37] text-[#0B1120] font-bold shadow-glow-gold"
                 >
-                  Shop Now - Save 29%
+                  Shop Now - Save 44%
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
@@ -704,8 +704,8 @@ export default function Home() {
                   <h3 className="font-bold text-2xl mb-3">Single Bottle</h3>
                   <div className="mb-4">
                     <p className="text-4xl font-bold mb-2">$49.99</p>
-                    <p className="text-lg text-[#F7F4EF]">90 capsules • 45-day supply</p>
-                    <p className="text-sm text-[#D4AF37] mt-2">Save 15% vs retail ($58.82)</p>
+                    <p className="text-lg text-[#F7F4EF]">60 capsules • 30-day supply</p>
+                    <p className="text-sm text-[#D4AF37] mt-2">Save 44% vs retail ($89.00)</p>
                   </div>
                   <ul className="space-y-2 mb-6 text-[#F7F4EF]">
                     <li className="flex items-start gap-2">
@@ -741,20 +741,20 @@ export default function Home() {
                   <h3 className="font-bold text-2xl mb-3">3-Month Bundle</h3>
                   <div className="mb-4">
                     <div className="flex items-baseline gap-3">
-                      <p className="text-4xl font-bold">$127</p>
-                      <p className="text-xl text-[#F7F4EF]/60 line-through">$149.97</p>
+                      <p className="text-4xl font-bold">$119.99</p>
+                      <p className="text-xl text-[#F7F4EF]/60 line-through">$179.99</p>
                     </div>
-                    <p className="text-lg text-[#F7F4EF] mt-1">270 capsules • 135-day supply</p>
-                    <p className="text-sm text-[#D4AF37] mt-2 font-bold">Save $22.97 (15% off) + FREE shipping</p>
+                    <p className="text-lg text-[#F7F4EF] mt-1">180 capsules • 90-day supply</p>
+                    <p className="text-sm text-[#D4AF37] mt-2 font-bold">Save $60 (33% off) + FREE shipping</p>
                   </div>
                   <ul className="space-y-2 mb-6 text-[#F7F4EF]">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
-                      <span className="font-semibold">Best value - $42.33/bottle</span>
+                      <span className="font-semibold">Best value - $39.99/month</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
-                      <span>FREE shipping (save $7.99)</span>
+                      <span>FREE shipping included</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
@@ -780,7 +780,7 @@ export default function Home() {
                 className="bg-gradient-to-r from-[#D4AF37] to-[#C9A961] hover:from-[#C9A961] hover:to-[#D4AF37] text-[#0B1120] font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-glow-gold transition-all"
               >
                 <Sparkles className="w-6 h-6 mr-2" />
-                Shop Now - Save 29%
+                Shop Now - Save 44%
               </Button>
             </Link>
 

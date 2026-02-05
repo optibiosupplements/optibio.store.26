@@ -100,8 +100,12 @@ async function processAbandonedCartEmails(emailNumber: 1 | 2 | 3): Promise<{ sen
       }
 
       try {
-        // Parse cart data
-        const cartData = JSON.parse(cart.cartData);
+        // Parse cart data - handle both array and object formats
+        let cartData = JSON.parse(cart.cartData);
+        // If cartData is not an array, wrap it or extract items array
+        if (!Array.isArray(cartData)) {
+          cartData = cartData.items || [cartData];
+        }
         const emailCartItems: EmailCartItem[] = cartData.map((item: any) => ({
           productName: item.productName || "Product",
           variantName: item.variantName,

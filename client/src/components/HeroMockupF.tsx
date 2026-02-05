@@ -258,9 +258,9 @@ interface BundleOption {
 }
 
 const bundleOptions: BundleOption[] = [
-  { quantity: 1, label: "1 Bottle", pricePerBottle: 28.35, totalPrice: 28.35, savings: "59% OFF", supplyDays: "30-day supply" },
-  { quantity: 3, label: "3 Bottles", pricePerBottle: 25.52, totalPrice: 76.55, savings: "63% OFF", popular: true, supplyDays: "90-day supply" },
-  { quantity: 6, label: "6 Bottles", pricePerBottle: 22.68, totalPrice: 136.08, savings: "68% OFF", supplyDays: "180-day supply" },
+  { quantity: 1, label: "1 Bottle", pricePerBottle: 49.99, totalPrice: 49.99, savings: "44% OFF", supplyDays: "30-day supply" },
+  { quantity: 2, label: "2 Bottles", pricePerBottle: 44.99, totalPrice: 89.99, savings: "31% OFF", popular: true, supplyDays: "60-day supply" },
+  { quantity: 3, label: "3 Bottles", pricePerBottle: 39.99, totalPrice: 119.99, savings: "33% OFF", supplyDays: "90-day supply" },
 ];
 
 interface QuantitySelectorProps {
@@ -593,7 +593,7 @@ export default function HeroMockupF() {
                           className="text-lg line-through opacity-60"
                           style={{ color: '#94A3B8', fontFamily: TYPOGRAPHY.BODY_FONT }}
                         >
-                          ${(selectedBundle.quantity * 69.99).toFixed(2)}
+                          ${(selectedBundle.quantity * 89.00).toFixed(2)}
                         </div>
                       </div>
                     </div>
@@ -605,7 +605,7 @@ export default function HeroMockupF() {
                         boxShadow: '0 4px 14px rgba(220, 38, 38, 0.4)',
                       }}
                     >
-                      PRE-ORDER PRICE
+                      SALE PRICE
                     </span>
                   </div>
 
@@ -616,7 +616,7 @@ export default function HeroMockupF() {
                   >
                     <IconCheck className="w-4 h-4 text-green-500 flex-shrink-0" />
                     <span>
-                      Includes: <span className="font-semibold">46% off</span> + <span className="font-semibold">extra 25% pre-order savings</span>
+                      Includes: <span className="font-semibold">Up to 44% off</span> + <span className="font-semibold">Free shipping on $75+</span>
                     </span>
                   </div>
 
@@ -635,8 +635,8 @@ export default function HeroMockupF() {
                       <IconTruck className="h-4 w-4" style={{ color: BRAND_COLORS.ANTIQUE_GOLD }} />
                     </div>
                     <div>
-                      <span className="font-semibold" style={{ color: BRAND_COLORS.DEEP_NAVY }}>Pre-Order Special:</span>
-                      <span className="ml-1" style={{ color: '#475569' }}>Ships Feb 14–21, 2026</span>
+                      <span className="font-semibold" style={{ color: BRAND_COLORS.DEEP_NAVY }}>Fast Shipping:</span>
+                      <span className="ml-1" style={{ color: '#475569' }}>Ships within 1-2 business days</span>
                     </div>
                   </div>
 
@@ -650,7 +650,7 @@ export default function HeroMockupF() {
                       fontFamily: TYPOGRAPHY.BODY_FONT,
                     }}
                   >
-                    Pre-Order Now — ${selectedBundle.totalPrice.toFixed(2)}
+                    Shop Now — ${selectedBundle.totalPrice.toFixed(2)}
                     <span className="text-xl transition-transform duration-200 group-hover:translate-x-1">→</span>
                   </Link>
 

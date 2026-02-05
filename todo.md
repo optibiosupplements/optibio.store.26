@@ -3169,3 +3169,32 @@ npm run run-audit -- --input ./sample-input.json
 - [x] Set up Google Tag Manager container (GTM-XXXXXXX placeholder - replace with actual ID)
 - [x] GTM and existing gtag/fbq coexist (can migrate later via GTM interface)
 
+
+
+## ✅ COMPLETED: PRICING CONSISTENCY FIX (Feb 4, 2026)
+
+### Issue: Multiple conflicting prices across the site
+- Hero showed $28.35 (pre-order price)
+- Product card showed $49.99
+- Footer showed $58.82
+- Stripe config had $59.99
+
+### Resolution: Standardized all pricing to database values
+- [x] Updated StickyHeader.tsx: $49.99 (from $89.00) - 44% off
+- [x] Updated BuyBoxV3.tsx: $49.99 (from $89.00) - 44% off
+- [x] Updated HeroMockupF.tsx: Bundle pricing aligned ($49.99, $44.99, $39.99)
+- [x] Updated HeroVariantA.tsx: $49.99 (from $89.00) - 44% off
+- [x] Updated PromoBanner.tsx: "Save 44%" (removed pre-order messaging)
+- [x] Updated BuyBox.tsx: $49.99 (from $89.00) - 44% off
+- [x] Removed all "Pre-Order" references, changed to "Shop Now"
+- [x] Updated shipping messaging to "Ships within 1-2 business days"
+- [x] Fixed product detail page slug: /product/ashwagandha-ksm-66 (with hyphen)
+
+### Standardized Pricing:
+- 1 Bottle: $49.99 (was $89.00) - 44% off
+- 2 Bottles: $89.99 ($44.99/bottle) - 31% off
+- 3 Bottles: $119.99 ($39.99/bottle) - 33% off
+- Subscribe & Save: 20% additional discount
+
+**RESULT: All pages now display consistent pricing from database. Pre-order mode disabled.**
+

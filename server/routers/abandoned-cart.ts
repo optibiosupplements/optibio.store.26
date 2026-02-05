@@ -217,8 +217,11 @@ export const abandonedCartRouter = router({
 
         for (const cart of abandonedCarts) {
           try {
-            // Parse cart data
-            const cartData = JSON.parse(cart.cartData);
+            // Parse cart data - handle both array and object formats
+            let cartData = JSON.parse(cart.cartData);
+            if (!Array.isArray(cartData)) {
+              cartData = cartData.items || [cartData];
+            }
 
             // Prepare email data
             const emailCartItems: EmailCartItem[] = cartData.map((item: any) => ({

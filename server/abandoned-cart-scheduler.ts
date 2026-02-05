@@ -56,8 +56,12 @@ async function sendAbandonedCartEmails(emailNumber: 1 | 2 | 3): Promise<void> {
           continue;
         }
 
-        // Parse cart data
-        const cartData: CartItemData[] = JSON.parse(cart.cartData);
+        // Parse cart data - handle both array and object formats
+        let parsedCartData = JSON.parse(cart.cartData);
+        if (!Array.isArray(parsedCartData)) {
+          parsedCartData = parsedCartData.items || [parsedCartData];
+        }
+        const cartData: CartItemData[] = parsedCartData;
 
         // Prepare email data
         const emailCartItems: EmailCartItem[] = cartData.map((item) => ({

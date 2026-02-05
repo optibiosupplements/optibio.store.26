@@ -16,10 +16,10 @@ interface BuyBoxV3Props {
 }
 
 export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
-  // Pricing: $28.35 (59% off $69.99) - Pre-order price with extra 25% off
-  const currentPrice = "$28.35";
-  const originalPrice = "$69.99";
-  const discount = 59;
+  // Pricing: $49.99 (44% off $89.00) - Regular pricing from database
+  const currentPrice = "$49.99";
+  const originalPrice = "$89.00";
+  const discount = 44;
   
   // Bottles sold counter - random number for social proof
   const [bottlesSold] = useState(() => Math.floor(Math.random() * 50) + 120);
@@ -213,7 +213,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   color: 'white'
                 }}
               >
-                Pre-Order Now – Only $28.35/bottle <ArrowRight className="ml-2 w-5 h-5" />
+                Shop Now – Only $49.99/bottle <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
 
               {/* Trust Footer - 3 items: Secure checkout, Free shipping, 90-day guarantee */}

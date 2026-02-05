@@ -42,7 +42,7 @@ export default function PromoBanner() {
           <div className="flex items-center gap-2.5 text-sm md:text-base font-bold bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/20">
             <Sparkles className="w-5 h-5 flex-shrink-0 text-[var(--optibio-gold)]" fill="currentColor" />
             <span className="whitespace-nowrap">
-              Pre-Order: <span className="text-[var(--optibio-gold)]">Save 46%</span> • Ships Jan 20-27
+              Limited Time: <span className="text-[var(--optibio-gold)]">Save 44%</span> • Free Shipping on $75+
             </span>
           </div>
 

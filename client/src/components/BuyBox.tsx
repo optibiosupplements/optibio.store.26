@@ -22,10 +22,10 @@ export default function BuyBox({ product, className = "" }: BuyBoxProps) {
   const [quantity, setQuantity] = useState(1);
   
   const price = product ? formatPrice(product.priceInCents) : '$49.99';
-  const comparePrice = product?.compareAtPriceInCents ? formatPrice(product.compareAtPriceInCents) : '$69.99';
+  const comparePrice = product?.compareAtPriceInCents ? formatPrice(product.compareAtPriceInCents) : '$89.00';
   const discount = product?.compareAtPriceInCents 
     ? Math.round((1 - product.priceInCents / product.compareAtPriceInCents) * 100)
-    : 29;
+    : 44;
 
   const incrementQuantity = () => setQuantity(q => Math.min(q + 1, 10));
   const decrementQuantity = () => setQuantity(q => Math.max(q - 1, 1));
@@ -48,7 +48,7 @@ export default function BuyBox({ product, className = "" }: BuyBoxProps) {
         {/* Countdown Timer */}
         <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-2 border-red-200 dark:border-red-800 rounded-xl p-4">
           <p className="text-sm font-semibold text-red-700 dark:text-red-400 mb-2 text-center">
-            Pre-orders close in:
+            Limited time offer:
           </p>
           <CountdownTimer 
             targetDate={new Date('2026-01-20T23:59:59')} 
@@ -76,10 +76,10 @@ export default function BuyBox({ product, className = "" }: BuyBoxProps) {
           <div className="flex items-center gap-2 text-sm">
             <Sparkles className="w-4 h-4 text-[#C9A961] dark:text-[#D4AF37]" />
             <span className="font-semibold text-[#1E3A5F] dark:text-white">
-              Pre-Order Special:
+              Fast Shipping:
             </span>
             <span className="text-muted-foreground dark:text-[#94A3B8]">
-              Ships Jan 20-27, 2026
+              Ships within 1-2 business days
             </span>
           </div>
 
@@ -130,7 +130,7 @@ export default function BuyBox({ product, className = "" }: BuyBoxProps) {
             size="lg" 
             className="w-full text-lg font-bold py-7 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-[#2563EB] hover:bg-[#1D4ED8] text-white border-2 border-[#2563EB]"
           >
-            Pre-Order Now - Save {discount}%
+            Shop Now - Save {discount}%
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </Link>

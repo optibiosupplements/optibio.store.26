@@ -47,8 +47,8 @@ interface StickyHeaderProps {
 
 export default function StickyHeader({ 
   scrollThreshold = 400, 
-  price = 28.35,
-  originalPrice = 69.99,
+  price = 49.99,
+  originalPrice = 89.00,
   ctaHref = "/shop" 
 }: StickyHeaderProps) {
   const [isVisible, setIsVisible] = useState(false);

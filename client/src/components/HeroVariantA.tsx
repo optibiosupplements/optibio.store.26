@@ -130,9 +130,9 @@ export default function HeroVariantA() {
    * to two decimals for display. Do not compute this in the UI for accuracy;
    * set the constant directly if necessary.
    */
-  const ORIGINAL_PRICE = 69.99;
-  const NORMAL_PRICE = 37.79; // 46% off of original price
-  const PREORDER_PRICE = 28.35; // normal price minus 25%; fixed to avoid rounding errors
+  const ORIGINAL_PRICE = 89.00;
+  const NORMAL_PRICE = 49.99; // 44% off of original price
+  const PREORDER_PRICE = 49.99; // Same as normal price (pre-order disabled)
 
   // Paths for assets and CTA destination. Update these to match your project
   // structure and routes.
@@ -230,7 +230,7 @@ export default function HeroVariantA() {
                   {/* Static message instead of timer */}
                   <div className="rounded-[18px] border border-[#FECACA] bg-gradient-to-r from-[#FEF2F2] to-[#FFF7ED] px-5 py-4">
                     <div className="text-sm font-semibold text-[#7C2D12]" style={{ fontFamily: "Inter, ui-sans-serif" }}>
-                      Limited pre-order pricing ends soon
+                      Limited time offer - Save 44%
                     </div>
                   </div>
 
@@ -245,29 +245,28 @@ export default function HeroVariantA() {
                           ${ORIGINAL_PRICE.toFixed(2)}
                         </div>
                         <div className="text-xs text-[#64748B]" style={{ fontFamily: "Inter, ui-sans-serif" }}>
-                          Normal: ${NORMAL_PRICE.toFixed(2)} (46% off)
+                          Regular: ${ORIGINAL_PRICE.toFixed(2)}
                         </div>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <span className="inline-flex rounded-full bg-[#DC2626] px-3 py-1.5 text-xs font-bold tracking-wide text-white">
-                        PRE-ORDER PRICE
+                        SALE PRICE
                       </span>
                     </div>
                   </div>
 
                   {/* Description of savings */}
                   <div className="mt-3 text-sm text-[#334155]" style={{ fontFamily: "Inter, ui-sans-serif" }}>
-                    Includes: <span className="font-semibold">46% off</span> + <span className="font-semibold">extra 25% pre-order
-                      savings</span>
+                    Includes: <span className="font-semibold">44% off</span> + <span className="font-semibold">Free shipping on $75+</span>
                   </div>
 
                   {/* Pre-order shipping line */}
                   <div className="mt-5 flex items-center gap-2 text-[15px]" style={{ fontFamily: "Inter, ui-sans-serif" }}>
                     <span className="text-[#C9A961]">✦</span>
-                    <span className="font-semibold text-[#1E3A5F]">Pre-Order Special:</span>
-                    <span className="text-[#1E3A5F]/85">Ships Feb 14–21, 2026</span>
+                    <span className="font-semibold text-[#1E3A5F]">Fast Shipping:</span>
+                    <span className="text-[#1E3A5F]/85">Ships within 1-2 business days</span>
                   </div>
 
                   {/* Free shipping bar */}
@@ -284,7 +283,7 @@ export default function HeroVariantA() {
                     className="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-[18px] bg-[#2563EB] px-6 py-4 text-base font-bold text-white shadow-[0_12px_25px_rgba(37,99,235,0.35)] transition hover:brightness-95"
                     style={{ fontFamily: "Inter, ui-sans-serif" }}
                   >
-                    Pre-Order Now — Only ${PREORDER_PRICE.toFixed(2)}/bottle
+                    Shop Now — Only ${PREORDER_PRICE.toFixed(2)}/bottle
                     <span aria-hidden className="text-xl">→</span>
                   </a>
 
