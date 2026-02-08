@@ -21,11 +21,11 @@ interface BuyBoxProps {
 export default function BuyBox({ product, className = "" }: BuyBoxProps) {
   const [quantity, setQuantity] = useState(1);
   
-  const price = product ? formatPrice(product.priceInCents) : '$49.99';
-  const comparePrice = product?.compareAtPriceInCents ? formatPrice(product.compareAtPriceInCents) : '$89.00';
+  const price = product ? formatPrice(product.priceInCents) : '$39.99';
+  const comparePrice = product?.compareAtPriceInCents ? formatPrice(product.compareAtPriceInCents) : '$49.99';
   const discount = product?.compareAtPriceInCents 
     ? Math.round((1 - product.priceInCents / product.compareAtPriceInCents) * 100)
-    : 44;
+    : 20;
 
   const incrementQuantity = () => setQuantity(q => Math.min(q + 1, 10));
   const decrementQuantity = () => setQuantity(q => Math.max(q - 1, 1));
@@ -144,7 +144,7 @@ export default function BuyBox({ product, className = "" }: BuyBoxProps) {
             Secure checkout
           </span>
           <span className="text-border">•</span>
-          <span>Free shipping on $75+</span>
+          <span>Free shipping on 3+ bottles</span>
           <span className="text-border">•</span>
           <span>90-day guarantee</span>
         </div>

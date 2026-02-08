@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE productVariants SET name = '3 Bottles (270 Capsules - 135-Day Supply)', sku = 'OPTIBIO-ASH-3', priceInCents = 9999, compareAtPriceInCents = 14997, sortOrder = 2 WHERE id = 2;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 26YcRyEmMHMZfUu.adf0f9e7dfe8 --database HZ2NtaFJFkAENvPvciWDsB --execute UPDATE productVariants SET name = '3 Bottles (270 Capsules - 135-Day Supply)', sku = 'OPTIBIO-ASH-3', priceInCents = 9999, compareAtPriceInCents = 14997, sortOrder = 2 WHERE id = 2;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 365
+}

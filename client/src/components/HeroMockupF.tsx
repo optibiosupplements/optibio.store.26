@@ -189,7 +189,7 @@ function CountdownTimer({ targetDate }: CountdownTimerProps) {
             className="text-sm font-semibold"
             style={{ color: BRAND_COLORS.DEEP_NAVY, fontFamily: TYPOGRAPHY.BODY_FONT }}
           >
-            Pre-order window closes in:
+            Limited time offer ends in:
           </span>
         </div>
         <div 
@@ -258,9 +258,9 @@ interface BundleOption {
 }
 
 const bundleOptions: BundleOption[] = [
-  { quantity: 1, label: "1 Bottle", pricePerBottle: 49.99, totalPrice: 49.99, savings: "44% OFF", supplyDays: "30-day supply" },
-  { quantity: 2, label: "2 Bottles", pricePerBottle: 44.99, totalPrice: 89.99, savings: "31% OFF", popular: true, supplyDays: "60-day supply" },
-  { quantity: 3, label: "3 Bottles", pricePerBottle: 39.99, totalPrice: 119.99, savings: "33% OFF", supplyDays: "90-day supply" },
+  { quantity: 1, label: "1 Bottle", pricePerBottle: 39.99, totalPrice: 39.99, savings: "20% OFF", supplyDays: "45-day supply" },
+  { quantity: 3, label: "3 Bottles", pricePerBottle: 33.33, totalPrice: 99.99, savings: "33% OFF", popular: true, supplyDays: "135-day supply" },
+  { quantity: 6, label: "6 Bottles", pricePerBottle: 30.00, totalPrice: 179.99, savings: "40% OFF", supplyDays: "270-day supply" },
 ];
 
 interface QuantitySelectorProps {
@@ -396,7 +396,7 @@ function BokehParticles() {
 // ============================================================================
 
 export default function HeroMockupF() {
-  // Hick's Law: Pre-select best value option to reduce decision time
+  // Hick's Law: Select best value option by default to reduce decision time
   const [selectedQuantity, setSelectedQuantity] = useState(3);
   const selectedBundle = bundleOptions.find(b => b.quantity === selectedQuantity) || bundleOptions[1];
   
@@ -593,11 +593,11 @@ export default function HeroMockupF() {
                           className="text-lg line-through opacity-60"
                           style={{ color: '#94A3B8', fontFamily: TYPOGRAPHY.BODY_FONT }}
                         >
-                          ${(selectedBundle.quantity * 89.00).toFixed(2)}
+                          ${(selectedBundle.quantity * 49.99).toFixed(2)}
                         </div>
                       </div>
                     </div>
-                    {/* Von Restorff Effect: PRE-ORDER badge stands out */}
+                    {/* Von Restorff Effect: Savings badge stands out */}
                     <span 
                       className="inline-flex items-center rounded-full px-4 py-2 text-xs font-bold tracking-wide text-white shadow-lg transition-transform duration-200 hover:scale-105"
                       style={{ 
@@ -605,7 +605,7 @@ export default function HeroMockupF() {
                         boxShadow: '0 4px 14px rgba(220, 38, 38, 0.4)',
                       }}
                     >
-                      SALE PRICE
+                      SAVE NOW
                     </span>
                   </div>
 
@@ -616,7 +616,7 @@ export default function HeroMockupF() {
                   >
                     <IconCheck className="w-4 h-4 text-green-500 flex-shrink-0" />
                     <span>
-                      Includes: <span className="font-semibold">Up to 44% off</span> + <span className="font-semibold">Free shipping on $75+</span>
+                      Includes: <span className="font-semibold">Up to 40% off</span> + <span className="font-semibold">Free shipping on 3+ bottles</span>
                     </span>
                   </div>
 

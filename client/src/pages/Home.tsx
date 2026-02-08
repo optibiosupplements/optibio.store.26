@@ -38,7 +38,7 @@ export default function Home() {
   
   // Theme-aware product image selection
   const isDark = theme === 'dark';
-  const heroProductImage = '/bottlemockbluegold_beigebg.png';
+  const heroProductImage = 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png';
   
   // Removed reservation modal - now using direct purchase
 
@@ -122,7 +122,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       {/* Sticky Header with Mini CTA */}
-      <StickyHeader scrollThreshold={500} price={28.35} ctaHref="/shop" />
+      <StickyHeader scrollThreshold={500} ctaHref="/shop" />
       
       {/* Hero Section - Mockup F Optimized V2 */}
       <HeroMockupF />
@@ -264,7 +264,7 @@ export default function Home() {
                 <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
               </div>
               <img 
-                src="/bottlemockbluegold_beigebg.png" 
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png" 
                 alt="Optibio Ashwagandha KSM-66 premium supplement - angled view of black glass bottle with gold cap showing product label and branding"
                 className="w-full max-w-lg mx-auto relative z-10"
                 style={{ filter: 'drop-shadow(0 0 15px rgba(201, 169, 97, 0.3))' }}
@@ -487,7 +487,7 @@ export default function Home() {
           productId={mainProduct.id}
           productName={mainProduct.name}
           price={mainProduct.priceInCents / 100}
-          image={mainProduct.imageUrl || "/bottlemockbluegold_beigebg.png"}
+          image={mainProduct.imageUrl || "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png"}
           threshold={600}
         />
       )}
@@ -506,7 +506,7 @@ export default function Home() {
                       <div className="w-[60%] h-[70%] bg-gradient-radial from-[#C9A961]/20 via-[#C9A961]/8 to-transparent blur-3xl dark:from-[#D4AF37]/15 dark:via-[#D4AF37]/5" />
                     </div>
                     <img 
-                      src="/bottlemockbluegold_beigebg.png"
+                      src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png"
                       alt={`${mainProduct.name} - Premium KSM-66 Ashwagandha supplement for stress relief, sleep support, and natural energy`}
                       className="w-full max-w-xs relative z-10"
                       style={{ filter: 'drop-shadow(0 0 15px rgba(201, 169, 97, 0.3))' }}
@@ -537,14 +537,14 @@ export default function Home() {
                         </div>
                       )}
                       <Badge variant="secondary" className="bg-[#C9A961]/20 text-[#1E3A5F]">
-                        Save 44%
+                        Save 20%
                       </Badge>
                     </div>
 
                     <div className="space-y-3">
                       <div className="flex items-center gap-2 text-slate-700 dark:text-white">
                         <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
-                        <span>60 capsules - 30-day supply</span>
+                        <span>90 capsules - 45-day supply</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-700 dark:text-white">
                         <CheckCircle2 className="w-5 h-5 text-[#D4AF37]" />
@@ -561,7 +561,7 @@ export default function Home() {
                         size="lg" 
                         className="w-full text-lg py-6 btn-metallic-gold text-white font-bold transition-all duration-300"
                       >
-                        Shop Now - Save 44%
+                        Shop Now - Save 20%
                         <ArrowRight className="ml-2 w-5 h-5" />
                       </Button>
                     </Link>
@@ -689,10 +689,10 @@ export default function Home() {
                 LIMITED TIME OFFER
               </Badge>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-                Save 29% on Your First Order
+                Save Up to 40% on Your First Order
               </h2>
               <p className="text-xl text-[#F7F4EF] max-w-2xl mx-auto mb-6">
-                Premium KSM-66 Ashwagandha at an unbeatable price. Free shipping on orders over $75.
+                Premium KSM-66 Ashwagandha at an unbeatable price. Free shipping on 3+ bottles & all subscriptions.
               </p>
             </div>
 
@@ -703,9 +703,9 @@ export default function Home() {
                   <Zap className="w-10 h-10 text-[#D4AF37] mb-4" />
                   <h3 className="font-bold text-2xl mb-3">Single Bottle</h3>
                   <div className="mb-4">
-                    <p className="text-4xl font-bold mb-2">$49.99</p>
-                    <p className="text-lg text-[#F7F4EF]">60 capsules • 30-day supply</p>
-                    <p className="text-sm text-[#D4AF37] mt-2">Save 44% vs retail ($89.00)</p>
+                    <p className="text-4xl font-bold mb-2">$39.99</p>
+                    <p className="text-lg text-[#F7F4EF]">90 capsules • 45-day supply</p>
+                    <p className="text-sm text-[#D4AF37] mt-2">Save 20% vs retail ($49.99)</p>
                   </div>
                   <ul className="space-y-2 mb-6 text-[#F7F4EF]">
                     <li className="flex items-start gap-2">
@@ -714,7 +714,7 @@ export default function Home() {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
-                      <span>Free shipping on orders $75+</span>
+                      <span>$5.99 flat rate shipping</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
@@ -741,16 +741,16 @@ export default function Home() {
                   <h3 className="font-bold text-2xl mb-3">3-Month Bundle</h3>
                   <div className="mb-4">
                     <div className="flex items-baseline gap-3">
-                      <p className="text-4xl font-bold">$119.99</p>
-                      <p className="text-xl text-[#F7F4EF]/60 line-through">$179.99</p>
+                      <p className="text-4xl font-bold">$99.99</p>
+                      <p className="text-xl text-[#F7F4EF]/60 line-through">$149.97</p>
                     </div>
-                    <p className="text-lg text-[#F7F4EF] mt-1">180 capsules • 90-day supply</p>
-                    <p className="text-sm text-[#D4AF37] mt-2 font-bold">Save $60 (33% off) + FREE shipping</p>
+                    <p className="text-lg text-[#F7F4EF] mt-1">270 capsules • 135-day supply</p>
+                    <p className="text-sm text-[#D4AF37] mt-2 font-bold">Save $50 (33% off) + FREE shipping</p>
                   </div>
                   <ul className="space-y-2 mb-6 text-[#F7F4EF]">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
-                      <span className="font-semibold">Best value - $39.99/month</span>
+                      <span className="font-semibold">Best value - $33.33/bottle</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
@@ -780,7 +780,7 @@ export default function Home() {
                 className="bg-gradient-to-r from-[#D4AF37] to-[#C9A961] hover:from-[#C9A961] hover:to-[#D4AF37] text-[#0B1120] font-bold text-xl px-12 py-8 shadow-2xl hover:shadow-glow-gold transition-all"
               >
                 <Sparkles className="w-6 h-6 mr-2" />
-                Shop Now - Save 44%
+                Shop Now - Save Up to 40%
               </Button>
             </Link>
 

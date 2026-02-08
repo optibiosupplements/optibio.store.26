@@ -21,10 +21,7 @@ export default function PromoBanner() {
 
   if (!isVisible) return null;
 
-  // Calculate days remaining until pre-order closes (Jan 20, 2026)
-  const preOrderEndDate = new Date("2026-01-20");
-  const today = new Date();
-  const daysRemaining = Math.max(0, Math.ceil((preOrderEndDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)));
+  // No pre-order countdown - regular launch pricing
 
   return (
     <div className="relative bg-gradient-to-r from-[var(--optibio-navy)] to-[var(--optibio-navy-dark)] text-white shadow-lg">
@@ -42,7 +39,7 @@ export default function PromoBanner() {
           <div className="flex items-center gap-2.5 text-sm md:text-base font-bold bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/20">
             <Sparkles className="w-5 h-5 flex-shrink-0 text-[var(--optibio-gold)]" fill="currentColor" />
             <span className="whitespace-nowrap">
-              Limited Time: <span className="text-[var(--optibio-gold)]">Save 44%</span> • Free Shipping on $75+
+              Limited Time: <span className="text-[var(--optibio-gold)]">Save up to 40%</span> • Free Shipping on 3+ Bottles
             </span>
           </div>
 

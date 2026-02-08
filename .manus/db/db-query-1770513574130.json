@@ -1,0 +1,55 @@
+{
+  "query": "SELECT * FROM productVariants;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway02.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 26YcRyEmMHMZfUu.adf0f9e7dfe8 --database HZ2NtaFJFkAENvPvciWDsB --execute SELECT * FROM productVariants;",
+  "rows": [
+    {
+      "id": "1",
+      "productId": "1",
+      "name": "60 Capsules (30-Day Supply)",
+      "sku": "OPTIBIO-ASH-60",
+      "priceInCents": "4999",
+      "compareAtPriceInCents": "8900",
+      "stockQuantity": "1000",
+      "isActive": "1",
+      "sortOrder": "1",
+      "stripePriceId": "NULL",
+      "stripeSubscriptionPriceId": "NULL",
+      "createdAt": "2025-12-28 21:07:19",
+      "updatedAt": "2025-12-31 00:14:05"
+    },
+    {
+      "id": "2",
+      "productId": "1",
+      "name": "120 Capsules (60-Day Supply)",
+      "sku": "OPTIBIO-ASH-120",
+      "priceInCents": "8999",
+      "compareAtPriceInCents": "12999",
+      "stockQuantity": "500",
+      "isActive": "1",
+      "sortOrder": "2",
+      "stripePriceId": "NULL",
+      "stripeSubscriptionPriceId": "NULL",
+      "createdAt": "2025-12-28 21:07:19",
+      "updatedAt": "2025-12-28 21:07:19"
+    },
+    {
+      "id": "3",
+      "productId": "1",
+      "name": "180 Capsules (90-Day Supply)",
+      "sku": "OPTIBIO-ASH-180",
+      "priceInCents": "11999",
+      "compareAtPriceInCents": "17999",
+      "stockQuantity": "300",
+      "isActive": "1",
+      "sortOrder": "3",
+      "stripePriceId": "NULL",
+      "stripeSubscriptionPriceId": "NULL",
+      "createdAt": "2025-12-28 21:07:19",
+      "updatedAt": "2025-12-28 21:07:19"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tproductId\tname\tsku\tpriceInCents\tcompareAtPriceInCents\tstockQuantity\tisActive\tsortOrder\tstripePriceId\tstripeSubscriptionPriceId\tcreatedAt\tupdatedAt\n1\t1\t60 Capsules (30-Day Supply)\tOPTIBIO-ASH-60\t4999\t8900\t1000\t1\t1\tNULL\tNULL\t2025-12-28 21:07:19\t2025-12-31 00:14:05\n2\t1\t120 Capsules (60-Day Supply)\tOPTIBIO-ASH-120\t8999\t12999\t500\t1\t2\tNULL\tNULL\t2025-12-28 21:07:19\t2025-12-28 21:07:19\n3\t1\t180 Capsules (90-Day Supply)\tOPTIBIO-ASH-180\t11999\t17999\t300\t1\t3\tNULL\tNULL\t2025-12-28 21:07:19\t2025-12-28 21:07:19\n",
+  "stderr": "",
+  "execution_time_ms": 360
+}

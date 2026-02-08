@@ -104,7 +104,7 @@ export const postPurchaseRouter = router({
             dayNumber === 7 ? "How's Your OptiBio Journey Going?" :
             dayNumber === 21 ? "Are You Sleeping Better?" :
             dayNumber === 60 ? "Running Low on OptiBio?" :
-            "Save 20% Forever with Subscribe & Save";
+            "Save 15% Forever with Subscribe & Save";
 
           // For now, use notifyOwner as placeholder
           // TODO: Replace with real email service (SendGrid, Mailgun, etc.)

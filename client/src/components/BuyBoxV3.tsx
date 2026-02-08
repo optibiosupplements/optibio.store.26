@@ -16,10 +16,10 @@ interface BuyBoxV3Props {
 }
 
 export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
-  // Pricing: $49.99 (44% off $89.00) - Regular pricing from database
-  const currentPrice = "$49.99";
-  const originalPrice = "$89.00";
-  const discount = 44;
+  // Pricing: $39.99 (20% off $49.99) - Approved MSRP
+  const currentPrice = "$39.99";
+  const originalPrice = "$49.99";
+  const discount = 20;
   
   // Bottles sold counter - random number for social proof
   const [bottlesSold] = useState(() => Math.floor(Math.random() * 50) + 120);
@@ -187,7 +187,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
               {/* Ship Date - Simple text with spark icon (no box) */}
               <div className="flex items-center justify-center gap-2">
                 <span style={{ color: '#DC2626' }}>✨</span>
-                <span className="text-sm font-medium"><span style={{ color: '#DC2626' }}>Pre-Order Special:</span> <span style={{ color: '#1E293B' }}>Ships Feb 14-21, 2026</span></span>
+                <span className="text-sm font-medium"><span style={{ color: '#16A34A' }}>In Stock:</span> <span style={{ color: '#1E293B' }}>Ships within 1-2 business days</span></span>
               </div>
 
               {/* Free Shipping Line - Yellow box with gold border per Word doc */}
@@ -201,10 +201,10 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                 <svg className="w-4 h-4" style={{ color: '#D97706' }} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
                 </svg>
-                <span className="text-sm font-medium" style={{ color: '#92400E' }}>Free shipping on orders $75+</span>
+                <span className="text-sm font-medium" style={{ color: '#92400E' }}>Free shipping on 3+ bottles & all subscriptions</span>
               </div>
 
-              {/* CTA Button - Shows final pre-order price */}
+              {/* CTA Button */}
               <Button
                 size="lg"
                 className="w-full text-base font-bold py-7 border-0 shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
@@ -213,7 +213,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
                   color: 'white'
                 }}
               >
-                Shop Now – Only $49.99/bottle <ArrowRight className="ml-2 w-5 h-5" />
+                Shop Now – Only $39.99/bottle <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
 
               {/* Trust Footer - 3 items: Secure checkout, Free shipping, 90-day guarantee */}
@@ -304,7 +304,7 @@ export default function BuyBoxV3({ product, className = "" }: BuyBoxV3Props) {
               style={{ background: '#FFFFFF' }}
             >
               <img 
-                src="/bottlemockbluegold_beigebg.png"
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png"
                 alt="OptiBio Ashwagandha KSM-66 - Premium Blue Bottle"
                 className="w-full max-w-[260px] h-auto object-contain"
                 style={{ filter: 'drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15))' }}

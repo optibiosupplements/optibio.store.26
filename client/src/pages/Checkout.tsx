@@ -773,7 +773,7 @@ export default function Checkout() {
                       <div key={item.id} className="flex gap-4">
                         <div className="w-16 h-16 rounded-lg overflow-hidden bg-slate-100 border-2 border-slate-200 dark:border-[#2D4A77] dark:border-[#2D4A77] flex-shrink-0">
                           <img
-                            src={item.productImage || "/bottlemockbluegold_beigebg.png"}
+                            src={item.productImage || "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png"}
                             alt={item.productName || "Product"}
                             className="w-full h-full object-cover"
                           />

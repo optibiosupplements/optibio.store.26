@@ -160,9 +160,9 @@ export default function ProductDetail() {
 
   // Theme-aware product images - using authentic product photos
   const productImages = [
-    "/bottlemockbluegold_beigebg.png",
-    "/bottlemockbluegold_beigebg.png",
-    "/bottlemockbluegold_beigebg.png"
+    "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png",
+    "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png",
+    "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png"
   ];
 
   const benefits = [
@@ -368,7 +368,7 @@ export default function ProductDetail() {
                           {isSubscription && <div className="w-3 h-3 rounded-full bg-[#C9A961]" />}
                         </div>
                         <div>
-                          <span className={`font-bold text-lg ${isSubscription ? 'text-white' : 'text-[#1E3A5F]'}`}>Subscribe & Save 20%</span>
+                          <span className={`font-bold text-lg ${isSubscription ? 'text-white' : 'text-[#1E3A5F]'}`}>Subscribe & Save 15%</span>
                           <div className={`text-xs font-bold mt-0.5 flex items-center gap-1 ${isSubscription ? 'text-white/90' : 'text-[#C9A961]'}`}><span className="text-base">⭐</span> Recommended (Most Popular)</div>
                         </div>
                       </div>

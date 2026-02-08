@@ -5,11 +5,10 @@ import React from "react";
  *
  * This component implements the "luxury clinical" version of the OptiBio hero. It uses a
  * two–column responsive layout where the left column contains all copy, trust proof,
- * and the pre–order offer, while the right column displays the product. The design
+ * and the current offer, while the right column displays the product. The design
  * emphasises premium feel, clear benefits and strong trust signals without the
  * distractions of a dynamic countdown timer. Pricing is expressed with three tiers:
- * original, normal and pre–order special (computed as an extra 25% off the normal
- * price). A single call–to–action directs the user to the product or shop page.
+ * original and current price. A single call–to–action directs the user to the product or shop page.
  *
  * To integrate this component:
  *   1. Save this file in your project (e.g. client/src/components/HeroVariantA.tsx).
@@ -21,7 +20,7 @@ import React from "react";
  *         <HeroVariantA />
  *
  *   3. Set the PRODUCT_IMAGE_SRC constant below to point to your bottle image
- *      (e.g. '/bottlemockbluegold_beigebg.png').
+ *      (e.g. 'https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png').
  *   4. Adjust CTA_HREF to your product or shop route. For example, '/shop' or
  *      '/products/ashwagandha'.
  */
@@ -126,17 +125,15 @@ function IconGuarantee(props: React.SVGProps<SVGSVGElement>) {
 export default function HeroVariantA() {
   /**
    * Pricing constants. Adjust NORMAL_PRICE and ORIGINAL_PRICE as needed. The
-   * pre–order price is calculated as 25% off the normal price, and is rounded
-   * to two decimals for display. Do not compute this in the UI for accuracy;
-   * set the constant directly if necessary.
+   * Current price and compare-at price for display.
    */
-  const ORIGINAL_PRICE = 89.00;
-  const NORMAL_PRICE = 49.99; // 44% off of original price
-  const PREORDER_PRICE = 49.99; // Same as normal price (pre-order disabled)
+  const ORIGINAL_PRICE = 49.99; // Compare-at price
+  const NORMAL_PRICE = 39.99; // MSRP per bottle
+  const CURRENT_PRICE = 39.99; // Active selling price
 
   // Paths for assets and CTA destination. Update these to match your project
   // structure and routes.
-  const PRODUCT_IMAGE_SRC = "/bottlemockbluegold_beigebg.png";
+  const PRODUCT_IMAGE_SRC = "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png";
   const CTA_HREF = "/shop";
 
   // Social proof values (static). Replace with real numbers if available.
@@ -238,7 +235,7 @@ export default function HeroVariantA() {
                   <div className="mt-6 flex flex-wrap items-end justify-between gap-4">
                     <div className="flex items-end gap-3">
                       <div className="text-[58px] font-extrabold leading-none text-[#132B4C]" style={{ fontFamily: "Sora, ui-sans-serif" }}>
-                        ${PREORDER_PRICE.toFixed(2)}
+                        ${CURRENT_PRICE.toFixed(2)}
                       </div>
                       <div className="pb-2">
                         <div className="text-lg text-[#94A3B8] line-through" style={{ fontFamily: "Inter, ui-sans-serif" }}>
@@ -283,7 +280,7 @@ export default function HeroVariantA() {
                     className="mt-5 inline-flex w-full items-center justify-center gap-3 rounded-[18px] bg-[#2563EB] px-6 py-4 text-base font-bold text-white shadow-[0_12px_25px_rgba(37,99,235,0.35)] transition hover:brightness-95"
                     style={{ fontFamily: "Inter, ui-sans-serif" }}
                   >
-                    Shop Now — Only ${PREORDER_PRICE.toFixed(2)}/bottle
+                    Shop Now — Only ${CURRENT_PRICE.toFixed(2)}/bottle
                     <span aria-hidden className="text-xl">→</span>
                   </a>
 

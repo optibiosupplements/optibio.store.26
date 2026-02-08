@@ -168,7 +168,7 @@ export default function Cart() {
                       <div className="flex-shrink-0">
                         <div className="w-24 h-24 rounded-xl overflow-hidden bg-slate-100 border-2 border-slate-200 dark:border-[var(--optibio-border-dark)]">
                           <img
-                            src={item.productImage || "/bottlemockbluegold_beigebg.png"}
+                            src={item.productImage || "https://files.manuscdn.com/user_upload_by_module/session_file/310419663029571508/pbAYuSGEDTmqczCe.png"}
                             alt={item.productName || "Product"}
                             className="w-full h-full object-cover"
                           />

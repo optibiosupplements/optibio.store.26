@@ -47,8 +47,8 @@ interface StickyHeaderProps {
 
 export default function StickyHeader({ 
   scrollThreshold = 400, 
-  price = 49.99,
-  originalPrice = 89.00,
+  price = 39.99,
+  originalPrice = 49.99,
   ctaHref = "/shop" 
 }: StickyHeaderProps) {
   const [isVisible, setIsVisible] = useState(false);
@@ -185,7 +185,7 @@ export default function StickyHeader({
                   minHeight: '44px', // Fitts's Law: Minimum touch target
                 }}
               >
-                <span className="hidden sm:inline">Pre-Order Now</span>
+                <span className="hidden sm:inline">Shop Now</span>
                 <span className="sm:hidden">Order</span>
                 <span className="text-lg transition-transform duration-200 group-hover:translate-x-0.5">→</span>
               </Link>
@@ -211,7 +211,7 @@ export default function StickyHeader({
             style={{ color: '#92400E', fontFamily: TYPOGRAPHY.BODY_FONT }}
           >
             <span className="text-base">🔥</span>
-            Pre-order special: <span className="font-bold">{savingsPercent}% OFF</span> + Free Shipping
+            Limited Time: <span className="font-bold">{savingsPercent}% OFF</span> + Free Shipping on 3+ Bottles
           </span>
           <span 
             className="text-xs px-2 py-0.5 rounded-full font-medium"
